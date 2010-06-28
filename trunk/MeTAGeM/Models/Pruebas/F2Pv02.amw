@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mw_base_ext">
+  <leftModel xsi:type="ModelRef" xmi:id="ModelRef1" name="leftModel" ref="/MeTAGeM/Metamodels/Families.ecore"/>
+  <rightModel xsi:type="ModelRef" xmi:id="ModelRef2" name="rightModel" ref="/MeTAGeM/Metamodels/Persons.ecore"/>
+</Model>

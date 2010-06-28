@@ -1,0 +1,126 @@
+import 'operations.eol';
+-- ***********************************************************************************
+--	GMFgraph
+-- ***********************************************************************************
+var canvas = GmfGraph!Canvas.selectOne(n|n.name='mm_hybrid'); 
+var figureGallery = GmfGraph!FigureGallery.all.first();
+
+--Modify text Label (all nodes)
+var LabelCollection = GmfGraph!Label.allInstances();
+for(rr:GmfGraph!Label in LabelCollection){
+	rr.Text='<...>';
+}
+
+--Rule
+var RuleFig = getRoundedRectangle('RuleFigure');
+var RuleFigureDesc = getFigureDescriptor('RuleFigure');
+
+--Creates a stereotype label
+var newStereotypeLabel=createStereotypeLabel('RuleLabel','<<Rule>>');
+RuleFig.children.add(newStereotypeLabel);
+RuleFig.children=RuleFig.children.sortBy(i|i.name);
+
+var newLabel=new GmfGraph!Label;
+newLabel.Name='valuesLabel';
+newLabel.Text='';
+var myfont = new GmfGraph!BasicFont;
+myfont.Height=8;
+newLabel.font=myfont;
+RuleFig.children.add(newLabel);
+var acc=new GmfGraph!ChildAccess;
+acc.figure=newLabel;
+RuleFigureDesc.accessors.add(acc);
+canvas.labels.add(createDiagramLabel('valuesLabel',RuleFigureDesc, acc));
+
+var d=new GmfGraph!Dimension;
+d.dx=300;
+d.dy=200;
+RuleFig.preferredSize=d;
+
+
+
+--Creates two rectangles
+var rule_rec1 = new GmfGraph!Rectangle;
+var rule_rec2 = new GmfGraph!Rectangle;
+rule_rec1.name='Source';
+rule_rec1.layout= new GmfGraph!StackLayout;
+rule_rec2.layout= new GmfGraph!StackLayout;
+rule_rec2.name='Target';
+--Adds rectangles to Rule
+RuleFig.children.add(rule_rec1);
+RuleFig.children.add(rule_rec2);
+--adds compartments
+canvas.insertCompartment('Source',RuleFigureDesc);
+canvas.insertCompartment('Target',RuleFigureDesc);
+
+
+--Source
+var SourceFig = getRoundedRectangle('SourceElementRuleFigure');
+var newStereotypeLabel=createStereotypeLabel('SourceElementRuleLabel','<<Source>>');
+SourceFig.children.add(newStereotypeLabel);
+SourceFig.children=SourceFig.children.sortBy(i|i.name);
+
+
+--Target
+var TargetFig = getRoundedRectangle('TargetElementRuleFigure');
+var newStereotypeLabel=createStereotypeLabel('TargetElementRuleLabel','<<Target>>');
+TargetFig.children.add(newStereotypeLabel);
+TargetFig.children=TargetFig.children.sortBy(i|i.name);
+
+
+--Add flow layout (all nodes)
+var nodeCollection = GmfGraph!RoundedRectangle.allInstances();
+for(rr:GmfGraph!RoundedRectangle in nodeCollection){
+	rr.layout=getMyFlowLayout();
+}
+
+--Add width (all nodes)
+var nodeCollection = GmfGraph!RoundedRectangle.allInstances();
+for(rr:GmfGraph!RoundedRectangle in nodeCollection){
+	rr.linewidth=2;
+}
+
+
+-- ***********************************************************************************
+--	GMFtool
+-- ***********************************************************************************
+
+
+
+-- ***********************************************************************************
+--	GMFmap
+-- ***********************************************************************************
+var canvasMapping = GmfMap!CanvasMapping.all.first();
+var mapping = GmfMap!Mapping.all.first();
+
+var sourceMap=createNodeMapping(getCreationTool('SourceElementRule'),getEcoreClass('SourceElementRule'),getNode('SourceElementRule'));
+--Creates a FeatureLabelMapping: createFeatureLabelMapping(diagramLabel,pattern,features(Sequence))
+	var labelSourceFeature = new Sequence;
+	labelSourceFeature.add(getEcoreClass('SourceElementRule').eSuperTypes.first().eStructuralFeatures.selectOne(n|n.name='name_element'));
+	var sourceFLM=createFeatureLabelMapping(getDiagramLabel('SourceElementRuleLabel'),'{0}',labelSourceFeature);
+	sourceMap.labelMappings.add(sourceFLM);
+
+var targetMap=createNodeMapping(getCreationTool('TargetElementRule'),getEcoreClass('TargetElementRule'),getNode('TargetElementRule'));
+--Creates a FeatureLabelMapping: createFeatureLabelMapping(diagramLabel,pattern,features(Sequence))
+	var labelTargetFeature = new Sequence;
+	labelTargetFeature.add(getEcoreClass('TargetElementRule').eSuperTypes.first().eStructuralFeatures.selectOne(n|n.name='name_element'));
+	var targetFLM=createFeatureLabelMapping(getDiagramLabel('TargetElementRuleLabel'),'{0}',labelTargetFeature);
+	targetMap.labelMappings.add(targetFLM);
+
+
+var nodeMapRule=getNodeMapping('Rule');
+nodeMapRule.addCompartment('Source');
+nodeMapRule.addCompartment('Target');
+nodeMapRule.addChildMapping(sourceMap,getEcoreClass('Rule').eStructuralFeatures.selectOne(n|n.name='in'),'Source');
+nodeMapRule.addChildMapping(targetMap,getEcoreClass('Rule').eStructuralFeatures.selectOne(n|n.name='out'),'Target');
+
+--Creates a FeatureLabelMapping: createFeatureLabelMapping(diagramLabel,pattern,features(Sequence))
+var valuesLabelFeature = new Sequence;
+valuesLabelFeature.add(getEcoreClass('Rule').eStructuralFeatures.selectOne(n|n.name='isAbstract'));
+valuesLabelFeature.add(getEcoreClass('Rule').eStructuralFeatures.selectOne(n|n.name='isMain'));
+var valuesRuleFLM=createFeatureLabelMapping(getDiagramLabel('valuesLabel'),'( Abstract: {0},   Main: {1} )',valuesLabelFeature);
+nodeMapRule.labelMappings.add(valuesRuleFLM);
+
+
+
+

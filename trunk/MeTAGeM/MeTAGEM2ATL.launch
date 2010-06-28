@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.atl.eclipse.adt.launching.atlTransformation">
+<stringAttribute key="ATL File Name" value="/MeTAGeM/ATL/MeTAGeM2ATL.atl"/>
+<stringAttribute key="ATL VM" value="Regular VM (with debugger)"/>
+<booleanAttribute key="AllowInterModelReferences" value="false"/>
+<mapAttribute key="Input">
+<mapEntry key="IN" value="AMW"/>
+<mapEntry key="left" value="MOF"/>
+<mapEntry key="rigth" value="MOF"/>
+</mapAttribute>
+<mapAttribute key="Libs"/>
+<booleanAttribute key="Mode Debug" value="false"/>
+<mapAttribute key="Model Handler">
+<mapEntry key="AMW" value="EMF"/>
+<mapEntry key="MOF" value="EMF"/>
+<mapEntry key="ATL" value="EMF"/>
+</mapAttribute>
+<mapAttribute key="ModelType">
+<mapEntry key="AMW" value="METAMODELINPUT"/>
+<mapEntry key="IN" value="MODELINPUT"/>
+<mapEntry key="OUT" value="MODELOUTPUT"/>
+<mapEntry key="left" value="MODELINPUT"/>
+<mapEntry key="MOF" value="METAMODELINPUT"/>
+<mapEntry key="ATL" value="METAMODELOUTPUT"/>
+<mapEntry key="rigth" value="MODELINPUT"/>
+</mapAttribute>
+<mapAttribute key="Output">
+<mapEntry key="OUT" value="ATL"/>
+</mapAttribute>
+<mapAttribute key="Path">
+<mapEntry key="IN" value="/MeTAGeM/Models/Families2PersonM.amw"/>
+<mapEntry key="AMW" value="/MeTAGeM/Metamodels/mw_metagem.ecore"/>
+<mapEntry key="OUT" value="/MeTAGeM/Models/F2P_ATL6.ecore"/>
+<mapEntry key="left" value="/MeTAGeM/Metamodels/Families.ecore"/>
+<mapEntry key="MOF" value="#EMF"/>
+<mapEntry key="ATL" value="/MeTAGeM/Metamodels/ATL-0.2.ecore"/>
+<mapEntry key="rigth" value="/MeTAGeM/Metamodels/Persons.ecore"/>
+</mapAttribute>
+<stringAttribute key="Project Name" value="MeTAGeM"/>
+<listAttribute key="Superimpose"/>
+<booleanAttribute key="continueAfterError" value="false"/>
+<booleanAttribute key="disableAttributeHelperCache" value="false"/>
+<booleanAttribute key="printExecutionTime" value="false"/>
+<booleanAttribute key="profile" value="false"/>
+<booleanAttribute key="showSummary" value="false"/>
+<booleanAttribute key="step" value="false"/>
+<booleanAttribute key="supportUML2Stereotypes" value="false"/>
+</launchConfiguration>
