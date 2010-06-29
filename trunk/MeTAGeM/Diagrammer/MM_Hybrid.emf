@@ -11,16 +11,8 @@ enum TypeAtribute {
 class Module {
   !unique !ordered attr String[1] name_module;
   !ordered val Rule[+] rule;
-  !ordered val InMetaModel[+] inMM;
-  !ordered val OutMetaModel[+] outMM;
-}
-
-class InMetaModel {
-  !unique !ordered attr String[1] name_mm;
-}
-
-class OutMetaModel {
-  !unique !ordered attr String[1] name_mm;
+  transient attr EEList<String>[+] inMM;
+  transient attr EEList<String>[+] outMM;
 }
 
 @gmf.node(label="name_rule", label.icon="false", border.color="204,153,0", color="253,229,141")

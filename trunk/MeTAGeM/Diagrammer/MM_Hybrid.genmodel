@@ -14,14 +14,8 @@
     <genClasses ecoreClass="/MeTAGeM/Diagrammer/MM_Hybrid.ecore#//Module">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /MeTAGeM/Diagrammer/MM_Hybrid.ecore#//Module/name_module"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /MeTAGeM/Diagrammer/MM_Hybrid.ecore#//Module/rule"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /MeTAGeM/Diagrammer/MM_Hybrid.ecore#//Module/inMM"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /MeTAGeM/Diagrammer/MM_Hybrid.ecore#//Module/outMM"/>
-    </genClasses>
-    <genClasses ecoreClass="/MeTAGeM/Diagrammer/MM_Hybrid.ecore#//InMetaModel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /MeTAGeM/Diagrammer/MM_Hybrid.ecore#//InMetaModel/name_mm"/>
-    </genClasses>
-    <genClasses ecoreClass="/MeTAGeM/Diagrammer/MM_Hybrid.ecore#//OutMetaModel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /MeTAGeM/Diagrammer/MM_Hybrid.ecore#//OutMetaModel/name_mm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /MeTAGeM/Diagrammer/MM_Hybrid.ecore#//Module/inMM"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /MeTAGeM/Diagrammer/MM_Hybrid.ecore#//Module/outMM"/>
     </genClasses>
     <genClasses ecoreClass="/MeTAGeM/Diagrammer/MM_Hybrid.ecore#//Rule">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /MeTAGeM/Diagrammer/MM_Hybrid.ecore#//Rule/name_rule"/>

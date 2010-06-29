@@ -126,6 +126,12 @@
             xsi:type="gmfgraph:Label"
             name="SourceElementRuleLabelFigure"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="Condition">
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureSourceElementRuleLabelFigure"
@@ -182,6 +188,17 @@
           accessor="getFigureTargetElementRuleLabelFigure"
           figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
     </descriptors>
+    <descriptors
+        name="ConditionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ConditionName"
+          text="&lt;...>">
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            height="8"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes
       name="Rule"
@@ -199,6 +216,10 @@
   <compartments
       name="Target"
       figure="RuleFigure"
+      collapsible="true"/>
+  <compartments
+      name="Condition"
+      figure="SourceElementRuleFigure"
       collapsible="true"/>
   <labels
       name="RuleLabel"
@@ -220,4 +241,8 @@
       figure="RuleFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <labels
+      name="ConditionName"
+      figure="ConditionFigure"
+      elementIcon="false"/>
 </gmfgraph:Canvas>

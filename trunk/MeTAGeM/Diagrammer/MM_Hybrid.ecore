@@ -18,18 +18,18 @@
         unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rule" ordered="false" lowerBound="1"
         upperBound="-1" eType="#//Rule" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inMM" ordered="false" lowerBound="1"
-        upperBound="-1" eType="#//InMetaModel" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outMM" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//OutMetaModel" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InMetaModel">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_mm" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OutMetaModel">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_mm" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inMM" lowerBound="1" upperBound="-1"
+        transient="true">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outMM" lowerBound="1" upperBound="-1"
+        transient="true">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rule">
     <eAnnotations source="gmf.node">

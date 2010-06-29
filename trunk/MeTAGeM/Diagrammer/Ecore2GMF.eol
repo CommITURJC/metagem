@@ -59,6 +59,12 @@ var SourceFig = getRoundedRectangle('SourceElementRuleFigure');
 var newStereotypeLabel=createStereotypeLabel('SourceElementRuleLabel','<<Source>>');
 SourceFig.children.add(newStereotypeLabel);
 SourceFig.children=SourceFig.children.sortBy(i|i.name);
+var SourceFigureDesc = getFigureDescriptor('SourceElementRuleFigure');
+var source_rec1 = new GmfGraph!Rectangle;
+source_rec1.name='Condition';
+source_rec1.layout= new GmfGraph!StackLayout;
+SourceFig.children.add(source_rec1);
+canvas.insertCompartment('Condition',SourceFigureDesc);
 
 
 --Target
@@ -66,6 +72,10 @@ var TargetFig = getRoundedRectangle('TargetElementRuleFigure');
 var newStereotypeLabel=createStereotypeLabel('TargetElementRuleLabel','<<Target>>');
 TargetFig.children.add(newStereotypeLabel);
 TargetFig.children=TargetFig.children.sortBy(i|i.name);
+
+--Condition
+var ConditionLabel = createNodeLabel('Condition', '<...>', figureGallery);
+canvas.labels.add(ConditionLabel);
 
 
 --Add flow layout (all nodes)
@@ -84,8 +94,9 @@ for(rr:GmfGraph!RoundedRectangle in nodeCollection){
 -- ***********************************************************************************
 --	GMFtool
 -- ***********************************************************************************
-
-
+var palette=GmfTool!Palette.selectOne(n|n.title='mm_hybridPalette');
+var ObjectGroup=palette.tools.selectOne(o|o.title='Objects');
+ObjectGroup.insertTool('Condition','Set a condition');
 
 -- ***********************************************************************************
 --	GMFmap
@@ -100,12 +111,20 @@ var sourceMap=createNodeMapping(getCreationTool('SourceElementRule'),getEcoreCla
 	var sourceFLM=createFeatureLabelMapping(getDiagramLabel('SourceElementRuleLabel'),'{0}',labelSourceFeature);
 	sourceMap.labelMappings.add(sourceFLM);
 
+
 var targetMap=createNodeMapping(getCreationTool('TargetElementRule'),getEcoreClass('TargetElementRule'),getNode('TargetElementRule'));
 --Creates a FeatureLabelMapping: createFeatureLabelMapping(diagramLabel,pattern,features(Sequence))
 	var labelTargetFeature = new Sequence;
 	labelTargetFeature.add(getEcoreClass('TargetElementRule').eSuperTypes.first().eStructuralFeatures.selectOne(n|n.name='name_element'));
 	var targetFLM=createFeatureLabelMapping(getDiagramLabel('TargetElementRuleLabel'),'{0}',labelTargetFeature);
 	targetMap.labelMappings.add(targetFLM);
+
+var conditionMap=createNodeMapping(getCreationTool('Condition'),getEcoreClass('Condition'),getNode('ConditionName'));
+--Creates a FeatureLabelMapping: createFeatureLabelMapping(diagramLabel,pattern,features(Sequence))
+	var labelConditionFeature = new Sequence;
+	--labelConditionFeature.add(getEcoreClass('Condition').eSuperTypes.first().eStructuralFeatures.selectOne(n|n.name='condition'));
+	--var conditionFLM=createFeatureLabelMapping(getDiagramLabel('TargetElementRuleLabel'),'<<Condition>>{0}',labelTargetFeature);
+	--conditionMap.labelMappings.add(conditionFLM);
 
 
 var nodeMapRule=getNodeMapping('Rule');
@@ -121,6 +140,9 @@ valuesLabelFeature.add(getEcoreClass('Rule').eStructuralFeatures.selectOne(n|n.n
 var valuesRuleFLM=createFeatureLabelMapping(getDiagramLabel('valuesLabel'),'( Abstract: {0},   Main: {1} )',valuesLabelFeature);
 nodeMapRule.labelMappings.add(valuesRuleFLM);
 
+
+sourceMap.addCompartment('Condition');
+sourceMap.addChildMapping(conditionMap,getEcoreClass('SourceElementRule').eStructuralFeatures.selectOne(n|n.name='condition'),'Condition');
 
 
 

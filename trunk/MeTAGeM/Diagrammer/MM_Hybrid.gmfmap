@@ -52,6 +52,25 @@
               href="MM_Hybrid.gmftool#//@palette/@tools.0/@tools.1"/>
           <diagramNode
               href="MM_Hybrid.gmfgraph#SourceElementRule"/>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="MM_Hybrid.ecore#//SourceElementRule/condition"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="MM_Hybrid.ecore#//Condition"/>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="MM_Hybrid.gmftool#//@palette/@tools.0/@tools.3"/>
+              <diagramNode
+                  href="MM_Hybrid.gmfgraph#ConditionName"/>
+            </ownedChild>
+          </children>
+          <compartments
+              children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0">
+            <compartment
+                href="MM_Hybrid.gmfgraph#Condition"/>
+          </compartments>
         </ownedChild>
       </children>
       <children
