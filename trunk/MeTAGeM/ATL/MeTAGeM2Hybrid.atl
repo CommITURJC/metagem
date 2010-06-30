@@ -6,10 +6,52 @@ rule Module {
 		amw : AMW!ModelRoot
 	to
 		hybrid : MM_Hybrid!Module (
-			name_module <- amw.name.debug('nombremodulo:  '),
+			name_module <- amw.name.debug('nombremodulo '),
 		    inMM <- amw.inputModel,
-			outMM <- amw.outputModel	
-			--rule <- amw.relations			
+			outMM <- amw.outputModel,	
+			rule <- amw.relations			
 		)
 }
 
+rule InElement2SourceElementRule{
+	from
+		inElem: AMW!InElement
+	to
+		sourceElem: MM_Hybrid!SourceElementRule(
+			name_element<-inElem.name
+		)
+}
+
+rule OutElement2TargetElementRule{
+	from
+		outElem: AMW!OutElement
+	to
+		targetElem: MM_Hybrid!TargetElementRule(
+			name_element<-outElem.name
+		)
+}
+
+rule OneToOne2rule {
+	from
+		o2o: AMW!OneToOne
+	to
+		rule_o2o: MM_Hybrid!Rule(
+			name_rule <- o2o.name.debug('nombre rule '),
+			isAbstract<-false,
+			isMain<-o2o.isMain,
+			"in"<-o2o.source,
+			out<-o2o.target
+		)
+}
+
+rule OneToZero2rule {
+	from
+		o2z: AMW!OneToZero
+	to
+		rule_o2z: MM_Hybrid!Rule(
+			name_rule <- o2z.name.debug('nombre rule '),
+			isAbstract<-false,
+			isMain<-o2z.isMain,
+			"in"<-o2z.source
+		)
+}
