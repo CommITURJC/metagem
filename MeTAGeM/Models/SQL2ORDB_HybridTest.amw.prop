@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <weaver>
 <weaving>
-<relative-path>/MeTAGeM/nuevo/SQL2ORDB_HybridTest.amw</relative-path>
+<relative-path>/MeTAGeM/Models/SQL2ORDB_HybridTest.amw</relative-path>
 <panel>TransformationWeavingPanelExtension</panel>
 <wmodel>ModelRoot</wmodel>
 </weaving>
