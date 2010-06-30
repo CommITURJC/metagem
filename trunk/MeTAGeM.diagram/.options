@@ -1,0 +1,7 @@
+# Tracing options for the MeTAGeM.diagram plug-in
+
+# Common issues
+MeTAGeM.diagram/debug=false
+
+# Visual IDs
+MeTAGeM.diagram/debug/visualID=false
