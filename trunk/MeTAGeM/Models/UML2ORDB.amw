@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mmw_metagem" xmi:id="ModelRoot1" name="UML2ORDB">
+  <inputModel xmi:id="InModelTransf1" name="UML" ref="/MeTAGeM/Metamodels/UML.ecore">
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Classifier" ref="//Classifier"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Package" ref="//Package"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Class" ref="//Class"/>
+  </inputModel>
+  <outputModel xmi:id="OutModelTransf1" name="ORDB" ref="/MeTAGeM/Metamodels/ORDB4ORA.ecore">
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Model" ref="//Model"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_StructuredType" ref="//StructuredType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_TypedTable" ref="//TypedTable"/>
+  </outputModel>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne1">
+    <source xmi:id="InElement1" name="Package" element="//@inputModel.0/@ownedElementRef.1"/>
+    <target xmi:id="OutElement1" name="Model" element="//@outputModel.0/@ownedElementRef.0"/>
+  </relations>
+  <relations xsi:type="OneToMany" xmi:id="OneToMany1">
+    <source xmi:id="InElement2" name="Class" element="//@inputModel.0/@ownedElementRef.2"/>
+    <target xmi:id="OutElement2" name="StructuredType" element="//@outputModel.0/@ownedElementRef.1"/>
+    <target xmi:id="OutElement3" name="TypedTable" element="//@outputModel.0/@ownedElementRef.2"/>
+  </relations>
+</ModelRoot>

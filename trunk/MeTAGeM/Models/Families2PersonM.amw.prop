@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<weaver>
+<weaving>
+<relative-path>/MeTAGeM/Models/Families2PersonM.amw</relative-path>
+<panel>TransformationWeavingPanelExtension</panel>
+<wmodel>ModelRoot</wmodel>
+</weaving>
+<metamodels>
+<plugin/>
+<local>
+<relative-path>/MeTAGeM/Metamodels/mmw_metagem_v1.km3</relative-path>
+</local>
+<complete/>
+</metamodels>
+<woven id="0">
+<model-relative-path>null</model-relative-path>
+<metamodel-relative-path>/MeTAGeM/Metamodels/Families.ecore</metamodel-relative-path>
+<reference>inputModel</reference>
+<title>In</title>
+<panel>DefaultWovenPanelExtension</panel>
+<wmodelref>InModelTransf</wmodelref>
+</woven>
+<woven id="1">
+<model-relative-path>null</model-relative-path>
+<metamodel-relative-path>/MeTAGeM/Metamodels/Persons.ecore</metamodel-relative-path>
+<reference>outputModel</reference>
+<title>Out</title>
+<panel>DefaultWovenPanelExtension</panel>
+<wmodelref>OutModelTransf</wmodelref>
+</woven>
+</weaver>

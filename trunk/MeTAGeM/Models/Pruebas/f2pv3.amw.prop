@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<weaver>
+<weaving>
+<relative-path>/MeTAGeM/f2pv3.amw</relative-path>
+<panel>DefaultWeavingPanelExtension</panel>
+<wmodel>Model</wmodel>
+</weaving>
+<metamodels>
+<plugin>
+<relative-path>org.eclipse.gmt.weaver.extension.base/metamodels/mw_base_extension.km3</relative-path>
+</plugin>
+<local>
+<relative-path>/MeTAGeM/Metamodels/mmw_metagem_v02.km3</relative-path>
+</local>
+<complete/>
+</metamodels>
+<woven id="0">
+<model-relative-path>null</model-relative-path>
+<metamodel-relative-path>/MeTAGeM/Metamodels/Families.ecore</metamodel-relative-path>
+<reference>leftModel</reference>
+<title>leftModel</title>
+<panel>DefaultWovenPanelExtension</panel>
+<wmodelref>ModelRef</wmodelref>
+</woven>
+<woven id="1">
+<model-relative-path>null</model-relative-path>
+<metamodel-relative-path>/MeTAGeM/Metamodels/Persons.ecore</metamodel-relative-path>
+<reference>rightModel</reference>
+<title>rightModel</title>
+<panel>DefaultWovenPanelExtension</panel>
+<wmodelref>ModelRef</wmodelref>
+</woven>
+</weaver>
