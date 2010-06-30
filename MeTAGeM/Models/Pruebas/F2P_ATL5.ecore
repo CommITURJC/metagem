@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:atl="http://www.eclipse.org/gmt/2005/ATL" xmlns:ocl="http://www.eclipse.org/gmt/2005/OCL">
+  <atl:Module name="Nombre">
+    <commentsBefore>-- @atlcompiler atl2006</commentsBefore>
+    <inModels name="In_model" metamodel="/1"/>
+    <outModels name="Out_model" metamodel="/13"/>
+    <elements xsi:type="atl:MatchedRule" name="Algo">
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement"/>
+      </outPattern>
+      <inPattern/>
+    </elements>
+  </atl:Module>
+  <ocl:OclModel name="In" elements="/2 /3 /4 /5 /6 /7 /8" model="/0/@inModels.0"/>
+  <ocl:OclModelElement name="String" model="/1"/>
+  <ocl:OclModelElement name="Family" model="/1"/>
+  <ocl:OclModelElement name="Member" model="/1"/>
+  <ocl:OclModelElement name="Father" model="/1"/>
+  <ocl:OclModelElement name="Mother" model="/1"/>
+  <ocl:OclModelElement name="Son" model="/1"/>
+  <ocl:OclModelElement name="Daughter" model="/1"/>
+  <ocl:OclModelElement name="String"/>
+  <ocl:OclModelElement name="Person"/>
+  <ocl:OclModelElement name="Male"/>
+  <ocl:OclModelElement name="Female"/>
+  <ocl:OclModel name="Out" model="/0/@outModels.0"/>
+  <atl:MatchedRule/>
+  <atl:OutPattern/>
+  <atl:InPattern/>
+  <atl:SimpleInPatternElement/>
+  <ocl:OclModelElement/>
+  <atl:SimpleInPatternElement/>
+  <ocl:OclModelElement/>
+  <atl:SimpleOutPatternElement/>
+  <ocl:OclModelElement/>
+  <ocl:OclModelElement/>
+</xmi:XMI>

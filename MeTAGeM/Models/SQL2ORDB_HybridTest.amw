@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mmw_metagem" xmi:id="ModelRoot1" name="name">
+  <inputModel xmi:id="InModelTransf1" name="SQL" ref="/MeTAGeM/Metamodels/SQL2003.ecore">
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_SQL2003" ref="/"/>
+  </inputModel>
+  <outputModel xmi:id="OutModelTransf1" name="ORDB" ref="/MeTAGeM/Metamodels/ORDB4ORA.ecore">
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_ORDB4ORA" ref="/"/>
+  </outputModel>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne1">
+    <source xmi:id="InElement1" name="SQL2003" element="//@inputModel.0/@ownedElementRef.0"/>
+    <target xmi:id="OutElement1" name="ORDB4ORA" element="//@outputModel.0/@ownedElementRef.0"/>
+  </relations>
+</ModelRoot>

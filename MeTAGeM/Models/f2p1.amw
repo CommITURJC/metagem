@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mmw_metagem" xmi:id="ModelRoot1">
+  <inputModel xmi:id="InModelTransf1" name="inputModel" ref="/MeTAGeM/Metamodels/Families.ecore"/>
+  <outputModel xsi:type="InModelTransf" xmi:id="InModelTransf2" name="outputModel" ref="/MeTAGeM/Metamodels/Persons.ecore"/>
+ 
+</ModelRoot>
