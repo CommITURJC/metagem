@@ -72,7 +72,7 @@
 		<constant value="NTransientLink;.getSourceElement(S):J"/>
 		<constant value="NTransientLink;.getTargetElement(S):J"/>
 		<constant value="3"/>
-		<constant value="nombremodulo: "/>
+		<constant value="nombremodulo:  "/>
 		<constant value="J.debug(J):J"/>
 		<constant value="name_module"/>
 		<constant value="inputModel"/>
@@ -81,9 +81,9 @@
 		<constant value="outMM"/>
 		<constant value="9:19-9:22"/>
 		<constant value="9:19-9:27"/>
-		<constant value="9:34-9:50"/>
-		<constant value="9:19-9:51"/>
-		<constant value="9:4-9:51"/>
+		<constant value="9:34-9:51"/>
+		<constant value="9:19-9:52"/>
+		<constant value="9:4-9:52"/>
 		<constant value="10:15-10:18"/>
 		<constant value="10:15-10:29"/>
 		<constant value="10:7-10:29"/>
