@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mmw_metagem" xmi:id="ModelRoot1" name="Nombre">
+  <inputModel xmi:id="InModelTransf1" name="In" ref="/MeTAGeM/Metamodels/Families.ecore">
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Father" ref="/1/Father"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Mother" ref="/1/Mother"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_lastName" ref="/1/Family/lastName"/>
+  </inputModel>
+  <outputModel xmi:id="OutModelTransf1" name="Out" ref="/MeTAGeM/Metamodels/Persons.ecore">
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Male" ref="/1/Male"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Female" ref="/1/Female"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_fullName" ref="/1/Person/fullName"/>
+  </outputModel>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="Algo" isMain="false">
+    <source xmi:id="InElement1" name="lastName" element="//@inputModel.0/@ownedElementRef.2" varName="Father"/>
+    <target xmi:id="OutElement1" name="Male" element="//@outputModel.0/@ownedElementRef.0" varName="Male"/>
+  </relations>
+</ModelRoot>

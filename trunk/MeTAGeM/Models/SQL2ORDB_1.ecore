@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:atl="http://www.eclipse.org/gmt/2005/ATL" xmlns:ocl="http://www.eclipse.org/gmt/2005/OCL">
+  <atl:Module name="SQL2ORDB">
+    <commentsBefore>-- @atlcompiler atl2006</commentsBefore>
+    <inModels name="SQL_model" metamodel="/1"/>
+    <outModels name="ORDB_model" metamodel="/92"/>
+    <elements xsi:type="atl:MatchedRule"/>
+    <elements xsi:type="atl:MatchedRule"/>
+  </atl:Module>
+  <ocl:OclModel name="SQL" elements="/2 /3 /4 /5 /6 /7 /8 /9 /10 /11 /12 /13 /14 /15 /16 /17 /18 /19 /20 /21 /22 /23 /24 /25 /26 /27 /28 /29 /30 /31 /32 /33 /34 /35 /36 /37 /38 /39 /40 /41 /42 /43 /44 /45 /46 /47 /48 /49 /50 /51 /52 /53 /54 /55 /56 /57 /58 /59 /60 /61 /62 /63 /64 /65 /66 /67 /68 /69"
+      model="/0/@inModels.0"/>
+  <ocl:OclModelElement name="ARRAY" model="/1"/>
+  <ocl:OclModelElement name="Attribute" model="/1"/>
+  <ocl:OclModelElement name="BaseTable" model="/1"/>
+  <ocl:OclModelElement name="BehaviouralComponent" model="/1"/>
+  <ocl:OclModelElement name="BinaryStringType" model="/1"/>
+  <ocl:OclModelElement name="BinaryStringTypes" model="/1"/>
+  <ocl:OclModelElement name="BooleanType" model="/1"/>
+  <ocl:OclModelElement name="BooleanTypes" model="/1"/>
+  <ocl:OclModelElement name="CharacterStringType" model="/1"/>
+  <ocl:OclModelElement name="CharacterStringTypes" model="/1"/>
+  <ocl:OclModelElement name="CollectionType" model="/1"/>
+  <ocl:OclModelElement name="Column" model="/1"/>
+  <ocl:OclModelElement name="ColumnConstraint" model="/1"/>
+  <ocl:OclModelElement name="ConstructedType" model="/1"/>
+  <ocl:OclModelElement name="DataType" model="/1"/>
+  <ocl:OclModelElement name="DatetimeFeature" model="/1"/>
+  <ocl:OclModelElement name="DatetimeFeatures" model="/1"/>
+  <ocl:OclModelElement name="DatetimeType" model="/1"/>
+  <ocl:OclModelElement name="DatetimeTypes" model="/1"/>
+  <ocl:OclModelElement name="DerivedTable" model="/1"/>
+  <ocl:OclModelElement name="DistinctType" model="/1"/>
+  <ocl:OclModelElement name="Feature" model="/1"/>
+  <ocl:OclModelElement name="Field" model="/1"/>
+  <ocl:OclModelElement name="Function" model="/1"/>
+  <ocl:OclModelElement name="IntervalFeature" model="/1"/>
+  <ocl:OclModelElement name="IntervalFeatures" model="/1"/>
+  <ocl:OclModelElement name="IntervalType" model="/1"/>
+  <ocl:OclModelElement name="IntervalTypes" model="/1"/>
+  <ocl:OclModelElement name="MULTISET" model="/1"/>
+  <ocl:OclModelElement name="MatchTypes" model="/1"/>
+  <ocl:OclModelElement name="Method" model="/1"/>
+  <ocl:OclModelElement name="MethodParameter" model="/1"/>
+  <ocl:OclModelElement name="Multiplier" model="/1"/>
+  <ocl:OclModelElement name="NotNull" model="/1"/>
+  <ocl:OclModelElement name="NumericRadix" model="/1"/>
+  <ocl:OclModelElement name="NumericFeature" model="/1"/>
+  <ocl:OclModelElement name="NumericFeatures" model="/1"/>
+  <ocl:OclModelElement name="NumericType" model="/1"/>
+  <ocl:OclModelElement name="NumericTypes" model="/1"/>
+  <ocl:OclModelElement name="Parameter" model="/1"/>
+  <ocl:OclModelElement name="ParameterMode" model="/1"/>
+  <ocl:OclModelElement name="ParameterWithMode" model="/1"/>
+  <ocl:OclModelElement name="PredefinedType" model="/1"/>
+  <ocl:OclModelElement name="PrimaryKey" model="/1"/>
+  <ocl:OclModelElement name="Procedure" model="/1"/>
+  <ocl:OclModelElement name="ROW" model="/1"/>
+  <ocl:OclModelElement name="ReferenceType" model="/1"/>
+  <ocl:OclModelElement name="ReferentialAction" model="/1"/>
+  <ocl:OclModelElement name="ReferentialConstraint" model="/1"/>
+  <ocl:OclModelElement name="Restriction" model="/1"/>
+  <ocl:OclModelElement name="Schema" model="/1"/>
+  <ocl:OclModelElement name="StringFeature" model="/1"/>
+  <ocl:OclModelElement name="StringFeatures" model="/1"/>
+  <ocl:OclModelElement name="StructuralComponent" model="/1"/>
+  <ocl:OclModelElement name="StructuredType" model="/1"/>
+  <ocl:OclModelElement name="Table" model="/1"/>
+  <ocl:OclModelElement name="TableCheckConstraint" model="/1"/>
+  <ocl:OclModelElement name="TableConstraint" model="/1"/>
+  <ocl:OclModelElement name="Trigger" model="/1"/>
+  <ocl:OclModelElement name="TriggerActionTime" model="/1"/>
+  <ocl:OclModelElement name="TriggerEvent" model="/1"/>
+  <ocl:OclModelElement name="TypedTable" model="/1"/>
+  <ocl:OclModelElement name="UniqueConstraint" model="/1"/>
+  <ocl:OclModelElement name="Unit" model="/1"/>
+  <ocl:OclModelElement name="UserDefinedType" model="/1"/>
+  <ocl:OclModelElement name="View" model="/1"/>
+  <ocl:OclModelElement name="XMLType" model="/1"/>
+  <ocl:OclModelElement name="XMLTypes" model="/1"/>
+  <ocl:OclModelElement name="Model"/>
+  <ocl:OclModelElement name="Datatype"/>
+  <ocl:OclModelElement name="Tables"/>
+  <ocl:OclModelElement name="Restriction"/>
+  <ocl:OclModelElement name="Attribute"/>
+  <ocl:OclModelElement name="NestedTableType"/>
+  <ocl:OclModelElement name="BasicDataType"/>
+  <ocl:OclModelElement name="PrimitiveType"/>
+  <ocl:OclModelElement name="BasicTypes"/>
+  <ocl:OclModelElement name="LOBType"/>
+  <ocl:OclModelElement name="BasicLOBType"/>
+  <ocl:OclModelElement name="Varray"/>
+  <ocl:OclModelElement name="StructuredType"/>
+  <ocl:OclModelElement name="Method"/>
+  <ocl:OclModelElement name="TypedTable"/>
+  <ocl:OclModelElement name="StoredNestedTable"/>
+  <ocl:OclModelElement name="ReferenceType"/>
+  <ocl:OclModelElement name="Table"/>
+  <ocl:OclModelElement name="ForeignKey"/>
+  <ocl:OclModelElement name="PrimaryKey"/>
+  <ocl:OclModelElement name="Unique"/>
+  <ocl:OclModelElement name="NotNull"/>
+  <ocl:OclModel name="ORDB" model="/0/@outModels.0"/>
+  <atl:OutPattern/>
+  <atl:OutPattern/>
+  <atl:InPattern/>
+  <atl:SimpleInPatternElement/>
+  <ocl:OclModelElement/>
+  <atl:InPattern/>
+  <atl:SimpleInPatternElement/>
+  <ocl:OclModelElement/>
+</xmi:XMI>
