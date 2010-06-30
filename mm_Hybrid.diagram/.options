@@ -1,0 +1,7 @@
+# Tracing options for the mm_Hybrid.diagram plug-in
+
+# Common issues
+mm_Hybrid.diagram/debug=false
+
+# Visual IDs
+mm_Hybrid.diagram/debug/visualID=false
