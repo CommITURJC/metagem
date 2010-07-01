@@ -13,7 +13,23 @@ rule Module {
 		)
 }
 
+rule inModel{
+	from
+		in_MM_amw: AMW!InModelTransf
+	to
+		in_MM_hybrid: MM_Hybrid!InMetaModel(
+			name_mm <-	in_MM_amw.name
+		)
+}
 
+rule outModel{
+	from
+		out_MM_amw: AMW!OutModelTransf
+	to
+		out_MM_hybrid: MM_Hybrid!OutMetaModel(
+			name_mm <-	out_MM_amw.name
+		)
+}
 
 rule InElement2SourceElementRule{
 	from
@@ -82,27 +98,27 @@ rule OneToMany2rule {
 			out<-o2m.target
 		)
 }
--- rule ManyToOne2rule {
---	from
---		m2o: AMW!ManyToOne
---	to
---		rule_m2o: MM_Hybrid!Rule(
---			name_rule <- m2o.name.debug('nombre rule '),
---			isAbstract<-false,
---			isMain<-m2o.isMain,
---			"in"<-m2o.source,
---			out<-m2o.target
---		)
---}
---rule ManyToMany2rule {
---	from
---		m2m: AMW!ManyToMany
---	to
---		rule_m2m: MM_Hybrid!Rule(
---			name_rule <- m2m.name.debug('nombre rule '),
---			isAbstract<-false,
---			isMain<-m2m.isMain,
---			"in"<-m2m.source,
---			out<-m2m.target
---		)
---}
+rule ManyToOne2rule {
+	from
+		m2o: AMW!ManyToOne
+	to
+		rule_m2o: MM_Hybrid!Rule(
+			name_rule <- m2o.name.debug('nombre rule '),
+			isAbstract<-false,
+			isMain<-m2o.isMain,
+			"in"<-m2o.source,
+			out<-m2o.target
+		)
+}
+rule ManyToMany2rule {
+	from
+		m2m: AMW!ManyToMany
+	to
+		rule_m2m: MM_Hybrid!Rule(
+			name_rule <- m2m.name.debug('nombre rule '),
+			isAbstract<-false,
+			isMain<-m2m.isMain,
+			"in"<-m2m.source,
+			out<-m2m.target
+		)
+}
