@@ -68,6 +68,52 @@
     <element xmi:type="mm_hybrid:Rule" href="SQL2ORDB_Hybrid.mm_hybrid#//@rule.3"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K15V9IT5Ed-t3curhcru1Q" x="1110" y="30"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_g9FgWIUCEd-X85Nrx_jH3w" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_g9FgW4UCEd-X85Nrx_jH3w" type="5005"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_g9FgWYUCEd-X85Nrx_jH3w"/>
+    <element xmi:type="mm_hybrid:InMetaModel" href="SQL2ORDB_Hybrid.mm_hybrid#//@inMM.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g9FgWoUCEd-X85Nrx_jH3w" x="1470" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_g9FgXIUCEd-X85Nrx_jH3w" type="2003">
+    <children xmi:type="notation:Node" xmi:id="_g9FgX4UCEd-X85Nrx_jH3w" type="5006"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_g9FgXYUCEd-X85Nrx_jH3w"/>
+    <element xmi:type="mm_hybrid:OutMetaModel" href="SQL2ORDB_Hybrid.mm_hybrid#//@outMM.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g9FgXoUCEd-X85Nrx_jH3w" x="1670" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_o47VgIUCEd-X85Nrx_jH3w" type="2001">
+    <children xmi:type="notation:Node" xmi:id="_o47Vg4UCEd-X85Nrx_jH3w" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_o47VhIUCEd-X85Nrx_jH3w" type="5004"/>
+    <children xmi:type="notation:Node" xmi:id="_o5EfcIUCEd-X85Nrx_jH3w" type="7001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_o5EfcYUCEd-X85Nrx_jH3w"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_o5EfcoUCEd-X85Nrx_jH3w"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_o5Efc4UCEd-X85Nrx_jH3w"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_o5EfdIUCEd-X85Nrx_jH3w" type="7002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_o5EfdYUCEd-X85Nrx_jH3w"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_o5EfdoUCEd-X85Nrx_jH3w"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_o5Efd4UCEd-X85Nrx_jH3w"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_o47VgYUCEd-X85Nrx_jH3w"/>
+    <element xmi:type="mm_hybrid:Rule" href="SQL2ORDB_Hybrid.mm_hybrid#//@rule.4"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_o47VgoUCEd-X85Nrx_jH3w" x="35" y="260"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_o5EfeIUCEd-X85Nrx_jH3w" type="2001">
+    <children xmi:type="notation:Node" xmi:id="_o5Efe4UCEd-X85Nrx_jH3w" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_o5EffIUCEd-X85Nrx_jH3w" type="5004"/>
+    <children xmi:type="notation:Node" xmi:id="_o5EffYUCEd-X85Nrx_jH3w" type="7001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_o5EffoUCEd-X85Nrx_jH3w"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_o5Eff4UCEd-X85Nrx_jH3w"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_o5EfgIUCEd-X85Nrx_jH3w"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_o5EfgYUCEd-X85Nrx_jH3w" type="7002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_o5EfgoUCEd-X85Nrx_jH3w"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_o5Efg4UCEd-X85Nrx_jH3w"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_o5EfhIUCEd-X85Nrx_jH3w"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_o5EfeYUCEd-X85Nrx_jH3w"/>
+    <element xmi:type="mm_hybrid:Rule" href="SQL2ORDB_Hybrid.mm_hybrid#//@rule.5"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_o5EfeoUCEd-X85Nrx_jH3w" x="375" y="260"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_IKuwEoT5Ed-t3curhcru1Q"/>
   <element xmi:type="mm_hybrid:Module" href="SQL2ORDB_Hybrid.mm_hybrid#/"/>
 </notation:Diagram>
