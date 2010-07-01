@@ -9,7 +9,7 @@ rule Module {
 			name_module <- amw.name.debug('nombremodulo '),
 		    inMM <- amw.inputModel,
 			outMM <- amw.outputModel,	
-			rule <- amw.relations			
+			"rule" <- amw.relations			
 		)
 }
 
@@ -36,7 +36,7 @@ rule InElement2SourceElementRule{
 		inElem: AMW!InElement
 	to
 		sourceElem: MM_Hybrid!SourceElementRule(
-			name_element<-inElem.name
+			name_element <- inElem.name
 		)
 }
 
@@ -45,7 +45,7 @@ rule OutElement2TargetElementRule{
 		outElem: AMW!OutElement
 	to
 		targetElem: MM_Hybrid!TargetElementRule(
-			name_element<-outElem.name
+			name_element <- outElem.name
 		)
 }
 
@@ -55,10 +55,12 @@ rule OneToOne2rule {
 	to
 		rule_o2o: MM_Hybrid!Rule(
 			name_rule <- o2o.name.debug('nombre rule '),
-			isAbstract<-false,
-			isMain<-o2o.isMain,
-			"in"<-o2o.source,
-			out<-o2o.target
+			isAbstract <- false,
+			isMain <- o2o.isMain,
+			"in" <- o2o.source,
+			out <- o2o.target,
+			typeAttribute <- o2o.typeAttri,
+			typeElement <- o2o.typeE
 		)
 }
 
@@ -68,9 +70,9 @@ rule OneToZero2rule {
 	to
 		rule_o2z: MM_Hybrid!Rule(
 			name_rule <- o2z.name.debug('nombre rule '),
-			isAbstract<-false,
-			isMain<-o2z.isMain,
-			"in"<-o2z.source
+			isAbstract <- false,
+			isMain <- o2z.isMain,
+			"in" <- o2z.source
 		)
 }
 
@@ -80,9 +82,9 @@ rule ZeroToOne2rule {
 	to
 		rule_z2o: MM_Hybrid!Rule(
 			name_rule <- z2o.name.debug('nombre rule '),
-			isAbstract<-false,
-			isMain<-z2o.isMain,
-			out<-z2o.target
+			isAbstract <- false,
+			isMain <- z2o.isMain,
+			out <- z2o.target
 		)
 }
 
@@ -92,10 +94,10 @@ rule OneToMany2rule {
 	to
 		rule_o2m: MM_Hybrid!Rule(
 			name_rule <- o2m.name.debug('nombre rule '),
-			isAbstract<-false,
-			isMain<-o2m.isMain,
-			"in"<-o2m.source,
-			out<-o2m.target
+			isAbstract <- false,
+			isMain <- o2m.isMain,
+			"in" <- o2m.source,
+			out <- o2m.target
 		)
 }
 rule ManyToOne2rule {
@@ -104,10 +106,10 @@ rule ManyToOne2rule {
 	to
 		rule_m2o: MM_Hybrid!Rule(
 			name_rule <- m2o.name.debug('nombre rule '),
-			isAbstract<-false,
-			isMain<-m2o.isMain,
-			"in"<-m2o.source,
-			out<-m2o.target
+			isAbstract <- false,
+			isMain <- m2o.isMain,
+			"in" <- m2o.source,
+			out <- m2o.target
 		)
 }
 rule ManyToMany2rule {
@@ -116,9 +118,9 @@ rule ManyToMany2rule {
 	to
 		rule_m2m: MM_Hybrid!Rule(
 			name_rule <- m2m.name.debug('nombre rule '),
-			isAbstract<-false,
-			isMain<-m2m.isMain,
-			"in"<-m2m.source,
-			out<-m2m.target
+			isAbstract <- false,
+			isMain <- m2m.isMain,
+			"in" <- m2m.source,
+			out <- m2m.target
 		)
 }

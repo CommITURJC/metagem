@@ -22,17 +22,17 @@
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_Parameter" ref="//Parameter"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_ParameterMode" ref="//ParameterMode"/>
   </outputModel>
-  <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="r1" isMain="true">
+  <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="r1" typeAttri="concatenation" typeE="MyEreference" isMain="true">
     <source xmi:id="InElement1" name="ARRAY" element="//@inputModel.0/@ownedElementRef.3"/>
     <target xmi:id="OutElement1" name="Varray" element="//@outputModel.0/@ownedElementRef.1"/>
   </relations>
-  <relations xsi:type="OneToZero" xmi:id="OneToZero1" name="r2" isMain="true">
+  <relations xsi:type="OneToZero" xmi:id="OneToZero1" name="r2" typeAttri="concatenation" typeE="MyEattribute" isMain="true">
     <source name="IntervalTypes" element="//@inputModel.0/@ownedElementRef.2"/>
   </relations>
   <relations xsi:type="ZeroToOne" xmi:id="ZeroToOne1" name="r3" isMain="false">
     <target name="TriggerActionTime" element="//@outputModel.0/@ownedElementRef.2"/>
   </relations>
-  <relations xsi:type="OneToMany" xmi:id="OneToMany1" name="r4">
+  <relations xsi:type="OneToMany" xmi:id="OneToMany1" name="r4" typeAttri="concatenation" typeE="MyEattribute">
     <source xmi:id="InElement2" name="MULTISET" element="//@inputModel.0/@ownedElementRef.0"/>
     <target xmi:id="OutElement2" name="NestedTableType" element="//@outputModel.0/@ownedElementRef.0"/>
     <target xmi:id="OutElement3" name="StoredNestedTable" element="//@outputModel.0/@ownedElementRef.3"/>
@@ -42,7 +42,7 @@
     <source name="Procedure" element="//@inputModel.0/@ownedElementRef.6"/>
     <target name="Package" element="//@outputModel.0/@ownedElementRef.4"/>
   </relations>
-  <relations xsi:type="ManyToMany" name="r6">
+  <relations xsi:type="ManyToMany" xmi:id="ManyToMany1" name="r6" typeE="MyEreference">
     <source name="Parameter" element="//@inputModel.0/@ownedElementRef.8"/>
     <source name="ParameterMode" element="//@inputModel.0/@ownedElementRef.9"/>
     <source name="ParameterWithMode" element="//@inputModel.0/@ownedElementRef.10"/>
