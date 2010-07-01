@@ -14,114 +14,116 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Type Atribute</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Type Elem</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see mm_hybrid.MM_HybridPackage#getTypeAtribute()
+ * @see mm_hybrid.MM_HybridPackage#getTypeElem()
  * @model
  * @generated
  */
-public enum TypeAtribute implements Enumerator {
+public enum TypeElem implements Enumerator {
 	/**
-	 * The '<em><b>Copy</b></em>' literal object.
+	 * The '<em><b>My Eclassifier</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #COPY_VALUE
+	 * @see #MY_ECLASSIFIER_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	COPY(1, "copy", "copy"), //$NON-NLS-1$ //$NON-NLS-2$
+	MY_ECLASSIFIER(1, "MyEclassifier", "MyEclassifier"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Concatenation</b></em>' literal object.
+	 * The '<em><b>My Eattribute</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #CONCATENATION_VALUE
+	 * @see #MY_EATTRIBUTE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	CONCATENATION(2, "concatenation", "concatenation"), /**
-	 * The '<em><b>Various</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #VARIOUS_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	VARIOUS(3, "various", "various"); //$NON-NLS-1$ //$NON-NLS-2$
+	MY_EATTRIBUTE(2, "MyEattribute", "MyEattribute"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Copy</b></em>' literal value.
+	 * The '<em><b>My Ereference</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MY_EREFERENCE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MY_EREFERENCE(3, "MyEreference", "MyEreference"); //$NON-NLS-1$ //$NON-NLS-2$
+
+	/**
+	 * The '<em><b>My Eclassifier</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Copy</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>My Eclassifier</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #COPY
-	 * @model name="copy"
+	 * @see #MY_ECLASSIFIER
+	 * @model name="MyEclassifier"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COPY_VALUE = 1;
+	public static final int MY_ECLASSIFIER_VALUE = 1;
 
 	/**
-	 * The '<em><b>Concatenation</b></em>' literal value.
+	 * The '<em><b>My Eattribute</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Concatenation</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>My Eattribute</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #CONCATENATION
-	 * @model name="concatenation"
+	 * @see #MY_EATTRIBUTE
+	 * @model name="MyEattribute"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONCATENATION_VALUE = 2;
+	public static final int MY_EATTRIBUTE_VALUE = 2;
 
 	/**
-	 * The '<em><b>Various</b></em>' literal value.
+	 * The '<em><b>My Ereference</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Various</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>My Ereference</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #VARIOUS
-	 * @model name="various"
+	 * @see #MY_EREFERENCE
+	 * @model name="MyEreference"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int VARIOUS_VALUE = 3;
+	public static final int MY_EREFERENCE_VALUE = 3;
 
 	/**
-	 * An array of all the '<em><b>Type Atribute</b></em>' enumerators.
+	 * An array of all the '<em><b>Type Elem</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final TypeAtribute[] VALUES_ARRAY = new TypeAtribute[] {
-			COPY, CONCATENATION, VARIOUS, };
+	private static final TypeElem[] VALUES_ARRAY = new TypeElem[] {
+			MY_ECLASSIFIER, MY_EATTRIBUTE, MY_EREFERENCE, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Type Atribute</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Type Elem</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<TypeAtribute> VALUES = Collections
+	public static final List<TypeElem> VALUES = Collections
 			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Type Atribute</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Type Elem</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static TypeAtribute get(String literal) {
+	public static TypeElem get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			TypeAtribute result = VALUES_ARRAY[i];
+			TypeElem result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -130,14 +132,14 @@ public enum TypeAtribute implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Type Atribute</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Type Elem</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static TypeAtribute getByName(String name) {
+	public static TypeElem getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			TypeAtribute result = VALUES_ARRAY[i];
+			TypeElem result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -146,19 +148,19 @@ public enum TypeAtribute implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Type Atribute</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Type Elem</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static TypeAtribute get(int value) {
+	public static TypeElem get(int value) {
 		switch (value) {
-		case COPY_VALUE:
-			return COPY;
-		case CONCATENATION_VALUE:
-			return CONCATENATION;
-		case VARIOUS_VALUE:
-			return VARIOUS;
+		case MY_ECLASSIFIER_VALUE:
+			return MY_ECLASSIFIER;
+		case MY_EATTRIBUTE_VALUE:
+			return MY_EATTRIBUTE;
+		case MY_EREFERENCE_VALUE:
+			return MY_EREFERENCE;
 		}
 		return null;
 	}
@@ -190,7 +192,7 @@ public enum TypeAtribute implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private TypeAtribute(int value, String name, String literal) {
+	private TypeElem(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -234,4 +236,4 @@ public enum TypeAtribute implements Enumerator {
 		return literal;
 	}
 
-} //TypeAtribute
+} //TypeElem

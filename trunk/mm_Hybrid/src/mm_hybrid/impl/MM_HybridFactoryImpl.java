@@ -94,6 +94,8 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 		switch (eDataType.getClassifierID()) {
 		case MM_HybridPackage.TYPE_ATRIBUTE:
 			return createTypeAtributeFromString(eDataType, initialValue);
+		case MM_HybridPackage.TYPE_ELEM:
+			return createTypeElemFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException(
 					"The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -110,6 +112,8 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 		switch (eDataType.getClassifierID()) {
 		case MM_HybridPackage.TYPE_ATRIBUTE:
 			return convertTypeAtributeToString(eDataType, instanceValue);
+		case MM_HybridPackage.TYPE_ELEM:
+			return convertTypeElemToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException(
 					"The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -216,6 +220,30 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public String convertTypeAtributeToString(EDataType eDataType,
+			Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TypeElem createTypeElemFromString(EDataType eDataType,
+			String initialValue) {
+		TypeElem result = TypeElem.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTypeElemToString(EDataType eDataType,
 			Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}

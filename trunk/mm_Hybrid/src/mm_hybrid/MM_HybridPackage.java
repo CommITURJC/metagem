@@ -210,7 +210,7 @@ public interface MM_HybridPackage extends EPackage {
 	int RULE__IS_MAIN = 2;
 
 	/**
-	 * The feature id for the '<em><b>In</b></em>' containment reference.
+	 * The feature id for the '<em><b>In</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -228,13 +228,31 @@ public interface MM_HybridPackage extends EPackage {
 	int RULE__OUT = 4;
 
 	/**
+	 * The feature id for the '<em><b>Type Attribute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__TYPE_ATTRIBUTE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Type Element</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__TYPE_ELEMENT = 6;
+
+	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_FEATURE_COUNT = 5;
+	int RULE_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.ElementImpl <em>Element</em>}' class.
@@ -405,6 +423,16 @@ public interface MM_HybridPackage extends EPackage {
 	int TYPE_ATRIBUTE = 9;
 
 	/**
+	 * The meta object id for the '{@link mm_hybrid.TypeElem <em>Type Elem</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mm_hybrid.TypeElem
+	 * @see mm_hybrid.impl.MM_HybridPackageImpl#getTypeElem()
+	 * @generated
+	 */
+	int TYPE_ELEM = 10;
+
+	/**
 	 * Returns the meta object for class '{@link mm_hybrid.Module <em>Module</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -544,10 +572,10 @@ public interface MM_HybridPackage extends EPackage {
 	EAttribute getRule_IsMain();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link mm_hybrid.Rule#getIn <em>In</em>}'.
+	 * Returns the meta object for the containment reference list '{@link mm_hybrid.Rule#getIn <em>In</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>In</em>'.
+	 * @return the meta object for the containment reference list '<em>In</em>'.
 	 * @see mm_hybrid.Rule#getIn()
 	 * @see #getRule()
 	 * @generated
@@ -564,6 +592,28 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRule_Out();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mm_hybrid.Rule#getTypeAttribute <em>Type Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Attribute</em>'.
+	 * @see mm_hybrid.Rule#getTypeAttribute()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EAttribute getRule_TypeAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mm_hybrid.Rule#getTypeElement <em>Type Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Element</em>'.
+	 * @see mm_hybrid.Rule#getTypeElement()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EAttribute getRule_TypeElement();
 
 	/**
 	 * Returns the meta object for class '{@link mm_hybrid.Element <em>Element</em>}'.
@@ -679,6 +729,16 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getTypeAtribute();
+
+	/**
+	 * Returns the meta object for enum '{@link mm_hybrid.TypeElem <em>Type Elem</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Type Elem</em>'.
+	 * @see mm_hybrid.TypeElem
+	 * @generated
+	 */
+	EEnum getTypeElem();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -816,7 +876,7 @@ public interface MM_HybridPackage extends EPackage {
 		EAttribute RULE__IS_MAIN = eINSTANCE.getRule_IsMain();
 
 		/**
-		 * The meta object literal for the '<em><b>In</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>In</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -830,6 +890,22 @@ public interface MM_HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RULE__OUT = eINSTANCE.getRule_Out();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Attribute</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE__TYPE_ATTRIBUTE = eINSTANCE.getRule_TypeAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Element</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE__TYPE_ELEMENT = eINSTANCE.getRule_TypeElement();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.ElementImpl <em>Element</em>}' class.
@@ -933,6 +1009,16 @@ public interface MM_HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum TYPE_ATRIBUTE = eINSTANCE.getTypeAtribute();
+
+		/**
+		 * The meta object literal for the '{@link mm_hybrid.TypeElem <em>Type Elem</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mm_hybrid.TypeElem
+		 * @see mm_hybrid.impl.MM_HybridPackageImpl#getTypeElem()
+		 * @generated
+		 */
+		EEnum TYPE_ELEM = eINSTANCE.getTypeElem();
 
 	}
 
