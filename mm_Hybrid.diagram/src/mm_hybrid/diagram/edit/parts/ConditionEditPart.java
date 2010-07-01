@@ -60,7 +60,7 @@ public class ConditionEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3002;
+	public static final int VISUAL_ID = 2002;
 
 	/**
 	 * @generated
@@ -306,7 +306,7 @@ public class ConditionEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new mm_hybrid.diagram.providers.MM_HybridParserProvider.HintAdapter(
-					mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_3002,
+					mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_2002,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

@@ -36,17 +36,6 @@ public class SourceElementRuleCreateCommand extends CreateElementCommand {
 	/**
 	 * @generated
 	 */
-	public boolean canExecute() {
-		mm_hybrid.Rule container = (mm_hybrid.Rule) getElementToEdit();
-		if (container.getIn() != null) {
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * @generated
-	 */
 	protected EClass getEClassToEdit() {
 		return mm_hybrid.MM_HybridPackage.eINSTANCE.getRule();
 	}

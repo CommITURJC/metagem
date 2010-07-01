@@ -30,13 +30,13 @@ public class MM_HybridDiagramUpdater {
 		switch (mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 				.getVisualID(view)) {
 		case mm_hybrid.diagram.edit.parts.RuleSourceEditPart.VISUAL_ID:
-			return getRuleSource_7001SemanticChildren(view);
+			return getRuleSource_5001SemanticChildren(view);
 		case mm_hybrid.diagram.edit.parts.RuleTargetEditPart.VISUAL_ID:
-			return getRuleTarget_7002SemanticChildren(view);
+			return getRuleTarget_5002SemanticChildren(view);
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleConditionEditPart.VISUAL_ID:
-			return getSourceElementRuleCondition_7003SemanticChildren(view);
+			return getSourceElementRuleCondition_5003SemanticChildren(view);
 		case mm_hybrid.diagram.edit.parts.ModuleEditPart.VISUAL_ID:
-			return getModule_1000SemanticChildren(view);
+			return getModule_79SemanticChildren(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -44,7 +44,7 @@ public class MM_HybridDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getRuleSource_7001SemanticChildren(View view) {
+	public static List getRuleSource_5001SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
 		}
@@ -55,13 +55,15 @@ public class MM_HybridDiagramUpdater {
 		mm_hybrid.Rule modelElement = (mm_hybrid.Rule) containerView
 				.getElement();
 		List result = new LinkedList();
-		{
-			mm_hybrid.SourceElementRule childElement = modelElement.getIn();
+		for (Iterator it = modelElement.getIn().iterator(); it.hasNext();) {
+			mm_hybrid.SourceElementRule childElement = (mm_hybrid.SourceElementRule) it
+					.next();
 			int visualID = mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 					.getNodeVisualID(view, childElement);
 			if (visualID == mm_hybrid.diagram.edit.parts.SourceElementRuleEditPart.VISUAL_ID) {
 				result.add(new mm_hybrid.diagram.part.MM_HybridNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 		}
 		return result;
@@ -70,7 +72,7 @@ public class MM_HybridDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getRuleTarget_7002SemanticChildren(View view) {
+	public static List getRuleTarget_5002SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
 		}
@@ -98,7 +100,7 @@ public class MM_HybridDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSourceElementRuleCondition_7003SemanticChildren(
+	public static List getSourceElementRuleCondition_5003SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -125,7 +127,7 @@ public class MM_HybridDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getModule_1000SemanticChildren(View view) {
+	public static List getModule_79SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
@@ -173,19 +175,19 @@ public class MM_HybridDiagramUpdater {
 		switch (mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 				.getVisualID(view)) {
 		case mm_hybrid.diagram.edit.parts.ModuleEditPart.VISUAL_ID:
-			return getModule_1000ContainedLinks(view);
+			return getModule_79ContainedLinks(view);
 		case mm_hybrid.diagram.edit.parts.RuleEditPart.VISUAL_ID:
-			return getRule_2001ContainedLinks(view);
+			return getRule_1001ContainedLinks(view);
 		case mm_hybrid.diagram.edit.parts.InMetaModelEditPart.VISUAL_ID:
-			return getInMetaModel_2002ContainedLinks(view);
+			return getInMetaModel_1002ContainedLinks(view);
 		case mm_hybrid.diagram.edit.parts.OutMetaModelEditPart.VISUAL_ID:
-			return getOutMetaModel_2003ContainedLinks(view);
+			return getOutMetaModel_1003ContainedLinks(view);
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleEditPart.VISUAL_ID:
-			return getSourceElementRule_3001ContainedLinks(view);
+			return getSourceElementRule_2001ContainedLinks(view);
 		case mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID:
-			return getCondition_3002ContainedLinks(view);
+			return getCondition_2002ContainedLinks(view);
 		case mm_hybrid.diagram.edit.parts.TargetElementRuleEditPart.VISUAL_ID:
-			return getTargetElementRule_3003ContainedLinks(view);
+			return getTargetElementRule_2003ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -197,17 +199,17 @@ public class MM_HybridDiagramUpdater {
 		switch (mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 				.getVisualID(view)) {
 		case mm_hybrid.diagram.edit.parts.RuleEditPart.VISUAL_ID:
-			return getRule_2001IncomingLinks(view);
+			return getRule_1001IncomingLinks(view);
 		case mm_hybrid.diagram.edit.parts.InMetaModelEditPart.VISUAL_ID:
-			return getInMetaModel_2002IncomingLinks(view);
+			return getInMetaModel_1002IncomingLinks(view);
 		case mm_hybrid.diagram.edit.parts.OutMetaModelEditPart.VISUAL_ID:
-			return getOutMetaModel_2003IncomingLinks(view);
+			return getOutMetaModel_1003IncomingLinks(view);
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleEditPart.VISUAL_ID:
-			return getSourceElementRule_3001IncomingLinks(view);
+			return getSourceElementRule_2001IncomingLinks(view);
 		case mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID:
-			return getCondition_3002IncomingLinks(view);
+			return getCondition_2002IncomingLinks(view);
 		case mm_hybrid.diagram.edit.parts.TargetElementRuleEditPart.VISUAL_ID:
-			return getTargetElementRule_3003IncomingLinks(view);
+			return getTargetElementRule_2003IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -219,17 +221,17 @@ public class MM_HybridDiagramUpdater {
 		switch (mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 				.getVisualID(view)) {
 		case mm_hybrid.diagram.edit.parts.RuleEditPart.VISUAL_ID:
-			return getRule_2001OutgoingLinks(view);
+			return getRule_1001OutgoingLinks(view);
 		case mm_hybrid.diagram.edit.parts.InMetaModelEditPart.VISUAL_ID:
-			return getInMetaModel_2002OutgoingLinks(view);
+			return getInMetaModel_1002OutgoingLinks(view);
 		case mm_hybrid.diagram.edit.parts.OutMetaModelEditPart.VISUAL_ID:
-			return getOutMetaModel_2003OutgoingLinks(view);
+			return getOutMetaModel_1003OutgoingLinks(view);
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleEditPart.VISUAL_ID:
-			return getSourceElementRule_3001OutgoingLinks(view);
+			return getSourceElementRule_2001OutgoingLinks(view);
 		case mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID:
-			return getCondition_3002OutgoingLinks(view);
+			return getCondition_2002OutgoingLinks(view);
 		case mm_hybrid.diagram.edit.parts.TargetElementRuleEditPart.VISUAL_ID:
-			return getTargetElementRule_3003OutgoingLinks(view);
+			return getTargetElementRule_2003OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -237,133 +239,133 @@ public class MM_HybridDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getModule_1000ContainedLinks(View view) {
+	public static List getModule_79ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getRule_2001ContainedLinks(View view) {
+	public static List getRule_1001ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getInMetaModel_2002ContainedLinks(View view) {
+	public static List getInMetaModel_1002ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOutMetaModel_2003ContainedLinks(View view) {
+	public static List getOutMetaModel_1003ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getSourceElementRule_3001ContainedLinks(View view) {
+	public static List getSourceElementRule_2001ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCondition_3002ContainedLinks(View view) {
+	public static List getCondition_2002ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getTargetElementRule_3003ContainedLinks(View view) {
+	public static List getTargetElementRule_2003ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getRule_2001IncomingLinks(View view) {
+	public static List getRule_1001IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getInMetaModel_2002IncomingLinks(View view) {
+	public static List getInMetaModel_1002IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOutMetaModel_2003IncomingLinks(View view) {
+	public static List getOutMetaModel_1003IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getSourceElementRule_3001IncomingLinks(View view) {
+	public static List getSourceElementRule_2001IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCondition_3002IncomingLinks(View view) {
+	public static List getCondition_2002IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getTargetElementRule_3003IncomingLinks(View view) {
+	public static List getTargetElementRule_2003IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getRule_2001OutgoingLinks(View view) {
+	public static List getRule_1001OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getInMetaModel_2002OutgoingLinks(View view) {
+	public static List getInMetaModel_1002OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOutMetaModel_2003OutgoingLinks(View view) {
+	public static List getOutMetaModel_1003OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getSourceElementRule_3001OutgoingLinks(View view) {
+	public static List getSourceElementRule_2001OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCondition_3002OutgoingLinks(View view) {
+	public static List getCondition_2002OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getTargetElementRule_3003OutgoingLinks(View view) {
+	public static List getTargetElementRule_2003OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

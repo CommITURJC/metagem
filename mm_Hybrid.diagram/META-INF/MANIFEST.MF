@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: mm_hybrid.diagram.part.MM_HybridDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: mm_hybrid.diagram.edit.parts, 
+Export-Package: mm_hybrid.diagram.edit.parts,
  mm_hybrid.diagram.part,
  mm_hybrid.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,

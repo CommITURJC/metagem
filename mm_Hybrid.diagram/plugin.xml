@@ -353,72 +353,72 @@
       <?gmfgen generated="true"?>
       <metamodel nsURI="http:///MM_Hybrid.ecore">
          <metamodelType
-               id="mm_Hybrid.diagram.Module_1000"
-               name="%metatype.name.Module_1000"
+               id="mm_Hybrid.diagram.Module_79"
+               name="%metatype.name.Module_79"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Module"
                edithelper="mm_hybrid.diagram.edit.helpers.ModuleEditHelper">
-            <param name="semanticHint" value="1000"/>
+            <param name="semanticHint" value="79"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///MM_Hybrid.ecore">
          <metamodelType
-               id="mm_Hybrid.diagram.Rule_2001"
-               name="%metatype.name.Rule_2001"
+               id="mm_Hybrid.diagram.Rule_1001"
+               name="%metatype.name.Rule_1001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Rule"
                edithelper="mm_hybrid.diagram.edit.helpers.RuleEditHelper">
+            <param name="semanticHint" value="1001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///MM_Hybrid.ecore">
+         <metamodelType
+               id="mm_Hybrid.diagram.InMetaModel_1002"
+               name="%metatype.name.InMetaModel_1002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InMetaModel"
+               edithelper="mm_hybrid.diagram.edit.helpers.InMetaModelEditHelper">
+            <param name="semanticHint" value="1002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///MM_Hybrid.ecore">
+         <metamodelType
+               id="mm_Hybrid.diagram.OutMetaModel_1003"
+               name="%metatype.name.OutMetaModel_1003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="OutMetaModel"
+               edithelper="mm_hybrid.diagram.edit.helpers.OutMetaModelEditHelper">
+            <param name="semanticHint" value="1003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///MM_Hybrid.ecore">
+         <metamodelType
+               id="mm_Hybrid.diagram.SourceElementRule_2001"
+               name="%metatype.name.SourceElementRule_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SourceElementRule"
+               edithelper="mm_hybrid.diagram.edit.helpers.SourceElementRuleEditHelper">
             <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///MM_Hybrid.ecore">
          <metamodelType
-               id="mm_Hybrid.diagram.InMetaModel_2002"
-               name="%metatype.name.InMetaModel_2002"
+               id="mm_Hybrid.diagram.Condition_2002"
+               name="%metatype.name.Condition_2002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="InMetaModel"
-               edithelper="mm_hybrid.diagram.edit.helpers.InMetaModelEditHelper">
+               eclass="Condition"
+               edithelper="mm_hybrid.diagram.edit.helpers.ConditionEditHelper">
             <param name="semanticHint" value="2002"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///MM_Hybrid.ecore">
          <metamodelType
-               id="mm_Hybrid.diagram.OutMetaModel_2003"
-               name="%metatype.name.OutMetaModel_2003"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="OutMetaModel"
-               edithelper="mm_hybrid.diagram.edit.helpers.OutMetaModelEditHelper">
-            <param name="semanticHint" value="2003"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http:///MM_Hybrid.ecore">
-         <metamodelType
-               id="mm_Hybrid.diagram.SourceElementRule_3001"
-               name="%metatype.name.SourceElementRule_3001"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="SourceElementRule"
-               edithelper="mm_hybrid.diagram.edit.helpers.SourceElementRuleEditHelper">
-            <param name="semanticHint" value="3001"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http:///MM_Hybrid.ecore">
-         <metamodelType
-               id="mm_Hybrid.diagram.Condition_3002"
-               name="%metatype.name.Condition_3002"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Condition"
-               edithelper="mm_hybrid.diagram.edit.helpers.ConditionEditHelper">
-            <param name="semanticHint" value="3002"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http:///MM_Hybrid.ecore">
-         <metamodelType
-               id="mm_Hybrid.diagram.TargetElementRule_3003"
-               name="%metatype.name.TargetElementRule_3003"
+               id="mm_Hybrid.diagram.TargetElementRule_2003"
+               name="%metatype.name.TargetElementRule_2003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="TargetElementRule"
                edithelper="mm_hybrid.diagram.edit.helpers.TargetElementRuleEditHelper">
-            <param name="semanticHint" value="3003"/>
+            <param name="semanticHint" value="2003"/>
          </metamodelType>
       </metamodel>
    </extension>
@@ -433,13 +433,13 @@
          </enablement>
       </clientContext> 
       <binding context="mm_Hybrid.diagram.TypeContext">
-         <elementType ref="mm_Hybrid.diagram.Module_1000"/>
-         <elementType ref="mm_Hybrid.diagram.Rule_2001"/>
-         <elementType ref="mm_Hybrid.diagram.InMetaModel_2002"/>
-         <elementType ref="mm_Hybrid.diagram.OutMetaModel_2003"/>
-         <elementType ref="mm_Hybrid.diagram.SourceElementRule_3001"/>
-         <elementType ref="mm_Hybrid.diagram.Condition_3002"/>
-         <elementType ref="mm_Hybrid.diagram.TargetElementRule_3003"/>
+         <elementType ref="mm_Hybrid.diagram.Module_79"/>
+         <elementType ref="mm_Hybrid.diagram.Rule_1001"/>
+         <elementType ref="mm_Hybrid.diagram.InMetaModel_1002"/>
+         <elementType ref="mm_Hybrid.diagram.OutMetaModel_1003"/>
+         <elementType ref="mm_Hybrid.diagram.SourceElementRule_2001"/>
+         <elementType ref="mm_Hybrid.diagram.Condition_2002"/>
+         <elementType ref="mm_Hybrid.diagram.TargetElementRule_2003"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

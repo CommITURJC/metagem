@@ -30,7 +30,7 @@ public class RuleTargetCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = mm_hybrid.diagram.part.MM_HybridDiagramUpdater
-				.getRuleTarget_7002SemanticChildren(viewObject).iterator(); it
+				.getRuleTarget_5002SemanticChildren(viewObject).iterator(); it
 				.hasNext();) {
 			result.add(((mm_hybrid.diagram.part.MM_HybridNodeDescriptor) it
 					.next()).getModelElement());

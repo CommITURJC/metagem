@@ -48,31 +48,37 @@ public class MM_HybridElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Module_1000 = getElementType("mm_Hybrid.diagram.Module_1000"); //$NON-NLS-1$
+	public static final IElementType Module_79 = getElementType("mm_Hybrid.diagram.Module_79"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Rule_2001 = getElementType("mm_Hybrid.diagram.Rule_2001"); //$NON-NLS-1$
+	public static final IElementType Rule_1001 = getElementType("mm_Hybrid.diagram.Rule_1001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType InMetaModel_2002 = getElementType("mm_Hybrid.diagram.InMetaModel_2002"); //$NON-NLS-1$
+	public static final IElementType InMetaModel_1002 = getElementType("mm_Hybrid.diagram.InMetaModel_1002"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType OutMetaModel_2003 = getElementType("mm_Hybrid.diagram.OutMetaModel_2003"); //$NON-NLS-1$
+	public static final IElementType OutMetaModel_1003 = getElementType("mm_Hybrid.diagram.OutMetaModel_1003"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType SourceElementRule_3001 = getElementType("mm_Hybrid.diagram.SourceElementRule_3001"); //$NON-NLS-1$
+	public static final IElementType SourceElementRule_2001 = getElementType("mm_Hybrid.diagram.SourceElementRule_2001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Condition_3002 = getElementType("mm_Hybrid.diagram.Condition_3002"); //$NON-NLS-1$
+	public static final IElementType Condition_2002 = getElementType("mm_Hybrid.diagram.Condition_2002"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType TargetElementRule_3003 = getElementType("mm_Hybrid.diagram.TargetElementRule_3003"); //$NON-NLS-1$
+	public static final IElementType TargetElementRule_2003 = getElementType("mm_Hybrid.diagram.TargetElementRule_2003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -185,28 +191,28 @@ public class MM_HybridElementTypes extends ElementInitializers {
 		if (elements == null) {
 			elements = new IdentityHashMap();
 
-			elements.put(Module_1000, mm_hybrid.MM_HybridPackage.eINSTANCE
+			elements.put(Module_79, mm_hybrid.MM_HybridPackage.eINSTANCE
 					.getModule());
 
-			elements.put(Rule_2001, mm_hybrid.MM_HybridPackage.eINSTANCE
+			elements.put(Rule_1001, mm_hybrid.MM_HybridPackage.eINSTANCE
 					.getRule());
 
-			elements.put(InMetaModel_2002, mm_hybrid.MM_HybridPackage.eINSTANCE
+			elements.put(InMetaModel_1002, mm_hybrid.MM_HybridPackage.eINSTANCE
 					.getInMetaModel());
 
-			elements.put(OutMetaModel_2003,
+			elements.put(OutMetaModel_1003,
 					mm_hybrid.MM_HybridPackage.eINSTANCE.getOutMetaModel());
 
 			elements
-					.put(SourceElementRule_3001,
+					.put(SourceElementRule_2001,
 							mm_hybrid.MM_HybridPackage.eINSTANCE
 									.getSourceElementRule());
 
-			elements.put(Condition_3002, mm_hybrid.MM_HybridPackage.eINSTANCE
+			elements.put(Condition_2002, mm_hybrid.MM_HybridPackage.eINSTANCE
 					.getCondition());
 
 			elements
-					.put(TargetElementRule_3003,
+					.put(TargetElementRule_2003,
 							mm_hybrid.MM_HybridPackage.eINSTANCE
 									.getTargetElementRule());
 		}
@@ -226,13 +232,13 @@ public class MM_HybridElementTypes extends ElementInitializers {
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet();
-			KNOWN_ELEMENT_TYPES.add(Module_1000);
-			KNOWN_ELEMENT_TYPES.add(Rule_2001);
-			KNOWN_ELEMENT_TYPES.add(InMetaModel_2002);
-			KNOWN_ELEMENT_TYPES.add(OutMetaModel_2003);
-			KNOWN_ELEMENT_TYPES.add(SourceElementRule_3001);
-			KNOWN_ELEMENT_TYPES.add(Condition_3002);
-			KNOWN_ELEMENT_TYPES.add(TargetElementRule_3003);
+			KNOWN_ELEMENT_TYPES.add(Module_79);
+			KNOWN_ELEMENT_TYPES.add(Rule_1001);
+			KNOWN_ELEMENT_TYPES.add(InMetaModel_1002);
+			KNOWN_ELEMENT_TYPES.add(OutMetaModel_1003);
+			KNOWN_ELEMENT_TYPES.add(SourceElementRule_2001);
+			KNOWN_ELEMENT_TYPES.add(Condition_2002);
+			KNOWN_ELEMENT_TYPES.add(TargetElementRule_2003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

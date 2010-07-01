@@ -93,25 +93,25 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 				.getVisualID(view)) {
 		case mm_hybrid.diagram.edit.parts.ModuleEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http:///MM_Hybrid.ecore?Module", mm_hybrid.diagram.providers.MM_HybridElementTypes.Module_1000); //$NON-NLS-1$
+					"Navigator?Diagram?http:///MM_Hybrid.ecore?Module", mm_hybrid.diagram.providers.MM_HybridElementTypes.Module_79); //$NON-NLS-1$
 		case mm_hybrid.diagram.edit.parts.RuleEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http:///MM_Hybrid.ecore?Rule", mm_hybrid.diagram.providers.MM_HybridElementTypes.Rule_2001); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http:///MM_Hybrid.ecore?Rule", mm_hybrid.diagram.providers.MM_HybridElementTypes.Rule_1001); //$NON-NLS-1$
 		case mm_hybrid.diagram.edit.parts.InMetaModelEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http:///MM_Hybrid.ecore?InMetaModel", mm_hybrid.diagram.providers.MM_HybridElementTypes.InMetaModel_2002); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http:///MM_Hybrid.ecore?InMetaModel", mm_hybrid.diagram.providers.MM_HybridElementTypes.InMetaModel_1002); //$NON-NLS-1$
 		case mm_hybrid.diagram.edit.parts.OutMetaModelEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http:///MM_Hybrid.ecore?OutMetaModel", mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_2003); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http:///MM_Hybrid.ecore?OutMetaModel", mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_1003); //$NON-NLS-1$
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http:///MM_Hybrid.ecore?SourceElementRule", mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_3001); //$NON-NLS-1$
+					"Navigator?Node?http:///MM_Hybrid.ecore?SourceElementRule", mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_2001); //$NON-NLS-1$
 		case mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http:///MM_Hybrid.ecore?Condition", mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_3002); //$NON-NLS-1$
+					"Navigator?Node?http:///MM_Hybrid.ecore?Condition", mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_2002); //$NON-NLS-1$
 		case mm_hybrid.diagram.edit.parts.TargetElementRuleEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http:///MM_Hybrid.ecore?TargetElementRule", mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_3003); //$NON-NLS-1$
+					"Navigator?Node?http:///MM_Hybrid.ecore?TargetElementRule", mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_2003); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -177,19 +177,19 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 		switch (mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 				.getVisualID(view)) {
 		case mm_hybrid.diagram.edit.parts.ModuleEditPart.VISUAL_ID:
-			return getModule_1000Text(view);
+			return getModule_79Text(view);
 		case mm_hybrid.diagram.edit.parts.RuleEditPart.VISUAL_ID:
-			return getRule_2001Text(view);
+			return getRule_1001Text(view);
 		case mm_hybrid.diagram.edit.parts.InMetaModelEditPart.VISUAL_ID:
-			return getInMetaModel_2002Text(view);
+			return getInMetaModel_1002Text(view);
 		case mm_hybrid.diagram.edit.parts.OutMetaModelEditPart.VISUAL_ID:
-			return getOutMetaModel_2003Text(view);
+			return getOutMetaModel_1003Text(view);
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleEditPart.VISUAL_ID:
-			return getSourceElementRule_3001Text(view);
+			return getSourceElementRule_2001Text(view);
 		case mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID:
-			return getCondition_3002Text(view);
+			return getCondition_2002Text(view);
 		case mm_hybrid.diagram.edit.parts.TargetElementRuleEditPart.VISUAL_ID:
-			return getTargetElementRule_3003Text(view);
+			return getTargetElementRule_2003Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -197,16 +197,15 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getModule_1000Text(View view) {
+	private String getModule_79Text(View view) {
 		mm_hybrid.Module domainModelElement = (mm_hybrid.Module) view
 				.getElement();
 		if (domainModelElement != null) {
 			return domainModelElement.getName_module();
 		} else {
-			mm_hybrid.diagram.part.MM_HybridDiagramEditorPlugin
-					.getInstance()
+			mm_hybrid.diagram.part.MM_HybridDiagramEditorPlugin.getInstance()
 					.logError(
-							"No domain element for view with visualID = " + 1000); //$NON-NLS-1$
+							"No domain element for view with visualID = " + 79); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -214,9 +213,9 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getRule_2001Text(View view) {
+	private String getRule_1001Text(View view) {
 		IAdaptable hintAdapter = new mm_hybrid.diagram.providers.MM_HybridParserProvider.HintAdapter(
-				mm_hybrid.diagram.providers.MM_HybridElementTypes.Rule_2001,
+				mm_hybrid.diagram.providers.MM_HybridElementTypes.Rule_1001,
 				(view.getElement() != null ? view.getElement() : view),
 				mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 						.getType(mm_hybrid.diagram.edit.parts.RuleName_ruleEditPart.VISUAL_ID));
@@ -227,7 +226,7 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			mm_hybrid.diagram.part.MM_HybridDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5003); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 4003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -236,9 +235,9 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getInMetaModel_2002Text(View view) {
+	private String getInMetaModel_1002Text(View view) {
 		IAdaptable hintAdapter = new mm_hybrid.diagram.providers.MM_HybridParserProvider.HintAdapter(
-				mm_hybrid.diagram.providers.MM_HybridElementTypes.InMetaModel_2002,
+				mm_hybrid.diagram.providers.MM_HybridElementTypes.InMetaModel_1002,
 				(view.getElement() != null ? view.getElement() : view),
 				mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 						.getType(mm_hybrid.diagram.edit.parts.InMetaModelName_mmEditPart.VISUAL_ID));
@@ -249,7 +248,7 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			mm_hybrid.diagram.part.MM_HybridDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5005); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 4005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -258,9 +257,9 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getOutMetaModel_2003Text(View view) {
+	private String getOutMetaModel_1003Text(View view) {
 		IAdaptable hintAdapter = new mm_hybrid.diagram.providers.MM_HybridParserProvider.HintAdapter(
-				mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_2003,
+				mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_1003,
 				(view.getElement() != null ? view.getElement() : view),
 				mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 						.getType(mm_hybrid.diagram.edit.parts.OutMetaModelName_mmEditPart.VISUAL_ID));
@@ -271,7 +270,7 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			mm_hybrid.diagram.part.MM_HybridDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5006); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 4006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -280,9 +279,9 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getSourceElementRule_3001Text(View view) {
+	private String getSourceElementRule_2001Text(View view) {
 		IAdaptable hintAdapter = new mm_hybrid.diagram.providers.MM_HybridParserProvider.HintAdapter(
-				mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_3001,
+				mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_2001,
 				(view.getElement() != null ? view.getElement() : view),
 				mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 						.getType(mm_hybrid.diagram.edit.parts.SourceElementRuleName_elementEditPart.VISUAL_ID));
@@ -293,7 +292,7 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			mm_hybrid.diagram.part.MM_HybridDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5001); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 4001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -302,9 +301,9 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getCondition_3002Text(View view) {
+	private String getCondition_2002Text(View view) {
 		IAdaptable hintAdapter = new mm_hybrid.diagram.providers.MM_HybridParserProvider.HintAdapter(
-				mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_3002,
+				mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_2002,
 				(view.getElement() != null ? view.getElement() : view),
 				mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 						.getType(mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID));
@@ -315,7 +314,7 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			mm_hybrid.diagram.part.MM_HybridDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 3002); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 2002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -323,9 +322,9 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getTargetElementRule_3003Text(View view) {
+	private String getTargetElementRule_2003Text(View view) {
 		IAdaptable hintAdapter = new mm_hybrid.diagram.providers.MM_HybridParserProvider.HintAdapter(
-				mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_3003,
+				mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_2003,
 				(view.getElement() != null ? view.getElement() : view),
 				mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 						.getType(mm_hybrid.diagram.edit.parts.TargetElementRuleName_elementEditPart.VISUAL_ID));
@@ -336,7 +335,7 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			mm_hybrid.diagram.part.MM_HybridDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5002); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 4002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 

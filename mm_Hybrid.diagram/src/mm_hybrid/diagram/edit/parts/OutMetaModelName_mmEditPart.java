@@ -58,7 +58,7 @@ public class OutMetaModelName_mmEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5006;
+	public static final int VISUAL_ID = 4006;
 
 	/**
 	 * @generated
@@ -303,7 +303,7 @@ public class OutMetaModelName_mmEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new mm_hybrid.diagram.providers.MM_HybridParserProvider.HintAdapter(
-					mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_2003,
+					mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_1003,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
