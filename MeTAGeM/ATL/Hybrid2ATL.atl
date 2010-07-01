@@ -1,0 +1,2 @@
+module Hybrid2ATL; -- Module Template
+create ATL : Ecore from Hybrid : MM_Hybrid;
