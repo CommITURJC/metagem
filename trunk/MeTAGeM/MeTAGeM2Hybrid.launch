@@ -31,7 +31,7 @@
 <mapEntry key="MM_Hybrid" value="/MeTAGeM/Metamodels/MM_Hybrid.ecore"/>
 <mapEntry key="IN" value="/MeTAGeM/Models/SQL2ORDB_HybridTest.amw"/>
 <mapEntry key="AMW" value="/MeTAGeM/Metamodels/mm_metagem.ecore"/>
-<mapEntry key="OUT" value="/MeTAGeM/Models/SQL2ORDB_Hybrid.MM_Hybrid"/>
+<mapEntry key="OUT" value="/MeTAGeM/Models/SQL2ORDB_Hybrid.mm_hybrid"/>
 <mapEntry key="left" value="/MeTAGeM/Metamodels/SQL2003.ecore"/>
 <mapEntry key="MOF" value="#EMF"/>
 <mapEntry key="right" value="/MeTAGeM/Metamodels/ORDB4ORA.ecore"/>

@@ -4,15 +4,49 @@
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_MULTISET" ref="//MULTISET"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_DatetimeType" ref="//DatetimeType"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_IntervalTypes" ref="//IntervalTypes"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_ARRAY" ref="//ARRAY"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_DerivedTable" ref="//DerivedTable"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Function" ref="//Function"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Procedure" ref="//Procedure"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_NotNull" ref="//NotNull"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Parameter" ref="//Parameter"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_ParameterMode" ref="//ParameterMode"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_ParameterWithMode" ref="//ParameterWithMode"/>
   </inputModel>
   <outputModel xmi:id="OutModelTransf1" name="ORDB" ref="/MeTAGeM/Metamodels/ORDB4ORA.ecore">
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_NestedTableType" ref="//NestedTableType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Varray" ref="//Varray"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_TriggerActionTime" ref="//TriggerActionTime"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_StoredNestedTable" ref="//StoredNestedTable"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Package" ref="//Package"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Parameter" ref="//Parameter"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_ParameterMode" ref="//ParameterMode"/>
   </outputModel>
   <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="r1" isMain="true">
-    <source xmi:id="InElement1" name="MULTISET" element="//@inputModel.0/@ownedElementRef.0" varName=""/>
-    <target xmi:id="OutElement1" name="NestedTableType" element="//@outputModel.0/@ownedElementRef.0"/>
+    <source xmi:id="InElement1" name="ARRAY" element="//@inputModel.0/@ownedElementRef.3"/>
+    <target xmi:id="OutElement1" name="Varray" element="//@outputModel.0/@ownedElementRef.1"/>
   </relations>
   <relations xsi:type="OneToZero" xmi:id="OneToZero1" name="r2" isMain="true">
     <source name="IntervalTypes" element="//@inputModel.0/@ownedElementRef.2"/>
+  </relations>
+  <relations xsi:type="ZeroToOne" xmi:id="ZeroToOne1" name="r3" isMain="false">
+    <target name="TriggerActionTime" element="//@outputModel.0/@ownedElementRef.2"/>
+  </relations>
+  <relations xsi:type="OneToMany" xmi:id="OneToMany1" name="r4">
+    <source xmi:id="InElement2" name="MULTISET" element="//@inputModel.0/@ownedElementRef.0"/>
+    <target xmi:id="OutElement2" name="NestedTableType" element="//@outputModel.0/@ownedElementRef.0"/>
+    <target xmi:id="OutElement3" name="StoredNestedTable" element="//@outputModel.0/@ownedElementRef.3"/>
+  </relations>
+  <relations xsi:type="ManyToOne" name="r5">
+    <source name="Function" element="//@inputModel.0/@ownedElementRef.5"/>
+    <source name="Procedure" element="//@inputModel.0/@ownedElementRef.6"/>
+    <target name="Package" element="//@outputModel.0/@ownedElementRef.4"/>
+  </relations>
+  <relations xsi:type="ManyToMany" name="r6">
+    <source name="Parameter" element="//@inputModel.0/@ownedElementRef.8"/>
+    <source name="ParameterMode" element="//@inputModel.0/@ownedElementRef.9"/>
+    <source name="ParameterWithMode" element="//@inputModel.0/@ownedElementRef.10"/>
+    <target name="Parameter" element="//@outputModel.0/@ownedElementRef.5"/>
+    <target name="ParameterMode" element="//@outputModel.0/@ownedElementRef.6"/>
   </relations>
 </ModelRoot>
