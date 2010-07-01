@@ -64,6 +64,8 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 			addName_rulePropertyDescriptor(object);
 			addIsAbstractPropertyDescriptor(object);
 			addIsMainPropertyDescriptor(object);
+			addTypeAttributePropertyDescriptor(object);
+			addTypeElementPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -126,6 +128,46 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 						MM_HybridPackage.Literals.RULE__IS_MAIN, true, false,
 						false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 						null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Type Attribute feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypeAttributePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_Rule_typeAttribute_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_Rule_typeAttribute_feature", "_UI_Rule_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.RULE__TYPE_ATTRIBUTE, true,
+						false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Type Element feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypeElementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_Rule_typeElement_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_Rule_typeElement_feature", "_UI_Rule_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.RULE__TYPE_ELEMENT, true,
+						false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -200,6 +242,8 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 		case MM_HybridPackage.RULE__NAME_RULE:
 		case MM_HybridPackage.RULE__IS_ABSTRACT:
 		case MM_HybridPackage.RULE__IS_MAIN:
+		case MM_HybridPackage.RULE__TYPE_ATTRIBUTE:
+		case MM_HybridPackage.RULE__TYPE_ELEMENT:
 			fireNotifyChanged(new ViewerNotification(notification, notification
 					.getNotifier(), false, true));
 			return;
