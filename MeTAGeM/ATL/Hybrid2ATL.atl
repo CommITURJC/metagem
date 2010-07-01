@@ -3,7 +3,7 @@ create OUT : ATL from IN : MM_Hybrid;
 
 rule Module {
 	from 
-		mm_hybrid : MM_Hybrid!ModelRoot
+		mm_hybrid : MM_Hybrid!Module
 	to
 		atl : ATL!Module (
 			  isRefining <- false,
