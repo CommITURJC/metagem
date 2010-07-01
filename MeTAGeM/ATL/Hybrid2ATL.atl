@@ -1,2 +1,16 @@
 module Hybrid2ATL; -- Module Template
-create ATL : Ecore from Hybrid : MM_Hybrid;
+create OUT : ATL from IN : MM_Hybrid;
+
+rule Module {
+	from 
+		mm_hybrid : MM_Hybrid!ModelRoot
+	to
+		atl : ATL!Module (
+			  isRefining <- false,
+			  name <- mm_hybrid.name_module,
+		      inModels <- mm_hybrid.inMM,
+			  outModels <- mm_hybrid.outMM,	
+			  elements <- mm_hybrid."rule",
+			  commentsBefore <- Set {'-- @atlcompiler atl2006'}
+		)
+}
