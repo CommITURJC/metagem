@@ -20,7 +20,7 @@ public class ModuleItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (mm_hybrid.diagram.providers.MM_HybridElementTypes.Rule_2001 == req
+		if (mm_hybrid.diagram.providers.MM_HybridElementTypes.Rule_1001 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(mm_hybrid.MM_HybridPackage.eINSTANCE
@@ -29,7 +29,7 @@ public class ModuleItemSemanticEditPolicy extends
 			return getGEFWrapper(new mm_hybrid.diagram.edit.commands.RuleCreateCommand(
 					req));
 		}
-		if (mm_hybrid.diagram.providers.MM_HybridElementTypes.InMetaModel_2002 == req
+		if (mm_hybrid.diagram.providers.MM_HybridElementTypes.InMetaModel_1002 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(mm_hybrid.MM_HybridPackage.eINSTANCE
@@ -38,7 +38,7 @@ public class ModuleItemSemanticEditPolicy extends
 			return getGEFWrapper(new mm_hybrid.diagram.edit.commands.InMetaModelCreateCommand(
 					req));
 		}
-		if (mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_2003 == req
+		if (mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_1003 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(mm_hybrid.MM_HybridPackage.eINSTANCE

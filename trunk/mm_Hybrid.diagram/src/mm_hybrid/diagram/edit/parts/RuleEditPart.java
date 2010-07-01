@@ -45,7 +45,7 @@ public class RuleEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2001;
+	public static final int VISUAL_ID = 1001;
 
 	/**
 	 * @generated
@@ -78,14 +78,14 @@ public class RuleEditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_3001) {
+								if (type == mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_2001) {
 									EditPart compartmentEditPart = getChildBySemanticHint(mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 											.getType(mm_hybrid.diagram.edit.parts.RuleSourceEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_3003) {
+								if (type == mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_2003) {
 									EditPart compartmentEditPart = getChildBySemanticHint(mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 											.getType(mm_hybrid.diagram.edit.parts.RuleTargetEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

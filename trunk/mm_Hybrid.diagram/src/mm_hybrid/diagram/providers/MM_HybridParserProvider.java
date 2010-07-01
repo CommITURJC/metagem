@@ -24,22 +24,22 @@ public class MM_HybridParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser ruleName_rule_5003Parser;
+	private IParser ruleName_rule_4003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRuleName_rule_5003Parser() {
-		if (ruleName_rule_5003Parser == null) {
-			ruleName_rule_5003Parser = createRuleName_rule_5003Parser();
+	private IParser getRuleName_rule_4003Parser() {
+		if (ruleName_rule_4003Parser == null) {
+			ruleName_rule_4003Parser = createRuleName_rule_4003Parser();
 		}
-		return ruleName_rule_5003Parser;
+		return ruleName_rule_4003Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createRuleName_rule_5003Parser() {
+	protected IParser createRuleName_rule_4003Parser() {
 		EAttribute[] features = new EAttribute[] { mm_hybrid.MM_HybridPackage.eINSTANCE
 				.getRule_Name_rule(), };
 		mm_hybrid.diagram.parsers.MessageFormatParser parser = new mm_hybrid.diagram.parsers.MessageFormatParser(
@@ -50,22 +50,22 @@ public class MM_HybridParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser ruleIsAbstractIsMain_5004Parser;
+	private IParser ruleIsAbstractIsMain_4004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRuleIsAbstractIsMain_5004Parser() {
-		if (ruleIsAbstractIsMain_5004Parser == null) {
-			ruleIsAbstractIsMain_5004Parser = createRuleIsAbstractIsMain_5004Parser();
+	private IParser getRuleIsAbstractIsMain_4004Parser() {
+		if (ruleIsAbstractIsMain_4004Parser == null) {
+			ruleIsAbstractIsMain_4004Parser = createRuleIsAbstractIsMain_4004Parser();
 		}
-		return ruleIsAbstractIsMain_5004Parser;
+		return ruleIsAbstractIsMain_4004Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createRuleIsAbstractIsMain_5004Parser() {
+	protected IParser createRuleIsAbstractIsMain_4004Parser() {
 		EAttribute[] features = new EAttribute[] {
 				mm_hybrid.MM_HybridPackage.eINSTANCE.getRule_IsAbstract(),
 				mm_hybrid.MM_HybridPackage.eINSTANCE.getRule_IsMain(), };
@@ -80,22 +80,22 @@ public class MM_HybridParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser inMetaModelName_mm_5005Parser;
+	private IParser inMetaModelName_mm_4005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getInMetaModelName_mm_5005Parser() {
-		if (inMetaModelName_mm_5005Parser == null) {
-			inMetaModelName_mm_5005Parser = createInMetaModelName_mm_5005Parser();
+	private IParser getInMetaModelName_mm_4005Parser() {
+		if (inMetaModelName_mm_4005Parser == null) {
+			inMetaModelName_mm_4005Parser = createInMetaModelName_mm_4005Parser();
 		}
-		return inMetaModelName_mm_5005Parser;
+		return inMetaModelName_mm_4005Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createInMetaModelName_mm_5005Parser() {
+	protected IParser createInMetaModelName_mm_4005Parser() {
 		EAttribute[] features = new EAttribute[] { mm_hybrid.MM_HybridPackage.eINSTANCE
 				.getInMetaModel_Name_mm(), };
 		mm_hybrid.diagram.parsers.MessageFormatParser parser = new mm_hybrid.diagram.parsers.MessageFormatParser(
@@ -106,22 +106,22 @@ public class MM_HybridParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser outMetaModelName_mm_5006Parser;
+	private IParser outMetaModelName_mm_4006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getOutMetaModelName_mm_5006Parser() {
-		if (outMetaModelName_mm_5006Parser == null) {
-			outMetaModelName_mm_5006Parser = createOutMetaModelName_mm_5006Parser();
+	private IParser getOutMetaModelName_mm_4006Parser() {
+		if (outMetaModelName_mm_4006Parser == null) {
+			outMetaModelName_mm_4006Parser = createOutMetaModelName_mm_4006Parser();
 		}
-		return outMetaModelName_mm_5006Parser;
+		return outMetaModelName_mm_4006Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createOutMetaModelName_mm_5006Parser() {
+	protected IParser createOutMetaModelName_mm_4006Parser() {
 		EAttribute[] features = new EAttribute[] { mm_hybrid.MM_HybridPackage.eINSTANCE
 				.getOutMetaModel_Name_mm(), };
 		mm_hybrid.diagram.parsers.MessageFormatParser parser = new mm_hybrid.diagram.parsers.MessageFormatParser(
@@ -132,22 +132,22 @@ public class MM_HybridParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser sourceElementRuleName_element_5001Parser;
+	private IParser sourceElementRuleName_element_4001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSourceElementRuleName_element_5001Parser() {
-		if (sourceElementRuleName_element_5001Parser == null) {
-			sourceElementRuleName_element_5001Parser = createSourceElementRuleName_element_5001Parser();
+	private IParser getSourceElementRuleName_element_4001Parser() {
+		if (sourceElementRuleName_element_4001Parser == null) {
+			sourceElementRuleName_element_4001Parser = createSourceElementRuleName_element_4001Parser();
 		}
-		return sourceElementRuleName_element_5001Parser;
+		return sourceElementRuleName_element_4001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSourceElementRuleName_element_5001Parser() {
+	protected IParser createSourceElementRuleName_element_4001Parser() {
 		EAttribute[] features = new EAttribute[] { mm_hybrid.MM_HybridPackage.eINSTANCE
 				.getElement_Name_element(), };
 		mm_hybrid.diagram.parsers.MessageFormatParser parser = new mm_hybrid.diagram.parsers.MessageFormatParser(
@@ -161,22 +161,22 @@ public class MM_HybridParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser condition_3002Parser;
+	private IParser condition_2002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCondition_3002Parser() {
-		if (condition_3002Parser == null) {
-			condition_3002Parser = createCondition_3002Parser();
+	private IParser getCondition_2002Parser() {
+		if (condition_2002Parser == null) {
+			condition_2002Parser = createCondition_2002Parser();
 		}
-		return condition_3002Parser;
+		return condition_2002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createCondition_3002Parser() {
+	protected IParser createCondition_2002Parser() {
 		EAttribute[] features = new EAttribute[] { mm_hybrid.MM_HybridPackage.eINSTANCE
 				.getCondition_Value(), };
 		mm_hybrid.diagram.parsers.MessageFormatParser parser = new mm_hybrid.diagram.parsers.MessageFormatParser(
@@ -190,22 +190,22 @@ public class MM_HybridParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser targetElementRuleName_element_5002Parser;
+	private IParser targetElementRuleName_element_4002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTargetElementRuleName_element_5002Parser() {
-		if (targetElementRuleName_element_5002Parser == null) {
-			targetElementRuleName_element_5002Parser = createTargetElementRuleName_element_5002Parser();
+	private IParser getTargetElementRuleName_element_4002Parser() {
+		if (targetElementRuleName_element_4002Parser == null) {
+			targetElementRuleName_element_4002Parser = createTargetElementRuleName_element_4002Parser();
 		}
-		return targetElementRuleName_element_5002Parser;
+		return targetElementRuleName_element_4002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createTargetElementRuleName_element_5002Parser() {
+	protected IParser createTargetElementRuleName_element_4002Parser() {
 		EAttribute[] features = new EAttribute[] { mm_hybrid.MM_HybridPackage.eINSTANCE
 				.getElement_Name_element(), };
 		mm_hybrid.diagram.parsers.MessageFormatParser parser = new mm_hybrid.diagram.parsers.MessageFormatParser(
@@ -222,19 +222,19 @@ public class MM_HybridParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case mm_hybrid.diagram.edit.parts.RuleName_ruleEditPart.VISUAL_ID:
-			return getRuleName_rule_5003Parser();
+			return getRuleName_rule_4003Parser();
 		case mm_hybrid.diagram.edit.parts.RuleIsAbstractIsMainEditPart.VISUAL_ID:
-			return getRuleIsAbstractIsMain_5004Parser();
+			return getRuleIsAbstractIsMain_4004Parser();
 		case mm_hybrid.diagram.edit.parts.InMetaModelName_mmEditPart.VISUAL_ID:
-			return getInMetaModelName_mm_5005Parser();
+			return getInMetaModelName_mm_4005Parser();
 		case mm_hybrid.diagram.edit.parts.OutMetaModelName_mmEditPart.VISUAL_ID:
-			return getOutMetaModelName_mm_5006Parser();
+			return getOutMetaModelName_mm_4006Parser();
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleName_elementEditPart.VISUAL_ID:
-			return getSourceElementRuleName_element_5001Parser();
+			return getSourceElementRuleName_element_4001Parser();
 		case mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID:
-			return getCondition_3002Parser();
+			return getCondition_2002Parser();
 		case mm_hybrid.diagram.edit.parts.TargetElementRuleName_elementEditPart.VISUAL_ID:
-			return getTargetElementRuleName_element_5002Parser();
+			return getTargetElementRuleName_element_4002Parser();
 		}
 		return null;
 	}

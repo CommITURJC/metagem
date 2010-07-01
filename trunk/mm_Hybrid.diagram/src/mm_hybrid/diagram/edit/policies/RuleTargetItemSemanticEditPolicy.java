@@ -16,7 +16,7 @@ public class RuleTargetItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_3003 == req
+		if (mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_2003 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(mm_hybrid.MM_HybridPackage.eINSTANCE

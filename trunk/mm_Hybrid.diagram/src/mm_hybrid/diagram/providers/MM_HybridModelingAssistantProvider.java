@@ -39,25 +39,25 @@ public class MM_HybridModelingAssistantProvider extends
 		if (editPart instanceof mm_hybrid.diagram.edit.parts.RuleEditPart) {
 			List types = new ArrayList();
 			types
-					.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_3001);
+					.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_2001);
 			types
-					.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_3003);
+					.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_2003);
 			return types;
 		}
 		if (editPart instanceof mm_hybrid.diagram.edit.parts.SourceElementRuleEditPart) {
 			List types = new ArrayList();
 			types
-					.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_3002);
+					.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_2002);
 			return types;
 		}
 		if (editPart instanceof mm_hybrid.diagram.edit.parts.ModuleEditPart) {
 			List types = new ArrayList();
 			types
-					.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.Rule_2001);
+					.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.Rule_1001);
 			types
-					.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.InMetaModel_2002);
+					.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.InMetaModel_1002);
 			types
-					.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_2003);
+					.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_1003);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

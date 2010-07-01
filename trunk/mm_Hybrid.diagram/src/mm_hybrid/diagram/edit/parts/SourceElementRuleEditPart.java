@@ -43,7 +43,7 @@ public class SourceElementRuleEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3001;
+	public static final int VISUAL_ID = 2001;
 
 	/**
 	 * @generated
@@ -76,7 +76,7 @@ public class SourceElementRuleEditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_3002) {
+								if (type == mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_2002) {
 									EditPart compartmentEditPart = getChildBySemanticHint(mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 											.getType(mm_hybrid.diagram.edit.parts.SourceElementRuleConditionEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

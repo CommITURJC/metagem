@@ -36,7 +36,7 @@ public class ModuleCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = mm_hybrid.diagram.part.MM_HybridDiagramUpdater
-				.getModule_1000SemanticChildren(viewObject).iterator(); it
+				.getModule_79SemanticChildren(viewObject).iterator(); it
 				.hasNext();) {
 			result.add(((mm_hybrid.diagram.part.MM_HybridNodeDescriptor) it
 					.next()).getModelElement());

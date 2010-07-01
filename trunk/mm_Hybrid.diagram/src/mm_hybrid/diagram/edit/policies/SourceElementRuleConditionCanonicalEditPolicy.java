@@ -31,7 +31,7 @@ public class SourceElementRuleConditionCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = mm_hybrid.diagram.part.MM_HybridDiagramUpdater
-				.getSourceElementRuleCondition_7003SemanticChildren(viewObject)
+				.getSourceElementRuleCondition_5003SemanticChildren(viewObject)
 				.iterator(); it.hasNext();) {
 			result.add(((mm_hybrid.diagram.part.MM_HybridNodeDescriptor) it
 					.next()).getModelElement());

@@ -58,14 +58,14 @@ public class MM_HybridPaletteFactory {
 	private ToolEntry createInMetaModel1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.InMetaModel_2002);
+				.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.InMetaModel_1002);
 		NodeToolEntry entry = new NodeToolEntry(
 				mm_hybrid.diagram.part.Messages.InMetaModel1CreationTool_title,
 				mm_hybrid.diagram.part.Messages.InMetaModel1CreationTool_desc,
 				types);
 		entry
 				.setSmallIcon(mm_hybrid.diagram.providers.MM_HybridElementTypes
-						.getImageDescriptor(mm_hybrid.diagram.providers.MM_HybridElementTypes.InMetaModel_2002));
+						.getImageDescriptor(mm_hybrid.diagram.providers.MM_HybridElementTypes.InMetaModel_1002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -76,14 +76,14 @@ public class MM_HybridPaletteFactory {
 	private ToolEntry createOutMetaModel2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_2003);
+				.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_1003);
 		NodeToolEntry entry = new NodeToolEntry(
 				mm_hybrid.diagram.part.Messages.OutMetaModel2CreationTool_title,
 				mm_hybrid.diagram.part.Messages.OutMetaModel2CreationTool_desc,
 				types);
 		entry
 				.setSmallIcon(mm_hybrid.diagram.providers.MM_HybridElementTypes
-						.getImageDescriptor(mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_2003));
+						.getImageDescriptor(mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_1003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -93,13 +93,13 @@ public class MM_HybridPaletteFactory {
 	 */
 	private ToolEntry createRule1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.Rule_2001);
+		types.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.Rule_1001);
 		NodeToolEntry entry = new NodeToolEntry(
 				mm_hybrid.diagram.part.Messages.Rule1CreationTool_title,
 				mm_hybrid.diagram.part.Messages.Rule1CreationTool_desc, types);
 		entry
 				.setSmallIcon(mm_hybrid.diagram.providers.MM_HybridElementTypes
-						.getImageDescriptor(mm_hybrid.diagram.providers.MM_HybridElementTypes.Rule_2001));
+						.getImageDescriptor(mm_hybrid.diagram.providers.MM_HybridElementTypes.Rule_1001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -110,14 +110,14 @@ public class MM_HybridPaletteFactory {
 	private ToolEntry createSourceElementRule2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_3001);
+				.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_2001);
 		NodeToolEntry entry = new NodeToolEntry(
 				mm_hybrid.diagram.part.Messages.SourceElementRule2CreationTool_title,
 				mm_hybrid.diagram.part.Messages.SourceElementRule2CreationTool_desc,
 				types);
 		entry
 				.setSmallIcon(mm_hybrid.diagram.providers.MM_HybridElementTypes
-						.getImageDescriptor(mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_3001));
+						.getImageDescriptor(mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_2001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -128,14 +128,14 @@ public class MM_HybridPaletteFactory {
 	private ToolEntry createTargetElementRule3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_3003);
+				.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_2003);
 		NodeToolEntry entry = new NodeToolEntry(
 				mm_hybrid.diagram.part.Messages.TargetElementRule3CreationTool_title,
 				mm_hybrid.diagram.part.Messages.TargetElementRule3CreationTool_desc,
 				types);
 		entry
 				.setSmallIcon(mm_hybrid.diagram.providers.MM_HybridElementTypes
-						.getImageDescriptor(mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_3003));
+						.getImageDescriptor(mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_2003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -146,14 +146,14 @@ public class MM_HybridPaletteFactory {
 	private ToolEntry createCondition4CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_3002);
+				.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_2002);
 		NodeToolEntry entry = new NodeToolEntry(
 				mm_hybrid.diagram.part.Messages.Condition4CreationTool_title,
 				mm_hybrid.diagram.part.Messages.Condition4CreationTool_desc,
 				types);
 		entry
 				.setSmallIcon(mm_hybrid.diagram.providers.MM_HybridElementTypes
-						.getImageDescriptor(mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_3002));
+						.getImageDescriptor(mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_2002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

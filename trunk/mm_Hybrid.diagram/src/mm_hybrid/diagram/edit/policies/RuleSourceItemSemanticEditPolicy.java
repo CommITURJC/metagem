@@ -16,7 +16,7 @@ public class RuleSourceItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_3001 == req
+		if (mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_2001 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(mm_hybrid.MM_HybridPackage.eINSTANCE

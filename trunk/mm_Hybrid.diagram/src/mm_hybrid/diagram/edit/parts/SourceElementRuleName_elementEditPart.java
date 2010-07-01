@@ -58,7 +58,7 @@ public class SourceElementRuleName_elementEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5001;
+	public static final int VISUAL_ID = 4001;
 
 	/**
 	 * @generated
@@ -303,7 +303,7 @@ public class SourceElementRuleName_elementEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new mm_hybrid.diagram.providers.MM_HybridParserProvider.HintAdapter(
-					mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_3001,
+					mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_2001,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
