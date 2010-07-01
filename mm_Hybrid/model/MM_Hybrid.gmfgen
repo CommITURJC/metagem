@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmfgen="http://www.eclipse.org/gmf/2008/GenModel" copyrightText="">
   <diagram
-      visualID="1000"
+      visualID="79"
       editPartClassName="ModuleEditPart"
       itemSemanticEditPolicyClassName="ModuleItemSemanticEditPolicy"
       notationViewFactoryClassName="ModuleViewFactory"
@@ -28,7 +28,7 @@
     <domainDiagramElement
         href="MM_Hybrid.genmodel#//mm_hybrid/Module"/>
     <childNodes
-        visualID="3001"
+        visualID="2001"
         editPartClassName="SourceElementRuleEditPart"
         itemSemanticEditPolicyClassName="SourceElementRuleItemSemanticEditPolicy"
         notationViewFactoryClassName="SourceElementRuleViewFactory"
@@ -62,7 +62,7 @@
             href="MM_Hybrid.genmodel#//mm_hybrid/Rule/in"/>
       </modelFacet>
       <labels
-          visualID="5001"
+          visualID="4001"
           editPartClassName="SourceElementRuleName_elementEditPart"
           itemSemanticEditPolicyClassName="SourceElementRuleName_elementItemSemanticEditPolicy"
           notationViewFactoryClassName="SourceElementRuleName_elementViewFactory">
@@ -82,7 +82,7 @@
     </childNodes>
     <childNodes
         xsi:type="gmfgen:GenChildLabelNode"
-        visualID="3002"
+        visualID="2002"
         editPartClassName="ConditionEditPart"
         itemSemanticEditPolicyClassName="ConditionItemSemanticEditPolicy"
         notationViewFactoryClassName="ConditionViewFactory"
@@ -120,7 +120,7 @@
       </labelModelFacet>
     </childNodes>
     <childNodes
-        visualID="3003"
+        visualID="2003"
         editPartClassName="TargetElementRuleEditPart"
         itemSemanticEditPolicyClassName="TargetElementRuleItemSemanticEditPolicy"
         notationViewFactoryClassName="TargetElementRuleViewFactory"
@@ -153,7 +153,7 @@
             href="MM_Hybrid.genmodel#//mm_hybrid/Rule/out"/>
       </modelFacet>
       <labels
-          visualID="5002"
+          visualID="4002"
           editPartClassName="TargetElementRuleName_elementEditPart"
           itemSemanticEditPolicyClassName="TargetElementRuleName_elementItemSemanticEditPolicy"
           notationViewFactoryClassName="TargetElementRuleName_elementViewFactory">
@@ -172,7 +172,7 @@
       </labels>
     </childNodes>
     <topLevelNodes
-        visualID="2001"
+        visualID="1001"
         editPartClassName="RuleEditPart"
         itemSemanticEditPolicyClassName="RuleItemSemanticEditPolicy"
         notationViewFactoryClassName="RuleViewFactory"
@@ -209,7 +209,7 @@
             href="MM_Hybrid.genmodel#//mm_hybrid/Module/rule"/>
       </modelFacet>
       <labels
-          visualID="5003"
+          visualID="4003"
           editPartClassName="RuleName_ruleEditPart"
           itemSemanticEditPolicyClassName="RuleName_ruleItemSemanticEditPolicy"
           notationViewFactoryClassName="RuleName_ruleViewFactory">
@@ -226,7 +226,7 @@
         </modelFacet>
       </labels>
       <labels
-          visualID="5004"
+          visualID="4004"
           editPartClassName="RuleIsAbstractIsMainEditPart"
           itemSemanticEditPolicyClassName="RuleIsAbstractIsMainItemSemanticEditPolicy"
           notationViewFactoryClassName="RuleIsAbstractIsMainViewFactory">
@@ -251,7 +251,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2002"
+        visualID="1002"
         editPartClassName="InMetaModelEditPart"
         itemSemanticEditPolicyClassName="InMetaModelItemSemanticEditPolicy"
         notationViewFactoryClassName="InMetaModelViewFactory"
@@ -283,7 +283,7 @@
             href="MM_Hybrid.genmodel#//mm_hybrid/Module/inMM"/>
       </modelFacet>
       <labels
-          visualID="5005"
+          visualID="4005"
           editPartClassName="InMetaModelName_mmEditPart"
           itemSemanticEditPolicyClassName="InMetaModelName_mmItemSemanticEditPolicy"
           notationViewFactoryClassName="InMetaModelName_mmViewFactory">
@@ -301,7 +301,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2003"
+        visualID="1003"
         editPartClassName="OutMetaModelEditPart"
         itemSemanticEditPolicyClassName="OutMetaModelItemSemanticEditPolicy"
         notationViewFactoryClassName="OutMetaModelViewFactory"
@@ -333,7 +333,7 @@
             href="MM_Hybrid.genmodel#//mm_hybrid/Module/outMM"/>
       </modelFacet>
       <labels
-          visualID="5006"
+          visualID="4006"
           editPartClassName="OutMetaModelName_mmEditPart"
           itemSemanticEditPolicyClassName="OutMetaModelName_mmItemSemanticEditPolicy"
           notationViewFactoryClassName="OutMetaModelName_mmViewFactory">
@@ -351,7 +351,7 @@
       </labels>
     </topLevelNodes>
     <compartments
-        visualID="7001"
+        visualID="5001"
         editPartClassName="RuleSourceEditPart"
         itemSemanticEditPolicyClassName="RuleSourceItemSemanticEditPolicy"
         notationViewFactoryClassName="RuleSourceViewFactory"
@@ -374,7 +374,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="7002"
+        visualID="5002"
         editPartClassName="RuleTargetEditPart"
         itemSemanticEditPolicyClassName="RuleTargetItemSemanticEditPolicy"
         notationViewFactoryClassName="RuleTargetViewFactory"
@@ -397,7 +397,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="7003"
+        visualID="5003"
         editPartClassName="SourceElementRuleConditionEditPart"
         itemSemanticEditPolicyClassName="SourceElementRuleConditionItemSemanticEditPolicy"
         notationViewFactoryClassName="SourceElementRuleConditionViewFactory"

@@ -5,6 +5,13 @@ package mm_hybrid;
 enum TypeAtribute {
   copy = 1;
   concatenation = 2;
+  various = 3;
+}
+
+enum TypeElem {
+  MyEclassifier = 1;
+  MyEattribute = 2;
+  MyEreference = 3;
 }
 
 @gmf.diagram(foo="bar")
@@ -14,13 +21,15 @@ class Module {
   !ordered val InMetaModel[+] inMM;
   !ordered val OutMetaModel[+] outMM;
 }
+
 @gmf.node(label="name_mm", label.icon="false", border.color="0,0,128", color="198,198,236")
-class InMetaModel{
-   !unique !ordered attr String[1] name_mm;
+class InMetaModel {
+  !unique !ordered attr String[1] name_mm;
 }
+
 @gmf.node(label="name_mm", label.icon="false", border.color="210,0,0", color="255,147,147")
-class OutMetaModel{
-   !unique !ordered attr String[1] name_mm;
+class OutMetaModel {
+  !unique !ordered attr String[1] name_mm;
 }
 
 @gmf.node(label="name_rule", label.icon="false", border.color="204,153,0", color="253,229,141")
@@ -28,8 +37,10 @@ class Rule {
   !unique !ordered attr String[1] name_rule;
   !unique !ordered attr boolean[1] isAbstract;
   !unique !ordered attr boolean[1] isMain;
-  !ordered val SourceElementRule[1] in;
-  !ordered val TargetElementRule[+] out;
+  !ordered val SourceElementRule[*] in;
+  !ordered val TargetElementRule[*] out;
+  !unique !ordered attr TypeAtribute[1] typeAttribute;
+  !unique !ordered attr TypeElem[1] typeElement;
 }
 
 abstract class Element {

@@ -19,6 +19,7 @@ import mm_hybrid.SourceElementRule;
 import mm_hybrid.TargetElementRule;
 import mm_hybrid.TypeAtribute;
 
+import mm_hybrid.TypeElem;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -104,6 +105,13 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	private EEnum typeAtributeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum typeElemEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -318,6 +326,24 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRule_TypeAttribute() {
+		return (EAttribute) ruleEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRule_TypeElement() {
+		return (EAttribute) ruleEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getElement() {
 		return elementEClass;
 	}
@@ -420,6 +446,15 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getTypeElem() {
+		return typeElemEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MM_HybridFactory getMM_HybridFactory() {
 		return (MM_HybridFactory) getEFactoryInstance();
 	}
@@ -462,6 +497,8 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		createEAttribute(ruleEClass, RULE__IS_MAIN);
 		createEReference(ruleEClass, RULE__IN);
 		createEReference(ruleEClass, RULE__OUT);
+		createEAttribute(ruleEClass, RULE__TYPE_ATTRIBUTE);
+		createEAttribute(ruleEClass, RULE__TYPE_ELEMENT);
 
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__NAME_ELEMENT);
@@ -483,6 +520,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 
 		// Create enums
 		typeAtributeEEnum = createEEnum(TYPE_ATRIBUTE);
+		typeElemEEnum = createEEnum(TYPE_ELEM);
 	}
 
 	/**
@@ -580,12 +618,20 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				getRule_In(),
 				this.getSourceElementRule(),
 				null,
-				"in", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+				"in", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getRule_Out(),
 				this.getTargetElementRule(),
 				null,
-				"out", null, 1, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+				"out", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getRule_TypeAttribute(),
+				this.getTypeAtribute(),
+				"typeAttribute", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getRule_TypeElement(),
+				this.getTypeElem(),
+				"typeElement", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				elementEClass,
@@ -639,6 +685,12 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		initEEnum(typeAtributeEEnum, TypeAtribute.class, "TypeAtribute"); //$NON-NLS-1$
 		addEEnumLiteral(typeAtributeEEnum, TypeAtribute.COPY);
 		addEEnumLiteral(typeAtributeEEnum, TypeAtribute.CONCATENATION);
+		addEEnumLiteral(typeAtributeEEnum, TypeAtribute.VARIOUS);
+
+		initEEnum(typeElemEEnum, TypeElem.class, "TypeElem"); //$NON-NLS-1$
+		addEEnumLiteral(typeElemEEnum, TypeElem.MY_ECLASSIFIER);
+		addEEnumLiteral(typeElemEEnum, TypeElem.MY_EATTRIBUTE);
+		addEEnumLiteral(typeElemEEnum, TypeElem.MY_EREFERENCE);
 
 		// Create resource
 		createResource(eNS_URI);

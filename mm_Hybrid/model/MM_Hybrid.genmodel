@@ -10,6 +10,12 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeAtribute">
       <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeAtribute/copy"/>
       <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeAtribute/concatenation"/>
+      <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeAtribute/various"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeElem">
+      <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeElem/MyEclassifier"/>
+      <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeElem/MyEattribute"/>
+      <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeElem/MyEreference"/>
     </genEnums>
     <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//Module">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//Module/name_module"/>
@@ -29,6 +35,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//Rule/isMain"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//Rule/in"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//Rule/out"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//Rule/typeAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//Rule/typeElement"/>
     </genClasses>
     <genClasses image="false" ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//Element">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//Element/name_element"/>
