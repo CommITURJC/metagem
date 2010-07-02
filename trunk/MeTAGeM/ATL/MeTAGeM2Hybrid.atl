@@ -1,5 +1,7 @@
+--@atlcompiler atl2006
 module MeTAGeM2Hybrid; -- Module Template
 create OUT : MM_Hybrid from IN : AMW, left : MOF, right : MOF;
+
 
 rule Module {
 	from 
@@ -49,78 +51,73 @@ rule OutElement2TargetElementRule{
 		)
 }
 
-rule OneToOne2rule {
+
+rule OneToOne2rule extends Relations2Rule{
 	from
-		o2o: AMW!OneToOne
+		relation: AMW!OneToOne
 	to
-		rule_o2o: MM_Hybrid!Rule(
-			name_rule <- o2o.name.debug('nombre rule '),
-			isAbstract <- false,
-			isMain <- o2o.isMain,
-			"in" <- o2o.source,
-			out <- o2o.target,
-			typeAttribute <- o2o.typeAttri,
-			typeElement <- o2o.typeE
+		r_hybrid: MM_Hybrid!Rule(
+			"in" <- relation.source,
+			out <- relation.target
 		)
 }
 
-rule OneToZero2rule {
+rule OneToZero2rule extends Relations2Rule{
 	from
-		o2z: AMW!OneToZero
+		relation: AMW!OneToZero
 	to
-		rule_o2z: MM_Hybrid!Rule(
-			name_rule <- o2z.name.debug('nombre rule '),
-			isAbstract <- false,
-			isMain <- o2z.isMain,
-			"in" <- o2z.source
+		r_hybrid: MM_Hybrid!Rule(
+			"in" <- relation.source
 		)
 }
 
-rule ZeroToOne2rule {
+rule ZeroToOne2rule extends Relations2Rule{
 	from
-		z2o: AMW!ZeroToOne
+		relation: AMW!ZeroToOne
 	to
-		rule_z2o: MM_Hybrid!Rule(
-			name_rule <- z2o.name.debug('nombre rule '),
-			isAbstract <- false,
-			isMain <- z2o.isMain,
-			out <- z2o.target
+		r_hybrid: MM_Hybrid!Rule(
+			out <- relation.target
 		)
 }
 
-rule OneToMany2rule {
+rule OneToMany2rule extends Relations2Rule{
 	from
-		o2m: AMW!OneToMany
+		relation: AMW!OneToMany
 	to
-		rule_o2m: MM_Hybrid!Rule(
-			name_rule <- o2m.name.debug('nombre rule '),
-			isAbstract <- false,
-			isMain <- o2m.isMain,
-			"in" <- o2m.source,
-			out <- o2m.target
+		r_hybrid: MM_Hybrid!Rule(
+			"in" <- relation.source,
+			out <- relation.target
 		)
 }
-rule ManyToOne2rule {
+rule ManyToOne2rule extends Relations2Rule{
 	from
-		m2o: AMW!ManyToOne
+		relation: AMW!ManyToOne
 	to
-		rule_m2o: MM_Hybrid!Rule(
-			name_rule <- m2o.name.debug('nombre rule '),
-			isAbstract <- false,
-			isMain <- m2o.isMain,
-			"in" <- m2o.source,
-			out <- m2o.target
+		r_hybrid: MM_Hybrid!Rule(
+			"in" <- relation.source,
+			out <- relation.target
 		)
 }
-rule ManyToMany2rule {
+rule ManyToMany2rule extends Relations2Rule{
 	from
-		m2m: AMW!ManyToMany
+		relation: AMW!ManyToMany
 	to
-		rule_m2m: MM_Hybrid!Rule(
-			name_rule <- m2m.name.debug('nombre rule '),
+		r_hybrid: MM_Hybrid!Rule(
+			"in" <- relation.source,
+			out <- relation.target
+		)
+}
+
+
+abstract rule Relations2Rule{
+	from
+		relation:AMW!Relations
+	to
+		r_hybrid:MM_Hybrid!Rule(
+			name_rule <- relation.name.debug('nombre rule '),
 			isAbstract <- false,
-			isMain <- m2m.isMain,
-			"in" <- m2m.source,
-			out <- m2m.target
+			isMain <- relation.isMain,
+			typeAttribute <- relation.typeAttri,
+			typeElement <- relation.typeE
 		)
 }
