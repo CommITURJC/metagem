@@ -7,10 +7,27 @@ rule Module {
 	to
 		atl : ATL!Module (
 			  isRefining <- false,
-			  name <- mm_hybrid.name_module,
+			  name <- mm_hybrid.name_module.debug('Modulo'),
 		      inModels <- mm_hybrid.inMM,
 			  outModels <- mm_hybrid.outMM,	
-			  elements <- mm_hybrid."rule",
+			  --elements <- mm_hybrid."rule"
 			  commentsBefore <- Set {'-- @atlcompiler atl2006'}
+		)
+}
+rule inMM{
+	from
+		inMM_hybrid : MM_Hybrid!InMetaModel
+	to
+		inMM_ATL: ATL!OclModel(
+			name<-inMM_hybrid.name_mm.debug('InputMM')	
+		)
+}
+
+rule outMM{
+	from
+		outMM_hybrid : MM_Hybrid!OutMetaModel
+	to
+		outMM_ATL: ATL!OclModel(
+			name<-outMM_hybrid.name_mm.debug('OutputMM')	
 		)
 }
