@@ -12,6 +12,7 @@
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_Parameter" ref="//Parameter"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_ParameterMode" ref="//ParameterMode"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_ParameterWithMode" ref="//ParameterWithMode"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_name" ref="//Schema/name"/>
   </inputModel>
   <outputModel xmi:id="OutModelTransf1" name="ORDB" ref="/MeTAGeM/Metamodels/ORDB4ORA.ecore">
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_NestedTableType" ref="//NestedTableType"/>
@@ -21,6 +22,7 @@
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_Package" ref="//Package"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_Parameter" ref="//Parameter"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_ParameterMode" ref="//ParameterMode"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Name" ref="//Model/Name"/>
   </outputModel>
   <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="r1" typeAttri="concatenation" typeE="MyEreference" isMain="true">
     <source xmi:id="InElement1" name="ARRAY" element="//@inputModel.0/@ownedElementRef.3"/>
@@ -48,5 +50,14 @@
     <source name="ParameterWithMode" element="//@inputModel.0/@ownedElementRef.10"/>
     <target name="Parameter" element="//@outputModel.0/@ownedElementRef.5"/>
     <target name="ParameterMode" element="//@outputModel.0/@ownedElementRef.6"/>
+  </relations>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne2" name="r7" typeAttri="concatenation" typeE="MyEattribute">
+    <source xmi:id="InElement3" name="name" element="//@inputModel.0/@ownedElementRef.11"/>
+    <target xmi:id="OutElement4" name="Name" element="//@outputModel.0/@ownedElementRef.7">
+      <relations xsi:type="OneToOne" xmi:id="OneToOne3" typeE="MyEattribute">
+        <source xmi:id="InElement4" name="name" element="//@inputModel.0/@ownedElementRef.11"/>
+        <target xmi:id="OutElement5" name="Name" element="//@outputModel.0/@ownedElementRef.7"/>
+      </relations>
+    </target>
   </relations>
 </ModelRoot>
