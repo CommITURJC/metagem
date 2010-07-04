@@ -113,14 +113,14 @@
           unique="false" lowerBound="1" eType="#/2/MyTypeElem"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMain" ordered="false"
           unique="false" lowerBound="1" eType="#/1/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" ordered="false"
+          unique="false" lowerBound="1" eType="#/1/Boolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InElement" eSuperTypes="#/0/WLinkEnd">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" ordered="false"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="guardCondition" ordered="false"
           unique="false" lowerBound="1" eType="#/1/String"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OutElement" eSuperTypes="#/0/WLinkEnd">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" ordered="false"
-          unique="false" lowerBound="1" eType="#/1/String"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relations" ordered="false"
           lowerBound="1" upperBound="-1" eType="#/2/Relations" containment="true">
         <eAnnotations source="child"/>
