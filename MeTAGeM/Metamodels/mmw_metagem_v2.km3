@@ -46,6 +46,7 @@ package mmw_metagem {
 		attribute typeAttri : MyAttributeType;
 		attribute typeE: MyTypeElem; --indica si la relacion es entre un classifier, attribute o reference
 		attribute isMain: Boolean;
+		attribute isAbstract : Boolean;
 		--reference child[0-*] ordered container : WLink oppositeOf parent;
 		
 	   -- @subsets child
@@ -56,11 +57,10 @@ package mmw_metagem {
 	--}
 	
 	class InElement extends WLinkEnd{
-		attribute varName: String
+		attribute guardCondition : String;
 	}	
 	
 	class OutElement extends WLinkEnd{
-		attribute varName: String
 		-- @subsets child
 		reference relations [1-*] container: Relations;
 	}
