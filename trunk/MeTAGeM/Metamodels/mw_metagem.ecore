@@ -114,7 +114,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMain" ordered="false"
           unique="false" lowerBound="1" eType="#/1/Boolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" ordered="false"
-          unique="false" lowerBound="1" eType="#/1/Boolean"/>
+          unique="false" lowerBound="1" eType="#/1/Boolean" defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InElement" eSuperTypes="#/0/WLinkEnd">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="guardCondition" ordered="false"

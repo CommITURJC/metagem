@@ -3,11 +3,18 @@
   <inputModel xmi:id="InModelTransf1" name="SQL2003" ref="/MeTAGeM/Metamodels/SQL2003.ecore">
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_ARRAY" ref="//ARRAY"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_MULTISET" ref="//MULTISET"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_num_elements" ref="//ARRAY/num_elements"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_StructuredType" ref="//StructuredType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_attributes" ref="//StructuredType/attributes"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Attribute" ref="//Attribute"/>
   </inputModel>
   <outputModel xmi:id="OutModelTransf1" name="ORDB4ORA" ref="/MeTAGeM/Metamodels/ORDB4ORA.ecore">
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_Varray" ref="//Varray"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_StoredNestedTable" ref="//StoredNestedTable"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_NestedTableType" ref="//NestedTableType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_NumElements" ref="//Varray/NumElements"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_StructuredType" ref="//StructuredType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_attribute" ref="//StructuredType/attribute"/>
   </outputModel>
   <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="r1" isMain="true" isAbstract="true">
     <source xmi:id="InElement1" name="ARRAY" element="//@inputModel.0/@ownedElementRef.0" guardCondition="true"/>
