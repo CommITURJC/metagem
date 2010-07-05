@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.adt.launching.atlTransformation">
+<stringAttribute key="ATL File Name" value="/MeTAGeM/ATL/Hybrid2ATL.atl"/>
+<stringAttribute key="ATL VM" value="Regular VM (with debugger)"/>
+<booleanAttribute key="AllowInterModelReferences" value="false"/>
+<mapAttribute key="Input">
+<mapEntry key="IN" value="MM_Hybrid"/>
+</mapAttribute>
+<mapAttribute key="Libs"/>
+<booleanAttribute key="Mode Debug" value="false"/>
+<mapAttribute key="Model Handler">
+<mapEntry key="MM_Hybrid" value="EMF"/>
+<mapEntry key="ATL" value="EMF"/>
+</mapAttribute>
+<mapAttribute key="ModelType">
+<mapEntry key="MM_Hybrid" value="METAMODELINPUT"/>
+<mapEntry key="IN" value="MODELINPUT"/>
+<mapEntry key="OUT" value="MODELOUTPUT"/>
+<mapEntry key="ATL" value="METAMODELOUTPUT"/>
+</mapAttribute>
+<mapAttribute key="Output">
+<mapEntry key="OUT" value="ATL"/>
+</mapAttribute>
+<mapAttribute key="Path">
+<mapEntry key="MM_Hybrid" value="uri:http:///MM_Hybrid.ecore"/>
+<mapEntry key="IN" value="/MeTAGeM/Models/TestHybrid2ATL.mm_hybrid"/>
+<mapEntry key="OUT" value="/MeTAGeM/Models/TestHybrid2ATL_ATL.ecore"/>
+<mapEntry key="ATL" value="/MeTAGeM/Metamodels/ATL-0.2.ecore"/>
+</mapAttribute>
+<stringAttribute key="Project Name" value="MeTAGeM"/>
+<listAttribute key="Superimpose"/>
+<booleanAttribute key="continueAfterError" value="false"/>
+<booleanAttribute key="disableAttributeHelperCache" value="false"/>
+<booleanAttribute key="printExecutionTime" value="false"/>
+<booleanAttribute key="profile" value="false"/>
+<booleanAttribute key="showSummary" value="false"/>
+<booleanAttribute key="step" value="false"/>
+</launchConfiguration>
