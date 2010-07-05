@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <weaver>
 <weaving>
-<relative-path>/MeTAGeM/Models/SQL2ORDB_HybridTest.amw</relative-path>
+<relative-path>/MeTAGeM/Models/SQL2ORDB_HybridTEST.amw</relative-path>
 <panel>TransformationWeavingPanelExtension</panel>
 <wmodel>ModelRoot</wmodel>
 </weaving>
@@ -16,7 +16,7 @@
 <model-relative-path>null</model-relative-path>
 <metamodel-relative-path>/MeTAGeM/Metamodels/SQL2003.ecore</metamodel-relative-path>
 <reference>inputModel</reference>
-<title>SQL</title>
+<title>SQL2003</title>
 <panel>DefaultWovenPanelExtension</panel>
 <wmodelref>InModelTransf</wmodelref>
 </woven>
@@ -24,7 +24,7 @@
 <model-relative-path>null</model-relative-path>
 <metamodel-relative-path>/MeTAGeM/Metamodels/ORDB4ORA.ecore</metamodel-relative-path>
 <reference>outputModel</reference>
-<title>ORDB</title>
+<title>ORDB4ORA</title>
 <panel>DefaultWovenPanelExtension</panel>
 <wmodelref>OutModelTransf</wmodelref>
 </woven>
