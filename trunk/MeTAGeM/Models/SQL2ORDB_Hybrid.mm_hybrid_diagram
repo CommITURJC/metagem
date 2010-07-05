@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_9Ik64YgREd-Y_fEBkAmxNw" type="MM_Hybrid" measurementUnit="Pixel">
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_9Ik64ogREd-Y_fEBkAmxNw"/>
+  <element xmi:type="mm_hybrid:Module" href="SQL2ORDB_Hybrid.mm_hybrid#/"/>
+</notation:Diagram>
