@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="ModuleHybrid">
+  <rule name_rule="Rule1">
+    <in name_element="Source1">
+      <condition value="Condition1"/>
+    </in>
+    <out name_element="Target"/>
+  </rule>
+  <inMM name_mm="inMetaM"/>
+  <outMM name_mm="outMetaM"/>
+</mm_hybrid:Module>
