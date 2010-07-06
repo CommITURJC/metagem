@@ -59,6 +59,7 @@ public class OutMetaModelItemProvider extends ItemProviderAdapter implements
 			super.getPropertyDescriptors(object);
 
 			addName_mmPropertyDescriptor(object);
+			addType_mmPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -79,6 +80,26 @@ public class OutMetaModelItemProvider extends ItemProviderAdapter implements
 						getString(
 								"_UI_PropertyDescriptor_description", "_UI_OutMetaModel_name_mm_feature", "_UI_OutMetaModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 						MM_HybridPackage.Literals.OUT_META_MODEL__NAME_MM,
+						true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Type mm feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addType_mmPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_OutMetaModel_type_mm_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_OutMetaModel_type_mm_feature", "_UI_OutMetaModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.OUT_META_MODEL__TYPE_MM,
 						true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -121,6 +142,7 @@ public class OutMetaModelItemProvider extends ItemProviderAdapter implements
 
 		switch (notification.getFeatureID(OutMetaModel.class)) {
 		case MM_HybridPackage.OUT_META_MODEL__NAME_MM:
+		case MM_HybridPackage.OUT_META_MODEL__TYPE_MM:
 			fireNotifyChanged(new ViewerNotification(notification, notification
 					.getNotifier(), false, true));
 			return;
