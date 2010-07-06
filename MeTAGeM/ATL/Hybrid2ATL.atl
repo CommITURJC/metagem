@@ -20,7 +20,12 @@ rule inMM{
 		inMM_hybrid : MM_Hybrid!InMetaModel
 	to
 		inMM_ATL : ATL!OclModel(
-			name <- inMM_hybrid.name_mm.debug('InputMM')	
+			name <- inMM_hybrid.name_mm.debug('InputMM'),
+			metamodel <- ametamodel
+		),
+		ametamodel : ATL!OclModel (
+			name <- inMM_hybrid.type_mm
+			--elements <- MOF!EClassifier.allInstancesFrom('left') 
 		)
 }
 
@@ -29,7 +34,12 @@ rule outMM{
 		outMM_hybrid : MM_Hybrid!OutMetaModel
 	to
 		outMM_ATL : ATL!OclModel(
-			name <- outMM_hybrid.name_mm.debug('OutputMM')	
+			name <- outMM_hybrid.name_mm.debug('OutputMM'),
+			metamodel <- ametamodel
+		),
+		ametamodel : ATL!OclModel (
+			name <- outMM_hybrid.type_mm
+			--elements <- MOF!EClassifier.allInstancesFrom('right') 
 		)
 }
 
