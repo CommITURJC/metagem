@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link mm_hybrid.impl.OutMetaModelImpl#getName_mm <em>Name mm</em>}</li>
+ *   <li>{@link mm_hybrid.impl.OutMetaModelImpl#getType_mm <em>Type mm</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,6 +50,26 @@ public class OutMetaModelImpl extends EObjectImpl implements OutMetaModel {
 	 * @ordered
 	 */
 	protected String name_mm = NAME_MM_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getType_mm() <em>Type mm</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType_mm()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_MM_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getType_mm() <em>Type mm</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType_mm()
+	 * @generated
+	 * @ordered
+	 */
+	protected String type_mm = TYPE_MM_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,11 +118,36 @@ public class OutMetaModelImpl extends EObjectImpl implements OutMetaModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getType_mm() {
+		return type_mm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType_mm(String newType_mm) {
+		String oldType_mm = type_mm;
+		type_mm = newType_mm;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.OUT_META_MODEL__TYPE_MM, oldType_mm,
+					type_mm));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case MM_HybridPackage.OUT_META_MODEL__NAME_MM:
 			return getName_mm();
+		case MM_HybridPackage.OUT_META_MODEL__TYPE_MM:
+			return getType_mm();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,6 +162,9 @@ public class OutMetaModelImpl extends EObjectImpl implements OutMetaModel {
 		switch (featureID) {
 		case MM_HybridPackage.OUT_META_MODEL__NAME_MM:
 			setName_mm((String) newValue);
+			return;
+		case MM_HybridPackage.OUT_META_MODEL__TYPE_MM:
+			setType_mm((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,6 +181,9 @@ public class OutMetaModelImpl extends EObjectImpl implements OutMetaModel {
 		case MM_HybridPackage.OUT_META_MODEL__NAME_MM:
 			setName_mm(NAME_MM_EDEFAULT);
 			return;
+		case MM_HybridPackage.OUT_META_MODEL__TYPE_MM:
+			setType_mm(TYPE_MM_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -147,6 +199,9 @@ public class OutMetaModelImpl extends EObjectImpl implements OutMetaModel {
 		case MM_HybridPackage.OUT_META_MODEL__NAME_MM:
 			return NAME_MM_EDEFAULT == null ? name_mm != null
 					: !NAME_MM_EDEFAULT.equals(name_mm);
+		case MM_HybridPackage.OUT_META_MODEL__TYPE_MM:
+			return TYPE_MM_EDEFAULT == null ? type_mm != null
+					: !TYPE_MM_EDEFAULT.equals(type_mm);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -164,6 +219,8 @@ public class OutMetaModelImpl extends EObjectImpl implements OutMetaModel {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name_mm: "); //$NON-NLS-1$
 		result.append(name_mm);
+		result.append(", type_mm: "); //$NON-NLS-1$
+		result.append(type_mm);
 		result.append(')');
 		return result.toString();
 	}

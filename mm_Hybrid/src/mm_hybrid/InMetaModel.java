@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link mm_hybrid.InMetaModel#getName_mm <em>Name mm</em>}</li>
+ *   <li>{@link mm_hybrid.InMetaModel#getType_mm <em>Type mm</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,5 +51,31 @@ public interface InMetaModel extends EObject {
 	 * @generated
 	 */
 	void setName_mm(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Type mm</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type mm</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type mm</em>' attribute.
+	 * @see #setType_mm(String)
+	 * @see mm_hybrid.MM_HybridPackage#getInMetaModel_Type_mm()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getType_mm();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.InMetaModel#getType_mm <em>Type mm</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type mm</em>' attribute.
+	 * @see #getType_mm()
+	 * @generated
+	 */
+	void setType_mm(String value);
 
 } // InMetaModel

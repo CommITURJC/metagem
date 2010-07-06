@@ -128,6 +128,14 @@
         <features
             href="MM_Hybrid.ecore#//InMetaModel/name_mm"/>
       </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewPattern="type: {0}">
+        <diagramLabel
+            href="MM_Hybrid.gmfgraph#inMMtypeLabel"/>
+        <features
+            href="MM_Hybrid.ecore#//InMetaModel/type_mm"/>
+      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="MM_Hybrid.gmftool#//@palette/@tools.0/@tools.0"/>
@@ -147,6 +155,14 @@
             href="MM_Hybrid.gmfgraph#OutMetaModelLabel"/>
         <features
             href="MM_Hybrid.ecore#//OutMetaModel/name_mm"/>
+      </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewPattern="type: {0}">
+        <diagramLabel
+            href="MM_Hybrid.gmfgraph#outMMtypeLabel"/>
+        <features
+            href="MM_Hybrid.ecore#//OutMetaModel/type_mm"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
