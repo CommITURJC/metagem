@@ -5,7 +5,7 @@
   <atl:Module name="SQL2ORDB">
     <commentsBefore>-- @atlcompiler atl2006</commentsBefore>
     <inModels name="SQL_model" metamodel="/1"/>
-    <outModels name="ORDB_model" metamodel="/92"/>
+    <outModels name="ORDB_model" metamodel="/145"/>
     <elements xsi:type="atl:MatchedRule"/>
     <elements xsi:type="atl:MatchedRule"/>
   </atl:Module>
@@ -80,27 +80,80 @@
   <ocl:OclModelElement name="XMLType" model="/1"/>
   <ocl:OclModelElement name="XMLTypes" model="/1"/>
   <ocl:OclModelElement name="Model"/>
-  <ocl:OclModelElement name="Datatype"/>
-  <ocl:OclModelElement name="Tables"/>
-  <ocl:OclModelElement name="Restriction"/>
+  <ocl:OclModelElement name="ANSICharacterType"/>
+  <ocl:OclModelElement name="ANSICharacterTypes"/>
+  <ocl:OclModelElement name="ANSINumberType"/>
+  <ocl:OclModelElement name="ANSINumberTypes"/>
+  <ocl:OclModelElement name="ANSIType"/>
+  <ocl:OclModelElement name="AnyType"/>
   <ocl:OclModelElement name="Attribute"/>
-  <ocl:OclModelElement name="NestedTableType"/>
   <ocl:OclModelElement name="BasicDataType"/>
-  <ocl:OclModelElement name="PrimitiveType"/>
-  <ocl:OclModelElement name="BasicTypes"/>
-  <ocl:OclModelElement name="LOBType"/>
-  <ocl:OclModelElement name="BasicLOBType"/>
-  <ocl:OclModelElement name="Varray"/>
-  <ocl:OclModelElement name="StructuredType"/>
-  <ocl:OclModelElement name="Method"/>
-  <ocl:OclModelElement name="TypedTable"/>
-  <ocl:OclModelElement name="StoredNestedTable"/>
-  <ocl:OclModelElement name="ReferenceType"/>
-  <ocl:OclModelElement name="Table"/>
+  <ocl:OclModelElement name="BuiltInCharacterSemantics"/>
+  <ocl:OclModelElement name="BuiltInCharacterType"/>
+  <ocl:OclModelElement name="BuiltInCharacterTypes"/>
+  <ocl:OclModelElement name="BuiltInDatetimeTypes"/>
+  <ocl:OclModelElement name="BuiltInLOBType"/>
+  <ocl:OclModelElement name="BuiltInLongAndRawTypes"/>
+  <ocl:OclModelElement name="BuiltInNumberType"/>
+  <ocl:OclModelElement name="BuiltInROWIDType"/>
+  <ocl:OclModelElement name="BuiltInType"/>
+  <ocl:OclModelElement name="BuiltNumberTypes"/>
+  <ocl:OclModelElement name="CharacterFeature"/>
+  <ocl:OclModelElement name="CharacterFeatures"/>
+  <ocl:OclModelElement name="Check"/>
+  <ocl:OclModelElement name="Column"/>
+  <ocl:OclModelElement name="Datatype"/>
+  <ocl:OclModelElement name="DatetimeFeature"/>
+  <ocl:OclModelElement name="DatetimeFeatures"/>
+  <ocl:OclModelElement name="DatetimeType"/>
+  <ocl:OclModelElement name="Feature"/>
   <ocl:OclModelElement name="ForeignKey"/>
-  <ocl:OclModelElement name="PrimaryKey"/>
-  <ocl:OclModelElement name="Unique"/>
+  <ocl:OclModelElement name="Function"/>
+  <ocl:OclModelElement name="IntervalFeature"/>
+  <ocl:OclModelElement name="IntervalFeatures"/>
+  <ocl:OclModelElement name="LOBType"/>
+  <ocl:OclModelElement name="LongAndRawType"/>
+  <ocl:OclModelElement name="MediaType"/>
+  <ocl:OclModelElement name="Method"/>
+  <ocl:OclModelElement name="MethodParameter"/>
+  <ocl:OclModelElement name="NestedTableType"/>
   <ocl:OclModelElement name="NotNull"/>
+  <ocl:OclModelElement name="NumberFeature"/>
+  <ocl:OclModelElement name="NumberFeatures"/>
+  <ocl:OclModelElement name="ONDELETEActions"/>
+  <ocl:OclModelElement name="Operation"/>
+  <ocl:OclModelElement name="OperationParameter"/>
+  <ocl:OclModelElement name="Package"/>
+  <ocl:OclModelElement name="Parameter"/>
+  <ocl:OclModelElement name="ParameterMode"/>
+  <ocl:OclModelElement name="PrimaryKey"/>
+  <ocl:OclModelElement name="Procedure"/>
+  <ocl:OclModelElement name="ROWIDType"/>
+  <ocl:OclModelElement name="RawFeature"/>
+  <ocl:OclModelElement name="RawFeatures"/>
+  <ocl:OclModelElement name="ReferenceType"/>
+  <ocl:OclModelElement name="Restriction"/>
+  <ocl:OclModelElement name="RowFeature"/>
+  <ocl:OclModelElement name="RowFeatures"/>
+  <ocl:OclModelElement name="SpacialType"/>
+  <ocl:OclModelElement name="StoredNestedTable"/>
+  <ocl:OclModelElement name="StructuralComponent"/>
+  <ocl:OclModelElement name="StructuredType"/>
+  <ocl:OclModelElement name="SuppliedAnyTypes"/>
+  <ocl:OclModelElement name="SuppliedMediaTypes"/>
+  <ocl:OclModelElement name="SuppliedSpacialTypes"/>
+  <ocl:OclModelElement name="SuppliedType"/>
+  <ocl:OclModelElement name="SuppliedXMLTypes"/>
+  <ocl:OclModelElement name="Table"/>
+  <ocl:OclModelElement name="Trigger"/>
+  <ocl:OclModelElement name="TriggerActionTime"/>
+  <ocl:OclModelElement name="TriggerEvent"/>
+  <ocl:OclModelElement name="TypedTable"/>
+  <ocl:OclModelElement name="Unique"/>
+  <ocl:OclModelElement name="Varray"/>
+  <ocl:OclModelElement name="XMLType"/>
+  <ocl:OclModelElement name="DerivedTable"/>
+  <ocl:OclModelElement name="View"/>
   <ocl:OclModel name="ORDB" model="/0/@outModels.0"/>
   <atl:OutPattern/>
   <atl:OutPattern/>
@@ -109,5 +162,9 @@
   <ocl:OclModelElement/>
   <atl:InPattern/>
   <atl:SimpleInPatternElement/>
+  <ocl:OclModelElement/>
+  <atl:SimpleOutPatternElement/>
+  <ocl:OclModelElement/>
+  <atl:SimpleOutPatternElement/>
   <ocl:OclModelElement/>
 </xmi:XMI>
