@@ -74,6 +74,9 @@ rule OneToOne2rule extends Relations2Rule{
 			"in" <- relation.source,
 			out <- relation.target
 		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1;
+	}
 }
 
 rule OneToZero2rule extends Relations2Rule{
@@ -83,6 +86,9 @@ rule OneToZero2rule extends Relations2Rule{
 		r_hybrid: MM_Hybrid!Rule(
 			"in" <- relation.source
 		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1;
+	}
 }
 
 rule ZeroToOne2rule extends Relations2Rule{
@@ -92,6 +98,9 @@ rule ZeroToOne2rule extends Relations2Rule{
 		r_hybrid: MM_Hybrid!Rule(
 			out <- relation.target
 		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1;
+	}
 }
 
 rule OneToMany2rule extends Relations2Rule{
@@ -102,6 +111,9 @@ rule OneToMany2rule extends Relations2Rule{
 			"in" <- relation.source,
 			out <- relation.target
 		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1;
+	}
 }
 rule ManyToOne2rule extends Relations2Rule{
 	from
@@ -111,6 +123,9 @@ rule ManyToOne2rule extends Relations2Rule{
 			"in" <- relation.source,
 			out <- relation.target
 		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1;
+	}
 }
 rule ManyToMany2rule extends Relations2Rule{
 	from
@@ -120,6 +135,9 @@ rule ManyToMany2rule extends Relations2Rule{
 			"in" <- relation.source,
 			out <- relation.target
 		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1;
+	}
 }
 
 
@@ -128,16 +146,12 @@ abstract rule Relations2Rule{
 		relation:AMW!Relations
 	to
 		r_hybrid:MM_Hybrid!Rule(
-			--name_rule <- relation.getRuleName().debug('nombre rule '),
-			name_rule <- 'R' + thisModule.countRules,
+			name_rule <- relation.getRuleName().debug('nombre rule '),
 			isAbstract <- relation.isAbstract,
 			isMain <- relation.isMain,
 			typeAttribute <- relation.typeAttri,
 			typeElement <- relation.typeE
 		)
-	do {
-		thisModule.countRules <- thisModule.countRules + 1;
-	}
 }
 
 helper context AMW!Relations def : getRuleName () : String = 
@@ -152,8 +166,8 @@ helper context AMW!Relations def : getRuleName () : String =
 	endif;
 
 helper context AMW!Relations def : getInOutPatternName () : String =
-	if not self.source.oclIsUndefined() and not self.target.oclIsUndefined() then
-		self.in.name_element + '_2_'+ self.out->select ( e | true )->first().name_element
+	if not self.source.asSequence()->first().oclIsUndefined() and not self.target.asSequence()->first().oclIsUndefined() then
+		self.source.asSequence()->first().name + '_2_'+ self.target.asSequence()->first().name
 	else
-		'R' + thisModule.countRules
+		'R' + thisModule.countRules.toString()
 	endif;
