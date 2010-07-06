@@ -293,6 +293,8 @@ public class OutMetaModelEditPart extends ShapeNodeEditPart {
 			fFigureOutMMtypeLabel = new WrappingLabel();
 			fFigureOutMMtypeLabel.setText("<...>");
 
+			fFigureOutMMtypeLabel.setFont(FFIGUREOUTMMTYPELABEL_FONT);
+
 			this.add(fFigureOutMMtypeLabel);
 
 		}
@@ -348,5 +350,13 @@ public class OutMetaModelEditPart extends ShapeNodeEditPart {
 	static final Font OUTMETAMODELLABEL0_FONT = new Font(Display.getCurrent(),
 			Display.getDefault().getSystemFont().getFontData()[0].getName(), 8,
 			SWT.BOLD);
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGUREOUTMMTYPELABEL_FONT = new Font(Display
+			.getCurrent(),
+			Display.getDefault().getSystemFont().getFontData()[0].getName(), 8,
+			SWT.NORMAL);
 
 }
