@@ -20,7 +20,7 @@ rule inMM{
 		inMM_hybrid : MM_Hybrid!InMetaModel
 	to
 		inMM_ATL : ATL!OclModel(
-			name<-inMM_hybrid.name_mm.debug('InputMM')	
+			name <- inMM_hybrid.name_mm.debug('InputMM')	
 		)
 }
 
@@ -29,9 +29,23 @@ rule outMM{
 		outMM_hybrid : MM_Hybrid!OutMetaModel
 	to
 		outMM_ATL : ATL!OclModel(
-			name<-outMM_hybrid.name_mm.debug('OutputMM')	
+			name <- outMM_hybrid.name_mm.debug('OutputMM')	
 		)
 }
+
+
+--rule createRule{
+--	from 
+--		mm_hybrid : MMHybrid!Rule
+--	to
+--		atl : ATL!MatchedRule (
+--			name <- mm_hybrid.name_rule,
+--			isAbstract <- mm_hybrid.isAbstract
+--		)
+--}
+
+
+
 
 --rule LeftModelRef {
 --	from
