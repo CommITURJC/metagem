@@ -52,13 +52,13 @@ import org.eclipse.swt.graphics.Image;
 /**
  * @generated
  */
-public class OutMetaModelName_mmEditPart extends CompartmentEditPart implements
+public class OutMetaModelType_mmEditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4007;
+	public static final int VISUAL_ID = 4008;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class OutMetaModelName_mmEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public OutMetaModelName_mmEditPart(View view) {
+	public OutMetaModelType_mmEditPart(View view) {
 		super(view);
 	}
 

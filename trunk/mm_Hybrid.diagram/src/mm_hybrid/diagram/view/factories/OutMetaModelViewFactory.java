@@ -67,5 +67,12 @@ public class OutMetaModelViewFactory extends AbstractShapeViewFactory {
 						mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 								.getType(mm_hybrid.diagram.edit.parts.OutMetaModelName_mmEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService()
+				.createNode(
+						eObjectAdapter,
+						view,
+						mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
+								.getType(mm_hybrid.diagram.edit.parts.OutMetaModelType_mmEditPart.VISUAL_ID),
+						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

@@ -270,7 +270,7 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 					.intValue());
 		} else {
 			mm_hybrid.diagram.part.MM_HybridDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 4006); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 4007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 

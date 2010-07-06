@@ -52,13 +52,13 @@ import org.eclipse.swt.graphics.Image;
 /**
  * @generated
  */
-public class OutMetaModelName_mmEditPart extends CompartmentEditPart implements
+public class InMetaModelType_mmEditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4007;
+	public static final int VISUAL_ID = 4006;
 
 	/**
 	 * @generated
@@ -83,7 +83,7 @@ public class OutMetaModelName_mmEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public OutMetaModelName_mmEditPart(View view) {
+	public InMetaModelType_mmEditPart(View view) {
 		super(view);
 	}
 
@@ -303,7 +303,7 @@ public class OutMetaModelName_mmEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new mm_hybrid.diagram.providers.MM_HybridParserProvider.HintAdapter(
-					mm_hybrid.diagram.providers.MM_HybridElementTypes.OutMetaModel_1003,
+					mm_hybrid.diagram.providers.MM_HybridElementTypes.InMetaModel_1002,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
@@ -510,7 +510,7 @@ public class OutMetaModelName_mmEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	private View getFontStyleOwnerView() {
-		return getPrimaryView();
+		return (View) getModel();
 	}
 
 	/**

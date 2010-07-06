@@ -108,6 +108,7 @@ public class MM_HybridViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case mm_hybrid.diagram.edit.parts.InMetaModelName_mmEditPart.VISUAL_ID:
+				case mm_hybrid.diagram.edit.parts.InMetaModelType_mmEditPart.VISUAL_ID:
 					if (mm_hybrid.diagram.edit.parts.InMetaModelEditPart.VISUAL_ID != mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -115,6 +116,7 @@ public class MM_HybridViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case mm_hybrid.diagram.edit.parts.OutMetaModelName_mmEditPart.VISUAL_ID:
+				case mm_hybrid.diagram.edit.parts.OutMetaModelType_mmEditPart.VISUAL_ID:
 					if (mm_hybrid.diagram.edit.parts.OutMetaModelEditPart.VISUAL_ID != mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -164,10 +166,14 @@ public class MM_HybridViewProvider extends AbstractViewProvider {
 			return mm_hybrid.diagram.view.factories.InMetaModelViewFactory.class;
 		case mm_hybrid.diagram.edit.parts.InMetaModelName_mmEditPart.VISUAL_ID:
 			return mm_hybrid.diagram.view.factories.InMetaModelName_mmViewFactory.class;
+		case mm_hybrid.diagram.edit.parts.InMetaModelType_mmEditPart.VISUAL_ID:
+			return mm_hybrid.diagram.view.factories.InMetaModelType_mmViewFactory.class;
 		case mm_hybrid.diagram.edit.parts.OutMetaModelEditPart.VISUAL_ID:
 			return mm_hybrid.diagram.view.factories.OutMetaModelViewFactory.class;
 		case mm_hybrid.diagram.edit.parts.OutMetaModelName_mmEditPart.VISUAL_ID:
 			return mm_hybrid.diagram.view.factories.OutMetaModelName_mmViewFactory.class;
+		case mm_hybrid.diagram.edit.parts.OutMetaModelType_mmEditPart.VISUAL_ID:
+			return mm_hybrid.diagram.view.factories.OutMetaModelType_mmViewFactory.class;
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleEditPart.VISUAL_ID:
 			return mm_hybrid.diagram.view.factories.SourceElementRuleViewFactory.class;
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleName_elementEditPart.VISUAL_ID:
