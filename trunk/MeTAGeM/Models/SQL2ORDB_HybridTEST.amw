@@ -7,6 +7,7 @@
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_StructuredType" ref="//StructuredType"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_attributes" ref="//StructuredType/attributes"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_Attribute" ref="//Attribute"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Function" ref="//Function"/>
   </inputModel>
   <outputModel xmi:id="OutModelTransf1" name="ORDB4ORA" ref="/MeTAGeM/Metamodels/ORDB4ORA.ecore">
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_Varray" ref="//Varray"/>
@@ -15,14 +16,19 @@
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_NumElements" ref="//Varray/NumElements"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_StructuredType" ref="//StructuredType"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_attribute" ref="//StructuredType/attribute"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_RawFeature" ref="//RawFeature"/>
   </outputModel>
   <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="r1" isMain="true" isAbstract="true">
     <source xmi:id="InElement1" name="ARRAY" element="//@inputModel.0/@ownedElementRef.0" guardCondition="true"/>
     <target xmi:id="OutElement1" name="Varray" element="//@outputModel.0/@ownedElementRef.0"/>
   </relations>
-  <relations xsi:type="OneToMany" xmi:id="OneToMany1" name="r2">
+  <relations xsi:type="OneToMany" xmi:id="OneToMany1" name="">
     <source xmi:id="InElement2" name="MULTISET" element="//@inputModel.0/@ownedElementRef.1"/>
     <target xmi:id="OutElement2" name="StoredNestedTable" element="//@outputModel.0/@ownedElementRef.1"/>
     <target xmi:id="OutElement3" name="NestedTableType" element="//@outputModel.0/@ownedElementRef.2"/>
+  </relations>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne2">
+    <source xmi:id="InElement3" name="Function" element="//@inputModel.0/@ownedElementRef.6"/>
+    <target xmi:id="OutElement4" name="RawFeature" element="//@outputModel.0/@ownedElementRef.6"/>
   </relations>
 </ModelRoot>

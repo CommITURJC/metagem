@@ -2,6 +2,7 @@
 module MeTAGeM2Hybrid; -- Module Template
 create OUT : MM_Hybrid from IN : AMW, left : MOF, right : MOF;
 
+helper def : countRules : Integer = 1;
 
 rule Module {
 	from 
@@ -127,10 +128,32 @@ abstract rule Relations2Rule{
 		relation:AMW!Relations
 	to
 		r_hybrid:MM_Hybrid!Rule(
-			name_rule <- relation.name.debug('nombre rule '),
+			--name_rule <- relation.getRuleName().debug('nombre rule '),
+			name_rule <- 'R' + thisModule.countRules,
 			isAbstract <- relation.isAbstract,
 			isMain <- relation.isMain,
 			typeAttribute <- relation.typeAttri,
 			typeElement <- relation.typeE
 		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1;
+	}
 }
+
+helper context AMW!Relations def : getRuleName () : String = 
+	if self.name.oclIsUndefined() then
+		self.getInOutPatternName()
+	else
+		if self.name = '' then
+			self.getInOutPatternName()
+		else
+			self.name
+		endif
+	endif;
+
+helper context AMW!Relations def : getInOutPatternName () : String =
+	if not self.source.oclIsUndefined() and not self.target.oclIsUndefined() then
+		self.in.name_element + '_2_'+ self.out->select ( e | true )->first().name_element
+	else
+		'R' + thisModule.countRules
+	endif;
