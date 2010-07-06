@@ -254,6 +254,15 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getInMetaModel_Type_mm() {
+		return (EAttribute) inMetaModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOutMetaModel() {
 		return outMetaModelEClass;
 	}
@@ -265,6 +274,15 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 */
 	public EAttribute getOutMetaModel_Name_mm() {
 		return (EAttribute) outMetaModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOutMetaModel_Type_mm() {
+		return (EAttribute) outMetaModelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -390,6 +408,16 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTargetElementRule_Included() {
+		return (EReference) targetElementRuleEClass.getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getElementIncluded() {
 		return elementIncludedEClass;
 	}
@@ -487,9 +515,11 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 
 		inMetaModelEClass = createEClass(IN_META_MODEL);
 		createEAttribute(inMetaModelEClass, IN_META_MODEL__NAME_MM);
+		createEAttribute(inMetaModelEClass, IN_META_MODEL__TYPE_MM);
 
 		outMetaModelEClass = createEClass(OUT_META_MODEL);
 		createEAttribute(outMetaModelEClass, OUT_META_MODEL__NAME_MM);
+		createEAttribute(outMetaModelEClass, OUT_META_MODEL__TYPE_MM);
 
 		ruleEClass = createEClass(RULE);
 		createEAttribute(ruleEClass, RULE__NAME_RULE);
@@ -508,6 +538,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				SOURCE_ELEMENT_RULE__CONDITION);
 
 		targetElementRuleEClass = createEClass(TARGET_ELEMENT_RULE);
+		createEReference(targetElementRuleEClass, TARGET_ELEMENT_RULE__INCLUDED);
 
 		elementIncludedEClass = createEClass(ELEMENT_INCLUDED);
 		createEReference(elementIncludedEClass,
@@ -588,6 +619,10 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				getInMetaModel_Name_mm(),
 				ecorePackage.getEString(),
 				"name_mm", null, 1, 1, InMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getInMetaModel_Type_mm(),
+				ecorePackage.getEString(),
+				"type_mm", null, 1, 1, InMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				outMetaModelEClass,
@@ -597,6 +632,10 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				getOutMetaModel_Name_mm(),
 				ecorePackage.getEString(),
 				"name_mm", null, 1, 1, OutMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getOutMetaModel_Type_mm(),
+				ecorePackage.getEString(),
+				"type_mm", null, 1, 1, OutMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				ruleEClass,
@@ -656,6 +695,11 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				targetElementRuleEClass,
 				TargetElementRule.class,
 				"TargetElementRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getTargetElementRule_Included(),
+				this.getElementIncluded(),
+				null,
+				"included", null, 0, -1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				elementIncludedEClass,
