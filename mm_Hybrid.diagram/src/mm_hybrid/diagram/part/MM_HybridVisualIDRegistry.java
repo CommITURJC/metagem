@@ -199,9 +199,15 @@ public class MM_HybridVisualIDRegistry {
 			if (mm_hybrid.diagram.edit.parts.InMetaModelName_mmEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (mm_hybrid.diagram.edit.parts.InMetaModelType_mmEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case mm_hybrid.diagram.edit.parts.OutMetaModelEditPart.VISUAL_ID:
 			if (mm_hybrid.diagram.edit.parts.OutMetaModelName_mmEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (mm_hybrid.diagram.edit.parts.OutMetaModelType_mmEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

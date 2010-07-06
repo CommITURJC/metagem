@@ -114,6 +114,11 @@ public class InMetaModelEditPart extends ShapeNodeEditPart {
 							.getFigureInMetaModelLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof mm_hybrid.diagram.edit.parts.InMetaModelType_mmEditPart) {
+			((mm_hybrid.diagram.edit.parts.InMetaModelType_mmEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureInMMtypeLabel());
+			return true;
+		}
 		return false;
 	}
 
@@ -238,6 +243,11 @@ public class InMetaModelEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrappingLabel fFigureInMMtypeLabel;
+
+		/**
+		 * @generated
+		 */
 		public InMetaModelFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
@@ -280,6 +290,13 @@ public class InMetaModelEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureInMetaModelLabelFigure);
 
+			fFigureInMMtypeLabel = new WrappingLabel();
+			fFigureInMMtypeLabel.setText("<...>");
+
+			fFigureInMMtypeLabel.setFont(FFIGUREINMMTYPELABEL_FONT);
+
+			this.add(fFigureInMMtypeLabel);
+
 		}
 
 		/**
@@ -308,6 +325,13 @@ public class InMetaModelEditPart extends ShapeNodeEditPart {
 			return fFigureInMetaModelLabelFigure;
 		}
 
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureInMMtypeLabel() {
+			return fFigureInMMtypeLabel;
+		}
+
 	}
 
 	/**
@@ -326,5 +350,12 @@ public class InMetaModelEditPart extends ShapeNodeEditPart {
 	static final Font INMETAMODELLABEL0_FONT = new Font(Display.getCurrent(),
 			Display.getDefault().getSystemFont().getFontData()[0].getName(), 8,
 			SWT.BOLD);
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGUREINMMTYPELABEL_FONT = new Font(
+			Display.getCurrent(), Display.getDefault().getSystemFont()
+					.getFontData()[0].getName(), 8, SWT.NORMAL);
 
 }

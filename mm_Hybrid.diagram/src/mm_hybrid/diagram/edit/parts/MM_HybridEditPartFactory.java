@@ -53,12 +53,20 @@ public class MM_HybridEditPartFactory implements EditPartFactory {
 				return new mm_hybrid.diagram.edit.parts.InMetaModelName_mmEditPart(
 						view);
 
+			case mm_hybrid.diagram.edit.parts.InMetaModelType_mmEditPart.VISUAL_ID:
+				return new mm_hybrid.diagram.edit.parts.InMetaModelType_mmEditPart(
+						view);
+
 			case mm_hybrid.diagram.edit.parts.OutMetaModelEditPart.VISUAL_ID:
 				return new mm_hybrid.diagram.edit.parts.OutMetaModelEditPart(
 						view);
 
 			case mm_hybrid.diagram.edit.parts.OutMetaModelName_mmEditPart.VISUAL_ID:
 				return new mm_hybrid.diagram.edit.parts.OutMetaModelName_mmEditPart(
+						view);
+
+			case mm_hybrid.diagram.edit.parts.OutMetaModelType_mmEditPart.VISUAL_ID:
+				return new mm_hybrid.diagram.edit.parts.OutMetaModelType_mmEditPart(
 						view);
 
 			case mm_hybrid.diagram.edit.parts.SourceElementRuleEditPart.VISUAL_ID:

@@ -114,6 +114,11 @@ public class OutMetaModelEditPart extends ShapeNodeEditPart {
 							.getFigureOutMetaModelLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof mm_hybrid.diagram.edit.parts.OutMetaModelType_mmEditPart) {
+			((mm_hybrid.diagram.edit.parts.OutMetaModelType_mmEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureOutMMtypeLabel());
+			return true;
+		}
 		return false;
 	}
 
@@ -238,6 +243,11 @@ public class OutMetaModelEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrappingLabel fFigureOutMMtypeLabel;
+
+		/**
+		 * @generated
+		 */
 		public OutMetaModelFigure() {
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
@@ -280,6 +290,11 @@ public class OutMetaModelEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureOutMetaModelLabelFigure);
 
+			fFigureOutMMtypeLabel = new WrappingLabel();
+			fFigureOutMMtypeLabel.setText("<...>");
+
+			this.add(fFigureOutMMtypeLabel);
+
 		}
 
 		/**
@@ -306,6 +321,13 @@ public class OutMetaModelEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureOutMetaModelLabelFigure() {
 			return fFigureOutMetaModelLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureOutMMtypeLabel() {
+			return fFigureOutMMtypeLabel;
 		}
 
 	}
