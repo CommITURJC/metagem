@@ -143,10 +143,20 @@ rule ManyToMany2rule extends Relations2Rule{
 	}
 }
 
+rule Relations2ElementIncluded{
+	from
+		relation_in:AMW!Relations(relation_in.outElement.size()>0)
+	to
+		elementIncluded:MM_Hybrid!ElementIncluded(
+			targetElement <- relation_in.source,
+			sourceElement <- relation_in.target
+		)
+}
+
 
 abstract rule Relations2Rule{
 	from
-		relation:AMW!Relations()
+		relation:AMW!Relations(relation.outElement.size()=0)
 	to
 		r_hybrid:MM_Hybrid!Rule(
 			name_rule <- relation.getRuleName().debug('nombre rule '),
