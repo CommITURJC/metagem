@@ -158,39 +158,8 @@ public class ElementIncludedItemProvider extends ItemProviderAdapter implements
 				MM_HybridFactory.eINSTANCE.createSourceElementRule()));
 
 		newChildDescriptors.add(createChildParameter(
-				MM_HybridPackage.Literals.ELEMENT_INCLUDED__SOURCE_ELEMENT,
-				MM_HybridFactory.eINSTANCE.createTargetElementRule()));
-
-		newChildDescriptors.add(createChildParameter(
-				MM_HybridPackage.Literals.ELEMENT_INCLUDED__TARGET_ELEMENT,
-				MM_HybridFactory.eINSTANCE.createSourceElementRule()));
-
-		newChildDescriptors.add(createChildParameter(
 				MM_HybridPackage.Literals.ELEMENT_INCLUDED__TARGET_ELEMENT,
 				MM_HybridFactory.eINSTANCE.createTargetElementRule()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature,
-			Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify = childFeature == MM_HybridPackage.Literals.ELEMENT_INCLUDED__SOURCE_ELEMENT
-				|| childFeature == MM_HybridPackage.Literals.ELEMENT_INCLUDED__TARGET_ELEMENT;
-
-		if (qualify) {
-			return getString("_UI_CreateChild_text2", //$NON-NLS-1$
-					new Object[] { getTypeText(childObject),
-							getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**
