@@ -63,7 +63,8 @@ rule OutElement2TargetElementRule{
 		outElem: AMW!OutElement
 	to
 		targetElem: MM_Hybrid!TargetElementRule(
-			name_element <- outElem.name
+			name_element <- outElem.name,
+			included <- outElem.relations
 		)
 }
 
@@ -145,7 +146,7 @@ rule ManyToMany2rule extends Relations2Rule{
 
 abstract rule Relations2Rule{
 	from
-		relation:AMW!Relations
+		relation:AMW!Relations()
 	to
 		r_hybrid:MM_Hybrid!Rule(
 			name_rule <- relation.getRuleName().debug('nombre rule '),
