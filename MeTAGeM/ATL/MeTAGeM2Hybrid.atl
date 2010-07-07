@@ -143,20 +143,9 @@ rule ManyToMany2rule extends Relations2Rule{
 	}
 }
 
-rule Relations2ElementIncluded{
-	from
-		relation_in:AMW!Relations(relation_in.outElement.size()>0)
-	to
-		elementIncluded:MM_Hybrid!ElementIncluded(
-			targetElement <- relation_in.source,
-			sourceElement <- relation_in.target
-		)
-}
-
-
 abstract rule Relations2Rule{
 	from
-		relation:AMW!Relations(relation.outElement.size()=0)
+		relation:AMW!Relations(relation.outElement.asSequence().size()=0)
 	to
 		r_hybrid:MM_Hybrid!Rule(
 			name_rule <- relation.getRuleName().debug('nombre rule '),
@@ -164,6 +153,57 @@ abstract rule Relations2Rule{
 			isMain <- relation.isMain,
 			typeAttribute <- relation.typeAttri,
 			typeElement <- relation.typeE
+		)
+}
+
+
+rule OneToOne2ElementIncluded{
+	from
+		relation_o2o:AMW!OneToOne(relation_o2o.outElement.asSequence().size()>0)
+	to
+		elementIncluded:MM_Hybrid!ElementIncluded(
+			sourceElement <- relation_o2o.source,
+			targetElement <- relation_o2o.target
+		)
+}
+
+
+rule OneToMany2ElementIncluded{
+	from
+		relation_o2m:AMW!OneToMany(relation_o2m.outElement.asSequence().size()>0)
+	to
+		elementIncluded:MM_Hybrid!ElementIncluded(
+			sourceElement <- relation_o2m.source,
+			targetElement <- relation_o2m.target
+		)
+}
+
+rule ZeroToOne2ElementIncluded{
+	from
+		relation_z2o:AMW!ZeroToOne(relation_z2o.outElement.asSequence().size()>0)
+	to
+		elementIncluded:MM_Hybrid!ElementIncluded(
+			targetElement <- relation_z2o.target
+		)
+}
+
+rule ManyToOne2ElementIncluded{
+	from
+		relation_m2o:AMW!ManyToOne(relation_m2o.outElement.asSequence().size()>0)
+	to
+		elementIncluded:MM_Hybrid!ElementIncluded(
+			sourceElement <- relation_m2o.source,
+			targetElement <- relation_m2o.target
+		)
+}
+
+rule ManyToMany2ElementIncluded{
+	from
+		relation_m2m:AMW!ManyToMany(relation_m2m.outElement.asSequence().size()>0)
+	to
+		elementIncluded:MM_Hybrid!ElementIncluded(
+			sourceElement <- relation_m2m.source,
+			targetElement <- relation_m2m.target
 		)
 }
 
