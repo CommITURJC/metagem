@@ -48,7 +48,9 @@ package mmw_metagem {
 		attribute typeE: MyTypeElem; --indica si la relacion es entre un classifier, attribute o reference
 		attribute isMain: Boolean; --default true;
 		attribute isAbstract : Boolean;
-		reference outElement[0-*]: OutElement oppositeOf relations;
+		-- @subsets child
+		--reference model : WModel oppositeOf ownedElement;
+		reference outElement: OutElement oppositeOf relations;
 		--reference child[0-*] ordered container : WLink oppositeOf parent;
 		
 	   -- @subsets child
@@ -64,7 +66,7 @@ package mmw_metagem {
 	
 	class OutElement extends WLinkEnd{
 		-- @subsets child
-		reference relations [1-*] container: Relations oppositeOf outElement;;
+		reference relations [*] ordered container: Relations oppositeOf outElement;
 	}
 	
 	class OneToOne extends Relations{
