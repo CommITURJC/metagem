@@ -87,7 +87,7 @@
       <details key="color" value="218,238,243"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" ordered="false"
-        lowerBound="1" eType="#//Condition" containment="true"/>
+        eType="#//Condition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TargetElementRule" eSuperTypes="#//Element">
     <eAnnotations source="gmf.node">
