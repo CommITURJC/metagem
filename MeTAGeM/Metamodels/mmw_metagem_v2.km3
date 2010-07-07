@@ -12,6 +12,7 @@ package mmw_metagem {
 		literal MyEclassifier;
 		literal MyEattribute;
 		literal MyEreference;
+		
 		}
 	class ModelRoot extends WModel{
 		-- @subsets wovenModel
@@ -45,8 +46,9 @@ package mmw_metagem {
 	abstract class Relations extends WLink{
 		attribute typeAttri : MyAttributeType;
 		attribute typeE: MyTypeElem; --indica si la relacion es entre un classifier, attribute o reference
-		attribute isMain: Boolean;
+		attribute isMain: Boolean; --default true;
 		attribute isAbstract : Boolean;
+		reference outElement[0-*]: OutElement oppositeOf relations;
 		--reference child[0-*] ordered container : WLink oppositeOf parent;
 		
 	   -- @subsets child
@@ -62,14 +64,14 @@ package mmw_metagem {
 	
 	class OutElement extends WLinkEnd{
 		-- @subsets child
-		reference relations [1-*] container: Relations;
+		reference relations [1-*] container: Relations oppositeOf outElement;;
 	}
 	
 	class OneToOne extends Relations{
 		 -- @subsets end
        reference source container : InElement;
         -- @subsets end
-        reference target container : OutElement;
+       reference target container : OutElement;
 	     
      }
      
