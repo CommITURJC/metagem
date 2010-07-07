@@ -34,7 +34,7 @@ public interface SourceElementRule extends Element {
 	 * @return the value of the '<em>Condition</em>' containment reference.
 	 * @see #setCondition(Condition)
 	 * @see mm_hybrid.MM_HybridPackage#getSourceElementRule_Condition()
-	 * @model containment="true" required="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	Condition getCondition();
