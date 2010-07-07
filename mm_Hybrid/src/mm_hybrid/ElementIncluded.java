@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface ElementIncluded extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Source Element</b></em>' containment reference list.
-	 * The list contents are of type {@link mm_hybrid.Element}.
+	 * The list contents are of type {@link mm_hybrid.SourceElementRule}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Source Element</em>' containment reference list isn't clear,
@@ -39,14 +39,14 @@ public interface ElementIncluded extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Element</em>' containment reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getElementIncluded_SourceElement()
-	 * @model containment="true" required="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<Element> getSourceElement();
+	EList<SourceElementRule> getSourceElement();
 
 	/**
 	 * Returns the value of the '<em><b>Target Element</b></em>' containment reference list.
-	 * The list contents are of type {@link mm_hybrid.Element}.
+	 * The list contents are of type {@link mm_hybrid.TargetElementRule}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Target Element</em>' containment reference list isn't clear,
@@ -55,9 +55,9 @@ public interface ElementIncluded extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target Element</em>' containment reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getElementIncluded_TargetElement()
-	 * @model containment="true" required="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<Element> getTargetElement();
+	EList<TargetElementRule> getTargetElement();
 
 } // ElementIncluded

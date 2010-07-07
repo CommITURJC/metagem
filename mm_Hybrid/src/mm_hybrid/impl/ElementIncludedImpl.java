@@ -12,6 +12,8 @@ import mm_hybrid.Element;
 import mm_hybrid.ElementIncluded;
 import mm_hybrid.MM_HybridPackage;
 
+import mm_hybrid.SourceElementRule;
+import mm_hybrid.TargetElementRule;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -47,7 +49,7 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Element> sourceElement;
+	protected EList<SourceElementRule> sourceElement;
 
 	/**
 	 * The cached value of the '{@link #getTargetElement() <em>Target Element</em>}' containment reference list.
@@ -57,7 +59,7 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Element> targetElement;
+	protected EList<TargetElementRule> targetElement;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -83,10 +85,11 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Element> getSourceElement() {
+	public EList<SourceElementRule> getSourceElement() {
 		if (sourceElement == null) {
-			sourceElement = new EObjectContainmentEList<Element>(Element.class,
-					this, MM_HybridPackage.ELEMENT_INCLUDED__SOURCE_ELEMENT);
+			sourceElement = new EObjectContainmentEList<SourceElementRule>(
+					SourceElementRule.class, this,
+					MM_HybridPackage.ELEMENT_INCLUDED__SOURCE_ELEMENT);
 		}
 		return sourceElement;
 	}
@@ -96,10 +99,11 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Element> getTargetElement() {
+	public EList<TargetElementRule> getTargetElement() {
 		if (targetElement == null) {
-			targetElement = new EObjectContainmentEList<Element>(Element.class,
-					this, MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT);
+			targetElement = new EObjectContainmentEList<TargetElementRule>(
+					TargetElementRule.class, this,
+					MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT);
 		}
 		return targetElement;
 	}
@@ -150,11 +154,13 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 		switch (featureID) {
 		case MM_HybridPackage.ELEMENT_INCLUDED__SOURCE_ELEMENT:
 			getSourceElement().clear();
-			getSourceElement().addAll((Collection<? extends Element>) newValue);
+			getSourceElement().addAll(
+					(Collection<? extends SourceElementRule>) newValue);
 			return;
 		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
 			getTargetElement().clear();
-			getTargetElement().addAll((Collection<? extends Element>) newValue);
+			getTargetElement().addAll(
+					(Collection<? extends TargetElementRule>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);

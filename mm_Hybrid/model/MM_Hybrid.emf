@@ -60,8 +60,8 @@ class TargetElementRule extends Element {
 }
 
 class ElementIncluded {
-  !ordered val Element[+] sourceElement;
-  !ordered val Element[+] targetElement;
+  !ordered val SourceElementRule[*] sourceElement;
+  !ordered val TargetElementRule[*] targetElement;
 }
 
 class Condition {
