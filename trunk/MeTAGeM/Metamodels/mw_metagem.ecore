@@ -82,7 +82,8 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="MyTypeRelation">
       <eLiterals name="IsMain" value="1"/>
-      <eLiterals name="IsAbstract" value="2"/>
+      <eLiterals name="IsSecondary" value="2"/>
+      <eLiterals name="IsAbstract" value="3"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ModelRoot" eSuperTypes="#/0/WModel">
       <eStructuralFeatures xsi:type="ecore:EReference" name="inputModel" ordered="false"

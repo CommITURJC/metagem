@@ -17,6 +17,7 @@ package mmw_metagem {
 		
 	enumeration MyTypeRelation{
 		literal IsMain;
+		literal IsSecondary;
 		literal IsAbstract;
 	}
 	
