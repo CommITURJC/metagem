@@ -52,6 +52,8 @@
     <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//ElementIncluded">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//ElementIncluded/sourceElement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//ElementIncluded/targetElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//ElementIncluded/typeAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//ElementIncluded/typeElement"/>
     </genClasses>
     <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//Condition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//Condition/value"/>

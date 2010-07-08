@@ -62,6 +62,8 @@ class TargetElementRule extends Element {
 class ElementIncluded {
   !ordered val SourceElementRule[*] sourceElement;
   !ordered val TargetElementRule[*] targetElement;
+  !unique !ordered attr TypeAtribute[1] typeAttribute;
+  !unique !ordered attr TypeElem[1] typeElement;
 }
 
 class Condition {
