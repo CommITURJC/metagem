@@ -157,53 +157,63 @@ abstract rule Relations2Rule{
 }
 
 
-rule OneToOne2ElementIncluded{
+rule OneToOne2ElementIncluded extends Relations2ElementIncluded{
 	from
-		relation_o2o:AMW!OneToOne(relation_o2o.outElement.asSequence().size()>0)
+		relation_in:AMW!OneToOne(relation_in.outElement.asSequence().size()>0)
 	to
 		elementIncluded:MM_Hybrid!ElementIncluded(
-			sourceElement <- relation_o2o.source,
-			targetElement <- relation_o2o.target
+			sourceElement <- relation_in.source,
+			targetElement <- relation_in.target
 		)
 }
 
 
-rule OneToMany2ElementIncluded{
+rule OneToMany2ElementIncluded extends Relations2ElementIncluded{
 	from
-		relation_o2m:AMW!OneToMany(relation_o2m.outElement.asSequence().size()>0)
+		relation_in:AMW!OneToMany(relation_in.outElement.asSequence().size()>0)
 	to
 		elementIncluded:MM_Hybrid!ElementIncluded(
-			sourceElement <- relation_o2m.source,
-			targetElement <- relation_o2m.target
+			sourceElement <- relation_in.source,
+			targetElement <- relation_in.target
 		)
 }
 
-rule ZeroToOne2ElementIncluded{
+rule ZeroToOne2ElementIncluded extends Relations2ElementIncluded{
 	from
-		relation_z2o:AMW!ZeroToOne(relation_z2o.outElement.asSequence().size()>0)
+		relation_in:AMW!ZeroToOne(relation_in.outElement.asSequence().size()>0)
 	to
 		elementIncluded:MM_Hybrid!ElementIncluded(
-			targetElement <- relation_z2o.target
+			targetElement <- relation_in.target
 		)
 }
 
-rule ManyToOne2ElementIncluded{
+rule ManyToOne2ElementIncluded extends Relations2ElementIncluded{
 	from
-		relation_m2o:AMW!ManyToOne(relation_m2o.outElement.asSequence().size()>0)
+		relation_in:AMW!ManyToOne(relation_in.outElement.asSequence().size()>0)
 	to
 		elementIncluded:MM_Hybrid!ElementIncluded(
-			sourceElement <- relation_m2o.source,
-			targetElement <- relation_m2o.target
+			sourceElement <- relation_in.source,
+			targetElement <- relation_in.target
 		)
 }
 
-rule ManyToMany2ElementIncluded{
+rule ManyToMany2ElementIncluded extends Relations2ElementIncluded{
 	from
-		relation_m2m:AMW!ManyToMany(relation_m2m.outElement.asSequence().size()>0)
+		relation_in:AMW!ManyToMany(relation_in.outElement.asSequence().size()>0)
 	to
 		elementIncluded:MM_Hybrid!ElementIncluded(
-			sourceElement <- relation_m2m.source,
-			targetElement <- relation_m2m.target
+			sourceElement <- relation_in.source,
+			targetElement <- relation_in.target
+		)
+}
+
+abstract rule Relations2ElementIncluded{
+	from
+		relation_in:AMW!Relations(relation_in.outElement.asSequence().size()>0)
+	to
+		elementIncluded:MM_Hybrid!ElementIncluded(
+			typeAttribute <- relation_in.typeAttri,
+			typeElement <- relation_in.typeE
 		)
 }
 
