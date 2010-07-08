@@ -1,5 +1,6 @@
 
 package mmw_metagem { 
+
 --la extension para metagem
 	enumeration MyAttributeType {
 	 	literal copy; --es solo una copia textual del atribute
@@ -11,9 +12,14 @@ package mmw_metagem {
 	enumeration MyTypeElem{
 		literal MyEclassifier;
 		literal MyEattribute;
-		literal MyEreference;
-		
+		literal MyEreference;	
 		}
+		
+	enumeration MyTypeRelation{
+		literal IsMain;
+		literal IsAbstract;
+	}
+	
 	class ModelRoot extends WModel{
 		-- @subsets wovenModel
 		reference inputModel [1-*] container : InModelTransf;
@@ -46,10 +52,9 @@ package mmw_metagem {
 	abstract class Relations extends WLink{
 		attribute typeAttri : MyAttributeType;
 		attribute typeE: MyTypeElem; --indica si la relacion es entre un classifier, attribute o reference
-		attribute isMain: Boolean; --default true;
-		attribute isAbstract : Boolean;
+		attribute typeRelation : MyTypeRelation;
+		
 		-- @subsets child
-		--reference model : WModel oppositeOf ownedElement;
 		reference outElement: OutElement oppositeOf relations;
 		--reference child[0-*] ordered container : WLink oppositeOf parent;
 		

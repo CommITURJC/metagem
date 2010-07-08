@@ -80,6 +80,10 @@
       <eLiterals name="MyEattribute" value="2"/>
       <eLiterals name="MyEreference" value="3"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="MyTypeRelation">
+      <eLiterals name="IsMain" value="1"/>
+      <eLiterals name="IsAbstract" value="2"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ModelRoot" eSuperTypes="#/0/WModel">
       <eStructuralFeatures xsi:type="ecore:EReference" name="inputModel" ordered="false"
           lowerBound="1" upperBound="-1" eType="#/2/InModelTransf" containment="true">
@@ -111,10 +115,8 @@
           unique="false" lowerBound="1" eType="#/2/MyAttributeType"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeE" ordered="false"
           unique="false" lowerBound="1" eType="#/2/MyTypeElem"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMain" ordered="false"
-          unique="false" lowerBound="1" eType="#/1/Boolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" ordered="false"
-          unique="false" lowerBound="1" eType="#/1/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeRelation" ordered="false"
+          unique="false" lowerBound="1" eType="#/2/MyTypeRelation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outElement" ordered="false"
           lowerBound="1" eType="#/2/OutElement" eOpposite="#/2/OutElement/relations">
         <eAnnotations source="child"/>
