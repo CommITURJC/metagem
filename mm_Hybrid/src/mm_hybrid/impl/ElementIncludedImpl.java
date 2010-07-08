@@ -14,6 +14,9 @@ import mm_hybrid.MM_HybridPackage;
 
 import mm_hybrid.SourceElementRule;
 import mm_hybrid.TargetElementRule;
+import mm_hybrid.TypeAtribute;
+import mm_hybrid.TypeElem;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -21,6 +24,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -35,6 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link mm_hybrid.impl.ElementIncludedImpl#getSourceElement <em>Source Element</em>}</li>
  *   <li>{@link mm_hybrid.impl.ElementIncludedImpl#getTargetElement <em>Target Element</em>}</li>
+ *   <li>{@link mm_hybrid.impl.ElementIncludedImpl#getTypeAttribute <em>Type Attribute</em>}</li>
+ *   <li>{@link mm_hybrid.impl.ElementIncludedImpl#getTypeElement <em>Type Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,6 +66,46 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 	 * @ordered
 	 */
 	protected EList<TargetElementRule> targetElement;
+
+	/**
+	 * The default value of the '{@link #getTypeAttribute() <em>Type Attribute</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeAttribute()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final TypeAtribute TYPE_ATTRIBUTE_EDEFAULT = TypeAtribute.COPY;
+
+	/**
+	 * The cached value of the '{@link #getTypeAttribute() <em>Type Attribute</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeAttribute()
+	 * @generated
+	 * @ordered
+	 */
+	protected TypeAtribute typeAttribute = TYPE_ATTRIBUTE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTypeElement() <em>Type Element</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final TypeElem TYPE_ELEMENT_EDEFAULT = TypeElem.MY_ECLASSIFIER;
+
+	/**
+	 * The cached value of the '{@link #getTypeElement() <em>Type Element</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected TypeElem typeElement = TYPE_ELEMENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,6 +159,54 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TypeAtribute getTypeAttribute() {
+		return typeAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTypeAttribute(TypeAtribute newTypeAttribute) {
+		TypeAtribute oldTypeAttribute = typeAttribute;
+		typeAttribute = newTypeAttribute == null ? TYPE_ATTRIBUTE_EDEFAULT
+				: newTypeAttribute;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ATTRIBUTE,
+					oldTypeAttribute, typeAttribute));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TypeElem getTypeElement() {
+		return typeElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTypeElement(TypeElem newTypeElement) {
+		TypeElem oldTypeElement = typeElement;
+		typeElement = newTypeElement == null ? TYPE_ELEMENT_EDEFAULT
+				: newTypeElement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ELEMENT,
+					oldTypeElement, typeElement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -139,6 +233,10 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 			return getSourceElement();
 		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
 			return getTargetElement();
+		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ATTRIBUTE:
+			return getTypeAttribute();
+		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ELEMENT:
+			return getTypeElement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,6 +260,12 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 			getTargetElement().addAll(
 					(Collection<? extends TargetElementRule>) newValue);
 			return;
+		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ATTRIBUTE:
+			setTypeAttribute((TypeAtribute) newValue);
+			return;
+		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ELEMENT:
+			setTypeElement((TypeElem) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -180,6 +284,12 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
 			getTargetElement().clear();
 			return;
+		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ATTRIBUTE:
+			setTypeAttribute(TYPE_ATTRIBUTE_EDEFAULT);
+			return;
+		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ELEMENT:
+			setTypeElement(TYPE_ELEMENT_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -196,8 +306,31 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 			return sourceElement != null && !sourceElement.isEmpty();
 		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
 			return targetElement != null && !targetElement.isEmpty();
+		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ATTRIBUTE:
+			return typeAttribute != TYPE_ATTRIBUTE_EDEFAULT;
+		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ELEMENT:
+			return typeElement != TYPE_ELEMENT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (typeAttribute: "); //$NON-NLS-1$
+		result.append(typeAttribute);
+		result.append(", typeElement: "); //$NON-NLS-1$
+		result.append(typeElement);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ElementIncludedImpl

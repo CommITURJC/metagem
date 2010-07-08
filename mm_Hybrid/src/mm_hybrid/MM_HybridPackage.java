@@ -403,13 +403,31 @@ public interface MM_HybridPackage extends EPackage {
 	int ELEMENT_INCLUDED__TARGET_ELEMENT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Type Attribute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_INCLUDED__TYPE_ATTRIBUTE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Type Element</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_INCLUDED__TYPE_ELEMENT = 3;
+
+	/**
 	 * The number of structural features of the '<em>Element Included</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_INCLUDED_FEATURE_COUNT = 2;
+	int ELEMENT_INCLUDED_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.ConditionImpl <em>Condition</em>}' class.
@@ -760,6 +778,28 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getElementIncluded_TargetElement();
 
 	/**
+	 * Returns the meta object for the attribute '{@link mm_hybrid.ElementIncluded#getTypeAttribute <em>Type Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Attribute</em>'.
+	 * @see mm_hybrid.ElementIncluded#getTypeAttribute()
+	 * @see #getElementIncluded()
+	 * @generated
+	 */
+	EAttribute getElementIncluded_TypeAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mm_hybrid.ElementIncluded#getTypeElement <em>Type Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Element</em>'.
+	 * @see mm_hybrid.ElementIncluded#getTypeElement()
+	 * @see #getElementIncluded()
+	 * @generated
+	 */
+	EAttribute getElementIncluded_TypeElement();
+
+	/**
 	 * Returns the meta object for class '{@link mm_hybrid.Condition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1067,6 +1107,24 @@ public interface MM_HybridPackage extends EPackage {
 		 */
 		EReference ELEMENT_INCLUDED__TARGET_ELEMENT = eINSTANCE
 				.getElementIncluded_TargetElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Attribute</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_INCLUDED__TYPE_ATTRIBUTE = eINSTANCE
+				.getElementIncluded_TypeAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Element</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_INCLUDED__TYPE_ELEMENT = eINSTANCE
+				.getElementIncluded_TypeElement();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.ConditionImpl <em>Condition</em>}' class.

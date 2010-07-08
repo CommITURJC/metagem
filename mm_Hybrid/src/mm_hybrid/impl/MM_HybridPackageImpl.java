@@ -447,6 +447,26 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getElementIncluded_TypeAttribute() {
+		return (EAttribute) elementIncludedEClass.getEStructuralFeatures().get(
+				2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElementIncluded_TypeElement() {
+		return (EAttribute) elementIncludedEClass.getEStructuralFeatures().get(
+				3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCondition() {
 		return conditionEClass;
 	}
@@ -545,6 +565,9 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				ELEMENT_INCLUDED__SOURCE_ELEMENT);
 		createEReference(elementIncludedEClass,
 				ELEMENT_INCLUDED__TARGET_ELEMENT);
+		createEAttribute(elementIncludedEClass,
+				ELEMENT_INCLUDED__TYPE_ATTRIBUTE);
+		createEAttribute(elementIncludedEClass, ELEMENT_INCLUDED__TYPE_ELEMENT);
 
 		conditionEClass = createEClass(CONDITION);
 		createEAttribute(conditionEClass, CONDITION__VALUE);
@@ -715,6 +738,14 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				this.getTargetElementRule(),
 				null,
 				"targetElement", null, 0, -1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getElementIncluded_TypeAttribute(),
+				this.getTypeAtribute(),
+				"typeAttribute", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getElementIncluded_TypeElement(),
+				this.getTypeElem(),
+				"typeElement", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				conditionEClass,
