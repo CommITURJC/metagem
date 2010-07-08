@@ -12,6 +12,8 @@
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_IntervalFeatures" ref="//IntervalFeatures"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_length_def" ref="//BinaryStringType/length_def"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_descriptor" ref="//BinaryStringType/descriptor"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_BinaryStringTypes" ref="//BinaryStringTypes"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_schema" ref="//BehaviouralComponent/schema"/>
   </inputModel>
   <outputModel xmi:id="OutModelTransf1" name="ORDB4ORA" ref="/MeTAGeM/Metamodels/ORDB4ORA.ecore">
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_Varray" ref="//Varray"/>
@@ -26,11 +28,13 @@
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_Name" ref="//Trigger/Name"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_Body" ref="//Trigger/Body"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_updateColumns" ref="//Trigger/updateColumns"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_TriggerEvent" ref="//TriggerEvent"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_TriggerActionTime" ref="//TriggerActionTime"/>
   </outputModel>
-  <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="r1" isMain="true" isAbstract="true">
+  <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="r1" typeRelation="IsAbstract">
     <source xmi:id="InElement1" name="ARRAY" element="//@inputModel.0/@ownedElementRef.0" guardCondition="true"/>
     <target xmi:id="OutElement1" name="Varray" element="//@outputModel.0/@ownedElementRef.0">
-      <relations xsi:type="OneToOne" xmi:id="OneToOne2" isMain="true">
+      <relations xsi:type="OneToOne" xmi:id="OneToOne2">
         <source xmi:id="InElement2" name="num_elements" element="//@inputModel.0/@ownedElementRef.2" guardCondition="TRUE"/>
         <target name="NumElements" element="//@outputModel.0/@ownedElementRef.3"/>
       </relations>
@@ -38,10 +42,12 @@
   </relations>
   <relations xsi:type="ManyToMany" xmi:id="ManyToMany1">
     <target xmi:id="OutElement3" name="Trigger" element="//@outputModel.0/@ownedElementRef.8">
-      <relations xsi:type="ZeroToOne" xmi:id="ZeroToOne1" typeAttri="concatenation" typeE="MyEattribute" isMain="false">
+      <relations xsi:type="ZeroToOne" xmi:id="ZeroToOne1" typeAttri="concatenation" typeE="MyEattribute">
         <target name="Name" element="//@outputModel.0/@ownedElementRef.9"/>
       </relations>
     </target>
   </relations>
-  <relations xsi:type="OneToOne" xmi:id="OneToOne3"/>
+  <relations xsi:type="ManyToOne" xmi:id="ManyToOne1">
+    <target xmi:id="OutElement2" name="TriggerActionTime" element="//@outputModel.0/@ownedElementRef.13"/>
+  </relations>
 </ModelRoot>
