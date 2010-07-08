@@ -149,8 +149,8 @@ abstract rule Relations2Rule{
 	to
 		r_hybrid:MM_Hybrid!Rule(
 			name_rule <- relation.getRuleName().debug('nombre rule '),
-			isAbstract <- relation.isAbstract,
-			isMain <- relation.isMain,
+			isAbstract <- relation.typeRelation=#IsAbstract,
+			isMain <- relation.typeRelation=#IsMain,
 			typeAttribute <- relation.typeAttri,
 			typeElement <- relation.typeE
 		)
