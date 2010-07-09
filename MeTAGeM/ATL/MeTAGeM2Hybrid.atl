@@ -9,7 +9,7 @@ rule Module {
 		amw : AMW!ModelRoot
 	to
 		hybrid : MM_Hybrid!Module (
-			name_module <- amw.name.debug('nombremodulo '),
+			name_module <- amw.name.debug('Module '),
 		    inMM <- amw.inputModel,
 			outMM <- amw.outputModel,
 			"rule" <- amw.relations			
@@ -148,7 +148,7 @@ abstract rule Relations2Rule{
 		relation:AMW!Relations(relation.outElement.asSequence().size()=0)
 	to
 		r_hybrid:MM_Hybrid!Rule(
-			name_rule <- relation.getRuleName().debug('nombre rule '),
+			name_rule <- relation.getRuleName().debug('Rule '),
 			isAbstract <- relation.typeRelation=#IsAbstract,
 			isMain <- relation.typeRelation=#IsMain,
 			typeAttribute <- relation.typeAttri,
