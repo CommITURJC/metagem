@@ -111,7 +111,7 @@
 		<constant value="NTransientLink;.getSourceElement(S):J"/>
 		<constant value="NTransientLink;.getTargetElement(S):J"/>
 		<constant value="3"/>
-		<constant value="nombremodulo "/>
+		<constant value="Module "/>
 		<constant value="J.debug(J):J"/>
 		<constant value="name_module"/>
 		<constant value="inputModel"/>
@@ -122,9 +122,9 @@
 		<constant value="rule"/>
 		<constant value="12:19-12:22"/>
 		<constant value="12:19-12:27"/>
-		<constant value="12:34-12:49"/>
-		<constant value="12:19-12:50"/>
-		<constant value="12:4-12:50"/>
+		<constant value="12:34-12:43"/>
+		<constant value="12:19-12:44"/>
+		<constant value="12:4-12:44"/>
 		<constant value="13:15-13:18"/>
 		<constant value="13:15-13:29"/>
 		<constant value="13:7-13:29"/>
@@ -236,7 +236,7 @@
 		<constant value="target"/>
 		<constant value="out"/>
 		<constant value="J.getRuleName():J"/>
-		<constant value="nombre rule "/>
+		<constant value="Rule "/>
 		<constant value="name_rule"/>
 		<constant value="typeRelation"/>
 		<constant value="EnumLiteral"/>
@@ -257,9 +257,9 @@
 		<constant value="78:4-78:26"/>
 		<constant value="151:17-151:25"/>
 		<constant value="151:17-151:39"/>
-		<constant value="151:46-151:60"/>
-		<constant value="151:17-151:61"/>
-		<constant value="151:4-151:61"/>
+		<constant value="151:46-151:53"/>
+		<constant value="151:17-151:54"/>
+		<constant value="151:4-151:54"/>
 		<constant value="152:18-152:26"/>
 		<constant value="152:18-152:39"/>
 		<constant value="152:40-152:51"/>
