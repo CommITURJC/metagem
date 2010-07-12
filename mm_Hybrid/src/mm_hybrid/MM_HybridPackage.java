@@ -145,7 +145,7 @@ public interface MM_HybridPackage extends EPackage {
 	int IN_META_MODEL__TYPE_MM = 1;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -191,7 +191,7 @@ public interface MM_HybridPackage extends EPackage {
 	int OUT_META_MODEL__TYPE_MM = 1;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -347,7 +347,7 @@ public interface MM_HybridPackage extends EPackage {
 	int SOURCE_ELEMENT_RULE__CONDITION = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Metamodel</b></em>' container reference.
+	 * The feature id for the '<em><b>Metamodel</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -393,7 +393,7 @@ public interface MM_HybridPackage extends EPackage {
 	int TARGET_ELEMENT_RULE__INCLUDED = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Metamodel</b></em>' container reference.
+	 * The feature id for the '<em><b>Metamodel</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -600,10 +600,10 @@ public interface MM_HybridPackage extends EPackage {
 	EAttribute getInMetaModel_Type_mm();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link mm_hybrid.InMetaModel#getElements <em>Elements</em>}'.
+	 * Returns the meta object for the reference list '{@link mm_hybrid.InMetaModel#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @return the meta object for the reference list '<em>Elements</em>'.
 	 * @see mm_hybrid.InMetaModel#getElements()
 	 * @see #getInMetaModel()
 	 * @generated
@@ -643,10 +643,10 @@ public interface MM_HybridPackage extends EPackage {
 	EAttribute getOutMetaModel_Type_mm();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link mm_hybrid.OutMetaModel#getElements <em>Elements</em>}'.
+	 * Returns the meta object for the reference list '{@link mm_hybrid.OutMetaModel#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @return the meta object for the reference list '<em>Elements</em>'.
 	 * @see mm_hybrid.OutMetaModel#getElements()
 	 * @see #getOutMetaModel()
 	 * @generated
@@ -783,10 +783,10 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getSourceElementRule_Condition();
 
 	/**
-	 * Returns the meta object for the container reference '{@link mm_hybrid.SourceElementRule#getMetamodel <em>Metamodel</em>}'.
+	 * Returns the meta object for the reference '{@link mm_hybrid.SourceElementRule#getMetamodel <em>Metamodel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Metamodel</em>'.
+	 * @return the meta object for the reference '<em>Metamodel</em>'.
 	 * @see mm_hybrid.SourceElementRule#getMetamodel()
 	 * @see #getSourceElementRule()
 	 * @generated
@@ -815,10 +815,10 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getTargetElementRule_Included();
 
 	/**
-	 * Returns the meta object for the container reference '{@link mm_hybrid.TargetElementRule#getMetamodel <em>Metamodel</em>}'.
+	 * Returns the meta object for the reference '{@link mm_hybrid.TargetElementRule#getMetamodel <em>Metamodel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Metamodel</em>'.
+	 * @return the meta object for the reference '<em>Metamodel</em>'.
 	 * @see mm_hybrid.TargetElementRule#getMetamodel()
 	 * @see #getTargetElementRule()
 	 * @generated
@@ -1011,7 +1011,7 @@ public interface MM_HybridPackage extends EPackage {
 		EAttribute IN_META_MODEL__TYPE_MM = eINSTANCE.getInMetaModel_Type_mm();
 
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1048,7 +1048,7 @@ public interface MM_HybridPackage extends EPackage {
 				.getOutMetaModel_Type_mm();
 
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1160,7 +1160,7 @@ public interface MM_HybridPackage extends EPackage {
 				.getSourceElementRule_Condition();
 
 		/**
-		 * The meta object literal for the '<em><b>Metamodel</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Metamodel</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1188,7 +1188,7 @@ public interface MM_HybridPackage extends EPackage {
 				.getTargetElementRule_Included();
 
 		/**
-		 * The meta object literal for the '<em><b>Metamodel</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Metamodel</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

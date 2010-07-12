@@ -26,14 +26,14 @@ class Module {
 class InMetaModel {
   !unique !ordered attr String[1] name_mm;
   attr String[1] type_mm;
-  val SourceElementRule[*]#metamodel elements;
+  ref SourceElementRule[*]#metamodel elements;
 }
 
 @gmf.node(label="name_mm", label.icon="false", border.color="210,0,0", color="255,147,147")
 class OutMetaModel {
   !unique !ordered attr String[1] name_mm;
   attr String[1] type_mm;
-  val TargetElementRule[*]#metamodel elements;
+  ref TargetElementRule[*]#metamodel elements;
 }
 
 @gmf.node(label="name_rule", label.icon="false", border.color="204,153,0", color="253,229,141")

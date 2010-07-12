@@ -694,7 +694,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				getInMetaModel_Elements(),
 				this.getSourceElementRule(),
 				this.getSourceElementRule_Metamodel(),
-				"elements", null, 0, -1, InMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"elements", null, 0, -1, InMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				outMetaModelEClass,
@@ -712,7 +712,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				getOutMetaModel_Elements(),
 				this.getTargetElementRule(),
 				this.getTargetElementRule_Metamodel(),
-				"elements", null, 0, -1, OutMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"elements", null, 0, -1, OutMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				ruleEClass,
@@ -771,7 +771,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				getSourceElementRule_Metamodel(),
 				this.getInMetaModel(),
 				this.getInMetaModel_Elements(),
-				"metamodel", null, 1, 1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"metamodel", null, 1, 1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				targetElementRuleEClass,
@@ -786,7 +786,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				getTargetElementRule_Metamodel(),
 				this.getOutMetaModel(),
 				this.getOutMetaModel_Elements(),
-				"metamodel", null, 1, 1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"metamodel", null, 1, 1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				elementIncludedEClass,

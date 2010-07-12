@@ -44,7 +44,7 @@ public interface TargetElementRule extends Element {
 	EList<ElementIncluded> getIncluded();
 
 	/**
-	 * Returns the value of the '<em><b>Metamodel</b></em>' container reference.
+	 * Returns the value of the '<em><b>Metamodel</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link mm_hybrid.OutMetaModel#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -52,20 +52,20 @@ public interface TargetElementRule extends Element {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Metamodel</em>' container reference.
+	 * @return the value of the '<em>Metamodel</em>' reference.
 	 * @see #setMetamodel(OutMetaModel)
 	 * @see mm_hybrid.MM_HybridPackage#getTargetElementRule_Metamodel()
 	 * @see mm_hybrid.OutMetaModel#getElements
-	 * @model opposite="elements" required="true" transient="false"
+	 * @model opposite="elements" required="true"
 	 * @generated
 	 */
 	OutMetaModel getMetamodel();
 
 	/**
-	 * Sets the value of the '{@link mm_hybrid.TargetElementRule#getMetamodel <em>Metamodel</em>}' container reference.
+	 * Sets the value of the '{@link mm_hybrid.TargetElementRule#getMetamodel <em>Metamodel</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Metamodel</em>' container reference.
+	 * @param value the new value of the '<em>Metamodel</em>' reference.
 	 * @see #getMetamodel()
 	 * @generated
 	 */

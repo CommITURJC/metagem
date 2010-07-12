@@ -49,6 +49,16 @@ public class TargetElementRuleImpl extends ElementImpl implements
 	protected EList<ElementIncluded> included;
 
 	/**
+	 * The cached value of the '{@link #getMetamodel() <em>Metamodel</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMetamodel()
+	 * @generated
+	 * @ordered
+	 */
+	protected OutMetaModel metamodel;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -87,9 +97,26 @@ public class TargetElementRuleImpl extends ElementImpl implements
 	 * @generated
 	 */
 	public OutMetaModel getMetamodel() {
-		if (eContainerFeatureID != MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL)
-			return null;
-		return (OutMetaModel) eContainer();
+		if (metamodel != null && metamodel.eIsProxy()) {
+			InternalEObject oldMetamodel = (InternalEObject) metamodel;
+			metamodel = (OutMetaModel) eResolveProxy(oldMetamodel);
+			if (metamodel != oldMetamodel) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL,
+							oldMetamodel, metamodel));
+			}
+		}
+		return metamodel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OutMetaModel basicGetMetamodel() {
+		return metamodel;
 	}
 
 	/**
@@ -99,8 +126,18 @@ public class TargetElementRuleImpl extends ElementImpl implements
 	 */
 	public NotificationChain basicSetMetamodel(OutMetaModel newMetamodel,
 			NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newMetamodel,
-				MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL, msgs);
+		OutMetaModel oldMetamodel = metamodel;
+		metamodel = newMetamodel;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET,
+					MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL,
+					oldMetamodel, newMetamodel);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
 		return msgs;
 	}
 
@@ -110,14 +147,12 @@ public class TargetElementRuleImpl extends ElementImpl implements
 	 * @generated
 	 */
 	public void setMetamodel(OutMetaModel newMetamodel) {
-		if (newMetamodel != eInternalContainer()
-				|| (eContainerFeatureID != MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL && newMetamodel != null)) {
-			if (EcoreUtil.isAncestor(this, newMetamodel))
-				throw new IllegalArgumentException(
-						"Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+		if (newMetamodel != metamodel) {
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
+			if (metamodel != null)
+				msgs = ((InternalEObject) metamodel).eInverseRemove(this,
+						MM_HybridPackage.OUT_META_MODEL__ELEMENTS,
+						OutMetaModel.class, msgs);
 			if (newMetamodel != null)
 				msgs = ((InternalEObject) newMetamodel).eInverseAdd(this,
 						MM_HybridPackage.OUT_META_MODEL__ELEMENTS,
@@ -141,8 +176,10 @@ public class TargetElementRuleImpl extends ElementImpl implements
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
+			if (metamodel != null)
+				msgs = ((InternalEObject) metamodel).eInverseRemove(this,
+						MM_HybridPackage.OUT_META_MODEL__ELEMENTS,
+						OutMetaModel.class, msgs);
 			return basicSetMetamodel((OutMetaModel) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -172,29 +209,14 @@ public class TargetElementRuleImpl extends ElementImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(
-			NotificationChain msgs) {
-		switch (eContainerFeatureID) {
-		case MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL:
-			return eInternalContainer().eInverseRemove(this,
-					MM_HybridPackage.OUT_META_MODEL__ELEMENTS,
-					OutMetaModel.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case MM_HybridPackage.TARGET_ELEMENT_RULE__INCLUDED:
 			return getIncluded();
 		case MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL:
-			return getMetamodel();
+			if (resolve)
+				return getMetamodel();
+			return basicGetMetamodel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -249,7 +271,7 @@ public class TargetElementRuleImpl extends ElementImpl implements
 		case MM_HybridPackage.TARGET_ELEMENT_RULE__INCLUDED:
 			return included != null && !included.isEmpty();
 		case MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL:
-			return getMetamodel() != null;
+			return metamodel != null;
 		}
 		return super.eIsSet(featureID);
 	}

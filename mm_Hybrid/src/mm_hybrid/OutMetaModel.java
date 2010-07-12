@@ -81,7 +81,7 @@ public interface OutMetaModel extends EObject {
 	void setType_mm(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Elements</b></em>' reference list.
 	 * The list contents are of type {@link mm_hybrid.TargetElementRule}.
 	 * It is bidirectional and its opposite is '{@link mm_hybrid.TargetElementRule#getMetamodel <em>Metamodel</em>}'.
 	 * <!-- begin-user-doc -->
@@ -90,10 +90,10 @@ public interface OutMetaModel extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' containment reference list.
+	 * @return the value of the '<em>Elements</em>' reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getOutMetaModel_Elements()
 	 * @see mm_hybrid.TargetElementRule#getMetamodel
-	 * @model opposite="metamodel" containment="true"
+	 * @model opposite="metamodel"
 	 * @generated
 	 */
 	EList<TargetElementRule> getElements();
