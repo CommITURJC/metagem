@@ -263,6 +263,15 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getInMetaModel_Elements() {
+		return (EReference) inMetaModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOutMetaModel() {
 		return outMetaModelEClass;
 	}
@@ -283,6 +292,15 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 */
 	public EAttribute getOutMetaModel_Type_mm() {
 		return (EAttribute) outMetaModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOutMetaModel_Elements() {
+		return (EReference) outMetaModelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -399,6 +417,16 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSourceElementRule_Metamodel() {
+		return (EReference) sourceElementRuleEClass.getEStructuralFeatures()
+				.get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTargetElementRule() {
 		return targetElementRuleEClass;
 	}
@@ -411,6 +439,16 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	public EReference getTargetElementRule_Included() {
 		return (EReference) targetElementRuleEClass.getEStructuralFeatures()
 				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTargetElementRule_Metamodel() {
+		return (EReference) targetElementRuleEClass.getEStructuralFeatures()
+				.get(1);
 	}
 
 	/**
@@ -536,10 +574,12 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		inMetaModelEClass = createEClass(IN_META_MODEL);
 		createEAttribute(inMetaModelEClass, IN_META_MODEL__NAME_MM);
 		createEAttribute(inMetaModelEClass, IN_META_MODEL__TYPE_MM);
+		createEReference(inMetaModelEClass, IN_META_MODEL__ELEMENTS);
 
 		outMetaModelEClass = createEClass(OUT_META_MODEL);
 		createEAttribute(outMetaModelEClass, OUT_META_MODEL__NAME_MM);
 		createEAttribute(outMetaModelEClass, OUT_META_MODEL__TYPE_MM);
+		createEReference(outMetaModelEClass, OUT_META_MODEL__ELEMENTS);
 
 		ruleEClass = createEClass(RULE);
 		createEAttribute(ruleEClass, RULE__NAME_RULE);
@@ -556,9 +596,13 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		sourceElementRuleEClass = createEClass(SOURCE_ELEMENT_RULE);
 		createEReference(sourceElementRuleEClass,
 				SOURCE_ELEMENT_RULE__CONDITION);
+		createEReference(sourceElementRuleEClass,
+				SOURCE_ELEMENT_RULE__METAMODEL);
 
 		targetElementRuleEClass = createEClass(TARGET_ELEMENT_RULE);
 		createEReference(targetElementRuleEClass, TARGET_ELEMENT_RULE__INCLUDED);
+		createEReference(targetElementRuleEClass,
+				TARGET_ELEMENT_RULE__METAMODEL);
 
 		elementIncludedEClass = createEClass(ELEMENT_INCLUDED);
 		createEReference(elementIncludedEClass,
@@ -646,6 +690,11 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				getInMetaModel_Type_mm(),
 				ecorePackage.getEString(),
 				"type_mm", null, 1, 1, InMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getInMetaModel_Elements(),
+				this.getSourceElementRule(),
+				this.getSourceElementRule_Metamodel(),
+				"elements", null, 0, -1, InMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				outMetaModelEClass,
@@ -659,6 +708,11 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				getOutMetaModel_Type_mm(),
 				ecorePackage.getEString(),
 				"type_mm", null, 1, 1, OutMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getOutMetaModel_Elements(),
+				this.getTargetElementRule(),
+				this.getTargetElementRule_Metamodel(),
+				"elements", null, 0, -1, OutMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				ruleEClass,
@@ -713,6 +767,11 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				this.getCondition(),
 				null,
 				"condition", null, 0, 1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getSourceElementRule_Metamodel(),
+				this.getInMetaModel(),
+				this.getInMetaModel_Elements(),
+				"metamodel", null, 1, 1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				targetElementRuleEClass,
@@ -723,6 +782,11 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				this.getElementIncluded(),
 				null,
 				"included", null, 0, -1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getTargetElementRule_Metamodel(),
+				this.getOutMetaModel(),
+				this.getOutMetaModel_Elements(),
+				"metamodel", null, 1, 1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				elementIncludedEClass,

@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link mm_hybrid.TargetElementRule#getIncluded <em>Included</em>}</li>
+ *   <li>{@link mm_hybrid.TargetElementRule#getMetamodel <em>Metamodel</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,4 +42,32 @@ public interface TargetElementRule extends Element {
 	 * @generated
 	 */
 	EList<ElementIncluded> getIncluded();
+
+	/**
+	 * Returns the value of the '<em><b>Metamodel</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.OutMetaModel#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Metamodel</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Metamodel</em>' container reference.
+	 * @see #setMetamodel(OutMetaModel)
+	 * @see mm_hybrid.MM_HybridPackage#getTargetElementRule_Metamodel()
+	 * @see mm_hybrid.OutMetaModel#getElements
+	 * @model opposite="elements" required="true" transient="false"
+	 * @generated
+	 */
+	OutMetaModel getMetamodel();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.TargetElementRule#getMetamodel <em>Metamodel</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Metamodel</em>' container reference.
+	 * @see #getMetamodel()
+	 * @generated
+	 */
+	void setMetamodel(OutMetaModel value);
 } // TargetElementRule

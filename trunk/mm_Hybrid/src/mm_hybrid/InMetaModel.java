@@ -6,6 +6,7 @@
  */
 package mm_hybrid;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link mm_hybrid.InMetaModel#getName_mm <em>Name mm</em>}</li>
  *   <li>{@link mm_hybrid.InMetaModel#getType_mm <em>Type mm</em>}</li>
+ *   <li>{@link mm_hybrid.InMetaModel#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +79,23 @@ public interface InMetaModel extends EObject {
 	 * @generated
 	 */
 	void setType_mm(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+	 * The list contents are of type {@link mm_hybrid.SourceElementRule}.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.SourceElementRule#getMetamodel <em>Metamodel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Elements</em>' containment reference list.
+	 * @see mm_hybrid.MM_HybridPackage#getInMetaModel_Elements()
+	 * @see mm_hybrid.SourceElementRule#getMetamodel
+	 * @model opposite="metamodel" containment="true"
+	 * @generated
+	 */
+	EList<SourceElementRule> getElements();
 
 } // InMetaModel

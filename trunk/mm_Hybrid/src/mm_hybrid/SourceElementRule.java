@@ -15,6 +15,7 @@ package mm_hybrid;
  * The following features are supported:
  * <ul>
  *   <li>{@link mm_hybrid.SourceElementRule#getCondition <em>Condition</em>}</li>
+ *   <li>{@link mm_hybrid.SourceElementRule#getMetamodel <em>Metamodel</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,5 +49,33 @@ public interface SourceElementRule extends Element {
 	 * @generated
 	 */
 	void setCondition(Condition value);
+
+	/**
+	 * Returns the value of the '<em><b>Metamodel</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.InMetaModel#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Metamodel</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Metamodel</em>' container reference.
+	 * @see #setMetamodel(InMetaModel)
+	 * @see mm_hybrid.MM_HybridPackage#getSourceElementRule_Metamodel()
+	 * @see mm_hybrid.InMetaModel#getElements
+	 * @model opposite="elements" required="true" transient="false"
+	 * @generated
+	 */
+	InMetaModel getMetamodel();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.SourceElementRule#getMetamodel <em>Metamodel</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Metamodel</em>' container reference.
+	 * @see #getMetamodel()
+	 * @generated
+	 */
+	void setMetamodel(InMetaModel value);
 
 } // SourceElementRule

@@ -26,12 +26,14 @@ class Module {
 class InMetaModel {
   !unique !ordered attr String[1] name_mm;
   attr String[1] type_mm;
+  val SourceElementRule[*]#metamodel elements;
 }
 
 @gmf.node(label="name_mm", label.icon="false", border.color="210,0,0", color="255,147,147")
 class OutMetaModel {
   !unique !ordered attr String[1] name_mm;
   attr String[1] type_mm;
+  val TargetElementRule[*]#metamodel elements;
 }
 
 @gmf.node(label="name_rule", label.icon="false", border.color="204,153,0", color="253,229,141")
@@ -52,11 +54,13 @@ abstract class Element {
 @gmf.node(label="name_element", label.icon="false", border.color="31,73,125", color="218,238,243")
 class SourceElementRule extends Element {
   !ordered val Condition condition;
+  ref InMetaModel[1]#elements metamodel;
 }
 
 @gmf.node(label="name_element", label.icon="false", border.color="51,153,102", color="204,255,204")
 class TargetElementRule extends Element {
   val ElementIncluded[*] included;
+  ref OutMetaModel[1]#elements metamodel;
 }
 
 class ElementIncluded {
