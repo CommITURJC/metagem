@@ -41,7 +41,8 @@ rule InElement2SourceElementRuleWithoutCondition{
 		inElem: AMW!InElement (inElem.guardCondition.oclIsUndefined())
 	to
 		sourceElem: MM_Hybrid!SourceElementRule(
-			name_element <- inElem.name			
+			name_element <- inElem.name,
+			metamodel <- inElem.model
 		)
 }
 
