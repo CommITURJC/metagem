@@ -62,6 +62,7 @@ public class OutMetaModelItemProvider extends ItemProviderAdapter implements
 
 			addName_mmPropertyDescriptor(object);
 			addType_mmPropertyDescriptor(object);
+			addElementsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -107,35 +108,22 @@ public class OutMetaModelItemProvider extends ItemProviderAdapter implements
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Elements feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(MM_HybridPackage.Literals.OUT_META_MODEL__ELEMENTS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addElementsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_OutMetaModel_elements_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_OutMetaModel_elements_feature", "_UI_OutMetaModel_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.OUT_META_MODEL__ELEMENTS,
+						true, false, true, null, null, null));
 	}
 
 	/**
@@ -180,10 +168,6 @@ public class OutMetaModelItemProvider extends ItemProviderAdapter implements
 			fireNotifyChanged(new ViewerNotification(notification, notification
 					.getNotifier(), false, true));
 			return;
-		case MM_HybridPackage.OUT_META_MODEL__ELEMENTS:
-			fireNotifyChanged(new ViewerNotification(notification, notification
-					.getNotifier(), true, false));
-			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -199,10 +183,6 @@ public class OutMetaModelItemProvider extends ItemProviderAdapter implements
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(
-				MM_HybridPackage.Literals.OUT_META_MODEL__ELEMENTS,
-				MM_HybridFactory.eINSTANCE.createTargetElementRule()));
 	}
 
 	/**
