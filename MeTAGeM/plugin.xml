@@ -9,11 +9,22 @@
 -->
 
 <plugin>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <package
-            uri="http:///MM_Hybrid.ecore"
-            class="mm_hybrid.MM_HybridPackage"/>
+   <extension
+         point="org.eclipse.gmt.weaver.metamodelExtensionID"
+         id="MeTAGeMMetamodelExtension">
+         <extensionFile
+               fileName="mmw_metagem_v2.km3"
+               name="QuickATL"
+               relativePath="metamodels/">
+         </extensionFile>
    </extension>
+   <extension
+         point="org.eclipse.epsilon.evl.emf.validation">
+      <constraintsBinding
+            constraints="Metamodels/Metagem.evl"
+            namespaceURI="MeTAGeM.constraintsBinding1">
+      </constraintsBinding>
+   </extension>
+
 
 </plugin>
