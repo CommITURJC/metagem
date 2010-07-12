@@ -67,7 +67,7 @@ rule InPatternElement {
 		),
 		
 		element : ATL!SimpleInPatternElement (
-			varName <- inPattern.name_element,
+			varName <- inPattern.name_element
 			--type <- aType
 		)--,
 		
