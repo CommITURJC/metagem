@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -80,7 +81,7 @@ public class InMetaModelImpl extends EObjectImpl implements InMetaModel {
 	protected String type_mm = TYPE_MM_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getElements()
@@ -161,7 +162,7 @@ public class InMetaModelImpl extends EObjectImpl implements InMetaModel {
 	 */
 	public EList<SourceElementRule> getElements() {
 		if (elements == null) {
-			elements = new EObjectContainmentWithInverseEList<SourceElementRule>(
+			elements = new EObjectWithInverseResolvingEList<SourceElementRule>(
 					SourceElementRule.class, this,
 					MM_HybridPackage.IN_META_MODEL__ELEMENTS,
 					MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL);

@@ -41,7 +41,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type_mm" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//SourceElementRule" containment="true" eOpposite="#//SourceElementRule/metamodel"/>
+        eType="#//SourceElementRule" eOpposite="#//SourceElementRule/metamodel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutMetaModel">
     <eAnnotations source="gmf.node">
@@ -55,7 +55,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type_mm" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//TargetElementRule" containment="true" eOpposite="#//TargetElementRule/metamodel"/>
+        eType="#//TargetElementRule" eOpposite="#//TargetElementRule/metamodel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rule">
     <eAnnotations source="gmf.node">
