@@ -6,15 +6,22 @@
  */
 package mm_hybrid.impl;
 
+import java.util.Collection;
 import mm_hybrid.MM_HybridPackage;
 import mm_hybrid.OutMetaModel;
 
+import mm_hybrid.TargetElementRule;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +32,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link mm_hybrid.impl.OutMetaModelImpl#getName_mm <em>Name mm</em>}</li>
  *   <li>{@link mm_hybrid.impl.OutMetaModelImpl#getType_mm <em>Type mm</em>}</li>
+ *   <li>{@link mm_hybrid.impl.OutMetaModelImpl#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,6 +78,16 @@ public class OutMetaModelImpl extends EObjectImpl implements OutMetaModel {
 	 * @ordered
 	 */
 	protected String type_mm = TYPE_MM_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TargetElementRule> elements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,6 +159,54 @@ public class OutMetaModelImpl extends EObjectImpl implements OutMetaModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<TargetElementRule> getElements() {
+		if (elements == null) {
+			elements = new EObjectContainmentWithInverseEList<TargetElementRule>(
+					TargetElementRule.class, this,
+					MM_HybridPackage.OUT_META_MODEL__ELEMENTS,
+					MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL);
+		}
+		return elements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case MM_HybridPackage.OUT_META_MODEL__ELEMENTS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getElements())
+					.basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case MM_HybridPackage.OUT_META_MODEL__ELEMENTS:
+			return ((InternalEList<?>) getElements()).basicRemove(otherEnd,
+					msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -148,6 +214,8 @@ public class OutMetaModelImpl extends EObjectImpl implements OutMetaModel {
 			return getName_mm();
 		case MM_HybridPackage.OUT_META_MODEL__TYPE_MM:
 			return getType_mm();
+		case MM_HybridPackage.OUT_META_MODEL__ELEMENTS:
+			return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,6 +225,7 @@ public class OutMetaModelImpl extends EObjectImpl implements OutMetaModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -165,6 +234,11 @@ public class OutMetaModelImpl extends EObjectImpl implements OutMetaModel {
 			return;
 		case MM_HybridPackage.OUT_META_MODEL__TYPE_MM:
 			setType_mm((String) newValue);
+			return;
+		case MM_HybridPackage.OUT_META_MODEL__ELEMENTS:
+			getElements().clear();
+			getElements().addAll(
+					(Collection<? extends TargetElementRule>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -184,6 +258,9 @@ public class OutMetaModelImpl extends EObjectImpl implements OutMetaModel {
 		case MM_HybridPackage.OUT_META_MODEL__TYPE_MM:
 			setType_mm(TYPE_MM_EDEFAULT);
 			return;
+		case MM_HybridPackage.OUT_META_MODEL__ELEMENTS:
+			getElements().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -202,6 +279,8 @@ public class OutMetaModelImpl extends EObjectImpl implements OutMetaModel {
 		case MM_HybridPackage.OUT_META_MODEL__TYPE_MM:
 			return TYPE_MM_EDEFAULT == null ? type_mm != null
 					: !TYPE_MM_EDEFAULT.equals(type_mm);
+		case MM_HybridPackage.OUT_META_MODEL__ELEMENTS:
+			return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
