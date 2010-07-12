@@ -18,13 +18,6 @@
                relativePath="metamodels/">
          </extensionFile>
    </extension>
-   <extension
-         point="org.eclipse.epsilon.evl.emf.validation">
-      <constraintsBinding
-            constraints="Metamodels/Metagem.evl"
-            namespaceURI="MeTAGeM.constraintsBinding1">
-      </constraintsBinding>
-   </extension>
 
 
 </plugin>
