@@ -6,12 +6,12 @@ rule Module {
 		mm_hybrid : MM_Hybrid!Module
 	to
 		atl : ATL!Module (
-			  isRefining <- false,
-			  name <- mm_hybrid.name_module.debug('Modulo'),
-		      inModels <- mm_hybrid.inMM,
-			  outModels <- mm_hybrid.outMM,	
-			  --elements <- mm_hybrid."rule"
-			  commentsBefore <- Set {'-- @atlcompiler atl2006'}
+			isRefining <- false,
+			name <- mm_hybrid.name_module.debug('Modulo'),
+		    inModels <- mm_hybrid.inMM,
+			outModels <- mm_hybrid.outMM,
+			elements <- mm_hybrid."rule",
+			commentsBefore <- Set {'-- @atlcompiler atl2006'}
 		)
 }
 
@@ -25,7 +25,6 @@ rule inMM{
 		),
 		ametamodel : ATL!OclModel (
 			name <- inMM_hybrid.type_mm
-			--elements <- MOF!EClassifier.allInstancesFrom('left') 
 		)
 }
 
@@ -39,43 +38,57 @@ rule outMM{
 		),
 		ametamodel : ATL!OclModel (
 			name <- outMM_hybrid.type_mm
-			--elements <- MOF!EClassifier.allInstancesFrom('right') 
 		)
 }
 
 
---rule createRule{
---	from 
---		mm_hybrid : MMHybrid!Rule
---	to
---		atl : ATL!MatchedRule (
---			name <- mm_hybrid.name_rule,
---			isAbstract <- mm_hybrid.isAbstract
---		)
---}
+
+rule createRule{
+	from 
+		mm_hybrid_rule : MMHybrid!Rule
+	to
+		atl : ATL!MatchedRule (
+			name <- mm_hybrid_rule.name_rule,
+			isAbstract <- mm_hybrid_rule.isAbstract,
+			isRefining <- false,
+			isDefault <- false,
+			inPattern <- mm_hybrid_rule."in",
+			outPattern <- mm_hybrid_rule.out
+		)
+}
 
 
+rule InPatternElement {
+	from 
+		inPattern : MMHybrid!SourceElementRule  	
+	to
+		atl : ATL!InPattern (
+			elements <- element
+		),
+		
+		element : ATL!SimpleInPatternElement (
+			varName <- inPattern.name_element,
+			type <- aType
+		),
+		
+		aType : ATL!OclModelElement(
+			name <- inPattern.name_element,
+			model <- 
+		)
+}
 
-
---rule LeftModelRef {
---	from
---		in_MM_hybrid : MM_Hybrid!InMetaModel
---	to
---		atl : ATL!OclModel(
---			name <- in_MM_hybrid.name_mm
---		)
---	
---}
---
---rule RightModelRef {
---	from 
---		out_MM_hybrid : MM_Hybrid!OutMetaModel
---	to
---		atl : ATL!OclModel(
---			name <- out_MM_hybrid.name_mm
---		)
---}
-
-
-
-
+rule OutPatternElement { 
+	from
+		outPattern : MMHybrid!TargetElementRule
+	to
+		atl : ATL!SimpleOutPatternElement (
+			varName <- outPattern.name_element,
+			type <- aType
+--			bindings <- 
+		),
+		
+		aType : ATL!OclModelElement(
+			name <- outPattern.name_element,
+			model <-
+		)
+}
