@@ -42,7 +42,7 @@ rule InElement2SourceElementRuleWithoutCondition{
 	to
 		sourceElem: MM_Hybrid!SourceElementRule(
 			name_element <- inElem.name,
-			metamodel <- inElem.model
+			metamodel <- inElem.element.modelRef
 		)
 }
 
@@ -52,6 +52,7 @@ rule InElement2SourceElementRuleWithCondition{
 	to
 		sourceElem: MM_Hybrid!SourceElementRule(
 			name_element <- inElem.name,
+			metamodel <- inElem.element.modelRef,
 			condition <- sourceCondition
 		),
 		sourceCondition: MM_Hybrid!Condition(
@@ -65,6 +66,7 @@ rule OutElement2TargetElementRule{
 	to
 		targetElem: MM_Hybrid!TargetElementRule(
 			name_element <- outElem.name,
+			metamodel <- outElem.element.modelRef,
 			included <- outElem.relations
 		)
 }
