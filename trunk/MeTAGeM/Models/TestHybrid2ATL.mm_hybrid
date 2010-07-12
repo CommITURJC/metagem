@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="ModuleTest">
-  <inMM name_mm="InputName" type_mm="InputType"/>
-  <outMM name_mm="OuputName" type_mm="OutputType"/>
+  <rule name_rule="RuleTest">
+    <in name_element="SourceTest" metamodel="//@inMM.0"/>
+    <out name_element="TargetTest" metamodel="//@outMM.0"/>
+  </rule>
+  <inMM name_mm="NameMMIN" type_mm="TypeMMIN" elements="//@rule.0/@in.0"/>
+  <outMM name_mm="NameMMOUT" type_mm="TypeMMOUT" elements="//@rule.0/@out.0"/>
 </mm_hybrid:Module>
