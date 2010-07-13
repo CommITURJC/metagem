@@ -78,8 +78,7 @@
         unique="false" lowerBound="1" eType="#//TypeAtribute"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeElement" ordered="false"
         unique="false" lowerBound="1" eType="#//TypeElem"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extends" upperBound="-1"
-        eType="#//Rule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//Rule"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_element" ordered="false"
