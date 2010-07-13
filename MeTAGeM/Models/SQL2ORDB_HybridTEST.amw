@@ -31,7 +31,7 @@
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_TriggerEvent" ref="//TriggerEvent"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_TriggerActionTime" ref="//TriggerActionTime"/>
   </outputModel>
-  <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="r1" typeRelation="IsAbstract">
+  <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="r1" typeRelation="IsAbstract" isExtend="ManyToMany1">
     <source xmi:id="InElement1" name="ARRAY" element="//@inputModel.0/@ownedElementRef.0" guardCondition="true"/>
     <target xmi:id="OutElement1" name="Varray" element="//@outputModel.0/@ownedElementRef.0">
       <relations xsi:type="OneToOne" xmi:id="OneToOne2">
@@ -40,7 +40,7 @@
       </relations>
     </target>
   </relations>
-  <relations xsi:type="ManyToMany" xmi:id="ManyToMany1">
+  <relations xsi:type="ManyToMany" xmi:id="ManyToMany1" name="22" extend="OneToOne1">
     <target xmi:id="OutElement3" name="Trigger" element="//@outputModel.0/@ownedElementRef.8">
       <relations xsi:type="ZeroToOne" xmi:id="ZeroToOne1" typeAttri="concatenation" typeE="MyEattribute">
         <target name="Name" element="//@outputModel.0/@ownedElementRef.9"/>
