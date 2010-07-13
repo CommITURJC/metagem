@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="ModuleTest">
-  <rule name_rule="RuleTest" isMain="true">
-    <in name_element="SourceTest1" metamodel="//@inMM.0"/>
-    <out name_element="TargetTest1" metamodel="//@outMM.0"/>
-    <out name_element="TargetTest2" metamodel="//@outMM.0"/>
+  <rule name_rule="RuleTestMainTrue" isMain="true">
+    <in name_element="SourceMatched1" metamodel="//@inMM.0"/>
+    <out name_element="TargetMatched1" metamodel="//@outMM.0"/>
+    <out name_element="TargetMatched2" metamodel="//@outMM.0"/>
   </rule>
-  <inMM name_mm="NameMMIN" type_mm="TypeMMIN" elements="//@rule.0/@in.0"/>
-  <outMM name_mm="NameMMOUT" type_mm="TypeMMOUT" elements="//@rule.0/@out.0 //@rule.0/@out.1"/>
+  <rule name_rule="RuleTestMainFalse">
+    <in name_element="SourceLazy1" metamodel="//@inMM.0"/>
+    <out name_element="TargetLazy1" metamodel="//@outMM.0"/>
+    <out name_element="TargetLazy2" metamodel="//@outMM.0"/>
+  </rule>
+  <rule name_rule="RuleInputZero">
+    <out name_element="TargetCalled1" metamodel="//@outMM.0"/>
+    <out name_element="TargetCalled2" metamodel="//@outMM.0"/>
+  </rule>
+  <inMM name_mm="NameMMIN" type_mm="TypeMMIN" elements="//@rule.0/@in.0 //@rule.1/@in.0"/>
+  <outMM name_mm="NameMMOUT" type_mm="TypeMMOUT" elements="//@rule.0/@out.0 //@rule.0/@out.1 //@rule.1/@out.1 //@rule.1/@out.0 //@rule.2/@out.0 //@rule.2/@out.1"/>
 </mm_hybrid:Module>
