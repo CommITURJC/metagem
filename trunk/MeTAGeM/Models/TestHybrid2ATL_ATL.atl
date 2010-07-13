@@ -1,0 +1,4 @@
+-- @atlcompiler atl2006
+module ModuleTest;
+create NameMMOUT : TypeMMOUT from NameMMIN : TypeMMIN;
+
