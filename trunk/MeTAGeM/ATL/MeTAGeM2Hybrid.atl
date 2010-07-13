@@ -154,6 +154,8 @@ abstract rule Relations2Rule{
 			name_rule <- relation.getRuleName().debug('Rule '),
 			isAbstract <- relation.typeRelation=#IsAbstract,
 			isMain <- relation.typeRelation=#IsMain,
+			"extends" <- relation.extend,
+			isExtended <- relation.isExtend, 
 			typeAttribute <- relation.typeAttri,
 			typeElement <- relation.typeE
 		)
