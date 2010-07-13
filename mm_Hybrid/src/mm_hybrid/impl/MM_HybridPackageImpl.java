@@ -389,6 +389,15 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRule_IsExtended() {
+		return (EReference) ruleEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getElement() {
 		return elementEClass;
 	}
@@ -599,6 +608,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		createEAttribute(ruleEClass, RULE__TYPE_ATTRIBUTE);
 		createEAttribute(ruleEClass, RULE__TYPE_ELEMENT);
 		createEReference(ruleEClass, RULE__EXTENDS);
+		createEReference(ruleEClass, RULE__IS_EXTENDED);
 
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__NAME_ELEMENT);
@@ -761,8 +771,13 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		initEReference(
 				getRule_Extends(),
 				this.getRule(),
-				null,
-				"extends", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				this.getRule_IsExtended(),
+				"extends", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getRule_IsExtended(),
+				this.getRule(),
+				this.getRule_Extends(),
+				"isExtended", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				elementEClass,
