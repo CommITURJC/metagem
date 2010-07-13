@@ -58,7 +58,8 @@ package mmw_metagem {
 		reference outElement: OutElement oppositeOf relations;
 		
 	   -- @subsets child
-		reference relations: Relations;	
+		reference extend [0-1]: Relations oppositeOf isExtend;
+		reference isExtend [*]: Relations oppositeOf extend;		
 	}
 	
 	--abstract class ElementTransf extends WLinkEnd{

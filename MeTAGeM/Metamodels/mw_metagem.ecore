@@ -47,7 +47,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="WLink" abstract="true" eSuperTypes="#/0/WElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="child" upperBound="-1"
           eType="#/0/WLink" derived="true" containment="true" eOpposite="#/0/WLink/parent">
-        <eAnnotations source="outElement,relations,relations"/>
+        <eAnnotations source="outElement,extend,relations"/>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" ordered="false"
           lowerBound="1" eType="#/0/WLink" eOpposite="#/0/WLink/child"/>
@@ -122,10 +122,12 @@
           lowerBound="1" eType="#/2/OutElement" eOpposite="#/2/OutElement/relations">
         <eAnnotations source="child"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="relations" ordered="false"
-          lowerBound="1" eType="#/2/Relations">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="extend" ordered="false"
+          eType="#/2/Relations" eOpposite="#/2/Relations/isExtend">
         <eAnnotations source="child"/>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="isExtend" ordered="false"
+          upperBound="-1" eType="#/2/Relations" eOpposite="#/2/Relations/extend"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InElement" eSuperTypes="#/0/WLinkEnd">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="guardCondition" ordered="false"
