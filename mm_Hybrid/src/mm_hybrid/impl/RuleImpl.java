@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -43,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mm_hybrid.impl.RuleImpl#getOut <em>Out</em>}</li>
  *   <li>{@link mm_hybrid.impl.RuleImpl#getTypeAttribute <em>Type Attribute</em>}</li>
  *   <li>{@link mm_hybrid.impl.RuleImpl#getTypeElement <em>Type Element</em>}</li>
+ *   <li>{@link mm_hybrid.impl.RuleImpl#getExtends <em>Extends</em>}</li>
  * </ul>
  * </p>
  *
@@ -168,6 +170,16 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 * @ordered
 	 */
 	protected TypeElem typeElement = TYPE_ELEMENT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExtends()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Rule> extends_;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -334,6 +346,19 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Rule> getExtends() {
+		if (extends_ == null) {
+			extends_ = new EObjectResolvingEList<Rule>(Rule.class, this,
+					MM_HybridPackage.RULE__EXTENDS);
+		}
+		return extends_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -368,6 +393,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 			return getTypeAttribute();
 		case MM_HybridPackage.RULE__TYPE_ELEMENT:
 			return getTypeElement();
+		case MM_HybridPackage.RULE__EXTENDS:
+			return getExtends();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -404,6 +431,10 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		case MM_HybridPackage.RULE__TYPE_ELEMENT:
 			setTypeElement((TypeElem) newValue);
 			return;
+		case MM_HybridPackage.RULE__EXTENDS:
+			getExtends().clear();
+			getExtends().addAll((Collection<? extends Rule>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -437,6 +468,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		case MM_HybridPackage.RULE__TYPE_ELEMENT:
 			setTypeElement(TYPE_ELEMENT_EDEFAULT);
 			return;
+		case MM_HybridPackage.RULE__EXTENDS:
+			getExtends().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -464,6 +498,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 			return typeAttribute != TYPE_ATTRIBUTE_EDEFAULT;
 		case MM_HybridPackage.RULE__TYPE_ELEMENT:
 			return typeElement != TYPE_ELEMENT_EDEFAULT;
+		case MM_HybridPackage.RULE__EXTENDS:
+			return extends_ != null && !extends_.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
