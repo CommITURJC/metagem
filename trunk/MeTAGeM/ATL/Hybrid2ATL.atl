@@ -41,9 +41,9 @@ rule outMM{
 		)
 }
 
-rule createRule{
+rule createRule2MatchedRule{
 	from 
-		mm_hybrid_rule : MM_Hybrid!Rule
+		mm_hybrid_rule : MM_Hybrid!Rule (self.isMain=true)
 	to
 		atl : ATL!MatchedRule (
 			name <- mm_hybrid_rule.name_rule,
