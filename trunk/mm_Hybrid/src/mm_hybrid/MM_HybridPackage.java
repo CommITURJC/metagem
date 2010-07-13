@@ -282,7 +282,7 @@ public interface MM_HybridPackage extends EPackage {
 	int RULE__TYPE_ELEMENT = 6;
 
 	/**
-	 * The feature id for the '<em><b>Extends</b></em>' reference list.
+	 * The feature id for the '<em><b>Extends</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -291,13 +291,22 @@ public interface MM_HybridPackage extends EPackage {
 	int RULE__EXTENDS = 7;
 
 	/**
+	 * The feature id for the '<em><b>Is Extended</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__IS_EXTENDED = 8;
+
+	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_FEATURE_COUNT = 8;
+	int RULE_FEATURE_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.ElementImpl <em>Element</em>}' class.
@@ -750,15 +759,26 @@ public interface MM_HybridPackage extends EPackage {
 	EAttribute getRule_TypeElement();
 
 	/**
-	 * Returns the meta object for the reference list '{@link mm_hybrid.Rule#getExtends <em>Extends</em>}'.
+	 * Returns the meta object for the reference '{@link mm_hybrid.Rule#getExtends <em>Extends</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Extends</em>'.
+	 * @return the meta object for the reference '<em>Extends</em>'.
 	 * @see mm_hybrid.Rule#getExtends()
 	 * @see #getRule()
 	 * @generated
 	 */
 	EReference getRule_Extends();
+
+	/**
+	 * Returns the meta object for the reference list '{@link mm_hybrid.Rule#getIsExtended <em>Is Extended</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Is Extended</em>'.
+	 * @see mm_hybrid.Rule#getIsExtended()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EReference getRule_IsExtended();
 
 	/**
 	 * Returns the meta object for class '{@link mm_hybrid.Element <em>Element</em>}'.
@@ -1143,12 +1163,20 @@ public interface MM_HybridPackage extends EPackage {
 		EAttribute RULE__TYPE_ELEMENT = eINSTANCE.getRule_TypeElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Extends</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Extends</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference RULE__EXTENDS = eINSTANCE.getRule_Extends();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Extended</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RULE__IS_EXTENDED = eINSTANCE.getRule_IsExtended();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.ElementImpl <em>Element</em>}' class.

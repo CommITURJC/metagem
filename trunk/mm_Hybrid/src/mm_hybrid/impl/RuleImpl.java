@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -45,6 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mm_hybrid.impl.RuleImpl#getTypeAttribute <em>Type Attribute</em>}</li>
  *   <li>{@link mm_hybrid.impl.RuleImpl#getTypeElement <em>Type Element</em>}</li>
  *   <li>{@link mm_hybrid.impl.RuleImpl#getExtends <em>Extends</em>}</li>
+ *   <li>{@link mm_hybrid.impl.RuleImpl#getIsExtended <em>Is Extended</em>}</li>
  * </ul>
  * </p>
  *
@@ -172,14 +174,24 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	protected TypeElem typeElement = TYPE_ELEMENT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference list.
+	 * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExtends()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Rule> extends_;
+	protected Rule extends_;
+
+	/**
+	 * The cached value of the '{@link #getIsExtended() <em>Is Extended</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsExtended()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Rule> isExtended;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -346,12 +358,106 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Rule> getExtends() {
-		if (extends_ == null) {
-			extends_ = new EObjectResolvingEList<Rule>(Rule.class, this,
-					MM_HybridPackage.RULE__EXTENDS);
+	public Rule getExtends() {
+		if (extends_ != null && extends_.eIsProxy()) {
+			InternalEObject oldExtends = (InternalEObject) extends_;
+			extends_ = (Rule) eResolveProxy(oldExtends);
+			if (extends_ != oldExtends) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							MM_HybridPackage.RULE__EXTENDS, oldExtends,
+							extends_));
+			}
 		}
 		return extends_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Rule basicGetExtends() {
+		return extends_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExtends(Rule newExtends,
+			NotificationChain msgs) {
+		Rule oldExtends = extends_;
+		extends_ = newExtends;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET, MM_HybridPackage.RULE__EXTENDS,
+					oldExtends, newExtends);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExtends(Rule newExtends) {
+		if (newExtends != extends_) {
+			NotificationChain msgs = null;
+			if (extends_ != null)
+				msgs = ((InternalEObject) extends_).eInverseRemove(this,
+						MM_HybridPackage.RULE__IS_EXTENDED, Rule.class, msgs);
+			if (newExtends != null)
+				msgs = ((InternalEObject) newExtends).eInverseAdd(this,
+						MM_HybridPackage.RULE__IS_EXTENDED, Rule.class, msgs);
+			msgs = basicSetExtends(newExtends, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.RULE__EXTENDS, newExtends, newExtends));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Rule> getIsExtended() {
+		if (isExtended == null) {
+			isExtended = new EObjectWithInverseResolvingEList<Rule>(Rule.class,
+					this, MM_HybridPackage.RULE__IS_EXTENDED,
+					MM_HybridPackage.RULE__EXTENDS);
+		}
+		return isExtended;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case MM_HybridPackage.RULE__EXTENDS:
+			if (extends_ != null)
+				msgs = ((InternalEObject) extends_).eInverseRemove(this,
+						MM_HybridPackage.RULE__IS_EXTENDED, Rule.class, msgs);
+			return basicSetExtends((Rule) otherEnd, msgs);
+		case MM_HybridPackage.RULE__IS_EXTENDED:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getIsExtended())
+					.basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -367,6 +473,11 @@ public class RuleImpl extends EObjectImpl implements Rule {
 			return ((InternalEList<?>) getIn()).basicRemove(otherEnd, msgs);
 		case MM_HybridPackage.RULE__OUT:
 			return ((InternalEList<?>) getOut()).basicRemove(otherEnd, msgs);
+		case MM_HybridPackage.RULE__EXTENDS:
+			return basicSetExtends(null, msgs);
+		case MM_HybridPackage.RULE__IS_EXTENDED:
+			return ((InternalEList<?>) getIsExtended()).basicRemove(otherEnd,
+					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -394,7 +505,11 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		case MM_HybridPackage.RULE__TYPE_ELEMENT:
 			return getTypeElement();
 		case MM_HybridPackage.RULE__EXTENDS:
-			return getExtends();
+			if (resolve)
+				return getExtends();
+			return basicGetExtends();
+		case MM_HybridPackage.RULE__IS_EXTENDED:
+			return getIsExtended();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -432,8 +547,11 @@ public class RuleImpl extends EObjectImpl implements Rule {
 			setTypeElement((TypeElem) newValue);
 			return;
 		case MM_HybridPackage.RULE__EXTENDS:
-			getExtends().clear();
-			getExtends().addAll((Collection<? extends Rule>) newValue);
+			setExtends((Rule) newValue);
+			return;
+		case MM_HybridPackage.RULE__IS_EXTENDED:
+			getIsExtended().clear();
+			getIsExtended().addAll((Collection<? extends Rule>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -469,7 +587,10 @@ public class RuleImpl extends EObjectImpl implements Rule {
 			setTypeElement(TYPE_ELEMENT_EDEFAULT);
 			return;
 		case MM_HybridPackage.RULE__EXTENDS:
-			getExtends().clear();
+			setExtends((Rule) null);
+			return;
+		case MM_HybridPackage.RULE__IS_EXTENDED:
+			getIsExtended().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -499,7 +620,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		case MM_HybridPackage.RULE__TYPE_ELEMENT:
 			return typeElement != TYPE_ELEMENT_EDEFAULT;
 		case MM_HybridPackage.RULE__EXTENDS:
-			return extends_ != null && !extends_.isEmpty();
+			return extends_ != null;
+		case MM_HybridPackage.RULE__IS_EXTENDED:
+			return isExtended != null && !isExtended.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

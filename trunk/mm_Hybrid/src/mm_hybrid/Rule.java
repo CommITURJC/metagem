@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link mm_hybrid.Rule#getTypeAttribute <em>Type Attribute</em>}</li>
  *   <li>{@link mm_hybrid.Rule#getTypeElement <em>Type Element</em>}</li>
  *   <li>{@link mm_hybrid.Rule#getExtends <em>Extends</em>}</li>
+ *   <li>{@link mm_hybrid.Rule#getIsExtended <em>Is Extended</em>}</li>
  * </ul>
  * </p>
  *
@@ -203,19 +204,49 @@ public interface Rule extends EObject {
 	void setTypeElement(TypeElem value);
 
 	/**
-	 * Returns the value of the '<em><b>Extends</b></em>' reference list.
-	 * The list contents are of type {@link mm_hybrid.Rule}.
+	 * Returns the value of the '<em><b>Extends</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.Rule#getIsExtended <em>Is Extended</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Extends</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Extends</em>' reference list.
+	 * @return the value of the '<em>Extends</em>' reference.
+	 * @see #setExtends(Rule)
 	 * @see mm_hybrid.MM_HybridPackage#getRule_Extends()
-	 * @model
+	 * @see mm_hybrid.Rule#getIsExtended
+	 * @model opposite="isExtended"
 	 * @generated
 	 */
-	EList<Rule> getExtends();
+	Rule getExtends();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.Rule#getExtends <em>Extends</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Extends</em>' reference.
+	 * @see #getExtends()
+	 * @generated
+	 */
+	void setExtends(Rule value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Extended</b></em>' reference list.
+	 * The list contents are of type {@link mm_hybrid.Rule}.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.Rule#getExtends <em>Extends</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Extended</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Extended</em>' reference list.
+	 * @see mm_hybrid.MM_HybridPackage#getRule_IsExtended()
+	 * @see mm_hybrid.Rule#getExtends
+	 * @model opposite="extends"
+	 * @generated
+	 */
+	EList<Rule> getIsExtended();
 
 } // Rule
