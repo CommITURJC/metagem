@@ -50,11 +50,14 @@ rule createRule2MatchedRule{
 			isAbstract <- mm_hybrid_rule.isAbstract,
 			isRefining <- false,
 			isDefault <- false,
-			inPattern <- mm_hybrid_rule."in".asSequence().first(),
+			inPattern <- mm_hybrid_rule."in".asSequence(),
 			outPattern <- outPattern
 		),
+--		inPattern : ATL!InPattern(
+--			elements <- mm_hybrid_rule."in".asSequence()--.first()
+--			),
 		outPattern : ATL!OutPattern(
-			elements <- mm_hybrid_rule.out.asSequence().first()	
+			elements <- mm_hybrid_rule.out.asSequence()--.first()	
 		)
 }
   
