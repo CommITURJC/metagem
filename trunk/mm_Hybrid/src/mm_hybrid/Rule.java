@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link mm_hybrid.Rule#getOut <em>Out</em>}</li>
  *   <li>{@link mm_hybrid.Rule#getTypeAttribute <em>Type Attribute</em>}</li>
  *   <li>{@link mm_hybrid.Rule#getTypeElement <em>Type Element</em>}</li>
+ *   <li>{@link mm_hybrid.Rule#getExtends <em>Extends</em>}</li>
  * </ul>
  * </p>
  *
@@ -200,5 +201,21 @@ public interface Rule extends EObject {
 	 * @generated
 	 */
 	void setTypeElement(TypeElem value);
+
+	/**
+	 * Returns the value of the '<em><b>Extends</b></em>' reference list.
+	 * The list contents are of type {@link mm_hybrid.Rule}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Extends</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Extends</em>' reference list.
+	 * @see mm_hybrid.MM_HybridPackage#getRule_Extends()
+	 * @model
+	 * @generated
+	 */
+	EList<Rule> getExtends();
 
 } // Rule

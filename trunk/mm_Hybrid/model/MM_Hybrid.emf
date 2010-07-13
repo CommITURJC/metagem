@@ -45,6 +45,7 @@ class Rule {
   !ordered val TargetElementRule[*] out;
   !unique !ordered attr TypeAtribute[1] typeAttribute;
   !unique !ordered attr TypeElem[1] typeElement;
+  ref Rule[*] ~extends;
 }
 
 abstract class Element {
