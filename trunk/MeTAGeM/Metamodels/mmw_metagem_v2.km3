@@ -53,13 +53,12 @@ package mmw_metagem {
 		attribute typeAttri : MyAttributeType;
 		attribute typeE: MyTypeElem; --indica si la relacion es entre un classifier, attribute o reference
 		attribute typeRelation : MyTypeRelation;
-		reference extend: Relations;
+		
 		-- @subsets child
 		reference outElement: OutElement oppositeOf relations;
-		--reference child[0-*] ordered container : WLink oppositeOf parent;
 		
 	   -- @subsets child
-		--reference relations container: Relations;	
+		reference relations: Relations;	
 	}
 	
 	--abstract class ElementTransf extends WLinkEnd{
