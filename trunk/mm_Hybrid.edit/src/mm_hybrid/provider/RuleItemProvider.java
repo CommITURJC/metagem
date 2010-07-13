@@ -66,6 +66,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 			addIsMainPropertyDescriptor(object);
 			addTypeAttributePropertyDescriptor(object);
 			addTypeElementPropertyDescriptor(object);
+			addExtendsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -168,6 +169,25 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 						MM_HybridPackage.Literals.RULE__TYPE_ELEMENT, true,
 						false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Extends feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExtendsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_Rule_extends_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_Rule_extends_feature", "_UI_Rule_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.RULE__EXTENDS, true, false,
+						true, null, null, null));
 	}
 
 	/**
