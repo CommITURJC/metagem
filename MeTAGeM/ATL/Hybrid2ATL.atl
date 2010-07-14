@@ -54,11 +54,12 @@ rule createRule2MatchedRule{
 			isAbstract <- mm_hybrid_rule.isAbstract,
 			isRefining <- false,
 			isDefault <- false,
+			superRule <- mm_hybrid_rule."extends",
 			inPattern <- mm_hybrid_rule."in".asSequence().first(),
 			outPattern <- outPattern
 		),
 --		inPattern : ATL!InPattern(
---			elements <- mm_hybrid_rule."in".asSequence()--.first()
+--			elements <- mm_hybrid_rule."in".asSequence().debug('elements InPattern: ')--.first()
 --			),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
@@ -128,8 +129,8 @@ rule OutPatternElement {
 	to
 		atl : ATL!SimpleOutPatternElement (
 			varName <- outPattern.name_element,
-			type <- aType
---			bindings <- 
+			type <- aType,
+			bindings <- outPattern.included
 		),
 		aType : ATL!OclModelElement(
 			name <- outPattern.name_element,
@@ -141,6 +142,17 @@ rule OutPatternElement {
 		)
 }
 
-helper context MM_Hybrid!Rule def : getSizeIP() : Integer = self."in".size();
+rule Bindings {
+	from 
+		elemInc : MM_Hybrid!ElementIncluded
+	to
+		atl : ATL!Binding (
+			propertyName <- elemInc.targetElement.asSequence().first().name_element--,
+			--value <- name:String and source:VariableExp
+		)
+}
+
+helper context MM_Hybrid!Rule def : getSizeIP () : Integer = 
+	self."in".size();
 
 --helper context MM_Hybrid!Rule def : getSizeOP() : Integer = self.out.size();
