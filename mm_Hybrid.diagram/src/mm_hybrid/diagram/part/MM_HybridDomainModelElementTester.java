@@ -51,6 +51,12 @@ public class MM_HybridDomainModelElementTester extends PropertyTester {
 		if (eClass == mm_hybrid.MM_HybridPackage.eINSTANCE.getCondition()) {
 			return true;
 		}
+		if (eClass == mm_hybrid.MM_HybridPackage.eINSTANCE.getRightPattern()) {
+			return true;
+		}
+		if (eClass == mm_hybrid.MM_HybridPackage.eINSTANCE.getLeftPattern()) {
+			return true;
+		}
 		return false;
 	}
 
