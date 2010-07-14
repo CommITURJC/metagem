@@ -9,11 +9,10 @@ package mm_hybrid.provider;
 import java.util.Collection;
 import java.util.List;
 
-import mm_hybrid.ElementIncluded;
+import mm_hybrid.LeftPattern;
 import mm_hybrid.MM_HybridFactory;
 import mm_hybrid.MM_HybridPackage;
 
-import mm_hybrid.TypeAtribute;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -21,24 +20,22 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link mm_hybrid.ElementIncluded} object.
+ * This is the item provider adapter for a {@link mm_hybrid.LeftPattern} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ElementIncludedItemProvider extends ItemProviderAdapter implements
+public class LeftPatternItemProvider extends ItemProviderAdapter implements
 		IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
@@ -47,7 +44,7 @@ public class ElementIncludedItemProvider extends ItemProviderAdapter implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ElementIncludedItemProvider(AdapterFactory adapterFactory) {
+	public LeftPatternItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,50 +59,8 @@ public class ElementIncludedItemProvider extends ItemProviderAdapter implements
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypeAttributePropertyDescriptor(object);
-			addTypeElementPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Type Attribute feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypeAttributePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_ElementIncluded_typeAttribute_feature"), //$NON-NLS-1$
-						getString(
-								"_UI_PropertyDescriptor_description", "_UI_ElementIncluded_typeAttribute_feature", "_UI_ElementIncluded_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-						MM_HybridPackage.Literals.ELEMENT_INCLUDED__TYPE_ATTRIBUTE,
-						true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Type Element feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypeElementPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_ElementIncluded_typeElement_feature"), //$NON-NLS-1$
-						getString(
-								"_UI_PropertyDescriptor_description", "_UI_ElementIncluded_typeElement_feature", "_UI_ElementIncluded_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-						MM_HybridPackage.Literals.ELEMENT_INCLUDED__TYPE_ELEMENT,
-						true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -122,9 +77,7 @@ public class ElementIncludedItemProvider extends ItemProviderAdapter implements
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
-					.add(MM_HybridPackage.Literals.ELEMENT_INCLUDED__RIGHT);
-			childrenFeatures
-					.add(MM_HybridPackage.Literals.ELEMENT_INCLUDED__LEFT);
+					.add(MM_HybridPackage.Literals.LEFT_PATTERN__TARGET_ELEMENT);
 		}
 		return childrenFeatures;
 	}
@@ -143,7 +96,7 @@ public class ElementIncludedItemProvider extends ItemProviderAdapter implements
 	}
 
 	/**
-	 * This returns ElementIncluded.gif.
+	 * This returns LeftPattern.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -151,7 +104,7 @@ public class ElementIncludedItemProvider extends ItemProviderAdapter implements
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage(
-				"full/obj16/ElementIncluded")); //$NON-NLS-1$
+				"full/obj16/LeftPattern")); //$NON-NLS-1$
 	}
 
 	/**
@@ -162,10 +115,7 @@ public class ElementIncludedItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		TypeAtribute labelValue = ((ElementIncluded) object).getTypeAttribute();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ? getString("_UI_ElementIncluded_type") : //$NON-NLS-1$
-				getString("_UI_ElementIncluded_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+		return getString("_UI_LeftPattern_type"); //$NON-NLS-1$
 	}
 
 	/**
@@ -179,14 +129,8 @@ public class ElementIncludedItemProvider extends ItemProviderAdapter implements
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ElementIncluded.class)) {
-		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ATTRIBUTE:
-		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ELEMENT:
-			fireNotifyChanged(new ViewerNotification(notification, notification
-					.getNotifier(), false, true));
-			return;
-		case MM_HybridPackage.ELEMENT_INCLUDED__RIGHT:
-		case MM_HybridPackage.ELEMENT_INCLUDED__LEFT:
+		switch (notification.getFeatureID(LeftPattern.class)) {
+		case MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT:
 			fireNotifyChanged(new ViewerNotification(notification, notification
 					.getNotifier(), true, false));
 			return;
@@ -207,12 +151,8 @@ public class ElementIncludedItemProvider extends ItemProviderAdapter implements
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-				MM_HybridPackage.Literals.ELEMENT_INCLUDED__RIGHT,
-				MM_HybridFactory.eINSTANCE.createRightPattern()));
-
-		newChildDescriptors.add(createChildParameter(
-				MM_HybridPackage.Literals.ELEMENT_INCLUDED__LEFT,
-				MM_HybridFactory.eINSTANCE.createLeftPattern()));
+				MM_HybridPackage.Literals.LEFT_PATTERN__TARGET_ELEMENT,
+				MM_HybridFactory.eINSTANCE.createTargetElementRule()));
 	}
 
 	/**

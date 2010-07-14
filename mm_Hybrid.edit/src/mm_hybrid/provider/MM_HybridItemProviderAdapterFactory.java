@@ -264,6 +264,52 @@ public class MM_HybridItemProviderAdapterFactory extends
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link mm_hybrid.RightPattern} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RightPatternItemProvider rightPatternItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mm_hybrid.RightPattern}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRightPatternAdapter() {
+		if (rightPatternItemProvider == null) {
+			rightPatternItemProvider = new RightPatternItemProvider(this);
+		}
+
+		return rightPatternItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mm_hybrid.LeftPattern} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LeftPatternItemProvider leftPatternItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mm_hybrid.LeftPattern}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLeftPatternAdapter() {
+		if (leftPatternItemProvider == null) {
+			leftPatternItemProvider = new LeftPatternItemProvider(this);
+		}
+
+		return leftPatternItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -381,6 +427,10 @@ public class MM_HybridItemProviderAdapterFactory extends
 			elementIncludedItemProvider.dispose();
 		if (conditionItemProvider != null)
 			conditionItemProvider.dispose();
+		if (rightPatternItemProvider != null)
+			rightPatternItemProvider.dispose();
+		if (leftPatternItemProvider != null)
+			leftPatternItemProvider.dispose();
 	}
 
 }

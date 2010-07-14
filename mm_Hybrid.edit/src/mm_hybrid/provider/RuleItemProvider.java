@@ -68,6 +68,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 			addTypeElementPropertyDescriptor(object);
 			addExtendsPropertyDescriptor(object);
 			addIsExtendedPropertyDescriptor(object);
+			addRightPatternPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -207,6 +208,25 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 						getString(
 								"_UI_PropertyDescriptor_description", "_UI_Rule_isExtended_feature", "_UI_Rule_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 						MM_HybridPackage.Literals.RULE__IS_EXTENDED, true,
+						false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Right Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRightPatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_Rule_rightPattern_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_Rule_rightPattern_feature", "_UI_Rule_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.RULE__RIGHT_PATTERN, true,
 						false, true, null, null, null));
 	}
 

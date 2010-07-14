@@ -57,6 +57,7 @@ public class TargetElementRuleItemProvider extends ElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addMetamodelPropertyDescriptor(object);
+			addLeftPatternPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -77,6 +78,25 @@ public class TargetElementRuleItemProvider extends ElementItemProvider
 						getString(
 								"_UI_PropertyDescriptor_description", "_UI_TargetElementRule_metamodel_feature", "_UI_TargetElementRule_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 						MM_HybridPackage.Literals.TARGET_ELEMENT_RULE__METAMODEL,
+						true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Left Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLeftPatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_TargetElementRule_leftPattern_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_TargetElementRule_leftPattern_feature", "_UI_TargetElementRule_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.TARGET_ELEMENT_RULE__LEFT_PATTERN,
 						true, false, true, null, null, null));
 	}
 
