@@ -40,14 +40,14 @@
       </relations>
     </target>
   </relations>
-  <relations xsi:type="ManyToMany" xmi:id="ManyToMany1" name="22" extend="OneToOne1">
+  <relations xsi:type="ManyToMany" xmi:id="ManyToMany1" name="23" extend="OneToOne1">
     <target xmi:id="OutElement3" name="Trigger" element="//@outputModel.0/@ownedElementRef.8">
       <relations xsi:type="ZeroToOne" xmi:id="ZeroToOne1" typeAttri="concatenation" typeE="MyEattribute">
         <target name="Name" element="//@outputModel.0/@ownedElementRef.9"/>
       </relations>
     </target>
   </relations>
-  <relations xsi:type="ManyToOne" xmi:id="ManyToOne1">
+  <relations xsi:type="ManyToOne" xmi:id="ManyToOne1" name="">
     <target xmi:id="OutElement2" name="TriggerActionTime" element="//@outputModel.0/@ownedElementRef.13"/>
   </relations>
 </ModelRoot>
