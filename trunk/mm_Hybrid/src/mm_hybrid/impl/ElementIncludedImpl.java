@@ -10,8 +10,10 @@ import java.util.Collection;
 
 import mm_hybrid.Element;
 import mm_hybrid.ElementIncluded;
+import mm_hybrid.LeftPattern;
 import mm_hybrid.MM_HybridPackage;
 
+import mm_hybrid.RightPattern;
 import mm_hybrid.SourceElementRule;
 import mm_hybrid.TargetElementRule;
 import mm_hybrid.TypeAtribute;
@@ -37,36 +39,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link mm_hybrid.impl.ElementIncludedImpl#getSourceElement <em>Source Element</em>}</li>
- *   <li>{@link mm_hybrid.impl.ElementIncludedImpl#getTargetElement <em>Target Element</em>}</li>
  *   <li>{@link mm_hybrid.impl.ElementIncludedImpl#getTypeAttribute <em>Type Attribute</em>}</li>
  *   <li>{@link mm_hybrid.impl.ElementIncludedImpl#getTypeElement <em>Type Element</em>}</li>
+ *   <li>{@link mm_hybrid.impl.ElementIncludedImpl#getRight <em>Right</em>}</li>
+ *   <li>{@link mm_hybrid.impl.ElementIncludedImpl#getLeft <em>Left</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded {
-	/**
-	 * The cached value of the '{@link #getSourceElement() <em>Source Element</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSourceElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SourceElementRule> sourceElement;
-
-	/**
-	 * The cached value of the '{@link #getTargetElement() <em>Target Element</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TargetElementRule> targetElement;
-
 	/**
 	 * The default value of the '{@link #getTypeAttribute() <em>Type Attribute</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,6 +90,26 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 	protected TypeElem typeElement = TYPE_ELEMENT_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRight()
+	 * @generated
+	 * @ordered
+	 */
+	protected RightPattern right;
+
+	/**
+	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLeft()
+	 * @generated
+	 * @ordered
+	 */
+	protected LeftPattern left;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -124,34 +126,6 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 	@Override
 	protected EClass eStaticClass() {
 		return MM_HybridPackage.Literals.ELEMENT_INCLUDED;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<SourceElementRule> getSourceElement() {
-		if (sourceElement == null) {
-			sourceElement = new EObjectContainmentEList<SourceElementRule>(
-					SourceElementRule.class, this,
-					MM_HybridPackage.ELEMENT_INCLUDED__SOURCE_ELEMENT);
-		}
-		return sourceElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<TargetElementRule> getTargetElement() {
-		if (targetElement == null) {
-			targetElement = new EObjectContainmentEList<TargetElementRule>(
-					TargetElementRule.class, this,
-					MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT);
-		}
-		return targetElement;
 	}
 
 	/**
@@ -207,16 +181,127 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RightPattern getRight() {
+		return right;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRight(RightPattern newRight,
+			NotificationChain msgs) {
+		RightPattern oldRight = right;
+		right = newRight;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET, MM_HybridPackage.ELEMENT_INCLUDED__RIGHT,
+					oldRight, newRight);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRight(RightPattern newRight) {
+		if (newRight != right) {
+			NotificationChain msgs = null;
+			if (right != null)
+				msgs = ((InternalEObject) right).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE
+								- MM_HybridPackage.ELEMENT_INCLUDED__RIGHT,
+						null, msgs);
+			if (newRight != null)
+				msgs = ((InternalEObject) newRight).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE
+								- MM_HybridPackage.ELEMENT_INCLUDED__RIGHT,
+						null, msgs);
+			msgs = basicSetRight(newRight, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.ELEMENT_INCLUDED__RIGHT, newRight,
+					newRight));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LeftPattern getLeft() {
+		return left;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLeft(LeftPattern newLeft,
+			NotificationChain msgs) {
+		LeftPattern oldLeft = left;
+		left = newLeft;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET, MM_HybridPackage.ELEMENT_INCLUDED__LEFT,
+					oldLeft, newLeft);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLeft(LeftPattern newLeft) {
+		if (newLeft != left) {
+			NotificationChain msgs = null;
+			if (left != null)
+				msgs = ((InternalEObject) left).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE
+								- MM_HybridPackage.ELEMENT_INCLUDED__LEFT,
+						null, msgs);
+			if (newLeft != null)
+				msgs = ((InternalEObject) newLeft).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE
+								- MM_HybridPackage.ELEMENT_INCLUDED__LEFT,
+						null, msgs);
+			msgs = basicSetLeft(newLeft, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.ELEMENT_INCLUDED__LEFT, newLeft, newLeft));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.ELEMENT_INCLUDED__SOURCE_ELEMENT:
-			return ((InternalEList<?>) getSourceElement()).basicRemove(
-					otherEnd, msgs);
-		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
-			return ((InternalEList<?>) getTargetElement()).basicRemove(
-					otherEnd, msgs);
+		case MM_HybridPackage.ELEMENT_INCLUDED__RIGHT:
+			return basicSetRight(null, msgs);
+		case MM_HybridPackage.ELEMENT_INCLUDED__LEFT:
+			return basicSetLeft(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -229,14 +314,14 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MM_HybridPackage.ELEMENT_INCLUDED__SOURCE_ELEMENT:
-			return getSourceElement();
-		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
-			return getTargetElement();
 		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ATTRIBUTE:
 			return getTypeAttribute();
 		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ELEMENT:
 			return getTypeElement();
+		case MM_HybridPackage.ELEMENT_INCLUDED__RIGHT:
+			return getRight();
+		case MM_HybridPackage.ELEMENT_INCLUDED__LEFT:
+			return getLeft();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -250,21 +335,17 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MM_HybridPackage.ELEMENT_INCLUDED__SOURCE_ELEMENT:
-			getSourceElement().clear();
-			getSourceElement().addAll(
-					(Collection<? extends SourceElementRule>) newValue);
-			return;
-		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
-			getTargetElement().clear();
-			getTargetElement().addAll(
-					(Collection<? extends TargetElementRule>) newValue);
-			return;
 		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ATTRIBUTE:
 			setTypeAttribute((TypeAtribute) newValue);
 			return;
 		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ELEMENT:
 			setTypeElement((TypeElem) newValue);
+			return;
+		case MM_HybridPackage.ELEMENT_INCLUDED__RIGHT:
+			setRight((RightPattern) newValue);
+			return;
+		case MM_HybridPackage.ELEMENT_INCLUDED__LEFT:
+			setLeft((LeftPattern) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -278,17 +359,17 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.ELEMENT_INCLUDED__SOURCE_ELEMENT:
-			getSourceElement().clear();
-			return;
-		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
-			getTargetElement().clear();
-			return;
 		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ATTRIBUTE:
 			setTypeAttribute(TYPE_ATTRIBUTE_EDEFAULT);
 			return;
 		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ELEMENT:
 			setTypeElement(TYPE_ELEMENT_EDEFAULT);
+			return;
+		case MM_HybridPackage.ELEMENT_INCLUDED__RIGHT:
+			setRight((RightPattern) null);
+			return;
+		case MM_HybridPackage.ELEMENT_INCLUDED__LEFT:
+			setLeft((LeftPattern) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -302,14 +383,14 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.ELEMENT_INCLUDED__SOURCE_ELEMENT:
-			return sourceElement != null && !sourceElement.isEmpty();
-		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
-			return targetElement != null && !targetElement.isEmpty();
 		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ATTRIBUTE:
 			return typeAttribute != TYPE_ATTRIBUTE_EDEFAULT;
 		case MM_HybridPackage.ELEMENT_INCLUDED__TYPE_ELEMENT:
 			return typeElement != TYPE_ELEMENT_EDEFAULT;
+		case MM_HybridPackage.ELEMENT_INCLUDED__RIGHT:
+			return right != null;
+		case MM_HybridPackage.ELEMENT_INCLUDED__LEFT:
+			return left != null;
 		}
 		return super.eIsSet(featureID);
 	}

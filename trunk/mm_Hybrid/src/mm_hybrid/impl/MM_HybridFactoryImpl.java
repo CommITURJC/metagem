@@ -78,6 +78,10 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 			return createElementIncluded();
 		case MM_HybridPackage.CONDITION:
 			return createCondition();
+		case MM_HybridPackage.RIGHT_PATTERN:
+			return createRightPattern();
+		case MM_HybridPackage.LEFT_PATTERN:
+			return createLeftPattern();
 		default:
 			throw new IllegalArgumentException(
 					"The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -198,6 +202,26 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 	public Condition createCondition() {
 		ConditionImpl condition = new ConditionImpl();
 		return condition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RightPattern createRightPattern() {
+		RightPatternImpl rightPattern = new RightPatternImpl();
+		return rightPattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LeftPattern createLeftPattern() {
+		LeftPatternImpl leftPattern = new LeftPatternImpl();
+		return leftPattern;
 	}
 
 	/**

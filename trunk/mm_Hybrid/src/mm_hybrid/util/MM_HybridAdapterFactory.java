@@ -116,6 +116,16 @@ public class MM_HybridAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseRightPattern(RightPattern object) {
+			return createRightPatternAdapter();
+		}
+
+		@Override
+		public Adapter caseLeftPattern(LeftPattern object) {
+			return createLeftPatternAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -257,6 +267,34 @@ public class MM_HybridAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mm_hybrid.RightPattern <em>Right Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mm_hybrid.RightPattern
+	 * @generated
+	 */
+	public Adapter createRightPatternAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mm_hybrid.LeftPattern <em>Left Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mm_hybrid.LeftPattern
+	 * @generated
+	 */
+	public Adapter createLeftPatternAdapter() {
 		return null;
 	}
 

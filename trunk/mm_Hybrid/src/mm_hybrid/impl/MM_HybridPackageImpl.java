@@ -10,10 +10,12 @@ import mm_hybrid.Condition;
 import mm_hybrid.Element;
 import mm_hybrid.ElementIncluded;
 import mm_hybrid.InMetaModel;
+import mm_hybrid.LeftPattern;
 import mm_hybrid.MM_HybridFactory;
 import mm_hybrid.MM_HybridPackage;
 import mm_hybrid.Module;
 import mm_hybrid.OutMetaModel;
+import mm_hybrid.RightPattern;
 import mm_hybrid.Rule;
 import mm_hybrid.SourceElementRule;
 import mm_hybrid.TargetElementRule;
@@ -98,6 +100,20 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	private EClass conditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rightPatternEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass leftPatternEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -398,6 +414,15 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRule_RightPattern() {
+		return (EReference) ruleEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getElement() {
 		return elementEClass;
 	}
@@ -445,6 +470,16 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSourceElementRule_RightPattern() {
+		return (EReference) sourceElementRuleEClass.getEStructuralFeatures()
+				.get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTargetElementRule() {
 		return targetElementRuleEClass;
 	}
@@ -474,6 +509,16 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTargetElementRule_LeftPattern() {
+		return (EReference) targetElementRuleEClass.getEStructuralFeatures()
+				.get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getElementIncluded() {
 		return elementIncludedEClass;
 	}
@@ -483,29 +528,9 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementIncluded_SourceElement() {
-		return (EReference) elementIncludedEClass.getEStructuralFeatures().get(
-				0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getElementIncluded_TargetElement() {
-		return (EReference) elementIncludedEClass.getEStructuralFeatures().get(
-				1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getElementIncluded_TypeAttribute() {
 		return (EAttribute) elementIncludedEClass.getEStructuralFeatures().get(
-				2);
+				0);
 	}
 
 	/**
@@ -515,6 +540,26 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 */
 	public EAttribute getElementIncluded_TypeElement() {
 		return (EAttribute) elementIncludedEClass.getEStructuralFeatures().get(
+				1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getElementIncluded_Right() {
+		return (EReference) elementIncludedEClass.getEStructuralFeatures().get(
+				2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getElementIncluded_Left() {
+		return (EReference) elementIncludedEClass.getEStructuralFeatures().get(
 				3);
 	}
 
@@ -534,6 +579,51 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 */
 	public EAttribute getCondition_Value() {
 		return (EAttribute) conditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRightPattern() {
+		return rightPatternEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRightPattern_SourceElement() {
+		return (EReference) rightPatternEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRightPattern_Rule() {
+		return (EReference) rightPatternEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLeftPattern() {
+		return leftPatternEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLeftPattern_TargetElement() {
+		return (EReference) leftPatternEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -609,6 +699,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		createEAttribute(ruleEClass, RULE__TYPE_ELEMENT);
 		createEReference(ruleEClass, RULE__EXTENDS);
 		createEReference(ruleEClass, RULE__IS_EXTENDED);
+		createEReference(ruleEClass, RULE__RIGHT_PATTERN);
 
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__NAME_ELEMENT);
@@ -618,23 +709,32 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				SOURCE_ELEMENT_RULE__CONDITION);
 		createEReference(sourceElementRuleEClass,
 				SOURCE_ELEMENT_RULE__METAMODEL);
+		createEReference(sourceElementRuleEClass,
+				SOURCE_ELEMENT_RULE__RIGHT_PATTERN);
 
 		targetElementRuleEClass = createEClass(TARGET_ELEMENT_RULE);
 		createEReference(targetElementRuleEClass, TARGET_ELEMENT_RULE__INCLUDED);
 		createEReference(targetElementRuleEClass,
 				TARGET_ELEMENT_RULE__METAMODEL);
+		createEReference(targetElementRuleEClass,
+				TARGET_ELEMENT_RULE__LEFT_PATTERN);
 
 		elementIncludedEClass = createEClass(ELEMENT_INCLUDED);
-		createEReference(elementIncludedEClass,
-				ELEMENT_INCLUDED__SOURCE_ELEMENT);
-		createEReference(elementIncludedEClass,
-				ELEMENT_INCLUDED__TARGET_ELEMENT);
 		createEAttribute(elementIncludedEClass,
 				ELEMENT_INCLUDED__TYPE_ATTRIBUTE);
 		createEAttribute(elementIncludedEClass, ELEMENT_INCLUDED__TYPE_ELEMENT);
+		createEReference(elementIncludedEClass, ELEMENT_INCLUDED__RIGHT);
+		createEReference(elementIncludedEClass, ELEMENT_INCLUDED__LEFT);
 
 		conditionEClass = createEClass(CONDITION);
 		createEAttribute(conditionEClass, CONDITION__VALUE);
+
+		rightPatternEClass = createEClass(RIGHT_PATTERN);
+		createEReference(rightPatternEClass, RIGHT_PATTERN__SOURCE_ELEMENT);
+		createEReference(rightPatternEClass, RIGHT_PATTERN__RULE);
+
+		leftPatternEClass = createEClass(LEFT_PATTERN);
+		createEReference(leftPatternEClass, LEFT_PATTERN__TARGET_ELEMENT);
 
 		// Create enums
 		typeAtributeEEnum = createEEnum(TYPE_ATRIBUTE);
@@ -778,6 +878,11 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				this.getRule(),
 				this.getRule_Extends(),
 				"isExtended", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getRule_RightPattern(),
+				this.getRightPattern(),
+				null,
+				"rightPattern", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				elementEClass,
@@ -796,12 +901,17 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				getSourceElementRule_Condition(),
 				this.getCondition(),
 				null,
-				"condition", null, 0, 1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+				"condition", null, 0, -1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getSourceElementRule_Metamodel(),
 				this.getInMetaModel(),
 				this.getInMetaModel_Elements(),
 				"metamodel", null, 1, 1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getSourceElementRule_RightPattern(),
+				this.getRightPattern(),
+				null,
+				"rightPattern", null, 0, -1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				targetElementRuleEClass,
@@ -817,21 +927,16 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				this.getOutMetaModel(),
 				this.getOutMetaModel_Elements(),
 				"metamodel", null, 1, 1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getTargetElementRule_LeftPattern(),
+				this.getLeftPattern(),
+				null,
+				"leftPattern", null, 0, -1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				elementIncludedEClass,
 				ElementIncluded.class,
 				"ElementIncluded", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-				getElementIncluded_SourceElement(),
-				this.getSourceElementRule(),
-				null,
-				"sourceElement", null, 0, -1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getElementIncluded_TargetElement(),
-				this.getTargetElementRule(),
-				null,
-				"targetElement", null, 0, -1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getElementIncluded_TypeAttribute(),
 				this.getTypeAtribute(),
@@ -840,6 +945,16 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				getElementIncluded_TypeElement(),
 				this.getTypeElem(),
 				"typeElement", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getElementIncluded_Right(),
+				this.getRightPattern(),
+				null,
+				"right", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getElementIncluded_Left(),
+				this.getLeftPattern(),
+				null,
+				"left", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				conditionEClass,
@@ -849,6 +964,31 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				getCondition_Value(),
 				ecorePackage.getEString(),
 				"value", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(
+				rightPatternEClass,
+				RightPattern.class,
+				"RightPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getRightPattern_SourceElement(),
+				this.getSourceElementRule(),
+				null,
+				"sourceElement", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getRightPattern_Rule(),
+				this.getRule(),
+				null,
+				"rule", null, 0, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(
+				leftPatternEClass,
+				LeftPattern.class,
+				"LeftPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getLeftPattern_TargetElement(),
+				this.getTargetElementRule(),
+				null,
+				"targetElement", null, 0, -1, LeftPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
 		// Initialize enums and add enum literals
 		initEEnum(typeAtributeEEnum, TypeAtribute.class, "TypeAtribute"); //$NON-NLS-1$

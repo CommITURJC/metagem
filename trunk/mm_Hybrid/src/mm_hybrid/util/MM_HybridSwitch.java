@@ -151,6 +151,20 @@ public class MM_HybridSwitch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case MM_HybridPackage.RIGHT_PATTERN: {
+			RightPattern rightPattern = (RightPattern) theEObject;
+			T result = caseRightPattern(rightPattern);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MM_HybridPackage.LEFT_PATTERN: {
+			LeftPattern leftPattern = (LeftPattern) theEObject;
+			T result = caseLeftPattern(leftPattern);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -288,6 +302,36 @@ public class MM_HybridSwitch<T> {
 	 * @generated
 	 */
 	public T caseCondition(Condition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Right Pattern</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Right Pattern</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRightPattern(RightPattern object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Left Pattern</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Left Pattern</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLeftPattern(LeftPattern object) {
 		return null;
 	}
 

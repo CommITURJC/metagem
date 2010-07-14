@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link mm_hybrid.TargetElementRule#getIncluded <em>Included</em>}</li>
  *   <li>{@link mm_hybrid.TargetElementRule#getMetamodel <em>Metamodel</em>}</li>
+ *   <li>{@link mm_hybrid.TargetElementRule#getLeftPattern <em>Left Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,4 +71,20 @@ public interface TargetElementRule extends Element {
 	 * @generated
 	 */
 	void setMetamodel(OutMetaModel value);
+
+	/**
+	 * Returns the value of the '<em><b>Left Pattern</b></em>' reference list.
+	 * The list contents are of type {@link mm_hybrid.LeftPattern}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Left Pattern</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Left Pattern</em>' reference list.
+	 * @see mm_hybrid.MM_HybridPackage#getTargetElementRule_LeftPattern()
+	 * @model
+	 * @generated
+	 */
+	EList<LeftPattern> getLeftPattern();
 } // TargetElementRule

@@ -8,6 +8,7 @@ package mm_hybrid.impl;
 
 import java.util.Collection;
 import mm_hybrid.ElementIncluded;
+import mm_hybrid.LeftPattern;
 import mm_hybrid.MM_HybridPackage;
 import mm_hybrid.OutMetaModel;
 import mm_hybrid.TargetElementRule;
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -31,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link mm_hybrid.impl.TargetElementRuleImpl#getIncluded <em>Included</em>}</li>
  *   <li>{@link mm_hybrid.impl.TargetElementRuleImpl#getMetamodel <em>Metamodel</em>}</li>
+ *   <li>{@link mm_hybrid.impl.TargetElementRuleImpl#getLeftPattern <em>Left Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,6 +60,16 @@ public class TargetElementRuleImpl extends ElementImpl implements
 	 * @ordered
 	 */
 	protected OutMetaModel metamodel;
+
+	/**
+	 * The cached value of the '{@link #getLeftPattern() <em>Left Pattern</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLeftPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LeftPattern> leftPattern;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -171,6 +184,20 @@ public class TargetElementRuleImpl extends ElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<LeftPattern> getLeftPattern() {
+		if (leftPattern == null) {
+			leftPattern = new EObjectResolvingEList<LeftPattern>(
+					LeftPattern.class, this,
+					MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN);
+		}
+		return leftPattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -217,6 +244,8 @@ public class TargetElementRuleImpl extends ElementImpl implements
 			if (resolve)
 				return getMetamodel();
 			return basicGetMetamodel();
+		case MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN:
+			return getLeftPattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -238,6 +267,11 @@ public class TargetElementRuleImpl extends ElementImpl implements
 		case MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL:
 			setMetamodel((OutMetaModel) newValue);
 			return;
+		case MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN:
+			getLeftPattern().clear();
+			getLeftPattern().addAll(
+					(Collection<? extends LeftPattern>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -256,6 +290,9 @@ public class TargetElementRuleImpl extends ElementImpl implements
 		case MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL:
 			setMetamodel((OutMetaModel) null);
 			return;
+		case MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN:
+			getLeftPattern().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -272,6 +309,8 @@ public class TargetElementRuleImpl extends ElementImpl implements
 			return included != null && !included.isEmpty();
 		case MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL:
 			return metamodel != null;
+		case MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN:
+			return leftPattern != null && !leftPattern.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

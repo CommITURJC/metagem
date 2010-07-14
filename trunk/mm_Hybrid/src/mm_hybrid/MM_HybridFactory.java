@@ -98,6 +98,24 @@ public interface MM_HybridFactory extends EFactory {
 	Condition createCondition();
 
 	/**
+	 * Returns a new object of class '<em>Right Pattern</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Right Pattern</em>'.
+	 * @generated
+	 */
+	RightPattern createRightPattern();
+
+	/**
+	 * Returns a new object of class '<em>Left Pattern</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Left Pattern</em>'.
+	 * @generated
+	 */
+	LeftPattern createLeftPattern();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
