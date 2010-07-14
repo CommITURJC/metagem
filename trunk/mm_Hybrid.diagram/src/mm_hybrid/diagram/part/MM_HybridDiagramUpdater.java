@@ -112,13 +112,14 @@ public class MM_HybridDiagramUpdater {
 		mm_hybrid.SourceElementRule modelElement = (mm_hybrid.SourceElementRule) containerView
 				.getElement();
 		List result = new LinkedList();
-		{
-			mm_hybrid.Condition childElement = modelElement.getCondition();
+		for (Iterator it = modelElement.getCondition().iterator(); it.hasNext();) {
+			mm_hybrid.Condition childElement = (mm_hybrid.Condition) it.next();
 			int visualID = mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 					.getNodeVisualID(view, childElement);
 			if (visualID == mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID) {
 				result.add(new mm_hybrid.diagram.part.MM_HybridNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 		}
 		return result;

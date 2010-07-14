@@ -36,17 +36,6 @@ public class ConditionCreateCommand extends CreateElementCommand {
 	/**
 	 * @generated
 	 */
-	public boolean canExecute() {
-		mm_hybrid.SourceElementRule container = (mm_hybrid.SourceElementRule) getElementToEdit();
-		if (container.getCondition() != null) {
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * @generated
-	 */
 	protected EClass getEClassToEdit() {
 		return mm_hybrid.MM_HybridPackage.eINSTANCE.getSourceElementRule();
 	}
