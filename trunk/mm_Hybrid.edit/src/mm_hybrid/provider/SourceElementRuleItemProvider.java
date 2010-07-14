@@ -58,6 +58,7 @@ public class SourceElementRuleItemProvider extends ElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addMetamodelPropertyDescriptor(object);
+			addRightPatternPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -78,6 +79,25 @@ public class SourceElementRuleItemProvider extends ElementItemProvider
 						getString(
 								"_UI_PropertyDescriptor_description", "_UI_SourceElementRule_metamodel_feature", "_UI_SourceElementRule_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 						MM_HybridPackage.Literals.SOURCE_ELEMENT_RULE__METAMODEL,
+						true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Right Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRightPatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_SourceElementRule_rightPattern_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_SourceElementRule_rightPattern_feature", "_UI_SourceElementRule_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.SOURCE_ELEMENT_RULE__RIGHT_PATTERN,
 						true, false, true, null, null, null));
 	}
 
