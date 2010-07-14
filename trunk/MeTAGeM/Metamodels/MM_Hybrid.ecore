@@ -82,6 +82,8 @@
         eOpposite="#//Rule/isExtended"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="isExtended" upperBound="-1"
         eType="#//Rule" eOpposite="#//Rule/extends"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightPattern" upperBound="-1"
+        eType="#//RightPattern" eOpposite="#//RightPattern/rule"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_element" ordered="false"
@@ -95,9 +97,11 @@
       <details key="color" value="218,238,243"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" ordered="false"
-        eType="#//Condition" containment="true"/>
+        upperBound="-1" eType="#//Condition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" lowerBound="1"
         eType="#//InMetaModel" eOpposite="#//InMetaModel/elements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightPattern" upperBound="-1"
+        eType="#//RightPattern" eOpposite="#//RightPattern/sourceElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TargetElementRule" eSuperTypes="#//Element">
     <eAnnotations source="gmf.node">
@@ -110,18 +114,30 @@
         eType="#//ElementIncluded" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" lowerBound="1"
         eType="#//OutMetaModel" eOpposite="#//OutMetaModel/elements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftPattern" upperBound="-1"
+        eType="#//LeftPattern" eOpposite="#//LeftPattern/targetElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElementIncluded">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceElement" ordered="false"
-        upperBound="-1" eType="#//SourceElementRule" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetElement" ordered="false"
-        upperBound="-1" eType="#//TargetElementRule" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeAttribute" ordered="false"
         unique="false" lowerBound="1" eType="#//TypeAtribute"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeElement" ordered="false"
         unique="false" lowerBound="1" eType="#//TypeElem"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" lowerBound="1" eType="#//RightPattern"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="#//LeftPattern"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Condition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RightPattern">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceElement" ordered="false"
+        upperBound="-1" eType="#//SourceElementRule" containment="true" eOpposite="#//SourceElementRule/rightPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="#//Rule" containment="true"
+        eOpposite="#//Rule/rightPattern"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LeftPattern">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetElement" ordered="false"
+        upperBound="-1" eType="#//TargetElementRule" containment="true" eOpposite="#//TargetElementRule/leftPattern"/>
   </eClassifiers>
 </ecore:EPackage>
