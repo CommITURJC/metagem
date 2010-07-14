@@ -6,6 +6,8 @@
  */
 package mm_hybrid;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Source Element Rule</b></em>'.
@@ -16,6 +18,7 @@ package mm_hybrid;
  * <ul>
  *   <li>{@link mm_hybrid.SourceElementRule#getCondition <em>Condition</em>}</li>
  *   <li>{@link mm_hybrid.SourceElementRule#getMetamodel <em>Metamodel</em>}</li>
+ *   <li>{@link mm_hybrid.SourceElementRule#getRightPattern <em>Right Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,30 +28,20 @@ package mm_hybrid;
  */
 public interface SourceElementRule extends Element {
 	/**
-	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Condition</b></em>' containment reference list.
+	 * The list contents are of type {@link mm_hybrid.Condition}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Condition</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Condition</em>' containment reference.
-	 * @see #setCondition(Condition)
+	 * @return the value of the '<em>Condition</em>' containment reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getSourceElementRule_Condition()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	Condition getCondition();
-
-	/**
-	 * Sets the value of the '{@link mm_hybrid.SourceElementRule#getCondition <em>Condition</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Condition</em>' containment reference.
-	 * @see #getCondition()
-	 * @generated
-	 */
-	void setCondition(Condition value);
+	EList<Condition> getCondition();
 
 	/**
 	 * Returns the value of the '<em><b>Metamodel</b></em>' reference.
@@ -77,5 +70,21 @@ public interface SourceElementRule extends Element {
 	 * @generated
 	 */
 	void setMetamodel(InMetaModel value);
+
+	/**
+	 * Returns the value of the '<em><b>Right Pattern</b></em>' reference list.
+	 * The list contents are of type {@link mm_hybrid.RightPattern}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Right Pattern</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Right Pattern</em>' reference list.
+	 * @see mm_hybrid.MM_HybridPackage#getSourceElementRule_RightPattern()
+	 * @model
+	 * @generated
+	 */
+	EList<RightPattern> getRightPattern();
 
 } // SourceElementRule

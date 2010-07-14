@@ -6,18 +6,24 @@
  */
 package mm_hybrid.impl;
 
+import java.util.Collection;
 import mm_hybrid.Condition;
 import mm_hybrid.InMetaModel;
 import mm_hybrid.MM_HybridPackage;
+import mm_hybrid.RightPattern;
 import mm_hybrid.SourceElementRule;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -29,6 +35,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link mm_hybrid.impl.SourceElementRuleImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link mm_hybrid.impl.SourceElementRuleImpl#getMetamodel <em>Metamodel</em>}</li>
+ *   <li>{@link mm_hybrid.impl.SourceElementRuleImpl#getRightPattern <em>Right Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -37,14 +44,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 public class SourceElementRuleImpl extends ElementImpl implements
 		SourceElementRule {
 	/**
-	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
+	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCondition()
 	 * @generated
 	 * @ordered
 	 */
-	protected Condition condition;
+	protected EList<Condition> condition;
 
 	/**
 	 * The cached value of the '{@link #getMetamodel() <em>Metamodel</em>}' reference.
@@ -55,6 +62,16 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	 * @ordered
 	 */
 	protected InMetaModel metamodel;
+
+	/**
+	 * The cached value of the '{@link #getRightPattern() <em>Right Pattern</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRightPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RightPattern> rightPattern;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,61 +97,12 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Condition getCondition() {
-		return condition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCondition(Condition newCondition,
-			NotificationChain msgs) {
-		Condition oldCondition = condition;
-		condition = newCondition;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this,
-					Notification.SET,
-					MM_HybridPackage.SOURCE_ELEMENT_RULE__CONDITION,
-					oldCondition, newCondition);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+	public EList<Condition> getCondition() {
+		if (condition == null) {
+			condition = new EObjectContainmentEList<Condition>(Condition.class,
+					this, MM_HybridPackage.SOURCE_ELEMENT_RULE__CONDITION);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCondition(Condition newCondition) {
-		if (newCondition != condition) {
-			NotificationChain msgs = null;
-			if (condition != null)
-				msgs = ((InternalEObject) condition)
-						.eInverseRemove(
-								this,
-								EOPPOSITE_FEATURE_BASE
-										- MM_HybridPackage.SOURCE_ELEMENT_RULE__CONDITION,
-								null, msgs);
-			if (newCondition != null)
-				msgs = ((InternalEObject) newCondition)
-						.eInverseAdd(
-								this,
-								EOPPOSITE_FEATURE_BASE
-										- MM_HybridPackage.SOURCE_ELEMENT_RULE__CONDITION,
-								null, msgs);
-			msgs = basicSetCondition(newCondition, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.SOURCE_ELEMENT_RULE__CONDITION,
-					newCondition, newCondition));
+		return condition;
 	}
 
 	/**
@@ -217,6 +185,20 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<RightPattern> getRightPattern() {
+		if (rightPattern == null) {
+			rightPattern = new EObjectResolvingEList<RightPattern>(
+					RightPattern.class, this,
+					MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN);
+		}
+		return rightPattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -241,7 +223,8 @@ public class SourceElementRuleImpl extends ElementImpl implements
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case MM_HybridPackage.SOURCE_ELEMENT_RULE__CONDITION:
-			return basicSetCondition(null, msgs);
+			return ((InternalEList<?>) getCondition()).basicRemove(otherEnd,
+					msgs);
 		case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
 			return basicSetMetamodel(null, msgs);
 		}
@@ -262,6 +245,8 @@ public class SourceElementRuleImpl extends ElementImpl implements
 			if (resolve)
 				return getMetamodel();
 			return basicGetMetamodel();
+		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
+			return getRightPattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -271,14 +256,21 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case MM_HybridPackage.SOURCE_ELEMENT_RULE__CONDITION:
-			setCondition((Condition) newValue);
+			getCondition().clear();
+			getCondition().addAll((Collection<? extends Condition>) newValue);
 			return;
 		case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
 			setMetamodel((InMetaModel) newValue);
+			return;
+		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
+			getRightPattern().clear();
+			getRightPattern().addAll(
+					(Collection<? extends RightPattern>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -293,10 +285,13 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case MM_HybridPackage.SOURCE_ELEMENT_RULE__CONDITION:
-			setCondition((Condition) null);
+			getCondition().clear();
 			return;
 		case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
 			setMetamodel((InMetaModel) null);
+			return;
+		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
+			getRightPattern().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -311,9 +306,11 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case MM_HybridPackage.SOURCE_ELEMENT_RULE__CONDITION:
-			return condition != null;
+			return condition != null && !condition.isEmpty();
 		case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
 			return metamodel != null;
+		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
+			return rightPattern != null && !rightPattern.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

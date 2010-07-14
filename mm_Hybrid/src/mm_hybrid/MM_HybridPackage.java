@@ -300,13 +300,22 @@ public interface MM_HybridPackage extends EPackage {
 	int RULE__IS_EXTENDED = 8;
 
 	/**
+	 * The feature id for the '<em><b>Right Pattern</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__RIGHT_PATTERN = 9;
+
+	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_FEATURE_COUNT = 9;
+	int RULE_FEATURE_COUNT = 10;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.ElementImpl <em>Element</em>}' class.
@@ -356,7 +365,7 @@ public interface MM_HybridPackage extends EPackage {
 	int SOURCE_ELEMENT_RULE__NAME_ELEMENT = ELEMENT__NAME_ELEMENT;
 
 	/**
-	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -374,13 +383,22 @@ public interface MM_HybridPackage extends EPackage {
 	int SOURCE_ELEMENT_RULE__METAMODEL = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Right Pattern</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_ELEMENT_RULE__RIGHT_PATTERN = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Source Element Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_ELEMENT_RULE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+	int SOURCE_ELEMENT_RULE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.TargetElementRuleImpl <em>Target Element Rule</em>}' class.
@@ -420,13 +438,22 @@ public interface MM_HybridPackage extends EPackage {
 	int TARGET_ELEMENT_RULE__METAMODEL = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Left Pattern</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_ELEMENT_RULE__LEFT_PATTERN = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Target Element Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET_ELEMENT_RULE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+	int TARGET_ELEMENT_RULE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.ElementIncludedImpl <em>Element Included</em>}' class.
@@ -439,31 +466,13 @@ public interface MM_HybridPackage extends EPackage {
 	int ELEMENT_INCLUDED = 7;
 
 	/**
-	 * The feature id for the '<em><b>Source Element</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_INCLUDED__SOURCE_ELEMENT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Target Element</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_INCLUDED__TARGET_ELEMENT = 1;
-
-	/**
 	 * The feature id for the '<em><b>Type Attribute</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_INCLUDED__TYPE_ATTRIBUTE = 2;
+	int ELEMENT_INCLUDED__TYPE_ATTRIBUTE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Type Element</b></em>' attribute.
@@ -472,7 +481,25 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_INCLUDED__TYPE_ELEMENT = 3;
+	int ELEMENT_INCLUDED__TYPE_ELEMENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_INCLUDED__RIGHT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_INCLUDED__LEFT = 3;
 
 	/**
 	 * The number of structural features of the '<em>Element Included</em>' class.
@@ -512,6 +539,71 @@ public interface MM_HybridPackage extends EPackage {
 	int CONDITION_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link mm_hybrid.impl.RightPatternImpl <em>Right Pattern</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mm_hybrid.impl.RightPatternImpl
+	 * @see mm_hybrid.impl.MM_HybridPackageImpl#getRightPattern()
+	 * @generated
+	 */
+	int RIGHT_PATTERN = 9;
+
+	/**
+	 * The feature id for the '<em><b>Source Element</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RIGHT_PATTERN__SOURCE_ELEMENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RIGHT_PATTERN__RULE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Right Pattern</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RIGHT_PATTERN_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link mm_hybrid.impl.LeftPatternImpl <em>Left Pattern</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mm_hybrid.impl.LeftPatternImpl
+	 * @see mm_hybrid.impl.MM_HybridPackageImpl#getLeftPattern()
+	 * @generated
+	 */
+	int LEFT_PATTERN = 10;
+
+	/**
+	 * The feature id for the '<em><b>Target Element</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEFT_PATTERN__TARGET_ELEMENT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Left Pattern</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEFT_PATTERN_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link mm_hybrid.TypeAtribute <em>Type Atribute</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -519,7 +611,7 @@ public interface MM_HybridPackage extends EPackage {
 	 * @see mm_hybrid.impl.MM_HybridPackageImpl#getTypeAtribute()
 	 * @generated
 	 */
-	int TYPE_ATRIBUTE = 9;
+	int TYPE_ATRIBUTE = 11;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.TypeElem <em>Type Elem</em>}' enum.
@@ -529,7 +621,7 @@ public interface MM_HybridPackage extends EPackage {
 	 * @see mm_hybrid.impl.MM_HybridPackageImpl#getTypeElem()
 	 * @generated
 	 */
-	int TYPE_ELEM = 10;
+	int TYPE_ELEM = 12;
 
 	/**
 	 * Returns the meta object for class '{@link mm_hybrid.Module <em>Module</em>}'.
@@ -781,6 +873,17 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getRule_IsExtended();
 
 	/**
+	 * Returns the meta object for the reference list '{@link mm_hybrid.Rule#getRightPattern <em>Right Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Right Pattern</em>'.
+	 * @see mm_hybrid.Rule#getRightPattern()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EReference getRule_RightPattern();
+
+	/**
 	 * Returns the meta object for class '{@link mm_hybrid.Element <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -812,10 +915,10 @@ public interface MM_HybridPackage extends EPackage {
 	EClass getSourceElementRule();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link mm_hybrid.SourceElementRule#getCondition <em>Condition</em>}'.
+	 * Returns the meta object for the containment reference list '{@link mm_hybrid.SourceElementRule#getCondition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Condition</em>'.
+	 * @return the meta object for the containment reference list '<em>Condition</em>'.
 	 * @see mm_hybrid.SourceElementRule#getCondition()
 	 * @see #getSourceElementRule()
 	 * @generated
@@ -832,6 +935,17 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSourceElementRule_Metamodel();
+
+	/**
+	 * Returns the meta object for the reference list '{@link mm_hybrid.SourceElementRule#getRightPattern <em>Right Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Right Pattern</em>'.
+	 * @see mm_hybrid.SourceElementRule#getRightPattern()
+	 * @see #getSourceElementRule()
+	 * @generated
+	 */
+	EReference getSourceElementRule_RightPattern();
 
 	/**
 	 * Returns the meta object for class '{@link mm_hybrid.TargetElementRule <em>Target Element Rule</em>}'.
@@ -866,6 +980,17 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getTargetElementRule_Metamodel();
 
 	/**
+	 * Returns the meta object for the reference list '{@link mm_hybrid.TargetElementRule#getLeftPattern <em>Left Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Left Pattern</em>'.
+	 * @see mm_hybrid.TargetElementRule#getLeftPattern()
+	 * @see #getTargetElementRule()
+	 * @generated
+	 */
+	EReference getTargetElementRule_LeftPattern();
+
+	/**
 	 * Returns the meta object for class '{@link mm_hybrid.ElementIncluded <em>Element Included</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -874,28 +999,6 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getElementIncluded();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link mm_hybrid.ElementIncluded#getSourceElement <em>Source Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Source Element</em>'.
-	 * @see mm_hybrid.ElementIncluded#getSourceElement()
-	 * @see #getElementIncluded()
-	 * @generated
-	 */
-	EReference getElementIncluded_SourceElement();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link mm_hybrid.ElementIncluded#getTargetElement <em>Target Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Target Element</em>'.
-	 * @see mm_hybrid.ElementIncluded#getTargetElement()
-	 * @see #getElementIncluded()
-	 * @generated
-	 */
-	EReference getElementIncluded_TargetElement();
 
 	/**
 	 * Returns the meta object for the attribute '{@link mm_hybrid.ElementIncluded#getTypeAttribute <em>Type Attribute</em>}'.
@@ -920,6 +1023,28 @@ public interface MM_HybridPackage extends EPackage {
 	EAttribute getElementIncluded_TypeElement();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link mm_hybrid.ElementIncluded#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see mm_hybrid.ElementIncluded#getRight()
+	 * @see #getElementIncluded()
+	 * @generated
+	 */
+	EReference getElementIncluded_Right();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link mm_hybrid.ElementIncluded#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see mm_hybrid.ElementIncluded#getLeft()
+	 * @see #getElementIncluded()
+	 * @generated
+	 */
+	EReference getElementIncluded_Left();
+
+	/**
 	 * Returns the meta object for class '{@link mm_hybrid.Condition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -939,6 +1064,59 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCondition_Value();
+
+	/**
+	 * Returns the meta object for class '{@link mm_hybrid.RightPattern <em>Right Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Right Pattern</em>'.
+	 * @see mm_hybrid.RightPattern
+	 * @generated
+	 */
+	EClass getRightPattern();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link mm_hybrid.RightPattern#getSourceElement <em>Source Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Source Element</em>'.
+	 * @see mm_hybrid.RightPattern#getSourceElement()
+	 * @see #getRightPattern()
+	 * @generated
+	 */
+	EReference getRightPattern_SourceElement();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link mm_hybrid.RightPattern#getRule <em>Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rule</em>'.
+	 * @see mm_hybrid.RightPattern#getRule()
+	 * @see #getRightPattern()
+	 * @generated
+	 */
+	EReference getRightPattern_Rule();
+
+	/**
+	 * Returns the meta object for class '{@link mm_hybrid.LeftPattern <em>Left Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Left Pattern</em>'.
+	 * @see mm_hybrid.LeftPattern
+	 * @generated
+	 */
+	EClass getLeftPattern();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link mm_hybrid.LeftPattern#getTargetElement <em>Target Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Target Element</em>'.
+	 * @see mm_hybrid.LeftPattern#getTargetElement()
+	 * @see #getLeftPattern()
+	 * @generated
+	 */
+	EReference getLeftPattern_TargetElement();
 
 	/**
 	 * Returns the meta object for enum '{@link mm_hybrid.TypeAtribute <em>Type Atribute</em>}'.
@@ -1179,6 +1357,14 @@ public interface MM_HybridPackage extends EPackage {
 		EReference RULE__IS_EXTENDED = eINSTANCE.getRule_IsExtended();
 
 		/**
+		 * The meta object literal for the '<em><b>Right Pattern</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RULE__RIGHT_PATTERN = eINSTANCE.getRule_RightPattern();
+
+		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.ElementImpl <em>Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1207,7 +1393,7 @@ public interface MM_HybridPackage extends EPackage {
 		EClass SOURCE_ELEMENT_RULE = eINSTANCE.getSourceElementRule();
 
 		/**
-		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1223,6 +1409,15 @@ public interface MM_HybridPackage extends EPackage {
 		 */
 		EReference SOURCE_ELEMENT_RULE__METAMODEL = eINSTANCE
 				.getSourceElementRule_Metamodel();
+
+		/**
+		 * The meta object literal for the '<em><b>Right Pattern</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOURCE_ELEMENT_RULE__RIGHT_PATTERN = eINSTANCE
+				.getSourceElementRule_RightPattern();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.TargetElementRuleImpl <em>Target Element Rule</em>}' class.
@@ -1253,6 +1448,15 @@ public interface MM_HybridPackage extends EPackage {
 				.getTargetElementRule_Metamodel();
 
 		/**
+		 * The meta object literal for the '<em><b>Left Pattern</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TARGET_ELEMENT_RULE__LEFT_PATTERN = eINSTANCE
+				.getTargetElementRule_LeftPattern();
+
+		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.ElementIncludedImpl <em>Element Included</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1261,24 +1465,6 @@ public interface MM_HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ELEMENT_INCLUDED = eINSTANCE.getElementIncluded();
-
-		/**
-		 * The meta object literal for the '<em><b>Source Element</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT_INCLUDED__SOURCE_ELEMENT = eINSTANCE
-				.getElementIncluded_SourceElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Target Element</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT_INCLUDED__TARGET_ELEMENT = eINSTANCE
-				.getElementIncluded_TargetElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Type Attribute</b></em>' attribute feature.
@@ -1299,6 +1485,23 @@ public interface MM_HybridPackage extends EPackage {
 				.getElementIncluded_TypeElement();
 
 		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_INCLUDED__RIGHT = eINSTANCE
+				.getElementIncluded_Right();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_INCLUDED__LEFT = eINSTANCE.getElementIncluded_Left();
+
+		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.ConditionImpl <em>Condition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1315,6 +1518,52 @@ public interface MM_HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONDITION__VALUE = eINSTANCE.getCondition_Value();
+
+		/**
+		 * The meta object literal for the '{@link mm_hybrid.impl.RightPatternImpl <em>Right Pattern</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mm_hybrid.impl.RightPatternImpl
+		 * @see mm_hybrid.impl.MM_HybridPackageImpl#getRightPattern()
+		 * @generated
+		 */
+		EClass RIGHT_PATTERN = eINSTANCE.getRightPattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Element</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RIGHT_PATTERN__SOURCE_ELEMENT = eINSTANCE
+				.getRightPattern_SourceElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Rule</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RIGHT_PATTERN__RULE = eINSTANCE.getRightPattern_Rule();
+
+		/**
+		 * The meta object literal for the '{@link mm_hybrid.impl.LeftPatternImpl <em>Left Pattern</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mm_hybrid.impl.LeftPatternImpl
+		 * @see mm_hybrid.impl.MM_HybridPackageImpl#getLeftPattern()
+		 * @generated
+		 */
+		EClass LEFT_PATTERN = eINSTANCE.getLeftPattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Element</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LEFT_PATTERN__TARGET_ELEMENT = eINSTANCE
+				.getLeftPattern_TargetElement();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.TypeAtribute <em>Type Atribute</em>}' enum.

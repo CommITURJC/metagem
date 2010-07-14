@@ -43,6 +43,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//Rule/typeElement"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//Rule/extends"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//Rule/isExtended"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//Rule/rightPattern"/>
     </genClasses>
     <genClasses image="false" ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//Element">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//Element/name_element"/>
@@ -50,19 +51,28 @@
     <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//SourceElementRule">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//SourceElementRule/condition"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//SourceElementRule/metamodel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//SourceElementRule/rightPattern"/>
     </genClasses>
     <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//TargetElementRule">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//TargetElementRule/included"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//TargetElementRule/metamodel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//TargetElementRule/leftPattern"/>
     </genClasses>
     <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//ElementIncluded">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//ElementIncluded/sourceElement"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//ElementIncluded/targetElement"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//ElementIncluded/typeAttribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//ElementIncluded/typeElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//ElementIncluded/right"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//ElementIncluded/left"/>
     </genClasses>
     <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//Condition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//Condition/value"/>
+    </genClasses>
+    <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//RightPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//RightPattern/sourceElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//RightPattern/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//LeftPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//LeftPattern/targetElement"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

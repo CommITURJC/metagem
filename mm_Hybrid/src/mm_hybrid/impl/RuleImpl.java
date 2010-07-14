@@ -9,6 +9,7 @@ package mm_hybrid.impl;
 import java.util.Collection;
 
 import mm_hybrid.MM_HybridPackage;
+import mm_hybrid.RightPattern;
 import mm_hybrid.Rule;
 import mm_hybrid.SourceElementRule;
 import mm_hybrid.TargetElementRule;
@@ -47,6 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mm_hybrid.impl.RuleImpl#getTypeElement <em>Type Element</em>}</li>
  *   <li>{@link mm_hybrid.impl.RuleImpl#getExtends <em>Extends</em>}</li>
  *   <li>{@link mm_hybrid.impl.RuleImpl#getIsExtended <em>Is Extended</em>}</li>
+ *   <li>{@link mm_hybrid.impl.RuleImpl#getRightPattern <em>Right Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -192,6 +194,16 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 * @ordered
 	 */
 	protected EList<Rule> isExtended;
+
+	/**
+	 * The cached value of the '{@link #getRightPattern() <em>Right Pattern</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRightPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RightPattern> rightPattern;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -443,6 +455,20 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<RightPattern> getRightPattern() {
+		if (rightPattern == null) {
+			rightPattern = new EObjectResolvingEList<RightPattern>(
+					RightPattern.class, this,
+					MM_HybridPackage.RULE__RIGHT_PATTERN);
+		}
+		return rightPattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
@@ -510,6 +536,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 			return basicGetExtends();
 		case MM_HybridPackage.RULE__IS_EXTENDED:
 			return getIsExtended();
+		case MM_HybridPackage.RULE__RIGHT_PATTERN:
+			return getRightPattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -553,6 +581,11 @@ public class RuleImpl extends EObjectImpl implements Rule {
 			getIsExtended().clear();
 			getIsExtended().addAll((Collection<? extends Rule>) newValue);
 			return;
+		case MM_HybridPackage.RULE__RIGHT_PATTERN:
+			getRightPattern().clear();
+			getRightPattern().addAll(
+					(Collection<? extends RightPattern>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -592,6 +625,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		case MM_HybridPackage.RULE__IS_EXTENDED:
 			getIsExtended().clear();
 			return;
+		case MM_HybridPackage.RULE__RIGHT_PATTERN:
+			getRightPattern().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -623,6 +659,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 			return extends_ != null;
 		case MM_HybridPackage.RULE__IS_EXTENDED:
 			return isExtended != null && !isExtended.isEmpty();
+		case MM_HybridPackage.RULE__RIGHT_PATTERN:
+			return rightPattern != null && !rightPattern.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
