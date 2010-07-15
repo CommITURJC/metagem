@@ -73,9 +73,11 @@ package mmw_metagem {
 	
 	class OutElement extends WLinkEnd{
 		-- @subsets child
-		reference onetoOne [*] ordered container: OneToOne oppositeOf outElement;
+		reference onetoOne [*]  ordered container: OneToOne oppositeOf outElement;
+		-- @subsets child
 		reference onetoMany [*] ordered container: OneToMany oppositeOf outElement;
-		reference zerotoOne [*] ordered container: ZeroToOne oppositeOf outElement;
+		-- @subsets child
+		reference zerotoOne [*]  ordered container: ZeroToOne oppositeOf outElement;
 		
 	}
 	
@@ -84,7 +86,8 @@ package mmw_metagem {
        reference source container : InElement;
         -- @subsets end
        reference target container : OutElement;
-       reference outElement: OutElement oppositeOf relations;
+       -- @subsets end
+       reference outElement: OutElement oppositeOf onetoOne;
 	     
      }
      
@@ -96,7 +99,8 @@ package mmw_metagem {
     class ZeroToOne extends Relations{
 	 -- @subsets end
      reference target container : OutElement;
-     reference outElement: OutElement oppositeOf relations;
+     -- @subsets end
+     reference outElement: OutElement oppositeOf zerotoOne;
     }
 
 	class OneToMany extends Relations{
@@ -104,7 +108,8 @@ package mmw_metagem {
        reference source container : InElement;
         -- @subsets end
         reference target [1-*] container : OutElement;
-        reference outElement: OutElement oppositeOf relations;
+        -- @subsets end
+        reference outElement: OutElement oppositeOf onetoMany;
      }
 
 	class ManyToOne extends Relations{
