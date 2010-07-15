@@ -67,10 +67,12 @@ rule OutElement2TargetElementRule{
 		targetElem: MM_Hybrid!TargetElementRule(
 			name_element <- outElem.name,
 			metamodel <- outElem.element.modelRef,
-			included <- outElem.relations
+			included <- outElem.relationsIncluded()
 		)
 }
 
+helper context  AMW!OutElement  def : relationsIncluded () : Sequence(AMW!Relations) = 
+	self.onetoOne.asSequence().union(self.onetoMany.asSequence().union(self.zerotoOne.asSequence()));
 
 rule OneToOne2rule extends Relations2Rule{
 	from
@@ -166,8 +168,15 @@ rule OneToOne2ElementIncluded extends Relations2ElementIncluded{
 	from
 		relation_in:AMW!OneToOne(relation_in.outElement.asSequence().size()>0)
 	to
-		elementIncluded:MM_Hybrid!ElementIncluded(
-			sourceElement <- relation_in.source,
+		elementIncluded: MM_Hybrid!ElementIncluded (
+			right <- rightPattern,
+			left <- leftPattern
+		),
+		rightPattern:MM_Hybrid!RightPattern(
+			sourceElement <- relation_in.source.asSequence(),
+			"rule" <- relation_in.source.invoked.asSequence()
+		),
+		leftPattern:MM_Hybrid!LeftPattern(
 			targetElement <- relation_in.target
 		)
 }
@@ -177,8 +186,15 @@ rule OneToMany2ElementIncluded extends Relations2ElementIncluded{
 	from
 		relation_in:AMW!OneToMany(relation_in.outElement.asSequence().size()>0)
 	to
-		elementIncluded:MM_Hybrid!ElementIncluded(
-			sourceElement <- relation_in.source,
+		elementIncluded: MM_Hybrid!ElementIncluded (
+			right <- rightPattern,
+			left <- leftPattern
+		),
+		rightPattern:MM_Hybrid!RightPattern(
+			sourceElement <- relation_in.source.asSequence(),
+			"rule" <- relation_in.source.invoked.asSequence()
+		),
+		leftPattern:MM_Hybrid!LeftPattern(
 			targetElement <- relation_in.target
 		)
 }
@@ -187,30 +203,18 @@ rule ZeroToOne2ElementIncluded extends Relations2ElementIncluded{
 	from
 		relation_in:AMW!ZeroToOne(relation_in.outElement.asSequence().size()>0)
 	to
-		elementIncluded:MM_Hybrid!ElementIncluded(
+		elementIncluded: MM_Hybrid!ElementIncluded (
+			right <- rightPattern,
+			left <- leftPattern
+		),
+		rightPattern:MM_Hybrid!RightPattern(
+
+		),
+		leftPattern:MM_Hybrid!LeftPattern(
 			targetElement <- relation_in.target
 		)
 }
 
-rule ManyToOne2ElementIncluded extends Relations2ElementIncluded{
-	from
-		relation_in:AMW!ManyToOne(relation_in.outElement.asSequence().size()>0)
-	to
-		elementIncluded:MM_Hybrid!ElementIncluded(
-			sourceElement <- relation_in.source,
-			targetElement <- relation_in.target
-		)
-}
-
-rule ManyToMany2ElementIncluded extends Relations2ElementIncluded{
-	from
-		relation_in:AMW!ManyToMany(relation_in.outElement.asSequence().size()>0)
-	to
-		elementIncluded:MM_Hybrid!ElementIncluded(
-			sourceElement <- relation_in.source,
-			targetElement <- relation_in.target
-		)
-}
 
 abstract rule Relations2ElementIncluded{
 	from
