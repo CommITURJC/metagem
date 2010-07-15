@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -59,8 +60,28 @@ public class RightPatternItemProvider extends ItemProviderAdapter implements
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addRulePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Rule feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRulePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_RightPattern_rule_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_RightPattern_rule_feature", "_UI_RightPattern_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.RIGHT_PATTERN__RULE, true,
+						false, true, null, null, null));
 	}
 
 	/**
@@ -78,7 +99,6 @@ public class RightPatternItemProvider extends ItemProviderAdapter implements
 			super.getChildrenFeatures(object);
 			childrenFeatures
 					.add(MM_HybridPackage.Literals.RIGHT_PATTERN__SOURCE_ELEMENT);
-			childrenFeatures.add(MM_HybridPackage.Literals.RIGHT_PATTERN__RULE);
 		}
 		return childrenFeatures;
 	}
@@ -132,7 +152,6 @@ public class RightPatternItemProvider extends ItemProviderAdapter implements
 
 		switch (notification.getFeatureID(RightPattern.class)) {
 		case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
-		case MM_HybridPackage.RIGHT_PATTERN__RULE:
 			fireNotifyChanged(new ViewerNotification(notification, notification
 					.getNotifier(), true, false));
 			return;
@@ -155,10 +174,6 @@ public class RightPatternItemProvider extends ItemProviderAdapter implements
 		newChildDescriptors.add(createChildParameter(
 				MM_HybridPackage.Literals.RIGHT_PATTERN__SOURCE_ELEMENT,
 				MM_HybridFactory.eINSTANCE.createSourceElementRule()));
-
-		newChildDescriptors.add(createChildParameter(
-				MM_HybridPackage.Literals.RIGHT_PATTERN__RULE,
-				MM_HybridFactory.eINSTANCE.createRule()));
 	}
 
 	/**
