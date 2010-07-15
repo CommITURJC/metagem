@@ -20,8 +20,8 @@ rule inMM{
 		inMM_hybrid : MM_Hybrid!InMetaModel
 	to
 		inMM_ATL : ATL!OclModel(
-			--name <- inMM_hybrid.name_mm.debug('InputMM'),
-			name <- inMM_hybrid.type_mm.debug('InputMM'),
+			--name <- inMM_hybrid.name_mm,
+			name <- inMM_hybrid.type_mm,
 			metamodel <- ametamodel
 		),
 		ametamodel : ATL!OclModel (
@@ -34,8 +34,8 @@ rule outMM{
 		outMM_hybrid : MM_Hybrid!OutMetaModel
 	to
 		outMM_ATL : ATL!OclModel(
-			--name <- outMM_hybrid.name_mm.debug('OutputMM'),
-			name <- outMM_hybrid.type_mm.debug('OutputMM'),
+			--name <- outMM_hybrid.name_mm,
+			name <- outMM_hybrid.type_mm,
 			metamodel <- ametamodel
 		),
 		ametamodel : ATL!OclModel (
@@ -59,7 +59,8 @@ rule createRule2MatchedRule{
 			outPattern <- outPattern
 		),
 --		inPattern : ATL!InPattern(
---			elements <- mm_hybrid_rule."in".asSequence().debug('elements InPattern: ')--.first()
+--			elements <- mm_hybrid_rule."in".asSequence(),
+--			filter <- ???
 --			),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
@@ -81,7 +82,8 @@ rule createRule2LazyRule{
 			outPattern <- outPattern
 		),
 --		inPattern : ATL!InPattern(
---			elements <- mm_hybrid_rule."in".asSequence()--.first()
+--			elements <- mm_hybrid_rule."in".asSequence(),
+--			filter <- ???
 --			),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
@@ -110,7 +112,7 @@ rule InPatternElement {
 			elements <- element 
 		),
 		element : ATL!SimpleInPatternElement (
-			varName <- inPattern.name_element,
+			varName <- inPattern.name_element.toLower(),
 			type <- aType
 		),
 		aType : ATL!OclModelElement(
@@ -128,7 +130,7 @@ rule OutPatternElement {
 		outPattern : MM_Hybrid!TargetElementRule
 	to
 		atl : ATL!SimpleOutPatternElement (
-			varName <- outPattern.name_element,
+			varName <- outPattern.name_element.toLower(),
 			type <- aType,
 			bindings <- outPattern.included
 		),
@@ -147,12 +149,24 @@ rule Bindings {
 		elemInc : MM_Hybrid!ElementIncluded
 	to
 		atl : ATL!Binding (
-			propertyName <- elemInc.targetElement.asSequence().first().name_element--,
-			--value <- name:String and source:VariableExp
-		)
-}
+			propertyName <- elemInc.left.targetElement.asSequence().first().name_element,
+			value <- avalue
+		),
+		avalue : ATL!NavigationOrAttributeCallExp(
+			name <- elemInc.right.sourceElement.asSequence().first().name_element, 
+			source <- asource
+		),
+		asource : ATL!VariableExp(
+			referredVariable <- areferred	
+		),
+		areferred : ATL!VariableDeclaration(
+			--varName <- thisModule.resolveTemp(MM_Hybrid!SourceElementRule.allInstances()->select(e|true)->first(),'element').varName
+			varName <- elemInc.target."rule"."in".asSequence().first().name_element.toLower()
+		) 
+}  
 
 helper context MM_Hybrid!Rule def : getSizeIP () : Integer = 
 	self."in".size();
 
---helper context MM_Hybrid!Rule def : getSizeOP() : Integer = self.out.size();
+--helper context MM_Hybrid!Rule def : getSizeOP() : Integer = 
+--	self.out.size();
