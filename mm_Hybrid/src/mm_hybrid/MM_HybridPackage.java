@@ -392,13 +392,22 @@ public interface MM_HybridPackage extends EPackage {
 	int SOURCE_ELEMENT_RULE__RIGHT_PATTERN = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Rule</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_ELEMENT_RULE__RULE = ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Source Element Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_ELEMENT_RULE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
+	int SOURCE_ELEMENT_RULE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.TargetElementRuleImpl <em>Target Element Rule</em>}' class.
@@ -447,13 +456,22 @@ public interface MM_HybridPackage extends EPackage {
 	int TARGET_ELEMENT_RULE__LEFT_PATTERN = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Rule</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_ELEMENT_RULE__RULE = ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Target Element Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET_ELEMENT_RULE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
+	int TARGET_ELEMENT_RULE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.ElementIncludedImpl <em>Element Included</em>}' class.
@@ -502,13 +520,22 @@ public interface MM_HybridPackage extends EPackage {
 	int ELEMENT_INCLUDED__LEFT = 3;
 
 	/**
+	 * The feature id for the '<em><b>Target</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_INCLUDED__TARGET = 4;
+
+	/**
 	 * The number of structural features of the '<em>Element Included</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_INCLUDED_FEATURE_COUNT = 4;
+	int ELEMENT_INCLUDED_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.ConditionImpl <em>Condition</em>}' class.
@@ -948,6 +975,17 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getSourceElementRule_RightPattern();
 
 	/**
+	 * Returns the meta object for the container reference '{@link mm_hybrid.SourceElementRule#getRule <em>Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Rule</em>'.
+	 * @see mm_hybrid.SourceElementRule#getRule()
+	 * @see #getSourceElementRule()
+	 * @generated
+	 */
+	EReference getSourceElementRule_Rule();
+
+	/**
 	 * Returns the meta object for class '{@link mm_hybrid.TargetElementRule <em>Target Element Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -989,6 +1027,17 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTargetElementRule_LeftPattern();
+
+	/**
+	 * Returns the meta object for the container reference '{@link mm_hybrid.TargetElementRule#getRule <em>Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Rule</em>'.
+	 * @see mm_hybrid.TargetElementRule#getRule()
+	 * @see #getTargetElementRule()
+	 * @generated
+	 */
+	EReference getTargetElementRule_Rule();
 
 	/**
 	 * Returns the meta object for class '{@link mm_hybrid.ElementIncluded <em>Element Included</em>}'.
@@ -1043,6 +1092,17 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getElementIncluded_Left();
+
+	/**
+	 * Returns the meta object for the container reference '{@link mm_hybrid.ElementIncluded#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Target</em>'.
+	 * @see mm_hybrid.ElementIncluded#getTarget()
+	 * @see #getElementIncluded()
+	 * @generated
+	 */
+	EReference getElementIncluded_Target();
 
 	/**
 	 * Returns the meta object for class '{@link mm_hybrid.Condition <em>Condition</em>}'.
@@ -1420,6 +1480,15 @@ public interface MM_HybridPackage extends EPackage {
 				.getSourceElementRule_RightPattern();
 
 		/**
+		 * The meta object literal for the '<em><b>Rule</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOURCE_ELEMENT_RULE__RULE = eINSTANCE
+				.getSourceElementRule_Rule();
+
+		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.TargetElementRuleImpl <em>Target Element Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1455,6 +1524,15 @@ public interface MM_HybridPackage extends EPackage {
 		 */
 		EReference TARGET_ELEMENT_RULE__LEFT_PATTERN = eINSTANCE
 				.getTargetElementRule_LeftPattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Rule</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TARGET_ELEMENT_RULE__RULE = eINSTANCE
+				.getTargetElementRule_Rule();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.ElementIncludedImpl <em>Element Included</em>}' class.
@@ -1500,6 +1578,15 @@ public interface MM_HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ELEMENT_INCLUDED__LEFT = eINSTANCE.getElementIncluded_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_INCLUDED__TARGET = eINSTANCE
+				.getElementIncluded_Target();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.ConditionImpl <em>Condition</em>}' class.
