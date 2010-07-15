@@ -133,7 +133,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="RightPattern">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceElement" ordered="false"
         upperBound="-1" eType="#//SourceElementRule" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="#//Rule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" upperBound="-1" eType="#//Rule"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LeftPattern">
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetElement" ordered="false"

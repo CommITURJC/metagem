@@ -519,19 +519,6 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_FlVUg49UEd-xM94B0E0esA" points="[18, 38, -29, -57]$[42, 88, -5, -7]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_FlfFhI9UEd-xM94B0E0esA" id="(0.33766234,0.13461539)"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_XPXGQI9UEd-xM94B0E0esA" type="4003" source="_9iF20I9TEd-xM94B0E0esA" target="_lbtwiIhOEd-Y_fEBkAmxNw">
-    <children xmi:type="notation:Node" xmi:id="_XPXGRI9UEd-xM94B0E0esA" type="6002">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_XPXGRY9UEd-xM94B0E0esA" x="324" y="-13"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_XPXGRo9UEd-xM94B0E0esA" type="6004">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_XPXGR49UEd-xM94B0E0esA" x="-9" y="-13"/>
-    </children>
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_XPXGQY9UEd-xM94B0E0esA"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_XPXGQo9UEd-xM94B0E0esA"/>
-    <element xmi:type="ecore:EReference" href="MM_Hybrid.ecore#//RightPattern/rule"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XPXGQ49UEd-xM94B0E0esA" points="[0, 26, -580, -115]$[0, 324, -580, 183]$[580, 324, 0, 183]$[580, 179, 0, 38]"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XPXGSI9UEd-xM94B0E0esA" id="(0.13265306,0.7153846)"/>
-  </edges>
   <edges xmi:type="notation:Edge" xmi:id="_zrH_cI9YEd-xM94B0E0esA" type="4002" source="_lb3hYIhOEd-Y_fEBkAmxNw" target="_-8YqkI9TEd-xM94B0E0esA">
     <children xmi:type="notation:Node" xmi:id="_zrH_dI9YEd-xM94B0E0esA" type="6001">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_zrH_dY9YEd-xM94B0E0esA" x="2" y="-10"/>
