@@ -558,7 +558,7 @@ public interface MM_HybridPackage extends EPackage {
 	int RIGHT_PATTERN__SOURCE_ELEMENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
+	 * The feature id for the '<em><b>Rule</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1087,10 +1087,10 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getRightPattern_SourceElement();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link mm_hybrid.RightPattern#getRule <em>Rule</em>}'.
+	 * Returns the meta object for the reference list '{@link mm_hybrid.RightPattern#getRule <em>Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rule</em>'.
+	 * @return the meta object for the reference list '<em>Rule</em>'.
 	 * @see mm_hybrid.RightPattern#getRule()
 	 * @see #getRightPattern()
 	 * @generated
@@ -1539,7 +1539,7 @@ public interface MM_HybridPackage extends EPackage {
 				.getRightPattern_SourceElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Rule</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Rule</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

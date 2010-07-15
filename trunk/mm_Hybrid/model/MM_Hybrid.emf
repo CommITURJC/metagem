@@ -81,7 +81,7 @@ class Condition {
 
 class RightPattern {
   !ordered val SourceElementRule[*] sourceElement;
-  val Rule rule;
+  ref Rule[*] rule;
 }
 
 class LeftPattern {

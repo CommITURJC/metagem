@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -53,14 +54,14 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	protected EList<SourceElementRule> sourceElement;
 
 	/**
-	 * The cached value of the '{@link #getRule() <em>Rule</em>}' containment reference.
+	 * The cached value of the '{@link #getRule() <em>Rule</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRule()
 	 * @generated
 	 * @ordered
 	 */
-	protected Rule rule;
+	protected EList<Rule> rule;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,54 +101,12 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Rule getRule() {
-		return rule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRule(Rule newRule, NotificationChain msgs) {
-		Rule oldRule = rule;
-		rule = newRule;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this,
-					Notification.SET, MM_HybridPackage.RIGHT_PATTERN__RULE,
-					oldRule, newRule);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+	public EList<Rule> getRule() {
+		if (rule == null) {
+			rule = new EObjectResolvingEList<Rule>(Rule.class, this,
+					MM_HybridPackage.RIGHT_PATTERN__RULE);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRule(Rule newRule) {
-		if (newRule != rule) {
-			NotificationChain msgs = null;
-			if (rule != null)
-				msgs = ((InternalEObject) rule).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE
-								- MM_HybridPackage.RIGHT_PATTERN__RULE, null,
-						msgs);
-			if (newRule != null)
-				msgs = ((InternalEObject) newRule).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE
-								- MM_HybridPackage.RIGHT_PATTERN__RULE, null,
-						msgs);
-			msgs = basicSetRule(newRule, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RIGHT_PATTERN__RULE, newRule, newRule));
+		return rule;
 	}
 
 	/**
@@ -162,8 +121,6 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
 			return ((InternalEList<?>) getSourceElement()).basicRemove(
 					otherEnd, msgs);
-		case MM_HybridPackage.RIGHT_PATTERN__RULE:
-			return basicSetRule(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -199,7 +156,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 					(Collection<? extends SourceElementRule>) newValue);
 			return;
 		case MM_HybridPackage.RIGHT_PATTERN__RULE:
-			setRule((Rule) newValue);
+			getRule().clear();
+			getRule().addAll((Collection<? extends Rule>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -217,7 +175,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			getSourceElement().clear();
 			return;
 		case MM_HybridPackage.RIGHT_PATTERN__RULE:
-			setRule((Rule) null);
+			getRule().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -234,7 +192,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
 			return sourceElement != null && !sourceElement.isEmpty();
 		case MM_HybridPackage.RIGHT_PATTERN__RULE:
-			return rule != null;
+			return rule != null && !rule.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

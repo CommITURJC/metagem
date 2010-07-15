@@ -45,29 +45,19 @@ public interface RightPattern extends EObject {
 	EList<SourceElementRule> getSourceElement();
 
 	/**
-	 * Returns the value of the '<em><b>Rule</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Rule</b></em>' reference list.
+	 * The list contents are of type {@link mm_hybrid.Rule}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rule</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rule</em>' containment reference.
-	 * @see #setRule(Rule)
+	 * @return the value of the '<em>Rule</em>' reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getRightPattern_Rule()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
-	Rule getRule();
-
-	/**
-	 * Sets the value of the '{@link mm_hybrid.RightPattern#getRule <em>Rule</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rule</em>' containment reference.
-	 * @see #getRule()
-	 * @generated
-	 */
-	void setRule(Rule value);
+	EList<Rule> getRule();
 
 } // RightPattern
