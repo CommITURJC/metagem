@@ -72,19 +72,31 @@ public interface SourceElementRule extends Element {
 	void setMetamodel(InMetaModel value);
 
 	/**
-	 * Returns the value of the '<em><b>Right Pattern</b></em>' reference list.
-	 * The list contents are of type {@link mm_hybrid.RightPattern}.
+	 * Returns the value of the '<em><b>Right Pattern</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.RightPattern#getSourceElement <em>Source Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Right Pattern</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Right Pattern</em>' reference list.
+	 * @return the value of the '<em>Right Pattern</em>' container reference.
+	 * @see #setRightPattern(RightPattern)
 	 * @see mm_hybrid.MM_HybridPackage#getSourceElementRule_RightPattern()
-	 * @model
+	 * @see mm_hybrid.RightPattern#getSourceElement
+	 * @model opposite="sourceElement" transient="false"
 	 * @generated
 	 */
-	EList<RightPattern> getRightPattern();
+	RightPattern getRightPattern();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.SourceElementRule#getRightPattern <em>Right Pattern</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Right Pattern</em>' container reference.
+	 * @see #getRightPattern()
+	 * @generated
+	 */
+	void setRightPattern(RightPattern value);
 
 } // SourceElementRule

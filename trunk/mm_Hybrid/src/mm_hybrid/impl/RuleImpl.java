@@ -457,9 +457,10 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 */
 	public EList<RightPattern> getRightPattern() {
 		if (rightPattern == null) {
-			rightPattern = new EObjectResolvingEList<RightPattern>(
+			rightPattern = new EObjectWithInverseResolvingEList.ManyInverse<RightPattern>(
 					RightPattern.class, this,
-					MM_HybridPackage.RULE__RIGHT_PATTERN);
+					MM_HybridPackage.RULE__RIGHT_PATTERN,
+					MM_HybridPackage.RIGHT_PATTERN__RULE);
 		}
 		return rightPattern;
 	}
@@ -482,6 +483,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		case MM_HybridPackage.RULE__IS_EXTENDED:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getIsExtended())
 					.basicAdd(otherEnd, msgs);
+		case MM_HybridPackage.RULE__RIGHT_PATTERN:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getRightPattern())
+					.basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -503,6 +507,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 			return basicSetExtends(null, msgs);
 		case MM_HybridPackage.RULE__IS_EXTENDED:
 			return ((InternalEList<?>) getIsExtended()).basicRemove(otherEnd,
+					msgs);
+		case MM_HybridPackage.RULE__RIGHT_PATTERN:
+			return ((InternalEList<?>) getRightPattern()).basicRemove(otherEnd,
 					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);

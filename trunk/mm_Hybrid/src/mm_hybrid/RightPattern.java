@@ -31,6 +31,7 @@ public interface RightPattern extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Source Element</b></em>' containment reference list.
 	 * The list contents are of type {@link mm_hybrid.SourceElementRule}.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.SourceElementRule#getRightPattern <em>Right Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Source Element</em>' containment reference list isn't clear,
@@ -39,7 +40,8 @@ public interface RightPattern extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Element</em>' containment reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getRightPattern_SourceElement()
-	 * @model containment="true" ordered="false"
+	 * @see mm_hybrid.SourceElementRule#getRightPattern
+	 * @model opposite="rightPattern" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<SourceElementRule> getSourceElement();
@@ -47,6 +49,7 @@ public interface RightPattern extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Rule</b></em>' reference list.
 	 * The list contents are of type {@link mm_hybrid.Rule}.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.Rule#getRightPattern <em>Right Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rule</em>' containment reference isn't clear,
@@ -55,7 +58,8 @@ public interface RightPattern extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rule</em>' reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getRightPattern_Rule()
-	 * @model
+	 * @see mm_hybrid.Rule#getRightPattern
+	 * @model opposite="rightPattern"
 	 * @generated
 	 */
 	EList<Rule> getRule();

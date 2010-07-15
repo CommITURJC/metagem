@@ -12,6 +12,7 @@ import mm_hybrid.LeftPattern;
 import mm_hybrid.MM_HybridPackage;
 import mm_hybrid.TargetElementRule;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -19,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -39,14 +41,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class LeftPatternImpl extends EObjectImpl implements LeftPattern {
 	/**
-	 * The cached value of the '{@link #getTargetElement() <em>Target Element</em>}' containment reference list.
+	 * The cached value of the '{@link #getTargetElement() <em>Target Element</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTargetElement()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TargetElementRule> targetElement;
+	protected TargetElementRule targetElement;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,13 +74,77 @@ public class LeftPatternImpl extends EObjectImpl implements LeftPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TargetElementRule> getTargetElement() {
-		if (targetElement == null) {
-			targetElement = new EObjectContainmentEList<TargetElementRule>(
-					TargetElementRule.class, this,
-					MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT);
-		}
+	public TargetElementRule getTargetElement() {
 		return targetElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTargetElement(
+			TargetElementRule newTargetElement, NotificationChain msgs) {
+		TargetElementRule oldTargetElement = targetElement;
+		targetElement = newTargetElement;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET,
+					MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT,
+					oldTargetElement, newTargetElement);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetElement(TargetElementRule newTargetElement) {
+		if (newTargetElement != targetElement) {
+			NotificationChain msgs = null;
+			if (targetElement != null)
+				msgs = ((InternalEObject) targetElement).eInverseRemove(this,
+						MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN,
+						TargetElementRule.class, msgs);
+			if (newTargetElement != null)
+				msgs = ((InternalEObject) newTargetElement).eInverseAdd(this,
+						MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN,
+						TargetElementRule.class, msgs);
+			msgs = basicSetTargetElement(newTargetElement, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT,
+					newTargetElement, newTargetElement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT:
+			if (targetElement != null)
+				msgs = ((InternalEObject) targetElement)
+						.eInverseRemove(
+								this,
+								EOPPOSITE_FEATURE_BASE
+										- MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT,
+								null, msgs);
+			return basicSetTargetElement((TargetElementRule) otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -91,8 +157,7 @@ public class LeftPatternImpl extends EObjectImpl implements LeftPattern {
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT:
-			return ((InternalEList<?>) getTargetElement()).basicRemove(
-					otherEnd, msgs);
+			return basicSetTargetElement(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -121,9 +186,7 @@ public class LeftPatternImpl extends EObjectImpl implements LeftPattern {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT:
-			getTargetElement().clear();
-			getTargetElement().addAll(
-					(Collection<? extends TargetElementRule>) newValue);
+			setTargetElement((TargetElementRule) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -138,7 +201,7 @@ public class LeftPatternImpl extends EObjectImpl implements LeftPattern {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT:
-			getTargetElement().clear();
+			setTargetElement((TargetElementRule) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -153,7 +216,7 @@ public class LeftPatternImpl extends EObjectImpl implements LeftPattern {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT:
-			return targetElement != null && !targetElement.isEmpty();
+			return targetElement != null;
 		}
 		return super.eIsSet(featureID);
 	}
