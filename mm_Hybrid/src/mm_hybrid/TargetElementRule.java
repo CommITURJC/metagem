@@ -73,18 +73,30 @@ public interface TargetElementRule extends Element {
 	void setMetamodel(OutMetaModel value);
 
 	/**
-	 * Returns the value of the '<em><b>Left Pattern</b></em>' reference list.
-	 * The list contents are of type {@link mm_hybrid.LeftPattern}.
+	 * Returns the value of the '<em><b>Left Pattern</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.LeftPattern#getTargetElement <em>Target Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Left Pattern</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Left Pattern</em>' reference list.
+	 * @return the value of the '<em>Left Pattern</em>' container reference.
+	 * @see #setLeftPattern(LeftPattern)
 	 * @see mm_hybrid.MM_HybridPackage#getTargetElementRule_LeftPattern()
-	 * @model
+	 * @see mm_hybrid.LeftPattern#getTargetElement
+	 * @model opposite="targetElement" transient="false"
 	 * @generated
 	 */
-	EList<LeftPattern> getLeftPattern();
+	LeftPattern getLeftPattern();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.TargetElementRule#getLeftPattern <em>Left Pattern</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Left Pattern</em>' container reference.
+	 * @see #getLeftPattern()
+	 * @generated
+	 */
+	void setLeftPattern(LeftPattern value);
 } // TargetElementRule

@@ -24,6 +24,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -89,9 +91,10 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 */
 	public EList<SourceElementRule> getSourceElement() {
 		if (sourceElement == null) {
-			sourceElement = new EObjectContainmentEList<SourceElementRule>(
+			sourceElement = new EObjectContainmentWithInverseEList<SourceElementRule>(
 					SourceElementRule.class, this,
-					MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT);
+					MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT,
+					MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN);
 		}
 		return sourceElement;
 	}
@@ -103,10 +106,31 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 */
 	public EList<Rule> getRule() {
 		if (rule == null) {
-			rule = new EObjectResolvingEList<Rule>(Rule.class, this,
-					MM_HybridPackage.RIGHT_PATTERN__RULE);
+			rule = new EObjectWithInverseResolvingEList.ManyInverse<Rule>(
+					Rule.class, this, MM_HybridPackage.RIGHT_PATTERN__RULE,
+					MM_HybridPackage.RULE__RIGHT_PATTERN);
 		}
 		return rule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getSourceElement())
+					.basicAdd(otherEnd, msgs);
+		case MM_HybridPackage.RIGHT_PATTERN__RULE:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getRule())
+					.basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -121,6 +145,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
 			return ((InternalEList<?>) getSourceElement()).basicRemove(
 					otherEnd, msgs);
+		case MM_HybridPackage.RIGHT_PATTERN__RULE:
+			return ((InternalEList<?>) getRule()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

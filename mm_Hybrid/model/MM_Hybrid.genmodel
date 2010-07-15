@@ -51,12 +51,12 @@
     <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//SourceElementRule">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//SourceElementRule/condition"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//SourceElementRule/metamodel"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//SourceElementRule/rightPattern"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//SourceElementRule/rightPattern"/>
     </genClasses>
     <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//TargetElementRule">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//TargetElementRule/included"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//TargetElementRule/metamodel"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//TargetElementRule/leftPattern"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//TargetElementRule/leftPattern"/>
     </genClasses>
     <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//ElementIncluded">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//ElementIncluded/typeAttribute"/>

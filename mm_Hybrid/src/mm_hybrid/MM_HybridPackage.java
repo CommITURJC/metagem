@@ -383,7 +383,7 @@ public interface MM_HybridPackage extends EPackage {
 	int SOURCE_ELEMENT_RULE__METAMODEL = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Right Pattern</b></em>' reference list.
+	 * The feature id for the '<em><b>Right Pattern</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -438,7 +438,7 @@ public interface MM_HybridPackage extends EPackage {
 	int TARGET_ELEMENT_RULE__METAMODEL = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Left Pattern</b></em>' reference list.
+	 * The feature id for the '<em><b>Left Pattern</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -586,7 +586,7 @@ public interface MM_HybridPackage extends EPackage {
 	int LEFT_PATTERN = 10;
 
 	/**
-	 * The feature id for the '<em><b>Target Element</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Target Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -937,10 +937,10 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getSourceElementRule_Metamodel();
 
 	/**
-	 * Returns the meta object for the reference list '{@link mm_hybrid.SourceElementRule#getRightPattern <em>Right Pattern</em>}'.
+	 * Returns the meta object for the container reference '{@link mm_hybrid.SourceElementRule#getRightPattern <em>Right Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Right Pattern</em>'.
+	 * @return the meta object for the container reference '<em>Right Pattern</em>'.
 	 * @see mm_hybrid.SourceElementRule#getRightPattern()
 	 * @see #getSourceElementRule()
 	 * @generated
@@ -980,10 +980,10 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getTargetElementRule_Metamodel();
 
 	/**
-	 * Returns the meta object for the reference list '{@link mm_hybrid.TargetElementRule#getLeftPattern <em>Left Pattern</em>}'.
+	 * Returns the meta object for the container reference '{@link mm_hybrid.TargetElementRule#getLeftPattern <em>Left Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Left Pattern</em>'.
+	 * @return the meta object for the container reference '<em>Left Pattern</em>'.
 	 * @see mm_hybrid.TargetElementRule#getLeftPattern()
 	 * @see #getTargetElementRule()
 	 * @generated
@@ -1108,10 +1108,10 @@ public interface MM_HybridPackage extends EPackage {
 	EClass getLeftPattern();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link mm_hybrid.LeftPattern#getTargetElement <em>Target Element</em>}'.
+	 * Returns the meta object for the containment reference '{@link mm_hybrid.LeftPattern#getTargetElement <em>Target Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Target Element</em>'.
+	 * @return the meta object for the containment reference '<em>Target Element</em>'.
 	 * @see mm_hybrid.LeftPattern#getTargetElement()
 	 * @see #getLeftPattern()
 	 * @generated
@@ -1411,7 +1411,7 @@ public interface MM_HybridPackage extends EPackage {
 				.getSourceElementRule_Metamodel();
 
 		/**
-		 * The meta object literal for the '<em><b>Right Pattern</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Right Pattern</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1448,7 +1448,7 @@ public interface MM_HybridPackage extends EPackage {
 				.getTargetElementRule_Metamodel();
 
 		/**
-		 * The meta object literal for the '<em><b>Left Pattern</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Left Pattern</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1557,7 +1557,7 @@ public interface MM_HybridPackage extends EPackage {
 		EClass LEFT_PATTERN = eINSTANCE.getLeftPattern();
 
 		/**
-		 * The meta object literal for the '<em><b>Target Element</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Target Element</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

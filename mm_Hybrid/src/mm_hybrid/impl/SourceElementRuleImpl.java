@@ -64,16 +64,6 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	protected InMetaModel metamodel;
 
 	/**
-	 * The cached value of the '{@link #getRightPattern() <em>Right Pattern</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRightPattern()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RightPattern> rightPattern;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -185,13 +175,49 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RightPattern> getRightPattern() {
-		if (rightPattern == null) {
-			rightPattern = new EObjectResolvingEList<RightPattern>(
-					RightPattern.class, this,
-					MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN);
-		}
-		return rightPattern;
+	public RightPattern getRightPattern() {
+		if (eContainerFeatureID != MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN)
+			return null;
+		return (RightPattern) eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRightPattern(RightPattern newRightPattern,
+			NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newRightPattern,
+				MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRightPattern(RightPattern newRightPattern) {
+		if (newRightPattern != eInternalContainer()
+				|| (eContainerFeatureID != MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN && newRightPattern != null)) {
+			if (EcoreUtil.isAncestor(this, newRightPattern))
+				throw new IllegalArgumentException(
+						"Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newRightPattern != null)
+				msgs = ((InternalEObject) newRightPattern).eInverseAdd(this,
+						MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT,
+						RightPattern.class, msgs);
+			msgs = basicSetRightPattern(newRightPattern, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN,
+					newRightPattern, newRightPattern));
 	}
 
 	/**
@@ -209,6 +235,10 @@ public class SourceElementRuleImpl extends ElementImpl implements
 						MM_HybridPackage.IN_META_MODEL__ELEMENTS,
 						InMetaModel.class, msgs);
 			return basicSetMetamodel((InMetaModel) otherEnd, msgs);
+		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return basicSetRightPattern((RightPattern) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -227,8 +257,27 @@ public class SourceElementRuleImpl extends ElementImpl implements
 					msgs);
 		case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
 			return basicSetMetamodel(null, msgs);
+		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
+			return basicSetRightPattern(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(
+			NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
+			return eInternalContainer().eInverseRemove(this,
+					MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT,
+					RightPattern.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -268,9 +317,7 @@ public class SourceElementRuleImpl extends ElementImpl implements
 			setMetamodel((InMetaModel) newValue);
 			return;
 		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
-			getRightPattern().clear();
-			getRightPattern().addAll(
-					(Collection<? extends RightPattern>) newValue);
+			setRightPattern((RightPattern) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -291,7 +338,7 @@ public class SourceElementRuleImpl extends ElementImpl implements
 			setMetamodel((InMetaModel) null);
 			return;
 		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
-			getRightPattern().clear();
+			setRightPattern((RightPattern) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -310,7 +357,7 @@ public class SourceElementRuleImpl extends ElementImpl implements
 		case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
 			return metamodel != null;
 		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
-			return rightPattern != null && !rightPattern.isEmpty();
+			return getRightPattern() != null;
 		}
 		return super.eIsSet(featureID);
 	}

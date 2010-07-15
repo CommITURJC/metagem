@@ -881,7 +881,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		initEReference(
 				getRule_RightPattern(),
 				this.getRightPattern(),
-				null,
+				this.getRightPattern_Rule(),
 				"rightPattern", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
@@ -910,8 +910,8 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		initEReference(
 				getSourceElementRule_RightPattern(),
 				this.getRightPattern(),
-				null,
-				"rightPattern", null, 0, -1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				this.getRightPattern_SourceElement(),
+				"rightPattern", null, 0, 1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				targetElementRuleEClass,
@@ -930,8 +930,8 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		initEReference(
 				getTargetElementRule_LeftPattern(),
 				this.getLeftPattern(),
-				null,
-				"leftPattern", null, 0, -1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				this.getLeftPattern_TargetElement(),
+				"leftPattern", null, 0, 1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				elementIncludedEClass,
@@ -972,12 +972,12 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		initEReference(
 				getRightPattern_SourceElement(),
 				this.getSourceElementRule(),
-				null,
+				this.getSourceElementRule_RightPattern(),
 				"sourceElement", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getRightPattern_Rule(),
 				this.getRule(),
-				null,
+				this.getRule_RightPattern(),
 				"rule", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
@@ -987,8 +987,8 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		initEReference(
 				getLeftPattern_TargetElement(),
 				this.getTargetElementRule(),
-				null,
-				"targetElement", null, 0, -1, LeftPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+				this.getTargetElementRule_LeftPattern(),
+				"targetElement", null, 1, 1, LeftPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
 		// Initialize enums and add enum literals
 		initEEnum(typeAtributeEEnum, TypeAtribute.class, "TypeAtribute"); //$NON-NLS-1$

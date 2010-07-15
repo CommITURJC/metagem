@@ -253,6 +253,7 @@ public interface Rule extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Right Pattern</b></em>' reference list.
 	 * The list contents are of type {@link mm_hybrid.RightPattern}.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.RightPattern#getRule <em>Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Right Pattern</em>' reference list isn't clear,
@@ -261,7 +262,8 @@ public interface Rule extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Right Pattern</em>' reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getRule_RightPattern()
-	 * @model
+	 * @see mm_hybrid.RightPattern#getRule
+	 * @model opposite="rule"
 	 * @generated
 	 */
 	EList<RightPattern> getRightPattern();

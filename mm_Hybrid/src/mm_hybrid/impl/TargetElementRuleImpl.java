@@ -62,16 +62,6 @@ public class TargetElementRuleImpl extends ElementImpl implements
 	protected OutMetaModel metamodel;
 
 	/**
-	 * The cached value of the '{@link #getLeftPattern() <em>Left Pattern</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLeftPattern()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<LeftPattern> leftPattern;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -184,13 +174,49 @@ public class TargetElementRuleImpl extends ElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<LeftPattern> getLeftPattern() {
-		if (leftPattern == null) {
-			leftPattern = new EObjectResolvingEList<LeftPattern>(
-					LeftPattern.class, this,
-					MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN);
-		}
-		return leftPattern;
+	public LeftPattern getLeftPattern() {
+		if (eContainerFeatureID != MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN)
+			return null;
+		return (LeftPattern) eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLeftPattern(LeftPattern newLeftPattern,
+			NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newLeftPattern,
+				MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLeftPattern(LeftPattern newLeftPattern) {
+		if (newLeftPattern != eInternalContainer()
+				|| (eContainerFeatureID != MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN && newLeftPattern != null)) {
+			if (EcoreUtil.isAncestor(this, newLeftPattern))
+				throw new IllegalArgumentException(
+						"Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newLeftPattern != null)
+				msgs = ((InternalEObject) newLeftPattern).eInverseAdd(this,
+						MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT,
+						LeftPattern.class, msgs);
+			msgs = basicSetLeftPattern(newLeftPattern, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN,
+					newLeftPattern, newLeftPattern));
 	}
 
 	/**
@@ -208,6 +234,10 @@ public class TargetElementRuleImpl extends ElementImpl implements
 						MM_HybridPackage.OUT_META_MODEL__ELEMENTS,
 						OutMetaModel.class, msgs);
 			return basicSetMetamodel((OutMetaModel) otherEnd, msgs);
+		case MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN:
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return basicSetLeftPattern((LeftPattern) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -226,8 +256,27 @@ public class TargetElementRuleImpl extends ElementImpl implements
 					msgs);
 		case MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL:
 			return basicSetMetamodel(null, msgs);
+		case MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN:
+			return basicSetLeftPattern(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(
+			NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+		case MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN:
+			return eInternalContainer().eInverseRemove(this,
+					MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT,
+					LeftPattern.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -268,9 +317,7 @@ public class TargetElementRuleImpl extends ElementImpl implements
 			setMetamodel((OutMetaModel) newValue);
 			return;
 		case MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN:
-			getLeftPattern().clear();
-			getLeftPattern().addAll(
-					(Collection<? extends LeftPattern>) newValue);
+			setLeftPattern((LeftPattern) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -291,7 +338,7 @@ public class TargetElementRuleImpl extends ElementImpl implements
 			setMetamodel((OutMetaModel) null);
 			return;
 		case MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN:
-			getLeftPattern().clear();
+			setLeftPattern((LeftPattern) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -310,7 +357,7 @@ public class TargetElementRuleImpl extends ElementImpl implements
 		case MM_HybridPackage.TARGET_ELEMENT_RULE__METAMODEL:
 			return metamodel != null;
 		case MM_HybridPackage.TARGET_ELEMENT_RULE__LEFT_PATTERN:
-			return leftPattern != null && !leftPattern.isEmpty();
+			return getLeftPattern() != null;
 		}
 		return super.eIsSet(featureID);
 	}
