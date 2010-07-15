@@ -41,8 +41,8 @@ class Rule {
   !unique !ordered attr String[1] name_rule;
   !unique !ordered attr boolean[1] isAbstract;
   !unique !ordered attr boolean[1] isMain;
-  !ordered val SourceElementRule[*] in;
-  !ordered val TargetElementRule[*] out;
+  !ordered val SourceElementRule[*]#rule in;
+  !ordered val TargetElementRule[*]#rule out;
   !unique !ordered attr TypeAtribute[1] typeAttribute;
   !unique !ordered attr TypeElem[1] typeElement;
   ref Rule#isExtended ~extends;
@@ -59,13 +59,15 @@ class SourceElementRule extends Element {
   !ordered val Condition[*] condition;
   ref InMetaModel[1]#elements metamodel;
   ref RightPattern#sourceElement rightPattern;
+  ref Rule[1]#in rule;
 }
 
 @gmf.node(label="name_element", label.icon="false", border.color="51,153,102", color="204,255,204")
 class TargetElementRule extends Element {
-  val ElementIncluded[*] included;
+  val ElementIncluded[*]#target included;
   ref OutMetaModel[1]#elements metamodel;
   ref LeftPattern#targetElement leftPattern;
+  ref Rule[1]#out rule;
 }
 
 class ElementIncluded {
@@ -73,6 +75,7 @@ class ElementIncluded {
   !unique !ordered attr TypeElem[1] typeElement;
   val RightPattern[1] right;
   val LeftPattern[1] left;
+  ref TargetElementRule[1]#included target;
 }
 
 class Condition {
