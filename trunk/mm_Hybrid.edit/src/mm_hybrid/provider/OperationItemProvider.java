@@ -9,6 +9,7 @@ package mm_hybrid.provider;
 import java.util.Collection;
 import java.util.List;
 
+import mm_hybrid.MM_HybridFactory;
 import mm_hybrid.MM_HybridPackage;
 import mm_hybrid.Operation;
 
@@ -17,6 +18,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -61,7 +63,6 @@ public class OperationItemProvider extends ItemProviderAdapter implements
 			addName_operationPropertyDescriptor(object);
 			addBodyPropertyDescriptor(object);
 			addContextPropertyDescriptor(object);
-			addReturnValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -126,22 +127,35 @@ public class OperationItemProvider extends ItemProviderAdapter implements
 	}
 
 	/**
-	 * This adds a property descriptor for the Return Value feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReturnValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_Operation_returnValue_feature"), //$NON-NLS-1$
-						getString(
-								"_UI_PropertyDescriptor_description", "_UI_Operation_returnValue_feature", "_UI_Operation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-						MM_HybridPackage.Literals.OPERATION__RETURN_VALUE,
-						true, false, true, null, null, null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(
+			Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures
+					.add(MM_HybridPackage.Literals.OPERATION__RETURN_VALUE);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -186,6 +200,10 @@ public class OperationItemProvider extends ItemProviderAdapter implements
 			fireNotifyChanged(new ViewerNotification(notification, notification
 					.getNotifier(), false, true));
 			return;
+		case MM_HybridPackage.OPERATION__RETURN_VALUE:
+			fireNotifyChanged(new ViewerNotification(notification, notification
+					.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -201,6 +219,10 @@ public class OperationItemProvider extends ItemProviderAdapter implements
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(
+				MM_HybridPackage.Literals.OPERATION__RETURN_VALUE,
+				MM_HybridFactory.eINSTANCE.createReturn()));
 	}
 
 	/**
