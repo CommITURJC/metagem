@@ -1170,6 +1170,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		addEEnumLiteral(typeElemEEnum, TypeElem.MY_EREFERENCE);
 
 		initEEnum(datatypeEEnum, Datatype.class, "Datatype"); //$NON-NLS-1$
+		addEEnumLiteral(datatypeEEnum, Datatype.NULL);
 		addEEnumLiteral(datatypeEEnum, Datatype.BOOLEAN);
 		addEEnumLiteral(datatypeEEnum, Datatype.INTEGER);
 		addEEnumLiteral(datatypeEEnum, Datatype.STRING);

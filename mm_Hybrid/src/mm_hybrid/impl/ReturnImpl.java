@@ -52,7 +52,7 @@ public class ReturnImpl extends EObjectImpl implements Return {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Datatype DATATYPE_EDEFAULT = Datatype.BOOLEAN;
+	protected static final Datatype DATATYPE_EDEFAULT = Datatype.NULL;
 
 	/**
 	 * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' attribute.
