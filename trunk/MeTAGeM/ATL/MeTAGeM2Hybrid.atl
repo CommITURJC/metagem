@@ -79,8 +79,8 @@ rule OneToOne2rule extends Relations2Rule{
 		relation: AMW!OneToOne
 	to
 		r_hybrid: MM_Hybrid!Rule(
-			"in" <- relation.source,
-			out <- relation.target
+			"in" <- relation.source.asSequence(),
+			out <- relation.target.asSequence()
 		)
 	do {
 		thisModule.countRules <- thisModule.countRules + 1;
@@ -92,7 +92,7 @@ rule OneToZero2rule extends Relations2Rule{
 		relation: AMW!OneToZero
 	to
 		r_hybrid: MM_Hybrid!Rule(
-			"in" <- relation.source
+			"in" <- relation.source.asSequence()
 		)
 	do {
 		thisModule.countRules <- thisModule.countRules + 1;
@@ -104,7 +104,7 @@ rule ZeroToOne2rule extends Relations2Rule{
 		relation: AMW!ZeroToOne
 	to
 		r_hybrid: MM_Hybrid!Rule(
-			out <- relation.target
+			out <- relation.target.asSequence()
 		)
 	do {
 		thisModule.countRules <- thisModule.countRules + 1;
@@ -116,8 +116,8 @@ rule OneToMany2rule extends Relations2Rule{
 		relation: AMW!OneToMany
 	to
 		r_hybrid: MM_Hybrid!Rule(
-			"in" <- relation.source,
-			out <- relation.target
+			"in" <- relation.source.asSequence(),
+			out <- relation.target.asSequence()
 		)
 	do {
 		thisModule.countRules <- thisModule.countRules + 1;
@@ -128,8 +128,8 @@ rule ManyToOne2rule extends Relations2Rule{
 		relation: AMW!ManyToOne
 	to
 		r_hybrid: MM_Hybrid!Rule(
-			"in" <- relation.source,
-			out <- relation.target
+			"in" <- relation.source.asSequence(),
+			out <- relation.target.asSequence()
 		)
 	do {
 		thisModule.countRules <- thisModule.countRules + 1;
@@ -140,8 +140,8 @@ rule ManyToMany2rule extends Relations2Rule{
 		relation: AMW!ManyToMany
 	to
 		r_hybrid: MM_Hybrid!Rule(
-			"in" <- relation.source,
-			out <- relation.target
+			"in" <- relation.source.asSequence(),
+			out <- relation.target.asSequence()
 		)
 	do {
 		thisModule.countRules <- thisModule.countRules + 1;
@@ -150,7 +150,7 @@ rule ManyToMany2rule extends Relations2Rule{
 
 abstract rule Relations2Rule{
 	from
-		relation:AMW!Relations(relation.outElement.asSequence().size()=0)
+		relation:AMW!Relations(relation.isNotIncluded())
 	to
 		r_hybrid:MM_Hybrid!Rule(
 			name_rule <- relation.getRuleName().debug('Rule '),
@@ -166,7 +166,7 @@ abstract rule Relations2Rule{
 
 rule OneToOne2ElementIncluded extends Relations2ElementIncluded{
 	from
-		relation_in:AMW!OneToOne(relation_in.outElement.asSequence().size()>0)
+		relation_in:AMW!OneToOne
 	to
 		elementIncluded: MM_Hybrid!ElementIncluded (
 			right <- rightPattern,
@@ -174,17 +174,16 @@ rule OneToOne2ElementIncluded extends Relations2ElementIncluded{
 		),
 		rightPattern:MM_Hybrid!RightPattern(
 			sourceElement <- relation_in.source.asSequence(),
-			"rule" <- relation_in.source.invoked.asSequence()
+			"rule" <- relation_in.getRuleInvoked()
 		),
 		leftPattern:MM_Hybrid!LeftPattern(
 			targetElement <- relation_in.target
 		)
 }
 
-
 rule OneToMany2ElementIncluded extends Relations2ElementIncluded{
 	from
-		relation_in:AMW!OneToMany(relation_in.outElement.asSequence().size()>0)
+		relation_in:AMW!OneToMany
 	to
 		elementIncluded: MM_Hybrid!ElementIncluded (
 			right <- rightPattern,
@@ -192,7 +191,7 @@ rule OneToMany2ElementIncluded extends Relations2ElementIncluded{
 		),
 		rightPattern:MM_Hybrid!RightPattern(
 			sourceElement <- relation_in.source.asSequence(),
-			"rule" <- relation_in.source.invoked.asSequence()
+			"rule" <- relation_in.getRuleInvoked()
 		),
 		leftPattern:MM_Hybrid!LeftPattern(
 			targetElement <- relation_in.target
@@ -201,7 +200,7 @@ rule OneToMany2ElementIncluded extends Relations2ElementIncluded{
 
 rule ZeroToOne2ElementIncluded extends Relations2ElementIncluded{
 	from
-		relation_in:AMW!ZeroToOne(relation_in.outElement.asSequence().size()>0)
+		relation_in:AMW!ZeroToOne
 	to
 		elementIncluded: MM_Hybrid!ElementIncluded (
 			right <- rightPattern,
@@ -218,13 +217,30 @@ rule ZeroToOne2ElementIncluded extends Relations2ElementIncluded{
 
 abstract rule Relations2ElementIncluded{
 	from
-		relation_in:AMW!Relations(relation_in.outElement.asSequence().size()>0)
+		relation_in:AMW!Relations(relation_in.isIncluded())
 	to
 		elementIncluded:MM_Hybrid!ElementIncluded(
 			typeAttribute <- relation_in.typeAttri,
 			typeElement <- relation_in.typeE
 		)
 }
+
+helper context AMW!Relations def: getRuleInvoked(): Sequence(AMW!Relations)=
+	if(self.source.asSequence().size()>0) then
+		self.source.invoked.asSequence()
+	else 
+		Sequence{}
+	endif;
+
+helper context AMW!Relations def: isNotIncluded() : Boolean =
+	not self.isIncluded();
+
+helper context AMW!Relations def: isIncluded() : Boolean =
+	if ((self.oclIsTypeOf(AMW!OneToOne))  or  (self.oclIsTypeOf(AMW!OneToMany)) or (self.oclIsTypeOf(AMW!ZeroToOne))) then
+		self.outElement.asSequence().size()>0
+	else
+		false
+	endif;
 
 helper context AMW!Relations def : getRuleName () : String = 
 	if self.name.oclIsUndefined() then
@@ -238,8 +254,12 @@ helper context AMW!Relations def : getRuleName () : String =
 	endif;
 
 helper context AMW!Relations def : getInOutPatternName () : String =
+	if ((self.oclIsTypeOf(AMW!ZeroToOne))  or  (self.oclIsTypeOf(AMW!OneToZero))) then
+		'R' + thisModule.countRules.toString()
+	else
 	if not self.source.asSequence()->first().oclIsUndefined() and not self.target.asSequence()->first().oclIsUndefined() then
 		self.source.asSequence()->first().name + '_2_'+ self.target.asSequence()->first().name
 	else
 		'R' + thisModule.countRules.toString()
+	endif
 	endif;
