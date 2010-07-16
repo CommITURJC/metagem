@@ -93,7 +93,7 @@ class Operation {
   !unique !ordered attr String[1] name_operation;
   !unique !ordered attr String[1] body;
   ref Element context;
-  ref Return returnValue;
+  val Return returnValue;
 }
 
 class Return {
