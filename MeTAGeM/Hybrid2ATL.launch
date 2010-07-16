@@ -23,7 +23,7 @@
 </mapAttribute>
 <mapAttribute key="Path">
 <mapEntry key="MM_Hybrid" value="/MeTAGeM/Metamodels/MM_Hybrid.ecore"/>
-<mapEntry key="IN" value="/MeTAGeM/Models/TestHybrid2ATL.mm_hybrid"/>
+<mapEntry key="IN" value="/MeTAGeM/Models/SQL2ORDB_Hybrid.mm_hybrid"/>
 <mapEntry key="OUT" value="/MeTAGeM/Models/TestHybrid2ATL_ATL.ecore"/>
 <mapEntry key="ATL" value="/MeTAGeM/Metamodels/ATL-0.2.ecore"/>
 </mapAttribute>

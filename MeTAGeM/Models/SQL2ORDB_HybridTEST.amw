@@ -17,6 +17,17 @@
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_//Attribute/@eGenericSuperTypes.0Id" ref="//Attribute/@eGenericSuperTypes.0"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_structured" ref="//Attribute/structured"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_//BaseTable/@eGenericSuperTypes.0Id" ref="//BaseTable/@eGenericSuperTypes.0"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_name" ref="//Table/name"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_View" ref="//View"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_tables" ref="//View/tables"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_DataType" ref="//DataType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_BinaryStringType" ref="//BinaryStringType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_BooleanType" ref="//BooleanType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_BooleanTypes" ref="//BooleanTypes"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_BehaviouralComponent" ref="//BehaviouralComponent"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_BaseTable" ref="//BaseTable"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_BINARY" ref="//BinaryStringTypes/BINARY"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_name" ref="//BehaviouralComponent/name"/>
   </inputModel>
   <outputModel xmi:id="OutModelTransf1" name="ORDB4ORA" ref="/MeTAGeM/Metamodels/ORDB4ORA.ecore">
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_Varray" ref="//Varray"/>
@@ -36,22 +47,97 @@
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_views" ref="//Table/views"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_Name" ref="//Table/Name"/>
     <ownedElementRef xsi:type="TransformationElementRef" name="ref_Event" ref="//Trigger/Event"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Name" ref="//Varray/Name"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_View" ref="//View"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_tables" ref="//View/tables"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Datatype" ref="//Datatype"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_BuiltInCharacterType" ref="//BuiltInCharacterType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_BuiltInNumberType" ref="//BuiltInNumberType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_BuiltInROWIDType" ref="//BuiltInROWIDType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_ANSICharacterType" ref="//ANSICharacterType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_ANSICharacterTypes" ref="//ANSICharacterTypes"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Model" ref="//Model"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_datatype" ref="//Model/datatype"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_ANSINumberType" ref="//ANSINumberType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_CHARACTER" ref="//ANSICharacterTypes/CHARACTER"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_package" ref="//Model/package"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_BuiltInCharacterTypes" ref="//BuiltInCharacterTypes"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_BuiltInDatetimeTypes" ref="//BuiltInDatetimeTypes"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_CHAR" ref="//BuiltInCharacterTypes/CHAR"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_BuiltInLOBType" ref="//BuiltInLOBType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_INTERVALDAYTOSECOND" ref="//BuiltInDatetimeTypes/INTERVALDAYTOSECOND"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_NVARCHAR2" ref="//BuiltInCharacterTypes/NVARCHAR2"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_DATE" ref="//BuiltInDatetimeTypes/DATE"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_//ANSICharacterType/@eGenericSuperTypes.0Id" ref="//ANSICharacterType/@eGenericSuperTypes.0"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Size_Min" ref="//BuiltInCharacterType/Size_Min"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Descriptor" ref="//ANSICharacterType/Descriptor"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_NUMERIC" ref="//ANSINumberTypes/NUMERIC"/>
   </outputModel>
-  <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="r1" typeRelation="IsAbstract">
-    <source xmi:id="InElement1" name="ARRAY" element="//@inputModel.0/@ownedElementRef.0" guardCondition="true"/>
-    <target xmi:id="OutElement1" name="Varray" element="//@outputModel.0/@ownedElementRef.0">
-      <onetoOne xmi:id="OneToOne3">
-        <source xmi:id="InElement2" name="num_elements" element="//@inputModel.0/@ownedElementRef.2" invoked="OneToOne2"/>
-        <target xmi:id="OutElement3" name="NumElements" element="//@outputModel.0/@ownedElementRef.3"/>
+  <relations xsi:type="OneToZero" xmi:id="OneToZero1">
+    <source name="BinaryStringTypes" element="//@inputModel.0/@ownedElementRef.11"/>
+  </relations>
+  <relations xsi:type="ManyToMany" xmi:id="ManyToMany1">
+    <source xmi:id="InElement1" name="BinaryStringTypes" element="//@inputModel.0/@ownedElementRef.11"/>
+    <source xmi:id="InElement2" name="BooleanType" element="//@inputModel.0/@ownedElementRef.21"/>
+    <target xmi:id="OutElement1" name="ANSICharacterType" element="//@outputModel.0/@ownedElementRef.24">
+      <manytoOne xmi:id="ManyToOne2">
+        <source xmi:id="InElement8" name="schema" element="//@inputModel.0/@ownedElementRef.12" invoked="OneToOne7"/>
+        <source xmi:id="InElement12" name="name" element="//@inputModel.0/@ownedElementRef.26" invoked="OneToOne4"/>
+        <target xmi:id="OutElement9" name="Descriptor" element="//@outputModel.0/@ownedElementRef.40"/>
+      </manytoOne>
+    </target>
+    <target xmi:id="OutElement2" name="ANSINumberType" element="//@outputModel.0/@ownedElementRef.28">
+      <onetoOne xmi:id="OneToOne1">
+        <source xmi:id="InElement3" name="BehaviouralComponent" element="//@inputModel.0/@ownedElementRef.23"/>
+        <target xmi:id="OutElement3" name="package" element="//@outputModel.0/@ownedElementRef.30"/>
+      </onetoOne>
+      <zerotoOne xmi:id="ZeroToOne1">
+        <target name="ANSICharacterType" element="//@outputModel.0/@ownedElementRef.24"/>
+      </zerotoOne>
+    </target>
+  </relations>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne2">
+    <source xmi:id="InElement4" name="Attribute" element="//@inputModel.0/@ownedElementRef.5"/>
+    <target xmi:id="OutElement4" name="ANSINumberType" element="//@outputModel.0/@ownedElementRef.28"/>
+  </relations>
+  <relations xsi:type="OneToMany" xmi:id="OneToMany1">
+    <source xmi:id="InElement5" name="BinaryStringTypes" element="//@inputModel.0/@ownedElementRef.11"/>
+    <target xmi:id="OutElement5" name="BuiltInCharacterTypes" element="//@outputModel.0/@ownedElementRef.31"/>
+    <target xmi:id="OutElement6" name="BuiltInDatetimeTypes" element="//@outputModel.0/@ownedElementRef.32">
+      <onetoOne xmi:id="OneToOne5">
+        <source xmi:id="InElement13" name="descriptor" element="//@inputModel.0/@ownedElementRef.10"/>
+        <target xmi:id="OutElement11" name="Size_Min" element="//@outputModel.0/@ownedElementRef.39"/>
       </onetoOne>
     </target>
   </relations>
-  <relations xsi:type="OneToOne" xmi:id="OneToOne2" name="22" isInvoked="InElement2">
-    <source xmi:id="InElement3" name="BinaryStringTypes" element="//@inputModel.0/@ownedElementRef.11"/>
-    <target xmi:id="OutElement2" name="Event" element="//@outputModel.0/@ownedElementRef.16">
-      <zerotoOne xmi:id="ZeroToOne1">
-        <target name="TriggerEvent" element="//@outputModel.0/@ownedElementRef.12"/>
-      </zerotoOne>
+  <relations xsi:type="ManyToOne" xmi:id="ManyToOne1">
+    <source xmi:id="InElement6" name="BooleanTypes" element="//@inputModel.0/@ownedElementRef.22"/>
+    <source xmi:id="InElement7" name="BooleanType" element="//@inputModel.0/@ownedElementRef.21"/>
+    <target xmi:id="OutElement7" name="CHAR" element="//@outputModel.0/@ownedElementRef.33"/>
+  </relations>
+  <relations xsi:type="ZeroToOne" xmi:id="ZeroToOne2">
+    <target name="BuiltInLOBType" element="//@outputModel.0/@ownedElementRef.34">
+      <onetoOne xmi:id="OneToOne6">
+        <source name="schema" element="//@inputModel.0/@ownedElementRef.12"/>
+        <target name="CHAR" element="//@outputModel.0/@ownedElementRef.33"/>
+      </onetoOne>
     </target>
+  </relations>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne4" name="super" typeRelation="IsAbstract" isInvoked="InElement12" isExtend="ManyToMany2">
+    <source xmi:id="InElement9" name="BehaviouralComponent" element="//@inputModel.0/@ownedElementRef.23"/>
+    <target xmi:id="OutElement10" name="BuiltInDatetimeTypes" element="//@outputModel.0/@ownedElementRef.32"/>
+  </relations>
+  <relations xsi:type="ManyToMany" xmi:id="ManyToMany2" extend="OneToOne4">
+    <source xmi:id="InElement10" name="Attribute" element="//@inputModel.0/@ownedElementRef.5"/>
+    <source xmi:id="InElement11" name="BaseTable" element="//@inputModel.0/@ownedElementRef.24"/>
+  </relations>
+  <relations xsi:type="OneToMany" xmi:id="OneToMany2">
+    <target xmi:id="OutElement8" name="NVARCHAR2" element="//@outputModel.0/@ownedElementRef.36">
+      <onetoOne xmi:id="OneToOne3"/>
+    </target>
+  </relations>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne7" name="super2" typeRelation="IsAbstract" isInvoked="InElement8">
+    <source xmi:id="InElement14" name="BehaviouralComponent" element="//@inputModel.0/@ownedElementRef.23"/>
+    <target xmi:id="OutElement12" name="ANSINumberType" element="//@outputModel.0/@ownedElementRef.28"/>
   </relations>
 </ModelRoot>

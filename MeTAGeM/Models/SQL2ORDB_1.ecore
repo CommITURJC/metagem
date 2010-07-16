@@ -163,8 +163,4 @@
   <atl:InPattern/>
   <atl:SimpleInPatternElement/>
   <ocl:OclModelElement/>
-  <atl:SimpleOutPatternElement/>
-  <ocl:OclModelElement/>
-  <atl:SimpleOutPatternElement/>
-  <ocl:OclModelElement/>
 </xmi:XMI>
