@@ -50,6 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mm_hybrid.impl.RuleImpl#getExtends <em>Extends</em>}</li>
  *   <li>{@link mm_hybrid.impl.RuleImpl#getIsExtended <em>Is Extended</em>}</li>
  *   <li>{@link mm_hybrid.impl.RuleImpl#getRightPattern <em>Right Pattern</em>}</li>
+ *   <li>{@link mm_hybrid.impl.RuleImpl#getComment <em>Comment</em>}</li>
  * </ul>
  * </p>
  *
@@ -205,6 +206,26 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 * @ordered
 	 */
 	protected EList<RightPattern> rightPattern;
+
+	/**
+	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMMENT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected String comment = COMMENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -471,6 +492,28 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComment(String newComment) {
+		String oldComment = comment;
+		comment = newComment;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.RULE__COMMENT, oldComment, comment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
@@ -546,6 +589,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 			return getIsExtended();
 		case MM_HybridPackage.RULE__RIGHT_PATTERN:
 			return getRightPattern();
+		case MM_HybridPackage.RULE__COMMENT:
+			return getComment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -594,6 +639,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 			getRightPattern().addAll(
 					(Collection<? extends RightPattern>) newValue);
 			return;
+		case MM_HybridPackage.RULE__COMMENT:
+			setComment((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -636,6 +684,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		case MM_HybridPackage.RULE__RIGHT_PATTERN:
 			getRightPattern().clear();
 			return;
+		case MM_HybridPackage.RULE__COMMENT:
+			setComment(COMMENT_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -669,6 +720,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 			return isExtended != null && !isExtended.isEmpty();
 		case MM_HybridPackage.RULE__RIGHT_PATTERN:
 			return rightPattern != null && !rightPattern.isEmpty();
+		case MM_HybridPackage.RULE__COMMENT:
+			return COMMENT_EDEFAULT == null ? comment != null
+					: !COMMENT_EDEFAULT.equals(comment);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -694,6 +748,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		result.append(typeAttribute);
 		result.append(", typeElement: "); //$NON-NLS-1$
 		result.append(typeElement);
+		result.append(", comment: "); //$NON-NLS-1$
+		result.append(comment);
 		result.append(')');
 		return result.toString();
 	}

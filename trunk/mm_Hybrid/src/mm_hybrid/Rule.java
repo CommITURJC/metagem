@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link mm_hybrid.Rule#getExtends <em>Extends</em>}</li>
  *   <li>{@link mm_hybrid.Rule#getIsExtended <em>Is Extended</em>}</li>
  *   <li>{@link mm_hybrid.Rule#getRightPattern <em>Right Pattern</em>}</li>
+ *   <li>{@link mm_hybrid.Rule#getComment <em>Comment</em>}</li>
  * </ul>
  * </p>
  *
@@ -267,5 +268,31 @@ public interface Rule extends EObject {
 	 * @generated
 	 */
 	EList<RightPattern> getRightPattern();
+
+	/**
+	 * Returns the value of the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Comment</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Comment</em>' attribute.
+	 * @see #setComment(String)
+	 * @see mm_hybrid.MM_HybridPackage#getRule_Comment()
+	 * @model unique="false" ordered="false"
+	 * @generated
+	 */
+	String getComment();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.Rule#getComment <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Comment</em>' attribute.
+	 * @see #getComment()
+	 * @generated
+	 */
+	void setComment(String value);
 
 } // Rule
