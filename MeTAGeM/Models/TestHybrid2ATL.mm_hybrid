@@ -1,54 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="ModuleTest">
-  <rule name_rule="SuperRule" isAbstract="true" isMain="true" isExtended="//@rule.1" rightPattern="//@rule.0/@out.0/@included.0/@right">
-    <in name_element="SrcSR" metamodel="//@inMM.0"/>
-    <out name_element="TrgSR" metamodel="//@outMM.0">
+  <rule name_rule="R1" isMain="true" rightPattern="//@rule.0/@out.0/@included.0/@right" comment="">
+    <in name_element="Src1" metamodel="//@inMM.0"/>
+    <out name_element="Trg1" metamodel="//@outMM.0">
       <included>
         <right rule="//@rule.0">
-          <sourceElement name_element="ElemIncSrcSR" metamodel="//@inMM.0"/>
+          <sourceElement name_element="ElemIncSrc" metamodel="//@inMM.0"/>
         </right>
         <left>
-          <targetElement name_element="ElemenIncTrgSR" metamodel="//@outMM.0"/>
+          <targetElement name_element="ElemIncTrg" metamodel="//@outMM.0"/>
         </left>
       </included>
     </out>
   </rule>
-  <rule name_rule="MatchedRule1" isMain="true" extends="//@rule.0" rightPattern="//@rule.1/@out.0/@included.0/@right">
-    <in name_element="SrcM1" metamodel="//@inMM.0"/>
-    <out name_element="TrgM1" metamodel="//@outMM.0">
-      <included>
-        <right rule="//@rule.1">
-          <sourceElement name_element="ElemIncSrc1" metamodel="//@inMM.0"/>
-        </right>
-        <left>
-          <targetElement name_element="ElemIncTrg1" metamodel="//@outMM.0"/>
-        </left>
-      </included>
-    </out>
-  </rule>
-  <rule name_rule="LazyRule1" isAbstract="true" rightPattern="//@rule.2/@out.0/@included.0/@right //@rule.2/@out.1/@included.0/@right">
-    <in name_element="SrcL" metamodel="//@inMM.0"/>
-    <out name_element="TrgL1" metamodel="//@outMM.0">
-      <included>
-        <right rule="//@rule.2">
-          <sourceElement name_element="ElemIncSLazy1" metamodel="//@inMM.0"/>
-        </right>
-        <left>
-          <targetElement name_element="ElemIncTLazy1" metamodel="//@outMM.0"/>
-        </left>
-      </included>
-    </out>
-    <out name_element="TrgL2" metamodel="//@outMM.0">
-      <included>
-        <right rule="//@rule.2">
-          <sourceElement name_element="ElemIncSLazy2" metamodel="//@inMM.0"/>
-        </right>
-        <left>
-          <targetElement name_element="ElemIncTLazy2" metamodel="//@outMM.0"/>
-        </left>
-      </included>
-    </out>
-  </rule>
-  <inMM name_mm="nameIN" type_mm="typeIN" elements="//@rule.0/@in.0 //@rule.1/@in.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.0 //@rule.2/@out.0/@included.0/@right/@sourceElement.0 //@rule.2/@out.1/@included.0/@right/@sourceElement.0 //@rule.2/@in.0 //@rule.0/@out.0/@included.0/@right/@sourceElement.0"/>
-  <outMM name_mm="nameOut" type_mm="typeOut" elements="//@rule.0/@out.0 //@rule.1/@out.0 //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.2/@out.0/@included.0/@left/@targetElement //@rule.2/@out.1/@included.0/@left/@targetElement //@rule.2/@out.0 //@rule.2/@out.1 //@rule.0/@out.0/@included.0/@left/@targetElement"/>
+  <inMM name_mm="NameMMIN" type_mm="TypeMMIN" elements="//@rule.0/@in.0 //@rule.0/@out.0/@included.0/@right/@sourceElement.0"/>
+  <outMM name_mm="NameMMOUT" type_mm="TypeMMOUT" elements="//@rule.0/@out.0/@included.0/@left/@targetElement //@rule.0/@out.0"/>
 </mm_hybrid:Module>
