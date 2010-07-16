@@ -157,7 +157,7 @@
         unique="false" eType="#//Datatype"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Datatype">
-    <eLiterals/>
+    <eLiterals name="null" literal="null"/>
     <eLiterals name="Boolean" value="1"/>
     <eLiterals name="Integer" value="2"/>
     <eLiterals name="String" value="3"/>
