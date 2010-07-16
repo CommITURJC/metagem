@@ -72,7 +72,7 @@ rule OutElement2TargetElementRule{
 }
 
 helper context  AMW!OutElement  def : relationsIncluded () : Sequence(AMW!Relations) = 
-	self.onetoOne.asSequence().union(self.onetoMany.asSequence().union(self.zerotoOne.asSequence()));
+	self.onetoOne.asSequence().union(self.manytoOne.asSequence().union(self.zerotoOne.asSequence()));
 
 rule OneToOne2rule extends Relations2Rule{
 	from
@@ -181,9 +181,9 @@ rule OneToOne2ElementIncluded extends Relations2ElementIncluded{
 		)
 }
 
-rule OneToMany2ElementIncluded extends Relations2ElementIncluded{
+rule ManyToOne2ElementIncluded extends Relations2ElementIncluded{
 	from
-		relation_in:AMW!OneToMany
+		relation_in:AMW!ManyToOne
 	to
 		elementIncluded: MM_Hybrid!ElementIncluded (
 			right <- rightPattern,
@@ -227,7 +227,8 @@ abstract rule Relations2ElementIncluded{
 
 helper context AMW!Relations def: getRuleInvoked(): Sequence(AMW!Relations)=
 	if(self.source.asSequence().size()>0) then
-		self.source.invoked.asSequence()
+		--self.source.invoked.asSequence()
+		self.source.asSequence()->collect(e|e.invoked).asSequence()
 	else 
 		Sequence{}
 	endif;
@@ -236,7 +237,7 @@ helper context AMW!Relations def: isNotIncluded() : Boolean =
 	not self.isIncluded();
 
 helper context AMW!Relations def: isIncluded() : Boolean =
-	if ((self.oclIsTypeOf(AMW!OneToOne))  or  (self.oclIsTypeOf(AMW!OneToMany)) or (self.oclIsTypeOf(AMW!ZeroToOne))) then
+	if ((self.oclIsTypeOf(AMW!OneToOne))  or  (self.oclIsTypeOf(AMW!ManyToOne)) or (self.oclIsTypeOf(AMW!ZeroToOne))) then
 		self.outElement.asSequence().size()>0
 	else
 		false
