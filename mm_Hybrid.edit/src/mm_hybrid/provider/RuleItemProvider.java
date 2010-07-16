@@ -69,6 +69,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 			addExtendsPropertyDescriptor(object);
 			addIsExtendedPropertyDescriptor(object);
 			addRightPatternPropertyDescriptor(object);
+			addCommentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -231,6 +232,26 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 	}
 
 	/**
+	 * This adds a property descriptor for the Comment feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCommentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_Rule_comment_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_Rule_comment_feature", "_UI_Rule_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.RULE__COMMENT, true, false,
+						false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+						null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -304,6 +325,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 		case MM_HybridPackage.RULE__IS_MAIN:
 		case MM_HybridPackage.RULE__TYPE_ATTRIBUTE:
 		case MM_HybridPackage.RULE__TYPE_ELEMENT:
+		case MM_HybridPackage.RULE__COMMENT:
 			fireNotifyChanged(new ViewerNotification(notification, notification
 					.getNotifier(), false, true));
 			return;
