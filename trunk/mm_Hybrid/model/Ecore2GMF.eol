@@ -55,10 +55,10 @@ SourceFig.children.add(newStereotypeLabel);
 SourceFig.children=SourceFig.children.sortBy(i|i.name);
 var SourceFigureDesc = getFigureDescriptor('SourceElementRuleFigure');
 var source_rec1 = new GmfGraph!Rectangle;
-source_rec1.name='Condition';
+source_rec1.name='Guard';
 source_rec1.layout= new GmfGraph!StackLayout;
 SourceFig.children.add(source_rec1);
-canvas.insertCompartment('Condition',SourceFigureDesc);
+canvas.insertCompartment('Guard',SourceFigureDesc);
 
 
 --TARGETELEMENTRULE
@@ -68,8 +68,8 @@ TargetFig.children.add(newStereotypeLabel);
 TargetFig.children=TargetFig.children.sortBy(i|i.name);
 
 --CONDITION
-var ConditionLabel = createNodeLabel('Condition', '<...>', figureGallery);
-canvas.labels.add(ConditionLabel);
+var GuardLabel = createNodeLabel('Guard', '<...>', figureGallery);
+canvas.labels.add(GuardLabel);
 
 --INMETAMODEL
 var inMMFig = getRoundedRectangle('InMetaModelFigure');
@@ -133,7 +133,7 @@ var OutMetaModelTool=ObjectGroup.tools.selectOne(n|n.title='OutMetaModel');
 var RuleTool=ObjectGroup.tools.selectOne(n|n.title='Rule');
 var SourceElementRuleTool=ObjectGroup.tools.selectOne(n|n.title='SourceElementRule');
 var TargetElementRuleTool=ObjectGroup.tools.selectOne(n|n.title='TargetElementRule');
-var ConditionTool=ObjectGroup.tools.selectOne(n|n.title='Condition');
+var GuardTool=ObjectGroup.tools.selectOne(n|n.title='Guard');
 
 --MetaModels Group
 var modelsGroup= new GmfTool!ToolGroup;
@@ -151,7 +151,7 @@ palette.tools.add(rulesGroup);
 rulesGroup.tools.add(RuleTool);
 rulesGroup.tools.add(SourceElementRuleTool);
 rulesGroup.tools.add(TargetElementRuleTool);
-rulesGroup.insertTool('Condition','Set a condition');
+rulesGroup.insertTool('Guard','Set a guard');
 
 --Delete ObjectGroup
 palette.tools.remove(ObjectGroup);
@@ -178,13 +178,13 @@ var targetMap=createNodeMapping(getCreationTool('TargetElementRule'),getEcoreCla
 	var targetFLM=createFeatureLabelMapping(getDiagramLabel('TargetElementRuleLabel'),'{0}',labelTargetFeature);
 	targetMap.labelMappings.add(targetFLM);
 
---CONDITION
-var conditionMap=createNodeMapping(getCreationTool('Condition'),getEcoreClass('Condition'),getNode('ConditionName'));
+--GUARD
+var guardMap=createNodeMapping(getCreationTool('Guard'),getEcoreClass('Guard'),getNode('GuardName'));
 --Creates a FeatureLabelMapping: createFeatureLabelMapping(diagramLabel,pattern,features(Sequence))
-	var labelConditionFeature = new Sequence;
-	labelConditionFeature.add(getEcoreClass('Condition').eStructuralFeatures.selectOne(n|n.name='value'));
-	var conditionFLM=createFeatureLabelMapping(getDiagramLabel('ConditionName'),'<<Condition>> {0}',labelConditionFeature);
-	conditionMap.labelMappings.add(conditionFLM);
+	var labelGuardFeature = new Sequence;
+	labelGuardFeature.add(getEcoreClass('Guard').eStructuralFeatures.selectOne(n|n.name='value'));
+	var guardFLM=createFeatureLabelMapping(getDiagramLabel('GuardName'),'<<Guard>> {0}',labelGuardFeature);
+	guardMap.labelMappings.add(guardFLM);
 
 --RULE
 var nodeMapRule=getNodeMapping('Rule');
@@ -201,8 +201,8 @@ var valuesRuleFLM=createFeatureLabelMapping(getDiagramLabel('valuesLabel'),'( Ab
 nodeMapRule.labelMappings.add(valuesRuleFLM);
 
 
-sourceMap.addCompartment('Condition');
-sourceMap.addChildMapping(conditionMap,getEcoreClass('SourceElementRule').eStructuralFeatures.selectOne(n|n.name='condition'),'Condition');
+sourceMap.addCompartment('Guard');
+sourceMap.addChildMapping(guardMap,getEcoreClass('SourceElementRule').eStructuralFeatures.selectOne(n|n.name='guard'),'Guard');
 
 
 --InMetaModel
