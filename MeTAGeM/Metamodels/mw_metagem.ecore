@@ -47,14 +47,14 @@
     <eClassifiers xsi:type="ecore:EClass" name="WLink" abstract="true" eSuperTypes="#/0/WElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="child" upperBound="-1"
           eType="#/0/WLink" derived="true" containment="true" eOpposite="#/0/WLink/parent">
-        <eAnnotations source="isInvoked,extend,invoked,onetoOne,onetoMany,zerotoOne"/>
+        <eAnnotations source="isInvoked,extend,invoked,onetoOne,manytoOne,zerotoOne"/>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" ordered="false"
           lowerBound="1" eType="#/0/WLink" eOpposite="#/0/WLink/child"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="end" ordered="false"
           lowerBound="1" upperBound="-1" eType="#/0/WLinkEnd" derived="true" containment="true"
           eOpposite="#/0/WLinkEnd/link">
-        <eAnnotations source="source,target,outElement,source,target,outElement,source,target,outElement,source,target,source,target"/>
+        <eAnnotations source="source,target,outElement,source,target,outElement,source,target,source,target,outElement,source,target"/>
       </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="WLinkEnd" abstract="true" eSuperTypes="#/0/WElement">
@@ -142,8 +142,8 @@
           eType="#/2/OneToOne" containment="true" eOpposite="#/2/OneToOne/outElement">
         <eAnnotations source="child"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="onetoMany" upperBound="-1"
-          eType="#/2/OneToMany" containment="true" eOpposite="#/2/OneToMany/outElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="manytoOne" upperBound="-1"
+          eType="#/2/ManyToOne" containment="true" eOpposite="#/2/ManyToOne/outElement">
         <eAnnotations source="child"/>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="zerotoOne" upperBound="-1"
@@ -190,10 +190,6 @@
           lowerBound="1" upperBound="-1" eType="#/2/OutElement" containment="true">
         <eAnnotations source="end"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="outElement" ordered="false"
-          lowerBound="1" eType="#/2/OutElement" eOpposite="#/2/OutElement/onetoMany">
-        <eAnnotations source="end"/>
-      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ManyToOne" eSuperTypes="#/2/Relations">
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false"
@@ -202,6 +198,10 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" ordered="false"
           lowerBound="1" eType="#/2/OutElement" containment="true">
+        <eAnnotations source="end"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outElement" ordered="false"
+          lowerBound="1" eType="#/2/OutElement" eOpposite="#/2/OutElement/manytoOne">
         <eAnnotations source="end"/>
       </eStructuralFeatures>
     </eClassifiers>
