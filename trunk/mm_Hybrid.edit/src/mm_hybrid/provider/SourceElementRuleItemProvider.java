@@ -95,7 +95,7 @@ public class SourceElementRuleItemProvider extends ElementItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
-					.add(MM_HybridPackage.Literals.SOURCE_ELEMENT_RULE__CONDITION);
+					.add(MM_HybridPackage.Literals.SOURCE_ELEMENT_RULE__GUARD);
 		}
 		return childrenFeatures;
 	}
@@ -150,7 +150,7 @@ public class SourceElementRuleItemProvider extends ElementItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SourceElementRule.class)) {
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__CONDITION:
+		case MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD:
 			fireNotifyChanged(new ViewerNotification(notification, notification
 					.getNotifier(), true, false));
 			return;
@@ -171,8 +171,8 @@ public class SourceElementRuleItemProvider extends ElementItemProvider
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-				MM_HybridPackage.Literals.SOURCE_ELEMENT_RULE__CONDITION,
-				MM_HybridFactory.eINSTANCE.createCondition()));
+				MM_HybridPackage.Literals.SOURCE_ELEMENT_RULE__GUARD,
+				MM_HybridFactory.eINSTANCE.createGuard()));
 	}
 
 }
