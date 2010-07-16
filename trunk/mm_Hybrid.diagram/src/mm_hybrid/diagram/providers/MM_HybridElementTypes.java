@@ -73,7 +73,7 @@ public class MM_HybridElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Condition_2002 = getElementType("mm_Hybrid.diagram.Condition_2002"); //$NON-NLS-1$
+	public static final IElementType Guard_2002 = getElementType("mm_Hybrid.diagram.Guard_2002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -208,8 +208,8 @@ public class MM_HybridElementTypes extends ElementInitializers {
 							mm_hybrid.MM_HybridPackage.eINSTANCE
 									.getSourceElementRule());
 
-			elements.put(Condition_2002, mm_hybrid.MM_HybridPackage.eINSTANCE
-					.getCondition());
+			elements.put(Guard_2002, mm_hybrid.MM_HybridPackage.eINSTANCE
+					.getGuard());
 
 			elements
 					.put(TargetElementRule_2003,
@@ -237,7 +237,7 @@ public class MM_HybridElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(InMetaModel_1002);
 			KNOWN_ELEMENT_TYPES.add(OutMetaModel_1003);
 			KNOWN_ELEMENT_TYPES.add(SourceElementRule_2001);
-			KNOWN_ELEMENT_TYPES.add(Condition_2002);
+			KNOWN_ELEMENT_TYPES.add(Guard_2002);
 			KNOWN_ELEMENT_TYPES.add(TargetElementRule_2003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);

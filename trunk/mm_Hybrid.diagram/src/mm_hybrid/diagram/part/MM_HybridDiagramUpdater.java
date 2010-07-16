@@ -34,7 +34,7 @@ public class MM_HybridDiagramUpdater {
 		case mm_hybrid.diagram.edit.parts.RuleTargetEditPart.VISUAL_ID:
 			return getRuleTarget_5002SemanticChildren(view);
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleConditionEditPart.VISUAL_ID:
-			return getSourceElementRuleCondition_5003SemanticChildren(view);
+			return getSourceElementRuleGuard_5003SemanticChildren(view);
 		case mm_hybrid.diagram.edit.parts.ModuleEditPart.VISUAL_ID:
 			return getModule_79SemanticChildren(view);
 		}
@@ -100,8 +100,7 @@ public class MM_HybridDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSourceElementRuleCondition_5003SemanticChildren(
-			View view) {
+	public static List getSourceElementRuleGuard_5003SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
 		}
@@ -112,8 +111,8 @@ public class MM_HybridDiagramUpdater {
 		mm_hybrid.SourceElementRule modelElement = (mm_hybrid.SourceElementRule) containerView
 				.getElement();
 		List result = new LinkedList();
-		for (Iterator it = modelElement.getCondition().iterator(); it.hasNext();) {
-			mm_hybrid.Condition childElement = (mm_hybrid.Condition) it.next();
+		for (Iterator it = modelElement.getGuard().iterator(); it.hasNext();) {
+			mm_hybrid.Guard childElement = (mm_hybrid.Guard) it.next();
 			int visualID = mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 					.getNodeVisualID(view, childElement);
 			if (visualID == mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID) {
@@ -186,7 +185,7 @@ public class MM_HybridDiagramUpdater {
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleEditPart.VISUAL_ID:
 			return getSourceElementRule_2001ContainedLinks(view);
 		case mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID:
-			return getCondition_2002ContainedLinks(view);
+			return getGuard_2002ContainedLinks(view);
 		case mm_hybrid.diagram.edit.parts.TargetElementRuleEditPart.VISUAL_ID:
 			return getTargetElementRule_2003ContainedLinks(view);
 		}
@@ -208,7 +207,7 @@ public class MM_HybridDiagramUpdater {
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleEditPart.VISUAL_ID:
 			return getSourceElementRule_2001IncomingLinks(view);
 		case mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID:
-			return getCondition_2002IncomingLinks(view);
+			return getGuard_2002IncomingLinks(view);
 		case mm_hybrid.diagram.edit.parts.TargetElementRuleEditPart.VISUAL_ID:
 			return getTargetElementRule_2003IncomingLinks(view);
 		}
@@ -230,7 +229,7 @@ public class MM_HybridDiagramUpdater {
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleEditPart.VISUAL_ID:
 			return getSourceElementRule_2001OutgoingLinks(view);
 		case mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID:
-			return getCondition_2002OutgoingLinks(view);
+			return getGuard_2002OutgoingLinks(view);
 		case mm_hybrid.diagram.edit.parts.TargetElementRuleEditPart.VISUAL_ID:
 			return getTargetElementRule_2003OutgoingLinks(view);
 		}
@@ -275,7 +274,7 @@ public class MM_HybridDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCondition_2002ContainedLinks(View view) {
+	public static List getGuard_2002ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -317,7 +316,7 @@ public class MM_HybridDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCondition_2002IncomingLinks(View view) {
+	public static List getGuard_2002IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -359,7 +358,7 @@ public class MM_HybridDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCondition_2002OutgoingLinks(View view) {
+	public static List getGuard_2002OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

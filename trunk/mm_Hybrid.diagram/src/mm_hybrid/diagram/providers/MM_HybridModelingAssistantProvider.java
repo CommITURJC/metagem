@@ -47,7 +47,7 @@ public class MM_HybridModelingAssistantProvider extends
 		if (editPart instanceof mm_hybrid.diagram.edit.parts.SourceElementRuleEditPart) {
 			List types = new ArrayList();
 			types
-					.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_2002);
+					.add(mm_hybrid.diagram.providers.MM_HybridElementTypes.Guard_2002);
 			return types;
 		}
 		if (editPart instanceof mm_hybrid.diagram.edit.parts.ModuleEditPart) {

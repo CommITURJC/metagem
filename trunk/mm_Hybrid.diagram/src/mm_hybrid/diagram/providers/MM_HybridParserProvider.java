@@ -219,29 +219,29 @@ public class MM_HybridParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser condition_2002Parser;
+	private IParser guard_2002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCondition_2002Parser() {
-		if (condition_2002Parser == null) {
-			condition_2002Parser = createCondition_2002Parser();
+	private IParser getGuard_2002Parser() {
+		if (guard_2002Parser == null) {
+			guard_2002Parser = createGuard_2002Parser();
 		}
-		return condition_2002Parser;
+		return guard_2002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createCondition_2002Parser() {
+	protected IParser createGuard_2002Parser() {
 		EAttribute[] features = new EAttribute[] { mm_hybrid.MM_HybridPackage.eINSTANCE
-				.getCondition_Value(), };
+				.getGuard_Value(), };
 		mm_hybrid.diagram.parsers.MessageFormatParser parser = new mm_hybrid.diagram.parsers.MessageFormatParser(
 				features);
-		parser.setViewPattern("<<Condition>> {0}");
-		parser.setEditorPattern("<<Condition>> {0}");
-		parser.setEditPattern("<<Condition>> {0}");
+		parser.setViewPattern("<<Guard>> {0}");
+		parser.setEditorPattern("<<Guard>> {0}");
+		parser.setEditPattern("<<Guard>> {0}");
 		return parser;
 	}
 
@@ -294,7 +294,7 @@ public class MM_HybridParserProvider extends AbstractProvider implements
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleName_elementEditPart.VISUAL_ID:
 			return getSourceElementRuleName_element_4001Parser();
 		case mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID:
-			return getCondition_2002Parser();
+			return getGuard_2002Parser();
 		case mm_hybrid.diagram.edit.parts.TargetElementRuleName_elementEditPart.VISUAL_ID:
 			return getTargetElementRuleName_element_4002Parser();
 		}

@@ -306,12 +306,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Condition4CreationTool_title;
+	public static String Guard4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Condition4CreationTool_desc;
+	public static String Guard4CreationTool_desc;
 
 	/**
 	 * @generated

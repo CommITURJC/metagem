@@ -306,7 +306,7 @@ public class ConditionEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new mm_hybrid.diagram.providers.MM_HybridParserProvider.HintAdapter(
-					mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_2002,
+					mm_hybrid.diagram.providers.MM_HybridElementTypes.Guard_2002,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
@@ -588,18 +588,18 @@ public class ConditionEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected IFigure createFigurePrim() {
-		return new ConditionFigure();
+		return new GuardFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public class ConditionFigure extends WrappingLabel {
+	public class GuardFigure extends WrappingLabel {
 
 		/**
 		 * @generated
 		 */
-		public ConditionFigure() {
+		public GuardFigure() {
 			this.setText("<...>");
 
 			this.setFont(THIS_FONT);

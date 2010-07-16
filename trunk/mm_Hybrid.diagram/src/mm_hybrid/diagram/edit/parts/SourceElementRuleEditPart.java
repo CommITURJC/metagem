@@ -76,7 +76,7 @@ public class SourceElementRuleEditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_2002) {
+								if (type == mm_hybrid.diagram.providers.MM_HybridElementTypes.Guard_2002) {
 									EditPart compartmentEditPart = getChildBySemanticHint(mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 											.getType(mm_hybrid.diagram.edit.parts.SourceElementRuleConditionEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
@@ -295,10 +295,10 @@ public class SourceElementRuleEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureSourceElementRuleLabelFigure);
 
-			RectangleFigure condition0 = new RectangleFigure();
+			RectangleFigure guard0 = new RectangleFigure();
 
-			this.add(condition0);
-			condition0.setLayoutManager(new StackLayout());
+			this.add(guard0);
+			guard0.setLayoutManager(new StackLayout());
 
 		}
 

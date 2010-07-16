@@ -108,7 +108,7 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 					"Navigator?Node?http:///MM_Hybrid.ecore?SourceElementRule", mm_hybrid.diagram.providers.MM_HybridElementTypes.SourceElementRule_2001); //$NON-NLS-1$
 		case mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http:///MM_Hybrid.ecore?Condition", mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_2002); //$NON-NLS-1$
+					"Navigator?Node?http:///MM_Hybrid.ecore?Guard", mm_hybrid.diagram.providers.MM_HybridElementTypes.Guard_2002); //$NON-NLS-1$
 		case mm_hybrid.diagram.edit.parts.TargetElementRuleEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http:///MM_Hybrid.ecore?TargetElementRule", mm_hybrid.diagram.providers.MM_HybridElementTypes.TargetElementRule_2003); //$NON-NLS-1$
@@ -187,7 +187,7 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleEditPart.VISUAL_ID:
 			return getSourceElementRule_2001Text(view);
 		case mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID:
-			return getCondition_2002Text(view);
+			return getGuard_2002Text(view);
 		case mm_hybrid.diagram.edit.parts.TargetElementRuleEditPart.VISUAL_ID:
 			return getTargetElementRule_2003Text(view);
 		}
@@ -301,9 +301,9 @@ public class MM_HybridNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getCondition_2002Text(View view) {
+	private String getGuard_2002Text(View view) {
 		IAdaptable hintAdapter = new mm_hybrid.diagram.providers.MM_HybridParserProvider.HintAdapter(
-				mm_hybrid.diagram.providers.MM_HybridElementTypes.Condition_2002,
+				mm_hybrid.diagram.providers.MM_HybridElementTypes.Guard_2002,
 				(view.getElement() != null ? view.getElement() : view),
 				mm_hybrid.diagram.part.MM_HybridVisualIDRegistry
 						.getType(mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID));

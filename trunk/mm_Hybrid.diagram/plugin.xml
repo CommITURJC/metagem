@@ -403,10 +403,10 @@
       </metamodel>
       <metamodel nsURI="http:///MM_Hybrid.ecore">
          <metamodelType
-               id="mm_Hybrid.diagram.Condition_2002"
-               name="%metatype.name.Condition_2002"
+               id="mm_Hybrid.diagram.Guard_2002"
+               name="%metatype.name.Guard_2002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Condition"
+               eclass="Guard"
                edithelper="mm_hybrid.diagram.edit.helpers.ConditionEditHelper">
             <param name="semanticHint" value="2002"/>
          </metamodelType>
@@ -438,7 +438,7 @@
          <elementType ref="mm_Hybrid.diagram.InMetaModel_1002"/>
          <elementType ref="mm_Hybrid.diagram.OutMetaModel_1003"/>
          <elementType ref="mm_Hybrid.diagram.SourceElementRule_2001"/>
-         <elementType ref="mm_Hybrid.diagram.Condition_2002"/>
+         <elementType ref="mm_Hybrid.diagram.Guard_2002"/>
          <elementType ref="mm_Hybrid.diagram.TargetElementRule_2003"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>

@@ -48,13 +48,19 @@ public class MM_HybridDomainModelElementTester extends PropertyTester {
 		if (eClass == mm_hybrid.MM_HybridPackage.eINSTANCE.getElementIncluded()) {
 			return true;
 		}
-		if (eClass == mm_hybrid.MM_HybridPackage.eINSTANCE.getCondition()) {
+		if (eClass == mm_hybrid.MM_HybridPackage.eINSTANCE.getGuard()) {
 			return true;
 		}
 		if (eClass == mm_hybrid.MM_HybridPackage.eINSTANCE.getRightPattern()) {
 			return true;
 		}
 		if (eClass == mm_hybrid.MM_HybridPackage.eINSTANCE.getLeftPattern()) {
+			return true;
+		}
+		if (eClass == mm_hybrid.MM_HybridPackage.eINSTANCE.getOperation()) {
+			return true;
+		}
+		if (eClass == mm_hybrid.MM_HybridPackage.eINSTANCE.getReturn()) {
 			return true;
 		}
 		return false;
