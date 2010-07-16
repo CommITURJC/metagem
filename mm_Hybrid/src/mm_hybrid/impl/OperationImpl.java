@@ -13,6 +13,7 @@ import mm_hybrid.Return;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -87,7 +88,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	protected Element context;
 
 	/**
-	 * The cached value of the '{@link #getReturnValue() <em>Return Value</em>}' reference.
+	 * The cached value of the '{@link #getReturnValue() <em>Return Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getReturnValue()
@@ -207,16 +208,6 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * @generated
 	 */
 	public Return getReturnValue() {
-		if (returnValue != null && returnValue.eIsProxy()) {
-			InternalEObject oldReturnValue = (InternalEObject) returnValue;
-			returnValue = (Return) eResolveProxy(oldReturnValue);
-			if (returnValue != oldReturnValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							MM_HybridPackage.OPERATION__RETURN_VALUE,
-							oldReturnValue, returnValue));
-			}
-		}
 		return returnValue;
 	}
 
@@ -225,8 +216,20 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Return basicGetReturnValue() {
-		return returnValue;
+	public NotificationChain basicSetReturnValue(Return newReturnValue,
+			NotificationChain msgs) {
+		Return oldReturnValue = returnValue;
+		returnValue = newReturnValue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET, MM_HybridPackage.OPERATION__RETURN_VALUE,
+					oldReturnValue, newReturnValue);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -235,12 +238,40 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * @generated
 	 */
 	public void setReturnValue(Return newReturnValue) {
-		Return oldReturnValue = returnValue;
-		returnValue = newReturnValue;
-		if (eNotificationRequired())
+		if (newReturnValue != returnValue) {
+			NotificationChain msgs = null;
+			if (returnValue != null)
+				msgs = ((InternalEObject) returnValue).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE
+								- MM_HybridPackage.OPERATION__RETURN_VALUE,
+						null, msgs);
+			if (newReturnValue != null)
+				msgs = ((InternalEObject) newReturnValue).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE
+								- MM_HybridPackage.OPERATION__RETURN_VALUE,
+						null, msgs);
+			msgs = basicSetReturnValue(newReturnValue, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.OPERATION__RETURN_VALUE, oldReturnValue,
-					returnValue));
+					MM_HybridPackage.OPERATION__RETURN_VALUE, newReturnValue,
+					newReturnValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case MM_HybridPackage.OPERATION__RETURN_VALUE:
+			return basicSetReturnValue(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -260,9 +291,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 				return getContext();
 			return basicGetContext();
 		case MM_HybridPackage.OPERATION__RETURN_VALUE:
-			if (resolve)
-				return getReturnValue();
-			return basicGetReturnValue();
+			return getReturnValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
