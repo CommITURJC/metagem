@@ -318,13 +318,22 @@ public interface MM_HybridPackage extends EPackage {
 	int RULE__RIGHT_PATTERN = 9;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__COMMENT = 10;
+
+	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_FEATURE_COUNT = 10;
+	int RULE_FEATURE_COUNT = 11;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.ElementImpl <em>Element</em>}' class.
@@ -1006,6 +1015,17 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getRule_RightPattern();
 
 	/**
+	 * Returns the meta object for the attribute '{@link mm_hybrid.Rule#getComment <em>Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Comment</em>'.
+	 * @see mm_hybrid.Rule#getComment()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EAttribute getRule_Comment();
+
+	/**
 	 * Returns the meta object for class '{@link mm_hybrid.Element <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1589,6 +1609,14 @@ public interface MM_HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RULE__RIGHT_PATTERN = eINSTANCE.getRule_RightPattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Comment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE__COMMENT = eINSTANCE.getRule_Comment();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.ElementImpl <em>Element</em>}' class.

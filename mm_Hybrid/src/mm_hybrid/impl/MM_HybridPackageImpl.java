@@ -457,6 +457,15 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRule_Comment() {
+		return (EAttribute) ruleEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getElement() {
 		return elementEClass;
 	}
@@ -816,6 +825,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		createEReference(ruleEClass, RULE__EXTENDS);
 		createEReference(ruleEClass, RULE__IS_EXTENDED);
 		createEReference(ruleEClass, RULE__RIGHT_PATTERN);
+		createEAttribute(ruleEClass, RULE__COMMENT);
 
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__NAME_ELEMENT);
@@ -1014,6 +1024,10 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				this.getRightPattern(),
 				this.getRightPattern_Rule(),
 				"rightPattern", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getRule_Comment(),
+				ecorePackage.getEString(),
+				"comment", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				elementEClass,
