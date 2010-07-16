@@ -11,6 +11,7 @@ import java.util.Collection;
 import mm_hybrid.InMetaModel;
 import mm_hybrid.MM_HybridPackage;
 import mm_hybrid.Module;
+import mm_hybrid.Operation;
 import mm_hybrid.OutMetaModel;
 import mm_hybrid.Rule;
 
@@ -39,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mm_hybrid.impl.ModuleImpl#getRule <em>Rule</em>}</li>
  *   <li>{@link mm_hybrid.impl.ModuleImpl#getInMM <em>In MM</em>}</li>
  *   <li>{@link mm_hybrid.impl.ModuleImpl#getOutMM <em>Out MM</em>}</li>
+ *   <li>{@link mm_hybrid.impl.ModuleImpl#getOperations <em>Operations</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,6 +96,16 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	 * @ordered
 	 */
 	protected EList<OutMetaModel> outMM;
+
+	/**
+	 * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Operation> operations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -181,6 +193,19 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Operation> getOperations() {
+		if (operations == null) {
+			operations = new EObjectContainmentEList<Operation>(
+					Operation.class, this, MM_HybridPackage.MODULE__OPERATIONS);
+		}
+		return operations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -191,6 +216,9 @@ public class ModuleImpl extends EObjectImpl implements Module {
 			return ((InternalEList<?>) getInMM()).basicRemove(otherEnd, msgs);
 		case MM_HybridPackage.MODULE__OUT_MM:
 			return ((InternalEList<?>) getOutMM()).basicRemove(otherEnd, msgs);
+		case MM_HybridPackage.MODULE__OPERATIONS:
+			return ((InternalEList<?>) getOperations()).basicRemove(otherEnd,
+					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -211,6 +239,8 @@ public class ModuleImpl extends EObjectImpl implements Module {
 			return getInMM();
 		case MM_HybridPackage.MODULE__OUT_MM:
 			return getOutMM();
+		case MM_HybridPackage.MODULE__OPERATIONS:
+			return getOperations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -239,6 +269,10 @@ public class ModuleImpl extends EObjectImpl implements Module {
 			getOutMM().clear();
 			getOutMM().addAll((Collection<? extends OutMetaModel>) newValue);
 			return;
+		case MM_HybridPackage.MODULE__OPERATIONS:
+			getOperations().clear();
+			getOperations().addAll((Collection<? extends Operation>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -263,6 +297,9 @@ public class ModuleImpl extends EObjectImpl implements Module {
 		case MM_HybridPackage.MODULE__OUT_MM:
 			getOutMM().clear();
 			return;
+		case MM_HybridPackage.MODULE__OPERATIONS:
+			getOperations().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -284,6 +321,8 @@ public class ModuleImpl extends EObjectImpl implements Module {
 			return inMM != null && !inMM.isEmpty();
 		case MM_HybridPackage.MODULE__OUT_MM:
 			return outMM != null && !outMM.isEmpty();
+		case MM_HybridPackage.MODULE__OPERATIONS:
+			return operations != null && !operations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

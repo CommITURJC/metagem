@@ -55,29 +55,29 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
             <containmentFeature
-                href="MM_Hybrid.ecore#//SourceElementRule/condition"/>
+                href="MM_Hybrid.ecore#//SourceElementRule/guard"/>
             <ownedChild>
               <domainMetaElement
-                  href="MM_Hybrid.ecore#//Condition"/>
+                  href="MM_Hybrid.ecore#//Guard"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping"
-                  viewPattern="&lt;&lt;Condition>> {0}">
+                  viewPattern="&lt;&lt;Guard>> {0}">
                 <diagramLabel
-                    href="MM_Hybrid.gmfgraph#ConditionName"/>
+                    href="MM_Hybrid.gmfgraph#GuardName"/>
                 <features
-                    href="MM_Hybrid.ecore#//Condition/value"/>
+                    href="MM_Hybrid.ecore#//Guard/value"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
                   href="MM_Hybrid.gmftool#//@palette/@tools.1/@tools.3"/>
               <diagramNode
-                  href="MM_Hybrid.gmfgraph#ConditionName"/>
+                  href="MM_Hybrid.gmfgraph#GuardName"/>
             </ownedChild>
           </children>
           <compartments
               children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0">
             <compartment
-                href="MM_Hybrid.gmfgraph#Condition"/>
+                href="MM_Hybrid.gmfgraph#Guard"/>
           </compartments>
         </ownedChild>
       </children>

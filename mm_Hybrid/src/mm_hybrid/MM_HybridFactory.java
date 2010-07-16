@@ -89,13 +89,13 @@ public interface MM_HybridFactory extends EFactory {
 	ElementIncluded createElementIncluded();
 
 	/**
-	 * Returns a new object of class '<em>Condition</em>'.
+	 * Returns a new object of class '<em>Guard</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Condition</em>'.
+	 * @return a new object of class '<em>Guard</em>'.
 	 * @generated
 	 */
-	Condition createCondition();
+	Guard createGuard();
 
 	/**
 	 * Returns a new object of class '<em>Right Pattern</em>'.
@@ -114,6 +114,24 @@ public interface MM_HybridFactory extends EFactory {
 	 * @generated
 	 */
 	LeftPattern createLeftPattern();
+
+	/**
+	 * Returns a new object of class '<em>Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Operation</em>'.
+	 * @generated
+	 */
+	Operation createOperation();
+
+	/**
+	 * Returns a new object of class '<em>Return</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Return</em>'.
+	 * @generated
+	 */
+	Return createReturn();
 
 	/**
 	 * Returns the package supported by this factory.

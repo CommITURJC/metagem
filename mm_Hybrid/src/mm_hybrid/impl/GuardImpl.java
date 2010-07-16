@@ -6,7 +6,7 @@
  */
 package mm_hybrid.impl;
 
-import mm_hybrid.Condition;
+import mm_hybrid.Guard;
 import mm_hybrid.MM_HybridPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -18,18 +18,18 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Condition</b></em>'.
+ * An implementation of the model object '<em><b>Guard</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link mm_hybrid.impl.ConditionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link mm_hybrid.impl.GuardImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ConditionImpl extends EObjectImpl implements Condition {
+public class GuardImpl extends EObjectImpl implements Guard {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -55,7 +55,7 @@ public class ConditionImpl extends EObjectImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConditionImpl() {
+	protected GuardImpl() {
 		super();
 	}
 
@@ -66,7 +66,7 @@ public class ConditionImpl extends EObjectImpl implements Condition {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MM_HybridPackage.Literals.CONDITION;
+		return MM_HybridPackage.Literals.GUARD;
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class ConditionImpl extends EObjectImpl implements Condition {
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.CONDITION__VALUE, oldValue, value));
+					MM_HybridPackage.GUARD__VALUE, oldValue, value));
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class ConditionImpl extends EObjectImpl implements Condition {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MM_HybridPackage.CONDITION__VALUE:
+		case MM_HybridPackage.GUARD__VALUE:
 			return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -113,7 +113,7 @@ public class ConditionImpl extends EObjectImpl implements Condition {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MM_HybridPackage.CONDITION__VALUE:
+		case MM_HybridPackage.GUARD__VALUE:
 			setValue((String) newValue);
 			return;
 		}
@@ -128,7 +128,7 @@ public class ConditionImpl extends EObjectImpl implements Condition {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.CONDITION__VALUE:
+		case MM_HybridPackage.GUARD__VALUE:
 			setValue(VALUE_EDEFAULT);
 			return;
 		}
@@ -143,7 +143,7 @@ public class ConditionImpl extends EObjectImpl implements Condition {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.CONDITION__VALUE:
+		case MM_HybridPackage.GUARD__VALUE:
 			return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT
 					.equals(value);
 		}
@@ -167,4 +167,4 @@ public class ConditionImpl extends EObjectImpl implements Condition {
 		return result.toString();
 	}
 
-} //ConditionImpl
+} //GuardImpl

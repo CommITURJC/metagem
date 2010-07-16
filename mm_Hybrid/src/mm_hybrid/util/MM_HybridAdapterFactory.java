@@ -111,8 +111,8 @@ public class MM_HybridAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseCondition(Condition object) {
-			return createConditionAdapter();
+		public Adapter caseGuard(Guard object) {
+			return createGuardAdapter();
 		}
 
 		@Override
@@ -123,6 +123,16 @@ public class MM_HybridAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseLeftPattern(LeftPattern object) {
 			return createLeftPatternAdapter();
+		}
+
+		@Override
+		public Adapter caseOperation(Operation object) {
+			return createOperationAdapter();
+		}
+
+		@Override
+		public Adapter caseReturn(Return object) {
+			return createReturnAdapter();
 		}
 
 		@Override
@@ -257,16 +267,16 @@ public class MM_HybridAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link mm_hybrid.Condition <em>Condition</em>}'.
+	 * Creates a new adapter for an object of class '{@link mm_hybrid.Guard <em>Guard</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see mm_hybrid.Condition
+	 * @see mm_hybrid.Guard
 	 * @generated
 	 */
-	public Adapter createConditionAdapter() {
+	public Adapter createGuardAdapter() {
 		return null;
 	}
 
@@ -295,6 +305,34 @@ public class MM_HybridAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLeftPatternAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mm_hybrid.Operation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mm_hybrid.Operation
+	 * @generated
+	 */
+	public Adapter createOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mm_hybrid.Return <em>Return</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mm_hybrid.Return
+	 * @generated
+	 */
+	public Adapter createReturnAdapter() {
 		return null;
 	}
 

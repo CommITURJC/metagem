@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link mm_hybrid.Module#getRule <em>Rule</em>}</li>
  *   <li>{@link mm_hybrid.Module#getInMM <em>In MM</em>}</li>
  *   <li>{@link mm_hybrid.Module#getOutMM <em>Out MM</em>}</li>
+ *   <li>{@link mm_hybrid.Module#getOperations <em>Operations</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,5 +104,21 @@ public interface Module extends EObject {
 	 * @generated
 	 */
 	EList<OutMetaModel> getOutMM();
+
+	/**
+	 * Returns the value of the '<em><b>Operations</b></em>' containment reference list.
+	 * The list contents are of type {@link mm_hybrid.Operation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Operations</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Operations</em>' containment reference list.
+	 * @see mm_hybrid.MM_HybridPackage#getModule_Operations()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Operation> getOperations();
 
 } // Module

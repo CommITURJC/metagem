@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link mm_hybrid.ElementIncluded#getTypeElement <em>Type Element</em>}</li>
  *   <li>{@link mm_hybrid.ElementIncluded#getRight <em>Right</em>}</li>
  *   <li>{@link mm_hybrid.ElementIncluded#getLeft <em>Left</em>}</li>
- *   <li>{@link mm_hybrid.ElementIncluded#getTarget <em>Target</em>}</li>
  * </ul>
  * </p>
  *
@@ -140,33 +139,5 @@ public interface ElementIncluded extends EObject {
 	 * @generated
 	 */
 	void setLeft(LeftPattern value);
-
-	/**
-	 * Returns the value of the '<em><b>Target</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link mm_hybrid.TargetElementRule#getIncluded <em>Included</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Target</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target</em>' container reference.
-	 * @see #setTarget(TargetElementRule)
-	 * @see mm_hybrid.MM_HybridPackage#getElementIncluded_Target()
-	 * @see mm_hybrid.TargetElementRule#getIncluded
-	 * @model opposite="included" required="true" transient="false"
-	 * @generated
-	 */
-	TargetElementRule getTarget();
-
-	/**
-	 * Sets the value of the '{@link mm_hybrid.ElementIncluded#getTarget <em>Target</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target</em>' container reference.
-	 * @see #getTarget()
-	 * @generated
-	 */
-	void setTarget(TargetElementRule value);
 
 } // ElementIncluded

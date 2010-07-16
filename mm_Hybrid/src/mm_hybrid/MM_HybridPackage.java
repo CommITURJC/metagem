@@ -108,13 +108,22 @@ public interface MM_HybridPackage extends EPackage {
 	int MODULE__OUT_MM = 3;
 
 	/**
+	 * The feature id for the '<em><b>Operations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__OPERATIONS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Module</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE_FEATURE_COUNT = 4;
+	int MODULE_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.InMetaModelImpl <em>In Meta Model</em>}' class.
@@ -365,13 +374,13 @@ public interface MM_HybridPackage extends EPackage {
 	int SOURCE_ELEMENT_RULE__NAME_ELEMENT = ELEMENT__NAME_ELEMENT;
 
 	/**
-	 * The feature id for the '<em><b>Condition</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_ELEMENT_RULE__CONDITION = ELEMENT_FEATURE_COUNT + 0;
+	int SOURCE_ELEMENT_RULE__GUARD = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Metamodel</b></em>' reference.
@@ -392,22 +401,13 @@ public interface MM_HybridPackage extends EPackage {
 	int SOURCE_ELEMENT_RULE__RIGHT_PATTERN = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Rule</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE_ELEMENT_RULE__RULE = ELEMENT_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Source Element Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_ELEMENT_RULE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
+	int SOURCE_ELEMENT_RULE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.TargetElementRuleImpl <em>Target Element Rule</em>}' class.
@@ -456,22 +456,13 @@ public interface MM_HybridPackage extends EPackage {
 	int TARGET_ELEMENT_RULE__LEFT_PATTERN = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Rule</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TARGET_ELEMENT_RULE__RULE = ELEMENT_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Target Element Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET_ELEMENT_RULE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
+	int TARGET_ELEMENT_RULE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.ElementIncludedImpl <em>Element Included</em>}' class.
@@ -520,32 +511,23 @@ public interface MM_HybridPackage extends EPackage {
 	int ELEMENT_INCLUDED__LEFT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Target</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_INCLUDED__TARGET = 4;
-
-	/**
 	 * The number of structural features of the '<em>Element Included</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_INCLUDED_FEATURE_COUNT = 5;
+	int ELEMENT_INCLUDED_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link mm_hybrid.impl.ConditionImpl <em>Condition</em>}' class.
+	 * The meta object id for the '{@link mm_hybrid.impl.GuardImpl <em>Guard</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see mm_hybrid.impl.ConditionImpl
-	 * @see mm_hybrid.impl.MM_HybridPackageImpl#getCondition()
+	 * @see mm_hybrid.impl.GuardImpl
+	 * @see mm_hybrid.impl.MM_HybridPackageImpl#getGuard()
 	 * @generated
 	 */
-	int CONDITION = 8;
+	int GUARD = 8;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -554,16 +536,16 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__VALUE = 0;
+	int GUARD__VALUE = 0;
 
 	/**
-	 * The number of structural features of the '<em>Condition</em>' class.
+	 * The number of structural features of the '<em>Guard</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_FEATURE_COUNT = 1;
+	int GUARD_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.RightPatternImpl <em>Right Pattern</em>}' class.
@@ -631,6 +613,98 @@ public interface MM_HybridPackage extends EPackage {
 	int LEFT_PATTERN_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link mm_hybrid.impl.OperationImpl <em>Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mm_hybrid.impl.OperationImpl
+	 * @see mm_hybrid.impl.MM_HybridPackageImpl#getOperation()
+	 * @generated
+	 */
+	int OPERATION = 11;
+
+	/**
+	 * The feature id for the '<em><b>Name operation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__NAME_OPERATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__BODY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__CONTEXT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Return Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__RETURN_VALUE = 3;
+
+	/**
+	 * The number of structural features of the '<em>Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_FEATURE_COUNT = 4;
+
+	/**
+	 * The meta object id for the '{@link mm_hybrid.impl.ReturnImpl <em>Return</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mm_hybrid.impl.ReturnImpl
+	 * @see mm_hybrid.impl.MM_HybridPackageImpl#getReturn()
+	 * @generated
+	 */
+	int RETURN = 12;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN__ELEMENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Datatype</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN__DATATYPE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Return</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link mm_hybrid.TypeAtribute <em>Type Atribute</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -638,7 +712,7 @@ public interface MM_HybridPackage extends EPackage {
 	 * @see mm_hybrid.impl.MM_HybridPackageImpl#getTypeAtribute()
 	 * @generated
 	 */
-	int TYPE_ATRIBUTE = 11;
+	int TYPE_ATRIBUTE = 13;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.TypeElem <em>Type Elem</em>}' enum.
@@ -648,7 +722,17 @@ public interface MM_HybridPackage extends EPackage {
 	 * @see mm_hybrid.impl.MM_HybridPackageImpl#getTypeElem()
 	 * @generated
 	 */
-	int TYPE_ELEM = 12;
+	int TYPE_ELEM = 14;
+
+	/**
+	 * The meta object id for the '{@link mm_hybrid.Datatype <em>Datatype</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mm_hybrid.Datatype
+	 * @see mm_hybrid.impl.MM_HybridPackageImpl#getDatatype()
+	 * @generated
+	 */
+	int DATATYPE = 15;
 
 	/**
 	 * Returns the meta object for class '{@link mm_hybrid.Module <em>Module</em>}'.
@@ -703,6 +787,17 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getModule_OutMM();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link mm_hybrid.Module#getOperations <em>Operations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operations</em>'.
+	 * @see mm_hybrid.Module#getOperations()
+	 * @see #getModule()
+	 * @generated
+	 */
+	EReference getModule_Operations();
 
 	/**
 	 * Returns the meta object for class '{@link mm_hybrid.InMetaModel <em>In Meta Model</em>}'.
@@ -942,15 +1037,15 @@ public interface MM_HybridPackage extends EPackage {
 	EClass getSourceElementRule();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link mm_hybrid.SourceElementRule#getCondition <em>Condition</em>}'.
+	 * Returns the meta object for the containment reference list '{@link mm_hybrid.SourceElementRule#getGuard <em>Guard</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Condition</em>'.
-	 * @see mm_hybrid.SourceElementRule#getCondition()
+	 * @return the meta object for the containment reference list '<em>Guard</em>'.
+	 * @see mm_hybrid.SourceElementRule#getGuard()
 	 * @see #getSourceElementRule()
 	 * @generated
 	 */
-	EReference getSourceElementRule_Condition();
+	EReference getSourceElementRule_Guard();
 
 	/**
 	 * Returns the meta object for the reference '{@link mm_hybrid.SourceElementRule#getMetamodel <em>Metamodel</em>}'.
@@ -973,17 +1068,6 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSourceElementRule_RightPattern();
-
-	/**
-	 * Returns the meta object for the container reference '{@link mm_hybrid.SourceElementRule#getRule <em>Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Rule</em>'.
-	 * @see mm_hybrid.SourceElementRule#getRule()
-	 * @see #getSourceElementRule()
-	 * @generated
-	 */
-	EReference getSourceElementRule_Rule();
 
 	/**
 	 * Returns the meta object for class '{@link mm_hybrid.TargetElementRule <em>Target Element Rule</em>}'.
@@ -1027,17 +1111,6 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTargetElementRule_LeftPattern();
-
-	/**
-	 * Returns the meta object for the container reference '{@link mm_hybrid.TargetElementRule#getRule <em>Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Rule</em>'.
-	 * @see mm_hybrid.TargetElementRule#getRule()
-	 * @see #getTargetElementRule()
-	 * @generated
-	 */
-	EReference getTargetElementRule_Rule();
 
 	/**
 	 * Returns the meta object for class '{@link mm_hybrid.ElementIncluded <em>Element Included</em>}'.
@@ -1094,36 +1167,25 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getElementIncluded_Left();
 
 	/**
-	 * Returns the meta object for the container reference '{@link mm_hybrid.ElementIncluded#getTarget <em>Target</em>}'.
+	 * Returns the meta object for class '{@link mm_hybrid.Guard <em>Guard</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Target</em>'.
-	 * @see mm_hybrid.ElementIncluded#getTarget()
-	 * @see #getElementIncluded()
+	 * @return the meta object for class '<em>Guard</em>'.
+	 * @see mm_hybrid.Guard
 	 * @generated
 	 */
-	EReference getElementIncluded_Target();
+	EClass getGuard();
 
 	/**
-	 * Returns the meta object for class '{@link mm_hybrid.Condition <em>Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Condition</em>'.
-	 * @see mm_hybrid.Condition
-	 * @generated
-	 */
-	EClass getCondition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link mm_hybrid.Condition#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link mm_hybrid.Guard#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see mm_hybrid.Condition#getValue()
-	 * @see #getCondition()
+	 * @see mm_hybrid.Guard#getValue()
+	 * @see #getGuard()
 	 * @generated
 	 */
-	EAttribute getCondition_Value();
+	EAttribute getGuard_Value();
 
 	/**
 	 * Returns the meta object for class '{@link mm_hybrid.RightPattern <em>Right Pattern</em>}'.
@@ -1179,6 +1241,92 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getLeftPattern_TargetElement();
 
 	/**
+	 * Returns the meta object for class '{@link mm_hybrid.Operation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operation</em>'.
+	 * @see mm_hybrid.Operation
+	 * @generated
+	 */
+	EClass getOperation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mm_hybrid.Operation#getName_operation <em>Name operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name operation</em>'.
+	 * @see mm_hybrid.Operation#getName_operation()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_Name_operation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mm_hybrid.Operation#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Body</em>'.
+	 * @see mm_hybrid.Operation#getBody()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_Body();
+
+	/**
+	 * Returns the meta object for the reference '{@link mm_hybrid.Operation#getContext <em>Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Context</em>'.
+	 * @see mm_hybrid.Operation#getContext()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_Context();
+
+	/**
+	 * Returns the meta object for the reference '{@link mm_hybrid.Operation#getReturnValue <em>Return Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Return Value</em>'.
+	 * @see mm_hybrid.Operation#getReturnValue()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_ReturnValue();
+
+	/**
+	 * Returns the meta object for class '{@link mm_hybrid.Return <em>Return</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Return</em>'.
+	 * @see mm_hybrid.Return
+	 * @generated
+	 */
+	EClass getReturn();
+
+	/**
+	 * Returns the meta object for the reference '{@link mm_hybrid.Return#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Element</em>'.
+	 * @see mm_hybrid.Return#getElement()
+	 * @see #getReturn()
+	 * @generated
+	 */
+	EReference getReturn_Element();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mm_hybrid.Return#getDatatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Datatype</em>'.
+	 * @see mm_hybrid.Return#getDatatype()
+	 * @see #getReturn()
+	 * @generated
+	 */
+	EAttribute getReturn_Datatype();
+
+	/**
 	 * Returns the meta object for enum '{@link mm_hybrid.TypeAtribute <em>Type Atribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1197,6 +1345,16 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getTypeElem();
+
+	/**
+	 * Returns the meta object for enum '{@link mm_hybrid.Datatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Datatype</em>'.
+	 * @see mm_hybrid.Datatype
+	 * @generated
+	 */
+	EEnum getDatatype();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1261,6 +1419,14 @@ public interface MM_HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODULE__OUT_MM = eINSTANCE.getModule_OutMM();
+
+		/**
+		 * The meta object literal for the '<em><b>Operations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODULE__OPERATIONS = eINSTANCE.getModule_Operations();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.InMetaModelImpl <em>In Meta Model</em>}' class.
@@ -1453,13 +1619,13 @@ public interface MM_HybridPackage extends EPackage {
 		EClass SOURCE_ELEMENT_RULE = eINSTANCE.getSourceElementRule();
 
 		/**
-		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Guard</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SOURCE_ELEMENT_RULE__CONDITION = eINSTANCE
-				.getSourceElementRule_Condition();
+		EReference SOURCE_ELEMENT_RULE__GUARD = eINSTANCE
+				.getSourceElementRule_Guard();
 
 		/**
 		 * The meta object literal for the '<em><b>Metamodel</b></em>' reference feature.
@@ -1478,15 +1644,6 @@ public interface MM_HybridPackage extends EPackage {
 		 */
 		EReference SOURCE_ELEMENT_RULE__RIGHT_PATTERN = eINSTANCE
 				.getSourceElementRule_RightPattern();
-
-		/**
-		 * The meta object literal for the '<em><b>Rule</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SOURCE_ELEMENT_RULE__RULE = eINSTANCE
-				.getSourceElementRule_Rule();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.TargetElementRuleImpl <em>Target Element Rule</em>}' class.
@@ -1524,15 +1681,6 @@ public interface MM_HybridPackage extends EPackage {
 		 */
 		EReference TARGET_ELEMENT_RULE__LEFT_PATTERN = eINSTANCE
 				.getTargetElementRule_LeftPattern();
-
-		/**
-		 * The meta object literal for the '<em><b>Rule</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TARGET_ELEMENT_RULE__RULE = eINSTANCE
-				.getTargetElementRule_Rule();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.ElementIncludedImpl <em>Element Included</em>}' class.
@@ -1580,23 +1728,14 @@ public interface MM_HybridPackage extends EPackage {
 		EReference ELEMENT_INCLUDED__LEFT = eINSTANCE.getElementIncluded_Left();
 
 		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' container reference feature.
+		 * The meta object literal for the '{@link mm_hybrid.impl.GuardImpl <em>Guard</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see mm_hybrid.impl.GuardImpl
+		 * @see mm_hybrid.impl.MM_HybridPackageImpl#getGuard()
 		 * @generated
 		 */
-		EReference ELEMENT_INCLUDED__TARGET = eINSTANCE
-				.getElementIncluded_Target();
-
-		/**
-		 * The meta object literal for the '{@link mm_hybrid.impl.ConditionImpl <em>Condition</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see mm_hybrid.impl.ConditionImpl
-		 * @see mm_hybrid.impl.MM_HybridPackageImpl#getCondition()
-		 * @generated
-		 */
-		EClass CONDITION = eINSTANCE.getCondition();
+		EClass GUARD = eINSTANCE.getGuard();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -1604,7 +1743,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONDITION__VALUE = eINSTANCE.getCondition_Value();
+		EAttribute GUARD__VALUE = eINSTANCE.getGuard_Value();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.RightPatternImpl <em>Right Pattern</em>}' class.
@@ -1653,6 +1792,76 @@ public interface MM_HybridPackage extends EPackage {
 				.getLeftPattern_TargetElement();
 
 		/**
+		 * The meta object literal for the '{@link mm_hybrid.impl.OperationImpl <em>Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mm_hybrid.impl.OperationImpl
+		 * @see mm_hybrid.impl.MM_HybridPackageImpl#getOperation()
+		 * @generated
+		 */
+		EClass OPERATION = eINSTANCE.getOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Name operation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__NAME_OPERATION = eINSTANCE
+				.getOperation_Name_operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__BODY = eINSTANCE.getOperation_Body();
+
+		/**
+		 * The meta object literal for the '<em><b>Context</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__CONTEXT = eINSTANCE.getOperation_Context();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__RETURN_VALUE = eINSTANCE
+				.getOperation_ReturnValue();
+
+		/**
+		 * The meta object literal for the '{@link mm_hybrid.impl.ReturnImpl <em>Return</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mm_hybrid.impl.ReturnImpl
+		 * @see mm_hybrid.impl.MM_HybridPackageImpl#getReturn()
+		 * @generated
+		 */
+		EClass RETURN = eINSTANCE.getReturn();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RETURN__ELEMENT = eINSTANCE.getReturn_Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Datatype</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RETURN__DATATYPE = eINSTANCE.getReturn_Datatype();
+
+		/**
 		 * The meta object literal for the '{@link mm_hybrid.TypeAtribute <em>Type Atribute</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1671,6 +1880,16 @@ public interface MM_HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum TYPE_ELEM = eINSTANCE.getTypeElem();
+
+		/**
+		 * The meta object literal for the '{@link mm_hybrid.Datatype <em>Datatype</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mm_hybrid.Datatype
+		 * @see mm_hybrid.impl.MM_HybridPackageImpl#getDatatype()
+		 * @generated
+		 */
+		EEnum DATATYPE = eINSTANCE.getDatatype();
 
 	}
 
