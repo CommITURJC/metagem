@@ -299,9 +299,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 */
 	public EList<SourceElementRule> getIn() {
 		if (in == null) {
-			in = new EObjectContainmentWithInverseEList<SourceElementRule>(
-					SourceElementRule.class, this, MM_HybridPackage.RULE__IN,
-					MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE);
+			in = new EObjectContainmentEList<SourceElementRule>(
+					SourceElementRule.class, this, MM_HybridPackage.RULE__IN);
 		}
 		return in;
 	}
@@ -313,9 +312,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 */
 	public EList<TargetElementRule> getOut() {
 		if (out == null) {
-			out = new EObjectContainmentWithInverseEList<TargetElementRule>(
-					TargetElementRule.class, this, MM_HybridPackage.RULE__OUT,
-					MM_HybridPackage.TARGET_ELEMENT_RULE__RULE);
+			out = new EObjectContainmentEList<TargetElementRule>(
+					TargetElementRule.class, this, MM_HybridPackage.RULE__OUT);
 		}
 		return out;
 	}
@@ -478,12 +476,6 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.RULE__IN:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getIn())
-					.basicAdd(otherEnd, msgs);
-		case MM_HybridPackage.RULE__OUT:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOut())
-					.basicAdd(otherEnd, msgs);
 		case MM_HybridPackage.RULE__EXTENDS:
 			if (extends_ != null)
 				msgs = ((InternalEObject) extends_).eInverseRemove(this,

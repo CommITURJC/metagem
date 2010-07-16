@@ -144,9 +144,9 @@ public class MM_HybridSwitch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case MM_HybridPackage.CONDITION: {
-			Condition condition = (Condition) theEObject;
-			T result = caseCondition(condition);
+		case MM_HybridPackage.GUARD: {
+			Guard guard = (Guard) theEObject;
+			T result = caseGuard(guard);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -161,6 +161,20 @@ public class MM_HybridSwitch<T> {
 		case MM_HybridPackage.LEFT_PATTERN: {
 			LeftPattern leftPattern = (LeftPattern) theEObject;
 			T result = caseLeftPattern(leftPattern);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MM_HybridPackage.OPERATION: {
+			Operation operation = (Operation) theEObject;
+			T result = caseOperation(operation);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MM_HybridPackage.RETURN: {
+			Return return_ = (Return) theEObject;
+			T result = caseReturn(return_);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -291,17 +305,17 @@ public class MM_HybridSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Guard</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Guard</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCondition(Condition object) {
+	public T caseGuard(Guard object) {
 		return null;
 	}
 
@@ -332,6 +346,36 @@ public class MM_HybridSwitch<T> {
 	 * @generated
 	 */
 	public T caseLeftPattern(LeftPattern object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperation(Operation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Return</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Return</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReturn(Return object) {
 		return null;
 	}
 

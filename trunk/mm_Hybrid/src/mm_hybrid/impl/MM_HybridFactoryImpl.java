@@ -76,12 +76,16 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 			return createTargetElementRule();
 		case MM_HybridPackage.ELEMENT_INCLUDED:
 			return createElementIncluded();
-		case MM_HybridPackage.CONDITION:
-			return createCondition();
+		case MM_HybridPackage.GUARD:
+			return createGuard();
 		case MM_HybridPackage.RIGHT_PATTERN:
 			return createRightPattern();
 		case MM_HybridPackage.LEFT_PATTERN:
 			return createLeftPattern();
+		case MM_HybridPackage.OPERATION:
+			return createOperation();
+		case MM_HybridPackage.RETURN:
+			return createReturn();
 		default:
 			throw new IllegalArgumentException(
 					"The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -100,6 +104,8 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 			return createTypeAtributeFromString(eDataType, initialValue);
 		case MM_HybridPackage.TYPE_ELEM:
 			return createTypeElemFromString(eDataType, initialValue);
+		case MM_HybridPackage.DATATYPE:
+			return createDatatypeFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException(
 					"The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -118,6 +124,8 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 			return convertTypeAtributeToString(eDataType, instanceValue);
 		case MM_HybridPackage.TYPE_ELEM:
 			return convertTypeElemToString(eDataType, instanceValue);
+		case MM_HybridPackage.DATATYPE:
+			return convertDatatypeToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException(
 					"The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -199,9 +207,9 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Condition createCondition() {
-		ConditionImpl condition = new ConditionImpl();
-		return condition;
+	public Guard createGuard() {
+		GuardImpl guard = new GuardImpl();
+		return guard;
 	}
 
 	/**
@@ -222,6 +230,26 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 	public LeftPattern createLeftPattern() {
 		LeftPatternImpl leftPattern = new LeftPatternImpl();
 		return leftPattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operation createOperation() {
+		OperationImpl operation = new OperationImpl();
+		return operation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Return createReturn() {
+		ReturnImpl return_ = new ReturnImpl();
+		return return_;
 	}
 
 	/**
@@ -268,6 +296,30 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public String convertTypeElemToString(EDataType eDataType,
+			Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Datatype createDatatypeFromString(EDataType eDataType,
+			String initialValue) {
+		Datatype result = Datatype.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDatatypeToString(EDataType eDataType,
 			Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}

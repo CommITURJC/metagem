@@ -246,7 +246,7 @@
             text="&lt;...>"/>
         <children
             xsi:type="gmfgraph:Rectangle"
-            name="Condition">
+            name="Guard">
           <layout
               xsi:type="gmfgraph:StackLayout"/>
         </children>
@@ -307,10 +307,10 @@
           figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
-        name="ConditionFigure">
+        name="GuardFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
-          name="ConditionName"
+          name="GuardName"
           text="&lt;...>">
         <font
             xsi:type="gmfgraph:BasicFont"
@@ -342,7 +342,7 @@
       figure="RuleFigure"
       collapsible="true"/>
   <compartments
-      name="Condition"
+      name="Guard"
       figure="SourceElementRuleFigure"
       collapsible="true"/>
   <labels
@@ -376,8 +376,8 @@
       elementIcon="false"
       accessor="//@figures.0/@descriptors.2/@accessors.1"/>
   <labels
-      name="ConditionName"
-      figure="ConditionFigure"
+      name="GuardName"
+      figure="GuardFigure"
       elementIcon="false"/>
   <labels
       name="inMMtypeLabel"

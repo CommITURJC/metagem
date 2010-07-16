@@ -117,7 +117,6 @@ public interface Rule extends EObject {
 	/**
 	 * Returns the value of the '<em><b>In</b></em>' containment reference list.
 	 * The list contents are of type {@link mm_hybrid.SourceElementRule}.
-	 * It is bidirectional and its opposite is '{@link mm_hybrid.SourceElementRule#getRule <em>Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>In</em>' containment reference isn't clear,
@@ -126,8 +125,7 @@ public interface Rule extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>In</em>' containment reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getRule_In()
-	 * @see mm_hybrid.SourceElementRule#getRule
-	 * @model opposite="rule" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<SourceElementRule> getIn();
@@ -135,7 +133,6 @@ public interface Rule extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Out</b></em>' containment reference list.
 	 * The list contents are of type {@link mm_hybrid.TargetElementRule}.
-	 * It is bidirectional and its opposite is '{@link mm_hybrid.TargetElementRule#getRule <em>Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Out</em>' containment reference list isn't clear,
@@ -144,8 +141,7 @@ public interface Rule extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Out</em>' containment reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getRule_Out()
-	 * @see mm_hybrid.TargetElementRule#getRule
-	 * @model opposite="rule" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<TargetElementRule> getOut();
