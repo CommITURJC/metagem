@@ -57,7 +57,7 @@ rule createRule2MatchedRule{
 			superRule <- mm_hybrid_rule."extends",
 			inPattern <- mm_hybrid_rule."in".asSequence().first(),
 			outPattern <- outPattern,
-			commentsBefore <- Set {'-- Comments -> Name MatchedRule: ' + mm_hybrid_rule.name_rule}
+			commentsBefore <- Set {'-- Comments -> This is a MatchedRule: ' + mm_hybrid_rule.name_rule}
 		),
 --		inPattern : ATL!InPattern(
 --			elements <- mm_hybrid_rule."in".asSequence(),
@@ -65,7 +65,7 @@ rule createRule2MatchedRule{
 --			),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
-		)
+	)
 }
 
 -- Create LazyRule [1..1] - [1..N] 
@@ -81,7 +81,8 @@ rule createRule2LazyRule{
 			isDefault <- false,
 			inPattern <- mm_hybrid_rule."in".asSequence().first(),
 			outPattern <- outPattern,
-			commentsAfter <- Set {'-- Comments After LazyRule: ' + mm_hybrid_rule.name_rule}
+			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + mm_hybrid_rule.name_rule}
+			--commentsAfter <- Set {'-- Comments After LazyRule: ' + mm_hybrid_rule.name_rule}
 		),
 --		inPattern : ATL!InPattern(
 --			elements <- mm_hybrid_rule."in".asSequence(),
@@ -99,7 +100,8 @@ rule createRule2CalledRule{
 	to
 		atl : ATL!CalledRule (
 			name <- mm_hybrid_rule.name_rule,
-			outPattern <- outPattern
+			outPattern <- outPattern,
+			commentsBefore <- Set {'-- Comments -> This is a CalledRule: ' + mm_hybrid_rule.name_rule}
 		),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
@@ -166,7 +168,16 @@ rule Bindings {
 			--varName <- elemInc.target."rule"."in".asSequence().first().name_element.toLower()
 			varName <- elemInc.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
 		) 
-}  
+}
+
+rule createOperation2Helper {
+	from
+		oper : MM_Hybrid!Operation
+	to
+		atl : ATL!Helper (
+			commentsBefore <- Set {'-- Comments -> This is a Helper: ' + oper.name_operation.debug('NameOP: ')}	
+		)
+}
 
 helper context MM_Hybrid!Rule def : getSizeIP () : Integer = 
 	self."in".size();
