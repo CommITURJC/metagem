@@ -56,7 +56,8 @@ rule createRule2MatchedRule{
 			isDefault <- false,
 			superRule <- mm_hybrid_rule."extends",
 			inPattern <- mm_hybrid_rule."in".asSequence().first(),
-			outPattern <- outPattern
+			outPattern <- outPattern,
+			commentsBefore <- Set {'-- Comments -> Name MatchedRule: ' + mm_hybrid_rule.name_rule}
 		),
 --		inPattern : ATL!InPattern(
 --			elements <- mm_hybrid_rule."in".asSequence(),
@@ -79,7 +80,8 @@ rule createRule2LazyRule{
 			isRefining <- false,
 			isDefault <- false,
 			inPattern <- mm_hybrid_rule."in".asSequence().first(),
-			outPattern <- outPattern
+			outPattern <- outPattern,
+			commentsAfter <- Set {'-- Comments After LazyRule: ' + mm_hybrid_rule.name_rule}
 		),
 --		inPattern : ATL!InPattern(
 --			elements <- mm_hybrid_rule."in".asSequence(),
@@ -161,7 +163,8 @@ rule Bindings {
 		),
 		areferred : ATL!VariableDeclaration(
 			--varName <- thisModule.resolveTemp(MM_Hybrid!SourceElementRule.allInstances()->select(e|true)->first(),'element').varName
-			varName <- elemInc.target."rule"."in".asSequence().first().name_element.toLower()
+			--varName <- elemInc.target."rule"."in".asSequence().first().name_element.toLower()
+			varName <- elemInc.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
 		) 
 }  
 
