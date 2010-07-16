@@ -18,6 +18,7 @@
       <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeElem/MyEreference"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="/mm_Hybrid/model/MM_Hybrid.ecore#//Datatype">
+      <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//Datatype/null"/>
       <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//Datatype/Boolean"/>
       <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//Datatype/Integer"/>
       <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//Datatype/String"/>

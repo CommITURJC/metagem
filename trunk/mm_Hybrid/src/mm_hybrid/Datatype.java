@@ -23,6 +23,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum Datatype implements Enumerator {
 	/**
+	 * The '<em><b>Null</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NULL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NULL(0, "null", "null"), /**
 	 * The '<em><b>Boolean</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30,7 +38,7 @@ public enum Datatype implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BOOLEAN(0, "Boolean", "Boolean"), //$NON-NLS-1$ //$NON-NLS-2$
+	BOOLEAN(1, "Boolean", "Boolean"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Integer</b></em>' literal object.
@@ -40,7 +48,7 @@ public enum Datatype implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INTEGER(1, "Integer", "Integer"), //$NON-NLS-1$ //$NON-NLS-2$
+	INTEGER(2, "Integer", "Integer"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>String</b></em>' literal object.
@@ -50,7 +58,22 @@ public enum Datatype implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STRING(2, "String", "String"); //$NON-NLS-1$ //$NON-NLS-2$
+	STRING(3, "String", "String"); //$NON-NLS-1$ //$NON-NLS-2$
+
+	/**
+	 * The '<em><b>Null</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Null</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NULL
+	 * @model name="null"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NULL_VALUE = 0;
 
 	/**
 	 * The '<em><b>Boolean</b></em>' literal value.
@@ -65,7 +88,7 @@ public enum Datatype implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BOOLEAN_VALUE = 0;
+	public static final int BOOLEAN_VALUE = 1;
 
 	/**
 	 * The '<em><b>Integer</b></em>' literal value.
@@ -80,7 +103,7 @@ public enum Datatype implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INTEGER_VALUE = 1;
+	public static final int INTEGER_VALUE = 2;
 
 	/**
 	 * The '<em><b>String</b></em>' literal value.
@@ -95,7 +118,7 @@ public enum Datatype implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int STRING_VALUE = 2;
+	public static final int STRING_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Datatype</b></em>' enumerators.
@@ -103,8 +126,8 @@ public enum Datatype implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final Datatype[] VALUES_ARRAY = new Datatype[] { BOOLEAN,
-			INTEGER, STRING, };
+	private static final Datatype[] VALUES_ARRAY = new Datatype[] { NULL,
+			BOOLEAN, INTEGER, STRING, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Datatype</b></em>' enumerators.
@@ -155,6 +178,8 @@ public enum Datatype implements Enumerator {
 	 */
 	public static Datatype get(int value) {
 		switch (value) {
+		case NULL_VALUE:
+			return NULL;
 		case BOOLEAN_VALUE:
 			return BOOLEAN;
 		case INTEGER_VALUE:

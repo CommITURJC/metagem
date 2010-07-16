@@ -102,8 +102,9 @@ class Return {
 }
 
 enum Datatype {
-  Boolean = 0;
-  Integer = 1;
-  String = 2;
+  null = 0;
+  Boolean = 1;
+  Integer = 2;
+  String = 3;
 }
 
