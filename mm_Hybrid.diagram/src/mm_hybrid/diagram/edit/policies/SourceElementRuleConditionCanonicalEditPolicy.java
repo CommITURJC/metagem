@@ -31,7 +31,7 @@ public class SourceElementRuleConditionCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = mm_hybrid.diagram.part.MM_HybridDiagramUpdater
-				.getSourceElementRuleCondition_5003SemanticChildren(viewObject)
+				.getSourceElementRuleGuard_5003SemanticChildren(viewObject)
 				.iterator(); it.hasNext();) {
 			result.add(((mm_hybrid.diagram.part.MM_HybridNodeDescriptor) it
 					.next()).getModelElement());
@@ -68,7 +68,7 @@ public class SourceElementRuleConditionCanonicalEditPolicy extends
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize.add(mm_hybrid.MM_HybridPackage.eINSTANCE
-					.getSourceElementRule_Condition());
+					.getSourceElementRule_Guard());
 		}
 		return myFeaturesToSynchronize;
 	}

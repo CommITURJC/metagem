@@ -134,8 +134,8 @@ public class MM_HybridVisualIDRegistry {
 			}
 			break;
 		case mm_hybrid.diagram.edit.parts.SourceElementRuleConditionEditPart.VISUAL_ID:
-			if (mm_hybrid.MM_HybridPackage.eINSTANCE.getCondition()
-					.isSuperTypeOf(domainElement.eClass())) {
+			if (mm_hybrid.MM_HybridPackage.eINSTANCE.getGuard().isSuperTypeOf(
+					domainElement.eClass())) {
 				return mm_hybrid.diagram.edit.parts.ConditionEditPart.VISUAL_ID;
 			}
 			break;
