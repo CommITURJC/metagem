@@ -9,8 +9,9 @@ package mm_hybrid.provider;
 import java.util.Collection;
 import java.util.List;
 
-import mm_hybrid.Condition;
+import mm_hybrid.Datatype;
 import mm_hybrid.MM_HybridPackage;
+import mm_hybrid.Return;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -29,12 +30,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link mm_hybrid.Condition} object.
+ * This is the item provider adapter for a {@link mm_hybrid.Return} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConditionItemProvider extends ItemProviderAdapter implements
+public class ReturnItemProvider extends ItemProviderAdapter implements
 		IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
@@ -43,7 +44,7 @@ public class ConditionItemProvider extends ItemProviderAdapter implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionItemProvider(AdapterFactory adapterFactory) {
+	public ReturnItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -58,33 +59,53 @@ public class ConditionItemProvider extends ItemProviderAdapter implements
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
+			addElementPropertyDescriptor(object);
+			addDatatypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Element feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addElementPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(
 						((ComposeableAdapterFactory) adapterFactory)
 								.getRootAdapterFactory(),
 						getResourceLocator(),
-						getString("_UI_Condition_value_feature"), //$NON-NLS-1$
+						getString("_UI_Return_element_feature"), //$NON-NLS-1$
 						getString(
-								"_UI_PropertyDescriptor_description", "_UI_Condition_value_feature", "_UI_Condition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-						MM_HybridPackage.Literals.CONDITION__VALUE, true,
+								"_UI_PropertyDescriptor_description", "_UI_Return_element_feature", "_UI_Return_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.RETURN__ELEMENT, true, false,
+						true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Datatype feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDatatypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_Return_datatype_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_Return_datatype_feature", "_UI_Return_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.RETURN__DATATYPE, true,
 						false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This returns Condition.gif.
+	 * This returns Return.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -92,7 +113,7 @@ public class ConditionItemProvider extends ItemProviderAdapter implements
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage(
-				"full/obj16/Condition")); //$NON-NLS-1$
+				"full/obj16/Return")); //$NON-NLS-1$
 	}
 
 	/**
@@ -103,9 +124,10 @@ public class ConditionItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Condition) object).getValue();
-		return label == null || label.length() == 0 ? getString("_UI_Condition_type") : //$NON-NLS-1$
-				getString("_UI_Condition_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+		Datatype labelValue = ((Return) object).getDatatype();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ? getString("_UI_Return_type") : //$NON-NLS-1$
+				getString("_UI_Return_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -119,8 +141,8 @@ public class ConditionItemProvider extends ItemProviderAdapter implements
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Condition.class)) {
-		case MM_HybridPackage.CONDITION__VALUE:
+		switch (notification.getFeatureID(Return.class)) {
+		case MM_HybridPackage.RETURN__DATATYPE:
 			fireNotifyChanged(new ViewerNotification(notification, notification
 					.getNotifier(), false, true));
 			return;

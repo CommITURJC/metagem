@@ -241,26 +241,26 @@ public class MM_HybridItemProviderAdapterFactory extends
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link mm_hybrid.Condition} instances.
+	 * This keeps track of the one adapter used for all {@link mm_hybrid.Guard} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConditionItemProvider conditionItemProvider;
+	protected GuardItemProvider guardItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link mm_hybrid.Condition}.
+	 * This creates an adapter for a {@link mm_hybrid.Guard}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createConditionAdapter() {
-		if (conditionItemProvider == null) {
-			conditionItemProvider = new ConditionItemProvider(this);
+	public Adapter createGuardAdapter() {
+		if (guardItemProvider == null) {
+			guardItemProvider = new GuardItemProvider(this);
 		}
 
-		return conditionItemProvider;
+		return guardItemProvider;
 	}
 
 	/**
@@ -307,6 +307,52 @@ public class MM_HybridItemProviderAdapterFactory extends
 		}
 
 		return leftPatternItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mm_hybrid.Operation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OperationItemProvider operationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mm_hybrid.Operation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOperationAdapter() {
+		if (operationItemProvider == null) {
+			operationItemProvider = new OperationItemProvider(this);
+		}
+
+		return operationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mm_hybrid.Return} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ReturnItemProvider returnItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mm_hybrid.Return}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createReturnAdapter() {
+		if (returnItemProvider == null) {
+			returnItemProvider = new ReturnItemProvider(this);
+		}
+
+		return returnItemProvider;
 	}
 
 	/**
@@ -425,12 +471,16 @@ public class MM_HybridItemProviderAdapterFactory extends
 			targetElementRuleItemProvider.dispose();
 		if (elementIncludedItemProvider != null)
 			elementIncludedItemProvider.dispose();
-		if (conditionItemProvider != null)
-			conditionItemProvider.dispose();
+		if (guardItemProvider != null)
+			guardItemProvider.dispose();
 		if (rightPatternItemProvider != null)
 			rightPatternItemProvider.dispose();
 		if (leftPatternItemProvider != null)
 			leftPatternItemProvider.dispose();
+		if (operationItemProvider != null)
+			operationItemProvider.dispose();
+		if (returnItemProvider != null)
+			returnItemProvider.dispose();
 	}
 
 }
