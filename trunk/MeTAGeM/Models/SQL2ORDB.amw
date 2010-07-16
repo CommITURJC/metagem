@@ -16,10 +16,8 @@
   </outputModel>
   <relations xsi:type="OneToOne" xmi:id="OneToOne1">
     <source xmi:id="InElement1" name="Schema" element="//@inputModel.0/@ownedElementRef.0"/>
-    <target xmi:id="OutElement1" name="Model" element="//@outputModel.0/@ownedElementRef.0"/>
   </relations>
   <relations xsi:type="OneToOne" xmi:id="OneToOne5">
     <source xmi:id="InElement5" name="StructuredType" element="//@inputModel.0/@ownedElementRef.4"/>
-    <target xmi:id="OutElement5" name="StructuredType" element="//@outputModel.0/@ownedElementRef.4"/>
   </relations>
 </ModelRoot>
