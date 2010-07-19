@@ -13,8 +13,11 @@
       </included>
     </out>
   </rule>
+  <rule name_rule="RuleCalled">
+    <out name_element="TrgCalled" metamodel="//@outMM.0"/>
+  </rule>
   <inMM name_mm="NameMMIN" type_mm="TypeMMIN" elements="//@rule.0/@in.0 //@rule.0/@out.0/@included.0/@right/@sourceElement.0"/>
-  <outMM name_mm="NameMMOUT" type_mm="TypeMMOUT" elements="//@rule.0/@out.0/@included.0/@left/@targetElement //@rule.0/@out.0"/>
+  <outMM name_mm="NameMMOUT" type_mm="TypeMMOUT" elements="//@rule.0/@out.0/@included.0/@left/@targetElement //@rule.0/@out.0 //@rule.1/@out.0"/>
   <operations name_operation="Op1" body="Esto ayuda en algo" context="//@rule.0/@in.0">
     <returnValue datatype="String"/>
   </operations>
