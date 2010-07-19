@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link mm_hybrid.impl.OperationImpl#getName_operation <em>Name operation</em>}</li>
  *   <li>{@link mm_hybrid.impl.OperationImpl#getBody <em>Body</em>}</li>
  *   <li>{@link mm_hybrid.impl.OperationImpl#getContext <em>Context</em>}</li>
- *   <li>{@link mm_hybrid.impl.OperationImpl#getReturnValue <em>Return Value</em>}</li>
+ *   <li>{@link mm_hybrid.impl.OperationImpl#getReturnType <em>Return Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,14 +88,14 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	protected Element context;
 
 	/**
-	 * The cached value of the '{@link #getReturnValue() <em>Return Value</em>}' containment reference.
+	 * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReturnValue()
+	 * @see #getReturnType()
 	 * @generated
 	 * @ordered
 	 */
-	protected Return returnValue;
+	protected Return returnType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -207,8 +207,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Return getReturnValue() {
-		return returnValue;
+	public Return getReturnType() {
+		return returnType;
 	}
 
 	/**
@@ -216,14 +216,14 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReturnValue(Return newReturnValue,
+	public NotificationChain basicSetReturnType(Return newReturnType,
 			NotificationChain msgs) {
-		Return oldReturnValue = returnValue;
-		returnValue = newReturnValue;
+		Return oldReturnType = returnType;
+		returnType = newReturnType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this,
-					Notification.SET, MM_HybridPackage.OPERATION__RETURN_VALUE,
-					oldReturnValue, newReturnValue);
+					Notification.SET, MM_HybridPackage.OPERATION__RETURN_TYPE,
+					oldReturnType, newReturnType);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -237,26 +237,26 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReturnValue(Return newReturnValue) {
-		if (newReturnValue != returnValue) {
+	public void setReturnType(Return newReturnType) {
+		if (newReturnType != returnType) {
 			NotificationChain msgs = null;
-			if (returnValue != null)
-				msgs = ((InternalEObject) returnValue).eInverseRemove(this,
+			if (returnType != null)
+				msgs = ((InternalEObject) returnType).eInverseRemove(this,
 						EOPPOSITE_FEATURE_BASE
-								- MM_HybridPackage.OPERATION__RETURN_VALUE,
+								- MM_HybridPackage.OPERATION__RETURN_TYPE,
 						null, msgs);
-			if (newReturnValue != null)
-				msgs = ((InternalEObject) newReturnValue).eInverseAdd(this,
+			if (newReturnType != null)
+				msgs = ((InternalEObject) newReturnType).eInverseAdd(this,
 						EOPPOSITE_FEATURE_BASE
-								- MM_HybridPackage.OPERATION__RETURN_VALUE,
+								- MM_HybridPackage.OPERATION__RETURN_TYPE,
 						null, msgs);
-			msgs = basicSetReturnValue(newReturnValue, msgs);
+			msgs = basicSetReturnType(newReturnType, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.OPERATION__RETURN_VALUE, newReturnValue,
-					newReturnValue));
+					MM_HybridPackage.OPERATION__RETURN_TYPE, newReturnType,
+					newReturnType));
 	}
 
 	/**
@@ -268,8 +268,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.OPERATION__RETURN_VALUE:
-			return basicSetReturnValue(null, msgs);
+		case MM_HybridPackage.OPERATION__RETURN_TYPE:
+			return basicSetReturnType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -290,8 +290,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 			if (resolve)
 				return getContext();
 			return basicGetContext();
-		case MM_HybridPackage.OPERATION__RETURN_VALUE:
-			return getReturnValue();
+		case MM_HybridPackage.OPERATION__RETURN_TYPE:
+			return getReturnType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -313,8 +313,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		case MM_HybridPackage.OPERATION__CONTEXT:
 			setContext((Element) newValue);
 			return;
-		case MM_HybridPackage.OPERATION__RETURN_VALUE:
-			setReturnValue((Return) newValue);
+		case MM_HybridPackage.OPERATION__RETURN_TYPE:
+			setReturnType((Return) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -337,8 +337,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		case MM_HybridPackage.OPERATION__CONTEXT:
 			setContext((Element) null);
 			return;
-		case MM_HybridPackage.OPERATION__RETURN_VALUE:
-			setReturnValue((Return) null);
+		case MM_HybridPackage.OPERATION__RETURN_TYPE:
+			setReturnType((Return) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -360,8 +360,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 					.equals(body);
 		case MM_HybridPackage.OPERATION__CONTEXT:
 			return context != null;
-		case MM_HybridPackage.OPERATION__RETURN_VALUE:
-			return returnValue != null;
+		case MM_HybridPackage.OPERATION__RETURN_TYPE:
+			return returnType != null;
 		}
 		return super.eIsSet(featureID);
 	}
