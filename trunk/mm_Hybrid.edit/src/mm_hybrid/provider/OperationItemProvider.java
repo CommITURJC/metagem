@@ -140,7 +140,7 @@ public class OperationItemProvider extends ItemProviderAdapter implements
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
-					.add(MM_HybridPackage.Literals.OPERATION__RETURN_VALUE);
+					.add(MM_HybridPackage.Literals.OPERATION__RETURN_TYPE);
 		}
 		return childrenFeatures;
 	}
@@ -200,7 +200,7 @@ public class OperationItemProvider extends ItemProviderAdapter implements
 			fireNotifyChanged(new ViewerNotification(notification, notification
 					.getNotifier(), false, true));
 			return;
-		case MM_HybridPackage.OPERATION__RETURN_VALUE:
+		case MM_HybridPackage.OPERATION__RETURN_TYPE:
 			fireNotifyChanged(new ViewerNotification(notification, notification
 					.getNotifier(), true, false));
 			return;
@@ -221,7 +221,7 @@ public class OperationItemProvider extends ItemProviderAdapter implements
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-				MM_HybridPackage.Literals.OPERATION__RETURN_VALUE,
+				MM_HybridPackage.Literals.OPERATION__RETURN_TYPE,
 				MM_HybridFactory.eINSTANCE.createReturn()));
 	}
 
