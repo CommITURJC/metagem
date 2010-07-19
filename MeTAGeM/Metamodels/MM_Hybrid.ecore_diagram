@@ -710,7 +710,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_3Zw6cZDDEd-j--q0zj0w_Q"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_3Zw6cpDDEd-j--q0zj0w_Q"/>
-    <element xmi:type="ecore:EReference" href="MM_Hybrid.ecore#//Operation/returnValue"/>
+    <element xmi:type="ecore:EReference" href="MM_Hybrid.ecore#//Operation/returnType"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3Zw6c5DDEd-j--q0zj0w_Q" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
   </edges>
 </notation:Diagram>
