@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link mm_hybrid.Operation#getName_operation <em>Name operation</em>}</li>
  *   <li>{@link mm_hybrid.Operation#getBody <em>Body</em>}</li>
  *   <li>{@link mm_hybrid.Operation#getContext <em>Context</em>}</li>
- *   <li>{@link mm_hybrid.Operation#getReturnValue <em>Return Value</em>}</li>
+ *   <li>{@link mm_hybrid.Operation#getReturnType <em>Return Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,29 +107,29 @@ public interface Operation extends EObject {
 	void setContext(Element value);
 
 	/**
-	 * Returns the value of the '<em><b>Return Value</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Return Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Return Value</em>' reference isn't clear,
+	 * If the meaning of the '<em>Return Type</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Return Value</em>' containment reference.
-	 * @see #setReturnValue(Return)
-	 * @see mm_hybrid.MM_HybridPackage#getOperation_ReturnValue()
+	 * @return the value of the '<em>Return Type</em>' containment reference.
+	 * @see #setReturnType(Return)
+	 * @see mm_hybrid.MM_HybridPackage#getOperation_ReturnType()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Return getReturnValue();
+	Return getReturnType();
 
 	/**
-	 * Sets the value of the '{@link mm_hybrid.Operation#getReturnValue <em>Return Value</em>}' containment reference.
+	 * Sets the value of the '{@link mm_hybrid.Operation#getReturnType <em>Return Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Return Value</em>' containment reference.
-	 * @see #getReturnValue()
+	 * @param value the new value of the '<em>Return Type</em>' containment reference.
+	 * @see #getReturnType()
 	 * @generated
 	 */
-	void setReturnValue(Return value);
+	void setReturnType(Return value);
 
 } // Operation

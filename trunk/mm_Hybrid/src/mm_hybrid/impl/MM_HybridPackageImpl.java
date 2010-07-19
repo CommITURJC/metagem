@@ -710,7 +710,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperation_ReturnValue() {
+	public EReference getOperation_ReturnType() {
 		return (EReference) operationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -865,7 +865,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		createEAttribute(operationEClass, OPERATION__NAME_OPERATION);
 		createEAttribute(operationEClass, OPERATION__BODY);
 		createEReference(operationEClass, OPERATION__CONTEXT);
-		createEReference(operationEClass, OPERATION__RETURN_VALUE);
+		createEReference(operationEClass, OPERATION__RETURN_TYPE);
 
 		returnEClass = createEClass(RETURN);
 		createEReference(returnEClass, RETURN__ELEMENT);
@@ -1153,10 +1153,10 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				null,
 				"context", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
-				getOperation_ReturnValue(),
+				getOperation_ReturnType(),
 				this.getReturn(),
 				null,
-				"returnValue", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"returnType", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				returnEClass,
