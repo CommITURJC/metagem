@@ -113,7 +113,7 @@ rule createRule2CalledRule{
 
 rule InPatternElement {
 	from 
-		inPattern : MM_Hybrid!SourceElementRule  	
+		inPattern : MM_Hybrid!SourceElementRule (inPattern.refImmediateComposite().oclIsTypeOf(MM_Hybrid!Rule))
 	to
 		atl : ATL!InPattern (
 			elements <- element 
@@ -134,7 +134,7 @@ rule InPatternElement {
 
 rule OutPatternElement { 
 	from
-		outPattern : MM_Hybrid!TargetElementRule
+		outPattern : MM_Hybrid!TargetElementRule (outPattern.refImmediateComposite().oclIsTypeOf(MM_Hybrid!Rule))
 	to
 		atl : ATL!SimpleOutPatternElement (
 			varName <- outPattern.name_element.toLower(),
@@ -223,7 +223,11 @@ helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : String =
 	if self.right."rule".asSequence().first().oclIsUndefined() then
 		self.right.sourceElement.asSequence().first().name_element
 	else
-		self.right."rule".asSequence().first().name_rule
+		if self.right.sourceElement.asSequence().first().oclIsUndefined() then
+			self.right."rule".asSequence().first().name_rule
+		else 
+			self.right.sourceElement.asSequence().first().name_element + '.' + self.right."rule".asSequence().first().name_rule
+		endif
 	endif;
 
 
