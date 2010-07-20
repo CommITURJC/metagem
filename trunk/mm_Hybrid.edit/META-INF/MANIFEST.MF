@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: mm_Hybrid_edit
 Bundle-SymbolicName: mm_Hybrid.edit;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
 Bundle-Activator: mm_hybrid.provider.MM_HybridEditPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: Kybele
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: mm_hybrid.provider
