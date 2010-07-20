@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: mm_Hybrid_Diagram
+Bundle-Name: %pluginName
 Bundle-SymbolicName: mm_Hybrid.diagram; singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: mm_hybrid.diagram.part.MM_HybridDiagramEditorPlugin
-Bundle-Vendor: Kybele
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: mm_hybrid.diagram.edit.parts,
  mm_hybrid.diagram.part,
