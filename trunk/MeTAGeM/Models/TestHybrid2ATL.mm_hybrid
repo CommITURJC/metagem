@@ -1,42 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="ModuleTest">
-  <rule name_rule="MR1" isMain="true" comment="">
+<mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="Module1">
+  <rule name_rule="R" isMain="true">
     <in name_element="Src1" metamodel="//@inMM.0"/>
     <out name_element="Trg1" metamodel="//@outMM.0">
       <included>
-        <right rule="//@rule.1"/>
-        <left>
-          <targetElement name_element="ElemIncTrg" metamodel="//@outMM.0"/>
-        </left>
-      </included>
-    </out>
-  </rule>
-  <rule name_rule="LR1" rightPattern="//@rule.0/@out.0/@included.0/@right //@rule.2/@out.0/@included.0/@right">
-    <in name_element="SrcLaz" metamodel="//@inMM.0"/>
-    <out name_element="TrgLaz" metamodel="//@outMM.0">
-      <included>
         <right>
-          <sourceElement name_element="ElemIncSrcLazy" metamodel="//@inMM.0"/>
+          <sourceElement name_element="ElemIncSrc1" metamodel="//@inMM.0"/>
         </right>
         <left>
-          <targetElement name_element="ElemIncTrgLazy" metamodel="//@outMM.0"/>
+          <targetElement name_element="ElemIncTrg1" metamodel="//@outMM.0"/>
         </left>
       </included>
     </out>
   </rule>
-  <rule name_rule="RuleCalled">
-    <out name_element="TrgCalled" metamodel="//@outMM.0">
-      <included>
-        <right rule="//@rule.1"/>
-        <left>
-          <targetElement name_element="ElemTrgCalled" metamodel="//@outMM.0"/>
-        </left>
-      </included>
-    </out>
-  </rule>
-  <inMM name_mm="NameMMIN" type_mm="TypeMMIN" elements="//@rule.0/@in.0 //@rule.1/@in.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.0"/>
-  <outMM name_mm="NameMMOUT" type_mm="TypeMMOUT" elements="//@rule.0/@out.0/@included.0/@left/@targetElement //@rule.0/@out.0 //@rule.2/@out.0 //@rule.1/@out.0 //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.2/@out.0/@included.0/@left/@targetElement"/>
-  <operations name_operation="Op1" body="Esto ayuda en algo" context="//@rule.0/@in.0">
-    <returnValue datatype="String"/>
+  <inMM name_mm="NIN" type_mm="TIN" elements="//@rule.0/@in.0 //@rule.0/@out.0/@included.0/@right/@sourceElement.0"/>
+  <outMM name_mm="NOUT" type_mm="TOUT" elements="//@rule.0/@out.0 //@rule.0/@out.0/@included.0/@left/@targetElement"/>
+  <operations name_operation="OP" body="Esto sirve para algo" context="//@rule.0/@in.0">
+    <returnType datatype="String"/>
   </operations>
 </mm_hybrid:Module>
