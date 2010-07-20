@@ -6,19 +6,24 @@
  */
 package mm_hybrid.impl;
 
+import java.util.Collection;
 import mm_hybrid.Element;
 import mm_hybrid.MM_HybridPackage;
 import mm_hybrid.Operation;
 import mm_hybrid.Return;
 
+import mm_hybrid.RightPattern;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +36,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link mm_hybrid.impl.OperationImpl#getBody <em>Body</em>}</li>
  *   <li>{@link mm_hybrid.impl.OperationImpl#getContext <em>Context</em>}</li>
  *   <li>{@link mm_hybrid.impl.OperationImpl#getReturnType <em>Return Type</em>}</li>
+ *   <li>{@link mm_hybrid.impl.OperationImpl#getRightPattern <em>Right Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,6 +102,16 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * @ordered
 	 */
 	protected Return returnType;
+
+	/**
+	 * The cached value of the '{@link #getRightPattern() <em>Right Pattern</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRightPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RightPattern> rightPattern;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -264,12 +280,47 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<RightPattern> getRightPattern() {
+		if (rightPattern == null) {
+			rightPattern = new EObjectWithInverseResolvingEList.ManyInverse<RightPattern>(
+					RightPattern.class, this,
+					MM_HybridPackage.OPERATION__RIGHT_PATTERN,
+					MM_HybridPackage.RIGHT_PATTERN__OPERATION);
+		}
+		return rightPattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getRightPattern())
+					.basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case MM_HybridPackage.OPERATION__RETURN_TYPE:
 			return basicSetReturnType(null, msgs);
+		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
+			return ((InternalEList<?>) getRightPattern()).basicRemove(otherEnd,
+					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -292,6 +343,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 			return basicGetContext();
 		case MM_HybridPackage.OPERATION__RETURN_TYPE:
 			return getReturnType();
+		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
+			return getRightPattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -301,6 +354,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -315,6 +369,11 @@ public class OperationImpl extends EObjectImpl implements Operation {
 			return;
 		case MM_HybridPackage.OPERATION__RETURN_TYPE:
 			setReturnType((Return) newValue);
+			return;
+		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
+			getRightPattern().clear();
+			getRightPattern().addAll(
+					(Collection<? extends RightPattern>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -340,6 +399,9 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		case MM_HybridPackage.OPERATION__RETURN_TYPE:
 			setReturnType((Return) null);
 			return;
+		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
+			getRightPattern().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -362,6 +424,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 			return context != null;
 		case MM_HybridPackage.OPERATION__RETURN_TYPE:
 			return returnType != null;
+		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
+			return rightPattern != null && !rightPattern.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

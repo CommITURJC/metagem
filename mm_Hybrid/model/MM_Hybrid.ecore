@@ -139,6 +139,8 @@
         upperBound="-1" eType="#//SourceElementRule" containment="true" eOpposite="#//SourceElementRule/rightPattern"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rule" upperBound="-1" eType="#//Rule"
         eOpposite="#//Rule/rightPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
+        eType="#//Operation" eOpposite="#//Operation/rightPattern"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LeftPattern">
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetElement" ordered="false"
@@ -152,6 +154,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="#//Element"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//Return"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightPattern" upperBound="-1"
+        eType="#//RightPattern" eOpposite="#//RightPattern/operation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Return">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//Element"/>

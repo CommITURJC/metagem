@@ -9,6 +9,7 @@ package mm_hybrid.impl;
 import java.util.Collection;
 
 import mm_hybrid.MM_HybridPackage;
+import mm_hybrid.Operation;
 import mm_hybrid.RightPattern;
 import mm_hybrid.Rule;
 import mm_hybrid.SourceElementRule;
@@ -39,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link mm_hybrid.impl.RightPatternImpl#getSourceElement <em>Source Element</em>}</li>
  *   <li>{@link mm_hybrid.impl.RightPatternImpl#getRule <em>Rule</em>}</li>
+ *   <li>{@link mm_hybrid.impl.RightPatternImpl#getOperation <em>Operation</em>}</li>
  * </ul>
  * </p>
  *
@@ -64,6 +66,16 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * @ordered
 	 */
 	protected EList<Rule> rule;
+
+	/**
+	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Operation> operation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,6 +130,21 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Operation> getOperation() {
+		if (operation == null) {
+			operation = new EObjectWithInverseResolvingEList.ManyInverse<Operation>(
+					Operation.class, this,
+					MM_HybridPackage.RIGHT_PATTERN__OPERATION,
+					MM_HybridPackage.OPERATION__RIGHT_PATTERN);
+		}
+		return operation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
@@ -128,6 +155,9 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 					.basicAdd(otherEnd, msgs);
 		case MM_HybridPackage.RIGHT_PATTERN__RULE:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getRule())
+					.basicAdd(otherEnd, msgs);
+		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOperation())
 					.basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -147,6 +177,9 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 					otherEnd, msgs);
 		case MM_HybridPackage.RIGHT_PATTERN__RULE:
 			return ((InternalEList<?>) getRule()).basicRemove(otherEnd, msgs);
+		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
+			return ((InternalEList<?>) getOperation()).basicRemove(otherEnd,
+					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -163,6 +196,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			return getSourceElement();
 		case MM_HybridPackage.RIGHT_PATTERN__RULE:
 			return getRule();
+		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
+			return getOperation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -185,6 +220,10 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			getRule().clear();
 			getRule().addAll((Collection<? extends Rule>) newValue);
 			return;
+		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
+			getOperation().clear();
+			getOperation().addAll((Collection<? extends Operation>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -203,6 +242,9 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		case MM_HybridPackage.RIGHT_PATTERN__RULE:
 			getRule().clear();
 			return;
+		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
+			getOperation().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -219,6 +261,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			return sourceElement != null && !sourceElement.isEmpty();
 		case MM_HybridPackage.RIGHT_PATTERN__RULE:
 			return rule != null && !rule.isEmpty();
+		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
+			return operation != null && !operation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

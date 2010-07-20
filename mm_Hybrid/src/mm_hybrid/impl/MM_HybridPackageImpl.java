@@ -656,6 +656,15 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRightPattern_Operation() {
+		return (EReference) rightPatternEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLeftPattern() {
 		return leftPatternEClass;
 	}
@@ -712,6 +721,15 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 */
 	public EReference getOperation_ReturnType() {
 		return (EReference) operationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperation_RightPattern() {
+		return (EReference) operationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -857,6 +875,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		rightPatternEClass = createEClass(RIGHT_PATTERN);
 		createEReference(rightPatternEClass, RIGHT_PATTERN__SOURCE_ELEMENT);
 		createEReference(rightPatternEClass, RIGHT_PATTERN__RULE);
+		createEReference(rightPatternEClass, RIGHT_PATTERN__OPERATION);
 
 		leftPatternEClass = createEClass(LEFT_PATTERN);
 		createEReference(leftPatternEClass, LEFT_PATTERN__TARGET_ELEMENT);
@@ -866,6 +885,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		createEAttribute(operationEClass, OPERATION__BODY);
 		createEReference(operationEClass, OPERATION__CONTEXT);
 		createEReference(operationEClass, OPERATION__RETURN_TYPE);
+		createEReference(operationEClass, OPERATION__RIGHT_PATTERN);
 
 		returnEClass = createEClass(RETURN);
 		createEReference(returnEClass, RETURN__ELEMENT);
@@ -1124,6 +1144,11 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				this.getRule(),
 				this.getRule_RightPattern(),
 				"rule", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getRightPattern_Operation(),
+				this.getOperation(),
+				this.getOperation_RightPattern(),
+				"operation", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				leftPatternEClass,
@@ -1157,6 +1182,11 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				this.getReturn(),
 				null,
 				"returnType", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getOperation_RightPattern(),
+				this.getRightPattern(),
+				this.getRightPattern_Operation(),
+				"rightPattern", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				returnEClass,

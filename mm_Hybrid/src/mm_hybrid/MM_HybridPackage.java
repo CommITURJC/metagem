@@ -585,13 +585,22 @@ public interface MM_HybridPackage extends EPackage {
 	int RIGHT_PATTERN__RULE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Operation</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RIGHT_PATTERN__OPERATION = 2;
+
+	/**
 	 * The number of structural features of the '<em>Right Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RIGHT_PATTERN_FEATURE_COUNT = 2;
+	int RIGHT_PATTERN_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.LeftPatternImpl <em>Left Pattern</em>}' class.
@@ -668,13 +677,22 @@ public interface MM_HybridPackage extends EPackage {
 	int OPERATION__RETURN_TYPE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Right Pattern</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__RIGHT_PATTERN = 4;
+
+	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = 4;
+	int OPERATION_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.ReturnImpl <em>Return</em>}' class.
@@ -1240,6 +1258,17 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getRightPattern_Rule();
 
 	/**
+	 * Returns the meta object for the reference list '{@link mm_hybrid.RightPattern#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Operation</em>'.
+	 * @see mm_hybrid.RightPattern#getOperation()
+	 * @see #getRightPattern()
+	 * @generated
+	 */
+	EReference getRightPattern_Operation();
+
+	/**
 	 * Returns the meta object for class '{@link mm_hybrid.LeftPattern <em>Left Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1313,6 +1342,17 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOperation_ReturnType();
+
+	/**
+	 * Returns the meta object for the reference list '{@link mm_hybrid.Operation#getRightPattern <em>Right Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Right Pattern</em>'.
+	 * @see mm_hybrid.Operation#getRightPattern()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_RightPattern();
 
 	/**
 	 * Returns the meta object for class '{@link mm_hybrid.Return <em>Return</em>}'.
@@ -1801,6 +1841,15 @@ public interface MM_HybridPackage extends EPackage {
 		EReference RIGHT_PATTERN__RULE = eINSTANCE.getRightPattern_Rule();
 
 		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RIGHT_PATTERN__OPERATION = eINSTANCE
+				.getRightPattern_Operation();
+
+		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.LeftPatternImpl <em>Left Pattern</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1861,6 +1910,15 @@ public interface MM_HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OPERATION__RETURN_TYPE = eINSTANCE.getOperation_ReturnType();
+
+		/**
+		 * The meta object literal for the '<em><b>Right Pattern</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__RIGHT_PATTERN = eINSTANCE
+				.getOperation_RightPattern();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.ReturnImpl <em>Return</em>}' class.
