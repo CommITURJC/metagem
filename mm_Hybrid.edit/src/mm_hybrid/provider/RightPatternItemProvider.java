@@ -61,6 +61,7 @@ public class RightPatternItemProvider extends ItemProviderAdapter implements
 			super.getPropertyDescriptors(object);
 
 			addRulePropertyDescriptor(object);
+			addOperationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -82,6 +83,25 @@ public class RightPatternItemProvider extends ItemProviderAdapter implements
 								"_UI_PropertyDescriptor_description", "_UI_RightPattern_rule_feature", "_UI_RightPattern_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 						MM_HybridPackage.Literals.RIGHT_PATTERN__RULE, true,
 						false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Operation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOperationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_RightPattern_operation_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_RightPattern_operation_feature", "_UI_RightPattern_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.RIGHT_PATTERN__OPERATION,
+						true, false, true, null, null, null));
 	}
 
 	/**

@@ -63,6 +63,7 @@ public class OperationItemProvider extends ItemProviderAdapter implements
 			addName_operationPropertyDescriptor(object);
 			addBodyPropertyDescriptor(object);
 			addContextPropertyDescriptor(object);
+			addRightPatternPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -124,6 +125,25 @@ public class OperationItemProvider extends ItemProviderAdapter implements
 								"_UI_PropertyDescriptor_description", "_UI_Operation_context_feature", "_UI_Operation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 						MM_HybridPackage.Literals.OPERATION__CONTEXT, true,
 						false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Right Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRightPatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_Operation_rightPattern_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_Operation_rightPattern_feature", "_UI_Operation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.OPERATION__RIGHT_PATTERN,
+						true, false, true, null, null, null));
 	}
 
 	/**
