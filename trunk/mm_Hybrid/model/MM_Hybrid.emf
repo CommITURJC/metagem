@@ -84,6 +84,7 @@ class Guard {
 class RightPattern {
   !ordered val SourceElementRule[*]#rightPattern sourceElement;
   ref Rule[*]#rightPattern rule;
+  ref Operation[*]#rightPattern operation;
 }
 
 class LeftPattern {
@@ -95,6 +96,7 @@ class Operation {
   !unique !ordered attr String[1] body;
   ref Element context;
   val Return returnType;
+  ref RightPattern[*]#operation rightPattern;
 }
 
 class Return {

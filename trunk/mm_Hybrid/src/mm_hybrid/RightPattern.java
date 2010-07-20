@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link mm_hybrid.RightPattern#getSourceElement <em>Source Element</em>}</li>
  *   <li>{@link mm_hybrid.RightPattern#getRule <em>Rule</em>}</li>
+ *   <li>{@link mm_hybrid.RightPattern#getOperation <em>Operation</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,5 +64,23 @@ public interface RightPattern extends EObject {
 	 * @generated
 	 */
 	EList<Rule> getRule();
+
+	/**
+	 * Returns the value of the '<em><b>Operation</b></em>' reference list.
+	 * The list contents are of type {@link mm_hybrid.Operation}.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.Operation#getRightPattern <em>Right Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Operation</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Operation</em>' reference list.
+	 * @see mm_hybrid.MM_HybridPackage#getRightPattern_Operation()
+	 * @see mm_hybrid.Operation#getRightPattern
+	 * @model opposite="rightPattern"
+	 * @generated
+	 */
+	EList<Operation> getOperation();
 
 } // RightPattern
