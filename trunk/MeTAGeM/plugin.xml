@@ -12,12 +12,11 @@
    <extension
          point="org.eclipse.gmt.weaver.metamodelExtensionID"
          id="MeTAGeMMetamodelExtension">
-         <extensionFile
-               fileName="mmw_metagem_v2.km3"
-               name="QuickATL"
-               relativePath="metamodels/">
-         </extensionFile>
-   </extension>
+   		<extensionFile
+	         name="MeTAGeM annotation"
+           	 fileName ="mmw_metagem_v2.km3"
+          	 relativePath="Metamodels/"/>
+   	</extension>
 
 
 </plugin>
