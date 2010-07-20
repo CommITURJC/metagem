@@ -171,9 +171,9 @@ rule Bindings {
 		) 
 }
 
-rule createOperation2Helper {
+rule createOperation2Helper_String {
 	from
-		oper : MM_Hybrid!Operation
+		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"String")
 	to
 		atl : ATL!Helper (
 			"module" <- oper.refImmediateComposite(),
@@ -190,24 +190,54 @@ rule createOperation2Helper {
 			returnType <- areturnType
 		),
 		areturnType : ATL!StringType (
-			operation <- afeature	
-			)
---							if oper.returnType.element.oclIsUndefined() then oper.getDataType().debug('get')
---							else oper.returnType.element
---							endif
-								
---		acontext : ATL!OclContextDefinition (
---			context_ <- acontextint
---		),
---		acontextint : ATL!OclModel (
---			name <- oper."context".name_element,
---			model <- amodel
---		),
---		amodel : ATL!OclModel (
---			name <- oper."context".metamodel 	
---		)
+			operation <- afeature
+		)
+}
 
+rule createOperation2Helper_Integer {
+	from
+		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"Integer")
+	to
+		atl : ATL!Helper (
+			"module" <- oper.refImmediateComposite(),
+			definition <- adefinition,
+			commentsBefore <- Set {'-- Comments -> This is a Helper: ' + oper.name_operation},
+			commentsAfter <- Set {'-- Body: ' + oper.body}
+		),
+		adefinition : ATL!OclFeatureDefinition (
+			feature <- afeature--,
+			--context_ <- acontext
+		),
+		afeature : ATL!Operation (
+			name <- oper.name_operation,
+			returnType <- areturnType
+		),
+		areturnType : ATL!IntegerType (
+			operation <- afeature
+		)
+}
 
+rule createOperation2Helper_Boolean {
+	from
+		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"Boolean")
+	to
+		atl : ATL!Helper (
+			"module" <- oper.refImmediateComposite(),
+			definition <- adefinition,
+			commentsBefore <- Set {'-- Comments -> This is a Helper: ' + oper.name_operation},
+			commentsAfter <- Set {'-- Body: ' + oper.body}
+		),
+		adefinition : ATL!OclFeatureDefinition (
+			feature <- afeature--,
+			--context_ <- acontext
+		),
+		afeature : ATL!Operation (
+			name <- oper.name_operation,
+			returnType <- areturnType
+		),
+		areturnType : ATL!BooleanType (
+			operation <- afeature
+		)
 }
 
 
