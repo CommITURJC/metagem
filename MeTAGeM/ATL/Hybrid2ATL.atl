@@ -187,9 +187,10 @@ rule createOperation2Helper {
 		),
 		afeature : ATL!Operation (
 			name <- oper.name_operation,
-			returnType <- if oper.returnType.element.oclIsUndefined() then oper.getDataType().debug('get')
-							else oper.returnType.element
-							endif
+			returnType <- String.oclType().debug('ReturnType')
+--							if oper.returnType.element.oclIsUndefined() then oper.getDataType().debug('get')
+--							else oper.returnType.element
+--							endif
 								
 		)--,
 --		acontext : ATL!OclContextDefinition (
