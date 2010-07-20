@@ -15,7 +15,13 @@
   </rule>
   <inMM name_mm="NIN" type_mm="TIN" elements="//@rule.0/@in.0 //@rule.0/@out.0/@included.0/@right/@sourceElement.0"/>
   <outMM name_mm="NOUT" type_mm="TOUT" elements="//@rule.0/@out.0 //@rule.0/@out.0/@included.0/@left/@targetElement"/>
-  <operations name_operation="OP" body="Esto sirve para algo" context="//@rule.0/@in.0">
+  <operations name_operation="OP2" body="Esto es otra cosa">
+    <returnType datatype="Integer"/>
+  </operations>
+  <operations name_operation="OP3" body="Y esto otro mas">
+    <returnType datatype="Boolean"/>
+  </operations>
+  <operations name_operation="OP1" body="Esto otro mas mas">
     <returnType datatype="String"/>
   </operations>
 </mm_hybrid:Module>
