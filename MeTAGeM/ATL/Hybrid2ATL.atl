@@ -186,8 +186,13 @@ rule createOperation2Helper {
 			--context_ <- acontext
 		),
 		afeature : ATL!Operation (
-			name <- oper.name_operation--,
-			--returnType <- oper.returnValue
+			name <- oper.name_operation,
+			returnType <- String.debug('returnType')
+			
+--			if oper.returnValue.element.oclIsUndefined() then oper.getDataType().debug('get')
+--							else oper.returnValue.element
+--							endif
+								
 		)--,
 --		acontext : ATL!OclContextDefinition (
 --			context_ <- acontextint
@@ -203,14 +208,6 @@ rule createOperation2Helper {
 
 }
 
---rule returnValue {
---	from
---		val : MM_Hybrid!Return
---	to
---		rt : ATL!Operation (
---			returnType <- val.datatype	
---		)
---}
 
 helper context MM_Hybrid!Rule def : getSizeIP () : Integer = 
 	self."in".size();
@@ -225,7 +222,7 @@ helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : String =
 	else
 		if self.right.sourceElement.asSequence().first().oclIsUndefined() then
 			self.right."rule".asSequence().first().name_rule
-		else 
+		else -- CORREGIR LA GENERACIÓN DE LA STRING - QUITAR LAS COMILLAS
 			self.right.sourceElement.asSequence().first().name_element + '.' + self.right."rule".asSequence().first().name_rule
 		endif
 	endif;
@@ -237,4 +234,14 @@ helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : String =
 	else
 		self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
 	endif;
+
+--helper context MM_Hybrid!Operation def : getDataType () : ATL!EnumLiteral =
+--	if self.returnValue.datatype = '#Boolean' then
+--		Boolean.oclType
+--	else if self.returnValue.datatype = '#Integer' then 
+--		#INTEGER
+--	else --if self.returnValue.datatype = #String then
+--		String.oclType()
+--	endif
+--	endif;
 		
