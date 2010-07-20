@@ -187,11 +187,9 @@ rule createOperation2Helper {
 		),
 		afeature : ATL!Operation (
 			name <- oper.name_operation,
-			returnType <- String.debug('returnType')
-			
---			if oper.returnValue.element.oclIsUndefined() then oper.getDataType().debug('get')
---							else oper.returnValue.element
---							endif
+			returnType <- if oper.returnType.element.oclIsUndefined() then oper.getDataType().debug('get')
+							else oper.returnType.element
+							endif
 								
 		)--,
 --		acontext : ATL!OclContextDefinition (
@@ -235,13 +233,13 @@ helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : String =
 		self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
 	endif;
 
---helper context MM_Hybrid!Operation def : getDataType () : ATL!EnumLiteral =
---	if self.returnValue.datatype = '#Boolean' then
---		Boolean.oclType
---	else if self.returnValue.datatype = '#Integer' then 
---		#INTEGER
---	else --if self.returnValue.datatype = #String then
---		String.oclType()
---	endif
---	endif;
+helper context MM_Hybrid!Operation def : getDataType () : ecore!EDataType=
+	if self.returnType.datatype = '#Boolean' then
+		#BOOLEAN
+	else if self.returnType.datatype = '#Integer' then 
+		#INTEGER
+	else --if self.returnType.datatype = #String then
+		#STRING
+	endif
+	endif;
 		
