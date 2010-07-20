@@ -267,13 +267,5 @@ helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : String =
 		self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
 	endif;
 
-helper context MM_Hybrid!Operation def : getDataType () : ecore!EDataType=
-	if self.returnType.datatype = '#Boolean' then
-		#BOOLEAN
-	else if self.returnType.datatype = '#Integer' then 
-		#INTEGER
-	else --if self.returnType.datatype = #String then
-		#STRING
-	endif
-	endif;
+
 		
