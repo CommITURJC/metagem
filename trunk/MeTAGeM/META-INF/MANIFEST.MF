@@ -1,14 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: MeTAGeM
 Bundle-SymbolicName: MeTAGeM;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
-Bundle-Vendor: %providerName
+Bundle-Vendor: Kybele
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.gmt.weaver,
- org.eclipse.epsilon.evl.emf.validation
-Bundle-ActivationPolicy: lazy
