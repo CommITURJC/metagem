@@ -1,27 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="Module1">
-  <rule name_rule="R" isMain="true">
+  <rule name_rule="R" isMain="true" rightPattern="//@rule.0/@out.0/@included.0/@right">
     <in name_element="Src1" metamodel="//@inMM.0"/>
     <out name_element="Trg1" metamodel="//@outMM.0">
       <included>
-        <right>
-          <sourceElement name_element="ElemIncSrc1" metamodel="//@inMM.0"/>
+        <right rule="//@rule.0">
+          <sourceElement name_element="ElemIncSrc" metamodel="//@inMM.0"/>
         </right>
         <left>
           <targetElement name_element="ElemIncTrg1" metamodel="//@outMM.0"/>
         </left>
       </included>
     </out>
+    <out name_element="Trg2" metamodel="//@outMM.0">
+      <included>
+        <right operation="//@operations.2"/>
+        <left>
+          <targetElement name_element="ElemIncTrg2" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
   </rule>
-  <inMM name_mm="NIN" type_mm="TIN" elements="//@rule.0/@in.0 //@rule.0/@out.0/@included.0/@right/@sourceElement.0"/>
-  <outMM name_mm="NOUT" type_mm="TOUT" elements="//@rule.0/@out.0 //@rule.0/@out.0/@included.0/@left/@targetElement"/>
+  <rule name_rule="RMultiInput" isMain="true">
+    <in name_element="MultiSrc1" metamodel="//@inMM.0"/>
+    <in name_element="MultiSrc2" metamodel="//@inMM.0"/>
+    <out name_element="TrgMulti1" metamodel="//@outMM.0">
+      <included>
+        <right>
+          <sourceElement name_element="ElIncSrcMulti1" metamodel="//@inMM.0"/>
+        </right>
+        <left>
+          <targetElement name_element="ElIncTrgMulti1" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <inMM name_mm="NIN" type_mm="TIN" elements="//@rule.0/@in.0 //@rule.0/@out.0/@included.0/@right/@sourceElement.0 //@rule.1/@in.0 //@rule.1/@in.1 //@rule.1/@out.0/@included.0/@right/@sourceElement.0"/>
+  <outMM name_mm="NOUT" type_mm="TOUT" elements="//@rule.0/@out.0 //@rule.0/@out.0/@included.0/@left/@targetElement //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.0/@out.1 //@rule.0/@out.1/@included.0/@left/@targetElement //@rule.1/@out.0"/>
   <operations name_operation="OP2" body="Esto es otra cosa">
     <returnType datatype="Integer"/>
   </operations>
   <operations name_operation="OP3" body="Y esto otro mas">
     <returnType datatype="Boolean"/>
   </operations>
-  <operations name_operation="OP1" body="Esto otro mas mas">
+  <operations name_operation="OP1" body="Esto otro mas mas" rightPattern="//@rule.0/@out.1/@included.0/@right">
     <returnType datatype="String"/>
   </operations>
 </mm_hybrid:Module>
