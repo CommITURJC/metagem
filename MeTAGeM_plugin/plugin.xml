@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="kybele.metagem.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchConfigurationDelegate"
+            id="MeTAGeM_plugin.METAGEM2HYBRIDLCT"
+            modes="run, debug"
+            name="MeTAGeM -&gt; Hybrid"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="kybele.metagem.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchConfigurationTabGroup"
+            id="MeTAGeM.launchConfigurationTabGroup_Metagem2Hybrid"
+            type="MeTAGeM_plugin.METAGEM2HYBRIDLCT">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="kybele.metagem.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchShortcut"
+            id="MeTAGeM_plugin.shortcut4"
+            label="MeTAGeM -&gt; Hybrid"
+            modes="run, debug">
+         <configurationType
+               id="MeTAGeM_plugin.METAGEM2HYBRIDLCT">
+         </configurationType>
+         <contextualLaunch>
+            <contextLabel
+                  label="MeTAGeM -&gt; Hybrid"
+                  mode="run">
+            </contextLabel>
+            <enablement>
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <instanceof
+                           value="org.eclipse.core.resources.IFile">
+                     </instanceof>
+                     <test
+                           property="org.eclipse.debug.ui.matchesPattern"
+                           value="*.amw">
+                     </test>
+                  </iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+      </shortcut>
+   </extension>
+
+</plugin>
