@@ -26,7 +26,7 @@ public class METAGEM2HYBRIDLaunchConfigurationDelegate implements
 		monitor.beginTask("Launching transformation", 100);
 		monitor.subTask("Getting configuration info");
 		String uriIN = getINAtt(configuration);
-//		String uriOUT = getOUTAtt(configuration);
+		String uriOUT = getOUTAtt(configuration);
 		monitor.worked(10);
 		if (monitor.isCanceled()) 
 			return;
@@ -40,15 +40,15 @@ public class METAGEM2HYBRIDLaunchConfigurationDelegate implements
 		}
 		if(isValid)
 		{
-//			monitor.subTask("Executing transformation");
-//		Transformations transf = Transformations.getInstance();
-//		transf.ordb4ora2sql2003(uriIN, uriOUT);
-//		monitor.worked(85);		
-//		if(monitor.isCanceled())
-//			return;
-//		monitor.subTask("Transformation finished");
-//		ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IFolder.DEPTH_INFINITE, null);
-		monitor.done();
+			monitor.subTask("Executing transformation");
+			Transformations transf = Transformations.getInstance();
+			transf.ordb4ora2sql2003(uriIN, uriOUT);
+			monitor.worked(85);		
+			if(monitor.isCanceled())
+				return;
+			monitor.subTask("Transformation finished");
+			ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IFolder.DEPTH_INFINITE, null);
+			monitor.done();
 		}
 		else
 		{	
@@ -61,12 +61,12 @@ public class METAGEM2HYBRIDLaunchConfigurationDelegate implements
 	{
 		return getTransformationAtt(configuration, METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_IN);
 	}
-//
-//	
-//	private String getOUTAtt(ILaunchConfiguration configuration) throws CoreException
-//	{
-//		return getTransformationAtt(configuration, ORDB4ORA2SQL2003Constants.ATTR_TRANSFORMATION_OUT);
-//	}
+
+	
+	private String getOUTAtt(ILaunchConfiguration configuration) throws CoreException
+	{
+		return getTransformationAtt(configuration, METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_OUT);
+	}
 	
 	private String getTransformationAtt(ILaunchConfiguration configuration,String id) throws CoreException{
 		
