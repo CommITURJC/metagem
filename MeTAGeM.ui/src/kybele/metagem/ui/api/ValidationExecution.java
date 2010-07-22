@@ -50,7 +50,7 @@ public abstract class ValidationExecution {
 	private static String getSource(String metamodelName) throws Exception {
 		
 		if(metamodelName.equals(Constants.METAGEMURI))
-			return "MeTAGeM.evl";
+			return "resources/MeTAGeM.evl";
 		return "";
 	}
 
