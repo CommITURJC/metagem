@@ -1,49 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="Module1">
-  <rule name_rule="R" isMain="true" rightPattern="//@rule.0/@out.0/@included.0/@right">
-    <in name_element="Src1" metamodel="//@inMM.0"/>
-    <out name_element="Trg1" metamodel="//@outMM.0">
+  <rule name_rule="MatchedRule11" isMain="true">
+    <in name_element="Src1MR" metamodel="//@inMM.0"/>
+    <out name_element="Trg1MR" metamodel="//@outMM.0">
       <included>
-        <right rule="//@rule.0">
-          <sourceElement name_element="ElemIncSrc" metamodel="//@inMM.0"/>
+        <right>
+          <sourceElement name_element="ElemIncSrcMR1" metamodel="//@inMM.0"/>
         </right>
         <left>
-          <targetElement name_element="ElemIncTrg1" metamodel="//@outMM.0"/>
+          <targetElement name_element="ElemIncTrgMR1" metamodel="//@outMM.0"/>
         </left>
       </included>
     </out>
-    <out name_element="Trg2" metamodel="//@outMM.0">
+  </rule>
+  <rule name_rule="MatchedRule1N" isMain="true">
+    <in name_element="Src2MR" metamodel="//@inMM.0"/>
+    <out name_element="Trg2MR" metamodel="//@outMM.0">
+      <included>
+        <right operation="//@operations.0"/>
+        <left>
+          <targetElement name_element="ElemIncTrgMR2" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+    <out name_element="Trg3MR" metamodel="//@outMM.0">
+      <included>
+        <right operation="//@operations.1"/>
+        <left>
+          <targetElement name_element="ElemIncTrgMR3" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="MatchedRuleNN" isMain="true">
+    <in name_element="Src3MR" metamodel="//@inMM.0"/>
+    <in name_element="Src4MR" metamodel="//@inMM.0"/>
+    <out name_element="Trg4MR" metamodel="//@outMM.0">
+      <included>
+        <right>
+          <sourceElement name_element="ElemIncSrcMR2" metamodel="//@inMM.0"/>
+        </right>
+        <left>
+          <targetElement name_element="ElemIncTrgMR4" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+    <out name_element="Trg5MR" metamodel="//@outMM.0">
+      <included>
+        <right rule="//@rule.3"/>
+        <left>
+          <targetElement name_element="ElemIncTrgMR5" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="LazyRule11" rightPattern="//@rule.2/@out.1/@included.0/@right //@rule.4/@out.1/@included.0/@right">
+    <in name_element="Src1LR" metamodel="//@inMM.0"/>
+    <out name_element="Trg1LR" metamodel="//@outMM.0">
       <included>
         <right operation="//@operations.2"/>
         <left>
-          <targetElement name_element="ElemIncTrg2" metamodel="//@outMM.0"/>
+          <targetElement name_element="ElemIncTrgLR1" metamodel="//@outMM.0"/>
         </left>
       </included>
     </out>
   </rule>
-  <rule name_rule="RMultiInput" isMain="true">
-    <in name_element="MultiSrc1" metamodel="//@inMM.0"/>
-    <in name_element="MultiSrc2" metamodel="//@inMM.0"/>
-    <out name_element="TrgMulti1" metamodel="//@outMM.0">
+  <rule name_rule="CalledRule0N">
+    <out name_element="Trg1CR" metamodel="//@outMM.0">
       <included>
         <right>
-          <sourceElement name_element="ElIncSrcMulti1" metamodel="//@inMM.0"/>
+          <sourceElement name_element="ElemIncSrcCR1" metamodel="//@inMM.0"/>
         </right>
         <left>
-          <targetElement name_element="ElIncTrgMulti1" metamodel="//@outMM.0"/>
+          <targetElement name_element="ElemIncTrgCR1" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+    <out name_element="Trg2CR" metamodel="//@outMM.0">
+      <included>
+        <right rule="//@rule.3"/>
+        <left>
+          <targetElement name_element="ElemIncTrgCR1" metamodel="//@outMM.0"/>
         </left>
       </included>
     </out>
   </rule>
-  <inMM name_mm="NIN" type_mm="TIN" elements="//@rule.0/@in.0 //@rule.0/@out.0/@included.0/@right/@sourceElement.0 //@rule.1/@in.0 //@rule.1/@in.1 //@rule.1/@out.0/@included.0/@right/@sourceElement.0"/>
-  <outMM name_mm="NOUT" type_mm="TOUT" elements="//@rule.0/@out.0 //@rule.0/@out.0/@included.0/@left/@targetElement //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.0/@out.1 //@rule.0/@out.1/@included.0/@left/@targetElement //@rule.1/@out.0"/>
-  <operations name_operation="OP2" body="Esto es otra cosa">
+  <inMM name_mm="NIN" type_mm="TIN" elements="//@rule.0/@in.0 //@rule.0/@out.0/@included.0/@right/@sourceElement.0 //@rule.1/@in.0 //@rule.2/@in.0 //@rule.2/@in.1 //@rule.2/@out.0/@included.0/@right/@sourceElement.0 //@rule.3/@in.0 //@rule.4/@out.0/@included.0/@right/@sourceElement.0"/>
+  <outMM name_mm="NOUT" type_mm="TOUT" elements="//@rule.0/@out.0 //@rule.0/@out.0/@included.0/@left/@targetElement //@rule.1/@out.0 //@rule.1/@out.1 //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.1/@out.1/@included.0/@left/@targetElement //@rule.2/@out.0 //@rule.2/@out.1 //@rule.2/@out.0/@included.0/@left/@targetElement //@rule.2/@out.1/@included.0/@left/@targetElement //@rule.3/@out.0/@included.0/@left/@targetElement //@rule.3/@out.0 //@rule.4/@out.0 //@rule.4/@out.1 //@rule.4/@out.0/@included.0/@left/@targetElement //@rule.4/@out.1/@included.0/@left/@targetElement"/>
+  <operations name_operation="OP1" body="Esto hace lo siguiente..." rightPattern="//@rule.1/@out.0/@included.0/@right">
+    <returnType datatype="String"/>
+  </operations>
+  <operations name_operation="OP2" body="Esto hace otra cosa..." rightPattern="//@rule.1/@out.1/@included.0/@right">
     <returnType datatype="Integer"/>
   </operations>
-  <operations name_operation="OP3" body="Y esto otro mas">
-    <returnType datatype="Boolean"/>
-  </operations>
-  <operations name_operation="OP1" body="Esto otro mas mas" rightPattern="//@rule.0/@out.1/@included.0/@right">
-    <returnType datatype="String"/>
+  <operations name_operation="OP3" body="Y esto otra cosa mas..." rightPattern="//@rule.3/@out.0/@included.0/@right">
+    <returnType element="//@rule.3/@in.0"/>
   </operations>
 </mm_hybrid:Module>
