@@ -1,6 +1,7 @@
 module Hybrid2ATL; -- Module Template
 create OUT : ATL from IN : MM_Hybrid;
 
+-- Create module header
 rule Module {
 	from 
 		mm_hybrid : MM_Hybrid!Module
@@ -14,7 +15,7 @@ rule Module {
 			commentsBefore <- Set {'-- @atlcompiler atl2006'}
 		)
 }
-  
+
 rule inMM{
 	from
 		inMM_hybrid : MM_Hybrid!InMetaModel
@@ -151,7 +152,9 @@ rule Bindings {
 		elemInc : MM_Hybrid!ElementIncluded
 	to
 		atl : ATL!Binding (
+			--Binding left side
 			propertyName <- elemInc.left.targetElement.asSequence().first().name_element,
+			--Binding right side
 			value <- avalue
 		),
 		avalue : ATL!NavigationOrAttributeCallExp(
@@ -166,6 +169,7 @@ rule Bindings {
 		) 
 }
 
+--Helper wiht String return type
 rule createOperation2Helper_String {
 	from
 		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"String")
@@ -189,6 +193,7 @@ rule createOperation2Helper_String {
 		)
 }
 
+--Helper wiht Integer return type
 rule createOperation2Helper_Integer {
 	from
 		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"Integer")
@@ -212,6 +217,7 @@ rule createOperation2Helper_Integer {
 		)
 }
 
+--Helper wiht Boolean return type
 rule createOperation2Helper_Boolean {
 	from
 		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"Boolean")
@@ -235,6 +241,7 @@ rule createOperation2Helper_Boolean {
 		)
 }
 
+--Helper wiht Element return type
 rule createOperation2Helper_Element {
 	from
 		oper : MM_Hybrid!Operation (not oper.returnType.element.oclIsUndefined())
@@ -263,13 +270,12 @@ rule createOperation2Helper_Element {
 		)
 }
 
+--Helper -> Return the number of inputPatterns 
 helper context MM_Hybrid!Rule def : getSizeIP () : Integer = 
 	self."in".size();
 
---helper context MM_Hybrid!Rule def : getSizeOP() : Integer = 
---	self.out.size();
 
-
+--Helper -> Define the source binding (Element, Rule or Helper)
 helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : String =
 	--rule undefined
 	if self.right."rule".asSequence().first().oclIsUndefined() then
@@ -298,17 +304,18 @@ helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : String =
 	endif;
 
 
---helper context MM_Hybrid!ElementIncluded def : getSourceBindingCompRule () : String =
---	self.right."rule".asSequence().first().name_rule.debug;
---
---
---helper context MM_Hybrid!ElementIncluded def : getSourceBindingCompHelper () : String =
---	self.right.operations.asSequence().first().name_operation;
-
-
+--Helper -> Return the variable used on source binding
 helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : String =
 	if self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().oclIsUndefined()  then
 		'???'
 	else
 		self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
-	endif;	
+	endif;
+
+
+
+--helper context MM_Hybrid!ElementIncluded def : getSourceBindingCompRule () : String =
+--	self.right."rule".asSequence().first().name_rule.debug;
+
+--helper context MM_Hybrid!ElementIncluded def : getSourceBindingCompHelper () : String =
+--	self.right.operations.asSequence().first().name_operation;
