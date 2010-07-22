@@ -170,7 +170,7 @@ rule Bindings {
 		) 
 }
 
---Helper wiht String return type
+--Helper with String return type
 rule createOperation2Helper_String {
 	from
 		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"String")
@@ -194,7 +194,7 @@ rule createOperation2Helper_String {
 		)
 }
 
---Helper wiht Integer return type
+--Helper with Integer return type
 rule createOperation2Helper_Integer {
 	from
 		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"Integer")
@@ -218,7 +218,7 @@ rule createOperation2Helper_Integer {
 		)
 }
 
---Helper wiht Boolean return type
+--Helper with Boolean return type
 rule createOperation2Helper_Boolean {
 	from
 		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"Boolean")
@@ -242,7 +242,7 @@ rule createOperation2Helper_Boolean {
 		)
 }
 
---Helper wiht Element return type
+--Helper with Element return type
 rule createOperation2Helper_Element {
 	from
 		oper : MM_Hybrid!Operation (not oper.returnType.element.oclIsUndefined())
