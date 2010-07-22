@@ -74,18 +74,18 @@ public class Transformations implements ExecutionMessageListener {
 			initMetagem2HybridMetamodels(models);
 						
 			// get/create models
-			ASMEMFModel ordbInputModel = (ASMEMFModel) modelHandler.loadModel("IN", ordb4oraMetamodel, URI.createFileURI(inORDBFilePath));
-			models.put("IN", ordbInputModel);
+			ASMEMFModel metagemInputModel = (ASMEMFModel) modelHandler.loadModel("IN", metagemMetamodel, URI.createFileURI(inORDBFilePath));
+			models.put("IN", metagemInputModel);
 			
-			ASMEMFModel sqlOutputModel = (ASMEMFModel) modelHandler.newModel("OUT", URI.createFileURI(outFilePath).toFileString(), sql2003Metamodel);
-			models.put("OUT", sqlOutputModel);
+			ASMEMFModel hybridOutputModel = (ASMEMFModel) modelHandler.newModel("OUT", URI.createFileURI(outFilePath).toFileString(), hybridMetamodel);
+			models.put("OUT", hybridOutputModel);
 			
 			// launch
-			AtlLauncher.getDefault().launch(this.ORDB4ORA2SQL2003_TransfoResource,
+			AtlLauncher.getDefault().launch(this.METAGEM2HYBRID_TransfoResource,
 					Collections.EMPTY_MAP, models,
 					Collections.EMPTY_MAP, Collections.EMPTY_LIST,Collections.EMPTY_MAP);
  
-			modelHandler.saveModel(sqlOutputModel, outFilePath, false);
+			modelHandler.saveModel(hybridOutputModel, outFilePath, false);
 			dispose(models);
 		} catch (Exception e) {
 			logger.log(Level.SEVERE, e.getLocalizedMessage(), e);
