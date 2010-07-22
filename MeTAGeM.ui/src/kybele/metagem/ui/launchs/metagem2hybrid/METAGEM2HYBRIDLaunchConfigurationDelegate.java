@@ -1,8 +1,11 @@
 package kybele.metagem.ui.launchs.metagem2hybrid;
 
+import kybele.metagem.ui.api.Transformations;
 import kybele.metagem.ui.api.ValidationExecution;
 import kybele.metagem.ui.utils.*;
 
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -42,7 +45,7 @@ public class METAGEM2HYBRIDLaunchConfigurationDelegate implements
 		{
 			monitor.subTask("Executing transformation");
 			Transformations transf = Transformations.getInstance();
-			transf.ordb4ora2sql2003(uriIN, uriOUT);
+			transf.metagem2hybrid(uriIN, uriOUT);
 			monitor.worked(85);		
 			if(monitor.isCanceled())
 				return;
