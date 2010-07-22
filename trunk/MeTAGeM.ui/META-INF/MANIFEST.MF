@@ -13,7 +13,23 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.debug.ui;bundle-version="3.4.2",
  org.eclipse.emf.ecore,
  org.eclipse.mofscript.parser;bundle-version="1.3.2",
- org.eclipse.mofscript.runtime;bundle-version="1.3.2"
+ org.eclipse.mofscript.runtime;bundle-version="1.3.2",
+ org.eclipse.m2m.atl;bundle-version="2.0.0",
+ org.eclipse.m2m.atl.adt.builder;bundle-version="2.0.0",
+ org.eclipse.m2m.atl.adt.debug;bundle-version="2.0.0",
+ org.eclipse.m2m.atl.adt.editor;bundle-version="2.0.0",
+ org.eclipse.m2m.atl.adt.perspective;bundle-version="2.0.0",
+ org.eclipse.m2m.atl.adt.wizard;bundle-version="2.0.0",
+ org.eclipse.m2m.atl.compilers.atl2006;bundle-version="2.0.0",
+ org.eclipse.m2m.atl.drivers.emf4atl;bundle-version="2.0.0",
+ org.eclipse.m2m.atl.drivers.mdr4atl;bundle-version="2.0.0",
+ org.eclipse.m2m.atl.drivers.uml24atl;bundle-version="2.0.0",
+ org.eclipse.m2m.atl.dsls;bundle-version="0.0.1",
+ org.eclipse.m2m.atl.engine;bundle-version="2.0.0",
+ org.eclipse.m2m.atl.engine.emfvm;bundle-version="2.0.0",
+ org.eclipse.m2m.atl.engine.vm;bundle-version="2.0.0",
+ org.eclipse.m2m.atl.ocl.core;bundle-version="2.0.0",
+ org.eclipse.m2m.atl.service.core;bundle-version="2.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.core.resources,
@@ -25,7 +41,4 @@ Import-Package: org.eclipse.core.resources,
  org.eclipse.epsilon.commons.parse.problem,
  org.eclipse.epsilon.emc.emf,
  org.eclipse.epsilon.eol,
- org.eclipse.epsilon.evl,
- org.eclipse.m2m.atl.drivers.emf4atl,
- org.eclipse.m2m.atl.engine,
- org.eclipse.m2m.atl.engine.vm
+ org.eclipse.epsilon.evl

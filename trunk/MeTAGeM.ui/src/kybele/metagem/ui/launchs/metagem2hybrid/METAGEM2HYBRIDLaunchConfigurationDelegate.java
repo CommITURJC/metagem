@@ -44,14 +44,14 @@ public class METAGEM2HYBRIDLaunchConfigurationDelegate implements
 		if(isValid)
 		{
 			monitor.subTask("Executing transformation");
-		Transformations transf = Transformations.getInstance();
-		transf.metagem2hybrid(uriIN, uriOUT);
-		monitor.worked(85);		
-		if(monitor.isCanceled())
-			return;
-		monitor.subTask("Transformation finished");
-		ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IFolder.DEPTH_INFINITE, null);
-		monitor.done();
+			Transformations transf = Transformations.getInstance();
+			transf.metagem2hybrid(uriIN, uriOUT);
+			monitor.worked(85);		
+			if(monitor.isCanceled())
+				return;
+			monitor.subTask("Transformation finished");
+			ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IFolder.DEPTH_INFINITE, null);
+			monitor.done();
 		}
 		else
 		{	

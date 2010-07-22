@@ -1,33 +1,20 @@
 package kybele.metagem.ui.api;
 
 
-import java.io.File;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import kybele.metagem.ui.utils.Constants;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Path;
+
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.mofscript.parser.MofScriptParseError;
-import org.eclipse.mofscript.parser.ParserUtil;
-import org.eclipse.mofscript.runtime.ExecutionManager;
-import org.eclipse.mofscript.runtime.ExecutionMessageListener;
 import org.eclipse.m2m.atl.drivers.emf4atl.ASMEMFModel;
 import org.eclipse.m2m.atl.engine.AtlEMFModelHandler;
 import org.eclipse.m2m.atl.engine.AtlLauncher;
 import org.eclipse.m2m.atl.engine.AtlModelHandler;
 import org.eclipse.m2m.atl.engine.vm.ATLVMPlugin;
+import org.eclipse.mofscript.runtime.ExecutionMessageListener;
 
 public class Transformations implements ExecutionMessageListener {
 
@@ -67,14 +54,14 @@ public class Transformations implements ExecutionMessageListener {
 	}
 		
 	
-	public void metagem2hybrid(String inORDBFilePath, String outFilePath) {
+	public void metagem2hybrid(String inFilePath, String outFilePath) {
 		try {
 			Map<String, Object> models = new HashMap<String, Object>();
 			
 			initMetagem2HybridMetamodels(models);
 						
 			// get/create models
-			ASMEMFModel metagemInputModel = (ASMEMFModel) modelHandler.loadModel("IN", metagemMetamodel, URI.createFileURI(inORDBFilePath));
+			ASMEMFModel metagemInputModel = (ASMEMFModel) modelHandler.loadModel("IN", metagemMetamodel, URI.createFileURI(inFilePath));
 			models.put("IN", metagemInputModel);
 			
 			ASMEMFModel hybridOutputModel = (ASMEMFModel) modelHandler.newModel("OUT", URI.createFileURI(outFilePath).toFileString(), hybridMetamodel);
