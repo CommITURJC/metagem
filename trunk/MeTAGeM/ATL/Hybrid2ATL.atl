@@ -20,7 +20,7 @@ rule inMM{
 		inMM_hybrid : MM_Hybrid!InMetaModel
 	to
 		inMM_ATL : ATL!OclModel(
-			--name <- inMM_hybrid.name_mm,
+			--name <- inMM_hybrid.name_mm, --Extract ATL-0.2 model to ATL-0.2 file
 			name <- inMM_hybrid.type_mm,
 			metamodel <- ametamodel
 		),
@@ -34,7 +34,7 @@ rule outMM{
 		outMM_hybrid : MM_Hybrid!OutMetaModel
 	to
 		outMM_ATL : ATL!OclModel(
-			--name <- outMM_hybrid.name_mm,
+			--name <- outMM_hybrid.name_mm, --Extract ATL-0.2 model to ATL-0.2 file
 			name <- outMM_hybrid.type_mm,
 			metamodel <- ametamodel
 		),
@@ -43,11 +43,11 @@ rule outMM{
 		)
 }
 
--- Create MatchedRule [1..1] - [1..N] 
+-- Create MatchedRule 
 rule createRule2MatchedRule{
 	from 
 		mm_hybrid_rule : MM_Hybrid!Rule 
-		(mm_hybrid_rule.isMain=true) --and mm_hybrid_rule.getSizeIP()=1)
+		(mm_hybrid_rule.isMain=true and mm_hybrid_rule.getSizeIP()>0)
 	to
 		atl : ATL!MatchedRule (
 			name <- mm_hybrid_rule.name_rule.debug('Name MacthedRule'),
@@ -67,23 +67,23 @@ rule createRule2MatchedRule{
 	)
 }
 
--- Create LazyRule [1..1] - [1..N] 
+-- Create LazyRule
 rule createRule2LazyRule{
 	from 
 		mm_hybrid_rule : MM_Hybrid!Rule 
-		(mm_hybrid_rule.isMain=false and mm_hybrid_rule.getSizeIP()=1)
+		(mm_hybrid_rule.isMain=false and mm_hybrid_rule.getSizeIP()>0)
 	to
 		atl : ATL!LazyMatchedRule (
 			name <- mm_hybrid_rule.name_rule.debug('Name LazyRule'),
 			isAbstract <- mm_hybrid_rule.isAbstract,
 			isRefining <- false,
 			isDefault <- false,
-			inPattern <- inPattern,--mm_hybrid_rule."in".asSequence().first(),
+			inPattern <- inPattern,
 			outPattern <- outPattern,
 			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + mm_hybrid_rule.name_rule}
 		),
 		inPattern : ATL!InPattern (
-			elements <- mm_hybrid_rule."in".asSequence()--.first(),
+			elements <- mm_hybrid_rule."in".asSequence()
 		),
 		
 		outPattern : ATL!OutPattern(
@@ -115,7 +115,6 @@ rule InPatternElement {
 	from 
 		inPattern : MM_Hybrid!SourceElementRule (inPattern.refImmediateComposite().oclIsTypeOf(MM_Hybrid!Rule))
 	to
-
 		atl : ATL!SimpleInPatternElement (
 			varName <- inPattern.name_element.toLower(),
 			type <- aType
@@ -163,7 +162,7 @@ rule Bindings {
 			referredVariable <- areferred	
 		),
 		areferred : ATL!VariableDeclaration(
-			varName <- elemInc.getReferredVariable() --elemInc.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
+			varName <- elemInc.getReferredVariable() 
 		) 
 }
 
@@ -236,30 +235,33 @@ rule createOperation2Helper_Boolean {
 		)
 }
 
---rule createOperation2Helper_Element {
---	from
---		oper : MM_Hybrid!Operation (not oper.returnType.element.oclIsUndefined())
---	to
---		atl : ATL!Helper (
---			"module" <- oper.refImmediateComposite(),
---			definition <- adefinition,
---			commentsBefore <- Set {'-- Comments -> This is a Helper: ' + oper.name_operation},
---			commentsAfter <- Set {'-- Body: ' + oper.body}
---		),
---		adefinition : ATL!OclFeatureDefinition (
---			feature <- afeature--,
---			--context_ <- acontext
---		),
---		afeature : ATL!Operation (
---			name <- oper.name_operation,
---			returnType <- areturnType
---		),
---		areturnType : ATL!OclAnyType (
---			name <- oper.returnType.element.name_element,			
---			operation <- afeature
---			
---		)
---}
+rule createOperation2Helper_Element {
+	from
+		oper : MM_Hybrid!Operation (not oper.returnType.element.oclIsUndefined())
+	to
+		atl : ATL!Helper (
+			"module" <- oper.refImmediateComposite(),
+			definition <- adefinition,
+			commentsBefore <- Set {'-- Comments -> This is a Helper: ' + oper.name_operation},
+			commentsAfter <- Set {'-- Body: ' + oper.body}
+		),
+		adefinition : ATL!OclFeatureDefinition (
+			feature <- afeature--,
+			--context_ <- acontext
+		),
+		afeature : ATL!Operation (
+			name <- oper.name_operation,
+			returnType <- areturnType
+		),
+		areturnType : ATL!OclModelElement (
+			name <- oper.returnType.element.name_element,
+			model <- amodel,
+			operation <- afeature
+		),
+		amodel : ATL!OclModel (
+			name <- oper.returnType.element.metamodel.type_mm				
+		)
+}
 
 helper context MM_Hybrid!Rule def : getSizeIP () : Integer = 
 	self."in".size();
@@ -271,7 +273,7 @@ helper context MM_Hybrid!Rule def : getSizeIP () : Integer =
 helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : String =
 	--rule undefined
 	if self.right."rule".asSequence().first().oclIsUndefined() then
-		--operation undefined
+		--rule undefined and operation undefined
 		if self.right.operation.asSequence().first().oclIsUndefined() then
 			self.right.sourceElement.asSequence().first().name_element
 		--rule undefined and operation defined 
