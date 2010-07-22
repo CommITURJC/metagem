@@ -111,7 +111,7 @@ rule createRule2CalledRule{
 		)
 }
 
-
+--InputPattern (from part)
 rule InPatternElement {
 	from 
 		inPattern : MM_Hybrid!SourceElementRule (inPattern.refImmediateComposite().oclIsTypeOf(MM_Hybrid!Rule))
@@ -129,6 +129,7 @@ rule InPatternElement {
 		)
 }
 
+--OutputPattern (to part)
 rule OutPatternElement { 
 	from
 		outPattern : MM_Hybrid!TargetElementRule (outPattern.refImmediateComposite().oclIsTypeOf(MM_Hybrid!Rule))
@@ -152,9 +153,9 @@ rule Bindings {
 		elemInc : MM_Hybrid!ElementIncluded
 	to
 		atl : ATL!Binding (
-			--Binding left side
+			--Left side of formula, that will receive the value
 			propertyName <- elemInc.left.targetElement.asSequence().first().name_element,
-			--Binding right side
+			--Right side of formula, that has the value - issues
 			value <- avalue
 		),
 		avalue : ATL!NavigationOrAttributeCallExp(
