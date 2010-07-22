@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: MeTAGeM_plugin Plug-in
 Bundle-SymbolicName: MeTAGeM_plugin;singleton:=true
 Bundle-Version: 1.0.0
-Bundle-Activator: kybele.metagem_plugin.Activator
+Bundle-Activator: kybele.metagem.ui.Activator
 Bundle-Vendor: Kybele
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

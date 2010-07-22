@@ -1,4 +1,4 @@
-package kybele.metagem.utils;
+package kybele.metagem.ui.utils;
 
 public class Constants {
 

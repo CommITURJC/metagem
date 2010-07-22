@@ -1,4 +1,4 @@
-package kybele.metagem.api;
+package kybele.metagem.ui.api;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,8 +36,8 @@ import org.osgi.framework.Bundle;
 
 
 
-import kybele.metagem.utils.Constants;
-import kybele.metagem_plugin.Activator;
+import kybele.metagem.ui.Activator;
+import kybele.metagem.ui.utils.Constants;
 
 public abstract class ValidationExecution {
 	
