@@ -1,4 +1,4 @@
-package kybele.metagem.launchs.metagem2hybrid;
+package kybele.metagem.ui.launchs.metagem2hybrid;
 
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.CommonTab;

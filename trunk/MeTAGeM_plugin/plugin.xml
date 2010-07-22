@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.debug.core.launchConfigurationTypes">
       <launchConfigurationType
-            delegate="kybele.metagem.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchConfigurationDelegate"
+            delegate="kybele.metagem.ui.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchConfigurationDelegate"
             id="MeTAGeM_plugin.METAGEM2HYBRIDLCT"
             modes="run, debug"
             name="MeTAGeM -&gt; Hybrid"
@@ -14,7 +14,7 @@
    <extension
          point="org.eclipse.debug.ui.launchConfigurationTabGroups">
       <launchConfigurationTabGroup
-            class="kybele.metagem.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchConfigurationTabGroup"
+            class="kybele.metagem.ui.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchConfigurationTabGroup"
             id="MeTAGeM.launchConfigurationTabGroup_Metagem2Hybrid"
             type="MeTAGeM_plugin.METAGEM2HYBRIDLCT">
       </launchConfigurationTabGroup>
@@ -22,7 +22,7 @@
    <extension
          point="org.eclipse.debug.ui.launchShortcuts">
       <shortcut
-            class="kybele.metagem.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchShortcut"
+            class="kybele.metagem.ui.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchShortcut"
             id="MeTAGeM_plugin.shortcut4"
             label="MeTAGeM -&gt; Hybrid"
             modes="run, debug">

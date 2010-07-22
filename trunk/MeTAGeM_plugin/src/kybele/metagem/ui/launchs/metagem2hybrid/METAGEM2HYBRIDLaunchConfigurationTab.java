@@ -1,4 +1,4 @@
-package kybele.metagem.launchs.metagem2hybrid;
+package kybele.metagem.ui.launchs.metagem2hybrid;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -27,9 +27,10 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.ui.model.BaseWorkbenchContentProvider;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
-import kybele.metagem.api.ValidationExecution;
-import kybele.metagem.launchs.core.AbstractExtendedLaunchConfigurationTab;
-import kybele.metagem.utils.Constants;
+
+import kybele.metagem.ui.api.ValidationExecution;
+import kybele.metagem.ui.launchs.core.AbstractExtendedLaunchConfigurationTab;
+import kybele.metagem.ui.utils.Constants;
 
 public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunchConfigurationTab {
 

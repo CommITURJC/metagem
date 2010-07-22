@@ -1,4 +1,4 @@
-package kybele.metagem.launchs.metagem2hybrid;
+package kybele.metagem.ui.launchs.metagem2hybrid;
 
 import java.util.ArrayList;
 import java.util.List;

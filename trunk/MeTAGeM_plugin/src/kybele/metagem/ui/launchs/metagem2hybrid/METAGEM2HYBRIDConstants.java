@@ -1,6 +1,6 @@
-package kybele.metagem.launchs.metagem2hybrid;
+package kybele.metagem.ui.launchs.metagem2hybrid;
 
-import kybele.metagem_plugin.Activator;
+import kybele.metagem.ui.Activator;
 
 public interface METAGEM2HYBRIDConstants {
 

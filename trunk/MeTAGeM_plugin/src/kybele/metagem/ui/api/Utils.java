@@ -1,4 +1,4 @@
-package kybele.metagem.api;
+package kybele.metagem.ui.api;
 
 import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;

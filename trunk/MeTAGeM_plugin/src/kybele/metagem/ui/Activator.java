@@ -1,4 +1,5 @@
-package kybele.metagem;
+package kybele.metagem.ui;
+
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 

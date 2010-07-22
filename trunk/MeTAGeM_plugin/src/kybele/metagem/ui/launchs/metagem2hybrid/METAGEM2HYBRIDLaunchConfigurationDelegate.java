@@ -1,7 +1,8 @@
-package kybele.metagem.launchs.metagem2hybrid;
+package kybele.metagem.ui.launchs.metagem2hybrid;
 
-import kybele.metagem.api.ValidationExecution;
-import kybele.metagem.utils.*;
+import kybele.metagem.ui.api.ValidationExecution;
+import kybele.metagem.ui.utils.*;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;

@@ -1,4 +1,4 @@
-package kybele.metagem.launchs.core;
+package kybele.metagem.ui.launchs.core;
 
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.swt.SWT;
