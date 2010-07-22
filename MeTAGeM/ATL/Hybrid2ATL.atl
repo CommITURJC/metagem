@@ -148,6 +148,7 @@ rule OutPatternElement {
 		)
 }
 
+--Bindigs -> Formulas (TargetElements <- SourceElements)
 rule Bindings {
 	from 
 		elemInc : MM_Hybrid!ElementIncluded
@@ -182,8 +183,18 @@ rule createOperation2Helper_String {
 			commentsAfter <- Set {'-- Body: ' + oper.body}
 		),
 		adefinition : ATL!OclFeatureDefinition (
-			feature <- afeature--,
-			--context_ <- acontext
+			feature <- afeature,
+			context_ <- acontext
+		),
+		acontext : ATL!OclContextDefinition (
+			context_ <- acontextin
+		),
+		acontextin : ATL!OclModelElement (
+			name <- oper."context".name_element,
+			model <- amodelin	
+		),
+		amodelin : ATL!OclModel(
+			name <- oper."context".metamodel.type_mm
 		),
 		afeature : ATL!Operation (
 			name <- oper.name_operation,
@@ -206,8 +217,18 @@ rule createOperation2Helper_Integer {
 			commentsAfter <- Set {'-- Body: ' + oper.body}
 		),
 		adefinition : ATL!OclFeatureDefinition (
-			feature <- afeature--,
-			--context_ <- acontext
+			feature <- afeature,
+			context_ <- acontext
+		),
+		acontext : ATL!OclContextDefinition (
+			context_ <- acontextin
+		),
+		acontextin : ATL!OclModelElement (
+			name <- oper."context".name_element,
+			model <- amodelin	
+		),
+		amodelin : ATL!OclModel(
+			name <- oper."context".metamodel.type_mm
 		),
 		afeature : ATL!Operation (
 			name <- oper.name_operation,
@@ -230,8 +251,18 @@ rule createOperation2Helper_Boolean {
 			commentsAfter <- Set {'-- Body: ' + oper.body}
 		),
 		adefinition : ATL!OclFeatureDefinition (
-			feature <- afeature--,
-			--context_ <- acontext
+			feature <- afeature,
+			context_ <- acontext
+		),
+		acontext : ATL!OclContextDefinition (
+			context_ <- acontextin
+		),
+		acontextin : ATL!OclModelElement (
+			name <- oper."context".name_element,
+			model <- amodelin	
+		),
+		amodelin : ATL!OclModel(
+			name <- oper."context".metamodel.type_mm
 		),
 		afeature : ATL!Operation (
 			name <- oper.name_operation,
@@ -254,8 +285,18 @@ rule createOperation2Helper_Element {
 			commentsAfter <- Set {'-- Body: ' + oper.body}
 		),
 		adefinition : ATL!OclFeatureDefinition (
-			feature <- afeature--,
-			--context_ <- acontext
+			feature <- afeature,
+			context_ <- acontext
+		),
+		acontext : ATL!OclContextDefinition (
+			context_ <- acontextin
+		),
+		acontextin : ATL!OclModelElement (
+			name <- oper."context".name_element,
+			model <- amodelin	
+		),
+		amodelin : ATL!OclModel(
+			name <- oper."context".metamodel.type_mm
 		),
 		afeature : ATL!Operation (
 			name <- oper.name_operation,

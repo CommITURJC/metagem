@@ -91,13 +91,13 @@
   </rule>
   <inMM name_mm="NIN" type_mm="TIN" elements="//@rule.1/@in.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.0 //@rule.2/@in.0 //@rule.3/@in.0 //@rule.3/@in.1 //@rule.3/@out.0/@included.0/@right/@sourceElement.0 //@rule.4/@in.0 //@rule.5/@out.0/@included.0/@right/@sourceElement.0 //@rule.0/@in.0"/>
   <outMM name_mm="NOUT" type_mm="TOUT" elements="//@rule.1/@out.0 //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.2/@out.0 //@rule.2/@out.1 //@rule.2/@out.0/@included.0/@left/@targetElement //@rule.2/@out.1/@included.0/@left/@targetElement //@rule.3/@out.0 //@rule.3/@out.1 //@rule.3/@out.0/@included.0/@left/@targetElement //@rule.3/@out.1/@included.0/@left/@targetElement //@rule.4/@out.0/@included.0/@left/@targetElement //@rule.4/@out.0 //@rule.5/@out.0 //@rule.5/@out.1 //@rule.5/@out.0/@included.0/@left/@targetElement //@rule.5/@out.1/@included.0/@left/@targetElement //@rule.0/@out.0"/>
-  <operations name_operation="OP1" body="Esto hace lo siguiente..." rightPattern="//@rule.2/@out.0/@included.0/@right">
+  <operations name_operation="OP1" body="Esto hace lo siguiente..." context="//@rule.2/@in.0" rightPattern="//@rule.2/@out.0/@included.0/@right">
     <returnType datatype="String"/>
   </operations>
-  <operations name_operation="OP2" body="Esto hace otra cosa..." rightPattern="//@rule.2/@out.1/@included.0/@right">
+  <operations name_operation="OP2" body="Esto hace otra cosa..." context="//@rule.2/@in.0" rightPattern="//@rule.2/@out.1/@included.0/@right">
     <returnType datatype="Integer"/>
   </operations>
-  <operations name_operation="OP3" body="Y esto otra cosa mas..." rightPattern="//@rule.4/@out.0/@included.0/@right">
+  <operations name_operation="OP3" body="Y esto otra cosa mas..." context="//@rule.4/@in.0" rightPattern="//@rule.4/@out.0/@included.0/@right">
     <returnType element="//@rule.4/@in.0"/>
   </operations>
 </mm_hybrid:Module>
