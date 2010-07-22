@@ -117,7 +117,7 @@ public class METAGEM2HYBRIDLaunchShortcut implements ILaunchShortcut {
 			ILaunchConfigurationType configType = getConfigurationType();
 			wc = configType.newInstance(null, getLaunchManager().generateUniqueLaunchConfigurationNameFrom("New_configuration"));
 			wc.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_IN, pathIN);
-			wc.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_OUT, new Path(pathIN).removeFileExtension().toOSString() + ".sql2003");
+			wc.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_OUT, new Path(pathIN).removeFileExtension().toOSString() + ".mm_hybrid");
 			config = wc.doSave();
 		} catch (CoreException exception) {
 			System.out.println("Error en createConfiguration");
