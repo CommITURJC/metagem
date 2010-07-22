@@ -10,9 +10,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import urjc.m2dat.utils.Constants;
-import ORDB4ORA.Model;
-import SQL2003.Schema;
+import kybele.metagem.ui.utils.Constants;
+
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
