@@ -32,7 +32,7 @@ public class Utils {
 		String tempDirectory = ResourcesPlugin.getWorkspace().getRoot().getLocation() + "/.metadata/.plugins/MeTAGeM";
 		//String tempDirectory = new Path(Platform.getInstallLocation().getURL().getPath()).getDevice() + "/temp"; 
 		File directory = new File(tempDirectory);
-		System.out.println(tempDirectory);
+		//System.out.println(tempDirectory);
 		if(!directory.exists())
 			directory.mkdirs();
 		

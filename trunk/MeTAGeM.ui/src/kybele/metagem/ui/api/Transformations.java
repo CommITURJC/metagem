@@ -19,7 +19,6 @@ import org.eclipse.mofscript.runtime.ExecutionMessageListener;
 public class Transformations implements ExecutionMessageListener {
 
 	static private Transformations transformations = null;
-	static private String resourceDirectory = "resources/";
 	protected static Logger logger = Logger.getLogger(ATLVMPlugin.LOGGER);
 	
 	private AtlEMFModelHandler modelHandler;
@@ -27,6 +26,7 @@ public class Transformations implements ExecutionMessageListener {
 	private URL METAGEM2HYBRID_TransfoResource;
 	private ASMEMFModel metagemMetamodel;
 	private ASMEMFModel hybridMetamodel;
+	private ASMEMFModel MOFMetamodel;
 	
 	
  
@@ -46,15 +46,18 @@ public class Transformations implements ExecutionMessageListener {
 		metagemMetamodel = (ASMEMFModel) modelHandler.loadModel(
 				"METAGEM", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/mw_metagem.ecore"));
 		hybridMetamodel = (ASMEMFModel) modelHandler.loadModel(
-				"HYBRID", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/MM_Hybrid.ecore"));
-		
- 		models.put("METAGEM", metagemMetamodel);
-		models.put("HYBRID", hybridMetamodel);
+				"MM_Hybrid", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/MM_Hybrid.ecore"));
+//		MOFMetamodel = (ASMEMFModel) modelHandler.loadModel(
+//				"MOF", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/Ecore.ecore"));
+		MOFMetamodel= (ASMEMFModel) modelHandler.getMof();
+ 		models.put("AMW", metagemMetamodel);
+		models.put("MM_Hybrid", hybridMetamodel);
+		models.put("MOF", MOFMetamodel);
 		
 	}
 		
 	
-	public void metagem2hybrid(String inFilePath, String outFilePath) {
+	public void metagem2hybrid(String inFilePath, String leftFilePath, String rightFilePath,String outFilePath) {
 		try {
 			Map<String, Object> models = new HashMap<String, Object>();
 			
@@ -64,6 +67,12 @@ public class Transformations implements ExecutionMessageListener {
 			ASMEMFModel metagemInputModel = (ASMEMFModel) modelHandler.loadModel("IN", metagemMetamodel, URI.createFileURI(inFilePath));
 			models.put("IN", metagemInputModel);
 			
+			ASMEMFModel leftInputModel = (ASMEMFModel) modelHandler.loadModel("left", MOFMetamodel, URI.createFileURI(leftFilePath));
+			models.put("left", leftInputModel);
+			
+			ASMEMFModel rightInputModel = (ASMEMFModel) modelHandler.loadModel("right", MOFMetamodel, URI.createFileURI(rightFilePath));
+			models.put("right", rightInputModel);
+						
 			ASMEMFModel hybridOutputModel = (ASMEMFModel) modelHandler.newModel("OUT", URI.createFileURI(outFilePath).toFileString(), hybridMetamodel);
 			models.put("OUT", hybridOutputModel);
 			
