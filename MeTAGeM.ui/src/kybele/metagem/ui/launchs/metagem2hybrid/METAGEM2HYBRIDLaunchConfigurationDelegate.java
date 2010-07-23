@@ -29,6 +29,8 @@ public class METAGEM2HYBRIDLaunchConfigurationDelegate implements
 		monitor.beginTask("Launching transformation", 100);
 		monitor.subTask("Getting configuration info");
 		String uriIN = getINAtt(configuration);
+		String uriLEFT=getLEFTAtt(configuration);
+		String uriRIGHT=getRIGHTAtt(configuration);
 		String uriOUT = getOUTAtt(configuration);
 		monitor.worked(10);
 		if (monitor.isCanceled()) 
@@ -45,7 +47,7 @@ public class METAGEM2HYBRIDLaunchConfigurationDelegate implements
 		{
 			monitor.subTask("Executing transformation");
 			Transformations transf = Transformations.getInstance();
-			transf.metagem2hybrid(uriIN, uriOUT);
+			transf.metagem2hybrid(uriIN, uriLEFT, uriRIGHT, uriOUT);
 			monitor.worked(85);		
 			if(monitor.isCanceled())
 				return;
@@ -63,6 +65,16 @@ public class METAGEM2HYBRIDLaunchConfigurationDelegate implements
 	private String getINAtt(ILaunchConfiguration configuration) throws CoreException
 	{
 		return getTransformationAtt(configuration, METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_IN);
+	}
+	
+	private String getLEFTAtt(ILaunchConfiguration configuration) throws CoreException
+	{
+		return getTransformationAtt(configuration, METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_LEFT);
+	}
+	
+	private String getRIGHTAtt(ILaunchConfiguration configuration) throws CoreException
+	{
+		return getTransformationAtt(configuration, METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_RIGHT);
 	}
 
 	

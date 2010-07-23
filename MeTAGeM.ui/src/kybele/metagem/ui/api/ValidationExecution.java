@@ -1,11 +1,9 @@
 package kybele.metagem.ui.api;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -14,9 +12,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.am3.ui.action.ActionRegisterMetamodel;
+import kybele.metagem.ui.Activator;
+import kybele.metagem.ui.utils.Constants;
+
 import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -33,11 +32,6 @@ import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.evl.EvlModule;
 import org.eclipse.epsilon.evl.EvlUnsatisfiedConstraint;
 import org.osgi.framework.Bundle;
-
-
-
-import kybele.metagem.ui.Activator;
-import kybele.metagem.ui.utils.Constants;
 
 public abstract class ValidationExecution {
 	
@@ -68,7 +62,7 @@ public abstract class ValidationExecution {
 			return false;
 		}
 		else {
-			System.out.println("All constraints have been satisfied");
+			//System.out.println("All constraints have been satisfied");
 			return true;
 		}
 	}
