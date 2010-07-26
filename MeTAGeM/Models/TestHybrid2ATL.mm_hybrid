@@ -34,7 +34,7 @@
   </rule>
   <rule name_rule="MRNN" isMain="true">
     <in name_element="SrcMR3" isRefered="//@rule.2/@out.0/@included.0/@right" metamodel="//@inMM.0"/>
-    <in name_element="SrcMR4" isRefered="//@rule.2/@out.1/@included.0/@right" metamodel="//@inMM.0"/>
+    <in name_element="SrcMR4" isRefered="//@rule.2/@out.2/@included.0/@right" metamodel="//@inMM.0"/>
     <out name_element="TrgMR4" metamodel="//@outMM.0">
       <included>
         <right rule="//@rule.3" name_pattern="RPMRNNa" reference="//@rule.2/@in.0"/>
@@ -45,11 +45,19 @@
     </out>
     <out name_element="TrgMR5" metamodel="//@outMM.0">
       <included>
-        <right operation="//@operations.0" name_pattern="RPMRNNb" reference="//@rule.2/@in.1">
-          <sourceElement name_element="ElIncSrcMRNNa" metamodel="//@inMM.0"/>
-        </right>
+        <right name_pattern="RPMRNNb" reference="//@rule.2/@out.2"/>
         <left name_pattern="LPMRNNb">
           <targetElement name_element="ElIncTrgNNb" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+    <out name_element="TrgMR6" isRefered="//@rule.2/@out.1/@included.0/@right" metamodel="//@outMM.0">
+      <included>
+        <right operation="//@operations.0" name_pattern="RPMRNNc" reference="//@rule.2/@in.1">
+          <sourceElement name_element="ElIncSrcMRNNa" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="LPMRNNc">
+          <targetElement name_element="ElIncTrgNNc" metamodel="//@outMM.0"/>
         </left>
       </included>
     </out>
@@ -79,9 +87,9 @@
       </included>
     </out>
   </rule>
-  <inMM name_mm="MMNameIN" type_mm="MMTypeIN" elements="//@rule.2/@in.1 //@rule.2/@in.0 //@rule.1/@in.0 //@rule.0/@in.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.0 //@rule.3/@in.0 //@rule.2/@out.1/@included.0/@right/@sourceElement.0 //@rule.3/@out.0/@included.0/@right/@sourceElement.0 //@rule.4/@out.0/@included.0/@right/@sourceElement.0"/>
-  <outMM name_mm="MMNameOUT" type_mm="MMTypeOUT" elements="//@rule.0/@out.0/@included.0/@left/@targetElement //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.1/@out.1/@included.0/@left/@targetElement //@rule.2/@out.0/@included.0/@left/@targetElement //@rule.2/@out.1/@included.0/@left/@targetElement //@rule.3/@out.0 //@rule.0/@out.0 //@rule.1/@out.0 //@rule.2/@out.0 //@rule.2/@out.1 //@rule.3/@out.0/@included.0/@left/@targetElement //@rule.4/@out.0/@included.0/@left/@targetElement //@rule.4/@out.0 //@rule.1/@out.1"/>
-  <operations name_operation="OP1" body="Esto hace algo" context="//@rule.2/@in.1" rightPattern="//@rule.2/@out.1/@included.0/@right">
+  <inMM name_mm="MMNameIN" type_mm="MMTypeIN" elements="//@rule.2/@in.1 //@rule.2/@in.0 //@rule.1/@in.0 //@rule.0/@in.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.0 //@rule.3/@in.0 //@rule.2/@out.2/@included.0/@right/@sourceElement.0 //@rule.3/@out.0/@included.0/@right/@sourceElement.0 //@rule.4/@out.0/@included.0/@right/@sourceElement.0"/>
+  <outMM name_mm="MMNameOUT" type_mm="MMTypeOUT" elements="//@rule.0/@out.0/@included.0/@left/@targetElement //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.1/@out.1/@included.0/@left/@targetElement //@rule.2/@out.0/@included.0/@left/@targetElement //@rule.2/@out.2/@included.0/@left/@targetElement //@rule.3/@out.0 //@rule.0/@out.0 //@rule.1/@out.0 //@rule.2/@out.0 //@rule.2/@out.1 //@rule.3/@out.0/@included.0/@left/@targetElement //@rule.4/@out.0/@included.0/@left/@targetElement //@rule.4/@out.0 //@rule.1/@out.1 //@rule.2/@out.2 //@rule.2/@out.1/@included.0/@left/@targetElement"/>
+  <operations name_operation="OP1" body="Esto hace algo" context="//@rule.2/@in.1" rightPattern="//@rule.2/@out.2/@included.0/@right">
     <returnType datatype="String"/>
   </operations>
   <operations name_operation="OP2" body="Y esto hace otra cosa" context="//@rule.0/@in.0" rightPattern="//@rule.0/@out.0/@included.0/@right">
