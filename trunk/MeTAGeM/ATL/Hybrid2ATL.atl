@@ -171,6 +171,7 @@ rule Bindings {
 		) 
 }
 
+
 --Helper with String return type
 rule createOperation2Helper_String {
 	from
@@ -317,8 +318,8 @@ helper context MM_Hybrid!Rule def : getSizeIP () : Integer =
 	self."in".size();
 
 
---Helper -> Define the source binding (Element, Rule or Helper)
-helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : String =
+--Helper -> Define the source binding (Element, Rule, Helper or Reference)
+helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : ATL!OclExpression = --String = 
 	--rule undefined, operation undefined, srcElement undefined, reference defined	
 	if (self.right."rule".asSequence().first().oclIsUndefined() and 
 		self.right.operation.asSequence().first().oclIsUndefined() and
@@ -354,7 +355,7 @@ helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : String =
 
 
 --Helper -> Return the variable used on source binding
-helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : String =
+helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : ATL!OclExpression = --String =
 	if self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().oclIsUndefined()  then
 		'???'
 	else
