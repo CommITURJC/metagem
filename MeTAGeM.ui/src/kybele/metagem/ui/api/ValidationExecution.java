@@ -78,6 +78,7 @@ public abstract class ValidationExecution {
 			InputStream input= FileLocator.openStream(b,new Path("metamodels/mw_metagem.ecore"),false);
 			registerMetamodel(Constants.METAGEMURI,input);
 			input.close();
+			System.err.println("MeTAGeM Registered");
 		}
 		
 		List<IModel> models = new ArrayList<IModel>();

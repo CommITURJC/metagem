@@ -5,14 +5,14 @@
          point="org.eclipse.debug.core.launchConfigurationTypes">
       <launchConfigurationType
             delegate="kybele.metagem.ui.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchConfigurationDelegate"
-            id="MeTAGeM_plugin.METAGEM2HYBRIDLCT"
+            id="MeTAGeM_UI.METAGEM2HYBRIDLCT"
             modes="run, debug"
             name="MeTAGeM -&gt; Hybrid"
             public="true">
       </launchConfigurationType>
       <launchConfigurationType
             delegate="kybele.metagem.ui.launchs.hybrid2atl.HYBRID2ATLLaunchConfigurationDelegate"
-            id="MeTAGeM_plugin.HYBRID2ATLLCT"
+            id="MeTAGeM_UI.HYBRID2ATLLCT"
             modes="run, debug"
             name="Hybrid -&gt; ATL"
             public="true">
@@ -23,23 +23,23 @@
       <launchConfigurationTabGroup
             class="kybele.metagem.ui.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchConfigurationTabGroup"
             id="MeTAGeM.launchConfigurationTabGroup_Metagem2Hybrid"
-            type="MeTAGeM_plugin.METAGEM2HYBRIDLCT">
+            type="MeTAGeM_UI.METAGEM2HYBRIDLCT">
       </launchConfigurationTabGroup>
       <launchConfigurationTabGroup
             class="kybele.metagem.ui.launchs.hybrid2atl.HYBRID2ATLLaunchConfigurationTabGroup"
             id="MeTAGeM.launchConfigurationTabGroup_Hybrid2ATL"
-            type="MeTAGeM_plugin.HYBRID2ATLLCT">
+            type="MeTAGeM_UI.HYBRID2ATLLCT">
       </launchConfigurationTabGroup>
    </extension>
    <extension
          point="org.eclipse.debug.ui.launchShortcuts">
       <shortcut
             class="kybele.metagem.ui.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchShortcut"
-            id="MeTAGeM_plugin.shortcut4"
+            id="MeTAGeM_UI.shortcut4"
             label="MeTAGeM -&gt; Hybrid"
             modes="run, debug">
          <configurationType
-               id="MeTAGeM_plugin.METAGEM2HYBRIDLCT">
+               id="MeTAGeM_UI.METAGEM2HYBRIDLCT">
          </configurationType>
          <contextualLaunch>
             <contextLabel
@@ -67,11 +67,11 @@
       </shortcut>
       <shortcut
             class="kybele.metagem.ui.launchs.hybrid2atl.HYBRID2ATLLaunchShortcut"
-            id="MeTAGeM_plugin.shortcut5"
+            id="MeTAGeM_UI.shortcut5"
             label="Hybrid -&gt; ATL"
             modes="run,debug">
          <configurationType
-               id="MeTAGeM_plugin.HYBRID2ATLLCT">
+               id="MeTAGeM_UI.HYBRID2ATLLCT">
          </configurationType>
          <contextualLaunch>
             <contextLabel
