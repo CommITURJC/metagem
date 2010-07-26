@@ -92,6 +92,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_element" ordered="false"
         unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
+        eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isRefered" upperBound="-1"
+        eType="#//RightPattern" eOpposite="#//RightPattern/reference"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourceElementRule" eSuperTypes="#//Element">
     <eAnnotations source="gmf.node">
@@ -141,10 +145,17 @@
         eOpposite="#//Rule/rightPattern"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
         eType="#//Operation" eOpposite="#//Operation/rightPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_pattern" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//Element"
+        eOpposite="#//Element/isRefered"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LeftPattern">
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetElement" ordered="false"
         lowerBound="1" eType="#//TargetElementRule" containment="true" eOpposite="#//TargetElementRule/leftPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_pattern" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_operation" ordered="false"

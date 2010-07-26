@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="sql2ordb">
+  <rule name_rule="R4" isMain="true">
+    <in name_element="BinaryStringTypes" metamodel="//@inMM.0"/>
+  </rule>
+  <rule name_rule="BinaryStringTypes_2_ANSICharacterType" isMain="true">
+    <in name_element="BinaryStringTypes" metamodel="//@inMM.0"/>
+    <in name_element="BooleanType" metamodel="//@inMM.0"/>
+    <out name_element="ANSICharacterType" metamodel="//@outMM.0">
+      <included>
+        <right rule="//@rule.9 //@rule.6">
+          <sourceElement name_element="schema" metamodel="//@inMM.0"/>
+          <sourceElement name_element="name" metamodel="//@inMM.0"/>
+        </right>
+        <left>
+          <targetElement name_element="Descriptor" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+    <out name_element="ANSINumberType" metamodel="//@outMM.0">
+      <included>
+        <right>
+          <sourceElement name_element="BehaviouralComponent" metamodel="//@inMM.0"/>
+        </right>
+        <left>
+          <targetElement name_element="package" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+      <included>
+        <right/>
+        <left>
+          <targetElement name_element="ANSICharacterType" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="Attribute_2_ANSINumberType" isMain="true">
+    <in name_element="Attribute" metamodel="//@inMM.0"/>
+    <out name_element="ANSINumberType" metamodel="//@outMM.0"/>
+  </rule>
+  <rule name_rule="BinaryStringTypes_2_BuiltInCharacterTypes" isMain="true">
+    <in name_element="BinaryStringTypes" metamodel="//@inMM.0"/>
+    <out name_element="BuiltInCharacterTypes" metamodel="//@outMM.0"/>
+    <out name_element="BuiltInDatetimeTypes" metamodel="//@outMM.0">
+      <included>
+        <right>
+          <sourceElement name_element="descriptor" metamodel="//@inMM.0"/>
+        </right>
+        <left>
+          <targetElement name_element="Size_Min" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="BooleanTypes_2_CHAR" isMain="true">
+    <in name_element="BooleanTypes" metamodel="//@inMM.0"/>
+    <in name_element="BooleanType" metamodel="//@inMM.0"/>
+    <out name_element="CHAR" metamodel="//@outMM.0"/>
+  </rule>
+  <rule name_rule="R5" isMain="true">
+    <out name_element="BuiltInLOBType" metamodel="//@outMM.0">
+      <included>
+        <right>
+          <sourceElement name_element="schema" metamodel="//@inMM.0"/>
+        </right>
+        <left>
+          <targetElement name_element="CHAR" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="super" isAbstract="true" isExtended="//@rule.7" rightPattern="//@rule.1/@out.0/@included.0/@right">
+    <in name_element="BehaviouralComponent" metamodel="//@inMM.0"/>
+    <out name_element="BuiltInDatetimeTypes" metamodel="//@outMM.0"/>
+  </rule>
+  <rule name_rule="R10" isMain="true" extends="//@rule.6">
+    <in name_element="Attribute" metamodel="//@inMM.0"/>
+    <in name_element="BaseTable" metamodel="//@inMM.0"/>
+  </rule>
+  <rule name_rule="R7" isMain="true">
+    <out name_element="NVARCHAR2" metamodel="//@outMM.0">
+      <included>
+        <right/>
+        <left/>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="super2" isAbstract="true" rightPattern="//@rule.1/@out.0/@included.0/@right">
+    <in name_element="BehaviouralComponent" metamodel="//@inMM.0"/>
+    <out name_element="ANSINumberType" metamodel="//@outMM.0"/>
+  </rule>
+  <inMM name_mm="SQL2003_model" type_mm="SQL2003" elements="//@rule.0/@in.0 //@rule.1/@in.0 //@rule.1/@in.1 //@rule.1/@out.0/@included.0/@right/@sourceElement.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.1 //@rule.1/@out.1/@included.0/@right/@sourceElement.0 //@rule.2/@in.0 //@rule.3/@in.0 //@rule.3/@out.1/@included.0/@right/@sourceElement.0 //@rule.4/@in.0 //@rule.4/@in.1 //@rule.5/@out.0/@included.0/@right/@sourceElement.0 //@rule.6/@in.0 //@rule.7/@in.0 //@rule.7/@in.1 //@rule.9/@in.0"/>
+  <outMM name_mm="ORDB4ORA_model" type_mm="ORDB4ORA" elements="//@rule.1/@out.0 //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.1/@out.1 //@rule.1/@out.1/@included.0/@left/@targetElement //@rule.1/@out.1/@included.1/@left/@targetElement //@rule.2/@out.0 //@rule.3/@out.0 //@rule.3/@out.1 //@rule.3/@out.1/@included.0/@left/@targetElement //@rule.4/@out.0 //@rule.5/@out.0 //@rule.5/@out.0/@included.0/@left/@targetElement //@rule.6/@out.0 //@rule.8/@out.0 //@rule.9/@out.0"/>
+</mm_hybrid:Module>
