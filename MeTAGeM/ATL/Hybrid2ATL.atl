@@ -351,7 +351,8 @@ helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : String =
 	if self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().oclIsUndefined()  then
 		'???'
 	else
-		self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
+		self.right.reference.name_element.toLower()
+		--self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
 	endif;
 
 
