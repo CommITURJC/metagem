@@ -173,12 +173,17 @@ rule OneToOne2ElementIncluded extends Relations2ElementIncluded{
 			left <- leftPattern
 		),
 		rightPattern:MM_Hybrid!RightPattern(
+			name_pattern <- relation_in.getRuleName().concat('_rightPattern'),
 			sourceElement <- relation_in.source.asSequence(),
 			"rule" <- relation_in.getRuleInvoked()
 		),
 		leftPattern:MM_Hybrid!LeftPattern(
+			name_pattern  <- relation_in.getRuleName().concat('_leftPattern'),
 			targetElement <- relation_in.target
 		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1;
+	}
 }
 
 rule ManyToOne2ElementIncluded extends Relations2ElementIncluded{
@@ -190,12 +195,17 @@ rule ManyToOne2ElementIncluded extends Relations2ElementIncluded{
 			left <- leftPattern
 		),
 		rightPattern:MM_Hybrid!RightPattern(
+			name_pattern <- relation_in.getRuleName().concat('_rightPattern'),
 			sourceElement <- relation_in.source.asSequence(),
 			"rule" <- relation_in.getRuleInvoked()
 		),
 		leftPattern:MM_Hybrid!LeftPattern(
+			name_pattern  <- relation_in.getRuleName().concat('_leftPattern'),
 			targetElement <- relation_in.target
 		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1;
+	}
 }
 
 rule ZeroToOne2ElementIncluded extends Relations2ElementIncluded{
@@ -207,11 +217,15 @@ rule ZeroToOne2ElementIncluded extends Relations2ElementIncluded{
 			left <- leftPattern
 		),
 		rightPattern:MM_Hybrid!RightPattern(
-
+			name_pattern <- relation_in.getRuleName().concat('_rightPattern')
 		),
 		leftPattern:MM_Hybrid!LeftPattern(
+			name_pattern  <- relation_in.getRuleName().concat('_leftPattern'),
 			targetElement <- relation_in.target
 		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1;
+	}
 }
 
 
