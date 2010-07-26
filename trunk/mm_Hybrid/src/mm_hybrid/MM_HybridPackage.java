@@ -355,13 +355,31 @@ public interface MM_HybridPackage extends EPackage {
 	int ELEMENT__NAME_ELEMENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Operation</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__OPERATION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Is Refered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__IS_REFERED = 2;
+
+	/**
 	 * The number of structural features of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = 1;
+	int ELEMENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.SourceElementRuleImpl <em>Source Element Rule</em>}' class.
@@ -381,6 +399,24 @@ public interface MM_HybridPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOURCE_ELEMENT_RULE__NAME_ELEMENT = ELEMENT__NAME_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Operation</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_ELEMENT_RULE__OPERATION = ELEMENT__OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Is Refered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_ELEMENT_RULE__IS_REFERED = ELEMENT__IS_REFERED;
 
 	/**
 	 * The feature id for the '<em><b>Guard</b></em>' containment reference list.
@@ -436,6 +472,24 @@ public interface MM_HybridPackage extends EPackage {
 	 * @ordered
 	 */
 	int TARGET_ELEMENT_RULE__NAME_ELEMENT = ELEMENT__NAME_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Operation</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_ELEMENT_RULE__OPERATION = ELEMENT__OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Is Refered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_ELEMENT_RULE__IS_REFERED = ELEMENT__IS_REFERED;
 
 	/**
 	 * The feature id for the '<em><b>Included</b></em>' containment reference list.
@@ -594,13 +648,31 @@ public interface MM_HybridPackage extends EPackage {
 	int RIGHT_PATTERN__OPERATION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RIGHT_PATTERN__NAME_PATTERN = 3;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RIGHT_PATTERN__REFERENCE = 4;
+
+	/**
 	 * The number of structural features of the '<em>Right Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RIGHT_PATTERN_FEATURE_COUNT = 3;
+	int RIGHT_PATTERN_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.LeftPatternImpl <em>Left Pattern</em>}' class.
@@ -622,13 +694,22 @@ public interface MM_HybridPackage extends EPackage {
 	int LEFT_PATTERN__TARGET_ELEMENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEFT_PATTERN__NAME_PATTERN = 1;
+
+	/**
 	 * The number of structural features of the '<em>Left Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LEFT_PATTERN_FEATURE_COUNT = 1;
+	int LEFT_PATTERN_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.OperationImpl <em>Operation</em>}' class.
@@ -1065,6 +1146,28 @@ public interface MM_HybridPackage extends EPackage {
 	EAttribute getElement_Name_element();
 
 	/**
+	 * Returns the meta object for the reference list '{@link mm_hybrid.Element#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Operation</em>'.
+	 * @see mm_hybrid.Element#getOperation()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EReference getElement_Operation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link mm_hybrid.Element#getIsRefered <em>Is Refered</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Is Refered</em>'.
+	 * @see mm_hybrid.Element#getIsRefered()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EReference getElement_IsRefered();
+
+	/**
 	 * Returns the meta object for class '{@link mm_hybrid.SourceElementRule <em>Source Element Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1269,6 +1372,28 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getRightPattern_Operation();
 
 	/**
+	 * Returns the meta object for the attribute '{@link mm_hybrid.RightPattern#getName_pattern <em>Name pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name pattern</em>'.
+	 * @see mm_hybrid.RightPattern#getName_pattern()
+	 * @see #getRightPattern()
+	 * @generated
+	 */
+	EAttribute getRightPattern_Name_pattern();
+
+	/**
+	 * Returns the meta object for the reference '{@link mm_hybrid.RightPattern#getReference <em>Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Reference</em>'.
+	 * @see mm_hybrid.RightPattern#getReference()
+	 * @see #getRightPattern()
+	 * @generated
+	 */
+	EReference getRightPattern_Reference();
+
+	/**
 	 * Returns the meta object for class '{@link mm_hybrid.LeftPattern <em>Left Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1288,6 +1413,17 @@ public interface MM_HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLeftPattern_TargetElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mm_hybrid.LeftPattern#getName_pattern <em>Name pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name pattern</em>'.
+	 * @see mm_hybrid.LeftPattern#getName_pattern()
+	 * @see #getLeftPattern()
+	 * @generated
+	 */
+	EAttribute getLeftPattern_Name_pattern();
 
 	/**
 	 * Returns the meta object for class '{@link mm_hybrid.Operation <em>Operation</em>}'.
@@ -1677,6 +1813,22 @@ public interface MM_HybridPackage extends EPackage {
 		EAttribute ELEMENT__NAME_ELEMENT = eINSTANCE.getElement_Name_element();
 
 		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT__OPERATION = eINSTANCE.getElement_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Refered</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT__IS_REFERED = eINSTANCE.getElement_IsRefered();
+
+		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.SourceElementRuleImpl <em>Source Element Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1850,6 +2002,24 @@ public interface MM_HybridPackage extends EPackage {
 				.getRightPattern_Operation();
 
 		/**
+		 * The meta object literal for the '<em><b>Name pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RIGHT_PATTERN__NAME_PATTERN = eINSTANCE
+				.getRightPattern_Name_pattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RIGHT_PATTERN__REFERENCE = eINSTANCE
+				.getRightPattern_Reference();
+
+		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.LeftPatternImpl <em>Left Pattern</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1867,6 +2037,15 @@ public interface MM_HybridPackage extends EPackage {
 		 */
 		EReference LEFT_PATTERN__TARGET_ELEMENT = eINSTANCE
 				.getLeftPattern_TargetElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LEFT_PATTERN__NAME_PATTERN = eINSTANCE
+				.getLeftPattern_Name_pattern();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.OperationImpl <em>Operation</em>}' class.

@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link mm_hybrid.impl.LeftPatternImpl#getTargetElement <em>Target Element</em>}</li>
+ *   <li>{@link mm_hybrid.impl.LeftPatternImpl#getName_pattern <em>Name pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,6 +50,25 @@ public class LeftPatternImpl extends EObjectImpl implements LeftPattern {
 	 * @ordered
 	 */
 	protected TargetElementRule targetElement;
+
+	/**
+	 * The default value of the '{@link #getName_pattern() <em>Name pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName_pattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_PATTERN_EDEFAULT = ""; //$NON-NLS-1$
+	/**
+	 * The cached value of the '{@link #getName_pattern() <em>Name pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName_pattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name_pattern = NAME_PATTERN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,6 +150,29 @@ public class LeftPatternImpl extends EObjectImpl implements LeftPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName_pattern() {
+		return name_pattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName_pattern(String newName_pattern) {
+		String oldName_pattern = name_pattern;
+		name_pattern = newName_pattern;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.LEFT_PATTERN__NAME_PATTERN,
+					oldName_pattern, name_pattern));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -172,6 +215,8 @@ public class LeftPatternImpl extends EObjectImpl implements LeftPattern {
 		switch (featureID) {
 		case MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT:
 			return getTargetElement();
+		case MM_HybridPackage.LEFT_PATTERN__NAME_PATTERN:
+			return getName_pattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -188,6 +233,9 @@ public class LeftPatternImpl extends EObjectImpl implements LeftPattern {
 		case MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT:
 			setTargetElement((TargetElementRule) newValue);
 			return;
+		case MM_HybridPackage.LEFT_PATTERN__NAME_PATTERN:
+			setName_pattern((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -203,6 +251,9 @@ public class LeftPatternImpl extends EObjectImpl implements LeftPattern {
 		case MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT:
 			setTargetElement((TargetElementRule) null);
 			return;
+		case MM_HybridPackage.LEFT_PATTERN__NAME_PATTERN:
+			setName_pattern(NAME_PATTERN_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -217,8 +268,28 @@ public class LeftPatternImpl extends EObjectImpl implements LeftPattern {
 		switch (featureID) {
 		case MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT:
 			return targetElement != null;
+		case MM_HybridPackage.LEFT_PATTERN__NAME_PATTERN:
+			return NAME_PATTERN_EDEFAULT == null ? name_pattern != null
+					: !NAME_PATTERN_EDEFAULT.equals(name_pattern);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name_pattern: "); //$NON-NLS-1$
+		result.append(name_pattern);
+		result.append(')');
+		return result.toString();
 	}
 
 } //LeftPatternImpl

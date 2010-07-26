@@ -21,6 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link mm_hybrid.RightPattern#getSourceElement <em>Source Element</em>}</li>
  *   <li>{@link mm_hybrid.RightPattern#getRule <em>Rule</em>}</li>
  *   <li>{@link mm_hybrid.RightPattern#getOperation <em>Operation</em>}</li>
+ *   <li>{@link mm_hybrid.RightPattern#getName_pattern <em>Name pattern</em>}</li>
+ *   <li>{@link mm_hybrid.RightPattern#getReference <em>Reference</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,5 +84,59 @@ public interface RightPattern extends EObject {
 	 * @generated
 	 */
 	EList<Operation> getOperation();
+
+	/**
+	 * Returns the value of the '<em><b>Name pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name pattern</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name pattern</em>' attribute.
+	 * @see #setName_pattern(String)
+	 * @see mm_hybrid.MM_HybridPackage#getRightPattern_Name_pattern()
+	 * @model unique="false" required="true" ordered="false"
+	 * @generated
+	 */
+	String getName_pattern();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.RightPattern#getName_pattern <em>Name pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name pattern</em>' attribute.
+	 * @see #getName_pattern()
+	 * @generated
+	 */
+	void setName_pattern(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Reference</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.Element#getIsRefered <em>Is Refered</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reference</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference</em>' reference.
+	 * @see #setReference(Element)
+	 * @see mm_hybrid.MM_HybridPackage#getRightPattern_Reference()
+	 * @see mm_hybrid.Element#getIsRefered
+	 * @model opposite="isRefered"
+	 * @generated
+	 */
+	Element getReference();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.RightPattern#getReference <em>Reference</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reference</em>' reference.
+	 * @see #getReference()
+	 * @generated
+	 */
+	void setReference(Element value);
 
 } // RightPattern
