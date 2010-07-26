@@ -50,9 +50,9 @@ public class Transformations implements ExecutionMessageListener {
 				"METAGEM", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/mw_metagem.ecore"));
 		hybridMetamodel = (ASMEMFModel) modelHandler.loadModel(
 				"MM_Hybrid", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/MM_Hybrid.ecore"));
-//		MOFMetamodel = (ASMEMFModel) modelHandler.loadModel(
-//				"MOF", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/Ecore.ecore"));
-		MOFMetamodel= (ASMEMFModel) modelHandler.getMof();
+		MOFMetamodel = (ASMEMFModel) modelHandler.loadModel(
+				"MOF", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/CMOF.ecore"));
+		//MOFMetamodel= (ASMEMFModel) modelHandler.getMof();
  		models.put("AMW", metagemMetamodel);
 		models.put("MM_Hybrid", hybridMetamodel);
 		models.put("MOF", MOFMetamodel);
