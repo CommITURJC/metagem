@@ -323,7 +323,7 @@ helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : String =
 	if (self.right."rule".asSequence().first().oclIsUndefined() and 
 		self.right.operation.asSequence().first().oclIsUndefined() and
 		self.right.sourceElement.asSequence().first().oclIsUndefined()) then
-			''
+			OclUndefined
 	else
 		--rule undefined
 		if self.right."rule".asSequence().first().oclIsUndefined() then
