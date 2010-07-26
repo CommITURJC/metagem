@@ -17,6 +17,7 @@ public class Constants {
 //	public static String XMLSCHEMAEcore = "schemaXML.ecore";
 	
 	public static String METAGEMURI = "mmw_metagem";
+	public static String HYBRIDURI = "http:///MM_Hybrid.ecore";
 	
 	
 }

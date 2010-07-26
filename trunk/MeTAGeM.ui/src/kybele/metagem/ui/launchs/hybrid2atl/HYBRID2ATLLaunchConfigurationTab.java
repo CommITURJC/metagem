@@ -1,4 +1,4 @@
-package kybele.metagem.ui.launchs.metagem2hybrid;
+package kybele.metagem.ui.launchs.hybrid2atl;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -32,13 +32,11 @@ import kybele.metagem.ui.api.ValidationExecution;
 import kybele.metagem.ui.launchs.core.AbstractExtendedLaunchConfigurationTab;
 import kybele.metagem.ui.utils.Constants;
 
-public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunchConfigurationTab {
+public class HYBRID2ATLLaunchConfigurationTab extends AbstractExtendedLaunchConfigurationTab {
 
 		private ScrolledComposite sc = null;
 		private Composite modelExtentComp = null;	
 		private Text tProviderTextIN;
-		private Text tProviderTextLEFT;
-		private Text tProviderTextRIGHT;
 		private Text tProviderTextOUT;
 			
 		
@@ -67,9 +65,7 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 					switch(type)
 					{
 					case(0):if (!tProviderTextIN.getText().equals(path))tProviderTextIN.setText(path);break;
-					case(1):if (!tProviderTextLEFT.getText().equals(path))tProviderTextLEFT.setText(path);break;
-					case(2):if (!tProviderTextRIGHT.getText().equals(path))tProviderTextRIGHT.setText(path);break;
-					case(3):if (!tProviderTextOUT.getText().equals(path))tProviderTextOUT.setText(path);break;
+					case(1):if (!tProviderTextOUT.getText().equals(path))tProviderTextOUT.setText(path);break;
 					}
 					
 				}
@@ -90,10 +86,10 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 		@Override
 		protected void updateLaunchConfigurationDialog() {
 
-			 IPath orLoc = getMetagemLocation();
-			   if (orLoc == null || !orLoc.toFile().exists() || !orLoc.getFileExtension().equals("amw")) {
+			 IPath orLoc = getHybridLocation();
+			   if (orLoc == null || !orLoc.toFile().exists() || !orLoc.getFileExtension().equals("mm_hybrid")) {
 			      setMessage(null);
-			      setErrorMessage("Select a valid MeTAGeM file");
+			      setErrorMessage("Select a valid Hybrid file");
 			      super.updateLaunchConfigurationDialog();
 			      return;
 			   }
@@ -101,41 +97,23 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 			   {
 				   boolean isValid = false;
 					try {
-						isValid = ValidationExecution.isValid(orLoc.lastSegment(), orLoc.toOSString(), Constants.METAGEMURI);
+						isValid = ValidationExecution.isValid(orLoc.lastSegment(), orLoc.toOSString(), Constants.HYBRIDURI);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
 					if(isValid)
 					{
-					      setMessage("Valid METAGEM file");
+					      setMessage("Valid Hybrid file");
 					      setErrorMessage(null);
 					}
 					else
 					{
 						  setMessage(null);
-					      setErrorMessage("Select a valid MeTAGeM file. Validation failed");
+					      setErrorMessage("Select a valid Hybrid file. Validation failed");
 					      super.updateLaunchConfigurationDialog();
 					      return;
 					}
 
-			   }
-			   
-			   IPath leftLoc = getLeftLocation();
-			   if (leftLoc == null) {
-			      setMessage(null);
-			      setErrorMessage(
-			         "Select a valid left (MOF) model");
-			      super.updateLaunchConfigurationDialog();
-			      return;
-			   }
-			   
-			   IPath rightLoc = getRightLocation();
-			   if (rightLoc == null) {
-			      setMessage(null);
-			      setErrorMessage(
-			         "Select a valid right (MOF) model");
-			      super.updateLaunchConfigurationDialog();
-			      return;
 			   }
 			   
 			   IPath destinationLoc = getDestinationLocation();
@@ -177,46 +155,23 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 			Group tProviderGroup = createGroup(modelExtentComp, "MeTAGeM model to transform", 3);
 			TProviderGroupListener tProviderListener = new TProviderGroupListener(0);
 
-			createLabel(tProviderGroup, "MeTAGeM model URI: ");		
+			createLabel(tProviderGroup, "Hybrid Model URI: ");		
 			tProviderTextIN = createText(tProviderGroup);		
 			tProviderTextIN.addModifyListener(tProviderListener);
 			
 			Button tProviderBrowse = createPushButton(tProviderGroup, "Browse...", null);		
 			tProviderBrowse.addSelectionListener(tProviderListener);
 			
-			// Segundo grupo de controles, para seleccionar el fichero left	
-			Group tProviderGroup2 = createGroup(modelExtentComp, "Left(MOF) model to transform", 3);
+			// Segundo grupo de controles, para seleccionar el fichero de salida
+			Group tProviderGroup2 = createGroup(modelExtentComp, "Hybrid Model, transformation result", 3);
 			TProviderGroupListener tProviderListener2 = new TProviderGroupListener(1);
 
-			createLabel(tProviderGroup2, "LEFT model URI: ");		
-			tProviderTextLEFT = createText(tProviderGroup2);		
-			tProviderTextLEFT.addModifyListener(tProviderListener2);
+			createLabel(tProviderGroup2, "ATL Model URI: ");		
+			tProviderTextOUT = createText(tProviderGroup2);		
+			tProviderTextOUT.addModifyListener(tProviderListener2);
 			
 			Button tProviderBrowse2 = createPushButton(tProviderGroup2, "Browse...", null);		
 			tProviderBrowse2.addSelectionListener(tProviderListener2);
-			
-			// Tercer grupo de controles, para seleccionar el fichero right
-			Group tProviderGroup3 = createGroup(modelExtentComp, "LEFT model to transform", 3);
-			TProviderGroupListener tProviderListener3 = new TProviderGroupListener(2);
-
-			createLabel(tProviderGroup3, "RIGHT model URI: ");		
-			tProviderTextRIGHT = createText(tProviderGroup3);		
-			tProviderTextRIGHT.addModifyListener(tProviderListener3);
-			
-			Button tProviderBrowse3 = createPushButton(tProviderGroup3, "Browse...", null);		
-			tProviderBrowse3.addSelectionListener(tProviderListener3);
-			
-			
-			// Cuarto grupo de controles, para seleccionar el fichero de salida
-			Group tProviderGroup4 = createGroup(modelExtentComp, "Hybrid Model, transformation result", 3);
-			TProviderGroupListener tProviderListener4 = new TProviderGroupListener(3);
-
-			createLabel(tProviderGroup4, "Hybrid model URI: ");		
-			tProviderTextOUT = createText(tProviderGroup4);		
-			tProviderTextOUT.addModifyListener(tProviderListener4);
-			
-			Button tProviderBrowse4 = createPushButton(tProviderGroup4, "Browse...", null);		
-			tProviderBrowse4.addSelectionListener(tProviderListener4);
 
 			sc.setMinSize(modelExtentComp.computeSize(SWT.DEFAULT, SWT.DEFAULT));
 		}	
@@ -238,26 +193,13 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 		public void initializeFrom(ILaunchConfiguration configuration) {
 			try {
 				tProviderTextIN.setText(configuration.getAttribute(
-						METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_IN, ""));
+						HYBRID2ATLConstants.ATTR_TRANSFORMATION_IN, ""));
 			} catch (CoreException ce) {
 				tProviderTextIN.setText("");
-			}
-			try {
-				tProviderTextLEFT.setText(configuration.getAttribute(
-						METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_LEFT, ""));
-			} catch (CoreException ce) {
-				tProviderTextLEFT.setText("");
-			}
-			try {
-				tProviderTextRIGHT.setText(configuration.getAttribute(
-						METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_RIGHT, ""));
-			} catch (CoreException ce) {
-				tProviderTextIN.setText("");
-			}
-	
+			}	
 			try {
 				tProviderTextOUT.setText(configuration.getAttribute(
-						METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_OUT, ""));
+						HYBRID2ATLConstants.ATTR_TRANSFORMATION_OUT, ""));
 			} catch (CoreException ce) {
 				tProviderTextOUT.setText("");
 			}
@@ -269,21 +211,15 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 			// FIXME Analizar con cuidado si debemos hacer o no los sets de Attributes
 			//		Ojo con getAttributeValueFrom 
 			String in = getAttributeValueFrom(tProviderTextIN);
-			String left = getAttributeValueFrom(tProviderTextLEFT);
-			String right = getAttributeValueFrom(tProviderTextRIGHT);
 			String out = getAttributeValueFrom(tProviderTextOUT);
-			configuration.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_IN, in);
-			configuration.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_LEFT, left);
-			configuration.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_RIGHT, right);
-			configuration.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_OUT, out);
+			configuration.setAttribute(HYBRID2ATLConstants.ATTR_TRANSFORMATION_IN, in);
+			configuration.setAttribute(HYBRID2ATLConstants.ATTR_TRANSFORMATION_OUT, out);
 		}
 
 		public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		
-			configuration.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_IN, "");
-			configuration.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_LEFT, "");
-			configuration.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_RIGHT, "");
-			configuration.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_OUT, "");
+			configuration.setAttribute(HYBRID2ATLConstants.ATTR_TRANSFORMATION_IN, "");
+			configuration.setAttribute(HYBRID2ATLConstants.ATTR_TRANSFORMATION_OUT, "");
 		}	
 		
 		
@@ -298,12 +234,12 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 		
 		
 		
-		protected void browseForMETAGEMFile(boolean workspace) {
+		protected void browseForHybridFile(boolean workspace) {
 			IPath path = null;
 			if (workspace)
-				path = browseWorkspace(getMetagemLocation(), true);
+				path = browseWorkspace(getHybridLocation(), true);
 			else
-				path = browse(getMetagemLocation(), true);
+				path = browse(getHybridLocation(), true);
 			   if (path == null)
 			      return;
 			   IPath rootLoc = ResourcesPlugin.getWorkspace()
@@ -365,7 +301,7 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 				   return file.getFullPath();
 				}
 			
-			public IPath getMetagemLocation() {
+			public IPath getHybridLocation() {
 			   String text = tProviderTextIN.getText().trim();
 			   if (text.length() == 0)
 			       return null;
@@ -375,28 +311,6 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 			             .append(path);
 			   return path;
 			}
-			
-			public IPath getLeftLocation() {
-				   String text = tProviderTextLEFT.getText().trim();
-				   if (text.length() == 0)
-				       return null;
-				   IPath path = new Path(text);
-				   if (!path.isAbsolute())
-				      path = ResourcesPlugin.getWorkspace().getRoot().getLocation()
-				             .append(path);
-				   return path;
-				}
-			
-			public IPath getRightLocation() {
-				   String text = tProviderTextRIGHT.getText().trim();
-				   if (text.length() == 0)
-				       return null;
-				   IPath path = new Path(text);
-				   if (!path.isAbsolute())
-				      path = ResourcesPlugin.getWorkspace().getRoot().getLocation()
-				             .append(path);
-				   return path;
-				}
 				
 			public IPath getDestinationLocation() {
 			   String text = tProviderTextOUT.getText().trim();

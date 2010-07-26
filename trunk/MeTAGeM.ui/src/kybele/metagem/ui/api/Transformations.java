@@ -24,9 +24,12 @@ public class Transformations implements ExecutionMessageListener {
 	private AtlEMFModelHandler modelHandler;
 	
 	private URL METAGEM2HYBRID_TransfoResource;
+	private URL HYBRID2ATL_TransfoResource;
+	
 	private ASMEMFModel metagemMetamodel;
 	private ASMEMFModel hybridMetamodel;
 	private ASMEMFModel MOFMetamodel;
+	private ASMEMFModel atlMetamodel;
 	
 	
  
@@ -38,7 +41,7 @@ public class Transformations implements ExecutionMessageListener {
 		//logger.setLevel(Level.OFF);
 		
 		METAGEM2HYBRID_TransfoResource = Transformations.class.getResource("resources/MeTAGeM2Hybrid.asm");
-		
+		HYBRID2ATL_TransfoResource = Transformations.class.getResource("resources/Hybrid2ATL.asm");
 		
 	}
 	private void initMetagem2HybridMetamodels(Map<String, Object> models) {
@@ -53,6 +56,17 @@ public class Transformations implements ExecutionMessageListener {
  		models.put("AMW", metagemMetamodel);
 		models.put("MM_Hybrid", hybridMetamodel);
 		models.put("MOF", MOFMetamodel);
+		
+	}
+	
+	private void initHybrid2ATLMetamodels(Map<String, Object> models) {
+		
+		hybridMetamodel = (ASMEMFModel) modelHandler.loadModel(
+				"MM_Hybrid", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/MM_Hybrid.ecore"));
+		atlMetamodel = (ASMEMFModel) modelHandler.loadModel(
+				"METAGEM", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/ATL-0.2.ecore"));
+		models.put("MM_Hybrid", hybridMetamodel);
+		models.put("ATL", atlMetamodel);
 		
 	}
 		
@@ -88,7 +102,30 @@ public class Transformations implements ExecutionMessageListener {
 		}
 	}
 	
-	
+	public void hybrid2atl(String inFilePath, String outFilePath) {
+		try {
+			Map<String, Object> models = new HashMap<String, Object>();
+			
+			initHybrid2ATLMetamodels(models);
+						
+			// get/create models
+			ASMEMFModel metagemInputModel = (ASMEMFModel) modelHandler.loadModel("IN", hybridMetamodel, URI.createFileURI(inFilePath));
+			models.put("IN", metagemInputModel);
+									
+			ASMEMFModel hybridOutputModel = (ASMEMFModel) modelHandler.newModel("OUT", URI.createFileURI(outFilePath).toFileString(), atlMetamodel);
+			models.put("OUT", hybridOutputModel);
+			
+			// launch
+			AtlLauncher.getDefault().launch(this.HYBRID2ATL_TransfoResource,
+					Collections.EMPTY_MAP, models,
+					Collections.EMPTY_MAP, Collections.EMPTY_LIST,Collections.EMPTY_MAP);
+ 
+			modelHandler.saveModel(hybridOutputModel, outFilePath, false);
+			dispose(models);
+		} catch (Exception e) {
+			logger.log(Level.SEVERE, e.getLocalizedMessage(), e);
+		}
+	}
 	
 	private void dispose(Map<String, Object> models) {
 		for (Object model : models.values())
