@@ -12,10 +12,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import javax.swing.ProgressMonitor;
+
 import kybele.metagem.ui.Activator;
 import kybele.metagem.ui.utils.Constants;
 
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -59,6 +62,7 @@ public abstract class ValidationExecution {
 		if (unsatisfied.size() > 0) {
 			System.err.println(unsatisfied.size() + " constraint(s) have not been satisfied");
 			for (EvlUnsatisfiedConstraint uc : unsatisfied) {
+				
 				System.err.println(uc.getMessage());
 			}
 			return false;
@@ -78,7 +82,6 @@ public abstract class ValidationExecution {
 			InputStream input= FileLocator.openStream(b,new Path("metamodels/mw_metagem.ecore"),false);
 			registerMetamodel(Constants.METAGEMURI,input);
 			input.close();
-			System.err.println("MeTAGeM Registered");
 		}
 		
 		List<IModel> models = new ArrayList<IModel>();
