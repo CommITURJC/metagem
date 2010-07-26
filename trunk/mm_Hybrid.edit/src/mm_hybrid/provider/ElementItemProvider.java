@@ -59,6 +59,8 @@ public class ElementItemProvider extends ItemProviderAdapter implements
 			super.getPropertyDescriptors(object);
 
 			addName_elementPropertyDescriptor(object);
+			addOperationPropertyDescriptor(object);
+			addIsReferedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -81,6 +83,44 @@ public class ElementItemProvider extends ItemProviderAdapter implements
 						MM_HybridPackage.Literals.ELEMENT__NAME_ELEMENT, true,
 						false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Operation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOperationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_Element_operation_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_Element_operation_feature", "_UI_Element_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.ELEMENT__OPERATION, true,
+						false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Refered feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsReferedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_Element_isRefered_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_Element_isRefered_feature", "_UI_Element_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.ELEMENT__IS_REFERED, true,
+						false, true, null, null, null));
 	}
 
 	/**
