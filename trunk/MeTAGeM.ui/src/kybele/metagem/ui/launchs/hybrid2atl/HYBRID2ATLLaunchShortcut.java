@@ -118,7 +118,7 @@ public class HYBRID2ATLLaunchShortcut implements ILaunchShortcut {
 			ILaunchConfigurationType configType = getConfigurationType();
 			wc = configType.newInstance(null, getLaunchManager().generateUniqueLaunchConfigurationNameFrom("New_configuration"));
 			wc.setAttribute(HYBRID2ATLConstants.ATTR_TRANSFORMATION_IN, pathIN);
-			wc.setAttribute(HYBRID2ATLConstants.ATTR_TRANSFORMATION_OUT, new Path(pathIN).removeFileExtension().toOSString() + ".mm_hybrid");
+			wc.setAttribute(HYBRID2ATLConstants.ATTR_TRANSFORMATION_OUT, new Path(pathIN).removeFileExtension().toOSString() + "-atl.ecore");
 			config = wc.doSave();
 		} catch (CoreException exception) {
 			System.out.println("Error en createConfiguration");

@@ -151,8 +151,8 @@ public class HYBRID2ATLLaunchConfigurationTab extends AbstractExtendedLaunchConf
 			
 			setControl(sc);
 			
-			// Primer grupo de controles, para seleccionar el fichero MeTAGeM	
-			Group tProviderGroup = createGroup(modelExtentComp, "MeTAGeM model to transform", 3);
+			// Primer grupo de controles, para seleccionar el fichero Hybrid	
+			Group tProviderGroup = createGroup(modelExtentComp, "Hybrid model to transform", 3);
 			TProviderGroupListener tProviderListener = new TProviderGroupListener(0);
 
 			createLabel(tProviderGroup, "Hybrid Model URI: ");		
@@ -163,7 +163,7 @@ public class HYBRID2ATLLaunchConfigurationTab extends AbstractExtendedLaunchConf
 			tProviderBrowse.addSelectionListener(tProviderListener);
 			
 			// Segundo grupo de controles, para seleccionar el fichero de salida
-			Group tProviderGroup2 = createGroup(modelExtentComp, "Hybrid Model, transformation result", 3);
+			Group tProviderGroup2 = createGroup(modelExtentComp, "ATL Model, transformation result", 3);
 			TProviderGroupListener tProviderListener2 = new TProviderGroupListener(1);
 
 			createLabel(tProviderGroup2, "ATL Model URI: ");		
