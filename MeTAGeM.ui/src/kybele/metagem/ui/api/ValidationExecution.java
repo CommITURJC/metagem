@@ -45,6 +45,8 @@ public abstract class ValidationExecution {
 		
 		if(metamodelName.equals(Constants.METAGEMURI))
 			return "resources/MeTAGeM.evl";
+		if(metamodelName.equals(Constants.HYBRIDURI))
+			return "resources/mm_Hybrid.evl";
 		return "";
 	}
 
@@ -69,12 +71,13 @@ public abstract class ValidationExecution {
 	
 	
 	public static boolean isValid(String name, String modelName, String metamodelName) throws Exception {
+		
+		//Registramos el metamodelo de MeTAGeM
 		if(metamodelName.equals(Constants.METAGEMURI)){
-			//ActionRegisterMetamodel AR_MM=new ActionRegisterMetamodel();
-			//AR_MM.run(new IAction());
 			Bundle b=Activator.getDefault().getBundle();
 			InputStream input= FileLocator.openStream(b,new Path("metamodels/mw_metagem.ecore"),false);
 			registerMetamodel(Constants.METAGEMURI,input);
+			input.close();
 		}
 		
 		List<IModel> models = new ArrayList<IModel>();

@@ -1,0 +1,15 @@
+-- @name 		ORDB4ORA
+-- @version		1.0
+-- @domains		hybrid, transformation, metamodel, model
+-- @authors		Álvaro Jiménez Rielo (Universidad Rey Juan Carlos)
+-- @date       	16-07-2010
+-- @description	Restricciones aplicadas al metamodelo de MM_Hybrid.
+
+context Return {
+ --El usuario solo puede escoger datatype o element pero no ambos
+ 	constraint datatypeORelement{
+ 		check: not(self.element.isDefined() and  (not(self.datatype==Datatype#null.instance)))
+ 		message : 'Cannot be define an element and a datatype at the same Return Operation'
+ 	}
+ }
+ 
