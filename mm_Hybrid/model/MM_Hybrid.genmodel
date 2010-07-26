@@ -55,6 +55,8 @@
     </genClasses>
     <genClasses image="false" ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//Element">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//Element/name_element"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//Element/operation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//Element/isRefered"/>
     </genClasses>
     <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//SourceElementRule">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//SourceElementRule/guard"/>
@@ -79,9 +81,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//RightPattern/sourceElement"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//RightPattern/rule"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//RightPattern/operation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//RightPattern/name_pattern"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//RightPattern/reference"/>
     </genClasses>
     <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//LeftPattern">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference /mm_Hybrid/model/MM_Hybrid.ecore#//LeftPattern/targetElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//LeftPattern/name_pattern"/>
     </genClasses>
     <genClasses ecoreClass="/mm_Hybrid/model/MM_Hybrid.ecore#//Operation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute /mm_Hybrid/model/MM_Hybrid.ecore#//Operation/name_operation"/>

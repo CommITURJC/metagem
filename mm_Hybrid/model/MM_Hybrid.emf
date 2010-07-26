@@ -54,6 +54,8 @@ class Rule {
 
 abstract class Element {
   !unique !ordered attr String[1] name_element;
+  ref Operation[*] operation;
+  ref RightPattern[*]#reference isRefered;
 }
 
 @gmf.node(label="name_element", label.icon="false", border.color="31,73,125", color="218,238,243")
@@ -85,10 +87,13 @@ class RightPattern {
   !ordered val SourceElementRule[*]#rightPattern sourceElement;
   ref Rule[*]#rightPattern rule;
   ref Operation[*]#rightPattern operation;
+  !unique !ordered attr String[1] name_pattern;
+  ref Element#isRefered reference;
 }
 
 class LeftPattern {
   !ordered val TargetElementRule[1]#leftPattern targetElement;
+  !unique !ordered attr String[1] name_pattern = "";
 }
 
 class Operation {

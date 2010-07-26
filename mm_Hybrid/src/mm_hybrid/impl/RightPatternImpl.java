@@ -8,6 +8,7 @@ package mm_hybrid.impl;
 
 import java.util.Collection;
 
+import mm_hybrid.Element;
 import mm_hybrid.MM_HybridPackage;
 import mm_hybrid.Operation;
 import mm_hybrid.RightPattern;
@@ -41,6 +42,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mm_hybrid.impl.RightPatternImpl#getSourceElement <em>Source Element</em>}</li>
  *   <li>{@link mm_hybrid.impl.RightPatternImpl#getRule <em>Rule</em>}</li>
  *   <li>{@link mm_hybrid.impl.RightPatternImpl#getOperation <em>Operation</em>}</li>
+ *   <li>{@link mm_hybrid.impl.RightPatternImpl#getName_pattern <em>Name pattern</em>}</li>
+ *   <li>{@link mm_hybrid.impl.RightPatternImpl#getReference <em>Reference</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,6 +79,36 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * @ordered
 	 */
 	protected EList<Operation> operation;
+
+	/**
+	 * The default value of the '{@link #getName_pattern() <em>Name pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName_pattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_PATTERN_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName_pattern() <em>Name pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName_pattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name_pattern = NAME_PATTERN_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReference() <em>Reference</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Element reference;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,6 +178,104 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName_pattern() {
+		return name_pattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName_pattern(String newName_pattern) {
+		String oldName_pattern = name_pattern;
+		name_pattern = newName_pattern;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN,
+					oldName_pattern, name_pattern));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Element getReference() {
+		if (reference != null && reference.eIsProxy()) {
+			InternalEObject oldReference = (InternalEObject) reference;
+			reference = (Element) eResolveProxy(oldReference);
+			if (reference != oldReference) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							MM_HybridPackage.RIGHT_PATTERN__REFERENCE,
+							oldReference, reference));
+			}
+		}
+		return reference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Element basicGetReference() {
+		return reference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReference(Element newReference,
+			NotificationChain msgs) {
+		Element oldReference = reference;
+		reference = newReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET,
+					MM_HybridPackage.RIGHT_PATTERN__REFERENCE, oldReference,
+					newReference);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReference(Element newReference) {
+		if (newReference != reference) {
+			NotificationChain msgs = null;
+			if (reference != null)
+				msgs = ((InternalEObject) reference).eInverseRemove(this,
+						MM_HybridPackage.ELEMENT__IS_REFERED, Element.class,
+						msgs);
+			if (newReference != null)
+				msgs = ((InternalEObject) newReference).eInverseAdd(this,
+						MM_HybridPackage.ELEMENT__IS_REFERED, Element.class,
+						msgs);
+			msgs = basicSetReference(newReference, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.RIGHT_PATTERN__REFERENCE, newReference,
+					newReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
@@ -159,6 +290,12 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOperation())
 					.basicAdd(otherEnd, msgs);
+		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
+			if (reference != null)
+				msgs = ((InternalEObject) reference).eInverseRemove(this,
+						MM_HybridPackage.ELEMENT__IS_REFERED, Element.class,
+						msgs);
+			return basicSetReference((Element) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -180,6 +317,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
 			return ((InternalEList<?>) getOperation()).basicRemove(otherEnd,
 					msgs);
+		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
+			return basicSetReference(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -198,6 +337,12 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			return getRule();
 		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
 			return getOperation();
+		case MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN:
+			return getName_pattern();
+		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
+			if (resolve)
+				return getReference();
+			return basicGetReference();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -224,6 +369,12 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			getOperation().clear();
 			getOperation().addAll((Collection<? extends Operation>) newValue);
 			return;
+		case MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN:
+			setName_pattern((String) newValue);
+			return;
+		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
+			setReference((Element) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -245,6 +396,12 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
 			getOperation().clear();
 			return;
+		case MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN:
+			setName_pattern(NAME_PATTERN_EDEFAULT);
+			return;
+		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
+			setReference((Element) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -263,8 +420,30 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			return rule != null && !rule.isEmpty();
 		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
 			return operation != null && !operation.isEmpty();
+		case MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN:
+			return NAME_PATTERN_EDEFAULT == null ? name_pattern != null
+					: !NAME_PATTERN_EDEFAULT.equals(name_pattern);
+		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
+			return reference != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name_pattern: "); //$NON-NLS-1$
+		result.append(name_pattern);
+		result.append(')');
+		return result.toString();
 	}
 
 } //RightPatternImpl
