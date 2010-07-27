@@ -359,8 +359,11 @@ helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : ATL!OclE
 	if self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().oclIsUndefined()  then
 		'???'
 	else
-		self.right.reference.name_element.toLower()
-		--self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
+		if self.right.reference.oclIsUndefined() then
+			self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
+		else
+			self.right.reference.name_element.toLower()
+		endif
 	endif;
 
 
