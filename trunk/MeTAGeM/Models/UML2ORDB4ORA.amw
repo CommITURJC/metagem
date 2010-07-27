@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mmw_metagem" xmi:id="ModelRoot1" name="UML2ORDB4ORA">
+  <inputModel xmi:id="InModelTransf1" name="UML" ref="/MeTAGeM/Metamodels/UML.ecore">
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Package" ref="//Package"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_name" ref="//NamedElement/name"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Class" ref="//Class"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_PackageMerge" ref="//PackageMerge"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_PackageableElement" ref="//PackageableElement"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_//PackageMerge/@eGenericSuperTypes.0Id" ref="//PackageMerge/@eGenericSuperTypes.0"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_connector_end" ref="//Parameter/connector_end"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_create" ref="//ParameterEffectKind/create"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_PackageImport" ref="//PackageImport"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_visibility" ref="//PackageImport/visibility"/>
+  </inputModel>
+  <outputModel xmi:id="OutModelTransf1" name="ORDB" ref="/MeTAGeM/Metamodels/ORDB4ORA.ecore">
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Model" ref="//Model"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Name" ref="//Model/Name"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_StructuredType" ref="//StructuredType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_TypedTable" ref="//TypedTable"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Name" ref="//StructuredType/Name"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Name" ref="//Trigger/Name"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_typed" ref="//StructuredType/typed"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_model" ref="//Datatype/model"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_ANSINumberType" ref="//ANSINumberType"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_ANSINumberTypes" ref="//ANSINumberTypes"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_NUMERIC" ref="//ANSINumberTypes/NUMERIC"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_DECIMAL" ref="//ANSINumberTypes/DECIMAL"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_ANSICharacterTypes" ref="//ANSICharacterTypes"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_CHARACTER" ref="//ANSICharacterTypes/CHARACTER"/>
+  </outputModel>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="Pack2Model">
+    <source xmi:id="InElement1" name="Package" element="//@inputModel.0/@ownedElementRef.0"/>
+    <target xmi:id="OutElement1" name="Model" element="//@outputModel.0/@ownedElementRef.0">
+      <onetoOne xmi:id="OneToOne2">
+        <source xmi:id="InElement2" name="name" element="//@inputModel.0/@ownedElementRef.1"/>
+        <target xmi:id="OutElement2" name="Name" element="//@outputModel.0/@ownedElementRef.1"/>
+      </onetoOne>
+    </target>
+  </relations>
+  <relations xsi:type="OneToMany" xmi:id="OneToMany1" name="Class2ST_TT">
+    <source xmi:id="InElement3" name="Class" element="//@inputModel.0/@ownedElementRef.2"/>
+    <target xmi:id="OutElement3" name="StructuredType" element="//@outputModel.0/@ownedElementRef.2">
+      <onetoOne xmi:id="OneToOne3">
+        <source xmi:id="InElement4" name="name" element="//@inputModel.0/@ownedElementRef.1"/>
+        <target xmi:id="OutElement5" name="Name" element="//@outputModel.0/@ownedElementRef.4"/>
+      </onetoOne>
+      <onetoOne xmi:id="OneToOne5" typeE="MyEreference">
+        <source xmi:id="InElement6" name="Package" element="//@inputModel.0/@ownedElementRef.0"/>
+        <target xmi:id="OutElement7" name="model" element="//@outputModel.0/@ownedElementRef.7"/>
+      </onetoOne>
+    </target>
+    <target xmi:id="OutElement4" name="TypedTable" element="//@outputModel.0/@ownedElementRef.3">
+      <onetoOne xmi:id="OneToOne4">
+        <source xmi:id="InElement5" name="name" element="//@inputModel.0/@ownedElementRef.1"/>
+        <target xmi:id="OutElement6" name="Name" element="//@outputModel.0/@ownedElementRef.5"/>
+      </onetoOne>
+    </target>
+  </relations>
+</ModelRoot>
