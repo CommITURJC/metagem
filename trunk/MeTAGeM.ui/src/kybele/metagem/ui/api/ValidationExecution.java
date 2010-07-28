@@ -12,13 +12,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import javax.swing.ProgressMonitor;
-
 import kybele.metagem.ui.Activator;
+import kybele.metagem.ui.dialogs.ErrorValidationDialog;
 import kybele.metagem.ui.utils.Constants;
 
 import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -34,6 +32,7 @@ import org.eclipse.epsilon.eol.exceptions.models.EolModelLoadingException;
 import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.evl.EvlModule;
 import org.eclipse.epsilon.evl.EvlUnsatisfiedConstraint;
+import org.eclipse.swt.widgets.Display;
 import org.osgi.framework.Bundle;
 
 public abstract class ValidationExecution {
@@ -53,17 +52,39 @@ public abstract class ValidationExecution {
 		return "";
 	}
 
-	private static boolean postProcess() {
+	private static boolean postProcess(int type) {
 		
 		EvlModule module = (EvlModule) ValidationExecution.module;
 		
 		Collection<EvlUnsatisfiedConstraint> unsatisfied = module.getContext().getUnsatisfiedConstraints();
 	
 		if (unsatisfied.size() > 0) {
-			System.err.println(unsatisfied.size() + " constraint(s) have not been satisfied");
-			for (EvlUnsatisfiedConstraint uc : unsatisfied) {
-				
-				System.err.println(uc.getMessage());
+			if (type == Constants.LAUNCH_FROM_WIZARD) {
+							
+				 new Thread(new Runnable() {
+				      public void run() {
+				            Display.getDefault().asyncExec(new Runnable() {
+				               public void run() {
+				            	   EvlModule module = (EvlModule) ValidationExecution.module;
+				           		   Collection<EvlUnsatisfiedConstraint> unsatisfied = module.getContext().getUnsatisfiedConstraints();
+				            	  
+				           		   String message  = new String("");
+
+									for (EvlUnsatisfiedConstraint uc : unsatisfied) {
+										message+=uc.getConstraint().getConstraintContext().getName()+": " 
+												+uc.getMessage()+"\n";
+									}
+				           		   
+				           		   ErrorValidationDialog dialog = new ErrorValidationDialog(Display.getDefault().getActiveShell(), "Validation problems",
+				  				         null, "Problems encountered during validation \n\n"
+				  							+ "Reason:\n" + "Diagnosis of "
+				  							+ module.getContext().getModelRepository().getModels().get(0).getName(), 
+				  							message);
+				            	   dialog.open();
+				               }
+				            });
+				      }
+				   }).start();     
 			}
 			return false;
 		}
@@ -73,8 +94,13 @@ public abstract class ValidationExecution {
 		}
 	}
 	
+	public static EvlModule postProcessModule() {
+		EvlModule module = (EvlModule) ValidationExecution.module;
+		return module;
+	}
 	
-	public static boolean isValid(String name, String modelName, String metamodelName) throws Exception {
+	
+	public static boolean isValid(String name, String modelName, String metamodelName, int type) throws Exception {
 		
 		//Registramos el metamodelo de MeTAGeM
 		if(metamodelName.equals(Constants.METAGEMURI)){
@@ -103,7 +129,7 @@ public abstract class ValidationExecution {
 		}
 		
 		module.execute();
-		boolean result = postProcess();
+		boolean result = postProcess(type);
 		module.getContext().getModelRepository().dispose();
 		
 		return result;

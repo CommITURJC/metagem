@@ -2,7 +2,7 @@ package kybele.metagem.ui.launchs.metagem2hybrid;
 
 import kybele.metagem.ui.api.Transformations;
 import kybele.metagem.ui.api.ValidationExecution;
-import kybele.metagem.ui.utils.*;
+import kybele.metagem.ui.utils.Constants;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -22,7 +22,6 @@ public class METAGEM2HYBRIDLaunchConfigurationDelegate implements
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 		// TODO Auto-generated method stub
 		
-		
 		if (monitor == null)
 			monitor = new NullProgressMonitor();		
 		
@@ -38,7 +37,7 @@ public class METAGEM2HYBRIDLaunchConfigurationDelegate implements
 		
 		boolean isValid = false;
 		try {
-			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.METAGEMURI);
+			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.METAGEMURI,Constants.LAUNCH_FROM_WIZARD);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,7 +57,7 @@ public class METAGEM2HYBRIDLaunchConfigurationDelegate implements
 		else
 		{	
 					//System.err.println("Fichero "+ new Path(uriIN).lastSegment() + " no tiene asociada una transformación.");
-			System.err.println("Fichero "+ new Path(uriIN).lastSegment() + " no es válido");
+			 System.err.println("Fichero "+ new Path(uriIN).lastSegment() + " no es válido");
 		}
 	}
 	
