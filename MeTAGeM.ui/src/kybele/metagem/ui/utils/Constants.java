@@ -19,5 +19,8 @@ public class Constants {
 	public static String METAGEMURI = "mmw_metagem";
 	public static String HYBRIDURI = "http:///MM_Hybrid.ecore";
 	
+	public static int LAUNCH_FROM_WIZARD = 0;
+	public static int LAUNCH_FROM_SHORTCUT = 1;
+	
 	
 }

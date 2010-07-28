@@ -37,7 +37,7 @@ public class HYBRID2ATLLaunchConfigurationDelegate implements
 		
 		boolean isValid = false;
 		try {
-			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.HYBRIDURI);
+			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.HYBRIDURI,Constants.LAUNCH_FROM_WIZARD);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

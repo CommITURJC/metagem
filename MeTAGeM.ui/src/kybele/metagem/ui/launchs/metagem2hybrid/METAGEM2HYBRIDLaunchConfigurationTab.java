@@ -101,7 +101,7 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 			   {
 				   boolean isValid = false;
 					try {
-						isValid = ValidationExecution.isValid(orLoc.lastSegment(), orLoc.toOSString(), Constants.METAGEMURI);
+						isValid = ValidationExecution.isValid(orLoc.lastSegment(), orLoc.toOSString(), Constants.METAGEMURI,Constants.LAUNCH_FROM_SHORTCUT);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
