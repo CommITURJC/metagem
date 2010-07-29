@@ -99,6 +99,11 @@ context Relations{
 		message: 'The required feature \'typeRelation\' of \''+ self.type().name.asString() + '\' must be set' 
 	}
 	
+	constraint superRelations{
+		check: self.extend->select(r|r.isKindOf(Relations))->forAll(r2|r2.typeRelation=MyTypeRelation#IsAbstract)
+		message: 'Relation \''+self.type().name.asString() +'\' only can extends abstract relations'
+	}
+	
 }
 
 context OneToOne{
@@ -158,6 +163,7 @@ context ManyToMany{
 		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' with 0 values must have at least 1 value'
 	}
 }
+
 
 
 operation getMessageNotEmptyName(objectClass : String) {
