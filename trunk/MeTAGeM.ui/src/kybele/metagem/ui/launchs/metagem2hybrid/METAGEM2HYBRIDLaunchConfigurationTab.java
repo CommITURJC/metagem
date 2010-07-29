@@ -196,7 +196,7 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 			tProviderBrowse2.addSelectionListener(tProviderListener2);
 			
 			// Tercer grupo de controles, para seleccionar el fichero right
-			Group tProviderGroup3 = createGroup(modelExtentComp, "LEFT model to transform", 3);
+			Group tProviderGroup3 = createGroup(modelExtentComp, "Right(MOF) model to transform", 3);
 			TProviderGroupListener tProviderListener3 = new TProviderGroupListener(2);
 
 			createLabel(tProviderGroup3, "RIGHT model URI: ");		

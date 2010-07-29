@@ -1,6 +1,7 @@
 package kybele.metagem.ui.api;
 
 
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Collections;
 import java.util.HashMap;
@@ -8,6 +9,11 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import kybele.metagem.ui.Activator;
+import kybele.metagem.ui.utils.Constants;
+
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.m2m.atl.drivers.emf4atl.ASMEMFModel;
 import org.eclipse.m2m.atl.engine.AtlEMFModelHandler;
@@ -15,6 +21,7 @@ import org.eclipse.m2m.atl.engine.AtlLauncher;
 import org.eclipse.m2m.atl.engine.AtlModelHandler;
 import org.eclipse.m2m.atl.engine.vm.ATLVMPlugin;
 import org.eclipse.mofscript.runtime.ExecutionMessageListener;
+import org.osgi.framework.Bundle;
 
 public class Transformations implements ExecutionMessageListener {
 
@@ -122,6 +129,13 @@ public class Transformations implements ExecutionMessageListener {
  
 			modelHandler.saveModel(hybridOutputModel, outFilePath, false);
 			dispose(models);
+			
+			// Registra el metamodelo de ATL
+			Bundle b = Activator.getDefault().getBundle();
+			InputStream input = FileLocator.openStream(b, new Path("/src/kybele/metagem/ui/api/resources/ATL.ecore"), false);
+			Utils.registerMetamodel(Constants.ATLURI, input);
+			input.close();		
+			
 		} catch (Exception e) {
 			logger.log(Level.SEVERE, e.getLocalizedMessage(), e);
 		}
