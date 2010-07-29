@@ -198,7 +198,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_zc4jXJo_Ed-ME75zpaN1cQ" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="0"/>
     <element xmi:type="ecore:EClass" href="ATL.ecore#/0/LazyMatchedRule"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zc4jXZo_Ed-ME75zpaN1cQ" x="585" y="570"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zc4jXZo_Ed-ME75zpaN1cQ" x="585" y="575"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_zdBs25o_Ed-ME75zpaN1cQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_zdBs3po_Ed-ME75zpaN1cQ" type="4001"/>
