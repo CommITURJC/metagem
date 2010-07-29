@@ -37,7 +37,7 @@ public class METAGEM2HYBRIDLaunchConfigurationDelegate implements
 		
 		boolean isValid = false;
 		try {
-			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.METAGEMURI,Constants.LAUNCH_FROM_WIZARD);
+			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.METAGEMURI,Constants.SHOW_DIALOG);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

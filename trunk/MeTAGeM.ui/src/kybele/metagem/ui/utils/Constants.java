@@ -20,8 +20,8 @@ public class Constants {
 	public static String HYBRIDURI = "http:///MM_Hybrid.ecore";
 	public static String ATLURI = "http://www.eclipse.org/gmt/2005/ATL";
 	
-	public static int LAUNCH_FROM_WIZARD = 0;
-	public static int LAUNCH_FROM_SHORTCUT = 1;
+	public static int SHOW_DIALOG = 0;
+	public static int NOT_SHOW_DIALOG = 1;
 	
 	
 }
