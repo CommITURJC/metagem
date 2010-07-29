@@ -71,7 +71,7 @@ public abstract class ValidationExecution {
 				           		   String message  = new String("");
 
 									for (EvlUnsatisfiedConstraint uc : unsatisfied) {
-										message+=uc.getConstraint().getConstraintContext().getName()+": " 
+										message+="- "+uc.getConstraint().getConstraintContext().getName()+": " 
 												+uc.getMessage()+"\n";
 									}
 				           		   
