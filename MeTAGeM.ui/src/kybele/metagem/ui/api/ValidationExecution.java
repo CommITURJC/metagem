@@ -48,7 +48,7 @@ public abstract class ValidationExecution {
 		Collection<EvlUnsatisfiedConstraint> unsatisfied = module.getContext().getUnsatisfiedConstraints();
 	
 		if (unsatisfied.size() > 0) {
-			if (type == Constants.LAUNCH_FROM_WIZARD) {
+			if (type == Constants.SHOW_DIALOG) {
 							
 				 new Thread(new Runnable() {
 				      public void run() {
