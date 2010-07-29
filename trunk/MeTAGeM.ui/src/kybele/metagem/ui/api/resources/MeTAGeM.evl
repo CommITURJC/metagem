@@ -101,6 +101,64 @@ context Relations{
 	
 }
 
+context OneToOne{
+	constraint OneToOne_minimumSource{
+		check: self.source.isDefined()
+		message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' must be set'
+	}
+	constraint OneToOne_minimumTarget{
+		check: self.target.isDefined()
+		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' must be set'
+	}
+}
+
+context OneToZero{
+	constraint OneToZero_minimumSource{
+		check: self.source.isDefined()
+		message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' must be set'
+	}
+}
+
+context ZeroToOne{
+	constraint ZeroToOne_minimumTarget{
+		check: self.target.isDefined()
+		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' must be set'
+	}
+}
+
+context OneToMany{
+	constraint OneToMany_minimumSource{
+		check: self.source.isDefined()
+		message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' must be set'
+	}
+	constraint OneToMany_minimumTarget{
+		check: self.target->size()>0
+		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' with 0 values must have at least 1 value'
+	}
+}
+
+context ManyToOne{
+	constraint ManyToOne_minimumSource{
+			check: self.source->size()>0
+			message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' with 0 values must have at least 1 value'
+		}
+	constraint ManyToOne_minimumTarget{
+		check: self.target.isDefined()
+		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' must be set'
+	}
+}
+
+context ManyToMany{
+	constraint ManyToMany_minimumSource{
+			check: self.source->size()>0
+			message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' with 0 values must have at least 1 value'
+		}
+	constraint ManyToMany_minimumTarget{
+		check: self.target->size()>0
+		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' with 0 values must have at least 1 value'
+	}
+}
+
 
 operation getMessageNotEmptyName(objectClass : String) {
 	return 'The name of \'' + objectClass + '\' should be filled';
