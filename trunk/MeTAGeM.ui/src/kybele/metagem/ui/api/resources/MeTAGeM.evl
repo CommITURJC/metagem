@@ -1,9 +1,16 @@
+-- @name 		MeTAGeM
+-- @version		1.0
+-- @domains	meta-transformation, metamodel, model
+-- @authors		Verónica Bollati, Juan M. Vara, David Granada, Álvaro Jiménez  (Universidad Rey Juan Carlos)
+-- @date       	27-07-2010
+-- @description	Constraints applied to MeTAGeM metamodel.
+
 context ModelRoot {
 
 	-- El nombre del modelroot es obligatorio y no puede estar vacío
 	constraint notEmptyModelRootName {
 		check : self.name.isDefined()
-		message : 'ModelRoot Failed'
+		message : 'The name of ModelRoot object should be filled'
 		fix {
      		title : 'ModelRoot'
      		do {

@@ -122,12 +122,15 @@ public abstract class AbstractDetailsDialog extends Dialog
         */
 
        // Compute the new window size.
-       Point oldSize = getContents().getSize();
-       Point newSize = getContents().computeSize(
-          SWT.DEFAULT, SWT.DEFAULT);
-       if (newWindowSize == null)
-          newWindowSize = new Point(oldWindowSize.x, oldWindowSize.y
-             + (newSize.y - oldSize.y));
+//       Point oldSize = getContents().getSize();
+//       Point newSize = getContents().computeSize(
+//          SWT.DEFAULT, SWT.DEFAULT);
+       if (newWindowSize == null){
+//          newWindowSize = new Point(oldWindowSize.x, oldWindowSize.y
+//             + (newSize.y - oldSize.y));
+    	   newWindowSize = new Point(oldWindowSize.x, oldWindowSize.y
+    	             + 100);
+       }
        // Crop new window size to screen.
        Point windowLoc = getShell().getLocation();
        Rectangle screenArea =

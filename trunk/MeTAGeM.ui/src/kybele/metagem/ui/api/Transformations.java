@@ -64,7 +64,7 @@ public class Transformations implements ExecutionMessageListener {
 		hybridMetamodel = (ASMEMFModel) modelHandler.loadModel(
 				"MM_Hybrid", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/MM_Hybrid.ecore"));
 		atlMetamodel = (ASMEMFModel) modelHandler.loadModel(
-				"METAGEM", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/ATL-0.2.ecore"));
+				"METAGEM", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/ATL.ecore"));
 		models.put("MM_Hybrid", hybridMetamodel);
 		models.put("ATL", atlMetamodel);
 		

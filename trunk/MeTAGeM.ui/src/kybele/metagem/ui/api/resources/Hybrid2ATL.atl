@@ -54,7 +54,7 @@ rule createRule2MatchedRule{
 			name <- mm_hybrid_rule.name_rule.debug('Name MacthedRule'),
 			isAbstract <- mm_hybrid_rule.isAbstract,
 			isRefining <- false,
-			isDefault <- false,
+			isNoDefault <- true,
 			superRule <- mm_hybrid_rule."extends",
 			inPattern <- inPattern, --mm_hybrid_rule."in".asSequence().first(),
 			outPattern <- outPattern,
@@ -78,7 +78,7 @@ rule createRule2LazyRule{
 			name <- mm_hybrid_rule.name_rule.debug('Name LazyRule'),
 			isAbstract <- mm_hybrid_rule.isAbstract,
 			isRefining <- false,
-			isDefault <- false,
+			isNoDefault <- true,
 			inPattern <- inPattern,
 			outPattern <- outPattern,
 			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + mm_hybrid_rule.name_rule}
@@ -170,6 +170,7 @@ rule Bindings {
 			varName <- elemInc.getReferredVariable() 
 		) 
 }
+
 
 --Helper with String return type
 rule createOperation2Helper_String {
@@ -317,41 +318,52 @@ helper context MM_Hybrid!Rule def : getSizeIP () : Integer =
 	self."in".size();
 
 
---Helper -> Define the source binding (Element, Rule or Helper)
-helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : String =
-	--rule undefined
-	if self.right."rule".asSequence().first().oclIsUndefined() then
-		--rule undefined and operation undefined
-		if self.right.operation.asSequence().first().oclIsUndefined() then
-			self.right.sourceElement.asSequence().first().name_element
-		--rule undefined and operation defined 
-		else
-			-- rule undefined, operation defined and srcElement undefined
-			if self.right.sourceElement.asSequence().first().oclIsUndefined() then
-				self.right.operation.asSequence().first().name_operation
-			-- rule undefined, operation defined and srcElement defined
-			else -- CORREGIR LA GENERACIÓN DE LA STRING - QUITAR LAS COMILLAS
-				self.right.sourceElement.asSequence().first().name_element + '.' + self.right.operation.asSequence().first().name_operation
-			endif
-		endif
-	--rule defined (operation undefined by validation)		
+--Helper -> Define the source binding (Element, Rule, Helper or Reference)
+helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : ATL!OclExpression = --String = 
+	--rule undefined, operation undefined, srcElement undefined, reference defined	
+	if (self.right."rule".asSequence().first().oclIsUndefined() and 
+		self.right.operation.asSequence().first().oclIsUndefined() and
+		self.right.sourceElement.asSequence().first().oclIsUndefined()) then
+			OclUndefined
 	else
-		--rule defined and srcElement undefined
-		if self.right.sourceElement.asSequence().first().oclIsUndefined() then
-			self.right."rule".asSequence().first().name_rule
-		--rule defined and srcElement defined
-		else  -- CORREGIR LA GENERACIÓN DE LA STRING - QUITAR LAS COMILLAS
-			self.right.sourceElement.asSequence().first().name_element + '.' + self.right."rule".asSequence().first().name_rule
+		--rule undefined
+		if self.right."rule".asSequence().first().oclIsUndefined() then
+			--rule undefined and operation undefined
+			if self.right.operation.asSequence().first().oclIsUndefined() then
+				self.right.sourceElement.asSequence().first().name_element
+			--rule undefined and operation defined 
+			else
+				--rule undefined, operation defined and srcElement undefined
+				if self.right.sourceElement.asSequence().first().oclIsUndefined() then
+					self.right.operation.asSequence().first().name_operation
+				-- rule undefined, operation defined and srcElement defined
+				else -- CORREGIR LA GENERACIÓN DE LA STRING - QUITAR LAS COMILLAS
+					self.right.sourceElement.asSequence().first().name_element + '.' + self.right.operation.asSequence().first().name_operation
+				endif
+			endif
+		--rule defined (operation undefined by validation)		
+		else
+			--rule defined and srcElement undefined
+			if self.right.sourceElement.asSequence().first().oclIsUndefined() then
+				self.right."rule".asSequence().first().name_rule
+			--rule defined and srcElement defined
+			else  -- CORREGIR LA GENERACIÓN DE LA STRING - QUITAR LAS COMILLAS
+				self.right.sourceElement.asSequence().first().name_element + '.' + self.right."rule".asSequence().first().name_rule
+			endif
 		endif
 	endif;
 
 
 --Helper -> Return the variable used on source binding
-helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : String =
+helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : ATL!OclExpression = --String =
 	if self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().oclIsUndefined()  then
 		'???'
 	else
-		self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
+		if self.right.reference.oclIsUndefined() then
+			self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
+		else
+			self.right.reference.name_element.toLower()
+		endif
 	endif;
 
 
