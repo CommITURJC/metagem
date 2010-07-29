@@ -55,6 +55,7 @@ context ModelRoot {
 
 context ModelTransf{
 
+	-- Model name cannot be empty
 	constraint notEmptyModelName{
 	check : self.name.isDefined()
 		message : getMessageNotEmptyName(self.type().name.asString())
@@ -84,21 +85,25 @@ context ModelTransf{
 
 context Relations{
 
+	--Relations must be set typeAttri
 	constraint minimumTypeAttri{
 		check: self.typeAttri.isDefined()
 		message:'The required feature \'typeAttr\' of \''+ self.type().name.asString() +' \' must be set' 
 	}
 	
+	--Relations must be set typeE
 	constraint minimumTypeE{
 		check: self.typeE.isDefined()
 		message: 'The required feature \'typeE\' of \''+ self.type().name.asString() + '\' must be set' 
 	}
 	
+	--Relations must be set typeRelation
 	constraint minimumTypeRelation{
 		check: self.typeRelation.isDefined()
 		message: 'The required feature \'typeRelation\' of \''+ self.type().name.asString() + '\' must be set' 
 	}
 	
+	--Relations only can extends abstract relations
 	constraint superRelations{
 		check: self.extend->select(r|r.isKindOf(Relations))->forAll(r2|r2.typeRelation=MyTypeRelation#IsAbstract)
 		message: 'Relation \''+self.type().name.asString() +'\' only can extends abstract relations'
@@ -107,10 +112,14 @@ context Relations{
 }
 
 context OneToOne{
+
+	--Relation OneToOne must be set a source element
 	constraint OneToOne_minimumSource{
 		check: self.source.isDefined()
 		message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' must be set'
 	}
+	
+	--Relation OneToOne must be set a target element
 	constraint OneToOne_minimumTarget{
 		check: self.target.isDefined()
 		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' must be set'
@@ -118,52 +127,72 @@ context OneToOne{
 }
 
 context OneToZero{
+
+	--Relation OneToZero must be set a source element
 	constraint OneToZero_minimumSource{
 		check: self.source.isDefined()
 		message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' must be set'
 	}
+	
 }
 
 context ZeroToOne{
+
+	--Relation ZeroToOne must be set a target element
 	constraint ZeroToOne_minimumTarget{
 		check: self.target.isDefined()
 		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' must be set'
 	}
+	
 }
 
 context OneToMany{
+
+	--Relation OneToMany must be set a source element
 	constraint OneToMany_minimumSource{
 		check: self.source.isDefined()
 		message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' must be set'
 	}
+	
+	--Relation OneToMany must be set a target element
 	constraint OneToMany_minimumTarget{
 		check: self.target->size()>0
 		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' with 0 values must have at least 1 value'
 	}
+	
 }
 
 context ManyToOne{
+
+	--Relation ManyToOne must be set a source element
 	constraint ManyToOne_minimumSource{
 			check: self.source->size()>0
 			message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' with 0 values must have at least 1 value'
 		}
+	
+	--Relation ManyToOne must be set a target element
 	constraint ManyToOne_minimumTarget{
 		check: self.target.isDefined()
 		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' must be set'
 	}
+	
 }
 
 context ManyToMany{
+
+	--Relation ManyToMany must be set a source element
 	constraint ManyToMany_minimumSource{
 			check: self.source->size()>0
 			message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' with 0 values must have at least 1 value'
 		}
+	
+	--Relation ManyToMany must be set a target element
 	constraint ManyToMany_minimumTarget{
 		check: self.target->size()>0
 		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' with 0 values must have at least 1 value'
 	}
+	
 }
-
 
 
 operation getMessageNotEmptyName(objectClass : String) {
