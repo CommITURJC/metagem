@@ -7,15 +7,128 @@
 
 context ModelRoot {
 
-	-- El nombre del modelroot es obligatorio y no puede estar vacío
+	-- ModelRoot name cannot be empty
 	constraint notEmptyModelRootName {
 		check : self.name.isDefined()
-		message : 'The name of ModelRoot object should be filled'
+		message : getMessageNotEmptyName(self.type().name.asString())
 		fix {
-     		title : 'ModelRoot'
+     		title : getTitleNotEmptyName(self.type().name.asString())
      		do {
-    			self.name := getInputNotEmptyName('ModelRoot'); 
+    			self.name := getInputNotEmptyName(self.type().name.asString()); 
      		}
     	}
     }
+    
+    -- ModelRoot cannot be empty and should start with a letter
+	-- following letters, numbers, dashes and underscores 
+	constraint validModelRootName {
+		guard : self.satisfies('notEmptyModelRootName')
+		check : self.name.isValidName()
+		message : getMessageValidName(self.type().name.asString())
+		fix {
+     		title : getTitleValidName(self.type().name.asString(), self.name)
+     		do {
+    			self.name := getInputValidName(self.type().name.asString(), self.name); 
+     		}
+    	}
+    }
+    
+    --ModelRoot should contain one or more input models
+    constraint minimumInputModel{
+    	check: self.inputModel->size()>0
+    	message: 'The feature \'inputModel\' of \''+self.type().name.asString() +'\' with 0 values must have at least 1 value'
+    }
+    
+     --ModelRoot should contain one or more output models
+    constraint minimumOutputModel{
+    	check: self.outputModel->size()>0
+    	message:  'The feature \'outputModel\' of \''+self.type().name.asString() +'\' with 0 values must have at least 1 value'
+    }
+    
+     --ModelRoot should contain one or more relations
+    constraint modelRoot_minimumRelations{
+    	check: self.relations->size()>0
+    	message: 'The feature \'relations\' of \''+self.type().name.asString() +'\' with 0 values must have at least 1 value'
+    }
+    
+}
+
+context ModelTransf{
+
+	constraint notEmptyModelName{
+	check : self.name.isDefined()
+		message : getMessageNotEmptyName(self.type().name.asString())
+		fix {
+     		title : getTitleNotEmptyName(self.type().name.asString())
+     		do {
+    			self.name := getInputNotEmptyName(self.type().name.asString()); 
+     		}
+    	}
+	}
+	
+	-- Model cannot be empty and should start with a letter
+	-- following letters, numbers, dashes and underscores 
+	constraint validModelName {
+		guard : self.satisfies('notEmptyModelName')
+		check : self.name.isValidName()
+		message : getMessageValidName(self.type().name.asString())
+		fix {
+     		title : getTitleValidName(self.type().name.asString(), self.name)
+     		do {
+    			self.name := getInputValidName(self.type().name.asString(), self.name); 
+     		}
+    	}
+    }
+	
+}
+
+context Relations{
+
+	constraint minimumTypeAttri{
+		check: self.typeAttri.isDefined()
+		message:'The required feature \'typeAttr\' of \''+ self.type().name.asString() +' \' must be set' 
+	}
+	
+	constraint minimumTypeE{
+		check: self.typeE.isDefined()
+		message: 'The required feature \'typeE\' of \''+ self.type().name.asString() + '\' must be set' 
+	}
+	
+	constraint minimumTypeRelation{
+		check: self.typeRelation.isDefined()
+		message: 'The required feature \'typeRelation\' of \''+ self.type().name.asString() + '\' must be set' 
+	}
+	
+}
+
+
+operation getMessageNotEmptyName(objectClass : String) {
+	return 'The name of \'' + objectClass + '\' should be filled';
+}
+
+operation getInputNotEmptyName(objectClass : String) {
+	return UserInput.prompt('Name of \'' + objectClass+'\'');
+}
+
+operation getMessageValidName(objectClass : String) {
+	return 'The name of \'' + objectClass + '\' should start with a letter and ' +
+		   'contain letters, numbers, underscores or dashes';
+}
+
+operation getTitleValidName(objectClass : String, objectName : String) {
+	return 'Change the name of \'' + objectClass + '\' "' + objectName + '"';
+}
+
+operation getInputValidName(objectClass : String, objectName : String) {
+	return UserInput.prompt('Name of \'' + objectClass+'\'', objectName);
+}
+
+-- A valid name should start with a letter and only contain
+-- letters, numbers, '-' or '_'
+operation String isValidName() : Boolean {
+	var result : Boolean := false;
+	if (self.isDefined()) {
+		result := self.matches('[(A-Z)(a-z)][\\s\\w\\[\\]_-]*');
+	}
+	return result;
 }

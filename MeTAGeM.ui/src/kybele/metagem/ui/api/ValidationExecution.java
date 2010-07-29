@@ -60,8 +60,7 @@ public abstract class ValidationExecution {
 				           		   String message  = new String("");
 
 									for (EvlUnsatisfiedConstraint uc : unsatisfied) {
-										message+="- "+uc.getConstraint().getConstraintContext().getName()+": " 
-												+uc.getMessage()+"\n";
+										message+="- "+uc.getMessage()+"\n";
 									}
 				           		   
 				           		   ErrorValidationDialog dialog = new ErrorValidationDialog(Display.getDefault().getActiveShell(), "Validation problems",
