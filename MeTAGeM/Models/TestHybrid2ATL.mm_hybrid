@@ -92,7 +92,7 @@
   <operations name_operation="OP1" body="Esto hace algo" context="//@rule.2/@in.1" rightPattern="//@rule.2/@out.2/@included.0/@right">
     <returnType datatype="String"/>
   </operations>
-  <operations name_operation="OP2" body="Y esto hace otra cosa" context="//@rule.0/@in.0" rightPattern="//@rule.0/@out.0/@included.0/@right">
+  <operations name_operation="" body="" context="//@rule.0/@in.0" rightPattern="//@rule.0/@out.0/@included.0/@right">
     <returnType element="//@rule.0/@in.0"/>
   </operations>
 </mm_hybrid:Module>
