@@ -8,27 +8,27 @@
     <in name_element="BooleanType" metamodel="//@inMM.0"/>
     <out name_element="ANSICharacterType" metamodel="//@outMM.0">
       <included>
-        <right rule="//@rule.9 //@rule.6">
+        <right rule="//@rule.9 //@rule.6" name_pattern="schema_2_Descriptor_rightPattern">
           <sourceElement name_element="schema" metamodel="//@inMM.0"/>
           <sourceElement name_element="name" metamodel="//@inMM.0"/>
         </right>
-        <left>
+        <left name_pattern="schema_2_Descriptor_leftPattern">
           <targetElement name_element="Descriptor" metamodel="//@outMM.0"/>
         </left>
       </included>
     </out>
     <out name_element="ANSINumberType" metamodel="//@outMM.0">
       <included>
-        <right>
+        <right name_pattern="BehaviouralComponent_2_package_rightPattern">
           <sourceElement name_element="BehaviouralComponent" metamodel="//@inMM.0"/>
         </right>
-        <left>
+        <left name_pattern="BehaviouralComponent_2_package_leftPattern">
           <targetElement name_element="package" metamodel="//@outMM.0"/>
         </left>
       </included>
       <included>
-        <right/>
-        <left>
+        <right name_pattern="R16_rightPattern"/>
+        <left name_pattern="R16_leftPattern">
           <targetElement name_element="ANSICharacterType" metamodel="//@outMM.0"/>
         </left>
       </included>
@@ -43,10 +43,10 @@
     <out name_element="BuiltInCharacterTypes" metamodel="//@outMM.0"/>
     <out name_element="BuiltInDatetimeTypes" metamodel="//@outMM.0">
       <included>
-        <right>
+        <right name_pattern="descriptor_2_Size_Min_rightPattern">
           <sourceElement name_element="descriptor" metamodel="//@inMM.0"/>
         </right>
-        <left>
+        <left name_pattern="descriptor_2_Size_Min_leftPattern">
           <targetElement name_element="Size_Min" metamodel="//@outMM.0"/>
         </left>
       </included>
@@ -60,10 +60,10 @@
   <rule name_rule="R5" isMain="true">
     <out name_element="BuiltInLOBType" metamodel="//@outMM.0">
       <included>
-        <right>
+        <right name_pattern="schema_2_CHAR_rightPattern">
           <sourceElement name_element="schema" metamodel="//@inMM.0"/>
         </right>
-        <left>
+        <left name_pattern="schema_2_CHAR_leftPattern">
           <targetElement name_element="CHAR" metamodel="//@outMM.0"/>
         </left>
       </included>
@@ -80,8 +80,8 @@
   <rule name_rule="R7" isMain="true">
     <out name_element="NVARCHAR2" metamodel="//@outMM.0">
       <included>
-        <right/>
-        <left/>
+        <right name_pattern="R14_rightPattern"/>
+        <left name_pattern="R14_leftPattern"/>
       </included>
     </out>
   </rule>
