@@ -255,6 +255,71 @@ context Return {
  
  }
  
+ context ElementIncluded{
+ 
+	-- ElementIncluded 'typeAttribute' must be set
+		constraint elementIncluded_typeAttribute{
+			check: self.typeAttribute.isDefined()
+			message: 'The required feature \'typeAttribute\' of \''+ self.type().name.asString() + '\' must be set' 
+		}
+		
+		-- ElementIncluded 'typeElement' must be set
+		constraint elementIncluded_typeElement{
+			check: self.typeElement.isDefined()
+			message: 'The required feature \'typeElement\' of \''+ self.type().name.asString() + '\' must be set' 
+		} 
+ 
+ 	--'right' must be set
+ 	constraint elementIncluded_right{
+ 		check: self.right.isDefined()
+ 		message: 'The required feature \'right\' of \''+ self.type().name.asString() + '\' must be set' 
+ 	}
+ 	
+ 	--'left' must be set
+ 	constraint elementIncluded_left{
+ 		check: self.left.isDefined()
+ 		message: 'The required feature \'left\' of \''+ self.type().name.asString() + '\' must be set' 
+ 	}
+ 
+ }
+ 
+ context RightPattern{
+ 
+	-- RightPattern name cannot be empty
+	constraint notEmptyElementName{
+		check : self.name_pattern.isDefined()
+			message : getMessageNotEmptyName(self.type().name.asString())
+			fix {
+		     	title : getTitleNotEmptyName(self.type().name.asString())
+		     	do {
+		    		self.name_pattern := getInputNotEmptyName(self.type().name.asString()); 
+		     	}
+		    }
+		}
+		
+ }
+ 
+ context LeftPattern{
+ 
+	 -- LeftPattern name cannot be empty
+	constraint notEmptyElementName{
+		check : self.name_pattern.isDefined()
+			message : getMessageNotEmptyName(self.type().name.asString())
+			fix {
+		     	title : getTitleNotEmptyName(self.type().name.asString())
+		     	do {
+		    		self.name_pattern := getInputNotEmptyName(self.type().name.asString()); 
+		     	}
+		    }
+		}
+ 	
+ 	--'targetElement' must be set
+ 	constraint leftPattern_targetElement{
+ 		check: self.targetElement.isDefined()
+ 		message: 'The required feature \'targetElement\' of \''+ self.type().name.asString() + '\' must be set' 
+ 	}
+					
+ }
  
 operation getMessageNotEmptyName(objectClass : String) {
 	return 'The name of \'' + objectClass + '\' should be filled';
