@@ -36,7 +36,7 @@ public interface Guard extends EObject {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see mm_hybrid.MM_HybridPackage#getGuard_Value()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getValue();

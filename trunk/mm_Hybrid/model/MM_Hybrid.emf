@@ -80,7 +80,7 @@ class ElementIncluded {
 }
 
 class Guard {
-  attr String value;
+  attr String[1] value;
 }
 
 class RightPattern {
