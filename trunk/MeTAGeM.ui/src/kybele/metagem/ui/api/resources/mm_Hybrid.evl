@@ -175,7 +175,28 @@ context Rule{
 			check: self.typeElement.isDefined()
 			message: 'The required feature \'typeElement\' of \''+ self.type().name.asString() + '\' must be set' 
 		}
+		
+		--Rule only can extends abstract rules
+		constraint superRules{
+			check: self."extends"->select(r|r.isKindOf(Rules))->forAll(r2|r2.isAbstract=true)
+			message: '\''+self.type().name.asString() +'\' only can extends abstract rules'
+		}
 
+}
+
+context Operation{
+
+	-- Operation name cannot be empty
+		constraint notEmptyOperationName{
+		check : self.name_operation.isDefined()
+			message : getMessageNotEmptyName(self.type().name.asString())
+			fix {
+	     		title : getTitleNotEmptyName(self.type().name.asString())
+	     		do {
+	    			self.name_operation := getInputNotEmptyName(self.type().name.asString()); 
+	     		}
+	    	}
+		}
 }
 
 
