@@ -19,7 +19,7 @@ context ModelRoot {
     	}
     }
     
-    -- ModelRoot cannot be empty and should start with a letter
+    -- ModelRoot name cannot be empty and should start with a letter
 	-- following letters, numbers, dashes and underscores 
 	constraint validModelRootName {
 		guard : self.satisfies('notEmptyModelRootName')
@@ -67,7 +67,7 @@ context ModelTransf{
     	}
 	}
 	
-	-- Model cannot be empty and should start with a letter
+	-- Model name cannot be empty and should start with a letter
 	-- following letters, numbers, dashes and underscores 
 	constraint validModelName {
 		guard : self.satisfies('notEmptyModelName')
