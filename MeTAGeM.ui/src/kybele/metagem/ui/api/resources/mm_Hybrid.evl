@@ -303,6 +303,40 @@ context Return {
 		     	}
 		    }
 		}
+	
+	--RightPattern must have a reference, a rule, a operation or a SourceElementRule
+	constraint hasSourceElementRule_Reference_Rule_or_Operation{
+		check: self.sourceElement->size()>0 or self.reference->size()>0 or self.rule->size()>0 or self."operation"->size()>0
+		message: '\''+self.type().name.asString()+'\' must have one of following elements: \'SourceElementRule\', \'Reference\', \'Rule\' or \'Operation\''
+	}
+	
+	--RightPattern cannot have a rule and a operation at the same time
+	constraint hasRule_and_operation{
+		guard: self.satisfies('hasSourceElementRule_Reference_Rule_or_Operation')
+		check: not(self.rule->size()>0 and self."operation"->size()>0)
+		message: '\''+self.type().name.asString()+'\' cannot be associated with a \'Rule\' and an \'Operation\' '
+	}
+	
+	--RightPattern cannot have a rule and a reference at the same time
+	constraint hasRule_and_reference{
+		guard: self.satisfies('hasSourceElementRule_Reference_Rule_or_Operation')
+		check: not(self.rule->size()>0 and self.reference->size()>0)
+		message: '\''+self.type().name.asString()+'\' cannot be associated with a \'Rule\' and a \'Reference\' '
+	}
+	
+	--RightPattern cannot have an operation and a reference at the same time
+	constraint hasOperation_and_reference{
+		guard: self.satisfies('hasSourceElementRule_Reference_Rule_or_Operation')
+		check: not(self."operation"->size()>0 and self.reference->size()>0)
+		message: '\''+self.type().name.asString()+'\' cannot be associated with an \'Operation\' and a \'Reference\' '
+	}
+	
+	--RightPattern cannot have a SourceElementRule and a reference at the same time
+	constraint hasSourceElementRule_and_reference{
+		guard: self.satisfies('hasSourceElementRule_Reference_Rule_or_Operation')
+		check: not(self.sourceElement->size()>0 and self.reference->size()>0)
+		message: '\''+self.type().name.asString()+'\' cannot have \'Source Elements Rule\' and be associated with a \'Reference\' '
+	}
 		
  }
  
