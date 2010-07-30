@@ -21,11 +21,11 @@ rule inMM{
 		inMM_hybrid : MM_Hybrid!InMetaModel
 	to
 		inMM_ATL : ATL!OclModel(
-			--name <- inMM_hybrid.name_mm, --Extract ATL-0.2 model to ATL-0.2 file
-			name <- inMM_hybrid.type_mm,
-			metamodel <- ametamodel
+			name <- inMM_hybrid.name_mm,
+			--name <- inMM_hybrid.type_mm + '_model',
+			metamodel <- ametamodelinMM
 		),
-		ametamodel : ATL!OclModel (
+		ametamodelinMM : ATL!OclModel (
 			name <- inMM_hybrid.type_mm
 		)
 }
@@ -35,12 +35,12 @@ rule outMM{
 		outMM_hybrid : MM_Hybrid!OutMetaModel
 	to
 		outMM_ATL : ATL!OclModel(
-			--name <- outMM_hybrid.name_mm, --Extract ATL-0.2 model to ATL-0.2 file
-			name <- outMM_hybrid.type_mm,
-			metamodel <- ametamodel
+			name <- outMM_hybrid.name_mm,
+			--name <- outMM_hybrid.type_mm + '_model',
+			metamodel <- ametamodeloutMM
 		),
-		ametamodel : ATL!OclModel (
-			name <- outMM_hybrid.type_mm
+		ametamodeloutMM : ATL!OclModel (
+			name <- outMM_hybrid.type_mm--,
 		)
 }
 
@@ -51,7 +51,7 @@ rule createRule2MatchedRule{
 		(mm_hybrid_rule.isMain=true and mm_hybrid_rule.getSizeIP()>0)
 	to
 		atl : ATL!MatchedRule (
-			name <- mm_hybrid_rule.name_rule.debug('Name MacthedRule'),
+			name <- mm_hybrid_rule.name_rule.debug('Name MatchedRule'),
 			isAbstract <- mm_hybrid_rule.isAbstract,
 			isRefining <- false,
 			isNoDefault <- false,
@@ -122,7 +122,7 @@ rule InPatternElement {
 		),
 		aType : ATL!OclModelElement(
 			name <- inPattern.name_element,
-			model <- inPattern.metamodel
+			model <- thisModule.resolveTemp(inPattern.metamodel,'ametamodelinMM')--amodel --inPattern.metamodel
 		),
 		atl_element:ATL!OclModelElement(
 			name <- inPattern.name_element	
@@ -141,7 +141,7 @@ rule OutPatternElement {
 		),
 		aType : ATL!OclModelElement(
 			name <- outPattern.name_element,
-			model <- outPattern.metamodel
+			model <- thisModule.resolveTemp(outPattern.metamodel,'ametamodeloutMM') --amodel--outPattern.metamodel
 		),
 		atl_element:ATL!OclModelElement(
 			name <- outPattern.name_element	
