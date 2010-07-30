@@ -199,15 +199,61 @@ context Operation{
 		}
 }
 
-
 context Return {
- --El usuario solo puede escoger datatype o element pero no ambos
+
+ 	--Cannot be define an element and a datatype at the same Return Operation
  	constraint datatypeORelement{
  		check: not(self.element.isDefined() and  (not(self.datatype==Datatype#null.instance)))
- 		message : 'Cannot be define an element and a datatype at the same Return Operation'
+ 		message : 'Cannot be define an element and a datatype at the same time in Return'
  	}
+ 	
  }
  
+ context Guard{
+ 
+ 	-- 'value' must be set
+ 	constraint guard_value{
+ 		check: self.value.isDefined()
+ 		message: 'The required feature \'value\' of \''+ self.type().name.asString() + '\' must be set' 
+ 	}
+ 	
+ }
+ 
+ context Element{
+ 
+ 	-- Element name cannot be empty
+		constraint notEmptyElementName{
+		check : self.name_element.isDefined()
+			message : getMessageNotEmptyName(self.type().name.asString())
+			fix {
+	     		title : getTitleNotEmptyName(self.type().name.asString())
+	     		do {
+	    			self.name_element := getInputNotEmptyName(self.type().name.asString()); 
+	     		}
+	    	}
+		}
+ 
+ } 
+ 
+ context SourceElementRule{
+ 
+ 	--'metamodel' must be set
+ 	constraint source_mm{
+ 		check: self.metamodel.isDefined()
+ 		message: 'The required feature \'metamodel\' of \''+ self.type().name.asString() + '\' must be set' 
+ 	}
+ 
+ }
+ 
+  context TargetElementRule{
+ 
+ 	--'metamodel' must be set
+ 	constraint target_mm{
+ 		check: self.metamodel.isDefined()
+ 		message: 'The required feature \'metamodel\' of \''+ self.type().name.asString() + '\' must be set' 
+ 	}
+ 
+ }
  
  
 operation getMessageNotEmptyName(objectClass : String) {
