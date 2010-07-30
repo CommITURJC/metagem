@@ -178,7 +178,7 @@ context Rule{
 		
 		--Rule only can extends abstract rules
 		constraint superRules{
-			check: self."extends"->select(r|r.isKindOf(Rules))->forAll(r2|r2.isAbstract=true)
+			check: self."extends"->select(r|r.isKindOf(Rule))->forAll(r2|r2.isAbstract=true)
 			message: '\''+self.type().name.asString() +'\' only can extends abstract rules'
 		}
 
@@ -187,7 +187,7 @@ context Rule{
 context Operation{
 
 	-- Operation name cannot be empty
-		constraint notEmptyOperationName{
+	constraint notEmptyOperationName{
 		check : self.name_operation.isDefined()
 			message : getMessageNotEmptyName(self.type().name.asString())
 			fix {
@@ -197,6 +197,13 @@ context Operation{
 	     		}
 	    	}
 		}
+		
+	-- Operation 'body' must be set
+	 constraint opration_body{
+	 	check: self.body.isDefined()
+	 	message: 'The required feature \'body\' of \''+ self.type().name.asString() + '\' must be set' 
+	 }
+		
 }
 
 context Return {

@@ -1,5 +1,8 @@
 package kybele.metagem.ui.launchs.hybrid2atl;
 
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+
 import kybele.metagem.ui.api.Transformations;
 import kybele.metagem.ui.api.ValidationExecution;
 import kybele.metagem.ui.launchs.metagem2hybrid.METAGEM2HYBRIDConstants;
@@ -21,8 +24,12 @@ public class HYBRID2ATLLaunchConfigurationDelegate implements
 	@Override
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
-		// TODO Auto-generated method stub
-		
+
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		} catch (Exception e1) {
+			;
+		}		
 		
 		if (monitor == null)
 			monitor = new NullProgressMonitor();		
@@ -39,25 +46,24 @@ public class HYBRID2ATLLaunchConfigurationDelegate implements
 		try {
 			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.HYBRIDURI,Constants.SHOW_DIALOG);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "One or more models cannot be found.\nPlease, check your Launch Configuration", "Problems Launching...", JOptionPane.ERROR_MESSAGE);
+			isValid=false;
 		}
 		if(isValid)
 		{
 			monitor.subTask("Executing transformation");
-			Transformations transf = Transformations.getInstance();
-			transf.hybrid2atl(uriIN, uriOUT);
-			monitor.worked(85);		
-			if(monitor.isCanceled())
-				return;
+			try{
+				Transformations transf = Transformations.getInstance();
+				transf.hybrid2atl(uriIN, uriOUT);
+				monitor.worked(85);		
+				if(monitor.isCanceled())
+					return;
+			}catch (Exception e){
+				JOptionPane.showMessageDialog(null, "One or more models cannot be found.\nPlease, check your Launch Configuration", "Problems Launching...", JOptionPane.ERROR_MESSAGE);
+			}
 			monitor.subTask("Transformation finished");
 			ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IFolder.DEPTH_INFINITE, null);
 			monitor.done();
-		}
-		else
-		{	
-					//System.err.println("Fichero "+ new Path(uriIN).lastSegment() + " no tiene asociada una transformación.");
-			System.err.println("Fichero "+ new Path(uriIN).lastSegment() + " no es válido");
 		}
 	}
 	

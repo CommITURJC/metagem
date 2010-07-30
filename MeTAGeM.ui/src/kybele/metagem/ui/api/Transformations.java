@@ -78,8 +78,7 @@ public class Transformations implements ExecutionMessageListener {
 	}
 		
 	
-	public void metagem2hybrid(String inFilePath, String leftFilePath, String rightFilePath,String outFilePath) {
-		try {
+	public void metagem2hybrid(String inFilePath, String leftFilePath, String rightFilePath,String outFilePath) throws Exception{
 			Map<String, Object> models = new HashMap<String, Object>();
 			
 			initMetagem2HybridMetamodels(models);
@@ -104,13 +103,9 @@ public class Transformations implements ExecutionMessageListener {
  
 			modelHandler.saveModel(hybridOutputModel, outFilePath, false);
 			dispose(models);
-		} catch (Exception e) {
-			logger.log(Level.SEVERE, e.getLocalizedMessage(), e);
-		}
 	}
 	
-	public void hybrid2atl(String inFilePath, String outFilePath) {
-		try {
+	public void hybrid2atl(String inFilePath, String outFilePath) throws Exception{
 			Map<String, Object> models = new HashMap<String, Object>();
 			
 			initHybrid2ATLMetamodels(models);
@@ -135,10 +130,6 @@ public class Transformations implements ExecutionMessageListener {
 			InputStream input = FileLocator.openStream(b, new Path("/src/kybele/metagem/ui/api/resources/ATL.ecore"), false);
 			Utils.registerMetamodel(Constants.ATLURI, input);
 			input.close();		
-			
-		} catch (Exception e) {
-			logger.log(Level.SEVERE, e.getLocalizedMessage(), e);
-		}
 	}
 	
 	private void dispose(Map<String, Object> models) {
