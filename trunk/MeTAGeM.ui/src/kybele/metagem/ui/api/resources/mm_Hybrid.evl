@@ -335,7 +335,7 @@ context Return {
 	constraint hasSourceElementRule_and_reference{
 		guard: self.satisfies('hasSourceElementRule_Reference_Rule_or_Operation')
 		check: not(self.sourceElement->size()>0 and self.reference->size()>0)
-		message: '\''+self.type().name.asString()+'\' cannot have \'Source Elements Rule\' and be associated with a \'Reference\' '
+		message: '\''+self.type().name.asString()+'\' cannot have \'Source Element Rule\' and be associated with a \'Reference\' '
 	}
 		
  }
