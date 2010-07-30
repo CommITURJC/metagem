@@ -54,7 +54,7 @@ rule createRule2MatchedRule{
 			name <- mm_hybrid_rule.name_rule.debug('Name MacthedRule'),
 			isAbstract <- mm_hybrid_rule.isAbstract,
 			isRefining <- false,
-			isNoDefault <- true,
+			isNoDefault <- false,
 			superRule <- mm_hybrid_rule."extends",
 			inPattern <- inPattern, --mm_hybrid_rule."in".asSequence().first(),
 			outPattern <- outPattern,
@@ -78,7 +78,7 @@ rule createRule2LazyRule{
 			name <- mm_hybrid_rule.name_rule.debug('Name LazyRule'),
 			isAbstract <- mm_hybrid_rule.isAbstract,
 			isRefining <- false,
-			isNoDefault <- true,
+			isNoDefault <- false,
 			inPattern <- inPattern,
 			outPattern <- outPattern,
 			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + mm_hybrid_rule.name_rule}
