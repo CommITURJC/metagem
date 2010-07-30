@@ -70,7 +70,7 @@ context InMetaModel{
 	-- InMetaModel name cannot be empty and should start with a letter
 	-- following letters, numbers, dashes and underscores 
 	constraint validInMMName {
-		guard : self.satisfies('notEmptyModelName')
+		guard : self.satisfies('notEmptyInMMName')
 		check : self.name_mm.isValidName()
 		message : getMessageValidName(self.type().name.asString())
 		fix {
@@ -112,7 +112,7 @@ context OutMetaModel{
 	-- OutMetaModel name cannot be empty and should start with a letter
 	-- following letters, numbers, dashes and underscores 
 	constraint validOutMMName {
-		guard : self.satisfies('notEmptyModelName')
+		guard : self.satisfies('notEmptyOutMMName')
 		check : self.name_mm.isValidName()
 		message : getMessageValidName(self.type().name.asString())
 		fix {
@@ -150,6 +150,30 @@ context Rule{
 	    			self.name_rule := getInputNotEmptyName(self.type().name.asString()); 
 	     		}
 	    	}
+		}
+		
+		-- Rule 'isAbstract' must be set
+		constraint rule_isAbstract{
+			check: self.isAbstract.isDefined()
+			message: 'The required feature \'isAbstract\' of \''+ self.type().name.asString() + '\' must be set' 
+		}
+		
+		-- Rule 'isMain' must be set
+		constraint rule_isMain{
+			check: self.isMain.isDefined()
+			message: 'The required feature \'isMain\' of \''+ self.type().name.asString() + '\' must be set' 
+		}
+		
+		-- Rule 'typeAttribute' must be set
+		constraint rule_typeAttribute{
+			check: self.typeAttribute.isDefined()
+			message: 'The required feature \'typeAttribute\' of \''+ self.type().name.asString() + '\' must be set' 
+		}
+		
+		-- Rule 'typeElement' must be set
+		constraint rule_typeElement{
+			check: self.typeElement.isDefined()
+			message: 'The required feature \'typeElement\' of \''+ self.type().name.asString() + '\' must be set' 
 		}
 
 }
