@@ -1,64 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rubytl"
-    nsURI="http://rubytl/1.0" nsPrefix="rubytl">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="RubyTL"
+    nsURI="http://gts.inf.um.es/rubytl" nsPrefix="rubytl">
   <eClassifiers xsi:type="ecore:EClass" name="Transformation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" ordered="false"
-        upperBound="-1" eType="#//Rule" containment="true" eOpposite="#//Rule/module"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceMetamodels" upperBound="-1"
+        eType="#//Metamodel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetMetamodels" upperBound="-1"
+        eType="#//Metamodel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//Rule" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Rule">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
-        eType="#//Transformation" eOpposite="#//Transformation/rules"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//From"
-        eOpposite="#//From/rule"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//To"
-        eOpposite="#//To/rule"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" lowerBound="1"
-        eType="#//Mapping" eOpposite="#//Mapping/rule"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//Filter"
-        eOpposite="#//Filter/rule"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Metamodel" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="package" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="From">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1" eType="#//Rule"
-        eOpposite="#//Rule/type"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" upperBound="-1"
-        eType="#//MetaClass" eOpposite="#//MetaClass/from"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Rule" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//FromElement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//ToElement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" eType="#//Mapping"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="To">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1" eType="#//Rule"
-        eOpposite="#//Rule/type.1"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="types" lowerBound="1" upperBound="-1"
-        eType="#//MetaClass" eOpposite="#//MetaClass/to"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FromElement" eSuperTypes="#//Variable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="classname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" eType="#//Metamodel"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Filter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1" eType="#//Rule"
-        eOpposite="#//Rule/filter"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="block" lowerBound="1" eType="#//Expression"
-        eOpposite="#//Expression/filter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ToElement" eSuperTypes="#//Variable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="classname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" eType="#//Metamodel"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TopRule" eSuperTypes="#//Rule"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CopyRule" eSuperTypes="#//Rule"/>
   <eClassifiers xsi:type="ecore:EClass" name="Mapping">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1" eType="#//Rule"
-        eOpposite="#//Rule/mapping"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" lowerBound="1"
-        upperBound="-1" eType="#//Binding" eOpposite="#//Binding/mapping"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MetaClass">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="from" upperBound="-1" eType="#//From"
-        eOpposite="#//From/type"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="to" upperBound="-1" eType="#//To"
-        eOpposite="#//To/types"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="filter" lowerBound="1"
-        eType="#//Filter" eOpposite="#//Filter/block"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+        eType="#//Binding" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Binding">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" lowerBound="1"
-        eType="#//Mapping" eOpposite="#//Mapping/bindings"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClassifier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpVariable" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpGet" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
