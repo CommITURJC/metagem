@@ -1,6 +1,15 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: RubyTL Plug-in
-Bundle-SymbolicName: RubyTL
-Bundle-Version: 0.1.0
-Require-Bundle: org.eclipse.emf.ecore
+Bundle-Name: %pluginName
+Bundle-SymbolicName: RubyTL;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: RubyTL,
+ RubyTL.impl,
+ RubyTL.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport
+Bundle-ActivationPolicy: lazy
