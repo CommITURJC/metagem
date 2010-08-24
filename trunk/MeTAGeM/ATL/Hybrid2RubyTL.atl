@@ -1,0 +1,15 @@
+module Hybrid2RubyTL; -- Module Template
+create OUT : RubyTL from IN : MM_Hybrid;
+
+-- Create module header
+rule Module {
+	from 
+		mm_hybrid : MM_Hybrid!Module
+	to
+		rubytl : RubyTL!Transformation (
+			name <- mm_hybrid.name_module.debug('Modulo')--,
+		    --inModels <- mm_hybrid.inMM,
+			--outModels <- mm_hybrid.outMM,
+			--elements <- mm_hybrid."rule",
+		)
+}
