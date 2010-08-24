@@ -7,9 +7,36 @@ rule Module {
 		mm_hybrid : MM_Hybrid!Module
 	to
 		rubytl : RubyTL!Transformation (
-			name <- mm_hybrid.name_module.debug('Modulo')--,
-		    --inModels <- mm_hybrid.inMM,
-			--outModels <- mm_hybrid.outMM,
-			--elements <- mm_hybrid."rule",
+			name <- mm_hybrid.name_module.debug('Modulo'),
+		    sourceMetamodels <- mm_hybrid.inMM,
+			targetMetamodels <- mm_hybrid.outMM
+		)
+}
+
+rule inMM{
+	from
+		inMM_hybrid : MM_Hybrid!InMetaModel
+	to
+		inMM_rubytl : RubyTL!Metamodel(
+			name <- inMM_hybrid.name_mm.debug('SourceMetamodel')
+		)
+}
+
+rule outMM{
+	from
+		outMM_hybrid : MM_Hybrid!OutMetaModel
+	to
+		outMM_rubytl : RubyTL!Metamodel(
+			name <- outMM_hybrid.name_mm.debug('TargetMetamodel')			
+		)
+}
+
+
+rule createRule2Rule{
+	from 
+		mm_hybrid_rule : MM_Hybrid!Rule 
+	to
+		rubytl : RubyTL!TopRule (
+			name <- mm_hybrid_rule.name_rule.debug('Name Rule')
 		)
 }
