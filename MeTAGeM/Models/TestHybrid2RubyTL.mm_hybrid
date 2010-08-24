@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="ModuleRubyTL">
+  <rule name_rule="RuleTest1"/>
   <inMM name_mm="InMetamodel" type_mm="TypeINMM"/>
   <outMM name_mm="OutMetamodel" type_mm="TypeOUTMM"/>
 </mm_hybrid:Module>
