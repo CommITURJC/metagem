@@ -1,0 +1,8 @@
+
+syntax RubyTL{
+
+template Transformation main
+	:	"transformation" name "..."
+	;
+	
+}
