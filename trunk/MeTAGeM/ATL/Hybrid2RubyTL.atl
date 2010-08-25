@@ -35,12 +35,13 @@ rule outMM{
 
 rule createRule2Rule{
 	from 
-		mm_hybrid_rule : MM_Hybrid!Rule 
+		mm_hybrid_rule : MM_Hybrid!Rule
 	to
 		rubytl : RubyTL!TopRule (
 			name <- mm_hybrid_rule.name_rule.debug('Name Rule'),
 			"from" <- fromElement, 
-			"to" <- toElement
+			"to" <- toElement,
+			mapping <- amapping
 		),
 		fromElement : RubyTL!FromElement (
 			classname <- mm_hybrid_rule."in".asSequence().first().metamodel.name_mm.debug('Name MetamodelIN'),
@@ -55,5 +56,11 @@ rule createRule2Rule{
 		),
 		ametamodelout : RubyTL!Metamodel (
 			name <- mm_hybrid_rule.out.asSequence().first().metamodel.type_mm.debug('Type MetamodelOUT')	
+		),
+		amapping : RubyTL!Mapping (
+			bindings <- abindings	
+		),
+		abindings : RubyTL!Binding (
+			property <- 'property' --mm_hybrid_rule.out.asSequence().first().included.left.targetElement.asSequence().first().name_element
 		)
 }
