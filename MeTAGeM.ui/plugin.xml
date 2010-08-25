@@ -98,5 +98,19 @@
          </contextualLaunch>
       </shortcut>
    </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="ExtractRubyTL"
+            nameFilter="*.rubytl"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="kybele.metagem.ui.actions.RubyTLExtract"
+               enablesFor="1"
+               id="ExtractRubyTL"
+               label="Extract RubyTL model to RubyTL file">
+         </action>
+      </objectContribution>
+   </extension>
 
 </plugin>
