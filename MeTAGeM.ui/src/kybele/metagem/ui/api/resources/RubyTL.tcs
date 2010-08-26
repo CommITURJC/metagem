@@ -1,5 +1,21 @@
 
-syntax RubyTL{
+syntax RubyTL(k=0){
+
+primitiveTemplate identifier for String default using NAME:
+		value = "%token%";
+
+	primitiveTemplate identifierOrKeyword for String using NAME orKeyword:
+		value = "%token%";
+
+	primitiveTemplate stringSymbol for String using STRING:
+		value = "%token%",
+		serializer="'\'' + %value%.toCString() + '\''";
+
+	primitiveTemplate integerSymbol for Integer default using INT:
+		value = "Integer.valueOf(%token%)";
+
+	primitiveTemplate floatSymbol for Double default using FLOAT:
+		value = "Double.valueOf(%token%)";
 
 template Transformation main
 	:	"transformation" name "..."
