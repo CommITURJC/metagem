@@ -111,6 +111,17 @@
                label="Extract RubyTL model to RubyTL file">
          </action>
       </objectContribution>
+      <objectContribution
+            id="InjectRubyTL"
+            nameFilter="*.rb"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="kybele.metagem.ui.actions.RubyTLInject"
+               enablesFor="1"
+               id="InjectRubyTL"
+               label="Inject RubyTL file to RubyTL model">
+         </action>
+      </objectContribution>
    </extension>
 
 </plugin>
