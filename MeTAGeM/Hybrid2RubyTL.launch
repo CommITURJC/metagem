@@ -25,7 +25,7 @@
 <mapEntry key="MM_Hybrid" value="/MeTAGeM/Metamodels/MM_Hybrid.ecore"/>
 <mapEntry key="RubyTL" value="/MeTAGeM/Metamodels/RubyTL.ecore"/>
 <mapEntry key="IN" value="/MeTAGeM/Models/TestHybrid2RubyTL.mm_hybrid"/>
-<mapEntry key="OUT" value="/MeTAGeM/Models/TestHybrid2RubyTL_RubyTL.ecore"/>
+<mapEntry key="OUT" value="/MeTAGeM/Models/TestHybrid2RubyTL_RubyTL.rubytl"/>
 </mapAttribute>
 <stringAttribute key="Project Name" value="MeTAGeM"/>
 <listAttribute key="Superimpose"/>
