@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: org.eclipse.kybele.metagem.rubytl
 Bundle-SymbolicName: RubyTL;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
-Bundle-Vendor: %providerName
+Bundle-Vendor: Kybele
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: RubyTL,
