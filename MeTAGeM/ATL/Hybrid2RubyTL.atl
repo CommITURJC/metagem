@@ -40,27 +40,130 @@ rule createRule2Rule{
 		rubytl : RubyTL!TopRule (
 			name <- mm_hybrid_rule.name_rule.debug('Name Rule'),
 			"from" <- fromElement, 
-			"to" <- toElement,
-			mapping <- amapping
+			"to" <- toElement--,
+			--mapping <- amapping
 		),
+		
 		fromElement : RubyTL!FromElement (
-			classname <- mm_hybrid_rule."in".asSequence().first().metamodel.name_mm.debug('Name MetamodelIN'),
+			name <-  mm_hybrid_rule."in".asSequence().first().name_element.toLower(),
+			classname <- mm_hybrid_rule."in".asSequence().first().name_element.debug('Name Class From'),
 			metamodel <- ametamodelin 
 		),
 		ametamodelin : RubyTL!Metamodel (
-			name <- mm_hybrid_rule."in".asSequence().first().metamodel.type_mm.debug('Type MetamodelIN')	
+			name <- mm_hybrid_rule."in".asSequence().first().metamodel.name_mm	
 		),
 		toElement : RubyTL!ToElement(
-			classname <- mm_hybrid_rule.out.asSequence().first().metamodel.name_mm.debug('Name MetamodelOUT'),
+			name <-  mm_hybrid_rule.out.asSequence().first().name_element.toLower(),
+			classname <- mm_hybrid_rule.out.asSequence().first().name_element.debug('Name Class To'),
 			metamodel <- ametamodelout	
 		),
 		ametamodelout : RubyTL!Metamodel (
-			name <- mm_hybrid_rule.out.asSequence().first().metamodel.type_mm.debug('Type MetamodelOUT')	
-		),
-		amapping : RubyTL!Mapping (
-			bindings <- abindings	
-		),
-		abindings : RubyTL!Binding (
-			property <- 'property' --mm_hybrid_rule.out.asSequence().first().included.left.targetElement.asSequence().first().name_element
-		)
+			name <- mm_hybrid_rule.out.asSequence().first().metamodel.name_mm	
+		)--,
+	
+		
+--		amapping : RubyTL!Mapping (
+--			bindings <- abindings	
+--		),
+--		abindings : RubyTL!Binding (
+--			target <- atarget,
+--			source <- asource,
+--			property <- 'property' --mm_hybrid_rule.out.asSequence().first().included.left.targetElement.asSequence().first().name_element
+--		),
+--		atarget : RubyTL!ExpVariable (
+--			variable <- avariabletrg
+--		),
+--		avariabletrg : RubyTL!ToElement (
+--			name <- 'classto'--mm_hybrid_rule.out.asSequence().first().metamodel.name_mm.toLower()	
+--		),
+--		asource : RubyTL!ExpVariable (
+--			variable <- avariablesrc
+--		),
+--		avariablesrc : RubyTL!FromElement (
+--			name <- 'classfrom'--mm_hybrid_rule.out.asSequence().first().metamodel.name_mm.toLower()	
+--		)
 }
+
+
+
+rule Bindings {
+	from 
+		elemInc : MM_Hybrid!ElementIncluded
+	to
+		rubytl : RubyTL!Binding (
+			--property of target 
+			property <- elemInc. left.targetElement.asSequence().first().name_element,
+			--Right side of formula, that has the value - issues
+			source <- asourcevalue,
+			--Left side of formula, that will receive the value
+			target <- atargetvalue
+		),
+		asourcevalue : RubyTL!ExpGet(
+			--property of source
+			property <- elemInc.getSourceBinding(), 
+			source <- asourcename
+		),
+		asourcename : RubyTL!ExpVariable(
+			variable <- avariablesrc
+		),
+		avariablesrc : RubyTL!FromElement (
+			name <- elemInc.getReferredVariableSrc()
+		),
+		atargetvalue : RubyTL!ExpVariable(
+			variable <- avariabletrg
+		),
+		avariabletrg : RubyTL!ToElement (
+			name <- elemInc.refImmediateComposite().name_element.toLower() 
+		)
+
+}
+
+
+--Helper -> Define the source binding (Element, Rule, Helper or Reference)
+helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : String = 
+	--rule undefined, operation undefined, srcElement undefined, reference defined	
+	if (self.right."rule".asSequence().first().oclIsUndefined() and 
+		self.right.operation.asSequence().first().oclIsUndefined() and
+		self.right.sourceElement.asSequence().first().oclIsUndefined()) then
+			OclUndefined
+	else
+		--rule undefined
+		if self.right."rule".asSequence().first().oclIsUndefined() then
+			--rule undefined and operation undefined
+			if self.right.operation.asSequence().first().oclIsUndefined() then
+				self.right.sourceElement.asSequence().first().name_element
+			--rule undefined and operation defined 
+			else
+				--rule undefined, operation defined and srcElement undefined
+				if self.right.sourceElement.asSequence().first().oclIsUndefined() then
+					self.right.operation.asSequence().first().name_operation
+				-- rule undefined, operation defined and srcElement defined
+				else 
+					self.right.sourceElement.asSequence().first().name_element + '.' + self.right.operation.asSequence().first().name_operation
+				endif
+			endif
+		--rule defined (operation undefined by validation)		
+		else
+			--rule defined and srcElement undefined
+			if self.right.sourceElement.asSequence().first().oclIsUndefined() then
+				self.right."rule".asSequence().first().name_rule
+			--rule defined and srcElement defined
+			else  
+				self.right.sourceElement.asSequence().first().name_element + '.' + self.right."rule".asSequence().first().name_rule
+			endif
+		endif
+	endif;
+
+
+--Helper -> Return the variable used on source binding
+helper context MM_Hybrid!ElementIncluded def : getReferredVariableSrc () : ATL!OclExpression = --String =
+	if self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().oclIsUndefined()  then
+		'???'
+	else
+		if self.right.reference.oclIsUndefined() then
+			self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
+		else
+			self.right.reference.name_element.toLower()
+		endif
+	endif;
+
