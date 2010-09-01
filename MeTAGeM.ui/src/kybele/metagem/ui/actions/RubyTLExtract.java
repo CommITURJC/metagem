@@ -1,30 +1,21 @@
 package kybele.metagem.ui.actions;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
-import org.eclipse.am3.core.AM3CorePlugin;
-import org.eclipse.am3.core.AM3CoreTools;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmt.tcs.extractor.TCSExtractor;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.m2m.atl.drivers.emf4atl.ASMEMFModel;
-import org.eclipse.m2m.atl.engine.AtlEMFModelHandler;
 import org.eclipse.m2m.atl.engine.AtlModelHandler;
 import org.eclipse.m2m.atl.engine.vm.nativelib.ASMModel;
 import org.eclipse.ui.IActionDelegate;
@@ -56,13 +47,17 @@ public class RubyTLExtract implements IObjectActionDelegate {
 		extractRubyTL();
 	}
 	
+	/*
+	 * Based on ActionEBNFExtractor from org.eclipse.am3.ui.action
+	 * works!!!
+	 * */
 	private void extractRubyTL() {
 		AtlModelHandler emfMof = AtlModelHandler
 				.getDefault(AtlModelHandler.AMH_EMF);
 		AtlModelHandler amh = emfMof;
 		try {
 			ASMModel mm = amh.loadModel("RubyTL", amh.getMof(), this.getClass()
-					.getResourceAsStream("../api/resources/RubyTL.ecore"));
+					.getResourceAsStream("../api/resources/RubyTL/Metamodel/RubyTL.ecore"));
 
 			final ASMModel model = amh.loadModel(currentFile.getName(), mm,
 					currentFile.getContents());

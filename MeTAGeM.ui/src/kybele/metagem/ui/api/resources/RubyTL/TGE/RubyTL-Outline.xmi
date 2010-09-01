@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<otl:Outline xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:otl="http://www.eclipse.org/gmt/tcs/2007/Outline">
+  <nodes name="LocatedElement" icon="dummy">
+    <label label="LocatedElement"/>
+    <mapping mapString="LocatedElement"/>
+  </nodes>
+  <nodes name="Transformation" icon="dummy">
+    <label label="Transformation">
+      <labelSuite label=" : "/>
+      <labelSuite methodCall="name"/>
+    </label>
+    <mapping mapString="Transformation"/>
+  </nodes>
+</otl:Outline>

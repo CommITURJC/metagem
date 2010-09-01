@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tcs="http://www.eclipse.org/gmt/tcs/2007/TCS">
+  <tcs:ConcreteSyntax location="11:1-206:2" name="RubyTL" lexer="&#xD;&#xA;%options testLiterals = false;&#xD;&#xA;&#xD;&#xA;NL&#xD;&#xA;&#x9;:&#x9;(&#x9;'\r' '\n'&#xD;&#xA;&#x9;&#x9;|&#x9;'\n' '\r'&#x9;//Improbable&#xD;&#xA;&#x9;&#x9;|&#x9;'\r'&#xD;&#xA;&#x9;&#x9;|&#x9;'\n'&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;{newline();}&#xD;&#xA;&#x9;;&#xD;&#xA;&#xD;&#xA;WS&#xD;&#xA;&#x9;:&#x9;(&#x9;' '&#xD;&#xA;&#x9;&#x9;|&#x9;'\t'&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;;&#xD;&#xA;&#xD;&#xA;%protected&#xD;&#xA;DIGIT&#xD;&#xA;&#x9;:&#x9;'0'..'9'&#xD;&#xA;&#x9;;&#xD;&#xA;&#xD;&#xA;%protected&#xD;&#xA;ALPHA&#xD;&#xA;&#x9;:&#x9;'a'..'z'&#xD;&#xA;&#x9;|&#x9;'A'..'Z'&#xD;&#xA;&#x9;|&#x9;'_'&#xD;&#xA;&#x9;//For Unicode compatibility (from 0000 to 00ff)&#xD;&#xA;&#x9;|&#x9;'\u00C0' .. '\u00D6'&#xD;&#xA;&#x9;|&#x9;'\u00D8' .. '\u00F6'&#xD;&#xA;&#x9;|&#x9;'\u00F8' .. '\u00FF'&#xD;&#xA;&#x9;;&#xD;&#xA;&#xD;&#xA;%protected&#xD;&#xA;SNAME&#xD;&#xA;%v2&#x9;options {&#xD;&#xA;%v2&#x9;&#x9;testLiterals = true;&#xD;&#xA;%v2&#x9;}&#xD;&#xA;&#x9;:&#x9;(ALPHA) (ALPHA | DIGIT)*&#xD;&#xA;;&#xD;&#xA;&#xD;&#xA;NAME&#xD;&#xA;&#x9;:&#x9;(&#xD;&#xA;%v3&#x9;&#x9;&#x9;SNAME&#xD;&#xA;%v2&#x9;&#x9;&#x9;s:SNAME {if(s.getType() != SNAME) $setType(s.getType());}&#xD;&#xA;&#x9;&#x9;|&#x9;'&quot;'!&#xD;&#xA;&#x9;&#x9;&#x9;(&#x9;ESC&#xD;&#xA;&#x9;&#x9;&#x9;|&#x9;'\n' {newline();}&#xD;&#xA;&#x9;&#x9;&#x9;|&#x9;~('\\'|'\&quot;'|'\n')&#xD;&#xA;&#x9;&#x9;&#x9;)*&#xD;&#xA;&#x9;&#x9;&#x9;'&quot;'!&#xD;&#xA;%v3&#x9;&#x9;&#x9;{setText(ei.unescapeString(getText(), 1));}&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;;&#xD;&#xA;&#xD;&#xA;INT&#xD;&#xA;&#x9;:&#x9;(DIGIT)+&#xD;&#xA;%v2&#x9;&#x9;(('.' DIGIT)=> '.' (DIGIT)+ {$setType(FLOAT);})?&#xD;&#xA;&#x9;;&#xD;&#xA;&#xD;&#xA;%v3&#x9;FLOAT&#x9;:&#x9;DIGIT+ '.' DIGIT*&#x9;;&#xD;&#xA;&#xD;&#xA;%protected&#xD;&#xA;ESC&#xD;&#xA;&#x9;:&#x9;'\\'!&#xD;&#xA;&#x9;&#x9;(&#x9;'n' %v2{%setText(&quot;\n&quot;);}&#xD;&#xA;&#x9;&#x9;|&#x9;'r' %v2{%setText(&quot;\r&quot;);}&#xD;&#xA;&#x9;&#x9;|&#x9;'t' %v2{%setText(&quot;\t&quot;);}&#xD;&#xA;&#x9;&#x9;|&#x9;'b' %v2{%setText(&quot;\b&quot;);}&#xD;&#xA;&#x9;&#x9;|&#x9;'f' %v2{%setText(&quot;\f&quot;);}&#xD;&#xA;&#x9;&#x9;|&#x9;'&quot;' %v2{%setText(&quot;\&quot;&quot;);}&#xD;&#xA;&#x9;&#x9;|&#x9;'\'' %v2{%setText(&quot;\'&quot;);}&#xD;&#xA;&#x9;&#x9;|&#x9;'\\' %v2{%setText(&quot;\\&quot;);}&#xD;&#xA;&#x9;&#x9;|&#x9;(&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;('0'..'3')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;(&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;options {&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;warnWhenFollowAmbig = false;&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;:&#x9;('0'..'7')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;(&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;options {&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;warnWhenFollowAmbig = false;&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;:&#x9;'0'..'7'&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;)?&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;)?&#xD;&#xA;&#x9;&#x9;&#x9;|&#x9;('4'..'7')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;(&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;options {&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;warnWhenFollowAmbig = false;&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;:&#x9;('0'..'7')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;)?&#xD;&#xA;&#x9;&#x9;&#x9;)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;{&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;String s = %getText;&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;int i;&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;int ret = 0;&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;String ans;&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;for (i=0; i&lt;s.length(); ++i)&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ret = ret*8 + s.charAt(i) - '0';&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;ans = String.valueOf((char) ret);&#xD;&#xA;%v2&#x9;&#x9;&#x9;&#x9;&#x9;%setText(ans);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;;&#xD;&#xA;&#x9;">
+    <commentsBefore>-- @name&#x9;&#x9;RubyTL</commentsBefore>
+    <commentsBefore>-- @version&#x9;&#x9;1.0</commentsBefore>
+    <commentsBefore>-- @authors&#x9;&#x9;ajimenez</commentsBefore>
+    <commentsBefore>-- @date&#x9;&#x9;2010/08/27</commentsBefore>
+    <commentsBefore>-- @description&#x9;${description}</commentsBefore>
+    <commentsBefore>-- The different sections of a TCS model have been enclosed between BEGIN and END</commentsBefore>
+    <commentsBefore>-- comments below. Additional information is provided below each BEGIN comment.</commentsBefore>
+    <commentsBefore>-- The main sections of interest are &quot;Class templates&quot;, and</commentsBefore>
+    <commentsBefore>-- &quot;Operator table&quot; (the latter only for DSLs using operators).</commentsBefore>
+    <templates xsi:type="tcs:PrimitiveTemplate" location="17:2-18:21" name="identifier" typeName="String" isDefault="true" tokenName="NAME" value="%token%">
+      <commentsBefore>-- BEGIN Primitive templates</commentsBefore>
+      <commentsBefore>-- Specifies representation of primitive types.</commentsBefore>
+      <commentsBefore>-- Only needs modification when default lexer is not satisfactory.</commentsBefore>
+      <commentsBefore>-- Generally modified along with the lexer.</commentsBefore>
+    </templates>
+    <templates xsi:type="tcs:PrimitiveTemplate" location="20:2-22:50" name="stringSymbol" typeName="String" tokenName="STRING" value="ei.unescapeString(%token%, 1)" serializer="''' + %value%.toCString() + '''"/>
+    <templates xsi:type="tcs:PrimitiveTemplate" location="24:2-25:38" name="integerSymbol" typeName="Integer" isDefault="true" tokenName="INT" value="Integer.valueOf(%token%)"/>
+    <templates xsi:type="tcs:PrimitiveTemplate" location="27:2-28:37" name="floatSymbol" typeName="Double" isDefault="true" tokenName="FLOAT" value="Double.valueOf(%token%)">
+      <commentsAfter>-- END Primitive templates</commentsAfter>
+      <commentsAfter>-- BEGIN Class templates</commentsAfter>
+      <commentsAfter>-- Specifies representation of classes.</commentsAfter>
+      <commentsAfter>-- This is the main section to work on.</commentsAfter>
+    </templates>
+    <templates xsi:type="tcs:ClassTemplate" location="34:2-36:4" name="Transformation" isMain="true">
+      <commentsBefore>-- END Primitive templates</commentsBefore>
+      <commentsBefore>-- BEGIN Class templates</commentsBefore>
+      <commentsBefore>-- Specifies representation of classes.</commentsBefore>
+      <commentsBefore>-- This is the main section to work on.</commentsBefore>
+      <commentsAfter>-- END Class templates</commentsAfter>
+      <commentsAfter>-- BEGIN Special symbols</commentsAfter>
+      <commentsAfter>-- Possible modifications:</commentsAfter>
+      <commentsAfter>--&#x9;- Addition of new symbols.</commentsAfter>
+      <commentsAfter>--&#x9;- Modification of spaces information.</commentsAfter>
+      <commentsAfter>--&#x9;- Removal of unused symbols so that using these symbols results in lexical</commentsAfter>
+      <commentsAfter>--&#x9;error rather than parsing error.</commentsAfter>
+      <templateSequence location="35:5-35:32">
+        <elements xsi:type="tcs:LiteralRef" location="35:5-35:21" referredLiteral="/1"/>
+        <elements xsi:type="tcs:Property" location="35:22-35:26" name="name"/>
+        <elements xsi:type="tcs:LiteralRef" location="35:27-35:32" referredLiteral="/2"/>
+      </templateSequence>
+    </templates>
+    <symbols location="47:3-47:18" name="lsquare" value="["/>
+    <symbols location="48:3-48:31" name="rsquare" value="]">
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="49:3-49:15" name="excl" value="!"/>
+    <symbols location="50:3-50:38" name="coma" value=",">
+      <spaces>leftNone</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="51:3-51:17" name="lparen" value="("/>
+    <symbols location="52:3-52:40" name="rparen" value=")">
+      <spaces>leftNone</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="53:3-53:29" name="lcurly" value="{">
+      <spaces>leftSpace</spaces>
+    </symbols>
+    <symbols location="54:3-54:40" name="rcurly" value="}">
+      <spaces>leftNone</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="55:3-55:38" name="semi" value=";">
+      <spaces>leftNone</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="56:3-56:40" name="colon" value=":">
+      <spaces>leftSpace</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="57:3-57:39" name="pipe" value="|">
+      <spaces>leftSpace</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="58:3-58:28" name="sharp" value="#">
+      <spaces>leftSpace</spaces>
+    </symbols>
+    <symbols location="59:3-59:16" name="qmark" value="?"/>
+    <symbols location="60:3-60:43" name="coloncolon" value="::">
+      <commentsAfter>-- operator symbols</commentsAfter>
+      <spaces>leftNone</spaces>
+      <spaces>rightNone</spaces>
+    </symbols>
+    <symbols location="63:3-63:27" name="point" value=".">
+      <commentsBefore>-- operator symbols</commentsBefore>
+      <spaces>leftNone</spaces>
+    </symbols>
+    <symbols location="64:3-64:29" name="rarrow" value="->">
+      <spaces>leftNone</spaces>
+    </symbols>
+    <symbols location="65:3-65:40" name="minus" value="-">
+      <spaces>leftSpace</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="66:3-66:39" name="star" value="*">
+      <spaces>leftSpace</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="67:3-67:40" name="slash" value="/">
+      <spaces>leftSpace</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="68:3-68:39" name="plus" value="+">
+      <spaces>leftSpace</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="69:3-69:38" name="eq" value="=">
+      <spaces>leftSpace</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="70:3-70:38" name="gt" value=">">
+      <spaces>leftSpace</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="71:3-71:38" name="lt" value="&lt;">
+      <spaces>leftSpace</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="72:3-72:39" name="ge" value=">=">
+      <spaces>leftSpace</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="73:3-73:39" name="le" value="&lt;=">
+      <spaces>leftSpace</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="74:3-74:39" name="ne" value="&lt;>">
+      <spaces>leftSpace</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <symbols location="75:3-75:42" name="larrow" value="&lt;-">
+      <spaces>leftSpace</spaces>
+      <spaces>rightSpace</spaces>
+    </symbols>
+    <tokens location="92:2-92:42" name="COMMENT">
+      <commentsBefore>-- END Special symbols</commentsBefore>
+      <commentsBefore>-- BEGIN Operator table</commentsBefore>
+      <commentsBefore>-- Defines all operators with their priority, arity, and associativity.</commentsBefore>
+      <commentsBefore>-- All defined operators must be used in operator templates.</commentsBefore>
+      <commentsBefore>-- Specify operator table(s) here if necessary.</commentsBefore>
+      <commentsBefore>-- END Operator table</commentsBefore>
+      <commentsBefore>-- BEGIN Lexer</commentsBefore>
+      <commentsBefore>-- Specifies the lexical entities.</commentsBefore>
+      <commentsBefore>-- Only needs modification when default lexer is not satisfactory.</commentsBefore>
+      <commentsBefore>-- Generally modified along with Primitive templates.</commentsBefore>
+      <pattern location="92:18-92:41">
+        <simplePatterns xsi:type="tcs:RulePattern" location="92:18-92:41">
+          <rule xsi:type="tcs:EndOfLineRule" location="92:18-92:41">
+            <start location="92:36-92:40" name="--"/>
+          </rule>
+        </simplePatterns>
+      </pattern>
+    </tokens>
+    <tokens location="93:2-93:65" name="STRING">
+      <pattern location="93:17-93:64">
+        <simplePatterns xsi:type="tcs:RulePattern" location="93:17-93:64">
+          <rule xsi:type="tcs:MultiLineRule" location="93:17-93:64">
+            <start location="93:35-93:39" name="'"/>
+            <end location="93:47-93:51" name="'"/>
+            <esc location="93:59-93:63" name="\"/>
+          </rule>
+        </simplePatterns>
+      </pattern>
+    </tokens>
+  </tcs:ConcreteSyntax>
+  <tcs:Keyword location="35:5-35:21" literalRefs="/0/@templates.4/@templateSequence/@elements.0" value="transformation"/>
+  <tcs:Keyword location="35:27-35:32" literalRefs="/0/@templates.4/@templateSequence/@elements.2" value="..."/>
+</xmi:XMI>
