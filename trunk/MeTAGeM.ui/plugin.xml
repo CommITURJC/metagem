@@ -108,7 +108,7 @@
                class="kybele.metagem.ui.actions.RubyTLExtract"
                enablesFor="1"
                id="ExtractRubyTL"
-               label="Extract RubyTL model to RubyTL file">
+               label="Extract RubyTL model to RubyTL file (MeTAGeM)">
          </action>
       </objectContribution>
       <objectContribution
@@ -119,9 +119,21 @@
                class="kybele.metagem.ui.actions.RubyTLInject"
                enablesFor="1"
                id="InjectRubyTL"
-               label="Inject RubyTL file to RubyTL model">
+               label="Inject RubyTL file to RubyTL model (MeTAGeM)">
          </action>
       </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.gmt.tcs.metadata.language">
+      <language
+            editor="src/kybele/metagem/ui/api/resources/RubyTL/TGE/RubyTL-Editor.xmi"
+            extension="rb"
+            metamodel="src/kybele/metagem/ui/api/resources/RubyTL/Metamodel/RubyTL.ecore"
+            name="RubyTL"
+            outline="src/kybele/metagem/ui/api/resources/RubyTL/TGE/RubyTL-Outline.xmi"
+            parser="src/kybele/metagem/ui/api/resources/RubyTL/Syntax/RubyTL-parser.jar"
+            syntax="src/kybele/metagem/ui/api/resources/RubyTL/Syntax/RubyTL_ANTLR3.g">
+      </language>
    </extension>
 
 </plugin>
