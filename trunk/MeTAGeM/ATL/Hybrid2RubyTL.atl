@@ -1,7 +1,7 @@
 module Hybrid2RubyTL; -- Module Template
 create OUT : RubyTL from IN : MM_Hybrid;
 
--- Create module header
+-- Create transformation header
 rule Module {
 	from 
 		mm_hybrid : MM_Hybrid!Module
@@ -14,6 +14,7 @@ rule Module {
 		)
 }
 
+-- Define input metamodel
 rule inMM{
 	from
 		inMM_hybrid : MM_Hybrid!InMetaModel
@@ -23,6 +24,7 @@ rule inMM{
 		)
 }
 
+-- Define output metamodel
 rule outMM{
 	from
 		outMM_hybrid : MM_Hybrid!OutMetaModel
@@ -32,16 +34,16 @@ rule outMM{
 		)
 }
 
-
+-- Generation rules
 rule createRule2Rule{
 	from 
-		mm_hybrid_rule : MM_Hybrid!Rule
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()>0)
 	to
 		rubytl : RubyTL!TopRule (
 			name <- mm_hybrid_rule.name_rule.debug('Name Rule'),
 			"from" <- fromElement, 
-			"to" <- toElement--,
-			--mapping <- amapping
+			"to" <- toElement,
+			mapping <- amapping
 		),
 		
 		fromElement : RubyTL!FromElement (
@@ -59,33 +61,13 @@ rule createRule2Rule{
 		),
 		ametamodelout : RubyTL!Metamodel (
 			name <- mm_hybrid_rule.out.asSequence().first().metamodel.name_mm	
-		)--,
-	
-		
---		amapping : RubyTL!Mapping (
---			bindings <- abindings	
---		),
---		abindings : RubyTL!Binding (
---			target <- atarget,
---			source <- asource,
---			property <- 'property' --mm_hybrid_rule.out.asSequence().first().included.left.targetElement.asSequence().first().name_element
---		),
---		atarget : RubyTL!ExpVariable (
---			variable <- avariabletrg
---		),
---		avariabletrg : RubyTL!ToElement (
---			name <- 'classto'--mm_hybrid_rule.out.asSequence().first().metamodel.name_mm.toLower()	
---		),
---		asource : RubyTL!ExpVariable (
---			variable <- avariablesrc
---		),
---		avariablesrc : RubyTL!FromElement (
---			name <- 'classfrom'--mm_hybrid_rule.out.asSequence().first().metamodel.name_mm.toLower()	
---		)
+		),
+		amapping : RubyTL!Mapping (
+			bindings <- mm_hybrid_rule.out.asSequence().first().included
+		)
 }
 
-
-
+-- Formulas (TargetElements <- SourceElements)
 rule Bindings {
 	from 
 		elemInc : MM_Hybrid!ElementIncluded
@@ -117,6 +99,11 @@ rule Bindings {
 		)
 
 }
+
+
+--Helper -> Return the number of inputPatterns 
+helper context MM_Hybrid!Rule def : getSizeIP () : Integer = 
+	self."in".size();
 
 
 --Helper -> Define the source binding (Element, Rule, Helper or Reference)
