@@ -66,7 +66,7 @@ public class RubyTLExtract implements IObjectActionDelegate {
 			
 			Map tempParam = new HashMap();
 			ASMModel mmTCS=amh.loadModel("TCS", amh.getMof(), this.getClass().getResourceAsStream("../api/resources/TCS.ecore"));
-			ASMModel modelTCS = emfMof.loadModel("TCS_RubyTL", mmTCS, this.getClass().getResourceAsStream("../api/resources/RubyTL.tcs.ecore"));
+			ASMModel modelTCS = emfMof.loadModel("TCS_RubyTL", mmTCS, this.getClass().getResourceAsStream("../api/resources/RubyTL/Syntax/RubyTL.tcs.ecore"));
 			tempParam.put("format", modelTCS);
 			final Map parameters = tempParam;
 
