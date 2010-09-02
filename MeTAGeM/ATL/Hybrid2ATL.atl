@@ -22,7 +22,6 @@ rule inMM{
 	to
 		inMM_ATL : ATL!OclModel(
 			name <- inMM_hybrid.name_mm,
-			--name <- inMM_hybrid.type_mm + '_model',
 			metamodel <- ametamodelinMM
 		),
 		ametamodelinMM : ATL!OclModel (
@@ -36,7 +35,6 @@ rule outMM{
 	to
 		outMM_ATL : ATL!OclModel(
 			name <- outMM_hybrid.name_mm,
-			--name <- outMM_hybrid.type_mm + '_model',
 			metamodel <- ametamodeloutMM
 		),
 		ametamodeloutMM : ATL!OclModel (
@@ -56,7 +54,7 @@ rule createRule2MatchedRule{
 			isRefining <- false,
 			isNoDefault <- false,
 			superRule <- mm_hybrid_rule."extends",
-			inPattern <- inPattern, --mm_hybrid_rule."in".asSequence().first(),
+			inPattern <- inPattern, 
 			outPattern <- outPattern,
 			commentsBefore <- Set {'-- Comments -> This is a MatchedRule: ' + mm_hybrid_rule.name_rule}
 		),
@@ -86,7 +84,6 @@ rule createRule2LazyRule{
 		inPattern : ATL!InPattern (
 			elements <- mm_hybrid_rule."in".asSequence()
 		),
-		
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
 		)
@@ -122,7 +119,7 @@ rule InPatternElement {
 		),
 		aType : ATL!OclModelElement(
 			name <- inPattern.name_element,
-			model <- thisModule.resolveTemp(inPattern.metamodel,'ametamodelinMM')--amodel --inPattern.metamodel
+			model <- thisModule.resolveTemp(inPattern.metamodel,'ametamodelinMM')
 		),
 		atl_element:ATL!OclModelElement(
 			name <- inPattern.name_element	
