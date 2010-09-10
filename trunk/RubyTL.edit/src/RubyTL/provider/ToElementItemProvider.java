@@ -124,7 +124,8 @@ public class ToElementItemProvider extends VariableItemProvider implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ToElement)object).getName();
+		Object labelValue = ((ToElement)object).getName();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ToElement_type") :
 			getString("_UI_ToElement_type") + " " + label;

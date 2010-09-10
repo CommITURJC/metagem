@@ -330,6 +330,52 @@ public class RubyTLItemProviderAdapterFactory extends RubyTLAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link RubyTL.Filter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FilterItemProvider filterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link RubyTL.Filter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFilterAdapter() {
+		if (filterItemProvider == null) {
+			filterItemProvider = new FilterItemProvider(this);
+		}
+
+		return filterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link RubyTL.Decorator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DecoratorItemProvider decoratorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link RubyTL.Decorator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDecoratorAdapter() {
+		if (decoratorItemProvider == null) {
+			decoratorItemProvider = new DecoratorItemProvider(this);
+		}
+
+		return decoratorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -440,6 +486,8 @@ public class RubyTLItemProviderAdapterFactory extends RubyTLAdapterFactory
 		if (bindingItemProvider != null) bindingItemProvider.dispose();
 		if (expVariableItemProvider != null) expVariableItemProvider.dispose();
 		if (expGetItemProvider != null) expGetItemProvider.dispose();
+		if (filterItemProvider != null) filterItemProvider.dispose();
+		if (decoratorItemProvider != null) decoratorItemProvider.dispose();
 	}
 
 }

@@ -139,7 +139,8 @@ public class BindingItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Binding)object).getProperty();
+		Object labelValue = ((Binding)object).getProperty();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Binding_type") :
 			getString("_UI_Binding_type") + " " + label;
