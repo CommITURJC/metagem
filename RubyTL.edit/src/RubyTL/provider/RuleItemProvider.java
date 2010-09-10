@@ -104,6 +104,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 			childrenFeatures.add(RubyTLPackage.Literals.RULE__FROM);
 			childrenFeatures.add(RubyTLPackage.Literals.RULE__TO);
 			childrenFeatures.add(RubyTLPackage.Literals.RULE__MAPPING);
+			childrenFeatures.add(RubyTLPackage.Literals.RULE__FILTER);
 		}
 		return childrenFeatures;
 	}
@@ -129,7 +130,8 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Rule)object).getName();
+		Object labelValue = ((Rule)object).getName();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Rule_type") :
 			getString("_UI_Rule_type") + " " + label;
@@ -153,6 +155,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 			case RubyTLPackage.RULE__FROM:
 			case RubyTLPackage.RULE__TO:
 			case RubyTLPackage.RULE__MAPPING:
+			case RubyTLPackage.RULE__FILTER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -185,6 +188,11 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 			(createChildParameter
 				(RubyTLPackage.Literals.RULE__MAPPING,
 				 RubyTLFactory.eINSTANCE.createMapping()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RubyTLPackage.Literals.RULE__FILTER,
+				 RubyTLFactory.eINSTANCE.createFilter()));
 	}
 
 	/**

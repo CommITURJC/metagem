@@ -135,7 +135,8 @@ public class ExpGetItemProvider extends ExpressionItemProvider implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ExpGet)object).getProperty();
+		Object labelValue = ((ExpGet)object).getProperty();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ExpGet_type") :
 			getString("_UI_ExpGet_type") + " " + label;

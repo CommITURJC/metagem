@@ -104,6 +104,7 @@ public class TransformationItemProvider extends ItemProviderAdapter implements
 			childrenFeatures.add(RubyTLPackage.Literals.TRANSFORMATION__SOURCE_METAMODELS);
 			childrenFeatures.add(RubyTLPackage.Literals.TRANSFORMATION__TARGET_METAMODELS);
 			childrenFeatures.add(RubyTLPackage.Literals.TRANSFORMATION__RULES);
+			childrenFeatures.add(RubyTLPackage.Literals.TRANSFORMATION__DECORATORS);
 		}
 		return childrenFeatures;
 	}
@@ -140,7 +141,8 @@ public class TransformationItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Transformation)object).getName();
+		Object labelValue = ((Transformation)object).getName();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Transformation_type") :
 			getString("_UI_Transformation_type") + " " + label;
@@ -164,6 +166,7 @@ public class TransformationItemProvider extends ItemProviderAdapter implements
 			case RubyTLPackage.TRANSFORMATION__SOURCE_METAMODELS:
 			case RubyTLPackage.TRANSFORMATION__TARGET_METAMODELS:
 			case RubyTLPackage.TRANSFORMATION__RULES:
+			case RubyTLPackage.TRANSFORMATION__DECORATORS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -201,6 +204,11 @@ public class TransformationItemProvider extends ItemProviderAdapter implements
 			(createChildParameter
 				(RubyTLPackage.Literals.TRANSFORMATION__RULES,
 				 RubyTLFactory.eINSTANCE.createCopyRule()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RubyTLPackage.Literals.TRANSFORMATION__DECORATORS,
+				 RubyTLFactory.eINSTANCE.createDecorator()));
 	}
 
 	/**

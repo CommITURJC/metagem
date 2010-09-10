@@ -6,8 +6,9 @@
  */
 package RubyTL.provider;
 
+
+import RubyTL.Decorator;
 import RubyTL.RubyTLPackage;
-import RubyTL.Variable;
 
 import java.util.Collection;
 import java.util.List;
@@ -29,21 +30,26 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link RubyTL.Variable} object.
+ * This is the item provider adapter for a {@link RubyTL.Decorator} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DecoratorItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableItemProvider(AdapterFactory adapterFactory) {
+	public DecoratorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -59,6 +65,8 @@ public class VariableItemProvider extends ItemProviderAdapter implements
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addBodyPropertyDescriptor(object);
+			addContextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,15 +82,70 @@ public class VariableItemProvider extends ItemProviderAdapter implements
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Variable_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Variable_name_feature", "_UI_Variable_type"),
-				 RubyTLPackage.Literals.VARIABLE__NAME,
+				 getString("_UI_Decorator_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Decorator_name_feature", "_UI_Decorator_type"),
+				 RubyTLPackage.Literals.DECORATOR__NAME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Body feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBodyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Decorator_body_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Decorator_body_feature", "_UI_Decorator_type"),
+				 RubyTLPackage.Literals.DECORATOR__BODY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Context feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContextPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Decorator_context_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Decorator_context_feature", "_UI_Decorator_type"),
+				 RubyTLPackage.Literals.DECORATOR__CONTEXT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns Decorator.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Decorator"));
 	}
 
 	/**
@@ -93,11 +156,11 @@ public class VariableItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((Variable)object).getName();
+		Object labelValue = ((Decorator)object).getName();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Variable_type") :
-			getString("_UI_Variable_type") + " " + label;
+			getString("_UI_Decorator_type") :
+			getString("_UI_Decorator_type") + " " + label;
 	}
 
 	/**
@@ -111,8 +174,9 @@ public class VariableItemProvider extends ItemProviderAdapter implements
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Variable.class)) {
-			case RubyTLPackage.VARIABLE__NAME:
+		switch (notification.getFeatureID(Decorator.class)) {
+			case RubyTLPackage.DECORATOR__NAME:
+			case RubyTLPackage.DECORATOR__BODY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -127,8 +191,7 @@ public class VariableItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
