@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link RubyTL.Variable#getName <em>Name</em>}</li>
- *   <li>{@link RubyTL.Variable#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,12 +35,12 @@ public interface Variable extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
+	 * @see #setName(Object)
 	 * @see RubyTL.RubyTLPackage#getVariable_Name()
-	 * @model
+	 * @model unique="false" dataType="PrimitiveTypes.String" ordered="false"
 	 * @generated
 	 */
-	String getName();
+	Object getName();
 
 	/**
 	 * Sets the value of the '{@link RubyTL.Variable#getName <em>Name</em>}' attribute.
@@ -51,32 +50,6 @@ public interface Variable extends EObject {
 	 * @see #getName()
 	 * @generated
 	 */
-	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' reference.
-	 * @see #setType(EClassifier)
-	 * @see RubyTL.RubyTLPackage#getVariable_Type()
-	 * @model
-	 * @generated
-	 */
-	EClassifier getType();
-
-	/**
-	 * Sets the value of the '{@link RubyTL.Variable#getType <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' reference.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(EClassifier value);
+	void setName(Object value);
 
 } // Variable

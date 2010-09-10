@@ -35,12 +35,12 @@ public interface NamedElement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
+	 * @see #setName(Object)
 	 * @see RubyTL.RubyTLPackage#getNamedElement_Name()
-	 * @model
+	 * @model unique="false" dataType="PrimitiveTypes.String" ordered="false"
 	 * @generated
 	 */
-	String getName();
+	Object getName();
 
 	/**
 	 * Sets the value of the '{@link RubyTL.NamedElement#getName <em>Name</em>}' attribute.
@@ -50,7 +50,7 @@ public interface NamedElement extends EObject {
 	 * @see #getName()
 	 * @generated
 	 */
-	void setName(String value);
+	void setName(Object value);
 
 	/**
 	 * Returns the value of the '<em><b>Uri</b></em>' attribute.
@@ -61,12 +61,12 @@ public interface NamedElement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Uri</em>' attribute.
-	 * @see #setUri(String)
+	 * @see #setUri(Object)
 	 * @see RubyTL.RubyTLPackage#getNamedElement_Uri()
-	 * @model
+	 * @model unique="false" dataType="PrimitiveTypes.String" ordered="false"
 	 * @generated
 	 */
-	String getUri();
+	Object getUri();
 
 	/**
 	 * Sets the value of the '{@link RubyTL.NamedElement#getUri <em>Uri</em>}' attribute.
@@ -76,6 +76,6 @@ public interface NamedElement extends EObject {
 	 * @see #getUri()
 	 * @generated
 	 */
-	void setUri(String value);
+	void setUri(Object value);
 
 } // NamedElement

@@ -6,6 +6,7 @@
  */
 package RubyTL.impl;
 
+import RubyTL.Filter;
 import RubyTL.FromElement;
 import RubyTL.Mapping;
 import RubyTL.RubyTLPackage;
@@ -32,22 +33,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link RubyTL.impl.RuleImpl#getFrom <em>From</em>}</li>
  *   <li>{@link RubyTL.impl.RuleImpl#getTo <em>To</em>}</li>
  *   <li>{@link RubyTL.impl.RuleImpl#getMapping <em>Mapping</em>}</li>
+ *   <li>{@link RubyTL.impl.RuleImpl#getFilter <em>Filter</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public abstract class RuleImpl extends EObjectImpl implements Rule {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,7 +48,7 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected Object name;
 
 	/**
 	 * The cached value of the '{@link #getFrom() <em>From</em>}' containment reference.
@@ -89,6 +81,16 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	protected Mapping mapping;
 
 	/**
+	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFilter()
+	 * @generated
+	 * @ordered
+	 */
+	protected Filter filter;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -112,7 +114,7 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
+	public Object getName() {
 		return name;
 	}
 
@@ -121,8 +123,8 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
+	public void setName(Object newName) {
+		Object oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.RULE__NAME, oldName, name));
@@ -264,6 +266,49 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Filter getFilter() {
+		return filter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFilter(Filter newFilter, NotificationChain msgs) {
+		Filter oldFilter = filter;
+		filter = newFilter;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RubyTLPackage.RULE__FILTER, oldFilter, newFilter);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFilter(Filter newFilter) {
+		if (newFilter != filter) {
+			NotificationChain msgs = null;
+			if (filter != null)
+				msgs = ((InternalEObject)filter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__FILTER, null, msgs);
+			if (newFilter != null)
+				msgs = ((InternalEObject)newFilter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__FILTER, null, msgs);
+			msgs = basicSetFilter(newFilter, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.RULE__FILTER, newFilter, newFilter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -274,6 +319,8 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				return basicSetTo(null, msgs);
 			case RubyTLPackage.RULE__MAPPING:
 				return basicSetMapping(null, msgs);
+			case RubyTLPackage.RULE__FILTER:
+				return basicSetFilter(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -294,6 +341,8 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				return getTo();
 			case RubyTLPackage.RULE__MAPPING:
 				return getMapping();
+			case RubyTLPackage.RULE__FILTER:
+				return getFilter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -307,7 +356,7 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RubyTLPackage.RULE__NAME:
-				setName((String)newValue);
+				setName(newValue);
 				return;
 			case RubyTLPackage.RULE__FROM:
 				setFrom((FromElement)newValue);
@@ -317,6 +366,9 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				return;
 			case RubyTLPackage.RULE__MAPPING:
 				setMapping((Mapping)newValue);
+				return;
+			case RubyTLPackage.RULE__FILTER:
+				setFilter((Filter)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -331,7 +383,7 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.RULE__NAME:
-				setName(NAME_EDEFAULT);
+				setName((Object)null);
 				return;
 			case RubyTLPackage.RULE__FROM:
 				setFrom((FromElement)null);
@@ -341,6 +393,9 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				return;
 			case RubyTLPackage.RULE__MAPPING:
 				setMapping((Mapping)null);
+				return;
+			case RubyTLPackage.RULE__FILTER:
+				setFilter((Filter)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -355,13 +410,15 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.RULE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return name != null;
 			case RubyTLPackage.RULE__FROM:
 				return from != null;
 			case RubyTLPackage.RULE__TO:
 				return to != null;
 			case RubyTLPackage.RULE__MAPPING:
 				return mapping != null;
+			case RubyTLPackage.RULE__FILTER:
+				return filter != null;
 		}
 		return super.eIsSet(featureID);
 	}

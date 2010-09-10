@@ -38,7 +38,7 @@ public interface Binding extends EObject {
 	 * @return the value of the '<em>Target</em>' containment reference.
 	 * @see #setTarget(Expression)
 	 * @see RubyTL.RubyTLPackage#getBinding_Target()
-	 * @model containment="true"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	Expression getTarget();
@@ -62,12 +62,12 @@ public interface Binding extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property</em>' attribute.
-	 * @see #setProperty(String)
+	 * @see #setProperty(Object)
 	 * @see RubyTL.RubyTLPackage#getBinding_Property()
-	 * @model
+	 * @model unique="false" dataType="PrimitiveTypes.String" ordered="false"
 	 * @generated
 	 */
-	String getProperty();
+	Object getProperty();
 
 	/**
 	 * Sets the value of the '{@link RubyTL.Binding#getProperty <em>Property</em>}' attribute.
@@ -77,7 +77,7 @@ public interface Binding extends EObject {
 	 * @see #getProperty()
 	 * @generated
 	 */
-	void setProperty(String value);
+	void setProperty(Object value);
 
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
@@ -90,7 +90,7 @@ public interface Binding extends EObject {
 	 * @return the value of the '<em>Source</em>' containment reference.
 	 * @see #setSource(Expression)
 	 * @see RubyTL.RubyTLPackage#getBinding_Source()
-	 * @model containment="true"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	Expression getSource();

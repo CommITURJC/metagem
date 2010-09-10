@@ -6,6 +6,7 @@
  */
 package RubyTL.impl;
 
+import RubyTL.Decorator;
 import RubyTL.Metamodel;
 import RubyTL.RubyTLPackage;
 import RubyTL.Rule;
@@ -38,22 +39,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link RubyTL.impl.TransformationImpl#getSourceMetamodels <em>Source Metamodels</em>}</li>
  *   <li>{@link RubyTL.impl.TransformationImpl#getTargetMetamodels <em>Target Metamodels</em>}</li>
  *   <li>{@link RubyTL.impl.TransformationImpl#getRules <em>Rules</em>}</li>
+ *   <li>{@link RubyTL.impl.TransformationImpl#getDecorators <em>Decorators</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class TransformationImpl extends EObjectImpl implements Transformation {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -62,7 +54,7 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected Object name;
 
 	/**
 	 * The cached value of the '{@link #getSourceMetamodels() <em>Source Metamodels</em>}' containment reference list.
@@ -95,6 +87,16 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	protected EList<Rule> rules;
 
 	/**
+	 * The cached value of the '{@link #getDecorators() <em>Decorators</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDecorators()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Decorator> decorators;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -118,7 +120,7 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
+	public Object getName() {
 		return name;
 	}
 
@@ -127,8 +129,8 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
+	public void setName(Object newName) {
+		Object oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.TRANSFORMATION__NAME, oldName, name));
@@ -175,6 +177,18 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Decorator> getDecorators() {
+		if (decorators == null) {
+			decorators = new EObjectContainmentEList<Decorator>(Decorator.class, this, RubyTLPackage.TRANSFORMATION__DECORATORS);
+		}
+		return decorators;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -185,6 +199,8 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 				return ((InternalEList<?>)getTargetMetamodels()).basicRemove(otherEnd, msgs);
 			case RubyTLPackage.TRANSFORMATION__RULES:
 				return ((InternalEList<?>)getRules()).basicRemove(otherEnd, msgs);
+			case RubyTLPackage.TRANSFORMATION__DECORATORS:
+				return ((InternalEList<?>)getDecorators()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -205,6 +221,8 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 				return getTargetMetamodels();
 			case RubyTLPackage.TRANSFORMATION__RULES:
 				return getRules();
+			case RubyTLPackage.TRANSFORMATION__DECORATORS:
+				return getDecorators();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -219,7 +237,7 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RubyTLPackage.TRANSFORMATION__NAME:
-				setName((String)newValue);
+				setName(newValue);
 				return;
 			case RubyTLPackage.TRANSFORMATION__SOURCE_METAMODELS:
 				getSourceMetamodels().clear();
@@ -232,6 +250,10 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 			case RubyTLPackage.TRANSFORMATION__RULES:
 				getRules().clear();
 				getRules().addAll((Collection<? extends Rule>)newValue);
+				return;
+			case RubyTLPackage.TRANSFORMATION__DECORATORS:
+				getDecorators().clear();
+				getDecorators().addAll((Collection<? extends Decorator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -246,7 +268,7 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.TRANSFORMATION__NAME:
-				setName(NAME_EDEFAULT);
+				setName((Object)null);
 				return;
 			case RubyTLPackage.TRANSFORMATION__SOURCE_METAMODELS:
 				getSourceMetamodels().clear();
@@ -256,6 +278,9 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 				return;
 			case RubyTLPackage.TRANSFORMATION__RULES:
 				getRules().clear();
+				return;
+			case RubyTLPackage.TRANSFORMATION__DECORATORS:
+				getDecorators().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -270,13 +295,15 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.TRANSFORMATION__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return name != null;
 			case RubyTLPackage.TRANSFORMATION__SOURCE_METAMODELS:
 				return sourceMetamodels != null && !sourceMetamodels.isEmpty();
 			case RubyTLPackage.TRANSFORMATION__TARGET_METAMODELS:
 				return targetMetamodels != null && !targetMetamodels.isEmpty();
 			case RubyTLPackage.TRANSFORMATION__RULES:
 				return rules != null && !rules.isEmpty();
+			case RubyTLPackage.TRANSFORMATION__DECORATORS:
+				return decorators != null && !decorators.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

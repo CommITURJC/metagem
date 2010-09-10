@@ -41,7 +41,7 @@ public interface RubyTLPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://gts.inf.um.es/rubytl"; //$NON-NLS-1$
+	String eNS_URI = "http://org.eclipse.kybele.metagem.rubytl"; //$NON-NLS-1$
 
 	/**
 	 * The package namespace name.
@@ -106,13 +106,22 @@ public interface RubyTLPackage extends EPackage {
 	int TRANSFORMATION__RULES = 3;
 
 	/**
+	 * The feature id for the '<em><b>Decorators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION__DECORATORS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Transformation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORMATION_FEATURE_COUNT = 4;
+	int TRANSFORMATION_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link RubyTL.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -180,22 +189,13 @@ public interface RubyTLPackage extends EPackage {
 	int METAMODEL__URI = NAMED_ELEMENT__URI;
 
 	/**
-	 * The feature id for the '<em><b>Package</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METAMODEL__PACKAGE = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Metamodel</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METAMODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int METAMODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link RubyTL.impl.RuleImpl <em>Rule</em>}' class.
@@ -244,13 +244,22 @@ public interface RubyTLPackage extends EPackage {
 	int RULE__MAPPING = 3;
 
 	/**
+	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__FILTER = 4;
+
+	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_FEATURE_COUNT = 4;
+	int RULE_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link RubyTL.impl.VariableImpl <em>Variable</em>}' class.
@@ -272,22 +281,13 @@ public interface RubyTLPackage extends EPackage {
 	int VARIABLE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE__TYPE = 1;
-
-	/**
 	 * The number of structural features of the '<em>Variable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_FEATURE_COUNT = 2;
+	int VARIABLE_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link RubyTL.impl.FromElementImpl <em>From Element</em>}' class.
@@ -307,15 +307,6 @@ public interface RubyTLPackage extends EPackage {
 	 * @ordered
 	 */
 	int FROM_ELEMENT__NAME = VARIABLE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FROM_ELEMENT__TYPE = VARIABLE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Classname</b></em>' attribute.
@@ -362,15 +353,6 @@ public interface RubyTLPackage extends EPackage {
 	 * @ordered
 	 */
 	int TO_ELEMENT__NAME = VARIABLE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_ELEMENT__TYPE = VARIABLE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Classname</b></em>' attribute.
@@ -446,6 +428,15 @@ public interface RubyTLPackage extends EPackage {
 	int TOP_RULE__MAPPING = RULE__MAPPING;
 
 	/**
+	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOP_RULE__FILTER = RULE__FILTER;
+
+	/**
 	 * The number of structural features of the '<em>Top Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -499,6 +490,15 @@ public interface RubyTLPackage extends EPackage {
 	 * @ordered
 	 */
 	int COPY_RULE__MAPPING = RULE__MAPPING;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COPY_RULE__FILTER = RULE__FILTER;
 
 	/**
 	 * The number of structural features of the '<em>Copy Rule</em>' class.
@@ -668,6 +668,80 @@ public interface RubyTLPackage extends EPackage {
 	int EXP_GET_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link RubyTL.impl.FilterImpl <em>Filter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RubyTL.impl.FilterImpl
+	 * @see RubyTL.impl.RubyTLPackageImpl#getFilter()
+	 * @generated
+	 */
+	int FILTER = 14;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__EXPRESSION = 0;
+
+	/**
+	 * The number of structural features of the '<em>Filter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link RubyTL.impl.DecoratorImpl <em>Decorator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RubyTL.impl.DecoratorImpl
+	 * @see RubyTL.impl.RubyTLPackageImpl#getDecorator()
+	 * @generated
+	 */
+	int DECORATOR = 15;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECORATOR__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECORATOR__BODY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECORATOR__CONTEXT = 2;
+
+	/**
+	 * The number of structural features of the '<em>Decorator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECORATOR_FEATURE_COUNT = 3;
+
+	/**
 	 * Returns the meta object for class '{@link RubyTL.Transformation <em>Transformation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -722,6 +796,17 @@ public interface RubyTLPackage extends EPackage {
 	EReference getTransformation_Rules();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link RubyTL.Transformation#getDecorators <em>Decorators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Decorators</em>'.
+	 * @see RubyTL.Transformation#getDecorators()
+	 * @see #getTransformation()
+	 * @generated
+	 */
+	EReference getTransformation_Decorators();
+
+	/**
 	 * Returns the meta object for class '{@link RubyTL.Metamodel <em>Metamodel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -730,17 +815,6 @@ public interface RubyTLPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMetamodel();
-
-	/**
-	 * Returns the meta object for the reference '{@link RubyTL.Metamodel#getPackage <em>Package</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Package</em>'.
-	 * @see RubyTL.Metamodel#getPackage()
-	 * @see #getMetamodel()
-	 * @generated
-	 */
-	EReference getMetamodel_Package();
 
 	/**
 	 * Returns the meta object for class '{@link RubyTL.Rule <em>Rule</em>}'.
@@ -795,6 +869,17 @@ public interface RubyTLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRule_Mapping();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link RubyTL.Rule#getFilter <em>Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Filter</em>'.
+	 * @see RubyTL.Rule#getFilter()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EReference getRule_Filter();
 
 	/**
 	 * Returns the meta object for class '{@link RubyTL.FromElement <em>From Element</em>}'.
@@ -998,17 +1083,6 @@ public interface RubyTLPackage extends EPackage {
 	EAttribute getVariable_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link RubyTL.Variable#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see RubyTL.Variable#getType()
-	 * @see #getVariable()
-	 * @generated
-	 */
-	EReference getVariable_Type();
-
-	/**
 	 * Returns the meta object for class '{@link RubyTL.Expression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1070,6 +1144,70 @@ public interface RubyTLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getExpGet_Property();
+
+	/**
+	 * Returns the meta object for class '{@link RubyTL.Filter <em>Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Filter</em>'.
+	 * @see RubyTL.Filter
+	 * @generated
+	 */
+	EClass getFilter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link RubyTL.Filter#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @see RubyTL.Filter#getExpression()
+	 * @see #getFilter()
+	 * @generated
+	 */
+	EAttribute getFilter_Expression();
+
+	/**
+	 * Returns the meta object for class '{@link RubyTL.Decorator <em>Decorator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Decorator</em>'.
+	 * @see RubyTL.Decorator
+	 * @generated
+	 */
+	EClass getDecorator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link RubyTL.Decorator#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see RubyTL.Decorator#getName()
+	 * @see #getDecorator()
+	 * @generated
+	 */
+	EAttribute getDecorator_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link RubyTL.Decorator#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Body</em>'.
+	 * @see RubyTL.Decorator#getBody()
+	 * @see #getDecorator()
+	 * @generated
+	 */
+	EAttribute getDecorator_Body();
+
+	/**
+	 * Returns the meta object for the reference '{@link RubyTL.Decorator#getContext <em>Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Context</em>'.
+	 * @see RubyTL.Decorator#getContext()
+	 * @see #getDecorator()
+	 * @generated
+	 */
+	EReference getDecorator_Context();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1136,6 +1274,14 @@ public interface RubyTLPackage extends EPackage {
 		EReference TRANSFORMATION__RULES = eINSTANCE.getTransformation_Rules();
 
 		/**
+		 * The meta object literal for the '<em><b>Decorators</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRANSFORMATION__DECORATORS = eINSTANCE.getTransformation_Decorators();
+
+		/**
 		 * The meta object literal for the '{@link RubyTL.impl.MetamodelImpl <em>Metamodel</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1144,14 +1290,6 @@ public interface RubyTLPackage extends EPackage {
 		 * @generated
 		 */
 		EClass METAMODEL = eINSTANCE.getMetamodel();
-
-		/**
-		 * The meta object literal for the '<em><b>Package</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference METAMODEL__PACKAGE = eINSTANCE.getMetamodel_Package();
 
 		/**
 		 * The meta object literal for the '{@link RubyTL.impl.RuleImpl <em>Rule</em>}' class.
@@ -1194,6 +1332,14 @@ public interface RubyTLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RULE__MAPPING = eINSTANCE.getRule_Mapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Filter</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RULE__FILTER = eINSTANCE.getRule_Filter();
 
 		/**
 		 * The meta object literal for the '{@link RubyTL.impl.FromElementImpl <em>From Element</em>}' class.
@@ -1364,14 +1510,6 @@ public interface RubyTLPackage extends EPackage {
 		EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE__TYPE = eINSTANCE.getVariable_Type();
-
-		/**
 		 * The meta object literal for the '{@link RubyTL.impl.ExpressionImpl <em>Expression</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1424,6 +1562,58 @@ public interface RubyTLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EXP_GET__PROPERTY = eINSTANCE.getExpGet_Property();
+
+		/**
+		 * The meta object literal for the '{@link RubyTL.impl.FilterImpl <em>Filter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RubyTL.impl.FilterImpl
+		 * @see RubyTL.impl.RubyTLPackageImpl#getFilter()
+		 * @generated
+		 */
+		EClass FILTER = eINSTANCE.getFilter();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILTER__EXPRESSION = eINSTANCE.getFilter_Expression();
+
+		/**
+		 * The meta object literal for the '{@link RubyTL.impl.DecoratorImpl <em>Decorator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RubyTL.impl.DecoratorImpl
+		 * @see RubyTL.impl.RubyTLPackageImpl#getDecorator()
+		 * @generated
+		 */
+		EClass DECORATOR = eINSTANCE.getDecorator();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DECORATOR__NAME = eINSTANCE.getDecorator_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DECORATOR__BODY = eINSTANCE.getDecorator_Body();
+
+		/**
+		 * The meta object literal for the '<em><b>Context</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DECORATOR__CONTEXT = eINSTANCE.getDecorator_Context();
 
 	}
 

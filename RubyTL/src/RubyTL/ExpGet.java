@@ -35,7 +35,7 @@ public interface ExpGet extends Expression {
 	 * @return the value of the '<em>Source</em>' containment reference.
 	 * @see #setSource(Expression)
 	 * @see RubyTL.RubyTLPackage#getExpGet_Source()
-	 * @model containment="true"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	Expression getSource();
@@ -59,12 +59,12 @@ public interface ExpGet extends Expression {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property</em>' attribute.
-	 * @see #setProperty(String)
+	 * @see #setProperty(Object)
 	 * @see RubyTL.RubyTLPackage#getExpGet_Property()
-	 * @model
+	 * @model unique="false" dataType="PrimitiveTypes.String" ordered="false"
 	 * @generated
 	 */
-	String getProperty();
+	Object getProperty();
 
 	/**
 	 * Sets the value of the '{@link RubyTL.ExpGet#getProperty <em>Property</em>}' attribute.
@@ -74,6 +74,6 @@ public interface ExpGet extends Expression {
 	 * @see #getProperty()
 	 * @generated
 	 */
-	void setProperty(String value);
+	void setProperty(Object value);
 
 } // ExpGet

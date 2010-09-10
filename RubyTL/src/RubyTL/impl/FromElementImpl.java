@@ -33,16 +33,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class FromElementImpl extends VariableImpl implements FromElement {
 	/**
-	 * The default value of the '{@link #getClassname() <em>Classname</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClassname()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CLASSNAME_EDEFAULT = null;
-
-	/**
 	 * The cached value of the '{@link #getClassname() <em>Classname</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -50,7 +40,7 @@ public class FromElementImpl extends VariableImpl implements FromElement {
 	 * @generated
 	 * @ordered
 	 */
-	protected String classname = CLASSNAME_EDEFAULT;
+	protected Object classname;
 
 	/**
 	 * The cached value of the '{@link #getMetamodel() <em>Metamodel</em>}' reference.
@@ -86,7 +76,7 @@ public class FromElementImpl extends VariableImpl implements FromElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getClassname() {
+	public Object getClassname() {
 		return classname;
 	}
 
@@ -95,8 +85,8 @@ public class FromElementImpl extends VariableImpl implements FromElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClassname(String newClassname) {
-		String oldClassname = classname;
+	public void setClassname(Object newClassname) {
+		Object oldClassname = classname;
 		classname = newClassname;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.FROM_ELEMENT__CLASSNAME, oldClassname, classname));
@@ -166,7 +156,7 @@ public class FromElementImpl extends VariableImpl implements FromElement {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RubyTLPackage.FROM_ELEMENT__CLASSNAME:
-				setClassname((String)newValue);
+				setClassname(newValue);
 				return;
 			case RubyTLPackage.FROM_ELEMENT__METAMODEL:
 				setMetamodel((Metamodel)newValue);
@@ -184,7 +174,7 @@ public class FromElementImpl extends VariableImpl implements FromElement {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.FROM_ELEMENT__CLASSNAME:
-				setClassname(CLASSNAME_EDEFAULT);
+				setClassname((Object)null);
 				return;
 			case RubyTLPackage.FROM_ELEMENT__METAMODEL:
 				setMetamodel((Metamodel)null);
@@ -202,7 +192,7 @@ public class FromElementImpl extends VariableImpl implements FromElement {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.FROM_ELEMENT__CLASSNAME:
-				return CLASSNAME_EDEFAULT == null ? classname != null : !CLASSNAME_EDEFAULT.equals(classname);
+				return classname != null;
 			case RubyTLPackage.FROM_ELEMENT__METAMODEL:
 				return metamodel != null;
 		}

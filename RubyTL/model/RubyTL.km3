@@ -1,0 +1,93 @@
+package RubyTL {
+
+	class Transformation {
+		attribute name[0-1] : String;
+		reference sourceMetamodels[*] ordered container : Metamodel;
+		reference targetMetamodels[*] ordered container : Metamodel;
+		reference rules[*] ordered container : Rule;
+		reference decorators[*] ordered container : Decorator;
+	}
+
+	class Metamodel extends NamedElement {
+		
+	}
+
+	abstract class Rule {
+		attribute name[0-1] : String;
+		reference from[0-1] container : FromElement;
+		reference to[0-1] container : ToElement;
+		reference mapping[0-1] container : Mapping;
+		reference filter[0-1] container : Filter;
+	}
+
+	class FromElement extends Variable {
+		attribute classname[0-1] : String;
+		reference metamodel[0-1] : Metamodel;
+	}
+
+	class ToElement extends Variable {
+		attribute classname[0-1] : String;
+		reference metamodel[0-1] : Metamodel;
+	}
+
+	class NamedElement {
+		attribute name[0-1] : String;
+		attribute uri[0-1] : String;
+	}
+
+	class TopRule extends Rule {
+		
+	}
+
+	class CopyRule extends Rule {
+		
+	}
+
+	class Mapping {
+		reference bindings[*] ordered container : Binding;
+	}
+
+	class Binding {
+		reference target[0-1] container : Expression;
+		attribute property[0-1] : String;
+		reference source[0-1] container : Expression;
+	}
+
+	abstract class Variable {
+		attribute name[0-1] : String;
+	}
+
+	abstract class Expression {
+		
+	}
+
+	class ExpVariable extends Expression {
+		reference variable[0-1] : Variable;
+	}
+
+	class ExpGet extends Expression {
+		reference source[0-1] container : Expression;
+		attribute property[0-1] : String;
+	}
+
+	class Filter {
+		attribute expression : String;
+	}
+
+	class Decorator {
+		attribute name : String;
+		attribute body[0-1] : String;
+		reference context[0-1] : FromElement;
+	}
+}
+
+package PrimitiveTypes {
+
+	datatype Boolean;
+
+	datatype Double;
+
+	datatype Integer;
+
+	datatype String;
+}

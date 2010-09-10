@@ -46,16 +46,6 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	protected Expression target;
 
 	/**
-	 * The default value of the '{@link #getProperty() <em>Property</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProperty()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PROPERTY_EDEFAULT = null;
-
-	/**
 	 * The cached value of the '{@link #getProperty() <em>Property</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,7 +53,7 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	 * @generated
 	 * @ordered
 	 */
-	protected String property = PROPERTY_EDEFAULT;
+	protected Object property;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
@@ -143,7 +133,7 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getProperty() {
+	public Object getProperty() {
 		return property;
 	}
 
@@ -152,8 +142,8 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProperty(String newProperty) {
-		String oldProperty = property;
+	public void setProperty(Object newProperty) {
+		Object oldProperty = property;
 		property = newProperty;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.BINDING__PROPERTY, oldProperty, property));
@@ -250,7 +240,7 @@ public class BindingImpl extends EObjectImpl implements Binding {
 				setTarget((Expression)newValue);
 				return;
 			case RubyTLPackage.BINDING__PROPERTY:
-				setProperty((String)newValue);
+				setProperty(newValue);
 				return;
 			case RubyTLPackage.BINDING__SOURCE:
 				setSource((Expression)newValue);
@@ -271,7 +261,7 @@ public class BindingImpl extends EObjectImpl implements Binding {
 				setTarget((Expression)null);
 				return;
 			case RubyTLPackage.BINDING__PROPERTY:
-				setProperty(PROPERTY_EDEFAULT);
+				setProperty((Object)null);
 				return;
 			case RubyTLPackage.BINDING__SOURCE:
 				setSource((Expression)null);
@@ -291,7 +281,7 @@ public class BindingImpl extends EObjectImpl implements Binding {
 			case RubyTLPackage.BINDING__TARGET:
 				return target != null;
 			case RubyTLPackage.BINDING__PROPERTY:
-				return PROPERTY_EDEFAULT == null ? property != null : !PROPERTY_EDEFAULT.equals(property);
+				return property != null;
 			case RubyTLPackage.BINDING__SOURCE:
 				return source != null;
 		}

@@ -33,12 +33,12 @@ public interface FromElement extends Variable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Classname</em>' attribute.
-	 * @see #setClassname(String)
+	 * @see #setClassname(Object)
 	 * @see RubyTL.RubyTLPackage#getFromElement_Classname()
-	 * @model
+	 * @model unique="false" dataType="PrimitiveTypes.String" ordered="false"
 	 * @generated
 	 */
-	String getClassname();
+	Object getClassname();
 
 	/**
 	 * Sets the value of the '{@link RubyTL.FromElement#getClassname <em>Classname</em>}' attribute.
@@ -48,7 +48,7 @@ public interface FromElement extends Variable {
 	 * @see #getClassname()
 	 * @generated
 	 */
-	void setClassname(String value);
+	void setClassname(Object value);
 
 	/**
 	 * Returns the value of the '<em><b>Metamodel</b></em>' reference.
@@ -61,7 +61,7 @@ public interface FromElement extends Variable {
 	 * @return the value of the '<em>Metamodel</em>' reference.
 	 * @see #setMetamodel(Metamodel)
 	 * @see RubyTL.RubyTLPackage#getFromElement_Metamodel()
-	 * @model
+	 * @model ordered="false"
 	 * @generated
 	 */
 	Metamodel getMetamodel();
