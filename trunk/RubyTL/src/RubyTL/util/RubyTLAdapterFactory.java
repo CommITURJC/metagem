@@ -127,6 +127,14 @@ public class RubyTLAdapterFactory extends AdapterFactoryImpl {
 				return createExpGetAdapter();
 			}
 			@Override
+			public Adapter caseFilter(Filter object) {
+				return createFilterAdapter();
+			}
+			@Override
+			public Adapter caseDecorator(Decorator object) {
+				return createDecoratorAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -338,6 +346,34 @@ public class RubyTLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExpGetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link RubyTL.Filter <em>Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see RubyTL.Filter
+	 * @generated
+	 */
+	public Adapter createFilterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link RubyTL.Decorator <em>Decorator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see RubyTL.Decorator
+	 * @generated
+	 */
+	public Adapter createDecoratorAdapter() {
 		return null;
 	}
 

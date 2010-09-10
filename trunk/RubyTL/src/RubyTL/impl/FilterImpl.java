@@ -6,48 +6,46 @@
  */
 package RubyTL.impl;
 
+import RubyTL.Filter;
 import RubyTL.RubyTLPackage;
-import RubyTL.Variable;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Variable</b></em>'.
+ * An implementation of the model object '<em><b>Filter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link RubyTL.impl.VariableImpl#getName <em>Name</em>}</li>
+ *   <li>{@link RubyTL.impl.FilterImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class VariableImpl extends EObjectImpl implements Variable {
+public class FilterImpl extends EObjectImpl implements Filter {
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getExpression()
 	 * @generated
 	 * @ordered
 	 */
-	protected Object name;
+	protected Object expression;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected VariableImpl() {
+	protected FilterImpl() {
 		super();
 	}
 
@@ -58,7 +56,7 @@ public abstract class VariableImpl extends EObjectImpl implements Variable {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RubyTLPackage.Literals.VARIABLE;
+		return RubyTLPackage.Literals.FILTER;
 	}
 
 	/**
@@ -66,8 +64,8 @@ public abstract class VariableImpl extends EObjectImpl implements Variable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getName() {
-		return name;
+	public Object getExpression() {
+		return expression;
 	}
 
 	/**
@@ -75,11 +73,11 @@ public abstract class VariableImpl extends EObjectImpl implements Variable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(Object newName) {
-		Object oldName = name;
-		name = newName;
+	public void setExpression(Object newExpression) {
+		Object oldExpression = expression;
+		expression = newExpression;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.VARIABLE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.FILTER__EXPRESSION, oldExpression, expression));
 	}
 
 	/**
@@ -90,8 +88,8 @@ public abstract class VariableImpl extends EObjectImpl implements Variable {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RubyTLPackage.VARIABLE__NAME:
-				return getName();
+			case RubyTLPackage.FILTER__EXPRESSION:
+				return getExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -104,8 +102,8 @@ public abstract class VariableImpl extends EObjectImpl implements Variable {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RubyTLPackage.VARIABLE__NAME:
-				setName(newValue);
+			case RubyTLPackage.FILTER__EXPRESSION:
+				setExpression(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -119,8 +117,8 @@ public abstract class VariableImpl extends EObjectImpl implements Variable {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RubyTLPackage.VARIABLE__NAME:
-				setName((Object)null);
+			case RubyTLPackage.FILTER__EXPRESSION:
+				setExpression((Object)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -134,8 +132,8 @@ public abstract class VariableImpl extends EObjectImpl implements Variable {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RubyTLPackage.VARIABLE__NAME:
-				return name != null;
+			case RubyTLPackage.FILTER__EXPRESSION:
+				return expression != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -150,10 +148,10 @@ public abstract class VariableImpl extends EObjectImpl implements Variable {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
+		result.append(" (expression: ");
+		result.append(expression);
 		result.append(')');
 		return result.toString();
 	}
 
-} //VariableImpl
+} //FilterImpl

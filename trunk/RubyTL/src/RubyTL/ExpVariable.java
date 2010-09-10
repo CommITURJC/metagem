@@ -34,7 +34,7 @@ public interface ExpVariable extends Expression {
 	 * @return the value of the '<em>Variable</em>' reference.
 	 * @see #setVariable(Variable)
 	 * @see RubyTL.RubyTLPackage#getExpVariable_Variable()
-	 * @model
+	 * @model ordered="false"
 	 * @generated
 	 */
 	Variable getVariable();

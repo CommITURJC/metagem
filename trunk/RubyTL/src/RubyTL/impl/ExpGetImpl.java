@@ -44,16 +44,6 @@ public class ExpGetImpl extends ExpressionImpl implements ExpGet {
 	protected Expression source;
 
 	/**
-	 * The default value of the '{@link #getProperty() <em>Property</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProperty()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PROPERTY_EDEFAULT = null;
-
-	/**
 	 * The cached value of the '{@link #getProperty() <em>Property</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,7 +51,7 @@ public class ExpGetImpl extends ExpressionImpl implements ExpGet {
 	 * @generated
 	 * @ordered
 	 */
-	protected String property = PROPERTY_EDEFAULT;
+	protected Object property;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -131,7 +121,7 @@ public class ExpGetImpl extends ExpressionImpl implements ExpGet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getProperty() {
+	public Object getProperty() {
 		return property;
 	}
 
@@ -140,8 +130,8 @@ public class ExpGetImpl extends ExpressionImpl implements ExpGet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProperty(String newProperty) {
-		String oldProperty = property;
+	public void setProperty(Object newProperty) {
+		Object oldProperty = property;
 		property = newProperty;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.EXP_GET__PROPERTY, oldProperty, property));
@@ -190,7 +180,7 @@ public class ExpGetImpl extends ExpressionImpl implements ExpGet {
 				setSource((Expression)newValue);
 				return;
 			case RubyTLPackage.EXP_GET__PROPERTY:
-				setProperty((String)newValue);
+				setProperty(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -208,7 +198,7 @@ public class ExpGetImpl extends ExpressionImpl implements ExpGet {
 				setSource((Expression)null);
 				return;
 			case RubyTLPackage.EXP_GET__PROPERTY:
-				setProperty(PROPERTY_EDEFAULT);
+				setProperty((Object)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -225,7 +215,7 @@ public class ExpGetImpl extends ExpressionImpl implements ExpGet {
 			case RubyTLPackage.EXP_GET__SOURCE:
 				return source != null;
 			case RubyTLPackage.EXP_GET__PROPERTY:
-				return PROPERTY_EDEFAULT == null ? property != null : !PROPERTY_EDEFAULT.equals(property);
+				return property != null;
 		}
 		return super.eIsSet(featureID);
 	}

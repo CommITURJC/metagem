@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link RubyTL.Transformation#getSourceMetamodels <em>Source Metamodels</em>}</li>
  *   <li>{@link RubyTL.Transformation#getTargetMetamodels <em>Target Metamodels</em>}</li>
  *   <li>{@link RubyTL.Transformation#getRules <em>Rules</em>}</li>
+ *   <li>{@link RubyTL.Transformation#getDecorators <em>Decorators</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,12 +40,12 @@ public interface Transformation extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
+	 * @see #setName(Object)
 	 * @see RubyTL.RubyTLPackage#getTransformation_Name()
-	 * @model
+	 * @model unique="false" dataType="PrimitiveTypes.String" ordered="false"
 	 * @generated
 	 */
-	String getName();
+	Object getName();
 
 	/**
 	 * Sets the value of the '{@link RubyTL.Transformation#getName <em>Name</em>}' attribute.
@@ -54,7 +55,7 @@ public interface Transformation extends EObject {
 	 * @see #getName()
 	 * @generated
 	 */
-	void setName(String value);
+	void setName(Object value);
 
 	/**
 	 * Returns the value of the '<em><b>Source Metamodels</b></em>' containment reference list.
@@ -103,5 +104,21 @@ public interface Transformation extends EObject {
 	 * @generated
 	 */
 	EList<Rule> getRules();
+
+	/**
+	 * Returns the value of the '<em><b>Decorators</b></em>' containment reference list.
+	 * The list contents are of type {@link RubyTL.Decorator}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Decorators</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Decorators</em>' containment reference list.
+	 * @see RubyTL.RubyTLPackage#getTransformation_Decorators()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Decorator> getDecorators();
 
 } // Transformation

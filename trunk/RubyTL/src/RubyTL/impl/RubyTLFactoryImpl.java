@@ -31,7 +31,7 @@ public class RubyTLFactoryImpl extends EFactoryImpl implements RubyTLFactory {
 	 */
 	public static RubyTLFactory init() {
 		try {
-			RubyTLFactory theRubyTLFactory = (RubyTLFactory)EPackage.Registry.INSTANCE.getEFactory("http://gts.inf.um.es/rubytl"); 
+			RubyTLFactory theRubyTLFactory = (RubyTLFactory)EPackage.Registry.INSTANCE.getEFactory("http://org.eclipse.kybele.metagem.rubytl"); 
 			if (theRubyTLFactory != null) {
 				return theRubyTLFactory;
 			}
@@ -71,6 +71,8 @@ public class RubyTLFactoryImpl extends EFactoryImpl implements RubyTLFactory {
 			case RubyTLPackage.BINDING: return createBinding();
 			case RubyTLPackage.EXP_VARIABLE: return createExpVariable();
 			case RubyTLPackage.EXP_GET: return createExpGet();
+			case RubyTLPackage.FILTER: return createFilter();
+			case RubyTLPackage.DECORATOR: return createDecorator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -184,6 +186,26 @@ public class RubyTLFactoryImpl extends EFactoryImpl implements RubyTLFactory {
 	public ExpGet createExpGet() {
 		ExpGetImpl expGet = new ExpGetImpl();
 		return expGet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Filter createFilter() {
+		FilterImpl filter = new FilterImpl();
+		return filter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Decorator createDecorator() {
+		DecoratorImpl decorator = new DecoratorImpl();
+		return decorator;
 	}
 
 	/**
