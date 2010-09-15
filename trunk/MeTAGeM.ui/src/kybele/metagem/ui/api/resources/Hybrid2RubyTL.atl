@@ -1,0 +1,185 @@
+module Hybrid2RubyTL; -- Module Template
+create OUT : RubyTL from IN : MM_Hybrid;
+
+-- Create transformation header
+rule Module {
+	from 
+		mm_hybrid : MM_Hybrid!Module
+	to
+		rubytl : RubyTL!Transformation (
+			name <- mm_hybrid.name_module.debug('Modulo'),
+		    sourceMetamodels <- mm_hybrid.inMM,
+			targetMetamodels <- mm_hybrid.outMM,
+			rules <- mm_hybrid."rule",
+			decorators <- mm_hybrid.operations
+		)
+}
+
+-- Define input metamodel
+rule inMM{
+	from
+		inMM_hybrid : MM_Hybrid!InMetaModel
+	to
+		inMM_rubytl : RubyTL!Metamodel(
+			name <- inMM_hybrid.name_mm.debug('SourceMetamodel')
+		)
+}
+
+-- Define output metamodel
+rule outMM{
+	from
+		outMM_hybrid : MM_Hybrid!OutMetaModel
+	to
+		outMM_rubytl : RubyTL!Metamodel(
+			name <- outMM_hybrid.name_mm.debug('TargetMetamodel')			
+		)
+}
+
+-- Generation rules
+rule createRule2Rule{
+	from 
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()>0 and mm_hybrid_rule.getSizeIP()<2 and mm_hybrid_rule.getSizeOP()<2)
+	to
+		rubytl : RubyTL!TopRule (
+			name <- mm_hybrid_rule.name_rule.debug('Name Rule'),
+			"from" <- fromElement, 
+			"to" <- toElement,
+			mapping <- amapping
+		),
+		
+		fromElement : RubyTL!FromElement (
+			name <-  mm_hybrid_rule."in".asSequence().first().name_element.toLower(),
+			classname <- mm_hybrid_rule."in".asSequence().first().name_element.debug('Name Class From'),
+			metamodel <- ametamodelin 
+		),
+		ametamodelin : RubyTL!Metamodel (
+			name <- mm_hybrid_rule."in".asSequence().first().metamodel.name_mm	
+		),
+		toElement : RubyTL!ToElement(
+			name <-  mm_hybrid_rule.out.asSequence().first().name_element.toLower(),
+			classname <- mm_hybrid_rule.out.asSequence().first().name_element.debug('Name Class To'),
+			metamodel <- ametamodelout	
+		),
+		ametamodelout : RubyTL!Metamodel (
+			name <- mm_hybrid_rule.out.asSequence().first().metamodel.name_mm	
+		),
+		amapping : RubyTL!Mapping (
+			bindings <- mm_hybrid_rule.out.asSequence().first().included
+		)
+}
+
+
+
+-- Formulas (TargetElements <- SourceElements)
+rule Bindings {
+	from 
+		elemInc : MM_Hybrid!ElementIncluded
+	to
+		rubytl : RubyTL!Binding (
+			--property of target 
+			property <- elemInc. left.targetElement.asSequence().first().name_element,
+			--Right side of formula, that has the value - issues
+			source <- asourcevalue,
+			--Left side of formula, that will receive the value
+			target <- atargetvalue
+		),
+		asourcevalue : RubyTL!ExpGet(
+			--property of source
+			property <- elemInc.getSourceBinding(), 
+			source <- asourcename
+		),
+		asourcename : RubyTL!ExpVariable(
+			variable <- avariablesrc
+		),
+		avariablesrc : RubyTL!FromElement (
+			name <- elemInc.getReferredVariableSrc()
+		),
+		atargetvalue : RubyTL!ExpVariable(
+			variable <- avariabletrg
+		),
+		avariabletrg : RubyTL!ToElement (
+			name <- elemInc.refImmediateComposite().name_element.toLower() 
+		)
+
+}
+
+
+--Decorator
+rule createOperation2Decorator {
+	from
+		oper : MM_Hybrid!Operation 
+	to
+		rubytl : RubyTL!Decorator (
+			name <- oper.name_operation,
+			body <- oper.body + ' - Return Type: ' + oper.returnType.datatype.toString(),
+			"context" <- acontext --oper."context" --oper."context".metamodel.type_mm + '::' + oper."context".name_element 
+		),
+		acontext : RubyTL!FromElement (
+			classname <-  oper."context".name_element.debug('className context'),
+			name <- oper."context".name_element.toLower(),
+			metamodel <- ametamodel 
+		),
+		ametamodel : RubyTL!Metamodel(
+		name <- oper."context".metamodel.name_mm.debug('metamodel context')
+		)
+}
+
+
+
+--Helper -> Return the number of inputPatterns 
+helper context MM_Hybrid!Rule def : getSizeIP () : Integer = 
+	self."in".size();
+
+--Helper -> Return the number of ouputPatterns 
+helper context MM_Hybrid!Rule def : getSizeOP () : Integer = 
+	self.out.size();
+
+
+--Helper -> Define the source binding (Element, Rule, Helper or Reference)
+helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : String = 
+	--rule undefined, operation undefined, srcElement undefined, reference defined	
+	if (self.right."rule".asSequence().first().oclIsUndefined() and 
+		self.right.operation.asSequence().first().oclIsUndefined() and
+		self.right.sourceElement.asSequence().first().oclIsUndefined()) then
+			OclUndefined
+	else
+		--rule undefined
+		if self.right."rule".asSequence().first().oclIsUndefined() then
+			--rule undefined and operation undefined
+			if self.right.operation.asSequence().first().oclIsUndefined() then
+				self.right.sourceElement.asSequence().first().name_element
+			--rule undefined and operation defined 
+			else
+				--rule undefined, operation defined and srcElement undefined
+				if self.right.sourceElement.asSequence().first().oclIsUndefined() then
+					self.right.operation.asSequence().first().name_operation
+				-- rule undefined, operation defined and srcElement defined
+				else 
+					self.right.sourceElement.asSequence().first().name_element + '.' + self.right.operation.asSequence().first().name_operation
+				endif
+			endif
+		--rule defined (operation undefined by validation)		
+		else
+			--rule defined and srcElement undefined
+			if self.right.sourceElement.asSequence().first().oclIsUndefined() then
+				self.right."rule".asSequence().first().name_rule
+			--rule defined and srcElement defined
+			else  
+				self.right.sourceElement.asSequence().first().name_element + '.' + self.right."rule".asSequence().first().name_rule
+			endif
+		endif
+	endif;
+
+
+--Helper -> Return the variable used on source binding
+helper context MM_Hybrid!ElementIncluded def : getReferredVariableSrc () : ATL!OclExpression = --String =
+	if self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().oclIsUndefined()  then
+		'???'
+	else
+		if self.right.reference.oclIsUndefined() then
+			self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()
+		else
+			self.right.reference.name_element.toLower()
+		endif
+	endif;
+

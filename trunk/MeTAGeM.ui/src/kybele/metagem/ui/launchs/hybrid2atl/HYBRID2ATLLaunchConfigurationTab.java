@@ -155,7 +155,7 @@ public class HYBRID2ATLLaunchConfigurationTab extends AbstractExtendedLaunchConf
 			Group tProviderGroup = createGroup(modelExtentComp, "Hybrid model to transform", 3);
 			TProviderGroupListener tProviderListener = new TProviderGroupListener(0);
 
-			createLabel(tProviderGroup, "Hybrid Model URI: ");		
+			createLabel(tProviderGroup, "Hybrid Model: ");		
 			tProviderTextIN = createText(tProviderGroup);		
 			tProviderTextIN.addModifyListener(tProviderListener);
 			
@@ -166,7 +166,7 @@ public class HYBRID2ATLLaunchConfigurationTab extends AbstractExtendedLaunchConf
 			Group tProviderGroup2 = createGroup(modelExtentComp, "ATL Model, transformation result", 3);
 			TProviderGroupListener tProviderListener2 = new TProviderGroupListener(1);
 
-			createLabel(tProviderGroup2, "ATL Model URI: ");		
+			createLabel(tProviderGroup2, "ATL Model: ");		
 			tProviderTextOUT = createText(tProviderGroup2);		
 			tProviderTextOUT.addModifyListener(tProviderListener2);
 			

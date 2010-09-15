@@ -53,7 +53,7 @@ public class HYBRID2RubyTLLaunchConfigurationDelegate implements
 			monitor.subTask("Executing transformation");
 			try{
 				Transformations transf = Transformations.getInstance();
-				transf.hybrid2atl(uriIN, uriOUT);
+				transf.hybrid2rubytl(uriIN, uriOUT);
 				monitor.worked(85);		
 				if(monitor.isCanceled())
 					return;

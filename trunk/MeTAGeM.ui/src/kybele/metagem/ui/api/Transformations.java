@@ -32,11 +32,13 @@ public class Transformations implements ExecutionMessageListener {
 	
 	private URL METAGEM2HYBRID_TransfoResource;
 	private URL HYBRID2ATL_TransfoResource;
+	private URL HYBRID2RubyTL_TransfoResource;
 	
 	private ASMEMFModel metagemMetamodel;
 	private ASMEMFModel hybridMetamodel;
 	private ASMEMFModel MOFMetamodel;
 	private ASMEMFModel atlMetamodel;
+	private ASMEMFModel rubyTLMetamodel;
 	
 	
  
@@ -49,6 +51,7 @@ public class Transformations implements ExecutionMessageListener {
 		
 		METAGEM2HYBRID_TransfoResource = Transformations.class.getResource("resources/MeTAGeM2Hybrid.asm");
 		HYBRID2ATL_TransfoResource = Transformations.class.getResource("resources/Hybrid2ATL.asm");
+		HYBRID2RubyTL_TransfoResource = Transformations.class.getResource("resources/Hybrid2RubyTL.asm");
 		
 	}
 	private void initMetagem2HybridMetamodels(Map<String, Object> models) {
@@ -73,10 +76,19 @@ public class Transformations implements ExecutionMessageListener {
 		atlMetamodel = (ASMEMFModel) modelHandler.loadModel(
 				"METAGEM", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/ATL.ecore"));
 		models.put("MM_Hybrid", hybridMetamodel);
-		models.put("ATL", atlMetamodel);
+		models.put("ATL", atlMetamodel);	
+	}
+	
+	private void initHybrid2RubyTLMetamodels(Map<String, Object> models) {
+		
+		hybridMetamodel = (ASMEMFModel) modelHandler.loadModel(
+				"MM_Hybrid", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/MM_Hybrid.ecore"));
+		rubyTLMetamodel = (ASMEMFModel) modelHandler.loadModel(
+				"METAGEM", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/RubyTL/Metamodel/RubyTL.ecore"));
+		models.put("MM_Hybrid", hybridMetamodel);
+		models.put("RubyTL", rubyTLMetamodel);
 		
 	}
-		
 	
 	public void metagem2hybrid(String inFilePath, String leftFilePath, String rightFilePath,String outFilePath) throws Exception{
 			Map<String, Object> models = new HashMap<String, Object>();
@@ -131,6 +143,28 @@ public class Transformations implements ExecutionMessageListener {
 			Utils.registerMetamodel(Constants.ATLURI, input);
 			input.close();		
 	}
+	
+	public void hybrid2rubytl(String inFilePath, String outFilePath) throws Exception{
+		Map<String, Object> models = new HashMap<String, Object>();
+		
+		initHybrid2RubyTLMetamodels(models);
+					
+		// get/create models
+		ASMEMFModel metagemInputModel = (ASMEMFModel) modelHandler.loadModel("IN", hybridMetamodel, URI.createFileURI(inFilePath));
+		models.put("IN", metagemInputModel);
+								
+		ASMEMFModel hybridOutputModel = (ASMEMFModel) modelHandler.newModel("OUT", URI.createFileURI(outFilePath).toFileString(), rubyTLMetamodel);
+		models.put("OUT", hybridOutputModel);
+		
+		// launch
+		AtlLauncher.getDefault().launch(this.HYBRID2RubyTL_TransfoResource,
+				Collections.EMPTY_MAP, models,
+				Collections.EMPTY_MAP, Collections.EMPTY_LIST,Collections.EMPTY_MAP);
+
+		modelHandler.saveModel(hybridOutputModel, outFilePath, false);
+		dispose(models);
+			
+}
 	
 	private void dispose(Map<String, Object> models) {
 		for (Object model : models.values())
