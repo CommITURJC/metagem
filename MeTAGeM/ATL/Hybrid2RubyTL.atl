@@ -10,7 +10,8 @@ rule Module {
 			name <- mm_hybrid.name_module.debug('Modulo'),
 		    sourceMetamodels <- mm_hybrid.inMM,
 			targetMetamodels <- mm_hybrid.outMM,
-			rules <- mm_hybrid."rule"
+			rules <- mm_hybrid."rule",
+			decorators <- mm_hybrid.operations
 		)
 }
 
@@ -67,6 +68,8 @@ rule createRule2Rule{
 		)
 }
 
+
+
 -- Formulas (TargetElements <- SourceElements)
 rule Bindings {
 	from 
@@ -99,6 +102,28 @@ rule Bindings {
 		)
 
 }
+
+
+--Decorator
+rule createOperation2Decorator {
+	from
+		oper : MM_Hybrid!Operation 
+	to
+		rubytl : RubyTL!Decorator (
+			name <- oper.name_operation,
+			body <- oper.body + ' - Return Type: ' + oper.returnType.datatype.toString(),
+			"context" <- acontext --oper."context" --oper."context".metamodel.type_mm + '::' + oper."context".name_element 
+		),
+		acontext : RubyTL!FromElement (
+			classname <-  oper."context".name_element.debug('className context'),
+			name <- oper."context".name_element.toLower(),
+			metamodel <- ametamodel 
+		),
+		ametamodel : RubyTL!Metamodel(
+		name <- oper."context".metamodel.name_mm.debug('metamodel context')
+		)
+}
+
 
 
 --Helper -> Return the number of inputPatterns 
