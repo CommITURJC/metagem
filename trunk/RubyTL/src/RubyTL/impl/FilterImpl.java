@@ -31,6 +31,15 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class FilterImpl extends EObjectImpl implements Filter {
 	/**
+	 * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EXPRESSION_EDEFAULT = null;
+	/**
 	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,7 +47,7 @@ public class FilterImpl extends EObjectImpl implements Filter {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object expression;
+	protected String expression = EXPRESSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -64,7 +73,7 @@ public class FilterImpl extends EObjectImpl implements Filter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getExpression() {
+	public String getExpression() {
 		return expression;
 	}
 
@@ -73,8 +82,8 @@ public class FilterImpl extends EObjectImpl implements Filter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExpression(Object newExpression) {
-		Object oldExpression = expression;
+	public void setExpression(String newExpression) {
+		String oldExpression = expression;
 		expression = newExpression;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.FILTER__EXPRESSION, oldExpression, expression));
@@ -103,7 +112,7 @@ public class FilterImpl extends EObjectImpl implements Filter {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RubyTLPackage.FILTER__EXPRESSION:
-				setExpression(newValue);
+				setExpression((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -118,7 +127,7 @@ public class FilterImpl extends EObjectImpl implements Filter {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.FILTER__EXPRESSION:
-				setExpression((Object)null);
+				setExpression(EXPRESSION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -133,7 +142,7 @@ public class FilterImpl extends EObjectImpl implements Filter {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.FILTER__EXPRESSION:
-				return expression != null;
+				return EXPRESSION_EDEFAULT == null ? expression != null : !EXPRESSION_EDEFAULT.equals(expression);
 		}
 		return super.eIsSet(featureID);
 	}

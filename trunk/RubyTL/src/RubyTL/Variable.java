@@ -35,12 +35,12 @@ public interface Variable extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(Object)
+	 * @see #setName(String)
 	 * @see RubyTL.RubyTLPackage#getVariable_Name()
-	 * @model unique="false" dataType="PrimitiveTypes.String" ordered="false"
+	 * @model unique="false" ordered="false"
 	 * @generated
 	 */
-	Object getName();
+	String getName();
 
 	/**
 	 * Sets the value of the '{@link RubyTL.Variable#getName <em>Name</em>}' attribute.
@@ -50,6 +50,6 @@ public interface Variable extends EObject {
 	 * @see #getName()
 	 * @generated
 	 */
-	void setName(Object value);
+	void setName(String value);
 
 } // Variable

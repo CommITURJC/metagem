@@ -36,12 +36,12 @@ public interface Decorator extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(Object)
+	 * @see #setName(String)
 	 * @see RubyTL.RubyTLPackage#getDecorator_Name()
-	 * @model unique="false" dataType="PrimitiveTypes.String" required="true" ordered="false"
+	 * @model unique="false" required="true" ordered="false"
 	 * @generated
 	 */
-	Object getName();
+	String getName();
 
 	/**
 	 * Sets the value of the '{@link RubyTL.Decorator#getName <em>Name</em>}' attribute.
@@ -51,7 +51,7 @@ public interface Decorator extends EObject {
 	 * @see #getName()
 	 * @generated
 	 */
-	void setName(Object value);
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Body</b></em>' attribute.
@@ -62,12 +62,12 @@ public interface Decorator extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Body</em>' attribute.
-	 * @see #setBody(Object)
+	 * @see #setBody(String)
 	 * @see RubyTL.RubyTLPackage#getDecorator_Body()
-	 * @model unique="false" dataType="PrimitiveTypes.String" ordered="false"
+	 * @model unique="false" ordered="false"
 	 * @generated
 	 */
-	Object getBody();
+	String getBody();
 
 	/**
 	 * Sets the value of the '{@link RubyTL.Decorator#getBody <em>Body</em>}' attribute.
@@ -77,7 +77,7 @@ public interface Decorator extends EObject {
 	 * @see #getBody()
 	 * @generated
 	 */
-	void setBody(Object value);
+	void setBody(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' reference.

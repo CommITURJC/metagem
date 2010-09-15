@@ -41,6 +41,16 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public abstract class RuleImpl extends EObjectImpl implements Rule {
 	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,7 +58,7 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object name;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getFrom() <em>From</em>}' containment reference.
@@ -114,7 +124,7 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getName() {
+	public String getName() {
 		return name;
 	}
 
@@ -123,8 +133,8 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(Object newName) {
-		Object oldName = name;
+	public void setName(String newName) {
+		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.RULE__NAME, oldName, name));
@@ -356,7 +366,7 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RubyTLPackage.RULE__NAME:
-				setName(newValue);
+				setName((String)newValue);
 				return;
 			case RubyTLPackage.RULE__FROM:
 				setFrom((FromElement)newValue);
@@ -383,7 +393,7 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.RULE__NAME:
-				setName((Object)null);
+				setName(NAME_EDEFAULT);
 				return;
 			case RubyTLPackage.RULE__FROM:
 				setFrom((FromElement)null);
@@ -410,7 +420,7 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.RULE__NAME:
-				return name != null;
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RubyTLPackage.RULE__FROM:
 				return from != null;
 			case RubyTLPackage.RULE__TO:

@@ -62,12 +62,12 @@ public interface Binding extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property</em>' attribute.
-	 * @see #setProperty(Object)
+	 * @see #setProperty(String)
 	 * @see RubyTL.RubyTLPackage#getBinding_Property()
-	 * @model unique="false" dataType="PrimitiveTypes.String" ordered="false"
+	 * @model unique="false" ordered="false"
 	 * @generated
 	 */
-	Object getProperty();
+	String getProperty();
 
 	/**
 	 * Sets the value of the '{@link RubyTL.Binding#getProperty <em>Property</em>}' attribute.
@@ -77,7 +77,7 @@ public interface Binding extends EObject {
 	 * @see #getProperty()
 	 * @generated
 	 */
-	void setProperty(Object value);
+	void setProperty(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
