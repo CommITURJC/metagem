@@ -48,7 +48,7 @@ syntax RubyTL {
 	template Rule abstract;
 	
 	template CopyRule 
-		:	"copy_rule" name "do" <newline>
+		:	"copy_rule" name{as = stringSymbol} "do" <newline>
 			"\t""from" from <newline>
 			"\t""to" to <newline>
 			(isDefined(filter)? <newline> filter <newline>)
@@ -57,7 +57,7 @@ syntax RubyTL {
 		;
 		
 	template TopRule 
-		:	"top_rule" name "do" <newline>
+		:	"top_rule" name{as = stringSymbol} "do" <newline>
 			"\t""from" from <newline>
 			"\t""to" to <newline>
 			(isDefined(filter)? <newline> filter <newline>)
