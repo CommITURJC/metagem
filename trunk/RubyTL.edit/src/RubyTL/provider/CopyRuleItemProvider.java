@@ -74,8 +74,7 @@ public class CopyRuleItemProvider extends RuleItemProvider implements
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((CopyRule)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((CopyRule)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CopyRule_type") :
 			getString("_UI_CopyRule_type") + " " + label;

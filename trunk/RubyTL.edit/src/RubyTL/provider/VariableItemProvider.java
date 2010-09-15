@@ -93,8 +93,7 @@ public class VariableItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((Variable)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Variable)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Variable_type") :
 			getString("_UI_Variable_type") + " " + label;

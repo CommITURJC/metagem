@@ -74,8 +74,7 @@ public class TopRuleItemProvider extends RuleItemProvider implements
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((TopRule)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((TopRule)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TopRule_type") :
 			getString("_UI_TopRule_type") + " " + label;

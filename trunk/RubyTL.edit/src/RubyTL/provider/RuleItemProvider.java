@@ -130,8 +130,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((Rule)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Rule)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Rule_type") :
 			getString("_UI_Rule_type") + " " + label;
