@@ -28,4 +28,7 @@
   </rule>
   <inMM name_mm="InMetamodel" type_mm="TypeINMM" elements="//@rule.0/@in.0 //@rule.1/@in.0 //@rule.0/@out.0/@included.0/@right/@sourceElement.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.0"/>
   <outMM name_mm="OutMetamodel" type_mm="TypeOUTMM" elements="//@rule.0/@out.0 //@rule.1/@out.0 //@rule.0/@out.0/@included.0/@left/@targetElement //@rule.1/@out.0/@included.0/@left/@targetElement"/>
+  <operations name_operation="OP1" body="Cuerpo del decorator" context="//@rule.0/@in.0">
+    <returnType datatype="Boolean"/>
+  </operations>
 </mm_hybrid:Module>
