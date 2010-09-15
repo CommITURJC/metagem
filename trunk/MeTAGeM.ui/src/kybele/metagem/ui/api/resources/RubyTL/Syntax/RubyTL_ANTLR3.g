@@ -98,7 +98,157 @@ floatSymbol returns[Object ret2] @init {java.lang.Object ret=null;}
 	;
 
 transformation returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("Transformation", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
-	:	('transformation' temp=identifier {ei.set(ret, "name", temp);} '...')
+	:	('transformation ' temp=stringSymbol {ei.set(ret, "name", temp);} 'input' ((temp=metamodel {ei.set(ret, "sourceMetamodels", temp);} ((temp=metamodel {ei.set(ret, "sourceMetamodels", temp);}))*))? 'output' ((temp=metamodel {ei.set(ret, "targetMetamodels", temp);} ((temp=metamodel {ei.set(ret, "targetMetamodels", temp);}))*))? ((temp=decorator {ei.set(ret, "decorators", temp);} ((() temp=decorator {ei.set(ret, "decorators", temp);}))*))? (() {}| () {}) ((temp=rule {ei.set(ret, "rules", temp);} ((() temp=rule {ei.set(ret, "rules", temp);}))*))?)
+        {
+            ei.leaveContext(false);
+            if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
+	   ei.setCommentsAfter(ret, new Object[] {input, input.LT(-1)});
+            ret2=ret;
+        }
+
+	;
+
+metamodel returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("Metamodel", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
+	:	(temp=stringSymbol {ei.set(ret, "name", temp);} ' => ' temp=stringSymbol {ei.set(ret, "uri", temp);})
+        {
+            ei.leaveContext(false);
+            if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
+	   ei.setCommentsAfter(ret, new Object[] {input, input.LT(-1)});
+            ret2=ret;
+        }
+
+	;
+
+rule returns[Object ret2] @init {}
+	:	((ret=copyRule| ret=topRule))
+        {
+            ei.addToContext(ret, false);
+            ret2=ret;
+        }
+
+	;
+
+copyRule returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("CopyRule", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
+	:	('copy_rule' temp=identifier {ei.set(ret, "name", temp);} 'do' '	' 'from' temp=fromElement {ei.set(ret, "from", temp);} '	' 'to' temp=toElement {ei.set(ret, "to", temp);} ((temp=filter {ei.set(ret, "filter", temp);}) {}| () {}) ((temp=mapping {ei.set(ret, "mapping", temp);}) {}| () {}) 'end')
+        {
+            ei.leaveContext(false);
+            if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
+	   ei.setCommentsAfter(ret, new Object[] {input, input.LT(-1)});
+            ret2=ret;
+        }
+
+	;
+
+topRule returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("TopRule", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
+	:	('top_rule' temp=identifier {ei.set(ret, "name", temp);} 'do' '	' 'from' temp=fromElement {ei.set(ret, "from", temp);} '	' 'to' temp=toElement {ei.set(ret, "to", temp);} ((temp=filter {ei.set(ret, "filter", temp);}) {}| () {}) ((temp=mapping {ei.set(ret, "mapping", temp);}) {}| () {}) 'end')
+        {
+            ei.leaveContext(false);
+            if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
+	   ei.setCommentsAfter(ret, new Object[] {input, input.LT(-1)});
+            ret2=ret;
+        }
+
+	;
+
+filter returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("Filter", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
+	:	('	' 'filter do | ' ' |' '		' temp=identifier {ei.set(ret, "expression", temp);} '	' 'end')
+        {
+            ei.leaveContext(false);
+            if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
+	   ei.setCommentsAfter(ret, new Object[] {input, input.LT(-1)});
+            ret2=ret;
+        }
+
+	;
+
+mapping returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("Mapping", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
+	:	('	' 'mapping do | ' ((temp=expression {ei.setRef(ret, "bindings", "Binding", "source", temp, null, "never", null, false, null);} (((', ') temp=expression {ei.setRef(ret, "bindings", "Binding", "source", temp, null, "never", null, false, null);}))*))? ' |' '		' ((temp=binding {ei.set(ret, "bindings", temp);} ((('<newline') temp=binding {ei.set(ret, "bindings", temp);}))*))? '	' 'end')
+        {
+            ei.leaveContext(false);
+            if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
+	   ei.setCommentsAfter(ret, new Object[] {input, input.LT(-1)});
+            ret2=ret;
+        }
+
+	;
+
+binding returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("Binding", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
+	:	(temp=expression {ei.set(ret, "target", temp);} (() {ei.set(ret, "property", "");}| (POINT temp=identifier {ei.set(ret, "property", temp);}) {}) ' = ' temp=expression {ei.set(ret, "source", temp);})
+        {
+            ei.leaveContext(false);
+            if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
+	   ei.setCommentsAfter(ret, new Object[] {input, input.LT(-1)});
+            ret2=ret;
+        }
+
+	;
+
+expression returns[Object ret2] @init {}
+	:	((ret=expVariable| ret=expGet))
+        {
+            ei.addToContext(ret, false);
+            ret2=ret;
+        }
+
+	;
+
+expVariable returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("ExpVariable", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
+	:	(temp=identifier {ei.setRef(ret, "variable", "Variable", "name", temp, null, "never", null, false, null);})
+        {
+            ei.leaveContext(false);
+            if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
+	   ei.setCommentsAfter(ret, new Object[] {input, input.LT(-1)});
+            ret2=ret;
+        }
+
+	;
+
+expGet returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("ExpGet", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
+	:	(temp=expression {ei.set(ret, "source", temp);} POINT temp=identifier {ei.set(ret, "property", temp);})
+        {
+            ei.leaveContext(false);
+            if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
+	   ei.setCommentsAfter(ret, new Object[] {input, input.LT(-1)});
+            ret2=ret;
+        }
+
+	;
+
+variable returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("Variable", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
+	:	(temp=identifier {ei.set(ret, "name", temp);})
+        {
+            ei.leaveContext(false);
+            if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
+	   ei.setCommentsAfter(ret, new Object[] {input, input.LT(-1)});
+            ret2=ret;
+        }
+
+	;
+
+fromElement returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("FromElement", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
+	:	(temp=identifier {ei.setRef(ret, "metamodel", "Metamodel", "name", temp, null, "never", null, false, null);} COLONCOLON temp=identifier {ei.set(ret, "classname", temp);})
+        {
+            ei.leaveContext(false);
+            if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
+	   ei.setCommentsAfter(ret, new Object[] {input, input.LT(-1)});
+            ret2=ret;
+        }
+
+	;
+
+toElement returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("ToElement", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
+	:	(temp=identifier {ei.setRef(ret, "metamodel", "Metamodel", "name", temp, null, "never", null, false, null);} COLONCOLON temp=identifier {ei.set(ret, "classname", temp);})
+        {
+            ei.leaveContext(false);
+            if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
+	   ei.setCommentsAfter(ret, new Object[] {input, input.LT(-1)});
+            ret2=ret;
+        }
+
+	;
+
+decorator returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("Decorator", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
+	:	('decorator ' temp=fromElement {ei.set(ret, "context", temp);} 'do' '	' 'def ' temp=identifier {ei.set(ret, "name", temp);} '		' temp=identifier {ei.set(ret, "body", temp);} '	' 'end' 'end')
         {
             ei.leaveContext(false);
             if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
