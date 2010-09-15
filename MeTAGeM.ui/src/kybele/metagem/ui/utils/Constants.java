@@ -19,6 +19,7 @@ public class Constants {
 	public static String METAGEMURI = "mmw_metagem";
 	public static String HYBRIDURI = "http:///MM_Hybrid.ecore";
 	public static String ATLURI = "http://www.eclipse.org/gmt/2005/ATL";
+	public static String RubyTLURI = "http://org.eclipse.kybele.metagem.rubytl";
 	
 	public static int SHOW_DIALOG = 0;
 	public static int NOT_SHOW_DIALOG = 1;

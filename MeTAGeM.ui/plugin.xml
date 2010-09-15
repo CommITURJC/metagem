@@ -17,6 +17,13 @@
             name="Hybrid -&gt; ATL"
             public="true">
       </launchConfigurationType>
+      <launchConfigurationType
+            delegate="kybele.metagem.ui.launchs.hybrid2rubytl.HYBRID2RubyTLLaunchConfigurationDelegate"
+            id="MeTAGeM_UI.HYBRID2RubyTLLCT"
+            modes="run, debug"
+            name="Hybrid -&gt; RubyTL"
+            public="true">
+      </launchConfigurationType>
    </extension>
    <extension
          point="org.eclipse.debug.ui.launchConfigurationTabGroups">
@@ -29,6 +36,11 @@
             class="kybele.metagem.ui.launchs.hybrid2atl.HYBRID2ATLLaunchConfigurationTabGroup"
             id="MeTAGeM.launchConfigurationTabGroup_Hybrid2ATL"
             type="MeTAGeM_UI.HYBRID2ATLLCT">
+      </launchConfigurationTabGroup>
+      <launchConfigurationTabGroup
+            class="kybele.metagem.ui.launchs.hybrid2rubytl.HYBRID2RubyTLLaunchConfigurationTabGroup"
+            id="MeTAGeM.launchConfigurationTabGroup_Hybrid2RubyTL"
+            type="MeTAGeM_UI.HYBRID2RubyTLLCT">
       </launchConfigurationTabGroup>
    </extension>
    <extension
@@ -76,6 +88,38 @@
          <contextualLaunch>
             <contextLabel
                   label="HYBRID -&gt; ATL"
+                  mode="run">
+            </contextLabel>
+            <enablement>
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <instanceof
+                           value="org.eclipse.core.resources.IFile">
+                     </instanceof>
+                     <test
+                           property="org.eclipse.debug.ui.matchesPattern"
+                           value="*.mm_hybrid">
+                     </test>
+                  </iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+      </shortcut>
+      <shortcut
+            class="kybele.metagem.ui.launchs.hybrid2rubytl.HYBRID2RubyTLLaunchShortcut"
+            id="MeTAGeM.ui.shortcut1"
+            label="Hybrid -&gt; RubyTL"
+            modes="run,debug">
+         <configurationType
+               id="MeTAGeM_UI.HYBRID2RubyTLLCT">
+         </configurationType>
+         <contextualLaunch>
+            <contextLabel
+                  label="HYBRID -&gt; RubyTL"
                   mode="run">
             </contextLabel>
             <enablement>
