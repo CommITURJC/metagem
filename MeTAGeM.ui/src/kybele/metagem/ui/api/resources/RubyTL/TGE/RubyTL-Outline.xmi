@@ -1,14 +1,97 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <otl:Outline xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:otl="http://www.eclipse.org/gmt/tcs/2007/Outline">
-  <nodes name="LocatedElement" icon="dummy">
-    <label label="LocatedElement"/>
-    <mapping mapString="LocatedElement"/>
-  </nodes>
   <nodes name="Transformation" icon="dummy">
     <label label="Transformation">
       <labelSuite label=" : "/>
       <labelSuite methodCall="name"/>
     </label>
     <mapping mapString="Transformation"/>
+  </nodes>
+  <nodes name="Metamodel" icon="dummy">
+    <label label="Metamodel">
+      <labelSuite label=" : "/>
+      <labelSuite methodCall="name"/>
+    </label>
+    <mapping mapString="Metamodel"/>
+  </nodes>
+  <nodes name="Rule" icon="dummy">
+    <label label="Rule">
+      <labelSuite label=" : "/>
+      <labelSuite methodCall="name"/>
+    </label>
+    <mapping mapString="Rule"/>
+  </nodes>
+  <nodes name="FromElement" icon="dummy">
+    <label label="FromElement">
+      <labelSuite label=" : "/>
+      <labelSuite methodCall="name"/>
+    </label>
+    <mapping mapString="FromElement"/>
+  </nodes>
+  <nodes name="ToElement" icon="dummy">
+    <label label="ToElement">
+      <labelSuite label=" : "/>
+      <labelSuite methodCall="name"/>
+    </label>
+    <mapping mapString="ToElement"/>
+  </nodes>
+  <nodes name="NamedElement" icon="dummy">
+    <label label="NamedElement">
+      <labelSuite label=" : "/>
+      <labelSuite methodCall="name"/>
+    </label>
+    <mapping mapString="NamedElement"/>
+  </nodes>
+  <nodes name="TopRule" icon="dummy">
+    <label label="TopRule">
+      <labelSuite label=" : "/>
+      <labelSuite methodCall="name"/>
+    </label>
+    <mapping mapString="TopRule"/>
+  </nodes>
+  <nodes name="CopyRule" icon="dummy">
+    <label label="CopyRule">
+      <labelSuite label=" : "/>
+      <labelSuite methodCall="name"/>
+    </label>
+    <mapping mapString="CopyRule"/>
+  </nodes>
+  <nodes name="Mapping" icon="dummy">
+    <label label="Mapping"/>
+    <mapping mapString="Mapping"/>
+  </nodes>
+  <nodes name="Binding" icon="dummy">
+    <label label="Binding"/>
+    <mapping mapString="Binding"/>
+  </nodes>
+  <nodes name="Variable" icon="dummy">
+    <label label="Variable">
+      <labelSuite label=" : "/>
+      <labelSuite methodCall="name"/>
+    </label>
+    <mapping mapString="Variable"/>
+  </nodes>
+  <nodes name="Expression" icon="dummy">
+    <label label="Expression"/>
+    <mapping mapString="Expression"/>
+  </nodes>
+  <nodes name="ExpVariable" icon="dummy">
+    <label label="ExpVariable"/>
+    <mapping mapString="ExpVariable"/>
+  </nodes>
+  <nodes name="ExpGet" icon="dummy">
+    <label label="ExpGet"/>
+    <mapping mapString="ExpGet"/>
+  </nodes>
+  <nodes name="Filter" icon="dummy">
+    <label label="Filter"/>
+    <mapping mapString="Filter"/>
+  </nodes>
+  <nodes name="Decorator" icon="dummy">
+    <label label="Decorator">
+      <labelSuite label=" : "/>
+      <labelSuite methodCall="name"/>
+    </label>
+    <mapping mapString="Decorator"/>
   </nodes>
 </otl:Outline>

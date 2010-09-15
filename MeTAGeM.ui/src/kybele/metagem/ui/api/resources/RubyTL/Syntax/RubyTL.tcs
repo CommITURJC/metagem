@@ -20,7 +20,7 @@ syntax RubyTL {
 	primitiveTemplate stringSymbol for String using STRING:
 		value = "ei.unescapeString(%token%, 1)",
 		serializer="'\'' + %value%.toCString() + '\''";
-
+		
 	primitiveTemplate integerSymbol for Integer default using INT:
 		value = "Integer.valueOf(%token%)";
 
@@ -31,9 +31,87 @@ syntax RubyTL {
 -- BEGIN Class templates
 -- Specifies representation of classes.
 -- This is the main section to work on.
+
 	template Transformation main
-		:	"transformation" name "..."
+		:	"transformation " name{as = stringSymbol}   <newline> 
+			"input" sourceMetamodels <newline> 
+			"output" targetMetamodels  <newline><newline>
+			decorators{separator=<newline><newline>}
+			(isDefined(rules)?<newline><newline>)
+			rules {separator=<newline><newline>}
 		;
+		
+	template Metamodel
+		:	name{as = stringSymbol} " => " uri{as = stringSymbol}
+		;
+
+	template Rule abstract;
+	
+	template CopyRule 
+		:	"copy_rule" name "do" <newline>
+			"\t""from" from <newline>
+			"\t""to" to <newline>
+			(isDefined(filter)? <newline> filter <newline>)
+			(isDefined(mapping)? <newline> mapping <newline>)
+			"end"
+		;
+		
+	template TopRule 
+		:	"top_rule" name "do" <newline>
+			"\t""from" from <newline>
+			"\t""to" to <newline>
+			(isDefined(filter)? <newline> filter <newline>)
+			(isDefined(mapping)? <newline> mapping <newline>)
+			"end"
+		;
+	
+	template Filter
+		:	"\t" "filter do | " " |" <newline>
+			"\t\t" expression <newline>
+			"\t" "end"
+		;
+		
+	template Mapping
+		:	"\t" "mapping do | " bindings{refersTo=source,separator=", "} " |" <newline>
+			"\t\t" bindings {separator="<newline"} <newline>
+			"\t" "end"
+		;
+	
+	template Binding
+		--(property=""? :"."property):  if property is empty print nothing, else print "."property
+		: target (property=""? :"."property) " = " source 
+		;
+		
+	template Expression abstract;
+	
+	template ExpVariable
+		: variable {refersTo = name}
+		;
+	
+	template ExpGet
+		: source"."property
+		;
+	
+	template Variable
+		: name
+		;
+	
+	template FromElement 
+		:	metamodel{refersTo=name}"::"classname
+		;
+		
+	template ToElement
+		:	metamodel{refersTo=name}"::"classname
+		;
+		
+	template Decorator
+		:	"decorator " context "do" <newline>
+			"\t" "def " name <newline>
+			"\t\t" body <newline>
+			"\t" "end" <newline>
+			"end"
+		;
+
 
 -- END Class templates
 
