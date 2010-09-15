@@ -38,7 +38,7 @@ rule outMM{
 -- Generation rules
 rule createRule2Rule{
 	from 
-		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()>0)
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()>0 and mm_hybrid_rule.getSizeIP()<2 and mm_hybrid_rule.getSizeOP()<2)
 	to
 		rubytl : RubyTL!TopRule (
 			name <- mm_hybrid_rule.name_rule.debug('Name Rule'),
@@ -129,6 +129,10 @@ rule createOperation2Decorator {
 --Helper -> Return the number of inputPatterns 
 helper context MM_Hybrid!Rule def : getSizeIP () : Integer = 
 	self."in".size();
+
+--Helper -> Return the number of ouputPatterns 
+helper context MM_Hybrid!Rule def : getSizeOP () : Integer = 
+	self.out.size();
 
 
 --Helper -> Define the source binding (Element, Rule, Helper or Reference)
