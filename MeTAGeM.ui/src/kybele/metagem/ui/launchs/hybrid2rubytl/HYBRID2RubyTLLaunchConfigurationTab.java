@@ -157,7 +157,7 @@ public class HYBRID2RubyTLLaunchConfigurationTab extends AbstractExtendedLaunchC
 		Group tProviderGroup = createGroup(modelExtentComp, "Hybrid model to transform", 3);
 		TProviderGroupListener tProviderListener = new TProviderGroupListener(0);
 
-		createLabel(tProviderGroup, "Hybrid Model URI: ");		
+		createLabel(tProviderGroup, "Hybrid Model: ");		
 		tProviderTextIN = createText(tProviderGroup);		
 		tProviderTextIN.addModifyListener(tProviderListener);
 		
@@ -165,10 +165,10 @@ public class HYBRID2RubyTLLaunchConfigurationTab extends AbstractExtendedLaunchC
 		tProviderBrowse.addSelectionListener(tProviderListener);
 		
 		// Segundo grupo de controles, para seleccionar el fichero de salida
-		Group tProviderGroup2 = createGroup(modelExtentComp, "ATL Model, transformation result", 3);
+		Group tProviderGroup2 = createGroup(modelExtentComp, "RubyTL Model, transformation result", 3);
 		TProviderGroupListener tProviderListener2 = new TProviderGroupListener(1);
 
-		createLabel(tProviderGroup2, "RubyTL Model URI: ");		
+		createLabel(tProviderGroup2, "RubyTL Model: ");		
 		tProviderTextOUT = createText(tProviderGroup2);		
 		tProviderTextOUT.addModifyListener(tProviderListener2);
 		
