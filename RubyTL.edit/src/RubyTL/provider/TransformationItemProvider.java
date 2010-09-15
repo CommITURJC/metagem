@@ -141,8 +141,7 @@ public class TransformationItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((Transformation)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Transformation)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Transformation_type") :
 			getString("_UI_Transformation_type") + " " + label;

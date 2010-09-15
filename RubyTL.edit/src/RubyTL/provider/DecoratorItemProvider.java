@@ -156,8 +156,7 @@ public class DecoratorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((Decorator)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Decorator)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Decorator_type") :
 			getString("_UI_Decorator_type") + " " + label;

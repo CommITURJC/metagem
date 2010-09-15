@@ -110,8 +110,7 @@ public class FilterItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((Filter)object).getExpression();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Filter)object).getExpression();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Filter_type") :
 			getString("_UI_Filter_type") + " " + label;

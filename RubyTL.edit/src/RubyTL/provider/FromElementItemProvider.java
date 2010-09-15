@@ -124,8 +124,7 @@ public class FromElementItemProvider extends VariableItemProvider implements
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((FromElement)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((FromElement)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_FromElement_type") :
 			getString("_UI_FromElement_type") + " " + label;

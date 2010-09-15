@@ -127,8 +127,7 @@ public class NamedElementItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((NamedElement)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((NamedElement)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_NamedElement_type") :
 			getString("_UI_NamedElement_type") + " " + label;
