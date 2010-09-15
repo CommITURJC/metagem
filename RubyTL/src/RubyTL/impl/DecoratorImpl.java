@@ -35,6 +35,16 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class DecoratorImpl extends EObjectImpl implements Decorator {
 	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -42,7 +52,17 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object name;
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBody() <em>Body</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBody()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BODY_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getBody() <em>Body</em>}' attribute.
@@ -52,7 +72,7 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object body;
+	protected String body = BODY_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' reference.
@@ -88,7 +108,7 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getName() {
+	public String getName() {
 		return name;
 	}
 
@@ -97,8 +117,8 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(Object newName) {
-		Object oldName = name;
+	public void setName(String newName) {
+		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.DECORATOR__NAME, oldName, name));
@@ -109,7 +129,7 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getBody() {
+	public String getBody() {
 		return body;
 	}
 
@@ -118,8 +138,8 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBody(Object newBody) {
-		Object oldBody = body;
+	public void setBody(String newBody) {
+		String oldBody = body;
 		body = newBody;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.DECORATOR__BODY, oldBody, body));
@@ -191,10 +211,10 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RubyTLPackage.DECORATOR__NAME:
-				setName(newValue);
+				setName((String)newValue);
 				return;
 			case RubyTLPackage.DECORATOR__BODY:
-				setBody(newValue);
+				setBody((String)newValue);
 				return;
 			case RubyTLPackage.DECORATOR__CONTEXT:
 				setContext((FromElement)newValue);
@@ -212,10 +232,10 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.DECORATOR__NAME:
-				setName((Object)null);
+				setName(NAME_EDEFAULT);
 				return;
 			case RubyTLPackage.DECORATOR__BODY:
-				setBody((Object)null);
+				setBody(BODY_EDEFAULT);
 				return;
 			case RubyTLPackage.DECORATOR__CONTEXT:
 				setContext((FromElement)null);
@@ -233,9 +253,9 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.DECORATOR__NAME:
-				return name != null;
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RubyTLPackage.DECORATOR__BODY:
-				return body != null;
+				return BODY_EDEFAULT == null ? body != null : !BODY_EDEFAULT.equals(body);
 			case RubyTLPackage.DECORATOR__CONTEXT:
 				return context != null;
 		}

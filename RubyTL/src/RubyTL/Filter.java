@@ -34,12 +34,12 @@ public interface Filter extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expression</em>' attribute.
-	 * @see #setExpression(Object)
+	 * @see #setExpression(String)
 	 * @see RubyTL.RubyTLPackage#getFilter_Expression()
-	 * @model unique="false" dataType="PrimitiveTypes.String" required="true" ordered="false"
+	 * @model unique="false" required="true" ordered="false"
 	 * @generated
 	 */
-	Object getExpression();
+	String getExpression();
 
 	/**
 	 * Sets the value of the '{@link RubyTL.Filter#getExpression <em>Expression</em>}' attribute.
@@ -49,6 +49,6 @@ public interface Filter extends EObject {
 	 * @see #getExpression()
 	 * @generated
 	 */
-	void setExpression(Object value);
+	void setExpression(String value);
 
 } // Filter

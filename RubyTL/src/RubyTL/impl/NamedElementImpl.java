@@ -32,6 +32,16 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class NamedElementImpl extends EObjectImpl implements NamedElement {
 	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,7 +49,17 @@ public class NamedElementImpl extends EObjectImpl implements NamedElement {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object name;
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUri() <em>Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String URI_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getUri() <em>Uri</em>}' attribute.
@@ -49,7 +69,7 @@ public class NamedElementImpl extends EObjectImpl implements NamedElement {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object uri;
+	protected String uri = URI_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -75,7 +95,7 @@ public class NamedElementImpl extends EObjectImpl implements NamedElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getName() {
+	public String getName() {
 		return name;
 	}
 
@@ -84,8 +104,8 @@ public class NamedElementImpl extends EObjectImpl implements NamedElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(Object newName) {
-		Object oldName = name;
+	public void setName(String newName) {
+		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.NAMED_ELEMENT__NAME, oldName, name));
@@ -96,7 +116,7 @@ public class NamedElementImpl extends EObjectImpl implements NamedElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getUri() {
+	public String getUri() {
 		return uri;
 	}
 
@@ -105,8 +125,8 @@ public class NamedElementImpl extends EObjectImpl implements NamedElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUri(Object newUri) {
-		Object oldUri = uri;
+	public void setUri(String newUri) {
+		String oldUri = uri;
 		uri = newUri;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.NAMED_ELEMENT__URI, oldUri, uri));
@@ -137,10 +157,10 @@ public class NamedElementImpl extends EObjectImpl implements NamedElement {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RubyTLPackage.NAMED_ELEMENT__NAME:
-				setName(newValue);
+				setName((String)newValue);
 				return;
 			case RubyTLPackage.NAMED_ELEMENT__URI:
-				setUri(newValue);
+				setUri((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -155,10 +175,10 @@ public class NamedElementImpl extends EObjectImpl implements NamedElement {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.NAMED_ELEMENT__NAME:
-				setName((Object)null);
+				setName(NAME_EDEFAULT);
 				return;
 			case RubyTLPackage.NAMED_ELEMENT__URI:
-				setUri((Object)null);
+				setUri(URI_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -173,9 +193,9 @@ public class NamedElementImpl extends EObjectImpl implements NamedElement {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.NAMED_ELEMENT__NAME:
-				return name != null;
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RubyTLPackage.NAMED_ELEMENT__URI:
-				return uri != null;
+				return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
 		}
 		return super.eIsSet(featureID);
 	}

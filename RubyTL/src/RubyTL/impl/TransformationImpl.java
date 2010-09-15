@@ -47,6 +47,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class TransformationImpl extends EObjectImpl implements Transformation {
 	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -54,7 +64,7 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object name;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSourceMetamodels() <em>Source Metamodels</em>}' containment reference list.
@@ -120,7 +130,7 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getName() {
+	public String getName() {
 		return name;
 	}
 
@@ -129,8 +139,8 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(Object newName) {
-		Object oldName = name;
+	public void setName(String newName) {
+		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.TRANSFORMATION__NAME, oldName, name));
@@ -237,7 +247,7 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RubyTLPackage.TRANSFORMATION__NAME:
-				setName(newValue);
+				setName((String)newValue);
 				return;
 			case RubyTLPackage.TRANSFORMATION__SOURCE_METAMODELS:
 				getSourceMetamodels().clear();
@@ -268,7 +278,7 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.TRANSFORMATION__NAME:
-				setName((Object)null);
+				setName(NAME_EDEFAULT);
 				return;
 			case RubyTLPackage.TRANSFORMATION__SOURCE_METAMODELS:
 				getSourceMetamodels().clear();
@@ -295,7 +305,7 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.TRANSFORMATION__NAME:
-				return name != null;
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RubyTLPackage.TRANSFORMATION__SOURCE_METAMODELS:
 				return sourceMetamodels != null && !sourceMetamodels.isEmpty();
 			case RubyTLPackage.TRANSFORMATION__TARGET_METAMODELS:

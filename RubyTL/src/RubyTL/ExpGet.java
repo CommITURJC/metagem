@@ -59,12 +59,12 @@ public interface ExpGet extends Expression {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property</em>' attribute.
-	 * @see #setProperty(Object)
+	 * @see #setProperty(String)
 	 * @see RubyTL.RubyTLPackage#getExpGet_Property()
-	 * @model unique="false" dataType="PrimitiveTypes.String" ordered="false"
+	 * @model unique="false" ordered="false"
 	 * @generated
 	 */
-	Object getProperty();
+	String getProperty();
 
 	/**
 	 * Sets the value of the '{@link RubyTL.ExpGet#getProperty <em>Property</em>}' attribute.
@@ -74,6 +74,6 @@ public interface ExpGet extends Expression {
 	 * @see #getProperty()
 	 * @generated
 	 */
-	void setProperty(Object value);
+	void setProperty(String value);
 
 } // ExpGet

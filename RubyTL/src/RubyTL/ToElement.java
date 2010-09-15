@@ -33,12 +33,12 @@ public interface ToElement extends Variable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Classname</em>' attribute.
-	 * @see #setClassname(Object)
+	 * @see #setClassname(String)
 	 * @see RubyTL.RubyTLPackage#getToElement_Classname()
-	 * @model unique="false" dataType="PrimitiveTypes.String" ordered="false"
+	 * @model unique="false" ordered="false"
 	 * @generated
 	 */
-	Object getClassname();
+	String getClassname();
 
 	/**
 	 * Sets the value of the '{@link RubyTL.ToElement#getClassname <em>Classname</em>}' attribute.
@@ -48,7 +48,7 @@ public interface ToElement extends Variable {
 	 * @see #getClassname()
 	 * @generated
 	 */
-	void setClassname(Object value);
+	void setClassname(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Metamodel</b></em>' reference.
