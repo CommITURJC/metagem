@@ -129,7 +129,7 @@ rule returns[Object ret2] @init {}
 	;
 
 copyRule returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("CopyRule", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
-	:	('copy_rule' temp=identifier {ei.set(ret, "name", temp);} 'do' '	' 'from' temp=fromElement {ei.set(ret, "from", temp);} '	' 'to' temp=toElement {ei.set(ret, "to", temp);} ((temp=filter {ei.set(ret, "filter", temp);}) {}| () {}) ((temp=mapping {ei.set(ret, "mapping", temp);}) {}| () {}) 'end')
+	:	('copy_rule' temp=stringSymbol {ei.set(ret, "name", temp);} 'do' '	' 'from' temp=fromElement {ei.set(ret, "from", temp);} '	' 'to' temp=toElement {ei.set(ret, "to", temp);} ((temp=filter {ei.set(ret, "filter", temp);}) {}| () {}) ((temp=mapping {ei.set(ret, "mapping", temp);}) {}| () {}) 'end')
         {
             ei.leaveContext(false);
             if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
@@ -140,7 +140,7 @@ copyRule returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("C
 	;
 
 topRule returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("TopRule", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
-	:	('top_rule' temp=identifier {ei.set(ret, "name", temp);} 'do' '	' 'from' temp=fromElement {ei.set(ret, "from", temp);} '	' 'to' temp=toElement {ei.set(ret, "to", temp);} ((temp=filter {ei.set(ret, "filter", temp);}) {}| () {}) ((temp=mapping {ei.set(ret, "mapping", temp);}) {}| () {}) 'end')
+	:	('top_rule' temp=stringSymbol {ei.set(ret, "name", temp);} 'do' '	' 'from' temp=fromElement {ei.set(ret, "from", temp);} '	' 'to' temp=toElement {ei.set(ret, "to", temp);} ((temp=filter {ei.set(ret, "filter", temp);}) {}| () {}) ((temp=mapping {ei.set(ret, "mapping", temp);}) {}| () {}) 'end')
         {
             ei.leaveContext(false);
             if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});

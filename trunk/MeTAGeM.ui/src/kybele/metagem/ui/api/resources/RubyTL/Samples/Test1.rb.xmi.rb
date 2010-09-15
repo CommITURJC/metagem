@@ -14,7 +14,7 @@ decorator  ClassM::classA do
 	 end
 end
 
-top_rule r1 do
+top_rule 'r1' do
 	 from ClassM::classA
 	 to TableM::classB
 
@@ -27,7 +27,7 @@ top_rule r1 do
 	 end
 end
 
-copy_rule copy_RULE do
+copy_rule 'copy_RULE' do
 	 from ClassM::c_A
 	 to TableM::c_b
 
