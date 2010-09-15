@@ -1,4 +1,4 @@
-package kybele.metagem.ui.launchs.hybrid2atl;
+package kybele.metagem.ui.launchs.hybrid2rubytl;
 
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -18,13 +18,12 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
-public class HYBRID2ATLLaunchConfigurationDelegate implements
+public class HYBRID2RubyTLLaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
 
 	@Override
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
-
 		try {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 		} catch (Exception e1) {
@@ -69,13 +68,13 @@ public class HYBRID2ATLLaunchConfigurationDelegate implements
 	
 	private String getINAtt(ILaunchConfiguration configuration) throws CoreException
 	{
-		return getTransformationAtt(configuration, HYBRID2ATLConstants.ATTR_TRANSFORMATION_IN);
+		return getTransformationAtt(configuration, HYBRID2RUBYTLConstants.ATTR_TRANSFORMATION_IN);
 	}
 	
 		
 	private String getOUTAtt(ILaunchConfiguration configuration) throws CoreException
 	{
-		return getTransformationAtt(configuration, HYBRID2ATLConstants.ATTR_TRANSFORMATION_OUT);
+		return getTransformationAtt(configuration, HYBRID2RUBYTLConstants.ATTR_TRANSFORMATION_OUT);
 	}
 	
 	private String getTransformationAtt(ILaunchConfiguration configuration,String id) throws CoreException{
