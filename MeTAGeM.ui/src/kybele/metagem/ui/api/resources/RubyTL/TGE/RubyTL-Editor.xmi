@@ -12,6 +12,31 @@
       <font font="times"/>
     </format>
   </block>
+  <group type="keywords">
+    <format>
+      <color red="127" green="0" blue="85"/>
+      <font font="times" bold="true"/>
+    </format>
+    <element element="transformation "/>
+    <element element="input"/>
+    <element element="output"/>
+    <element element=" => "/>
+    <element element="copy_rule"/>
+    <element element="do"/>
+    <element element="&#x9;"/>
+    <element element="from"/>
+    <element element="to"/>
+    <element element="filter do | "/>
+    <element element=", "/>
+    <element element=" |"/>
+    <element element="&#x9;&#x9;"/>
+    <element element="end"/>
+    <element element="mapping do | "/>
+    <element element="top_rule"/>
+    <element element=" = "/>
+    <element element="decorator "/>
+    <element element="def "/>
+  </group>
   <group type="symbols">
     <format>
       <color red="127" green="0" blue="85"/>
@@ -44,32 +69,6 @@
     <element element="&lt;="/>
     <element element="&lt;>"/>
     <element element="&lt;-"/>
-  </group>
-  <group type="keywords">
-    <format>
-      <color red="127" green="0" blue="85"/>
-      <font font="times" bold="true"/>
-    </format>
-    <element element="transformation "/>
-    <element element="input"/>
-    <element element="output"/>
-    <element element=" => "/>
-    <element element="copy_rule"/>
-    <element element="do"/>
-    <element element="&#x9;"/>
-    <element element="from"/>
-    <element element="to"/>
-    <element element="end"/>
-    <element element="top_rule"/>
-    <element element="filter do | "/>
-    <element element=" |"/>
-    <element element="&#x9;&#x9;"/>
-    <element element="mapping do | "/>
-    <element element=", "/>
-    <element element="&lt;newline"/>
-    <element element=" = "/>
-    <element element="decorator "/>
-    <element element="def "/>
   </group>
   <group type="types">
     <format>
