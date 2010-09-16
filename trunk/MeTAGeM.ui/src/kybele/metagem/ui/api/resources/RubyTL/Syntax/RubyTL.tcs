@@ -50,8 +50,8 @@ syntax RubyTL {
 	
 	template CopyRule 
 		:	"copy_rule" name{as = stringSymbol} "do" <newline>
-			"\t""from" from <newline>
-			"\t""to" to <newline>
+			"\t""from" from{separator=","} <newline>
+			"\t""to" to{separator=","} <newline>
 			(isDefined(filter)? <newline> 
 				"\t" "filter do | " from{refersTo=name,separator=", "} " |" <newline>
 				"\t\t" filter <newline>
@@ -66,8 +66,8 @@ syntax RubyTL {
 		
 	template TopRule 
 		:	"top_rule" name{as = stringSymbol} "do" <newline>
-			"\t""from" from <newline>
-			"\t""to" to <newline>
+			"\t""from" from{separator=","} <newline>
+			"\t""to" to{separator=","} <newline>
 			(isDefined(filter)? <newline> 
 				"\t" "filter do | " from{refersTo=name,separator=", "} " |" <newline>
 				"\t\t" filter <newline>
