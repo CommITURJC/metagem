@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
   <ecore:EPackage name="RubyTL" nsURI="http://org.eclipse.kybele.metagem.rubytl" nsPrefix="rubytl">
     <eClassifiers xsi:type="ecore:EClass" name="Transformation">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
-          unique="false" eType="#/1/String"/>
+          unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="sourceMetamodels" upperBound="-1"
           eType="#/0/Metamodel" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetMetamodels" upperBound="-1"
@@ -13,79 +13,94 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
           eType="#/0/Rule" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="decorators" upperBound="-1"
-          eType="#/0/Decorator" containment="true"/>
+          eType="#/0/Decorator" containment="true" eOpposite="#/0/Decorator/transformation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Metamodel" eSuperTypes="#/0/NamedElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="Rule" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
-          unique="false" eType="#/1/String"/>
+          unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="from" ordered="false"
-          eType="#/0/FromElement" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="to" ordered="false" eType="#/0/ToElement"
-          containment="true"/>
+          upperBound="-1" eType="#/0/FromElement" containment="true" eOpposite="#/0/FromElement/rule"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" ordered="false" upperBound="-1"
+          eType="#/0/ToElement" containment="true" eOpposite="#/0/ToElement/rule"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" ordered="false"
-          eType="#/0/Mapping" containment="true"/>
+          eType="#/0/Mapping" containment="true" eOpposite="#/0/Mapping/rule"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="filter" ordered="false"
-          eType="#/0/Filter" containment="true"/>
+          eType="#/0/Filter" containment="true" eOpposite="#/0/Filter/rule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FromElement" eSuperTypes="#/0/Variable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="classname" ordered="false"
-          unique="false" eType="#/1/String"/>
+          unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" ordered="false"
           eType="#/0/Metamodel"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1"
+          eType="#/0/Rule" eOpposite="#/0/Rule/from"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ToElement" eSuperTypes="#/0/Variable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="classname" ordered="false"
-          unique="false" eType="#/1/String"/>
+          unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" ordered="false"
           eType="#/0/Metamodel"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1"
+          eType="#/0/Rule" eOpposite="#/0/Rule/to"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
-          unique="false" eType="#/1/String"/>
+          unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" ordered="false"
-          unique="false" eType="#/1/String"/>
+          unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TopRule" eSuperTypes="#/0/Rule"/>
     <eClassifiers xsi:type="ecore:EClass" name="CopyRule" eSuperTypes="#/0/Rule"/>
     <eClassifiers xsi:type="ecore:EClass" name="Mapping">
       <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
-          eType="#/0/Binding" containment="true"/>
+          eType="#/0/Binding" containment="true" eOpposite="#/0/Binding/mapping"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1"
+          eType="#/0/Rule" eOpposite="#/0/Rule/mapping"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Binding">
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" ordered="false"
           eType="#/0/Expression" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" ordered="false"
-          unique="false" eType="#/1/String"/>
+          unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false"
           eType="#/0/Expression" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" lowerBound="1"
+          eType="#/0/Mapping" eOpposite="#/0/Mapping/bindings"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Variable" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
-          unique="false" eType="#/1/String"/>
+          unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expGet" lowerBound="1"
+          eType="#/0/ExpGet" eOpposite="#/0/ExpGet/source"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExpVariable" eSuperTypes="#/0/Expression">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variable" ordered="false"
           eType="#/0/Variable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExpGet" eSuperTypes="#/0/Expression">
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false"
-          eType="#/0/Expression" containment="true"/>
+          eType="#/0/Expression" containment="true" eOpposite="#/0/Expression/expGet"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" ordered="false"
-          unique="false" eType="#/1/String"/>
+          unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Filter">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" ordered="false"
-          unique="false" lowerBound="1" eType="#/1/String"/>
+          unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1"
+          eType="#/0/Rule" eOpposite="#/0/Rule/filter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Decorator">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
-          unique="false" lowerBound="1" eType="#/1/String"/>
+          unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" ordered="false"
-          unique="false" eType="#/1/String"/>
+          unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="context" ordered="false"
           eType="#/0/FromElement"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" lowerBound="1"
+          eType="#/0/Transformation" eOpposite="#/0/Transformation/decorators"/>
     </eClassifiers>
   </ecore:EPackage>
   <ecore:EPackage name="PrimitiveTypes" nsURI="http://org.eclipse.kybele.metagem.rubytl/primitivetypes"
