@@ -176,7 +176,7 @@
             name="RubyTL"
             outline="src/kybele/metagem/ui/api/resources/RubyTL/TGE/RubyTL-Outline.xmi"
             parser="src/kybele/metagem/ui/api/resources/RubyTL/Syntax/RubyTL-parser.jar"
-            syntax="src/kybele/metagem/ui/api/resources/RubyTL/Syntax/RubyTL_ANTLR3.g">
+            syntax="src/kybele/metagem/ui/api/resources/RubyTL/Syntax/RubyTL.tcs.ecore">
       </language>
    </extension>
 
