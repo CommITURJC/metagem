@@ -84,7 +84,7 @@ public class Transformations implements ExecutionMessageListener {
 		hybridMetamodel = (ASMEMFModel) modelHandler.loadModel(
 				"MM_Hybrid", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/MM_Hybrid.ecore"));
 		rubyTLMetamodel = (ASMEMFModel) modelHandler.loadModel(
-				"METAGEM", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/RubyTL/Metamodel/RubyTL.ecore"));
+				"RubyTL", modelHandler.getMof(), this.getClass().getResourceAsStream("resources/RubyTL/Metamodel/RubyTL.ecore"));
 		models.put("MM_Hybrid", hybridMetamodel);
 		models.put("RubyTL", rubyTLMetamodel);
 		
@@ -163,7 +163,12 @@ public class Transformations implements ExecutionMessageListener {
 
 		modelHandler.saveModel(hybridOutputModel, outFilePath, false);
 		dispose(models);
-			
+		
+		// Registra el metamodelo de RubyTL
+//		Bundle b = Activator.getDefault().getBundle();
+//		InputStream input = FileLocator.openStream(b, new Path("/src/kybele/metagem/ui/api/resources/RubyTL/Metamodel/RubyTL.ecore"), false);
+//		Utils.registerMetamodel(Constants.RubyTLURI, input);
+//		input.close();		
 }
 	
 	private void dispose(Map<String, Object> models) {
