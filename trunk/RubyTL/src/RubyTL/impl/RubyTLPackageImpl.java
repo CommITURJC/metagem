@@ -375,6 +375,15 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getFromElement_Rule() {
+		return (EReference)fromElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getToElement() {
 		return toElementEClass;
 	}
@@ -395,6 +404,15 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 	 */
 	public EReference getToElement_Metamodel() {
 		return (EReference)toElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getToElement_Rule() {
+		return (EReference)toElementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -465,6 +483,15 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getMapping_Rule() {
+		return (EReference)mappingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBinding() {
 		return bindingEClass;
 	}
@@ -501,6 +528,15 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBinding_Mapping() {
+		return (EReference)bindingEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVariable() {
 		return variableEClass;
 	}
@@ -521,6 +557,15 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 	 */
 	public EClass getExpression() {
 		return expressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExpression_ExpGet() {
+		return (EReference)expressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -591,6 +636,15 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getFilter_Rule() {
+		return (EReference)filterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDecorator() {
 		return decoratorEClass;
 	}
@@ -620,6 +674,15 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 	 */
 	public EReference getDecorator_Context() {
 		return (EReference)decoratorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDecorator_Transformation() {
+		return (EReference)decoratorEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -669,10 +732,12 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 		fromElementEClass = createEClass(FROM_ELEMENT);
 		createEAttribute(fromElementEClass, FROM_ELEMENT__CLASSNAME);
 		createEReference(fromElementEClass, FROM_ELEMENT__METAMODEL);
+		createEReference(fromElementEClass, FROM_ELEMENT__RULE);
 
 		toElementEClass = createEClass(TO_ELEMENT);
 		createEAttribute(toElementEClass, TO_ELEMENT__CLASSNAME);
 		createEReference(toElementEClass, TO_ELEMENT__METAMODEL);
+		createEReference(toElementEClass, TO_ELEMENT__RULE);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -684,16 +749,19 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 
 		mappingEClass = createEClass(MAPPING);
 		createEReference(mappingEClass, MAPPING__BINDINGS);
+		createEReference(mappingEClass, MAPPING__RULE);
 
 		bindingEClass = createEClass(BINDING);
 		createEReference(bindingEClass, BINDING__TARGET);
 		createEAttribute(bindingEClass, BINDING__PROPERTY);
 		createEReference(bindingEClass, BINDING__SOURCE);
+		createEReference(bindingEClass, BINDING__MAPPING);
 
 		variableEClass = createEClass(VARIABLE);
 		createEAttribute(variableEClass, VARIABLE__NAME);
 
 		expressionEClass = createEClass(EXPRESSION);
+		createEReference(expressionEClass, EXPRESSION__EXP_GET);
 
 		expVariableEClass = createEClass(EXP_VARIABLE);
 		createEReference(expVariableEClass, EXP_VARIABLE__VARIABLE);
@@ -704,11 +772,13 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 
 		filterEClass = createEClass(FILTER);
 		createEAttribute(filterEClass, FILTER__EXPRESSION);
+		createEReference(filterEClass, FILTER__RULE);
 
 		decoratorEClass = createEClass(DECORATOR);
 		createEAttribute(decoratorEClass, DECORATOR__NAME);
 		createEAttribute(decoratorEClass, DECORATOR__BODY);
 		createEReference(decoratorEClass, DECORATOR__CONTEXT);
+		createEReference(decoratorEClass, DECORATOR__TRANSFORMATION);
 	}
 
 	/**
@@ -753,24 +823,26 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 		initEReference(getTransformation_SourceMetamodels(), this.getMetamodel(), null, "sourceMetamodels", null, 0, -1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransformation_TargetMetamodels(), this.getMetamodel(), null, "targetMetamodels", null, 0, -1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransformation_Rules(), this.getRule(), null, "rules", null, 0, -1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransformation_Decorators(), this.getDecorator(), null, "decorators", null, 0, -1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransformation_Decorators(), this.getDecorator(), this.getDecorator_Transformation(), "decorators", null, 0, -1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(metamodelEClass, Metamodel.class, "Metamodel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(ruleEClass, Rule.class, "Rule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRule_Name(), ecorePackage.getEString(), "name", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRule_From(), this.getFromElement(), null, "from", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRule_To(), this.getToElement(), null, "to", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRule_Mapping(), this.getMapping(), null, "mapping", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRule_Filter(), this.getFilter(), null, "filter", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRule_From(), this.getFromElement(), this.getFromElement_Rule(), "from", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRule_To(), this.getToElement(), this.getToElement_Rule(), "to", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRule_Mapping(), this.getMapping(), this.getMapping_Rule(), "mapping", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRule_Filter(), this.getFilter(), this.getFilter_Rule(), "filter", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(fromElementEClass, FromElement.class, "FromElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFromElement_Classname(), ecorePackage.getEString(), "classname", null, 0, 1, FromElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getFromElement_Metamodel(), this.getMetamodel(), null, "metamodel", null, 0, 1, FromElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFromElement_Rule(), this.getRule(), this.getRule_From(), "rule", null, 1, 1, FromElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(toElementEClass, ToElement.class, "ToElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getToElement_Classname(), ecorePackage.getEString(), "classname", null, 0, 1, ToElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getToElement_Metamodel(), this.getMetamodel(), null, "metamodel", null, 0, 1, ToElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getToElement_Rule(), this.getRule(), this.getRule_To(), "rule", null, 1, 1, ToElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -781,32 +853,37 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 		initEClass(copyRuleEClass, CopyRule.class, "CopyRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(mappingEClass, Mapping.class, "Mapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMapping_Bindings(), this.getBinding(), null, "bindings", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMapping_Bindings(), this.getBinding(), this.getBinding_Mapping(), "bindings", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMapping_Rule(), this.getRule(), this.getRule_Mapping(), "rule", null, 1, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBinding_Target(), this.getExpression(), null, "target", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBinding_Property(), ecorePackage.getEString(), "property", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBinding_Source(), this.getExpression(), null, "source", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBinding_Mapping(), this.getMapping(), this.getMapping_Bindings(), "mapping", null, 1, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableEClass, Variable.class, "Variable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExpression_ExpGet(), this.getExpGet(), this.getExpGet_Source(), "expGet", null, 1, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(expVariableEClass, ExpVariable.class, "ExpVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExpVariable_Variable(), this.getVariable(), null, "variable", null, 0, 1, ExpVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(expGetEClass, ExpGet.class, "ExpGet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExpGet_Source(), this.getExpression(), null, "source", null, 0, 1, ExpGet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getExpGet_Source(), this.getExpression(), this.getExpression_ExpGet(), "source", null, 0, 1, ExpGet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExpGet_Property(), ecorePackage.getEString(), "property", null, 0, 1, ExpGet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(filterEClass, Filter.class, "Filter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFilter_Expression(), ecorePackage.getEString(), "expression", null, 1, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFilter_Rule(), this.getRule(), this.getRule_Filter(), "rule", null, 1, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(decoratorEClass, Decorator.class, "Decorator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDecorator_Name(), ecorePackage.getEString(), "name", null, 1, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getDecorator_Body(), ecorePackage.getEString(), "body", null, 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getDecorator_Context(), this.getFromElement(), null, "context", null, 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDecorator_Transformation(), this.getTransformation(), this.getTransformation_Decorators(), "transformation", null, 1, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

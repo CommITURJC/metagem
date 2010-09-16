@@ -26,6 +26,7 @@ package RubyTL;
 public interface ExpGet extends Expression {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link RubyTL.Expression#getExpGet <em>Exp Get</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Source</em>' containment reference isn't clear,
@@ -35,7 +36,8 @@ public interface ExpGet extends Expression {
 	 * @return the value of the '<em>Source</em>' containment reference.
 	 * @see #setSource(Expression)
 	 * @see RubyTL.RubyTLPackage#getExpGet_Source()
-	 * @model containment="true" ordered="false"
+	 * @see RubyTL.Expression#getExpGet
+	 * @model opposite="expGet" containment="true" ordered="false"
 	 * @generated
 	 */
 	Expression getSource();

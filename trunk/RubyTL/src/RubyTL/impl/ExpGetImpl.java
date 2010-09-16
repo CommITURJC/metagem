@@ -116,9 +116,9 @@ public class ExpGetImpl extends ExpressionImpl implements ExpGet {
 		if (newSource != source) {
 			NotificationChain msgs = null;
 			if (source != null)
-				msgs = ((InternalEObject)source).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.EXP_GET__SOURCE, null, msgs);
+				msgs = ((InternalEObject)source).eInverseRemove(this, RubyTLPackage.EXPRESSION__EXP_GET, Expression.class, msgs);
 			if (newSource != null)
-				msgs = ((InternalEObject)newSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.EXP_GET__SOURCE, null, msgs);
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, RubyTLPackage.EXPRESSION__EXP_GET, Expression.class, msgs);
 			msgs = basicSetSource(newSource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -145,6 +145,22 @@ public class ExpGetImpl extends ExpressionImpl implements ExpGet {
 		property = newProperty;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.EXP_GET__PROPERTY, oldProperty, property));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RubyTLPackage.EXP_GET__SOURCE:
+				if (source != null)
+					msgs = ((InternalEObject)source).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.EXP_GET__SOURCE, null, msgs);
+				return basicSetSource((Expression)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

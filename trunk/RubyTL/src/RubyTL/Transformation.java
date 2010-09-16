@@ -108,6 +108,7 @@ public interface Transformation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Decorators</b></em>' containment reference list.
 	 * The list contents are of type {@link RubyTL.Decorator}.
+	 * It is bidirectional and its opposite is '{@link RubyTL.Decorator#getTransformation <em>Transformation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Decorators</em>' containment reference list isn't clear,
@@ -116,7 +117,8 @@ public interface Transformation extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Decorators</em>' containment reference list.
 	 * @see RubyTL.RubyTLPackage#getTransformation_Decorators()
-	 * @model containment="true"
+	 * @see RubyTL.Decorator#getTransformation
+	 * @model opposite="transformation" containment="true"
 	 * @generated
 	 */
 	EList<Decorator> getDecorators();

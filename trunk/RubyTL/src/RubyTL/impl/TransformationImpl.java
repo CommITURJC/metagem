@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -189,9 +190,24 @@ public class TransformationImpl extends EObjectImpl implements Transformation {
 	 */
 	public EList<Decorator> getDecorators() {
 		if (decorators == null) {
-			decorators = new EObjectContainmentEList<Decorator>(Decorator.class, this, RubyTLPackage.TRANSFORMATION__DECORATORS);
+			decorators = new EObjectContainmentWithInverseEList<Decorator>(Decorator.class, this, RubyTLPackage.TRANSFORMATION__DECORATORS, RubyTLPackage.DECORATOR__TRANSFORMATION);
 		}
 		return decorators;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RubyTLPackage.TRANSFORMATION__DECORATORS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDecorators()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

@@ -8,14 +8,17 @@ package RubyTL.impl;
 
 import RubyTL.Metamodel;
 import RubyTL.RubyTLPackage;
+import RubyTL.Rule;
 import RubyTL.ToElement;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link RubyTL.impl.ToElementImpl#getClassname <em>Classname</em>}</li>
  *   <li>{@link RubyTL.impl.ToElementImpl#getMetamodel <em>Metamodel</em>}</li>
+ *   <li>{@link RubyTL.impl.ToElementImpl#getRule <em>Rule</em>}</li>
  * </ul>
  * </p>
  *
@@ -145,6 +149,91 @@ public class ToElementImpl extends VariableImpl implements ToElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Rule getRule() {
+		if (eContainerFeatureID != RubyTLPackage.TO_ELEMENT__RULE) return null;
+		return (Rule)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRule(Rule newRule, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newRule, RubyTLPackage.TO_ELEMENT__RULE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRule(Rule newRule) {
+		if (newRule != eInternalContainer() || (eContainerFeatureID != RubyTLPackage.TO_ELEMENT__RULE && newRule != null)) {
+			if (EcoreUtil.isAncestor(this, newRule))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newRule != null)
+				msgs = ((InternalEObject)newRule).eInverseAdd(this, RubyTLPackage.RULE__TO, Rule.class, msgs);
+			msgs = basicSetRule(newRule, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.TO_ELEMENT__RULE, newRule, newRule));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RubyTLPackage.TO_ELEMENT__RULE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetRule((Rule)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RubyTLPackage.TO_ELEMENT__RULE:
+				return basicSetRule(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+			case RubyTLPackage.TO_ELEMENT__RULE:
+				return eInternalContainer().eInverseRemove(this, RubyTLPackage.RULE__TO, Rule.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -153,6 +242,8 @@ public class ToElementImpl extends VariableImpl implements ToElement {
 			case RubyTLPackage.TO_ELEMENT__METAMODEL:
 				if (resolve) return getMetamodel();
 				return basicGetMetamodel();
+			case RubyTLPackage.TO_ELEMENT__RULE:
+				return getRule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,6 +261,9 @@ public class ToElementImpl extends VariableImpl implements ToElement {
 				return;
 			case RubyTLPackage.TO_ELEMENT__METAMODEL:
 				setMetamodel((Metamodel)newValue);
+				return;
+			case RubyTLPackage.TO_ELEMENT__RULE:
+				setRule((Rule)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -189,6 +283,9 @@ public class ToElementImpl extends VariableImpl implements ToElement {
 			case RubyTLPackage.TO_ELEMENT__METAMODEL:
 				setMetamodel((Metamodel)null);
 				return;
+			case RubyTLPackage.TO_ELEMENT__RULE:
+				setRule((Rule)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -205,6 +302,8 @@ public class ToElementImpl extends VariableImpl implements ToElement {
 				return CLASSNAME_EDEFAULT == null ? classname != null : !CLASSNAME_EDEFAULT.equals(classname);
 			case RubyTLPackage.TO_ELEMENT__METAMODEL:
 				return metamodel != null;
+			case RubyTLPackage.TO_ELEMENT__RULE:
+				return getRule() != null;
 		}
 		return super.eIsSet(featureID);
 	}

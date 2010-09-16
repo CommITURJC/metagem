@@ -24,10 +24,12 @@
     <genClasses ecoreClass="RubyTL.ecore#/0/FromElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RubyTL.ecore#/0/FromElement/classname"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/FromElement/metamodel"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference RubyTL.ecore#/0/FromElement/rule"/>
     </genClasses>
     <genClasses ecoreClass="RubyTL.ecore#/0/ToElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RubyTL.ecore#/0/ToElement/classname"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/ToElement/metamodel"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference RubyTL.ecore#/0/ToElement/rule"/>
     </genClasses>
     <genClasses ecoreClass="RubyTL.ecore#/0/NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RubyTL.ecore#/0/NamedElement/name"/>
@@ -37,16 +39,20 @@
     <genClasses ecoreClass="RubyTL.ecore#/0/CopyRule"/>
     <genClasses ecoreClass="RubyTL.ecore#/0/Mapping">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Mapping/bindings"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Mapping/rule"/>
     </genClasses>
     <genClasses ecoreClass="RubyTL.ecore#/0/Binding">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Binding/target"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RubyTL.ecore#/0/Binding/property"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Binding/source"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Binding/mapping"/>
     </genClasses>
     <genClasses image="false" ecoreClass="RubyTL.ecore#/0/Variable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RubyTL.ecore#/0/Variable/name"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="RubyTL.ecore#/0/Expression"/>
+    <genClasses image="false" ecoreClass="RubyTL.ecore#/0/Expression">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Expression/expGet"/>
+    </genClasses>
     <genClasses ecoreClass="RubyTL.ecore#/0/ExpVariable">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/ExpVariable/variable"/>
     </genClasses>
@@ -56,11 +62,13 @@
     </genClasses>
     <genClasses ecoreClass="RubyTL.ecore#/0/Filter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RubyTL.ecore#/0/Filter/expression"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Filter/rule"/>
     </genClasses>
     <genClasses ecoreClass="RubyTL.ecore#/0/Decorator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RubyTL.ecore#/0/Decorator/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RubyTL.ecore#/0/Decorator/body"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Decorator/context"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Decorator/transformation"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="PrimitiveTypes" disposableProviderFactory="true" ecorePackage="RubyTL.ecore#/1">

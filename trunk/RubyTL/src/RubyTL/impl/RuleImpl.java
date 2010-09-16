@@ -13,14 +13,18 @@ import RubyTL.RubyTLPackage;
 import RubyTL.Rule;
 import RubyTL.ToElement;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,24 +65,24 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' containment reference.
+	 * The cached value of the '{@link #getFrom() <em>From</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFrom()
 	 * @generated
 	 * @ordered
 	 */
-	protected FromElement from;
+	protected EList<FromElement> from;
 
 	/**
-	 * The cached value of the '{@link #getTo() <em>To</em>}' containment reference.
+	 * The cached value of the '{@link #getTo() <em>To</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTo()
 	 * @generated
 	 * @ordered
 	 */
-	protected ToElement to;
+	protected EList<ToElement> to;
 
 	/**
 	 * The cached value of the '{@link #getMapping() <em>Mapping</em>}' containment reference.
@@ -145,7 +149,10 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FromElement getFrom() {
+	public EList<FromElement> getFrom() {
+		if (from == null) {
+			from = new EObjectContainmentWithInverseEList<FromElement>(FromElement.class, this, RubyTLPackage.RULE__FROM, RubyTLPackage.FROM_ELEMENT__RULE);
+		}
 		return from;
 	}
 
@@ -154,77 +161,11 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFrom(FromElement newFrom,
-			NotificationChain msgs) {
-		FromElement oldFrom = from;
-		from = newFrom;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RubyTLPackage.RULE__FROM, oldFrom, newFrom);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<ToElement> getTo() {
+		if (to == null) {
+			to = new EObjectContainmentWithInverseEList<ToElement>(ToElement.class, this, RubyTLPackage.RULE__TO, RubyTLPackage.TO_ELEMENT__RULE);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFrom(FromElement newFrom) {
-		if (newFrom != from) {
-			NotificationChain msgs = null;
-			if (from != null)
-				msgs = ((InternalEObject)from).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__FROM, null, msgs);
-			if (newFrom != null)
-				msgs = ((InternalEObject)newFrom).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__FROM, null, msgs);
-			msgs = basicSetFrom(newFrom, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.RULE__FROM, newFrom, newFrom));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ToElement getTo() {
 		return to;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTo(ToElement newTo, NotificationChain msgs) {
-		ToElement oldTo = to;
-		to = newTo;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RubyTLPackage.RULE__TO, oldTo, newTo);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTo(ToElement newTo) {
-		if (newTo != to) {
-			NotificationChain msgs = null;
-			if (to != null)
-				msgs = ((InternalEObject)to).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__TO, null, msgs);
-			if (newTo != null)
-				msgs = ((InternalEObject)newTo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__TO, null, msgs);
-			msgs = basicSetTo(newTo, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.RULE__TO, newTo, newTo));
 	}
 
 	/**
@@ -261,9 +202,9 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 		if (newMapping != mapping) {
 			NotificationChain msgs = null;
 			if (mapping != null)
-				msgs = ((InternalEObject)mapping).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__MAPPING, null, msgs);
+				msgs = ((InternalEObject)mapping).eInverseRemove(this, RubyTLPackage.MAPPING__RULE, Mapping.class, msgs);
 			if (newMapping != null)
-				msgs = ((InternalEObject)newMapping).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__MAPPING, null, msgs);
+				msgs = ((InternalEObject)newMapping).eInverseAdd(this, RubyTLPackage.MAPPING__RULE, Mapping.class, msgs);
 			msgs = basicSetMapping(newMapping, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -304,9 +245,9 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 		if (newFilter != filter) {
 			NotificationChain msgs = null;
 			if (filter != null)
-				msgs = ((InternalEObject)filter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__FILTER, null, msgs);
+				msgs = ((InternalEObject)filter).eInverseRemove(this, RubyTLPackage.FILTER__RULE, Filter.class, msgs);
 			if (newFilter != null)
-				msgs = ((InternalEObject)newFilter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__FILTER, null, msgs);
+				msgs = ((InternalEObject)newFilter).eInverseAdd(this, RubyTLPackage.FILTER__RULE, Filter.class, msgs);
 			msgs = basicSetFilter(newFilter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -319,14 +260,39 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RubyTLPackage.RULE__FROM:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFrom()).basicAdd(otherEnd, msgs);
+			case RubyTLPackage.RULE__TO:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTo()).basicAdd(otherEnd, msgs);
+			case RubyTLPackage.RULE__MAPPING:
+				if (mapping != null)
+					msgs = ((InternalEObject)mapping).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__MAPPING, null, msgs);
+				return basicSetMapping((Mapping)otherEnd, msgs);
+			case RubyTLPackage.RULE__FILTER:
+				if (filter != null)
+					msgs = ((InternalEObject)filter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__FILTER, null, msgs);
+				return basicSetFilter((Filter)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case RubyTLPackage.RULE__FROM:
-				return basicSetFrom(null, msgs);
+				return ((InternalEList<?>)getFrom()).basicRemove(otherEnd, msgs);
 			case RubyTLPackage.RULE__TO:
-				return basicSetTo(null, msgs);
+				return ((InternalEList<?>)getTo()).basicRemove(otherEnd, msgs);
 			case RubyTLPackage.RULE__MAPPING:
 				return basicSetMapping(null, msgs);
 			case RubyTLPackage.RULE__FILTER:
@@ -362,6 +328,7 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -369,10 +336,12 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				setName((String)newValue);
 				return;
 			case RubyTLPackage.RULE__FROM:
-				setFrom((FromElement)newValue);
+				getFrom().clear();
+				getFrom().addAll((Collection<? extends FromElement>)newValue);
 				return;
 			case RubyTLPackage.RULE__TO:
-				setTo((ToElement)newValue);
+				getTo().clear();
+				getTo().addAll((Collection<? extends ToElement>)newValue);
 				return;
 			case RubyTLPackage.RULE__MAPPING:
 				setMapping((Mapping)newValue);
@@ -396,10 +365,10 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				setName(NAME_EDEFAULT);
 				return;
 			case RubyTLPackage.RULE__FROM:
-				setFrom((FromElement)null);
+				getFrom().clear();
 				return;
 			case RubyTLPackage.RULE__TO:
-				setTo((ToElement)null);
+				getTo().clear();
 				return;
 			case RubyTLPackage.RULE__MAPPING:
 				setMapping((Mapping)null);
@@ -422,9 +391,9 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 			case RubyTLPackage.RULE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RubyTLPackage.RULE__FROM:
-				return from != null;
+				return from != null && !from.isEmpty();
 			case RubyTLPackage.RULE__TO:
-				return to != null;
+				return to != null && !to.isEmpty();
 			case RubyTLPackage.RULE__MAPPING:
 				return mapping != null;
 			case RubyTLPackage.RULE__FILTER:

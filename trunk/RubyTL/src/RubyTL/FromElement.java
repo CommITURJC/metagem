@@ -16,6 +16,7 @@ package RubyTL;
  * <ul>
  *   <li>{@link RubyTL.FromElement#getClassname <em>Classname</em>}</li>
  *   <li>{@link RubyTL.FromElement#getMetamodel <em>Metamodel</em>}</li>
+ *   <li>{@link RubyTL.FromElement#getRule <em>Rule</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,5 +76,33 @@ public interface FromElement extends Variable {
 	 * @generated
 	 */
 	void setMetamodel(Metamodel value);
+
+	/**
+	 * Returns the value of the '<em><b>Rule</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link RubyTL.Rule#getFrom <em>From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rule</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rule</em>' container reference.
+	 * @see #setRule(Rule)
+	 * @see RubyTL.RubyTLPackage#getFromElement_Rule()
+	 * @see RubyTL.Rule#getFrom
+	 * @model opposite="from" required="true" transient="false"
+	 * @generated
+	 */
+	Rule getRule();
+
+	/**
+	 * Sets the value of the '{@link RubyTL.FromElement#getRule <em>Rule</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rule</em>' container reference.
+	 * @see #getRule()
+	 * @generated
+	 */
+	void setRule(Rule value);
 
 } // FromElement

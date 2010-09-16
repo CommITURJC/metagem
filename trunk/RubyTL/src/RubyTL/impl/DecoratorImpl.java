@@ -10,13 +10,16 @@ import RubyTL.Decorator;
 import RubyTL.FromElement;
 import RubyTL.RubyTLPackage;
 
+import RubyTL.Transformation;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +31,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link RubyTL.impl.DecoratorImpl#getName <em>Name</em>}</li>
  *   <li>{@link RubyTL.impl.DecoratorImpl#getBody <em>Body</em>}</li>
  *   <li>{@link RubyTL.impl.DecoratorImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link RubyTL.impl.DecoratorImpl#getTransformation <em>Transformation</em>}</li>
  * </ul>
  * </p>
  *
@@ -188,6 +192,91 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Transformation getTransformation() {
+		if (eContainerFeatureID != RubyTLPackage.DECORATOR__TRANSFORMATION) return null;
+		return (Transformation)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTransformation(Transformation newTransformation, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newTransformation, RubyTLPackage.DECORATOR__TRANSFORMATION, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransformation(Transformation newTransformation) {
+		if (newTransformation != eInternalContainer() || (eContainerFeatureID != RubyTLPackage.DECORATOR__TRANSFORMATION && newTransformation != null)) {
+			if (EcoreUtil.isAncestor(this, newTransformation))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newTransformation != null)
+				msgs = ((InternalEObject)newTransformation).eInverseAdd(this, RubyTLPackage.TRANSFORMATION__DECORATORS, Transformation.class, msgs);
+			msgs = basicSetTransformation(newTransformation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.DECORATOR__TRANSFORMATION, newTransformation, newTransformation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RubyTLPackage.DECORATOR__TRANSFORMATION:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetTransformation((Transformation)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RubyTLPackage.DECORATOR__TRANSFORMATION:
+				return basicSetTransformation(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+			case RubyTLPackage.DECORATOR__TRANSFORMATION:
+				return eInternalContainer().eInverseRemove(this, RubyTLPackage.TRANSFORMATION__DECORATORS, Transformation.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -198,6 +287,8 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 			case RubyTLPackage.DECORATOR__CONTEXT:
 				if (resolve) return getContext();
 				return basicGetContext();
+			case RubyTLPackage.DECORATOR__TRANSFORMATION:
+				return getTransformation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -218,6 +309,9 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 				return;
 			case RubyTLPackage.DECORATOR__CONTEXT:
 				setContext((FromElement)newValue);
+				return;
+			case RubyTLPackage.DECORATOR__TRANSFORMATION:
+				setTransformation((Transformation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -240,6 +334,9 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 			case RubyTLPackage.DECORATOR__CONTEXT:
 				setContext((FromElement)null);
 				return;
+			case RubyTLPackage.DECORATOR__TRANSFORMATION:
+				setTransformation((Transformation)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -258,6 +355,8 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 				return BODY_EDEFAULT == null ? body != null : !BODY_EDEFAULT.equals(body);
 			case RubyTLPackage.DECORATOR__CONTEXT:
 				return context != null;
+			case RubyTLPackage.DECORATOR__TRANSFORMATION:
+				return getTransformation() != null;
 		}
 		return super.eIsSet(featureID);
 	}
