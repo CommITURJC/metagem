@@ -33,6 +33,8 @@
     <element element="end"/>
     <element element="mapping do | "/>
     <element element="top_rule"/>
+    <element element="filter do |"/>
+    <element element="mapping do |"/>
     <element element=" = "/>
     <element element="decorator "/>
     <element element="def "/>
