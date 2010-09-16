@@ -217,7 +217,7 @@ public interface RubyTLPackage extends EPackage {
 	int RULE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' containment reference.
+	 * The feature id for the '<em><b>From</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -226,7 +226,7 @@ public interface RubyTLPackage extends EPackage {
 	int RULE__FROM = 1;
 
 	/**
-	 * The feature id for the '<em><b>To</b></em>' containment reference.
+	 * The feature id for the '<em><b>To</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -327,13 +327,22 @@ public interface RubyTLPackage extends EPackage {
 	int FROM_ELEMENT__METAMODEL = VARIABLE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Rule</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FROM_ELEMENT__RULE = VARIABLE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>From Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FROM_ELEMENT_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 2;
+	int FROM_ELEMENT_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link RubyTL.impl.ToElementImpl <em>To Element</em>}' class.
@@ -373,13 +382,22 @@ public interface RubyTLPackage extends EPackage {
 	int TO_ELEMENT__METAMODEL = VARIABLE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Rule</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_ELEMENT__RULE = VARIABLE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>To Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TO_ELEMENT_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 2;
+	int TO_ELEMENT_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link RubyTL.impl.TopRuleImpl <em>Top Rule</em>}' class.
@@ -401,7 +419,7 @@ public interface RubyTLPackage extends EPackage {
 	int TOP_RULE__NAME = RULE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' containment reference.
+	 * The feature id for the '<em><b>From</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -410,7 +428,7 @@ public interface RubyTLPackage extends EPackage {
 	int TOP_RULE__FROM = RULE__FROM;
 
 	/**
-	 * The feature id for the '<em><b>To</b></em>' containment reference.
+	 * The feature id for the '<em><b>To</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -465,7 +483,7 @@ public interface RubyTLPackage extends EPackage {
 	int COPY_RULE__NAME = RULE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' containment reference.
+	 * The feature id for the '<em><b>From</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -474,7 +492,7 @@ public interface RubyTLPackage extends EPackage {
 	int COPY_RULE__FROM = RULE__FROM;
 
 	/**
-	 * The feature id for the '<em><b>To</b></em>' containment reference.
+	 * The feature id for the '<em><b>To</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -529,13 +547,22 @@ public interface RubyTLPackage extends EPackage {
 	int MAPPING__BINDINGS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Rule</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING__RULE = 1;
+
+	/**
 	 * The number of structural features of the '<em>Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_FEATURE_COUNT = 1;
+	int MAPPING_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link RubyTL.impl.BindingImpl <em>Binding</em>}' class.
@@ -575,13 +602,22 @@ public interface RubyTLPackage extends EPackage {
 	int BINDING__SOURCE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Mapping</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING__MAPPING = 3;
+
+	/**
 	 * The number of structural features of the '<em>Binding</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING_FEATURE_COUNT = 3;
+	int BINDING_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link RubyTL.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -594,13 +630,22 @@ public interface RubyTLPackage extends EPackage {
 	int EXPRESSION = 11;
 
 	/**
+	 * The feature id for the '<em><b>Exp Get</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION__EXP_GET = 0;
+
+	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_FEATURE_COUNT = 0;
+	int EXPRESSION_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link RubyTL.impl.ExpVariableImpl <em>Exp Variable</em>}' class.
@@ -611,6 +656,15 @@ public interface RubyTLPackage extends EPackage {
 	 * @generated
 	 */
 	int EXP_VARIABLE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Exp Get</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXP_VARIABLE__EXP_GET = EXPRESSION__EXP_GET;
 
 	/**
 	 * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -639,6 +693,15 @@ public interface RubyTLPackage extends EPackage {
 	 * @generated
 	 */
 	int EXP_GET = 13;
+
+	/**
+	 * The feature id for the '<em><b>Exp Get</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXP_GET__EXP_GET = EXPRESSION__EXP_GET;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' containment reference.
@@ -687,13 +750,22 @@ public interface RubyTLPackage extends EPackage {
 	int FILTER__EXPRESSION = 0;
 
 	/**
+	 * The feature id for the '<em><b>Rule</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__RULE = 1;
+
+	/**
 	 * The number of structural features of the '<em>Filter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER_FEATURE_COUNT = 1;
+	int FILTER_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link RubyTL.impl.DecoratorImpl <em>Decorator</em>}' class.
@@ -733,13 +805,22 @@ public interface RubyTLPackage extends EPackage {
 	int DECORATOR__CONTEXT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Transformation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECORATOR__TRANSFORMATION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Decorator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECORATOR_FEATURE_COUNT = 3;
+	int DECORATOR_FEATURE_COUNT = 4;
 
 	/**
 	 * Returns the meta object for class '{@link RubyTL.Transformation <em>Transformation</em>}'.
@@ -838,10 +919,10 @@ public interface RubyTLPackage extends EPackage {
 	EAttribute getRule_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link RubyTL.Rule#getFrom <em>From</em>}'.
+	 * Returns the meta object for the containment reference list '{@link RubyTL.Rule#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>From</em>'.
+	 * @return the meta object for the containment reference list '<em>From</em>'.
 	 * @see RubyTL.Rule#getFrom()
 	 * @see #getRule()
 	 * @generated
@@ -849,10 +930,10 @@ public interface RubyTLPackage extends EPackage {
 	EReference getRule_From();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link RubyTL.Rule#getTo <em>To</em>}'.
+	 * Returns the meta object for the containment reference list '{@link RubyTL.Rule#getTo <em>To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>To</em>'.
+	 * @return the meta object for the containment reference list '<em>To</em>'.
 	 * @see RubyTL.Rule#getTo()
 	 * @see #getRule()
 	 * @generated
@@ -914,6 +995,17 @@ public interface RubyTLPackage extends EPackage {
 	EReference getFromElement_Metamodel();
 
 	/**
+	 * Returns the meta object for the container reference '{@link RubyTL.FromElement#getRule <em>Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Rule</em>'.
+	 * @see RubyTL.FromElement#getRule()
+	 * @see #getFromElement()
+	 * @generated
+	 */
+	EReference getFromElement_Rule();
+
+	/**
 	 * Returns the meta object for class '{@link RubyTL.ToElement <em>To Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -944,6 +1036,17 @@ public interface RubyTLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getToElement_Metamodel();
+
+	/**
+	 * Returns the meta object for the container reference '{@link RubyTL.ToElement#getRule <em>Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Rule</em>'.
+	 * @see RubyTL.ToElement#getRule()
+	 * @see #getToElement()
+	 * @generated
+	 */
+	EReference getToElement_Rule();
 
 	/**
 	 * Returns the meta object for class '{@link RubyTL.NamedElement <em>Named Element</em>}'.
@@ -1019,6 +1122,17 @@ public interface RubyTLPackage extends EPackage {
 	EReference getMapping_Bindings();
 
 	/**
+	 * Returns the meta object for the container reference '{@link RubyTL.Mapping#getRule <em>Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Rule</em>'.
+	 * @see RubyTL.Mapping#getRule()
+	 * @see #getMapping()
+	 * @generated
+	 */
+	EReference getMapping_Rule();
+
+	/**
 	 * Returns the meta object for class '{@link RubyTL.Binding <em>Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1062,6 +1176,17 @@ public interface RubyTLPackage extends EPackage {
 	EReference getBinding_Source();
 
 	/**
+	 * Returns the meta object for the container reference '{@link RubyTL.Binding#getMapping <em>Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Mapping</em>'.
+	 * @see RubyTL.Binding#getMapping()
+	 * @see #getBinding()
+	 * @generated
+	 */
+	EReference getBinding_Mapping();
+
+	/**
 	 * Returns the meta object for class '{@link RubyTL.Variable <em>Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1091,6 +1216,17 @@ public interface RubyTLPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getExpression();
+
+	/**
+	 * Returns the meta object for the container reference '{@link RubyTL.Expression#getExpGet <em>Exp Get</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Exp Get</em>'.
+	 * @see RubyTL.Expression#getExpGet()
+	 * @see #getExpression()
+	 * @generated
+	 */
+	EReference getExpression_ExpGet();
 
 	/**
 	 * Returns the meta object for class '{@link RubyTL.ExpVariable <em>Exp Variable</em>}'.
@@ -1167,6 +1303,17 @@ public interface RubyTLPackage extends EPackage {
 	EAttribute getFilter_Expression();
 
 	/**
+	 * Returns the meta object for the container reference '{@link RubyTL.Filter#getRule <em>Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Rule</em>'.
+	 * @see RubyTL.Filter#getRule()
+	 * @see #getFilter()
+	 * @generated
+	 */
+	EReference getFilter_Rule();
+
+	/**
 	 * Returns the meta object for class '{@link RubyTL.Decorator <em>Decorator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1208,6 +1355,17 @@ public interface RubyTLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDecorator_Context();
+
+	/**
+	 * Returns the meta object for the container reference '{@link RubyTL.Decorator#getTransformation <em>Transformation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Transformation</em>'.
+	 * @see RubyTL.Decorator#getTransformation()
+	 * @see #getDecorator()
+	 * @generated
+	 */
+	EReference getDecorator_Transformation();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1310,7 +1468,7 @@ public interface RubyTLPackage extends EPackage {
 		EAttribute RULE__NAME = eINSTANCE.getRule_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>From</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>From</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1318,7 +1476,7 @@ public interface RubyTLPackage extends EPackage {
 		EReference RULE__FROM = eINSTANCE.getRule_From();
 
 		/**
-		 * The meta object literal for the '<em><b>To</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>To</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1368,6 +1526,14 @@ public interface RubyTLPackage extends EPackage {
 		EReference FROM_ELEMENT__METAMODEL = eINSTANCE.getFromElement_Metamodel();
 
 		/**
+		 * The meta object literal for the '<em><b>Rule</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FROM_ELEMENT__RULE = eINSTANCE.getFromElement_Rule();
+
+		/**
 		 * The meta object literal for the '{@link RubyTL.impl.ToElementImpl <em>To Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1392,6 +1558,14 @@ public interface RubyTLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TO_ELEMENT__METAMODEL = eINSTANCE.getToElement_Metamodel();
+
+		/**
+		 * The meta object literal for the '<em><b>Rule</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TO_ELEMENT__RULE = eINSTANCE.getToElement_Rule();
 
 		/**
 		 * The meta object literal for the '{@link RubyTL.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -1458,6 +1632,14 @@ public interface RubyTLPackage extends EPackage {
 		EReference MAPPING__BINDINGS = eINSTANCE.getMapping_Bindings();
 
 		/**
+		 * The meta object literal for the '<em><b>Rule</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAPPING__RULE = eINSTANCE.getMapping_Rule();
+
+		/**
 		 * The meta object literal for the '{@link RubyTL.impl.BindingImpl <em>Binding</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1492,6 +1674,14 @@ public interface RubyTLPackage extends EPackage {
 		EReference BINDING__SOURCE = eINSTANCE.getBinding_Source();
 
 		/**
+		 * The meta object literal for the '<em><b>Mapping</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BINDING__MAPPING = eINSTANCE.getBinding_Mapping();
+
+		/**
 		 * The meta object literal for the '{@link RubyTL.impl.VariableImpl <em>Variable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1518,6 +1708,14 @@ public interface RubyTLPackage extends EPackage {
 		 * @generated
 		 */
 		EClass EXPRESSION = eINSTANCE.getExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Exp Get</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXPRESSION__EXP_GET = eINSTANCE.getExpression_ExpGet();
 
 		/**
 		 * The meta object literal for the '{@link RubyTL.impl.ExpVariableImpl <em>Exp Variable</em>}' class.
@@ -1582,6 +1780,14 @@ public interface RubyTLPackage extends EPackage {
 		EAttribute FILTER__EXPRESSION = eINSTANCE.getFilter_Expression();
 
 		/**
+		 * The meta object literal for the '<em><b>Rule</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILTER__RULE = eINSTANCE.getFilter_Rule();
+
+		/**
 		 * The meta object literal for the '{@link RubyTL.impl.DecoratorImpl <em>Decorator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1614,6 +1820,14 @@ public interface RubyTLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DECORATOR__CONTEXT = eINSTANCE.getDecorator_Context();
+
+		/**
+		 * The meta object literal for the '<em><b>Transformation</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DECORATOR__TRANSFORMATION = eINSTANCE.getDecorator_Transformation();
 
 	}
 

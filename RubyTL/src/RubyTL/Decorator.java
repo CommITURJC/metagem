@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link RubyTL.Decorator#getName <em>Name</em>}</li>
  *   <li>{@link RubyTL.Decorator#getBody <em>Body</em>}</li>
  *   <li>{@link RubyTL.Decorator#getContext <em>Context</em>}</li>
+ *   <li>{@link RubyTL.Decorator#getTransformation <em>Transformation</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,5 +105,33 @@ public interface Decorator extends EObject {
 	 * @generated
 	 */
 	void setContext(FromElement value);
+
+	/**
+	 * Returns the value of the '<em><b>Transformation</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link RubyTL.Transformation#getDecorators <em>Decorators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Transformation</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Transformation</em>' container reference.
+	 * @see #setTransformation(Transformation)
+	 * @see RubyTL.RubyTLPackage#getDecorator_Transformation()
+	 * @see RubyTL.Transformation#getDecorators
+	 * @model opposite="decorators" required="true" transient="false"
+	 * @generated
+	 */
+	Transformation getTransformation();
+
+	/**
+	 * Sets the value of the '{@link RubyTL.Decorator#getTransformation <em>Transformation</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Transformation</em>' container reference.
+	 * @see #getTransformation()
+	 * @generated
+	 */
+	void setTransformation(Transformation value);
 
 } // Decorator

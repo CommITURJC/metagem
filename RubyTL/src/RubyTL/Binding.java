@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link RubyTL.Binding#getTarget <em>Target</em>}</li>
  *   <li>{@link RubyTL.Binding#getProperty <em>Property</em>}</li>
  *   <li>{@link RubyTL.Binding#getSource <em>Source</em>}</li>
+ *   <li>{@link RubyTL.Binding#getMapping <em>Mapping</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,5 +105,33 @@ public interface Binding extends EObject {
 	 * @generated
 	 */
 	void setSource(Expression value);
+
+	/**
+	 * Returns the value of the '<em><b>Mapping</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link RubyTL.Mapping#getBindings <em>Bindings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mapping</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mapping</em>' container reference.
+	 * @see #setMapping(Mapping)
+	 * @see RubyTL.RubyTLPackage#getBinding_Mapping()
+	 * @see RubyTL.Mapping#getBindings
+	 * @model opposite="bindings" required="true" transient="false"
+	 * @generated
+	 */
+	Mapping getMapping();
+
+	/**
+	 * Sets the value of the '{@link RubyTL.Binding#getMapping <em>Mapping</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mapping</em>' container reference.
+	 * @see #getMapping()
+	 * @generated
+	 */
+	void setMapping(Mapping value);
 
 } // Binding

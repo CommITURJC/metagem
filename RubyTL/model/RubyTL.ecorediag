@@ -4,7 +4,7 @@
     <children xmi:type="notation:Node" xmi:id="_0Qi0k66wEd-Kga2_0MACCA" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_0Qi0lK6wEd-Kga2_0MACCA" type="5001">
       <children xmi:type="notation:Node" xmi:id="_0Qi0nK6wEd-Kga2_0MACCA" type="2001">
-        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#//Transformation/name"/>
+        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#/0/Transformation/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_0Qi0na6wEd-Kga2_0MACCA"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_0Qi0la6wEd-Kga2_0MACCA"/>
@@ -17,7 +17,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Qi0m66wEd-Kga2_0MACCA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_0Qi0ka6wEd-Kga2_0MACCA" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//Transformation"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/Transformation"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Qi0kq6wEd-Kga2_0MACCA" y="444"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_0Qi0nq6wEd-Kga2_0MACCA" type="1001">
@@ -33,14 +33,14 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Qr-h66wEd-Kga2_0MACCA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_0Qi0n66wEd-Kga2_0MACCA" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//Metamodel"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/Metamodel"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Qi0oK6wEd-Kga2_0MACCA" x="7" y="123"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_0Qr-iK6wEd-Kga2_0MACCA" type="1001">
     <children xmi:type="notation:Node" xmi:id="_0Qr-i66wEd-Kga2_0MACCA" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_0Qr-jK6wEd-Kga2_0MACCA" type="5001">
       <children xmi:type="notation:Node" xmi:id="_0Qr-lK6wEd-Kga2_0MACCA" type="2001">
-        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#//Rule/name"/>
+        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#/0/Rule/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_0Qr-la6wEd-Kga2_0MACCA"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_0Qr-ja6wEd-Kga2_0MACCA"/>
@@ -53,14 +53,14 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Qr-k66wEd-Kga2_0MACCA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_0Qr-ia6wEd-Kga2_0MACCA" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//Rule"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/Rule"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Qr-iq6wEd-Kga2_0MACCA" x="289" y="337"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_0Qr-lq6wEd-Kga2_0MACCA" type="1001">
     <children xmi:type="notation:Node" xmi:id="_0Qr-ma6wEd-Kga2_0MACCA" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_0Qr-mq6wEd-Kga2_0MACCA" type="5001">
       <children xmi:type="notation:Node" xmi:id="_0Qr-oq6wEd-Kga2_0MACCA" type="2001">
-        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#//FromElement/classname"/>
+        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#/0/FromElement/classname"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_0Qr-o66wEd-Kga2_0MACCA"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_0Qr-m66wEd-Kga2_0MACCA"/>
@@ -73,14 +73,14 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Qr-oa6wEd-Kga2_0MACCA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_0Qr-l66wEd-Kga2_0MACCA" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//FromElement"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/FromElement"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Qr-mK6wEd-Kga2_0MACCA" x="380" y="230"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_0Qr-pK6wEd-Kga2_0MACCA" type="1001">
     <children xmi:type="notation:Node" xmi:id="_0Qr-p66wEd-Kga2_0MACCA" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_0Qr-qK6wEd-Kga2_0MACCA" type="5001">
       <children xmi:type="notation:Node" xmi:id="_0Qr-sK6wEd-Kga2_0MACCA" type="2001">
-        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#//ToElement/classname"/>
+        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#/0/ToElement/classname"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_0Qr-sa6wEd-Kga2_0MACCA"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_0Qr-qa6wEd-Kga2_0MACCA"/>
@@ -93,18 +93,18 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Qr-r66wEd-Kga2_0MACCA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_0Qr-pa6wEd-Kga2_0MACCA" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//ToElement"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/ToElement"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Qr-pq6wEd-Kga2_0MACCA" x="178" y="230"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_0Qr-sq6wEd-Kga2_0MACCA" type="1001">
     <children xmi:type="notation:Node" xmi:id="_0Qr-ta6wEd-Kga2_0MACCA" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_0Qr-tq6wEd-Kga2_0MACCA" type="5001">
       <children xmi:type="notation:Node" xmi:id="_0Qr-vq6wEd-Kga2_0MACCA" type="2001">
-        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#//NamedElement/name"/>
+        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#/0/NamedElement/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_0Qr-v66wEd-Kga2_0MACCA"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_0Qr-wK6wEd-Kga2_0MACCA" type="2001">
-        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#//NamedElement/uri"/>
+        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#/0/NamedElement/uri"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_0Qr-wa6wEd-Kga2_0MACCA"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_0Qr-t66wEd-Kga2_0MACCA"/>
@@ -117,7 +117,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Qr-va6wEd-Kga2_0MACCA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_0Qr-s66wEd-Kga2_0MACCA" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//NamedElement"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/NamedElement"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Qr-tK6wEd-Kga2_0MACCA"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_0Qr-wq6wEd-Kga2_0MACCA" type="1001">
@@ -133,7 +133,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Qr-za6wEd-Kga2_0MACCA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_0Qr-w66wEd-Kga2_0MACCA" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//TopRule"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/TopRule"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Qr-xK6wEd-Kga2_0MACCA" x="216" y="444"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_0Qr-zq6wEd-Kga2_0MACCA" type="1001">
@@ -149,7 +149,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Qr-2a6wEd-Kga2_0MACCA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_0Qr-z66wEd-Kga2_0MACCA" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//CopyRule"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/CopyRule"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Qr-0K6wEd-Kga2_0MACCA" x="376" y="444"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_0Qr-2q6wEd-Kga2_0MACCA" type="1001">
@@ -165,14 +165,14 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Qr-5a6wEd-Kga2_0MACCA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_0Qr-266wEd-Kga2_0MACCA" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//Mapping"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/Mapping"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Qr-3K6wEd-Kga2_0MACCA" x="582" y="230"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_0Qr-5q6wEd-Kga2_0MACCA" type="1001">
     <children xmi:type="notation:Node" xmi:id="_0Qr-6a6wEd-Kga2_0MACCA" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_0Qr-6q6wEd-Kga2_0MACCA" type="5001">
       <children xmi:type="notation:Node" xmi:id="_0Qr-8q6wEd-Kga2_0MACCA" type="2001">
-        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#//Binding/property"/>
+        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#/0/Binding/property"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_0Qr-866wEd-Kga2_0MACCA"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_0Qr-666wEd-Kga2_0MACCA"/>
@@ -185,14 +185,14 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Qr-8a6wEd-Kga2_0MACCA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_0Qr-566wEd-Kga2_0MACCA" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//Binding"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/Binding"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Qr-6K6wEd-Kga2_0MACCA" x="609" y="123"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_0Qr-9K6wEd-Kga2_0MACCA" type="1001">
     <children xmi:type="notation:Node" xmi:id="_0Qr-966wEd-Kga2_0MACCA" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_0Qr--K6wEd-Kga2_0MACCA" type="5001">
       <children xmi:type="notation:Node" xmi:id="_0Qr_AK6wEd-Kga2_0MACCA" type="2001">
-        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#//Variable/name"/>
+        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#/0/Variable/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_0Qr_Aa6wEd-Kga2_0MACCA"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_0Qr--a6wEd-Kga2_0MACCA"/>
@@ -205,7 +205,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Qr-_66wEd-Kga2_0MACCA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_0Qr-9a6wEd-Kga2_0MACCA" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//Variable"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/Variable"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Qr-9q6wEd-Kga2_0MACCA" x="434" y="123"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_0Qr_Aq6wEd-Kga2_0MACCA" type="1001">
@@ -221,7 +221,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Qr_Da6wEd-Kga2_0MACCA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_0Qr_A66wEd-Kga2_0MACCA" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//Expression"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/Expression"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Qr_BK6wEd-Kga2_0MACCA" x="624"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_0Qr_Dq6wEd-Kga2_0MACCA" type="1001">
@@ -237,14 +237,14 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Qr_Ga6wEd-Kga2_0MACCA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_0Qr_D66wEd-Kga2_0MACCA" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//ExpVariable"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/ExpVariable"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Qr_EK6wEd-Kga2_0MACCA" x="742" y="230"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_0Qr_Gq6wEd-Kga2_0MACCA" type="1001">
     <children xmi:type="notation:Node" xmi:id="_0Qr_Ha6wEd-Kga2_0MACCA" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_0Qr_Hq6wEd-Kga2_0MACCA" type="5001">
       <children xmi:type="notation:Node" xmi:id="_0Qr_Jq6wEd-Kga2_0MACCA" type="2001">
-        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#//ExpGet/property"/>
+        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#/0/ExpGet/property"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_0Qr_J66wEd-Kga2_0MACCA"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_0Qr_H66wEd-Kga2_0MACCA"/>
@@ -257,14 +257,14 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Qr_Ja6wEd-Kga2_0MACCA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_0Qr_G66wEd-Kga2_0MACCA" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//ExpGet"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/ExpGet"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Qr_HK6wEd-Kga2_0MACCA" x="243" y="123"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_kMAHQbzEEd-YUME26LgjaQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_kMJ4QLzEEd-YUME26LgjaQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_kMTCMLzEEd-YUME26LgjaQ" type="5001">
       <children xmi:type="notation:Node" xmi:id="_qB8m8LzEEd-YUME26LgjaQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#//Filter/expression"/>
+        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#/0/Filter/expression"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_qB8m8bzEEd-YUME26LgjaQ"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_kMTCMbzEEd-YUME26LgjaQ"/>
@@ -277,18 +277,18 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_kMTCN7zEEd-YUME26LgjaQ"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_kMAHQrzEEd-YUME26LgjaQ" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//Filter"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kMAHQ7zEEd-YUME26LgjaQ" x="540" y="350"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/Filter"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kMAHQ7zEEd-YUME26LgjaQ" x="540" y="340"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_Xfh30LzIEd-YUME26LgjaQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_Xfh307zIEd-YUME26LgjaQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_Xfh31LzIEd-YUME26LgjaQ" type="5001">
       <children xmi:type="notation:Node" xmi:id="_dgWx0LzIEd-YUME26LgjaQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#//Decorator/name"/>
+        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#/0/Decorator/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_dgWx0bzIEd-YUME26LgjaQ"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_fRVAMLzIEd-YUME26LgjaQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#//Decorator/body"/>
+        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#/0/Decorator/body"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_fRVAMbzIEd-YUME26LgjaQ"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_Xfh31bzIEd-YUME26LgjaQ"/>
@@ -301,11 +301,11 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Xfh327zIEd-YUME26LgjaQ"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_Xfh30bzIEd-YUME26LgjaQ" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#//Decorator"/>
+    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/Decorator"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Xfh30rzIEd-YUME26LgjaQ" x="500" y="505"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_0QPSka6wEd-Kga2_0MACCA"/>
-  <element xmi:type="ecore:EPackage" href="RubyTL.ecore#/"/>
+  <element xmi:type="ecore:EPackage" href="RubyTL.ecore#/0"/>
   <edges xmi:type="notation:Edge" xmi:id="_0Qr_KK6wEd-Kga2_0MACCA" type="3002" source="_0Qi0kK6wEd-Kga2_0MACCA" target="_0Qi0nq6wEd-Kga2_0MACCA">
     <children xmi:type="notation:Node" xmi:id="_0Qr_LK6wEd-Kga2_0MACCA" type="4011">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_0Qr_La6wEd-Kga2_0MACCA" x="-10" y="-10"/>
@@ -315,7 +315,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Qr_Ka6wEd-Kga2_0MACCA" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_0Qr_Kq6wEd-Kga2_0MACCA" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//Transformation/sourceMetamodels"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Transformation/sourceMetamodels"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Qr_K66wEd-Kga2_0MACCA" points="[1, 0, -4, 281]$[-150, -61, -155, 220]$[-150, -214, -155, 67]$[5, -281, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWfK6wEd-Kga2_0MACCA" id="(0.24347825,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWfa6wEd-Kga2_0MACCA" id="(0.25,1.0)"/>
@@ -329,7 +329,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Qr_Ma6wEd-Kga2_0MACCA" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_0Qr_Mq6wEd-Kga2_0MACCA" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//Transformation/targetMetamodels"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Transformation/targetMetamodels"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Qr_M66wEd-Kga2_0MACCA" points="[1, 0, 0, 281]$[1, -281, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWfq6wEd-Kga2_0MACCA" id="(0.49565217,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWf66wEd-Kga2_0MACCA" id="(0.5,1.0)"/>
@@ -343,7 +343,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Qr_Oa6wEd-Kga2_0MACCA" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_0Qr_Oq6wEd-Kga2_0MACCA" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//Transformation/rules"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Transformation/rules"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Qr_O66wEd-Kga2_0MACCA" points="[0, 0, -230, 60]$[231, -60, 1, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWcq6wEd-Kga2_0MACCA" id="(0.7478261,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWc66wEd-Kga2_0MACCA" id="(0.24347825,1.0)"/>
@@ -365,10 +365,10 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Qr_Ra6wEd-Kga2_0MACCA" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_0Qr_Rq6wEd-Kga2_0MACCA" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//Rule/from"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Qr_R66wEd-Kga2_0MACCA" points="[1, 0, -105, 60]$[106, -60, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWbK6wEd-Kga2_0MACCA" id="(0.49565217,0.0)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWba6wEd-Kga2_0MACCA" id="(0.5,1.0)"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Rule/from"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Qr_R66wEd-Kga2_0MACCA" points="[3, -18, -76, 62]$[61, -63, -18, 17]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_iR2qZsGIEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_iR2qZ8GIEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_0Q1vhK6wEd-Kga2_0MACCA" type="3002" source="_0Qr-iK6wEd-Kga2_0MACCA" target="_0Qr-pK6wEd-Kga2_0MACCA">
     <children xmi:type="notation:Node" xmi:id="_0Q1viK6wEd-Kga2_0MACCA" type="4011">
@@ -379,10 +379,10 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Q1vha6wEd-Kga2_0MACCA" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_0Q1vhq6wEd-Kga2_0MACCA" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//Rule/to"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Q1vh66wEd-Kga2_0MACCA" points="[1, 0, 68, 60]$[-67, -60, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWaK6wEd-Kga2_0MACCA" id="(0.24347825,0.0)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWaa6wEd-Kga2_0MACCA" id="(0.5,1.0)"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Rule/to"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Q1vh66wEd-Kga2_0MACCA" points="[-5, -5, 66, 84]$[-40, -33, 31, 56]$[-58, -65, 13, 24]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MAp5MsGIEd-Y7JKgkH-bdw" id="(0.27826086,0.10638298)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MAp5M8GIEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_0Q1vjK6wEd-Kga2_0MACCA" type="3002" source="_0Qr-iK6wEd-Kga2_0MACCA" target="_0Qr-2q6wEd-Kga2_0MACCA">
     <children xmi:type="notation:Node" xmi:id="_0Q1vkK6wEd-Kga2_0MACCA" type="4011">
@@ -393,10 +393,10 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Q1vja6wEd-Kga2_0MACCA" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_0Q1vjq6wEd-Kga2_0MACCA" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//Rule/mapping"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Q1vj66wEd-Kga2_0MACCA" points="[0, 0, -257, 67]$[257, -67, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWaq6wEd-Kga2_0MACCA" id="(0.7478261,0.0)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWa66wEd-Kga2_0MACCA" id="(0.5,1.0)"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Rule/mapping"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Q1vj66wEd-Kga2_0MACCA" points="[12, -3, -171, 74]$[147, -62, -36, 15]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_04SaBcGIEd-Y7JKgkH-bdw" id="(0.8695652,0.31914893)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_04SaBsGIEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_0Q1vlK6wEd-Kga2_0MACCA" type="3002" source="_0Qr-lq6wEd-Kga2_0MACCA" target="_0Qi0nq6wEd-Kga2_0MACCA">
     <children xmi:type="notation:Node" xmi:id="_0Q1vmK6wEd-Kga2_0MACCA" type="4011">
@@ -407,7 +407,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Q1vla6wEd-Kga2_0MACCA" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_0Q1vlq6wEd-Kga2_0MACCA" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//FromElement/metamodel"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/FromElement/metamodel"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Q1vl66wEd-Kga2_0MACCA" points="[0, 0, 346, 67]$[-345, -67, 1, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RcMdK6wEd-Kga2_0MACCA" id="(0.38732395,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RcMda6wEd-Kga2_0MACCA" id="(0.83,1.0)"/>
@@ -429,7 +429,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Q1voa6wEd-Kga2_0MACCA" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_0Q1voq6wEd-Kga2_0MACCA" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//ToElement/metamodel"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/ToElement/metamodel"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Q1vo66wEd-Kga2_0MACCA" points="[1, 0, 152, 67]$[-151, -67, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWdq6wEd-Kga2_0MACCA" id="(0.3309859,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWd66wEd-Kga2_0MACCA" id="(0.66,1.0)"/>
@@ -467,10 +467,10 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Q1vta6wEd-Kga2_0MACCA" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_0Q1vtq6wEd-Kga2_0MACCA" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//Mapping/bindings"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Q1vt66wEd-Kga2_0MACCA" points="[0, 0, 1, 60]$[0, -60, 1, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWYK6wEd-Kga2_0MACCA" id="(0.5,0.0)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWYa6wEd-Kga2_0MACCA" id="(0.17557251,1.0)"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Mapping/bindings"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Q1vt66wEd-Kga2_0MACCA" points="[0, -20, 1, 91]$[0, -81, 1, 30]$[0, -80, 1, 31]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PN_tAsGKEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PN_tA8GKEd-Y7JKgkH-bdw" id="(0.17557251,0.3617021)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_0Q1vvK6wEd-Kga2_0MACCA" type="3002" source="_0Qr-5q6wEd-Kga2_0MACCA" target="_0Qr_Aq6wEd-Kga2_0MACCA">
     <children xmi:type="notation:Node" xmi:id="_0Q1vwK6wEd-Kga2_0MACCA" type="4011">
@@ -481,7 +481,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Q1vva6wEd-Kga2_0MACCA" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_0Q1vvq6wEd-Kga2_0MACCA" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//Binding/target"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Binding/target"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Q1vv66wEd-Kga2_0MACCA" points="[0, 0, 0, 83]$[0, -83, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWYq6wEd-Kga2_0MACCA" id="(0.49618322,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWY66wEd-Kga2_0MACCA" id="(0.5,1.0)"/>
@@ -495,7 +495,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Q1vxa6wEd-Kga2_0MACCA" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_0Q1vxq6wEd-Kga2_0MACCA" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//Binding/source"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Binding/source"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Q1vx66wEd-Kga2_0MACCA" points="[0, 0, 0, 83]$[0, -83, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWZK6wEd-Kga2_0MACCA" id="(0.49618322,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWZa6wEd-Kga2_0MACCA" id="(0.5,1.0)"/>
@@ -509,7 +509,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Q1vza6wEd-Kga2_0MACCA" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_0Q1vzq6wEd-Kga2_0MACCA" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//ExpVariable/variable"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/ExpVariable/variable"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Q1vz66wEd-Kga2_0MACCA" points="[1, 0, 243, 60]$[-242, -60, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWeq6wEd-Kga2_0MACCA" id="(0.21,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWe66wEd-Kga2_0MACCA" id="(0.7478261,1.0)"/>
@@ -531,10 +531,10 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Q1v2a6wEd-Kga2_0MACCA" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_0Q1v2q6wEd-Kga2_0MACCA" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//ExpGet/source"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Q1v266wEd-Kga2_0MACCA" points="[1, 0, -353, 83]$[355, -83, 1, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWbq6wEd-Kga2_0MACCA" id="(0.32824427,0.0)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0RlWb66wEd-Kga2_0MACCA" id="(0.16,1.0)"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/ExpGet/source"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Q1v266wEd-Kga2_0MACCA" points="[20, -17, -254, 77]$[237, -82, -37, 12]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wcxmEMGKEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wcxmEcGKEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_0Q1v4K6wEd-Kga2_0MACCA" type="3003" source="_0Qr_Gq6wEd-Kga2_0MACCA" target="_0Qr_Aq6wEd-Kga2_0MACCA">
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Q1v4a6wEd-Kga2_0MACCA" routing="Tree" lineColor="0"/>
@@ -553,10 +553,10 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_vYAFobzEEd-YUME26LgjaQ" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_vYAForzEEd-YUME26LgjaQ" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//Rule/filter"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vYAFo7zEEd-YUME26LgjaQ" points="[15, 4, -159, -49]$[165, 50, -9, -3]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vYJPlLzEEd-YUME26LgjaQ" id="(0.87826085,0.44680852)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vYJPlbzEEd-YUME26LgjaQ" id="(0.0625,0.14893617)"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Rule/filter"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vYAFo7zEEd-YUME26LgjaQ" points="[23, 2, -146, 5]$[159, 12, -10, 15]$[159, 12, -10, 15]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_14WlUsGHEd-Y7JKgkH-bdw" id="(0.8,0.44680852)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_14WlU8GHEd-Y7JKgkH-bdw" id="(0.07638889,0.12765957)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_ZHjlkLzIEd-YUME26LgjaQ" type="3002" source="_0Qi0kK6wEd-Kga2_0MACCA" target="_Xfh30LzIEd-YUME26LgjaQ">
     <children xmi:type="notation:Node" xmi:id="_ZHjllLzIEd-YUME26LgjaQ" type="4011">
@@ -567,10 +567,10 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_ZHjlkbzIEd-YUME26LgjaQ" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_ZHjlkrzIEd-YUME26LgjaQ" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//Transformation/decorators"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZHjlk7zIEd-YUME26LgjaQ" points="[16, 1, -395, -41]$[401, 42, -10, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZHjlmLzIEd-YUME26LgjaQ" id="(0.8695652,0.89361703)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZHjlmbzIEd-YUME26LgjaQ" id="(0.1,0.575)"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Transformation/decorators"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZHjlk7zIEd-YUME26LgjaQ" points="[58, 9, -442, -60]$[443, 69, -57, 0]$[443, 69, -57, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PBKAUsGJEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PBKAU8GJEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_hYp5ELzIEd-YUME26LgjaQ" type="3002" source="_Xfh30LzIEd-YUME26LgjaQ" target="_0Qr-lq6wEd-Kga2_0MACCA">
     <children xmi:type="notation:Node" xmi:id="_hYp5FLzIEd-YUME26LgjaQ" type="4011">
@@ -581,8 +581,106 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_hYp5EbzIEd-YUME26LgjaQ" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_hYp5ErzIEd-YUME26LgjaQ" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#//Decorator/context"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Decorator/context"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hYp5E7zIEd-YUME26LgjaQ" points="[-7, -31, 56, 255]$[-35, -289, 28, -3]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hYp5GLzIEd-YUME26LgjaQ" id="(0.8028169,0.42553192)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_zGL_scGHEd-Y7JKgkH-bdw" type="3002" source="_kMAHQbzEEd-YUME26LgjaQ" target="_0Qr-iK6wEd-Kga2_0MACCA">
+    <children xmi:type="notation:Node" xmi:id="_zGL_tcGHEd-Y7JKgkH-bdw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_zGL_tsGHEd-Y7JKgkH-bdw" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_zGL_t8GHEd-Y7JKgkH-bdw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_zGL_uMGHEd-Y7JKgkH-bdw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_zGL_ssGHEd-Y7JKgkH-bdw" lineColor="0"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_zGL_s8GHEd-Y7JKgkH-bdw" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Filter/rule"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zGL_tMGHEd-Y7JKgkH-bdw" points="[-10, 15, 159, 12]$[-10, 15, 159, 12]$[-146, 5, 23, 2]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zGVwsMGHEd-Y7JKgkH-bdw" id="(0.07638889,0.12765957)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zGVwscGHEd-Y7JKgkH-bdw" id="(0.8,0.44680852)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_IyR4sMGIEd-Y7JKgkH-bdw" type="3002" source="_0Qr-pK6wEd-Kga2_0MACCA" target="_0Qr-iK6wEd-Kga2_0MACCA">
+    <children xmi:type="notation:Node" xmi:id="_IyR4tMGIEd-Y7JKgkH-bdw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_IyR4tcGIEd-Y7JKgkH-bdw" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_IyR4tsGIEd-Y7JKgkH-bdw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_IyR4t8GIEd-Y7JKgkH-bdw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_IyR4scGIEd-Y7JKgkH-bdw" lineColor="0"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_IyR4ssGIEd-Y7JKgkH-bdw" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/ToElement/rule"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_IyR4s8GIEd-Y7JKgkH-bdw" points="[13, 24, -58, -65]$[31, 56, -40, -33]$[66, 84, -5, -5]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LNU-0MGIEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_IybpsMGIEd-Y7JKgkH-bdw" id="(0.27826086,0.10638298)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_gtnQcMGIEd-Y7JKgkH-bdw" type="3002" source="_0Qr-lq6wEd-Kga2_0MACCA" target="_0Qr-iK6wEd-Kga2_0MACCA">
+    <children xmi:type="notation:Node" xmi:id="_gtnQdMGIEd-Y7JKgkH-bdw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_gtnQdcGIEd-Y7JKgkH-bdw" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_gtnQdsGIEd-Y7JKgkH-bdw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_gtnQd8GIEd-Y7JKgkH-bdw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_gtnQccGIEd-Y7JKgkH-bdw" lineColor="0"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_gtnQcsGIEd-Y7JKgkH-bdw" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/FromElement/rule"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gtnQc8GIEd-Y7JKgkH-bdw" points="[-18, 17, 61, -63]$[-76, 62, 3, -18]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_iR2qYMGIEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_iR2qYcGIEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_yWnHcMGIEd-Y7JKgkH-bdw" type="3002" source="_0Qr-2q6wEd-Kga2_0MACCA" target="_0Qr-iK6wEd-Kga2_0MACCA">
+    <children xmi:type="notation:Node" xmi:id="_yWnHdMGIEd-Y7JKgkH-bdw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_yWnHdcGIEd-Y7JKgkH-bdw" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_yWnHdsGIEd-Y7JKgkH-bdw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_yWnHd8GIEd-Y7JKgkH-bdw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_yWnHccGIEd-Y7JKgkH-bdw" lineColor="0"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_yWnHcsGIEd-Y7JKgkH-bdw" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Mapping/rule"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_yWnHc8GIEd-Y7JKgkH-bdw" points="[-36, 15, 147, -62]$[-171, 74, 12, -3]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_04SaAMGIEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yWw4cMGIEd-Y7JKgkH-bdw" id="(0.8695652,0.31914893)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_EAXMYMGJEd-Y7JKgkH-bdw" type="3002" source="_Xfh30LzIEd-YUME26LgjaQ" target="_0Qi0kK6wEd-Kga2_0MACCA">
+    <children xmi:type="notation:Node" xmi:id="_EAXMZMGJEd-Y7JKgkH-bdw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_EAXMZcGJEd-Y7JKgkH-bdw" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_EAXMZsGJEd-Y7JKgkH-bdw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_EAXMZ8GJEd-Y7JKgkH-bdw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_EAXMYcGJEd-Y7JKgkH-bdw" lineColor="0"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_EAXMYsGJEd-Y7JKgkH-bdw" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Decorator/transformation"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_EAXMY8GJEd-Y7JKgkH-bdw" points="[-57, 0, 443, 69]$[-57, 0, 443, 69]$[-442, -60, 58, 9]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_F1tkcMGJEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_F1tkccGJEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_C63ugMGKEd-Y7JKgkH-bdw" type="3002" source="_0Qr-5q6wEd-Kga2_0MACCA" target="_0Qr-2q6wEd-Kga2_0MACCA">
+    <children xmi:type="notation:Node" xmi:id="_C63uhMGKEd-Y7JKgkH-bdw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_C63uhcGKEd-Y7JKgkH-bdw" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_C63uhsGKEd-Y7JKgkH-bdw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_C63uh8GKEd-Y7JKgkH-bdw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_C63ugcGKEd-Y7JKgkH-bdw" lineColor="0"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_C63ugsGKEd-Y7JKgkH-bdw" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Binding/mapping"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_C63ug8GKEd-Y7JKgkH-bdw" points="[1, 31, 0, -80]$[1, 30, 0, -81]$[1, 91, 0, -20]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_C63uiMGKEd-Y7JKgkH-bdw" id="(0.17557251,0.3617021)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_D7DZIMGKEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_u0h14MGKEd-Y7JKgkH-bdw" type="3002" source="_0Qr_Aq6wEd-Kga2_0MACCA" target="_0Qr_Gq6wEd-Kga2_0MACCA">
+    <children xmi:type="notation:Node" xmi:id="_u0h15MGKEd-Y7JKgkH-bdw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_u0h15cGKEd-Y7JKgkH-bdw" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_u0h15sGKEd-Y7JKgkH-bdw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_u0h158GKEd-Y7JKgkH-bdw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_u0h14cGKEd-Y7JKgkH-bdw" lineColor="0"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_u0h14sGKEd-Y7JKgkH-bdw" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Expression/expGet"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_u0h148GKEd-Y7JKgkH-bdw" points="[-37, 12, 237, -82]$[-254, 77, 20, -17]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wcn1EMGKEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wcn1EcGKEd-Y7JKgkH-bdw" id="(0.5,0.5)"/>
   </edges>
 </notation:Diagram>
