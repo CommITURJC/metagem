@@ -98,12 +98,24 @@
         <elements xsi:type="tcs:CustomSeparator" location="52:46-52:55" name="newline"/>
         <elements xsi:type="tcs:LiteralRef" location="53:4-53:8" referredLiteral="/7"/>
         <elements xsi:type="tcs:LiteralRef" location="53:8-53:14" referredLiteral="/8"/>
-        <elements xsi:type="tcs:Property" location="53:15-53:19" name="from"/>
-        <elements xsi:type="tcs:CustomSeparator" location="53:20-53:29" name="newline"/>
+        <elements xsi:type="tcs:Property" location="53:15-53:34" name="from">
+          <propertyArgs xsi:type="tcs:SeparatorPArg" location="53:20-53:33">
+            <separatorSequence location="53:30-53:33">
+              <elements xsi:type="tcs:LiteralRef" location="53:30-53:33" referredLiteral="/0/@symbols.3"/>
+            </separatorSequence>
+          </propertyArgs>
+        </elements>
+        <elements xsi:type="tcs:CustomSeparator" location="53:35-53:44" name="newline"/>
         <elements xsi:type="tcs:LiteralRef" location="54:4-54:8" referredLiteral="/7"/>
         <elements xsi:type="tcs:LiteralRef" location="54:8-54:12" referredLiteral="/9"/>
-        <elements xsi:type="tcs:Property" location="54:13-54:15" name="to"/>
-        <elements xsi:type="tcs:CustomSeparator" location="54:16-54:25" name="newline"/>
+        <elements xsi:type="tcs:Property" location="54:13-54:30" name="to">
+          <propertyArgs xsi:type="tcs:SeparatorPArg" location="54:16-54:29">
+            <separatorSequence location="54:26-54:29">
+              <elements xsi:type="tcs:LiteralRef" location="54:26-54:29" referredLiteral="/0/@symbols.3"/>
+            </separatorSequence>
+          </propertyArgs>
+        </elements>
+        <elements xsi:type="tcs:CustomSeparator" location="54:31-54:40" name="newline"/>
         <elements xsi:type="tcs:ConditionalElement" location="55:4-58:26">
           <condition xsi:type="tcs:AndExp" location="55:5-55:22">
             <expressions xsi:type="tcs:IsDefinedExp" location="55:5-55:22" propertyName="filter"/>
@@ -184,12 +196,24 @@
         <elements xsi:type="tcs:CustomSeparator" location="68:45-68:54" name="newline"/>
         <elements xsi:type="tcs:LiteralRef" location="69:4-69:8" referredLiteral="/7"/>
         <elements xsi:type="tcs:LiteralRef" location="69:8-69:14" referredLiteral="/8"/>
-        <elements xsi:type="tcs:Property" location="69:15-69:19" name="from"/>
-        <elements xsi:type="tcs:CustomSeparator" location="69:20-69:29" name="newline"/>
+        <elements xsi:type="tcs:Property" location="69:15-69:34" name="from">
+          <propertyArgs xsi:type="tcs:SeparatorPArg" location="69:20-69:33">
+            <separatorSequence location="69:30-69:33">
+              <elements xsi:type="tcs:LiteralRef" location="69:30-69:33" referredLiteral="/0/@symbols.3"/>
+            </separatorSequence>
+          </propertyArgs>
+        </elements>
+        <elements xsi:type="tcs:CustomSeparator" location="69:35-69:44" name="newline"/>
         <elements xsi:type="tcs:LiteralRef" location="70:4-70:8" referredLiteral="/7"/>
         <elements xsi:type="tcs:LiteralRef" location="70:8-70:12" referredLiteral="/9"/>
-        <elements xsi:type="tcs:Property" location="70:13-70:15" name="to"/>
-        <elements xsi:type="tcs:CustomSeparator" location="70:16-70:25" name="newline"/>
+        <elements xsi:type="tcs:Property" location="70:13-70:30" name="to">
+          <propertyArgs xsi:type="tcs:SeparatorPArg" location="70:16-70:29">
+            <separatorSequence location="70:26-70:29">
+              <elements xsi:type="tcs:LiteralRef" location="70:26-70:29" referredLiteral="/0/@symbols.3"/>
+            </separatorSequence>
+          </propertyArgs>
+        </elements>
+        <elements xsi:type="tcs:CustomSeparator" location="70:31-70:40" name="newline"/>
         <elements xsi:type="tcs:ConditionalElement" location="71:4-74:26">
           <condition xsi:type="tcs:AndExp" location="71:5-71:22">
             <expressions xsi:type="tcs:IsDefinedExp" location="71:5-71:22" propertyName="filter"/>
@@ -381,7 +405,7 @@
       <spaces>rightSpace</spaces>
     </symbols>
     <symbols location="138:3-138:15" name="excl" value="!"/>
-    <symbols location="139:3-139:38" name="coma" value=",">
+    <symbols location="139:3-139:38" name="coma" literalRefs="/0/@templates.7/@templateSequence/@elements.6/@propertyArgs.0/@separatorSequence/@elements.0 /0/@templates.7/@templateSequence/@elements.10/@propertyArgs.0/@separatorSequence/@elements.0 /0/@templates.8/@templateSequence/@elements.6/@propertyArgs.0/@separatorSequence/@elements.0 /0/@templates.8/@templateSequence/@elements.10/@propertyArgs.0/@separatorSequence/@elements.0" value=",">
       <spaces>leftNone</spaces>
       <spaces>rightSpace</spaces>
     </symbols>
