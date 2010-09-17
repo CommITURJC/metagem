@@ -65,14 +65,14 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' containment reference list.
+	 * The cached value of the '{@link #getFrom() <em>From</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFrom()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<FromElement> from;
+	protected FromElement from;
 
 	/**
 	 * The cached value of the '{@link #getTo() <em>To</em>}' containment reference list.
@@ -149,11 +149,42 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<FromElement> getFrom() {
-		if (from == null) {
-			from = new EObjectContainmentWithInverseEList<FromElement>(FromElement.class, this, RubyTLPackage.RULE__FROM, RubyTLPackage.FROM_ELEMENT__RULE);
-		}
+	public FromElement getFrom() {
 		return from;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFrom(FromElement newFrom, NotificationChain msgs) {
+		FromElement oldFrom = from;
+		from = newFrom;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RubyTLPackage.RULE__FROM, oldFrom, newFrom);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFrom(FromElement newFrom) {
+		if (newFrom != from) {
+			NotificationChain msgs = null;
+			if (from != null)
+				msgs = ((InternalEObject)from).eInverseRemove(this, RubyTLPackage.FROM_ELEMENT__RULE, FromElement.class, msgs);
+			if (newFrom != null)
+				msgs = ((InternalEObject)newFrom).eInverseAdd(this, RubyTLPackage.FROM_ELEMENT__RULE, FromElement.class, msgs);
+			msgs = basicSetFrom(newFrom, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.RULE__FROM, newFrom, newFrom));
 	}
 
 	/**
@@ -265,7 +296,9 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case RubyTLPackage.RULE__FROM:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFrom()).basicAdd(otherEnd, msgs);
+				if (from != null)
+					msgs = ((InternalEObject)from).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__FROM, null, msgs);
+				return basicSetFrom((FromElement)otherEnd, msgs);
 			case RubyTLPackage.RULE__TO:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTo()).basicAdd(otherEnd, msgs);
 			case RubyTLPackage.RULE__MAPPING:
@@ -290,7 +323,7 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case RubyTLPackage.RULE__FROM:
-				return ((InternalEList<?>)getFrom()).basicRemove(otherEnd, msgs);
+				return basicSetFrom(null, msgs);
 			case RubyTLPackage.RULE__TO:
 				return ((InternalEList<?>)getTo()).basicRemove(otherEnd, msgs);
 			case RubyTLPackage.RULE__MAPPING:
@@ -336,8 +369,7 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				setName((String)newValue);
 				return;
 			case RubyTLPackage.RULE__FROM:
-				getFrom().clear();
-				getFrom().addAll((Collection<? extends FromElement>)newValue);
+				setFrom((FromElement)newValue);
 				return;
 			case RubyTLPackage.RULE__TO:
 				getTo().clear();
@@ -365,7 +397,7 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				setName(NAME_EDEFAULT);
 				return;
 			case RubyTLPackage.RULE__FROM:
-				getFrom().clear();
+				setFrom((FromElement)null);
 				return;
 			case RubyTLPackage.RULE__TO:
 				getTo().clear();
@@ -391,7 +423,7 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 			case RubyTLPackage.RULE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RubyTLPackage.RULE__FROM:
-				return from != null && !from.isEmpty();
+				return from != null;
 			case RubyTLPackage.RULE__TO:
 				return to != null && !to.isEmpty();
 			case RubyTLPackage.RULE__MAPPING:

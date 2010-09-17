@@ -36,6 +36,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RubyTL.ecore#/0/NamedElement/uri"/>
     </genClasses>
     <genClasses ecoreClass="RubyTL.ecore#/0/TopRule"/>
+    <genClasses ecoreClass="RubyTL.ecore#/0/NormalRule"/>
     <genClasses ecoreClass="RubyTL.ecore#/0/CopyRule"/>
     <genClasses ecoreClass="RubyTL.ecore#/0/Mapping">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Mapping/bindings"/>
