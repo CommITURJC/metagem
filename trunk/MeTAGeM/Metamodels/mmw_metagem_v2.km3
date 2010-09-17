@@ -4,6 +4,7 @@ package mmw_metagem {
 	enumeration MyAttributeType {
 	 	literal copy; --es solo una copia textual del atribute
 		literal concatenation ; --concatenación de mas de un atributo -- necesariamente tengo que usar una Nto1
+		literal "unique"; --Permite definir que una regla se ejecuta una sola vez 
 		literal varius; 
 		--attribute function : String
 	} 
