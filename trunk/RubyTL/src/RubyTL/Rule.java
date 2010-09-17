@@ -57,8 +57,7 @@ public interface Rule extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>From</b></em>' containment reference list.
-	 * The list contents are of type {@link RubyTL.FromElement}.
+	 * Returns the value of the '<em><b>From</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link RubyTL.FromElement#getRule <em>Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -66,13 +65,24 @@ public interface Rule extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>From</em>' containment reference list.
+	 * @return the value of the '<em>From</em>' containment reference.
+	 * @see #setFrom(FromElement)
 	 * @see RubyTL.RubyTLPackage#getRule_From()
 	 * @see RubyTL.FromElement#getRule
-	 * @model opposite="rule" containment="true" ordered="false"
+	 * @model opposite="rule" containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	EList<FromElement> getFrom();
+	FromElement getFrom();
+
+	/**
+	 * Sets the value of the '{@link RubyTL.Rule#getFrom <em>From</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>From</em>' containment reference.
+	 * @see #getFrom()
+	 * @generated
+	 */
+	void setFrom(FromElement value);
 
 	/**
 	 * Returns the value of the '<em><b>To</b></em>' containment reference list.
@@ -87,7 +97,7 @@ public interface Rule extends EObject {
 	 * @return the value of the '<em>To</em>' containment reference list.
 	 * @see RubyTL.RubyTLPackage#getRule_To()
 	 * @see RubyTL.ToElement#getRule
-	 * @model opposite="rule" containment="true" ordered="false"
+	 * @model opposite="rule" containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	EList<ToElement> getTo();

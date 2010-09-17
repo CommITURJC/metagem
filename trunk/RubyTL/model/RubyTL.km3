@@ -14,8 +14,8 @@ package RubyTL {
 
 	abstract class Rule {
 		attribute name[0-1] : String;
-		reference from[*] container : FromElement oppositeOf rule;
-		reference to[*] container : ToElement oppositeOf rule;
+		reference from container : FromElement oppositeOf rule;
+		reference to[1-*] container : ToElement oppositeOf rule;
 		reference mapping[0-1] container : Mapping oppositeOf rule;
 		reference filter[0-1] container : Filter oppositeOf rule;
 	}
@@ -38,6 +38,10 @@ package RubyTL {
 	}
 
 	class TopRule extends Rule {
+		
+	}
+	
+	class NormalRule extends Rule {
 		
 	}
 

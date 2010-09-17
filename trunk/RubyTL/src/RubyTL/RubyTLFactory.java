@@ -143,6 +143,15 @@ public interface RubyTLFactory extends EFactory {
 	Decorator createDecorator();
 
 	/**
+	 * Returns a new object of class '<em>Normal Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Normal Rule</em>'.
+	 * @generated
+	 */
+	NormalRule createNormalRule();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -66,6 +66,7 @@ public class RubyTLFactoryImpl extends EFactoryImpl implements RubyTLFactory {
 			case RubyTLPackage.TO_ELEMENT: return createToElement();
 			case RubyTLPackage.NAMED_ELEMENT: return createNamedElement();
 			case RubyTLPackage.TOP_RULE: return createTopRule();
+			case RubyTLPackage.NORMAL_RULE: return createNormalRule();
 			case RubyTLPackage.COPY_RULE: return createCopyRule();
 			case RubyTLPackage.MAPPING: return createMapping();
 			case RubyTLPackage.BINDING: return createBinding();
@@ -206,6 +207,16 @@ public class RubyTLFactoryImpl extends EFactoryImpl implements RubyTLFactory {
 	public Decorator createDecorator() {
 		DecoratorImpl decorator = new DecoratorImpl();
 		return decorator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NormalRule createNormalRule() {
+		NormalRuleImpl normalRule = new NormalRuleImpl();
+		return normalRule;
 	}
 
 	/**

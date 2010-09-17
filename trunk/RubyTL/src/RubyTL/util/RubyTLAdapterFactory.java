@@ -99,6 +99,10 @@ public class RubyTLAdapterFactory extends AdapterFactoryImpl {
 				return createTopRuleAdapter();
 			}
 			@Override
+			public Adapter caseNormalRule(NormalRule object) {
+				return createNormalRuleAdapter();
+			}
+			@Override
 			public Adapter caseCopyRule(CopyRule object) {
 				return createCopyRuleAdapter();
 			}
@@ -374,6 +378,20 @@ public class RubyTLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDecoratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link RubyTL.NormalRule <em>Normal Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see RubyTL.NormalRule
+	 * @generated
+	 */
+	public Adapter createNormalRuleAdapter() {
 		return null;
 	}
 

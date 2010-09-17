@@ -217,7 +217,7 @@ public interface RubyTLPackage extends EPackage {
 	int RULE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' containment reference list.
+	 * The feature id for the '<em><b>From</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -269,7 +269,7 @@ public interface RubyTLPackage extends EPackage {
 	 * @see RubyTL.impl.RubyTLPackageImpl#getVariable()
 	 * @generated
 	 */
-	int VARIABLE = 10;
+	int VARIABLE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -419,7 +419,7 @@ public interface RubyTLPackage extends EPackage {
 	int TOP_RULE__NAME = RULE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' containment reference list.
+	 * The feature id for the '<em><b>From</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -471,7 +471,141 @@ public interface RubyTLPackage extends EPackage {
 	 * @see RubyTL.impl.RubyTLPackageImpl#getCopyRule()
 	 * @generated
 	 */
-	int COPY_RULE = 7;
+	int COPY_RULE = 8;
+
+	/**
+	 * The meta object id for the '{@link RubyTL.impl.MappingImpl <em>Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RubyTL.impl.MappingImpl
+	 * @see RubyTL.impl.RubyTLPackageImpl#getMapping()
+	 * @generated
+	 */
+	int MAPPING = 9;
+
+	/**
+	 * The meta object id for the '{@link RubyTL.impl.BindingImpl <em>Binding</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RubyTL.impl.BindingImpl
+	 * @see RubyTL.impl.RubyTLPackageImpl#getBinding()
+	 * @generated
+	 */
+	int BINDING = 10;
+
+	/**
+	 * The meta object id for the '{@link RubyTL.impl.ExpressionImpl <em>Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RubyTL.impl.ExpressionImpl
+	 * @see RubyTL.impl.RubyTLPackageImpl#getExpression()
+	 * @generated
+	 */
+	int EXPRESSION = 12;
+
+	/**
+	 * The meta object id for the '{@link RubyTL.impl.ExpVariableImpl <em>Exp Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RubyTL.impl.ExpVariableImpl
+	 * @see RubyTL.impl.RubyTLPackageImpl#getExpVariable()
+	 * @generated
+	 */
+	int EXP_VARIABLE = 13;
+
+	/**
+	 * The meta object id for the '{@link RubyTL.impl.ExpGetImpl <em>Exp Get</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RubyTL.impl.ExpGetImpl
+	 * @see RubyTL.impl.RubyTLPackageImpl#getExpGet()
+	 * @generated
+	 */
+	int EXP_GET = 14;
+
+	/**
+	 * The meta object id for the '{@link RubyTL.impl.FilterImpl <em>Filter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RubyTL.impl.FilterImpl
+	 * @see RubyTL.impl.RubyTLPackageImpl#getFilter()
+	 * @generated
+	 */
+	int FILTER = 15;
+
+	/**
+	 * The meta object id for the '{@link RubyTL.impl.DecoratorImpl <em>Decorator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RubyTL.impl.DecoratorImpl
+	 * @see RubyTL.impl.RubyTLPackageImpl#getDecorator()
+	 * @generated
+	 */
+	int DECORATOR = 16;
+
+	/**
+	 * The meta object id for the '{@link RubyTL.impl.NormalRuleImpl <em>Normal Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RubyTL.impl.NormalRuleImpl
+	 * @see RubyTL.impl.RubyTLPackageImpl#getNormalRule()
+	 * @generated
+	 */
+	int NORMAL_RULE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_RULE__NAME = RULE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>From</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_RULE__FROM = RULE__FROM;
+
+	/**
+	 * The feature id for the '<em><b>To</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_RULE__TO = RULE__TO;
+
+	/**
+	 * The feature id for the '<em><b>Mapping</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_RULE__MAPPING = RULE__MAPPING;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_RULE__FILTER = RULE__FILTER;
+
+	/**
+	 * The number of structural features of the '<em>Normal Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_RULE_FEATURE_COUNT = RULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -483,7 +617,7 @@ public interface RubyTLPackage extends EPackage {
 	int COPY_RULE__NAME = RULE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' containment reference list.
+	 * The feature id for the '<em><b>From</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -528,16 +662,6 @@ public interface RubyTLPackage extends EPackage {
 	int COPY_RULE_FEATURE_COUNT = RULE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link RubyTL.impl.MappingImpl <em>Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RubyTL.impl.MappingImpl
-	 * @see RubyTL.impl.RubyTLPackageImpl#getMapping()
-	 * @generated
-	 */
-	int MAPPING = 8;
-
-	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -563,16 +687,6 @@ public interface RubyTLPackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPING_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link RubyTL.impl.BindingImpl <em>Binding</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RubyTL.impl.BindingImpl
-	 * @see RubyTL.impl.RubyTLPackageImpl#getBinding()
-	 * @generated
-	 */
-	int BINDING = 9;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' containment reference.
@@ -620,16 +734,6 @@ public interface RubyTLPackage extends EPackage {
 	int BINDING_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link RubyTL.impl.ExpressionImpl <em>Expression</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RubyTL.impl.ExpressionImpl
-	 * @see RubyTL.impl.RubyTLPackageImpl#getExpression()
-	 * @generated
-	 */
-	int EXPRESSION = 11;
-
-	/**
 	 * The feature id for the '<em><b>Exp Get</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -646,16 +750,6 @@ public interface RubyTLPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXPRESSION_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link RubyTL.impl.ExpVariableImpl <em>Exp Variable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RubyTL.impl.ExpVariableImpl
-	 * @see RubyTL.impl.RubyTLPackageImpl#getExpVariable()
-	 * @generated
-	 */
-	int EXP_VARIABLE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Exp Get</b></em>' container reference.
@@ -683,16 +777,6 @@ public interface RubyTLPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXP_VARIABLE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link RubyTL.impl.ExpGetImpl <em>Exp Get</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RubyTL.impl.ExpGetImpl
-	 * @see RubyTL.impl.RubyTLPackageImpl#getExpGet()
-	 * @generated
-	 */
-	int EXP_GET = 13;
 
 	/**
 	 * The feature id for the '<em><b>Exp Get</b></em>' container reference.
@@ -731,16 +815,6 @@ public interface RubyTLPackage extends EPackage {
 	int EXP_GET_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link RubyTL.impl.FilterImpl <em>Filter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RubyTL.impl.FilterImpl
-	 * @see RubyTL.impl.RubyTLPackageImpl#getFilter()
-	 * @generated
-	 */
-	int FILTER = 14;
-
-	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -766,16 +840,6 @@ public interface RubyTLPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILTER_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link RubyTL.impl.DecoratorImpl <em>Decorator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RubyTL.impl.DecoratorImpl
-	 * @see RubyTL.impl.RubyTLPackageImpl#getDecorator()
-	 * @generated
-	 */
-	int DECORATOR = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -919,10 +983,10 @@ public interface RubyTLPackage extends EPackage {
 	EAttribute getRule_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link RubyTL.Rule#getFrom <em>From</em>}'.
+	 * Returns the meta object for the containment reference '{@link RubyTL.Rule#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>From</em>'.
+	 * @return the meta object for the containment reference '<em>From</em>'.
 	 * @see RubyTL.Rule#getFrom()
 	 * @see #getRule()
 	 * @generated
@@ -1368,6 +1432,16 @@ public interface RubyTLPackage extends EPackage {
 	EReference getDecorator_Transformation();
 
 	/**
+	 * Returns the meta object for class '{@link RubyTL.NormalRule <em>Normal Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Normal Rule</em>'.
+	 * @see RubyTL.NormalRule
+	 * @generated
+	 */
+	EClass getNormalRule();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1468,7 +1542,7 @@ public interface RubyTLPackage extends EPackage {
 		EAttribute RULE__NAME = eINSTANCE.getRule_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>From</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>From</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1828,6 +1902,16 @@ public interface RubyTLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DECORATOR__TRANSFORMATION = eINSTANCE.getDecorator_Transformation();
+
+		/**
+		 * The meta object literal for the '{@link RubyTL.impl.NormalRuleImpl <em>Normal Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RubyTL.impl.NormalRuleImpl
+		 * @see RubyTL.impl.RubyTLPackageImpl#getNormalRule()
+		 * @generated
+		 */
+		EClass NORMAL_RULE = eINSTANCE.getNormalRule();
 
 	}
 

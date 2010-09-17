@@ -19,6 +19,7 @@ import RubyTL.FromElement;
 import RubyTL.Mapping;
 import RubyTL.Metamodel;
 import RubyTL.NamedElement;
+import RubyTL.NormalRule;
 import RubyTL.RubyTLFactory;
 import RubyTL.RubyTLPackage;
 import RubyTL.Rule;
@@ -152,6 +153,13 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 	 * @generated
 	 */
 	private EClass decoratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass normalRuleEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -690,6 +698,15 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getNormalRule() {
+		return normalRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RubyTLFactory getRubyTLFactory() {
 		return (RubyTLFactory)getEFactoryInstance();
 	}
@@ -744,6 +761,8 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__URI);
 
 		topRuleEClass = createEClass(TOP_RULE);
+
+		normalRuleEClass = createEClass(NORMAL_RULE);
 
 		copyRuleEClass = createEClass(COPY_RULE);
 
@@ -813,6 +832,7 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 		fromElementEClass.getESuperTypes().add(this.getVariable());
 		toElementEClass.getESuperTypes().add(this.getVariable());
 		topRuleEClass.getESuperTypes().add(this.getRule());
+		normalRuleEClass.getESuperTypes().add(this.getRule());
 		copyRuleEClass.getESuperTypes().add(this.getRule());
 		expVariableEClass.getESuperTypes().add(this.getExpression());
 		expGetEClass.getESuperTypes().add(this.getExpression());
@@ -829,8 +849,8 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 
 		initEClass(ruleEClass, Rule.class, "Rule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRule_Name(), ecorePackage.getEString(), "name", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRule_From(), this.getFromElement(), this.getFromElement_Rule(), "from", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRule_To(), this.getToElement(), this.getToElement_Rule(), "to", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRule_From(), this.getFromElement(), this.getFromElement_Rule(), "from", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRule_To(), this.getToElement(), this.getToElement_Rule(), "to", null, 1, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRule_Mapping(), this.getMapping(), this.getMapping_Rule(), "mapping", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRule_Filter(), this.getFilter(), this.getFilter_Rule(), "filter", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -849,6 +869,8 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 		initEAttribute(getNamedElement_Uri(), ecorePackage.getEString(), "uri", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(topRuleEClass, TopRule.class, "TopRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(normalRuleEClass, NormalRule.class, "NormalRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(copyRuleEClass, CopyRule.class, "CopyRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

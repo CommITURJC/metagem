@@ -133,6 +133,13 @@ public class RubyTLSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RubyTLPackage.NORMAL_RULE: {
+				NormalRule normalRule = (NormalRule)theEObject;
+				T result = caseNormalRule(normalRule);
+				if (result == null) result = caseRule(normalRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RubyTLPackage.COPY_RULE: {
 				CopyRule copyRule = (CopyRule)theEObject;
 				T result = caseCopyRule(copyRule);
@@ -431,6 +438,21 @@ public class RubyTLSwitch<T> {
 	 * @generated
 	 */
 	public T caseDecorator(Decorator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Normal Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Normal Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNormalRule(NormalRule object) {
 		return null;
 	}
 
