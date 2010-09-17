@@ -41,6 +41,14 @@ public enum TypeAtribute implements Enumerator {
 	 * @ordered
 	 */
 	CONCATENATION(2, "concatenation", "concatenation"), /**
+	 * The '<em><b>Unique</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNIQUE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNIQUE(3, "unique", "unique"), /**
 	 * The '<em><b>Various</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,7 +56,7 @@ public enum TypeAtribute implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VARIOUS(3, "various", "various"); //$NON-NLS-1$ //$NON-NLS-2$
+	VARIOUS(4, "various", "various"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Copy</b></em>' literal value.
@@ -81,6 +89,21 @@ public enum TypeAtribute implements Enumerator {
 	public static final int CONCATENATION_VALUE = 2;
 
 	/**
+	 * The '<em><b>Unique</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Unique</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #UNIQUE
+	 * @model name="unique"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNIQUE_VALUE = 3;
+
+	/**
 	 * The '<em><b>Various</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -93,7 +116,7 @@ public enum TypeAtribute implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int VARIOUS_VALUE = 3;
+	public static final int VARIOUS_VALUE = 4;
 
 	/**
 	 * An array of all the '<em><b>Type Atribute</b></em>' enumerators.
@@ -102,7 +125,7 @@ public enum TypeAtribute implements Enumerator {
 	 * @generated
 	 */
 	private static final TypeAtribute[] VALUES_ARRAY = new TypeAtribute[] {
-			COPY, CONCATENATION, VARIOUS, };
+			COPY, CONCATENATION, UNIQUE, VARIOUS, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Type Atribute</b></em>' enumerators.
@@ -157,6 +180,8 @@ public enum TypeAtribute implements Enumerator {
 			return COPY;
 		case CONCATENATION_VALUE:
 			return CONCATENATION;
+		case UNIQUE_VALUE:
+			return UNIQUE;
 		case VARIOUS_VALUE:
 			return VARIOUS;
 		}

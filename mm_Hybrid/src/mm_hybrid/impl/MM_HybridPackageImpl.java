@@ -1279,6 +1279,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		initEEnum(typeAtributeEEnum, TypeAtribute.class, "TypeAtribute"); //$NON-NLS-1$
 		addEEnumLiteral(typeAtributeEEnum, TypeAtribute.COPY);
 		addEEnumLiteral(typeAtributeEEnum, TypeAtribute.CONCATENATION);
+		addEEnumLiteral(typeAtributeEEnum, TypeAtribute.UNIQUE);
 		addEEnumLiteral(typeAtributeEEnum, TypeAtribute.VARIOUS);
 
 		initEEnum(typeElemEEnum, TypeElem.class, "TypeElem"); //$NON-NLS-1$

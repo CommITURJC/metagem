@@ -10,6 +10,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeAtribute">
       <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeAtribute/copy"/>
       <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeAtribute/concatenation"/>
+      <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeAtribute/unique"/>
       <genEnumLiterals ecoreEnumLiteral="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeAtribute/various"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="/mm_Hybrid/model/MM_Hybrid.ecore#//TypeElem">

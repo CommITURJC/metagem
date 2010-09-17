@@ -5,7 +5,8 @@ package mm_hybrid;
 enum TypeAtribute {
   copy = 1;
   concatenation = 2;
-  various = 3;
+  ~unique = 3;
+  various = 4;
 }
 
 enum TypeElem {
