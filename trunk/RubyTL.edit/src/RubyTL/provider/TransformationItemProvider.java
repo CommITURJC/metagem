@@ -202,6 +202,11 @@ public class TransformationItemProvider extends ItemProviderAdapter implements
 		newChildDescriptors.add
 			(createChildParameter
 				(RubyTLPackage.Literals.TRANSFORMATION__RULES,
+				 RubyTLFactory.eINSTANCE.createNormalRule()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RubyTLPackage.Literals.TRANSFORMATION__RULES,
 				 RubyTLFactory.eINSTANCE.createCopyRule()));
 
 		newChildDescriptors.add

@@ -376,6 +376,29 @@ public class RubyTLItemProviderAdapterFactory extends RubyTLAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link RubyTL.NormalRule} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NormalRuleItemProvider normalRuleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link RubyTL.NormalRule}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNormalRuleAdapter() {
+		if (normalRuleItemProvider == null) {
+			normalRuleItemProvider = new NormalRuleItemProvider(this);
+		}
+
+		return normalRuleItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -481,6 +504,7 @@ public class RubyTLItemProviderAdapterFactory extends RubyTLAdapterFactory
 		if (toElementItemProvider != null) toElementItemProvider.dispose();
 		if (namedElementItemProvider != null) namedElementItemProvider.dispose();
 		if (topRuleItemProvider != null) topRuleItemProvider.dispose();
+		if (normalRuleItemProvider != null) normalRuleItemProvider.dispose();
 		if (copyRuleItemProvider != null) copyRuleItemProvider.dispose();
 		if (mappingItemProvider != null) mappingItemProvider.dispose();
 		if (bindingItemProvider != null) bindingItemProvider.dispose();
