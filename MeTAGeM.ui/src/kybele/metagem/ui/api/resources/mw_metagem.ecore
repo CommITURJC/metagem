@@ -73,7 +73,8 @@
     <eClassifiers xsi:type="ecore:EEnum" name="MyAttributeType">
       <eLiterals name="copy" value="1"/>
       <eLiterals name="concatenation" value="2"/>
-      <eLiterals name="varius" value="3"/>
+      <eLiterals name="unique" value="3"/>
+      <eLiterals name="varius" value="4"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="MyTypeElem">
       <eLiterals name="MyEclassifier" value="1"/>
