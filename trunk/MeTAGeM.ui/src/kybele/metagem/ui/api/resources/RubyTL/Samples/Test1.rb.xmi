@@ -23,4 +23,18 @@
     </mapping>
     <filter xmi:id="_LVelh8GZEd-Pz9A9ooRRAg" expression="hola"/>
   </rules>
+  <rules xsi:type="rubytl:NormalRule">
+    <from name="in" classname="table" metamodel="_LVelgcGZEd-Pz9A9ooRRAg"/>
+    <to name="out" classname="table" metamodel="_LVelgsGZEd-Pz9A9ooRRAg"/>
+    <mapping>
+      <bindings property="">
+        <target xsi:type="rubytl:ExpGet" property="name">
+          <source xsi:type="rubytl:ExpVariable" variable="//@rules.1/@from"/>
+        </target>
+        <source xsi:type="rubytl:ExpGet" property="name">
+          <source xsi:type="rubytl:ExpVariable" variable="//@rules.1/@to.0"/>
+        </source>
+      </bindings>
+    </mapping>
+  </rules>
 </rubytl:Transformation>

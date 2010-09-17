@@ -49,6 +49,13 @@
     </label>
     <mapping mapString="TopRule"/>
   </nodes>
+  <nodes name="NormalRule" icon="dummy">
+    <label label="NormalRule">
+      <labelSuite label=" : "/>
+      <labelSuite methodCall="name"/>
+    </label>
+    <mapping mapString="NormalRule"/>
+  </nodes>
   <nodes name="CopyRule" icon="dummy">
     <label label="CopyRule">
       <labelSuite label=" : "/>
