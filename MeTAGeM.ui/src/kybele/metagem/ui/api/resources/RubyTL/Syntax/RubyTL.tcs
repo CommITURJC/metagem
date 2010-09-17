@@ -80,6 +80,22 @@ syntax RubyTL {
 			"end"
 		;
 	
+	template NormalRule 
+		:	"rule" name{as = stringSymbol} "do" <newline>
+			"\t""from" from{separator=","} <newline>
+			"\t""to" to{separator=","} 
+			(isDefined(filter)? <newline> 
+				"\t" "filter do |" from{refersTo=name,separator=","} "|" <newline>
+				"\t\t" filter <newline>
+				"\t" "end" <newline>)
+			(isDefined(mapping)? <newline> 
+				"\t" "mapping do |" from{refersTo=name,separator=","} (isDefined(to)?",") 
+				to{refersTo=name,separator=","} "|" <newline>
+				mapping <newline>
+				"\t" "end" <newline>)
+			"end"
+		;
+	
 	template Filter
 		:	expression
 		;
