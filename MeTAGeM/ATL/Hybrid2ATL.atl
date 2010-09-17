@@ -67,16 +67,17 @@ rule createRule2MatchedRule{
 }
 
 -- Create LazyRule
-rule createRule2LazyRule{
+rule createRule2LazyRule{ 
 	from 
 		mm_hybrid_rule : MM_Hybrid!Rule 
-		(mm_hybrid_rule.isMain=false and mm_hybrid_rule.getSizeIP()>0)
+		(mm_hybrid_rule.isMain=false and not(mm_hybrid_rule.typeAttribute = #"unique") and mm_hybrid_rule.getSizeIP()>0)
 	to
 		atl : ATL!LazyMatchedRule (
 			name <- mm_hybrid_rule.name_rule.debug('Name LazyRule'),
 			isAbstract <- mm_hybrid_rule.isAbstract,
 			isRefining <- false,
 			isNoDefault <- false,
+			isUnique <- false,
 			inPattern <- inPattern,
 			outPattern <- outPattern,
 			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + mm_hybrid_rule.name_rule}
@@ -88,6 +89,33 @@ rule createRule2LazyRule{
 			elements <- mm_hybrid_rule.out.asSequence()	
 		)
 }
+
+
+-- Create UniqueLazyRule
+rule createRule2UniqueLazyRule{
+	from 
+		mm_hybrid_rule : MM_Hybrid!Rule 
+		(mm_hybrid_rule.isMain=false and mm_hybrid_rule.typeAttribute = #"unique" and mm_hybrid_rule.getSizeIP()>0)
+	to
+		atl : ATL!LazyMatchedRule (
+			name <- mm_hybrid_rule.name_rule.debug('Name LazyRule'),
+			isAbstract <- mm_hybrid_rule.isAbstract,
+			isRefining <- false,
+			isNoDefault <- false,
+			isUnique <- true,
+			inPattern <- inPattern,
+			outPattern <- outPattern,
+			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + mm_hybrid_rule.name_rule}
+		),
+		inPattern : ATL!InPattern (
+			elements <- mm_hybrid_rule."in".asSequence()
+		),
+		outPattern : ATL!OutPattern(
+			elements <- mm_hybrid_rule.out.asSequence()	
+		)
+}
+
+
 
 -- Create CalledRule [0..1] - [0..N] 
 rule createRule2CalledRule{
