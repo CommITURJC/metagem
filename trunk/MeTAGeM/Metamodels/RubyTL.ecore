@@ -20,9 +20,9 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
           unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="from" ordered="false"
-          upperBound="-1" eType="#/0/FromElement" containment="true" eOpposite="#/0/FromElement/rule"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="to" ordered="false" upperBound="-1"
-          eType="#/0/ToElement" containment="true" eOpposite="#/0/ToElement/rule"/>
+          lowerBound="1" eType="#/0/FromElement" containment="true" eOpposite="#/0/FromElement/rule"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" ordered="false" lowerBound="1"
+          upperBound="-1" eType="#/0/ToElement" containment="true" eOpposite="#/0/ToElement/rule"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" ordered="false"
           eType="#/0/Mapping" containment="true" eOpposite="#/0/Mapping/rule"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="filter" ordered="false"
@@ -51,6 +51,7 @@
           unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TopRule" eSuperTypes="#/0/Rule"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NormalRule" eSuperTypes="#/0/Rule"/>
     <eClassifiers xsi:type="ecore:EClass" name="CopyRule" eSuperTypes="#/0/Rule"/>
     <eClassifiers xsi:type="ecore:EClass" name="Mapping">
       <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
