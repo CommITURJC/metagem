@@ -35,22 +35,57 @@ rule outMM{
 		)
 }
 
--- Generation rules 1..1
-rule createRule2RuleSingle{
+-- Generation TopRule 1..N
+rule createRule2TopRule{
 	from 
-		mm_hybrid_rule : MM_Hybrid!Rule --(mm_hybrid_rule.getSizeIP()>0 and mm_hybrid_rule.getSizeIP()<2 and mm_hybrid_rule.getSizeOP()<2)
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()<2 and mm_hybrid_rule.isMain=true)
 	to
 		rubytl : RubyTL!TopRule (
-			name <- mm_hybrid_rule.name_rule.debug('Name Rule'),
-			"from" <- mm_hybrid_rule."in".asSequence(), -- fromElement, 
-			"to" <- mm_hybrid_rule.out.asSequence(), -- toElement,
+			name <- mm_hybrid_rule.name_rule.debug('Name TopRule'),
+			"from" <- mm_hybrid_rule."in".asSequence().first(),  
+			"to" <- mm_hybrid_rule.out.asSequence(), 
 			mapping <- amapping
 		),
 		amapping : RubyTL!Mapping (
-			bindings <- mm_hybrid_rule.out.asSequence().first().included
+			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
 		)
 }
 
+
+-- Generation CopyRule 1..N
+rule createRule2CopyRule{
+	from 
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()<2 and mm_hybrid_rule.isMain=false and not(mm_hybrid_rule.typeAttribute = #"unique"))
+	to
+		rubytl : RubyTL!CopyRule (
+			name <- mm_hybrid_rule.name_rule.debug('Name CopyRule'),
+			"from" <- mm_hybrid_rule."in".asSequence().first(),  
+			"to" <- mm_hybrid_rule.out.asSequence(), 
+			mapping <- amapping
+		),
+		amapping : RubyTL!Mapping (
+			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
+		)
+}
+
+
+-- Generation NormalRule 1..N
+rule createRule2NormalRule{
+	from 
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()<2 and mm_hybrid_rule.isMain=false and mm_hybrid_rule.typeAttribute = #"unique")
+	to
+		rubytl : RubyTL!NormalRule (
+			name <- mm_hybrid_rule.name_rule.debug('Name NormalRule'),
+			"from" <- mm_hybrid_rule."in".asSequence().first(),  
+			"to" <- mm_hybrid_rule.out.asSequence(), 
+			mapping <- amapping
+		),
+		amapping : RubyTL!Mapping (
+			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
+		)
+}
+
+-- Generation FromElements
 rule source2from{
 	from 
 		inPattern : MM_Hybrid!SourceElementRule (inPattern.refImmediateComposite().oclIsTypeOf(MM_Hybrid!Rule))
@@ -65,6 +100,8 @@ rule source2from{
 		)
 }
 
+
+-- Generation ToElements
 rule target2to{
 	from 
 		outPattern : MM_Hybrid!TargetElementRule (outPattern.refImmediateComposite().oclIsTypeOf(MM_Hybrid!Rule))
