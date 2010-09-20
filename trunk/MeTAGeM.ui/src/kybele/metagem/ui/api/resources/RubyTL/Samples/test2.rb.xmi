@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rubytl="http://org.eclipse.kybele.metagem.rubytl">
+  <rubytl:Transformation name="ModuleRubyTL">
+    <sourceMetamodels name="InMetamodel" uri="http://in"/>
+    <targetMetamodels name="OutMetamodel"/>
+    <rules xsi:type="rubytl:TopRule" name="r1">
+      <from name="class_name" classname="class" metamodel="/0/@sourceMetamodels.0"/>
+      <to name="table_name" classname="table" metamodel="/0/@targetMetamodels.0"/>
+      <mapping>
+        <bindings>
+          <target xsi:type="rubytl:ExpGet" property="name">
+            <source xsi:type="rubytl:ExpVariable" variable="/0/@rules.0/@to.0"/>
+          </target>
+          <source xsi:type="rubytl:ExpGet" property="name">
+            <source xsi:type="rubytl:ExpVariable" variable="/0/@rules.0/@from"/>
+          </source>
+        </bindings>
+      </mapping>
+      <filter expression="class_name.name=Main"/>
+    </rules>
+    <decorators name="OP1" body="Cuerpo del decorator - Return Type: Boolean" context="/1"/>
+  </rubytl:Transformation>
+  <rubytl:FromElement name="class_name" classname="class" metamodel="/0/@sourceMetamodels.0"/>
+</xmi:XMI>
