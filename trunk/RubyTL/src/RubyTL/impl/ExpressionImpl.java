@@ -34,6 +34,16 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public abstract class ExpressionImpl extends EObjectImpl implements Expression {
 	/**
+	 * The cached value of the '{@link #getExpGet() <em>Exp Get</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpGet()
+	 * @generated
+	 * @ordered
+	 */
+	protected ExpGet expGet;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -58,8 +68,15 @@ public abstract class ExpressionImpl extends EObjectImpl implements Expression {
 	 * @generated
 	 */
 	public ExpGet getExpGet() {
-		if (eContainerFeatureID != RubyTLPackage.EXPRESSION__EXP_GET) return null;
-		return (ExpGet)eContainer();
+		if (expGet != null && expGet.eIsProxy()) {
+			InternalEObject oldExpGet = (InternalEObject)expGet;
+			expGet = (ExpGet)eResolveProxy(oldExpGet);
+			if (expGet != oldExpGet) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RubyTLPackage.EXPRESSION__EXP_GET, oldExpGet, expGet));
+			}
+		}
+		return expGet;
 	}
 
 	/**
@@ -67,9 +84,8 @@ public abstract class ExpressionImpl extends EObjectImpl implements Expression {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetExpGet(ExpGet newExpGet, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newExpGet, RubyTLPackage.EXPRESSION__EXP_GET, msgs);
-		return msgs;
+	public ExpGet basicGetExpGet() {
+		return expGet;
 	}
 
 	/**
@@ -78,63 +94,10 @@ public abstract class ExpressionImpl extends EObjectImpl implements Expression {
 	 * @generated
 	 */
 	public void setExpGet(ExpGet newExpGet) {
-		if (newExpGet != eInternalContainer() || (eContainerFeatureID != RubyTLPackage.EXPRESSION__EXP_GET && newExpGet != null)) {
-			if (EcoreUtil.isAncestor(this, newExpGet))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newExpGet != null)
-				msgs = ((InternalEObject)newExpGet).eInverseAdd(this, RubyTLPackage.EXP_GET__SOURCE, ExpGet.class, msgs);
-			msgs = basicSetExpGet(newExpGet, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.EXPRESSION__EXP_GET, newExpGet, newExpGet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case RubyTLPackage.EXPRESSION__EXP_GET:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetExpGet((ExpGet)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case RubyTLPackage.EXPRESSION__EXP_GET:
-				return basicSetExpGet(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
-			case RubyTLPackage.EXPRESSION__EXP_GET:
-				return eInternalContainer().eInverseRemove(this, RubyTLPackage.EXP_GET__SOURCE, ExpGet.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
+		ExpGet oldExpGet = expGet;
+		expGet = newExpGet;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.EXPRESSION__EXP_GET, oldExpGet, expGet));
 	}
 
 	/**
@@ -146,7 +109,8 @@ public abstract class ExpressionImpl extends EObjectImpl implements Expression {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case RubyTLPackage.EXPRESSION__EXP_GET:
-				return getExpGet();
+				if (resolve) return getExpGet();
+				return basicGetExpGet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -190,7 +154,7 @@ public abstract class ExpressionImpl extends EObjectImpl implements Expression {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case RubyTLPackage.EXPRESSION__EXP_GET:
-				return getExpGet() != null;
+				return expGet != null;
 		}
 		return super.eIsSet(featureID);
 	}

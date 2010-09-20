@@ -734,7 +734,7 @@ public interface RubyTLPackage extends EPackage {
 	int BINDING_FEATURE_COUNT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Exp Get</b></em>' container reference.
+	 * The feature id for the '<em><b>Exp Get</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -752,7 +752,7 @@ public interface RubyTLPackage extends EPackage {
 	int EXPRESSION_FEATURE_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Exp Get</b></em>' container reference.
+	 * The feature id for the '<em><b>Exp Get</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -779,7 +779,7 @@ public interface RubyTLPackage extends EPackage {
 	int EXP_VARIABLE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Exp Get</b></em>' container reference.
+	 * The feature id for the '<em><b>Exp Get</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1282,10 +1282,10 @@ public interface RubyTLPackage extends EPackage {
 	EClass getExpression();
 
 	/**
-	 * Returns the meta object for the container reference '{@link RubyTL.Expression#getExpGet <em>Exp Get</em>}'.
+	 * Returns the meta object for the reference '{@link RubyTL.Expression#getExpGet <em>Exp Get</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Exp Get</em>'.
+	 * @return the meta object for the reference '<em>Exp Get</em>'.
 	 * @see RubyTL.Expression#getExpGet()
 	 * @see #getExpression()
 	 * @generated
@@ -1784,7 +1784,7 @@ public interface RubyTLPackage extends EPackage {
 		EClass EXPRESSION = eINSTANCE.getExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Exp Get</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Exp Get</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
