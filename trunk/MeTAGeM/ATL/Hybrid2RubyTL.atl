@@ -92,12 +92,12 @@ rule source2from{
 	to
 		fromElement : RubyTL!FromElement (
 			name <-  inPattern.name_element.toLower(),
-			classname <- inPattern.name_element.debug('Name Class From'),
-			metamodel <- ametamodelin 
-		),
-		ametamodelin : RubyTL!Metamodel (
-			name <- inPattern.metamodel.name_mm	
-		)
+			classname <- inPattern.name_element,
+			metamodel <- thisModule.resolveTemp(inPattern.metamodel,'inMM_rubytl') --ametamodelin 
+		)--,
+--		ametamodelin : RubyTL!Metamodel (
+--			name <- inPattern.metamodel.name_mm	
+--		)
 }
 
 
@@ -108,12 +108,12 @@ rule target2to{
 	to
 		toElement : RubyTL!ToElement (
 			name <-  outPattern.name_element.toLower(),
-			classname <- outPattern.name_element.debug('Name Class To'),
-			metamodel <- ametamodelout 
-		),
-		ametamodelout : RubyTL!Metamodel (
-			name <- outPattern.metamodel.name_mm	
-		)
+			classname <- outPattern.name_element,
+			metamodel <- thisModule.resolveTemp(outPattern.metamodel,'outMM_rubytl') --ametamodelout 
+		)--,
+--		ametamodelout : RubyTL!Metamodel (
+--			name <- outPattern.metamodel.name_mm	
+--		)
 }
 
 
@@ -150,7 +150,6 @@ rule Bindings {
 		avariabletrg : RubyTL!ToElement (
 			name <- elemInc.refImmediateComposite().name_element.toLower() 
 		)
-
 }
 
 
@@ -162,7 +161,7 @@ rule createOperation2Decorator {
 		rubytl : RubyTL!Decorator (
 			name <- oper.name_operation,
 			body <- oper.body + ' - Return Type: ' + oper.returnType.datatype.toString(),
-			"context" <- acontext --oper."context" --oper."context".metamodel.type_mm + '::' + oper."context".name_element 
+			"context" <- acontext  
 		),
 		acontext : RubyTL!FromElement (
 			classname <-  oper."context".name_element,
