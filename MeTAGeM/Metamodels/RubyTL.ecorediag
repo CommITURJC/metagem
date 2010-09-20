@@ -118,7 +118,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_Ngb_6MSPEd--hcmwcdP3-A" fontHeight="10" fillColor="13761016" lineColor="0"/>
     <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/NamedElement"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ngb_6cSPEd--hcmwcdP3-A" x="-90" y="5"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ngb_6cSPEd--hcmwcdP3-A" x="-90" y="20"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_Ngb_98SPEd--hcmwcdP3-A" type="1001">
     <children xmi:type="notation:Node" xmi:id="_Ngb_-sSPEd--hcmwcdP3-A" type="4001"/>
