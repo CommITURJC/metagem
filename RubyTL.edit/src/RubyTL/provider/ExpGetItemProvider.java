@@ -179,11 +179,6 @@ public class ExpGetItemProvider extends ExpressionItemProvider implements
 			(createChildParameter
 				(RubyTLPackage.Literals.EXP_GET__SOURCE,
 				 RubyTLFactory.eINSTANCE.createExpVariable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RubyTLPackage.Literals.EXP_GET__SOURCE,
-				 RubyTLFactory.eINSTANCE.createExpGet()));
 	}
 
 }
