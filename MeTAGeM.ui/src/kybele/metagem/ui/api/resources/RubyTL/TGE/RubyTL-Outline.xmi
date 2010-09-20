@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<otl:Outline xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:otl="http://www.eclipse.org/gmt/tcs/2007/Outline">
+<Outline xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://www.eclipse.org/gmt/tcs/2007/Outline">
   <nodes name="Transformation" icon="dummy">
     <label label="Transformation">
       <labelSuite label=" : "/>
@@ -17,7 +17,7 @@
   <nodes name="Rule" icon="dummy">
     <label label="Rule">
       <labelSuite label=" : "/>
-      <labelSuite methodCall="name"/>
+      <labelSuite label="" methodCall="name"/>
     </label>
     <mapping mapString="Rule"/>
   </nodes>
@@ -31,7 +31,7 @@
   <nodes name="ToElement" icon="dummy">
     <label label="ToElement">
       <labelSuite label=" : "/>
-      <labelSuite methodCall="name"/>
+      <labelSuite methodCall="classname"/>
     </label>
     <mapping mapString="ToElement"/>
   </nodes>
@@ -87,11 +87,17 @@
     <mapping mapString="ExpVariable"/>
   </nodes>
   <nodes name="ExpGet" icon="dummy">
-    <label label="ExpGet"/>
+    <label label="ExpGet">
+      <labelSuite label=":"/>
+      <labelSuite methodCall="property"/>
+    </label>
     <mapping mapString="ExpGet"/>
   </nodes>
   <nodes name="Filter" icon="dummy">
-    <label label="Filter"/>
+    <label label="Filter">
+      <labelSuite label=":"/>
+      <labelSuite methodCall="expression"/>
+    </label>
     <mapping mapString="Filter"/>
   </nodes>
   <nodes name="Decorator" icon="dummy">
@@ -101,4 +107,4 @@
     </label>
     <mapping mapString="Decorator"/>
   </nodes>
-</otl:Outline>
+</Outline>

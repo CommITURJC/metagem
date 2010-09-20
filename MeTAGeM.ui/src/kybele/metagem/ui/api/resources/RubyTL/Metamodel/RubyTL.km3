@@ -66,7 +66,6 @@ package RubyTL {
 	}
 
 	abstract class Expression {
-		reference expGet: ExpGet oppositeOf source;
 	}
 
 	class ExpVariable extends Expression {
@@ -74,7 +73,7 @@ package RubyTL {
 	}
 
 	class ExpGet extends Expression {
-		reference source[0-1] container : Expression oppositeOf expGet;
+		reference source[0-1] container : ExpVariable;
 		attribute property[0-1] : String;
 	}
 

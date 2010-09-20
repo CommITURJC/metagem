@@ -33,7 +33,7 @@ syntax RubyTL {
 -- This is the main section to work on.
 
 	template Transformation main context
-		:	"transformation " name{as = stringSymbol}   <newline> 
+		:	"transformation" name{as = stringSymbol}   <newline> 
 			"input" sourceMetamodels <newline> 
 			"output" targetMetamodels  
 			(isDefined(decorators)?<newline><newline>)
@@ -42,99 +42,97 @@ syntax RubyTL {
 			rules {separator=<newline><newline>}
 		;
 		
-	template Metamodel
-		:	name{as = stringSymbol} " => " uri{as = stringSymbol}
+	template Metamodel addToContext
+		:	name{as = stringSymbol}(isDefined(uri)?" => "uri{as = stringSymbol})
 		;
 
 	template Rule abstract;
 	
-	template CopyRule 
+	template CopyRule context 
 		:	"copy_rule" name{as = stringSymbol} "do" <newline>
 			"\t""from" from{separator=","} <newline>
 			"\t""to" to{separator=","} 
 			(isDefined(filter)? <newline> 
-				"\t" "filter do | " from{refersTo=name,separator=", "} " |" <newline>
-				"\t\t" filter <newline>
+				"\t" "filter" "do |" from {refersTo=name,separator=",", autoCreate=ifmissing} "|" <newline>
+				"\t""\t" filter <newline>
 				"\t" "end" <newline>)
 			(isDefined(mapping)? <newline> 
-				"\t" "mapping do | " from{refersTo=name,separator=", "} (isDefined(to)?", ") 
-				to{refersTo=name,separator=", "} " |" <newline>
+				"\t" "mapping" "do |" from{refersTo=name,separator=",", autoCreate=ifmissing} (isDefined(to)?",") 
+				to{refersTo=name,separator=",", autoCreate=ifmissing} "|" <newline>
 				mapping <newline>
 				"\t" "end" <newline>)
 			"end"
 		;
 		
-	template TopRule 
+	template TopRule context
 		:	"top_rule" name{as = stringSymbol} "do" <newline>
 			"\t""from" from{separator=","} <newline>
 			"\t""to" to{separator=","} 
 			(isDefined(filter)? <newline> 
-				"\t" "filter do |" from{refersTo=name,separator=","} "|" <newline>
-				"\t\t" filter <newline>
+				"\t" "filter" "do |" from {refersTo=name,separator=",", autoCreate=ifmissing} "|" <newline>
+				"\t""\t" filter <newline>
 				"\t" "end" <newline>)
 			(isDefined(mapping)? <newline> 
-				"\t" "mapping do |" from{refersTo=name,separator=","} (isDefined(to)?",") 
-				to{refersTo=name,separator=","} "|" <newline>
+				"\t" "mapping" "do |" from{refersTo=name,separator=",", autoCreate=ifmissing} (isDefined(to)?",") 
+				to{refersTo=name,separator=",", autoCreate=ifmissing} "|" <newline>
 				mapping <newline>
 				"\t" "end" <newline>)
 			"end"
 		;
-	
-	template NormalRule 
+		
+	template NormalRule context
 		:	"rule" name{as = stringSymbol} "do" <newline>
 			"\t""from" from{separator=","} <newline>
 			"\t""to" to{separator=","} 
 			(isDefined(filter)? <newline> 
-				"\t" "filter do |" from{refersTo=name,separator=","} "|" <newline>
-				"\t\t" filter <newline>
+				"\t" "filter" "do |" from {refersTo=name,separator=",", autoCreate=ifmissing} "|" <newline>
+				"\t""\t" filter <newline>
 				"\t" "end" <newline>)
 			(isDefined(mapping)? <newline> 
-				"\t" "mapping do |" from{refersTo=name,separator=","} (isDefined(to)?",") 
-				to{refersTo=name,separator=","} "|" <newline>
+				"\t" "mapping" "do |" from{refersTo=name,separator=",", autoCreate=ifmissing} (isDefined(to)?",") 
+				to{refersTo=name,separator=",", autoCreate=ifmissing} "|" <newline>
 				mapping <newline>
 				"\t" "end" <newline>)
 			"end"
 		;
-	
-	template Filter
+		
+	template Filter  addToContext
 		:	expression
 		;
-		
-	template Mapping
-		:	"\t\t" bindings {separator=<newline>"\t\t"}
+	template Mapping  context
+		:	"\t""\t" bindings {separator=<newline>"\t""\t"}
 		;
 	
-	template Binding
+	template Binding context
 		: target " = " source 
 		;
-		
+	
 	template Expression abstract;
 	
-	template ExpVariable
-		: variable {refersTo = name}
+	template ExpVariable addToContext
+		: variable {refersTo = name, autoCreate=ifmissing}
 		;
 	
-	template ExpGet
-		: 
-		source(isDefined(source)?(property=""?:".")) (property=""?:property)
+	template ExpGet addToContext
+		:  source (isDefined(source)?(property=""?:".")) property
 		;
-	
-	template Variable
+		
+	template Variable abstract
 		: name
 		;
-	
-	template FromElement 
+		
+	template FromElement addToContext
+		: metamodel{refersTo=name}"::"classname
+		;
+		
+	template ToElement  addToContext
 		:	metamodel{refersTo=name}"::"classname
 		;
 		
-	template ToElement 
-		:	metamodel{refersTo=name}"::"classname
-		;
-		
-	template Decorator
-		:	"decorator " context "do" <newline>
+	template Decorator  addToContext
+		:	"decorator" context "do" <newline>
 			"\t" "def " name <newline>
-			"\t\t" body <newline>
+			"\t""\t" body <newline>
 			"\t" "end" <newline>
 			"end"
 		;
@@ -165,7 +163,7 @@ syntax RubyTL {
 		coloncolon	= "::"	: leftNone, rightNone;
 
 		-- operator symbols
-		point		= "."	: leftNone;
+		point		= "."	: leftNone, rightNone;
 		rarrow		= "->"	: leftNone;
 		minus		= "-"	: leftSpace, rightSpace;
 		star		= "*"	: leftSpace, rightSpace;
