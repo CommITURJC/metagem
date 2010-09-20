@@ -27,28 +27,26 @@ import org.eclipse.emf.ecore.EObject;
 public interface Expression extends EObject {
 
 	/**
-	 * Returns the value of the '<em><b>Exp Get</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link RubyTL.ExpGet#getSource <em>Source</em>}'.
+	 * Returns the value of the '<em><b>Exp Get</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Exp Get</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Exp Get</em>' container reference.
+	 * @return the value of the '<em>Exp Get</em>' reference.
 	 * @see #setExpGet(ExpGet)
 	 * @see RubyTL.RubyTLPackage#getExpression_ExpGet()
-	 * @see RubyTL.ExpGet#getSource
-	 * @model opposite="source" required="true" transient="false"
+	 * @model required="true"
 	 * @generated
 	 */
 	ExpGet getExpGet();
 
 	/**
-	 * Sets the value of the '{@link RubyTL.Expression#getExpGet <em>Exp Get</em>}' container reference.
+	 * Sets the value of the '{@link RubyTL.Expression#getExpGet <em>Exp Get</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Exp Get</em>' container reference.
+	 * @param value the new value of the '<em>Exp Get</em>' reference.
 	 * @see #getExpGet()
 	 * @generated
 	 */

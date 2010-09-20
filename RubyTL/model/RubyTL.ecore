@@ -75,7 +75,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="expGet" lowerBound="1"
-          eType="#/0/ExpGet" eOpposite="#/0/ExpGet/source"/>
+          eType="#/0/ExpGet"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExpVariable" eSuperTypes="#/0/Expression">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variable" ordered="false"
@@ -83,7 +83,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExpGet" eSuperTypes="#/0/Expression">
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false"
-          eType="#/0/Expression" containment="true" eOpposite="#/0/Expression/expGet"/>
+          eType="#/0/ExpVariable" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" ordered="false"
           unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
