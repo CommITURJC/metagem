@@ -608,20 +608,6 @@
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Nm_6wMSPEd--hcmwcdP3-A" id="(0.259542,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Nm_6wcSPEd--hcmwcdP3-A" id="(0.4,0.0)"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_Ngu6zMSPEd--hcmwcdP3-A" type="3002" source="_NgcAQ8SPEd--hcmwcdP3-A" target="_NgcAW8SPEd--hcmwcdP3-A">
-    <children xmi:type="notation:Node" xmi:id="_Ngu60MSPEd--hcmwcdP3-A" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_Ngu60cSPEd--hcmwcdP3-A" x="1" y="-25"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_Ngu60sSPEd--hcmwcdP3-A" type="4012">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_Ngu608SPEd--hcmwcdP3-A" x="1" y="19"/>
-    </children>
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_Ngu6zcSPEd--hcmwcdP3-A" lineColor="0"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_Ngu6zsSPEd--hcmwcdP3-A" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/Expression/expGet"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ngu6z8SPEd--hcmwcdP3-A" points="[3, 0, -55, -63]$[58, 0, 0, -63]$[58, 63, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_GQ-yosSTEd--hcmwcdP3-A" id="(0.97,0.425)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_GQ-yo8STEd--hcmwcdP3-A" id="(0.65648854,0.0)"/>
-  </edges>
   <edges xmi:type="notation:Edge" xmi:id="_Ngu61MSPEd--hcmwcdP3-A" type="3002" source="_NgcAT8SPEd--hcmwcdP3-A" target="_NgcANcSPEd--hcmwcdP3-A">
     <children xmi:type="notation:Node" xmi:id="_Ngu62MSPEd--hcmwcdP3-A" type="4011">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_Ngu62cSPEd--hcmwcdP3-A" x="14" y="-13"/>
@@ -644,9 +630,9 @@
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Nm2w0sSPEd--hcmwcdP3-A" id="(0.33,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Nm2w08SPEd--hcmwcdP3-A" id="(0.75,1.0)"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_Ngu64MSPEd--hcmwcdP3-A" type="3002" source="_NgcAW8SPEd--hcmwcdP3-A" target="_NgcAQ8SPEd--hcmwcdP3-A">
+  <edges xmi:type="notation:Edge" xmi:id="_Ngu64MSPEd--hcmwcdP3-A" type="3002" source="_NgcAW8SPEd--hcmwcdP3-A" target="_NgcAT8SPEd--hcmwcdP3-A">
     <children xmi:type="notation:Node" xmi:id="_Ngu65MSPEd--hcmwcdP3-A" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_Ngu65cSPEd--hcmwcdP3-A" x="-6" y="-11"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Ngu65cSPEd--hcmwcdP3-A" x="-16" y="-11"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_Ngu65sSPEd--hcmwcdP3-A" type="4012">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_Ngu658SPEd--hcmwcdP3-A" x="-13" y="12"/>
@@ -654,9 +640,9 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_Ngu64cSPEd--hcmwcdP3-A" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_Ngu64sSPEd--hcmwcdP3-A" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="RubyTL.ecore#/0/ExpGet/source"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ngu648SPEd--hcmwcdP3-A" points="[0, 0, 58, 63]$[0, -63, 58, 0]$[-55, -63, 3, 0]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ngu648SPEd--hcmwcdP3-A" points="[-85, 22, 63, 0]$[-85, 22, 63, 0]$[-140, 22, 8, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Nm_6xsSPEd--hcmwcdP3-A" id="(0.65648854,0.0)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Nm_6x8SPEd--hcmwcdP3-A" id="(0.97,0.425)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Nm_6x8SPEd--hcmwcdP3-A" id="(0.92,0.575)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_Ngu66MSPEd--hcmwcdP3-A" type="3003" source="_NgcAW8SPEd--hcmwcdP3-A" target="_NgcAQ8SPEd--hcmwcdP3-A">
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_Ngu66cSPEd--hcmwcdP3-A" routing="Tree" lineColor="0"/>
