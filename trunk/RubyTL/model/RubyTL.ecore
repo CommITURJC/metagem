@@ -73,10 +73,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
           unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="expGet" lowerBound="1"
-          eType="#/0/ExpGet"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="ExpVariable" eSuperTypes="#/0/Expression">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variable" ordered="false"
           eType="#/0/Variable"/>

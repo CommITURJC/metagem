@@ -734,31 +734,13 @@ public interface RubyTLPackage extends EPackage {
 	int BINDING_FEATURE_COUNT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Exp Get</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPRESSION__EXP_GET = 0;
-
-	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_FEATURE_COUNT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Exp Get</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXP_VARIABLE__EXP_GET = EXPRESSION__EXP_GET;
+	int EXPRESSION_FEATURE_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -777,15 +759,6 @@ public interface RubyTLPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXP_VARIABLE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Exp Get</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXP_GET__EXP_GET = EXPRESSION__EXP_GET;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' containment reference.
@@ -1282,17 +1255,6 @@ public interface RubyTLPackage extends EPackage {
 	EClass getExpression();
 
 	/**
-	 * Returns the meta object for the reference '{@link RubyTL.Expression#getExpGet <em>Exp Get</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Exp Get</em>'.
-	 * @see RubyTL.Expression#getExpGet()
-	 * @see #getExpression()
-	 * @generated
-	 */
-	EReference getExpression_ExpGet();
-
-	/**
 	 * Returns the meta object for class '{@link RubyTL.ExpVariable <em>Exp Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1782,14 +1744,6 @@ public interface RubyTLPackage extends EPackage {
 		 * @generated
 		 */
 		EClass EXPRESSION = eINSTANCE.getExpression();
-
-		/**
-		 * The meta object literal for the '<em><b>Exp Get</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXPRESSION__EXP_GET = eINSTANCE.getExpression_ExpGet();
 
 		/**
 		 * The meta object literal for the '{@link RubyTL.impl.ExpVariableImpl <em>Exp Variable</em>}' class.
