@@ -51,9 +51,7 @@
     <genClasses image="false" ecoreClass="RubyTL.ecore#/0/Variable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RubyTL.ecore#/0/Variable/name"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="RubyTL.ecore#/0/Expression">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Expression/expGet"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="RubyTL.ecore#/0/Expression"/>
     <genClasses ecoreClass="RubyTL.ecore#/0/ExpVariable">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/ExpVariable/variable"/>
     </genClasses>
