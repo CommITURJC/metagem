@@ -67,7 +67,6 @@ public class DecoratorItemProvider
 			addNamePropertyDescriptor(object);
 			addBodyPropertyDescriptor(object);
 			addContextPropertyDescriptor(object);
-			addCommentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -139,28 +138,6 @@ public class DecoratorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Comment feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCommentPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Decorator_comment_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Decorator_comment_feature", "_UI_Decorator_type"),
-				 RubyTLPackage.Literals.DECORATOR__COMMENT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns Decorator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -199,7 +176,6 @@ public class DecoratorItemProvider
 		switch (notification.getFeatureID(Decorator.class)) {
 			case RubyTLPackage.DECORATOR__NAME:
 			case RubyTLPackage.DECORATOR__BODY:
-			case RubyTLPackage.DECORATOR__COMMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
