@@ -1,0 +1,105 @@
+package RubyTL {
+
+	class Transformation {
+		attribute name[0-1] : String;
+		reference sourceMetamodels[*] ordered container : Metamodel;
+		reference targetMetamodels[*] ordered container : Metamodel;
+		reference rules[*] ordered container : Rule;
+		reference decorators[*] ordered container : Decorator oppositeOf transformation;
+	}
+
+	class Metamodel extends NamedElement {
+		
+	}
+
+	abstract class Rule {
+		attribute name[0-1] : String;
+		attribute comment[0-1] : String;
+		reference from container : FromElement oppositeOf rule;
+		reference to[1-*] container : ToElement oppositeOf rule;
+		reference mapping[0-1] container : Mapping oppositeOf rule;
+		reference filter[0-1] container : Filter oppositeOf rule;
+	}
+
+	class FromElement extends Variable {
+		attribute classname[0-1] : String;
+		reference metamodel[0-1] : Metamodel;
+		reference rule: Rule oppositeOf from;
+	}
+
+	class ToElement extends Variable {
+		attribute classname[0-1] : String;
+		reference metamodel[0-1] : Metamodel;
+		reference rule: Rule oppositeOf to;
+	}
+
+	class NamedElement {
+		attribute name[0-1] : String;
+		attribute uri[0-1] : String;
+	}
+
+	class TopRule extends Rule {
+		
+	}
+	
+	class NormalRule extends Rule {
+		
+	}
+
+	class CopyRule extends Rule {
+		
+	}
+
+	class Mapping {
+		reference bindings[*] ordered container : Binding oppositeOf mapping;
+		reference rule: Rule oppositeOf mapping;
+	}
+
+	class Binding {
+		reference target[0-1] container : Expression;
+		attribute property[0-1] : String;
+		reference source[0-1] container : Expression;
+		reference mapping: Mapping oppositeOf bindings;
+	}
+
+	abstract class Variable {
+		attribute name[0-1] : String;
+	}
+
+	abstract class Expression {
+		reference expGet: ExpGet oppositeOf source;
+	}
+
+	class ExpVariable extends Expression {
+		reference variable[0-1] : Variable;
+	}
+
+	class ExpGet extends Expression {
+		reference source[0-1] container : Expression oppositeOf expGet;
+		attribute property[0-1] : String;
+	}
+
+	class Filter {
+		attribute expression : String;
+		reference rule: Rule oppositeOf filter;
+	}
+
+	class Decorator {
+		attribute name : String;
+		attribute comment[0-1] : String;
+		attribute body[0-1] : String;
+		reference context[0-1] : FromElement;
+		reference transformation : Transformation oppositeOf decorators;
+	}
+}
+
+package PrimitiveTypes {
+
+	datatype Boolean;
+
+	datatype Double;
+
+	datatype Integer;
+
+	datatype String;
+}
