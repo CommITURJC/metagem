@@ -47,6 +47,7 @@
          point="org.eclipse.debug.ui.launchShortcuts">
       <shortcut
             class="kybele.metagem.ui.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchShortcut"
+            icon="icons/metagem_2_hybrid_24.png"
             id="MeTAGeM_UI.shortcut4"
             label="MeTAGeM -&gt; Hybrid"
             modes="run, debug">
