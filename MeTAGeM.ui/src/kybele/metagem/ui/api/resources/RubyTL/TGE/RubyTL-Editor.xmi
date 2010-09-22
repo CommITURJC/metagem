@@ -21,17 +21,17 @@
     <element element="input"/>
     <element element="output"/>
     <element element=" => "/>
+    <element element="--"/>
     <element element="copy_rule"/>
     <element element="do"/>
     <element element="&#x9;"/>
     <element element="from"/>
     <element element="to"/>
-    <element element="filter"/>
-    <element element="do |"/>
     <element element="end"/>
-    <element element="mapping"/>
     <element element="top_rule"/>
     <element element="rule"/>
+    <element element="mapping"/>
+    <element element="do |"/>
     <element element=" = "/>
     <element element="decorator"/>
     <element element="def "/>
