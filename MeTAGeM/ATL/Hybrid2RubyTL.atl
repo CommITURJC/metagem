@@ -52,6 +52,28 @@ rule createRule2TopRule{
 }
 
 
+-- Generation TopRule N..N
+--rule createRule2TopRuleMulti{
+--	from 
+--		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()>1 and mm_hybrid_rule.isMain=true)
+--	to
+--		rubytl : RubyTL!TopRule (
+--			name <- mm_hybrid_rule.name_rule.debug('Name TopRuleMulti'),
+--			"from" <- mm_hybrid_rule."in".asSequence().first(),  
+--			"to" <- mm_hybrid_rule.out.asSequence(),
+--			filter <- afilter,
+--			mapping <- amapping
+--		),
+--		afilter : RubyTL!Filter(
+--			expression <- mm_hybrid_rule."in".asSequence()->collect(i | i.metamodel.name_mm + '::' + i.name_element).toString()
+--		),
+--		amapping : RubyTL!Mapping (
+--			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
+--		)
+--}
+
+
+
 -- Generation CopyRule 1..N
 rule createRule2CopyRule{
 	from 
@@ -140,7 +162,7 @@ rule Bindings {
 			name <- elemInc.getReferredVariableSrc()
 		),
 		atargetvalue : RubyTL!ExpGet(
-			--property of source
+			--property of target
 			property <- elemInc.left.targetElement.asSequence().first().name_element,
 			source <- asourcename2
 		),
@@ -153,7 +175,7 @@ rule Bindings {
 }
 
 
---Decorator
+--Decorator (Operations)
 rule createOperation2Decorator {
 	from
 		oper : MM_Hybrid!Operation 
