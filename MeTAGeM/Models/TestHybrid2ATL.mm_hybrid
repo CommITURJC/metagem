@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="ModuleTest">
-  <rule name_rule="MR11" isMain="true">
+  <rule name_rule="MR11" isMain="true" comment="">
     <in name_element="SrcMR1" isRefered="//@rule.0/@out.0/@included.0/@right" metamodel="//@inMM.0"/>
     <out name_element="TrgMR1" metamodel="//@outMM.0">
       <included>
@@ -11,7 +11,7 @@
       </included>
     </out>
   </rule>
-  <rule name_rule="MR1N" isMain="true">
+  <rule name_rule="MR1N" isMain="true" comment="Rule 1..N">
     <in name_element="SrcMR2" isRefered="//@rule.1/@out.1/@included.0/@right //@rule.1/@out.0/@included.0/@right" metamodel="//@inMM.0"/>
     <out name_element="TrgMR2" metamodel="//@outMM.0">
       <included>
@@ -32,7 +32,7 @@
       </included>
     </out>
   </rule>
-  <rule name_rule="MRNN" isMain="true">
+  <rule name_rule="MRNN" isMain="true" comment="Rule N..N">
     <in name_element="SrcMR3" isRefered="//@rule.2/@out.0/@included.0/@right" metamodel="//@inMM.0"/>
     <in name_element="SrcMR4" isRefered="//@rule.2/@out.2/@included.0/@right" metamodel="//@inMM.0"/>
     <out name_element="TrgMR4" metamodel="//@outMM.0">
@@ -62,7 +62,7 @@
       </included>
     </out>
   </rule>
-  <rule name_rule="LR11" rightPattern="//@rule.1/@out.1/@included.0/@right //@rule.2/@out.0/@included.0/@right">
+  <rule name_rule="LR11" rightPattern="//@rule.1/@out.1/@included.0/@right //@rule.2/@out.0/@included.0/@right" comment="Rule 1..1">
     <in name_element="SrcLR1" isRefered="//@rule.3/@out.0/@included.0/@right" metamodel="//@inMM.0"/>
     <out name_element="TrgLR1" metamodel="//@outMM.0">
       <included>
@@ -75,7 +75,20 @@
       </included>
     </out>
   </rule>
-  <rule name_rule="CR01">
+  <rule name_rule="ULR11" typeAttribute="unique" comment="Rule 1..1">
+    <in name_element="SrcULR1" isRefered="//@rule.4/@out.0/@included.0/@right" metamodel="//@inMM.0"/>
+    <out name_element="TrgULR1" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="RPULR11a" reference="//@rule.4/@in.0">
+          <sourceElement name_element="ElIncSrcULR11a" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="LPULR11a">
+          <targetElement name_element="ElIncTrgULR11a" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="CR01" comment="Rule O..1">
     <out name_element="TrgCR1" metamodel="//@outMM.0">
       <included>
         <right name_pattern="RPCR01a">
@@ -87,8 +100,8 @@
       </included>
     </out>
   </rule>
-  <inMM name_mm="MMNameIN" type_mm="MMTypeIN" elements="//@rule.2/@in.1 //@rule.2/@in.0 //@rule.1/@in.0 //@rule.0/@in.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.0 //@rule.3/@in.0 //@rule.2/@out.2/@included.0/@right/@sourceElement.0 //@rule.3/@out.0/@included.0/@right/@sourceElement.0 //@rule.4/@out.0/@included.0/@right/@sourceElement.0"/>
-  <outMM name_mm="MMNameOUT" type_mm="MMTypeOUT" elements="//@rule.0/@out.0/@included.0/@left/@targetElement //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.1/@out.1/@included.0/@left/@targetElement //@rule.2/@out.0/@included.0/@left/@targetElement //@rule.2/@out.2/@included.0/@left/@targetElement //@rule.3/@out.0 //@rule.0/@out.0 //@rule.1/@out.0 //@rule.2/@out.0 //@rule.2/@out.1 //@rule.3/@out.0/@included.0/@left/@targetElement //@rule.4/@out.0/@included.0/@left/@targetElement //@rule.4/@out.0 //@rule.1/@out.1 //@rule.2/@out.2 //@rule.2/@out.1/@included.0/@left/@targetElement"/>
+  <inMM name_mm="MMNameIN" type_mm="MMTypeIN" elements="//@rule.2/@in.1 //@rule.2/@in.0 //@rule.1/@in.0 //@rule.0/@in.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.0 //@rule.3/@in.0 //@rule.2/@out.2/@included.0/@right/@sourceElement.0 //@rule.3/@out.0/@included.0/@right/@sourceElement.0 //@rule.5/@out.0/@included.0/@right/@sourceElement.0 //@rule.4/@in.0 //@rule.4/@out.0/@included.0/@right/@sourceElement.0"/>
+  <outMM name_mm="MMNameOUT" type_mm="MMTypeOUT" elements="//@rule.0/@out.0/@included.0/@left/@targetElement //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.1/@out.1/@included.0/@left/@targetElement //@rule.2/@out.0/@included.0/@left/@targetElement //@rule.2/@out.2/@included.0/@left/@targetElement //@rule.3/@out.0 //@rule.0/@out.0 //@rule.1/@out.0 //@rule.2/@out.0 //@rule.2/@out.1 //@rule.3/@out.0/@included.0/@left/@targetElement //@rule.5/@out.0/@included.0/@left/@targetElement //@rule.5/@out.0 //@rule.1/@out.1 //@rule.2/@out.2 //@rule.2/@out.1/@included.0/@left/@targetElement //@rule.4/@out.0 //@rule.4/@out.0/@included.0/@left/@targetElement"/>
   <operations name_operation="OP1" body="Esto hace algo" context="//@rule.2/@in.1" rightPattern="//@rule.2/@out.2/@included.0/@right">
     <returnType datatype="String"/>
   </operations>
