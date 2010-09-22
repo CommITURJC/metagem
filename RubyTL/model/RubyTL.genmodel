@@ -69,7 +69,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RubyTL.ecore#/0/Decorator/body"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Decorator/context"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Decorator/transformation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RubyTL.ecore#/0/Decorator/comment"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="PrimitiveTypes" disposableProviderFactory="true" ecorePackage="RubyTL.ecore#/1">
