@@ -56,7 +56,7 @@ rule createRule2MatchedRule{
 			superRule <- mm_hybrid_rule."extends",
 			inPattern <- inPattern, 
 			outPattern <- outPattern,
-			commentsBefore <- Set {'-- Comments -> This is a MatchedRule: ' + mm_hybrid_rule.name_rule}
+			commentsBefore <- Set {'-- Comments -> This is a MatchedRule: ' + mm_hybrid_rule.name_rule + ' -> ' + mm_hybrid_rule.getComment()}
 		),
 		inPattern : ATL!InPattern (
 			elements <- mm_hybrid_rule."in".asSequence()
@@ -80,7 +80,7 @@ rule createRule2LazyRule{
 			isUnique <- false,
 			inPattern <- inPattern,
 			outPattern <- outPattern,
-			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + mm_hybrid_rule.name_rule}
+			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + mm_hybrid_rule.name_rule + ' -> ' + mm_hybrid_rule.getComment()}
 		),
 		inPattern : ATL!InPattern (
 			elements <- mm_hybrid_rule."in".asSequence()
@@ -105,7 +105,7 @@ rule createRule2UniqueLazyRule{
 			isUnique <- true,
 			inPattern <- inPattern,
 			outPattern <- outPattern,
-			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + mm_hybrid_rule.name_rule}
+			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + mm_hybrid_rule.name_rule + ' -> ' + mm_hybrid_rule.getComment()}
 		),
 		inPattern : ATL!InPattern (
 			elements <- mm_hybrid_rule."in".asSequence()
@@ -126,7 +126,7 @@ rule createRule2CalledRule{
 			name <- mm_hybrid_rule.name_rule.debug('Name CalledRule'),
 			outPattern <- outPattern,
 			actionBlock <- anAction,
-			commentsBefore <- Set {'-- Comments -> This is a CalledRule: ' + mm_hybrid_rule.name_rule}
+			commentsBefore <- Set {'-- Comments -> This is a CalledRule: ' + mm_hybrid_rule.name_rule + ' -> ' + mm_hybrid_rule.getComment()}
 		),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
@@ -341,6 +341,16 @@ rule createOperation2Helper_Element {
 --Helper -> Return the number of inputPatterns 
 helper context MM_Hybrid!Rule def : getSizeIP () : Integer = 
 	self."in".size();
+
+
+--Helper -> Return the comment of the rule 
+helper context MM_Hybrid!Rule def : getComment () : String = 
+	if self.comment.oclIsUndefined() then
+		''
+	else
+		self.comment
+	endif
+	;
 
 
 --Helper -> Define the source binding (Element, Rule, Helper or Reference)
