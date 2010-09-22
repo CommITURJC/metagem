@@ -311,10 +311,6 @@
         <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#/0/Decorator/body"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_Nglw2sSPEd--hcmwcdP3-A"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_YeJGsMZAEd-v176TlKtZzw" type="2001">
-        <element xmi:type="ecore:EAttribute" href="RubyTL.ecore#/0/Decorator/comment"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_YeJGscZAEd-v176TlKtZzw"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_Nglw0MSPEd--hcmwcdP3-A"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_Nglw0cSPEd--hcmwcdP3-A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Nglw0sSPEd--hcmwcdP3-A"/>

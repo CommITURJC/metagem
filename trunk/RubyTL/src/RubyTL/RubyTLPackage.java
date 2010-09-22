@@ -887,22 +887,13 @@ public interface RubyTLPackage extends EPackage {
 	int DECORATOR__TRANSFORMATION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DECORATOR__COMMENT = 4;
-
-	/**
 	 * The number of structural features of the '<em>Decorator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECORATOR_FEATURE_COUNT = 5;
+	int DECORATOR_FEATURE_COUNT = 4;
 
 	/**
 	 * Returns the meta object for class '{@link RubyTL.Transformation <em>Transformation</em>}'.
@@ -1450,17 +1441,6 @@ public interface RubyTLPackage extends EPackage {
 	EReference getDecorator_Transformation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link RubyTL.Decorator#getComment <em>Comment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Comment</em>'.
-	 * @see RubyTL.Decorator#getComment()
-	 * @see #getDecorator()
-	 * @generated
-	 */
-	EAttribute getDecorator_Comment();
-
-	/**
 	 * Returns the meta object for class '{@link RubyTL.NormalRule <em>Normal Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1931,14 +1911,6 @@ public interface RubyTLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DECORATOR__TRANSFORMATION = eINSTANCE.getDecorator_Transformation();
-
-		/**
-		 * The meta object literal for the '<em><b>Comment</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DECORATOR__COMMENT = eINSTANCE.getDecorator_Comment();
 
 		/**
 		 * The meta object literal for the '{@link RubyTL.impl.NormalRuleImpl <em>Normal Rule</em>}' class.

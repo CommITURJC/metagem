@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link RubyTL.impl.DecoratorImpl#getBody <em>Body</em>}</li>
  *   <li>{@link RubyTL.impl.DecoratorImpl#getContext <em>Context</em>}</li>
  *   <li>{@link RubyTL.impl.DecoratorImpl#getTransformation <em>Transformation</em>}</li>
- *   <li>{@link RubyTL.impl.DecoratorImpl#getComment <em>Comment</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,26 +87,6 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	 * @ordered
 	 */
 	protected FromElement context;
-
-	/**
-	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComment()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String COMMENT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComment()
-	 * @generated
-	 * @ordered
-	 */
-	protected String comment = COMMENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -254,27 +233,6 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getComment() {
-		return comment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setComment(String newComment) {
-		String oldComment = comment;
-		comment = newComment;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.DECORATOR__COMMENT, oldComment, comment));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -331,8 +289,6 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 				return basicGetContext();
 			case RubyTLPackage.DECORATOR__TRANSFORMATION:
 				return getTransformation();
-			case RubyTLPackage.DECORATOR__COMMENT:
-				return getComment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -356,9 +312,6 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 				return;
 			case RubyTLPackage.DECORATOR__TRANSFORMATION:
 				setTransformation((Transformation)newValue);
-				return;
-			case RubyTLPackage.DECORATOR__COMMENT:
-				setComment((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -384,9 +337,6 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 			case RubyTLPackage.DECORATOR__TRANSFORMATION:
 				setTransformation((Transformation)null);
 				return;
-			case RubyTLPackage.DECORATOR__COMMENT:
-				setComment(COMMENT_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -407,8 +357,6 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 				return context != null;
 			case RubyTLPackage.DECORATOR__TRANSFORMATION:
 				return getTransformation() != null;
-			case RubyTLPackage.DECORATOR__COMMENT:
-				return COMMENT_EDEFAULT == null ? comment != null : !COMMENT_EDEFAULT.equals(comment);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -427,8 +375,6 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 		result.append(name);
 		result.append(", body: ");
 		result.append(body);
-		result.append(", comment: ");
-		result.append(comment);
 		result.append(')');
 		return result.toString();
 	}
