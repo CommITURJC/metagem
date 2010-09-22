@@ -62,6 +62,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addCommentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -80,6 +81,28 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 				 getString("_UI_Rule_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Rule_name_feature", "_UI_Rule_type"),
 				 RubyTLPackage.Literals.RULE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Comment feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCommentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Rule_comment_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Rule_comment_feature", "_UI_Rule_type"),
+				 RubyTLPackage.Literals.RULE__COMMENT,
 				 true,
 				 false,
 				 false,
@@ -149,6 +172,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 
 		switch (notification.getFeatureID(Rule.class)) {
 			case RubyTLPackage.RULE__NAME:
+			case RubyTLPackage.RULE__COMMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case RubyTLPackage.RULE__FROM:
