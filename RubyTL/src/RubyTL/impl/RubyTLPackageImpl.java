@@ -356,6 +356,15 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRule_Comment() {
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFromElement() {
 		return fromElementEClass;
 	}
@@ -689,6 +698,15 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDecorator_Comment() {
+		return (EAttribute)decoratorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNormalRule() {
 		return normalRuleEClass;
 	}
@@ -736,6 +754,7 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 		createEReference(ruleEClass, RULE__TO);
 		createEReference(ruleEClass, RULE__MAPPING);
 		createEReference(ruleEClass, RULE__FILTER);
+		createEAttribute(ruleEClass, RULE__COMMENT);
 
 		fromElementEClass = createEClass(FROM_ELEMENT);
 		createEAttribute(fromElementEClass, FROM_ELEMENT__CLASSNAME);
@@ -788,6 +807,7 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 		createEAttribute(decoratorEClass, DECORATOR__BODY);
 		createEReference(decoratorEClass, DECORATOR__CONTEXT);
 		createEReference(decoratorEClass, DECORATOR__TRANSFORMATION);
+		createEAttribute(decoratorEClass, DECORATOR__COMMENT);
 	}
 
 	/**
@@ -843,6 +863,7 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 		initEReference(getRule_To(), this.getToElement(), this.getToElement_Rule(), "to", null, 1, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRule_Mapping(), this.getMapping(), this.getMapping_Rule(), "mapping", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRule_Filter(), this.getFilter(), this.getFilter_Rule(), "filter", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRule_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fromElementEClass, FromElement.class, "FromElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFromElement_Classname(), ecorePackage.getEString(), "classname", null, 0, 1, FromElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -895,6 +916,7 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 		initEAttribute(getDecorator_Body(), ecorePackage.getEString(), "body", null, 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getDecorator_Context(), this.getFromElement(), null, "context", null, 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getDecorator_Transformation(), this.getTransformation(), this.getTransformation_Decorators(), "transformation", null, 1, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDecorator_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

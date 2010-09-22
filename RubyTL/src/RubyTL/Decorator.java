@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link RubyTL.Decorator#getBody <em>Body</em>}</li>
  *   <li>{@link RubyTL.Decorator#getContext <em>Context</em>}</li>
  *   <li>{@link RubyTL.Decorator#getTransformation <em>Transformation</em>}</li>
+ *   <li>{@link RubyTL.Decorator#getComment <em>Comment</em>}</li>
  * </ul>
  * </p>
  *
@@ -133,5 +134,31 @@ public interface Decorator extends EObject {
 	 * @generated
 	 */
 	void setTransformation(Transformation value);
+
+	/**
+	 * Returns the value of the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Comment</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Comment</em>' attribute.
+	 * @see #setComment(String)
+	 * @see RubyTL.RubyTLPackage#getDecorator_Comment()
+	 * @model
+	 * @generated
+	 */
+	String getComment();
+
+	/**
+	 * Sets the value of the '{@link RubyTL.Decorator#getComment <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Comment</em>' attribute.
+	 * @see #getComment()
+	 * @generated
+	 */
+	void setComment(String value);
 
 } // Decorator

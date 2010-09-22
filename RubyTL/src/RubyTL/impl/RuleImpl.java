@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link RubyTL.impl.RuleImpl#getTo <em>To</em>}</li>
  *   <li>{@link RubyTL.impl.RuleImpl#getMapping <em>Mapping</em>}</li>
  *   <li>{@link RubyTL.impl.RuleImpl#getFilter <em>Filter</em>}</li>
+ *   <li>{@link RubyTL.impl.RuleImpl#getComment <em>Comment</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,6 +104,26 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * @ordered
 	 */
 	protected Filter filter;
+
+	/**
+	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMMENT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected String comment = COMMENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -291,6 +312,27 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComment(String newComment) {
+		String oldComment = comment;
+		comment = newComment;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RubyTLPackage.RULE__COMMENT, oldComment, comment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -352,6 +394,8 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				return getMapping();
 			case RubyTLPackage.RULE__FILTER:
 				return getFilter();
+			case RubyTLPackage.RULE__COMMENT:
+				return getComment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -381,6 +425,9 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 			case RubyTLPackage.RULE__FILTER:
 				setFilter((Filter)newValue);
 				return;
+			case RubyTLPackage.RULE__COMMENT:
+				setComment((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -408,6 +455,9 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 			case RubyTLPackage.RULE__FILTER:
 				setFilter((Filter)null);
 				return;
+			case RubyTLPackage.RULE__COMMENT:
+				setComment(COMMENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -430,6 +480,8 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				return mapping != null;
 			case RubyTLPackage.RULE__FILTER:
 				return filter != null;
+			case RubyTLPackage.RULE__COMMENT:
+				return COMMENT_EDEFAULT == null ? comment != null : !COMMENT_EDEFAULT.equals(comment);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -446,6 +498,8 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", comment: ");
+		result.append(comment);
 		result.append(')');
 		return result.toString();
 	}
