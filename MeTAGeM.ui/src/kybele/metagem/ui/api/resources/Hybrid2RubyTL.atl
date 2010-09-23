@@ -214,9 +214,31 @@ helper context MM_Hybrid!Rule def : getSizeOP () : Integer =
 --Helper -> Return the comment of the rule 
 helper context MM_Hybrid!Rule def : getComment () : String = 
 	if self.comment.oclIsUndefined() then
-		''
-	else
-		self.comment
+		if self.getSizeIP()>1 then
+			'Se realiza el producto cartesiano de todos los elementos de entrada'
+			+ '\n' +
+			'# Se cambia el to MM::Class -> to many(MM::Class).'
+			+ '\n' +
+			'# Se utiliza la propiedad values para imitar un nuevo binding: (trg_aux.values = InMM:SrcX.all_objects.map do |srcx|).'
+			+ '\n' +
+			'# Para cada par de elementos se crea un nuevo elemento de destino: (trgx = OutMM::TrgX.new).'
+		else
+			''
+		endif
+	else 
+		if self.getSizeIP()>1 then
+			self.comment 
+			+ '\n' +
+			'# Se realiza el producto cartesiano de todos los elementos de entrada'
+			+ '\n' +
+			'# Se cambia el to MM::Class -> to many(MM::Class).'
+			+ '\n' +
+			'# Se utiliza la propiedad values para imitar un nuevo binding: (trg_aux.values = InMM:SrcX.all_objects.map do |srcx|).'
+			+ '\n' +
+			'# Para cada par de elementos se crea un nuevo elemento de destino: (trgx = OutMM::TrgX.new).'
+		else
+			self.comment
+		endif
 	endif
 	;
 
