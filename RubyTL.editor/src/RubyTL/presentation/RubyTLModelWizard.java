@@ -393,7 +393,7 @@ public class RubyTLModelWizard extends Wizard implements INewWizard {
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @generated
+		 * @not generated
 		 */
 		public void createControl(Composite parent) {
 			Composite composite = new Composite(parent, SWT.NONE); {
@@ -426,13 +426,18 @@ public class RubyTLModelWizard extends Wizard implements INewWizard {
 				initialObjectField.setLayoutData(data);
 			}
 
+			int transformationIndex=0;
 			for (String objectName : getInitialObjectNames()) {
+				if(objectName.equals("Transformation"))
+					transformationIndex=initialObjectField.getItemCount(); //Obtains transformation index
 				initialObjectField.add(getLabel(objectName));
 			}
 
-			if (initialObjectField.getItemCount() == 1) {
-				initialObjectField.select(0);
-			}
+			initialObjectField.select(transformationIndex); //Select root model (transformation)
+//			if (initialObjectField.getItemCount() == 1) {
+//				initialObjectField.select(0);
+//			}
+			
 			initialObjectField.addModifyListener(validator);
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
