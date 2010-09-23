@@ -49,16 +49,16 @@ syntax RubyTL {
 	template Rule abstract;
 	
 	template CopyRule context 
-		:	(isDefined(comment)?"--"comment <newline>)
+		:	(isDefined(comment)?(comment=""?:"#"comment <newline>))
 			"copy_rule" name{as = stringSymbol} "do" <newline>
 			"\t""from" from{separator=",",autoCreate=never} <newline>
 			"\t""to" to{separator=",",autoCreate=never} 
 			(isDefined(filter)? <newline> 
-				"\t" "filter" "do |" from {refersTo=name,separator=",", autoCreate=never} "|" <newline>
+				"\t" "filter" "do |" from {refersTo=name,separator=",", lookIn='#context'.Variable} "|" <newline>
 				"\t""\t" filter <newline>
 				"\t" "end" <newline>)
 			(isDefined(mapping)? <newline> 
-				"\t" "mapping" "do |" from{refersTo=name,separator=",", autoCreate=never} (isDefined(to)?",") 
+				"\t" "mapping" "do |" from{refersTo=name,separator=",", lookIn='#context'.Variable} (isDefined(to)?",") 
 				to{refersTo=name,separator=",", autoCreate=never} "|" <newline>
 				mapping <newline>
 				"\t" "end" <newline>)
@@ -66,34 +66,34 @@ syntax RubyTL {
 		;
 		
 	template TopRule context
-		:	(isDefined(comment)?"--"comment <newline>)
+		:	(isDefined(comment)?(comment=""?:"#"comment <newline>))
 			"top_rule" name{as = stringSymbol} "do" <newline>
 			"\t""from" from{separator=","} <newline>
 			"\t""to" to{separator=","} 
 			(isDefined(filter)? <newline> 
-				"\t" "filter" "do |" from {refersTo=name,separator=",", autoCreate=never} "|" <newline>
+				"\t" "filter" "do |" from {refersTo=name,separator=",",lookIn='#context'.Variable} "|" <newline>
 				"\t""\t" filter <newline>
 				"\t" "end" <newline>)
 			(isDefined(mapping)? <newline> 
-				"\t" "mapping" "do |" from{refersTo=name,separator=",", autoCreate=never} (isDefined(to)?",") 
-				to{refersTo=name,separator=",", autoCreate=never} "|" <newline>
+				"\t" "mapping" "do |" from{refersTo=name,separator=",",lookIn='#context'.Variable} (isDefined(to)?",") 
+				to{refersTo=name,separator=",",lookIn='#context'.Variable} "|" <newline>
 				mapping <newline>
 				"\t" "end" <newline>)
 			"end"
 		;
 		
 	template NormalRule context
-		:	(isDefined(comment)?"--"comment <newline>)
+		:	(isDefined(comment)?(comment=""?:"#"comment <newline>))
 			"rule" name{as = stringSymbol} "do" <newline>
 			"\t""from" from{separator=","} <newline>
 			"\t""to" to{separator=","} 
 			(isDefined(filter)? <newline> 
-				"\t" "filter" "do |" from {refersTo=name,separator=",", autoCreate=never} "|" <newline>
+				"\t" "filter" "do |" from {refersTo=name,separator=",",lookIn='#context'.Variable} "|" <newline>
 				"\t""\t" filter <newline>
 				"\t" "end" <newline>)
 			(isDefined(mapping)? <newline> 
-				"\t" "mapping" "do |" from{refersTo=name,separator=",", autoCreate=never} (isDefined(to)?",") 
-				to{refersTo=name,separator=",", autoCreate=never} "|" <newline>
+				"\t" "mapping" "do |" from{refersTo=name,separator=",", lookIn='#context'.Variable} (isDefined(to)?",") 
+				to{refersTo=name,separator=",", lookIn='#context'.Variable} "|" <newline>
 				mapping <newline>
 				"\t" "end" <newline>)
 			"end"
@@ -113,21 +113,24 @@ syntax RubyTL {
 	template Expression abstract;
 	
 	template ExpVariable addToContext
-		: variable {refersTo = name}
+		: variable {refersTo = name,lookIn='#context'.Variable}
 		;
 	
 	template ExpGet addToContext
 		:  source (isDefined(source)?(property=""?:".")) property
 		;
 		
-	template Variable abstract
-		: name
-		;
+	template Variable abstract;
 		
 	template FromElement addToContext
-		: metamodel{refersTo=name}"::"classname
+		:
+		metamodel{refersTo=name}"::"classname 
 		;
 		
+	function getName(FromElement):
+		name
+	;
+	
 	template ToElement  addToContext
 		:	metamodel{refersTo=name}"::"classname 
 		;
@@ -195,7 +198,7 @@ syntax RubyTL {
 -- Specifies the lexical entities.
 -- Only needs modification when default lexer is not satisfactory.
 -- Generally modified along with Primitive templates.
-	token COMMENT	: endOfLine(start = "--");
+	token COMMENT	: endOfLine(start = "#");
 	token STRING	: multiLine(start = "\'", end = "\'", esc = "\\");
 
 	lexer = "
