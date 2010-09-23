@@ -23,7 +23,7 @@
       </included>
     </out>
   </rule>
-  <rule name_rule="RuleTest2" typeAttribute="unique" comment="Another Comment">
+  <rule name_rule="RuleTest2" typeAttribute="unique" comment="Another comment...">
     <in name_element="Src2" metamodel="//@inMM.0"/>
     <out name_element="Trg2" metamodel="//@outMM.0">
       <included>
@@ -36,7 +36,7 @@
       </included>
     </out>
   </rule>
-  <rule name_rule="RuleTest3" isMain="true">
+  <rule name_rule="RuleTest3" isMain="true" comment="Multi IN ">
     <in name_element="Src3" isRefered="//@rule.2/@out.0/@included.0/@right" metamodel="//@inMM.0"/>
     <in name_element="Src4" isRefered="//@rule.2/@out.1/@included.0/@right" metamodel="//@inMM.0"/>
     <out name_element="Trg3" metamodel="//@outMM.0">
