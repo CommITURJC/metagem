@@ -129,7 +129,7 @@ rule returns[Object ret2] @init {}
 	;
 
 copyRule returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("CopyRule", true, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
-	:	((('--' temp=identifier {ei.set(ret, "comment", temp);}) {}| () {}) 'copy_rule' temp=stringSymbol {ei.set(ret, "name", temp);} 'do' '	' 'from' temp=fromElement {ei.set(ret, "from", temp);} '	' 'to' ((temp=toElement {ei.set(ret, "to", temp);} (((COMA) temp=toElement {ei.set(ret, "to", temp);}))*)) (('	' 'filter' 'do |' temp=identifier {ei.setRef(ret, "from", "FromElement", "name", temp, null, "never", null, false, null);} PIPE '	' '	' temp=filter {ei.set(ret, "filter", temp);} '	' 'end') {}| () {}) (('	' 'mapping' 'do |' temp=identifier {ei.setRef(ret, "from", "FromElement", "name", temp, null, "never", null, false, null);} ((COMA) {}| () {}) ((temp=identifier {ei.setRef(ret, "to", "ToElement", "name", temp, null, "never", null, false, null);} (((COMA) temp=identifier {ei.setRef(ret, "to", "ToElement", "name", temp, null, "never", null, false, null);}))*)) PIPE temp=mapping {ei.set(ret, "mapping", temp);} '	' 'end') {}| () {}) 'end')
+	:	((((() {ei.set(ret, "comment", "");}| (SHARP temp=identifier {ei.set(ret, "comment", temp);}) {})) {}| () {}) 'copy_rule' temp=stringSymbol {ei.set(ret, "name", temp);} 'do' '	' 'from' temp=fromElement {ei.set(ret, "from", temp);} '	' 'to' ((temp=toElement {ei.set(ret, "to", temp);} (((COMA) temp=toElement {ei.set(ret, "to", temp);}))*)) (('	' 'filter' 'do |' temp=identifier {ei.setRef(ret, "from", "FromElement", "name", temp, "#context.Variable", "never", null, false, null);} PIPE '	' '	' temp=filter {ei.set(ret, "filter", temp);} '	' 'end') {}| () {}) (('	' 'mapping' 'do |' temp=identifier {ei.setRef(ret, "from", "FromElement", "name", temp, "#context.Variable", "never", null, false, null);} ((COMA) {}| () {}) ((temp=identifier {ei.setRef(ret, "to", "ToElement", "name", temp, null, "never", null, false, null);} (((COMA) temp=identifier {ei.setRef(ret, "to", "ToElement", "name", temp, null, "never", null, false, null);}))*)) PIPE temp=mapping {ei.set(ret, "mapping", temp);} '	' 'end') {}| () {}) 'end')
         {
             ei.leaveContext(true);
             if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
@@ -140,7 +140,7 @@ copyRule returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("C
 	;
 
 topRule returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("TopRule", true, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
-	:	((('--' temp=identifier {ei.set(ret, "comment", temp);}) {}| () {}) 'top_rule' temp=stringSymbol {ei.set(ret, "name", temp);} 'do' '	' 'from' temp=fromElement {ei.set(ret, "from", temp);} '	' 'to' ((temp=toElement {ei.set(ret, "to", temp);} (((COMA) temp=toElement {ei.set(ret, "to", temp);}))*)) (('	' 'filter' 'do |' temp=identifier {ei.setRef(ret, "from", "FromElement", "name", temp, null, "never", null, false, null);} PIPE '	' '	' temp=filter {ei.set(ret, "filter", temp);} '	' 'end') {}| () {}) (('	' 'mapping' 'do |' temp=identifier {ei.setRef(ret, "from", "FromElement", "name", temp, null, "never", null, false, null);} ((COMA) {}| () {}) ((temp=identifier {ei.setRef(ret, "to", "ToElement", "name", temp, null, "never", null, false, null);} (((COMA) temp=identifier {ei.setRef(ret, "to", "ToElement", "name", temp, null, "never", null, false, null);}))*)) PIPE temp=mapping {ei.set(ret, "mapping", temp);} '	' 'end') {}| () {}) 'end')
+	:	((((() {ei.set(ret, "comment", "");}| (SHARP temp=identifier {ei.set(ret, "comment", temp);}) {})) {}| () {}) 'top_rule' temp=stringSymbol {ei.set(ret, "name", temp);} 'do' '	' 'from' temp=fromElement {ei.set(ret, "from", temp);} '	' 'to' ((temp=toElement {ei.set(ret, "to", temp);} (((COMA) temp=toElement {ei.set(ret, "to", temp);}))*)) (('	' 'filter' 'do |' temp=identifier {ei.setRef(ret, "from", "FromElement", "name", temp, "#context.Variable", "never", null, false, null);} PIPE '	' '	' temp=filter {ei.set(ret, "filter", temp);} '	' 'end') {}| () {}) (('	' 'mapping' 'do |' temp=identifier {ei.setRef(ret, "from", "FromElement", "name", temp, "#context.Variable", "never", null, false, null);} ((COMA) {}| () {}) ((temp=identifier {ei.setRef(ret, "to", "ToElement", "name", temp, "#context.Variable", "never", null, false, null);} (((COMA) temp=identifier {ei.setRef(ret, "to", "ToElement", "name", temp, "#context.Variable", "never", null, false, null);}))*)) PIPE temp=mapping {ei.set(ret, "mapping", temp);} '	' 'end') {}| () {}) 'end')
         {
             ei.leaveContext(true);
             if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
@@ -151,7 +151,7 @@ topRule returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("To
 	;
 
 normalRule returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("NormalRule", true, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
-	:	((('--' temp=identifier {ei.set(ret, "comment", temp);}) {}| () {}) 'rule' temp=stringSymbol {ei.set(ret, "name", temp);} 'do' '	' 'from' temp=fromElement {ei.set(ret, "from", temp);} '	' 'to' ((temp=toElement {ei.set(ret, "to", temp);} (((COMA) temp=toElement {ei.set(ret, "to", temp);}))*)) (('	' 'filter' 'do |' temp=identifier {ei.setRef(ret, "from", "FromElement", "name", temp, null, "never", null, false, null);} PIPE '	' '	' temp=filter {ei.set(ret, "filter", temp);} '	' 'end') {}| () {}) (('	' 'mapping' 'do |' temp=identifier {ei.setRef(ret, "from", "FromElement", "name", temp, null, "never", null, false, null);} ((COMA) {}| () {}) ((temp=identifier {ei.setRef(ret, "to", "ToElement", "name", temp, null, "never", null, false, null);} (((COMA) temp=identifier {ei.setRef(ret, "to", "ToElement", "name", temp, null, "never", null, false, null);}))*)) PIPE temp=mapping {ei.set(ret, "mapping", temp);} '	' 'end') {}| () {}) 'end')
+	:	((((() {ei.set(ret, "comment", "");}| (SHARP temp=identifier {ei.set(ret, "comment", temp);}) {})) {}| () {}) 'rule' temp=stringSymbol {ei.set(ret, "name", temp);} 'do' '	' 'from' temp=fromElement {ei.set(ret, "from", temp);} '	' 'to' ((temp=toElement {ei.set(ret, "to", temp);} (((COMA) temp=toElement {ei.set(ret, "to", temp);}))*)) (('	' 'filter' 'do |' temp=identifier {ei.setRef(ret, "from", "FromElement", "name", temp, "#context.Variable", "never", null, false, null);} PIPE '	' '	' temp=filter {ei.set(ret, "filter", temp);} '	' 'end') {}| () {}) (('	' 'mapping' 'do |' temp=identifier {ei.setRef(ret, "from", "FromElement", "name", temp, "#context.Variable", "never", null, false, null);} ((COMA) {}| () {}) ((temp=identifier {ei.setRef(ret, "to", "ToElement", "name", temp, "#context.Variable", "never", null, false, null);} (((COMA) temp=identifier {ei.setRef(ret, "to", "ToElement", "name", temp, "#context.Variable", "never", null, false, null);}))*)) PIPE temp=mapping {ei.set(ret, "mapping", temp);} '	' 'end') {}| () {}) 'end')
         {
             ei.leaveContext(true);
             if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
@@ -204,7 +204,7 @@ expression returns[Object ret2] @init {}
 	;
 
 expVariable returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("ExpVariable", false, true) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
-	:	(temp=identifier {ei.setRef(ret, "variable", "Variable", "name", temp, null, "never", null, false, null);})
+	:	(temp=identifier {ei.setRef(ret, "variable", "Variable", "name", temp, "#context.Variable", "never", null, false, null);})
         {
             ei.leaveContext(false);
             if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
@@ -226,7 +226,7 @@ expGet returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("Exp
 	;
 
 variable returns[Object ret2] @init {}
-	:	((ret=fromElement| ret=toElement| ret=variable_abstractContents))
+	:	((ret=fromElement| ret=toElement))
         {
             ei.addToContext(ret, false);
             ret2=ret;
@@ -245,6 +245,14 @@ fromElement returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create
 
 	;
 
+getName[Object ret] @init {}
+	:	(temp=identifier {ei.set(ret, "name", temp);})
+        {
+            
+        }
+
+	;
+
 toElement returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("ToElement", false, true) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
 	:	(temp=identifier {ei.setRef(ret, "metamodel", "Metamodel", "name", temp, null, "never", null, false, null);} COLONCOLON temp=identifier {ei.set(ret, "classname", temp);})
         {
@@ -258,17 +266,6 @@ toElement returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("
 
 decorator returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("Decorator", false, true) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
 	:	('decorator' temp=fromElement {ei.set(ret, "context", temp);} 'do' '	' 'def ' temp=identifier {ei.set(ret, "name", temp);} '	' '	' temp=identifier {ei.set(ret, "body", temp);} '	' 'end' 'end')
-        {
-            ei.leaveContext(false);
-            if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
-	   ei.setCommentsAfter(ret, new Object[] {input, input.LT(-1)});
-            ret2=ret;
-        }
-
-	;
-
-variable_abstractContents returns[Object ret2] @init {Object ret=(backtracking==0) ? ei.create("Variable", false, false) : null;org.antlr.runtime.Token firstToken=input.LT(1);}
-	:	(temp=identifier {ei.set(ret, "name", temp);})
         {
             ei.leaveContext(false);
             if(input.LT(-1) != null) ei.setLocation(ret, firstToken.getLine() + ":" + (firstToken.getCharPositionInLine() + 1) + "-" + ((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndLine() + ":" + (((org.eclipse.gmt.tcs.injector.wrappers.antlr3.ANTLR3LocationToken)input.LT(-1)).getEndColumn() + 1));ei.setCommentsBefore(ret, new Object[] {input, firstToken});
@@ -605,7 +602,7 @@ LARROW @init {}
 	;
 
 COMMENT @init {}
-	:	(('--' (~('\r'| '\n'))*))
+	:	(('#' (~('\r'| '\n'))*))
         {
             
         }
