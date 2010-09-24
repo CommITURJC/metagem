@@ -194,13 +194,27 @@ public class OperationItemProvider extends ItemProviderAdapter implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((Operation) object).getName_operation();
+		String context="";
+		String returnString="";
+		
+		if(((Operation) object).getContext()!=null)
+			context =((Operation) object).getContext().getName_element();
+		
+		if(((Operation) object).getReturnType()!=null){
+			if(((Operation) object).getReturnType().getElement()!=null){
+				returnString=((Operation) object).getReturnType().getElement().getName_element();
+			}else{
+				returnString=((Operation) object).getReturnType().getDatatype().getName();
+			}
+		}
+		
 		return label == null || label.length() == 0 ? getString("_UI_Operation_type") : //$NON-NLS-1$
-				getString("_UI_Operation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+				getString("_UI_Operation_type") + " " + label+" ("+context+") : "+returnString; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -208,7 +222,7 @@ public class OperationItemProvider extends ItemProviderAdapter implements
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
@@ -217,12 +231,13 @@ public class OperationItemProvider extends ItemProviderAdapter implements
 		switch (notification.getFeatureID(Operation.class)) {
 		case MM_HybridPackage.OPERATION__NAME_OPERATION:
 		case MM_HybridPackage.OPERATION__BODY:
+		case MM_HybridPackage.OPERATION__CONTEXT:
 			fireNotifyChanged(new ViewerNotification(notification, notification
 					.getNotifier(), false, true));
 			return;
 		case MM_HybridPackage.OPERATION__RETURN_TYPE:
 			fireNotifyChanged(new ViewerNotification(notification, notification
-					.getNotifier(), true, false));
+					.getNotifier(), true, true));
 			return;
 		}
 		super.notifyChanged(notification);
