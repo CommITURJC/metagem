@@ -12,6 +12,7 @@ import java.util.List;
 import mm_hybrid.MM_HybridFactory;
 import mm_hybrid.MM_HybridPackage;
 import mm_hybrid.SourceElementRule;
+import mm_hybrid.TargetElementRule;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -129,13 +130,17 @@ public class SourceElementRuleItemProvider extends ElementItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((SourceElementRule) object).getName_element();
-		return label == null || label.length() == 0 ? getString("_UI_SourceElementRule_type") : //$NON-NLS-1$
-				getString("_UI_SourceElementRule_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+		String metamodel="NotDefined";
+		if(((SourceElementRule)object).getMetamodel()!=null){
+			metamodel=((SourceElementRule)object).getMetamodel().getName_mm();
+		}
+		return label == null || label.length() == 0 ? "Source" : //$NON-NLS-1$
+				"Source:" + " " + label+"::"+metamodel; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -143,7 +148,7 @@ public class SourceElementRuleItemProvider extends ElementItemProvider
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
@@ -153,6 +158,10 @@ public class SourceElementRuleItemProvider extends ElementItemProvider
 		case MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD:
 			fireNotifyChanged(new ViewerNotification(notification, notification
 					.getNotifier(), true, false));
+			return;
+		case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
+			fireNotifyChanged(new ViewerNotification(notification, notification
+					.getNotifier(), true, true));
 			return;
 		}
 		super.notifyChanged(notification);
