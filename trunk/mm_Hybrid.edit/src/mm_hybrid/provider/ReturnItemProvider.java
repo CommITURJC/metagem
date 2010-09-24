@@ -120,12 +120,15 @@ public class ReturnItemProvider extends ItemProviderAdapter implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
 		Datatype labelValue = ((Return) object).getDatatype();
 		String label = labelValue == null ? null : labelValue.toString();
+		if(((Return)object).getElement()!=null){
+			label=((Return)object).getElement().getName_element();
+		}
 		return label == null || label.length() == 0 ? getString("_UI_Return_type") : //$NON-NLS-1$
 				getString("_UI_Return_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
@@ -135,7 +138,7 @@ public class ReturnItemProvider extends ItemProviderAdapter implements
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
@@ -143,8 +146,9 @@ public class ReturnItemProvider extends ItemProviderAdapter implements
 
 		switch (notification.getFeatureID(Return.class)) {
 		case MM_HybridPackage.RETURN__DATATYPE:
+		case MM_HybridPackage.RETURN__ELEMENT:
 			fireNotifyChanged(new ViewerNotification(notification, notification
-					.getNotifier(), false, true));
+					.getNotifier(), true, true));
 			return;
 		}
 		super.notifyChanged(notification);

@@ -142,13 +142,14 @@ public class OutMetaModelItemProvider extends ItemProviderAdapter implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((OutMetaModel) object).getName_mm();
-		return label == null || label.length() == 0 ? getString("_UI_OutMetaModel_type") : //$NON-NLS-1$
-				getString("_UI_OutMetaModel_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+		return label == null || label.length() == 0 ? "OUT MetaModel"://getString("_UI_OutMetaModel_type") : //$NON-NLS-1$
+				//getString("_UI_OutMetaModel_type") 
+				"OUT MetaModel"+ " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -12,14 +12,13 @@ import java.util.List;
 import mm_hybrid.MM_HybridFactory;
 import mm_hybrid.MM_HybridPackage;
 import mm_hybrid.Rule;
+import mm_hybrid.SourceElementRule;
+import mm_hybrid.TargetElementRule;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -287,7 +286,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 	 * This returns Rule.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public Object getImage(Object object) {
@@ -299,13 +298,40 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((Rule) object).getName_rule();
+		String inElements=new  String("");
+		int count=0;
+		for(Object i:((Rule) object).getIn()){
+			count++;
+			String metamodel="NotDefined";
+			if(((SourceElementRule)i).getMetamodel()!=null){
+				metamodel=((SourceElementRule)i).getMetamodel().getName_mm();
+			}
+			inElements+=((SourceElementRule)i).getName_element()+"::"+metamodel;
+			if(count!=((Rule) object).getIn().size()){
+				inElements+=", ";
+			}
+		}
+		String outElements=new  String("");
+		count=0;
+		for(Object i:((Rule) object).getOut()){
+			count++;
+			String metamodel="NotDefined";
+			if(((TargetElementRule)i).getMetamodel()!=null){
+				metamodel=((TargetElementRule)i).getMetamodel().getName_mm();
+			}
+			outElements+=((TargetElementRule)i).getName_element()+"::"+metamodel;
+			if(count!=((Rule) object).getOut().size()){
+				outElements+=", ";
+			}
+		}
+		
 		return label == null || label.length() == 0 ? getString("_UI_Rule_type") : //$NON-NLS-1$
-				getString("_UI_Rule_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+				getString("_UI_Rule_type") + " " + label+ " ("+inElements+" -> "+outElements+")"; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
