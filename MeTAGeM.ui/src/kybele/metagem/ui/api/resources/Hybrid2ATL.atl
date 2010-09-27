@@ -8,7 +8,7 @@ rule Module {
 	to
 		atl : ATL!Module (
 			isRefining <- false,
-			name <- mm_hybrid.name_module.debug('Modulo'),
+			name <- mm_hybrid.name_module.debug('Module'),
 		    inModels <- mm_hybrid.inMM,
 			outModels <- mm_hybrid.outMM,
 			elements <- mm_hybrid."rule",
@@ -402,6 +402,14 @@ helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : ATL!OclE
 	endif;
 
 
+ 
+helper context MM_Hybrid!Rule def : getFilterExp () : String = 
+	if self."in".asSequence().guard.isEmpty() then
+		''
+	else
+		self."in".asSequence().first().guard.asSequence()->collect(i | i.value).toString()
+	endif
+	;
 
 --helper context MM_Hybrid!ElementIncluded def : getSourceBindingCompRule () : String =
 --	self.right."rule".asSequence().first().name_rule.debug;

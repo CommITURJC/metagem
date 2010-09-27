@@ -7,7 +7,7 @@ rule Module {
 		mm_hybrid : MM_Hybrid!Module
 	to
 		rubytl : RubyTL!Transformation (
-			name <- mm_hybrid.name_module.debug('Modulo'),
+			name <- mm_hybrid.name_module.debug('Module'),
 		    sourceMetamodels <- mm_hybrid.inMM,
 			targetMetamodels <- mm_hybrid.outMM,
 			rules <- mm_hybrid."rule",
@@ -35,31 +35,13 @@ rule outMM{
 		)
 }
 
--- Generation TopRule 1..N
+-- Generation TopRule
 rule createRule2TopRule{
 	from 
-		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()<2 and mm_hybrid_rule.isMain=true)
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()>0 and mm_hybrid_rule.isMain=true)
 	to
 		rubytl : RubyTL!TopRule (
 			name <- mm_hybrid_rule.name_rule.debug('Name TopRule'),
-			"from" <- mm_hybrid_rule."in".asSequence().first(),  
-			"to" <- mm_hybrid_rule.out.asSequence(),
-			comment <- mm_hybrid_rule.getComment(),
-			mapping <- amapping
-		),
-		amapping : RubyTL!Mapping (
-			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
-		)
-}
-
-
--- Generation TopRule N..N
-rule createRule2TopRuleMulti{
-	from 
-		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()>1 and mm_hybrid_rule.isMain=true)
-	to
-		rubytl : RubyTL!TopRule (
-			name <- mm_hybrid_rule.name_rule.debug('Name TopRuleMulti'),
 			"from" <- mm_hybrid_rule."in".asSequence().first(),  
 			"to" <- mm_hybrid_rule.out.asSequence(),
 			comment <- mm_hybrid_rule.getComment(),
@@ -67,7 +49,12 @@ rule createRule2TopRuleMulti{
 			mapping <- amapping
 		),
 		afilter : RubyTL!Filter(
-			expression <- mm_hybrid_rule.getFilter()--mm_hybrid_rule."in".asSequence()->collect(i | i.metamodel.name_mm + '::' + i.name_element).toString()
+			expression <- 
+				if mm_hybrid_rule.getSizeIP()=1 then
+					mm_hybrid_rule.getGuard()
+				else
+					mm_hybrid_rule.getFilterMultiIN()
+				endif
 		),
 		amapping : RubyTL!Mapping (
 			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
@@ -75,18 +62,26 @@ rule createRule2TopRuleMulti{
 }
 
 
-
--- Generation CopyRule 1..N
+-- Generation CopyRule 
 rule createRule2CopyRule{
 	from 
-		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()<2 and mm_hybrid_rule.isMain=false and not(mm_hybrid_rule.typeAttribute = #"unique"))
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()>0 and mm_hybrid_rule.isMain=false and not(mm_hybrid_rule.typeAttribute = #"unique"))
 	to
 		rubytl : RubyTL!CopyRule (
 			name <- mm_hybrid_rule.name_rule.debug('Name CopyRule'),
 			"from" <- mm_hybrid_rule."in".asSequence().first(),  
 			"to" <- mm_hybrid_rule.out.asSequence(),
 			comment <- mm_hybrid_rule.getComment(),
+			filter <- afilter,
 			mapping <- amapping
+		),
+		afilter : RubyTL!Filter(
+			expression <- 
+				if mm_hybrid_rule.getSizeIP()=1 then
+					mm_hybrid_rule.getGuard()
+				else
+					mm_hybrid_rule.getFilterMultiIN()
+				endif
 		),
 		amapping : RubyTL!Mapping (
 			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
@@ -94,22 +89,50 @@ rule createRule2CopyRule{
 }
 
 
--- Generation NormalRule 1..N
+-- Generation NormalRule 
 rule createRule2NormalRule{
 	from 
-		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()<2 and mm_hybrid_rule.isMain=false and mm_hybrid_rule.typeAttribute = #"unique")
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()>0 and mm_hybrid_rule.isMain=false and mm_hybrid_rule.typeAttribute = #"unique")
 	to
 		rubytl : RubyTL!NormalRule (
 			name <- mm_hybrid_rule.name_rule.debug('Name NormalRule'),
 			"from" <- mm_hybrid_rule."in".asSequence().first(),  
 			"to" <- mm_hybrid_rule.out.asSequence(),
 			comment <- mm_hybrid_rule.getComment(),
+			filter <- afilter,
 			mapping <- amapping
+		),
+		afilter : RubyTL!Filter(
+			expression <- 
+				if mm_hybrid_rule.getSizeIP()=1 then
+					mm_hybrid_rule.getGuard()
+				else
+					mm_hybrid_rule.getFilterMultiIN()
+				endif
 		),
 		amapping : RubyTL!Mapping (
 			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
 		)
 }
+
+
+-- Generation ZeroINPUTRule 
+--rule createRule2Rule{
+--	from 
+--		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()=0)
+--	to
+--		rubytl : RubyTL!Rule (
+--			name <- mm_hybrid_rule.name_rule,
+--			"from" <- --mm_hybrid_rule."in".asSequence().first(),  
+--			"to" <- mm_hybrid_rule.out.asSequence(),
+--			comment <- mm_hybrid_rule.getComment(),
+--			mapping <- amapping
+--		),
+--		amapping : RubyTL!Mapping (
+--			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
+--		)
+--}
+
 
 -- Generation FromElements
 rule source2from{
@@ -120,10 +143,7 @@ rule source2from{
 			name <-  inPattern.name_element.toLower(),
 			classname <- inPattern.name_element,
 			metamodel <- thisModule.resolveTemp(inPattern.metamodel,'inMM_rubytl') --ametamodelin 
-		)--,
---		ametamodelin : RubyTL!Metamodel (
---			name <- inPattern.metamodel.name_mm	
---		)
+		)
 }
 
 
@@ -136,10 +156,7 @@ rule target2to{
 			name <-  outPattern.name_element.toLower(),
 			classname <- outPattern.name_element,
 			metamodel <- thisModule.resolveTemp(outPattern.metamodel,'outMM_rubytl') --ametamodelout 
-		)--,
---		ametamodelout : RubyTL!Metamodel (
---			name <- outPattern.metamodel.name_mm	
---		)
+		)
 }
 
 
@@ -243,10 +260,27 @@ helper context MM_Hybrid!Rule def : getComment () : String =
 	;
 
 
---Helper -> Return the filter expression 
-helper context MM_Hybrid!Rule def : getFilter () : String = 
+--Helper -> Return the filter expression (Input = 1) 
+helper context MM_Hybrid!Rule def : getGuard () : String = 
+	if self."in".asSequence().first().guard.isEmpty() then
+		''
+	else
+		self."in".asSequence().first().guard.asSequence()->collect(i | i.value).toString()
+	endif
+	;
 	
-	self."in".asSequence()->collect(i | i.metamodel.name_mm + '::' + i.name_element + '.all_objects.map').toString().substring(11, self."in".asSequence()->collect(i | i.metamodel.name_mm + '::' + i.name_element + '.all_objects.map').toString().size()-1);
+
+
+--Helper -> Return the filter expression (Input > 1)
+helper context MM_Hybrid!Rule def : getFilterMultiIN () : String = 
+	
+	let sizeSequence : Integer = self."in".asSequence()->collect(i | i.metamodel.name_mm + '::' + i.name_element 
+			+ '.all_objects.map').toString().size()  in
+	let sizeInitial : Integer = 11 in
+			
+	'# Inputs -> ' + self."in".asSequence()->collect
+	(i | i.metamodel.name_mm + '::' + i.name_element + '.all_objects.map').toString().substring(
+		sizeInitial, sizeSequence - 1);
 
 
 --Helper -> Define the source binding (Element, Rule, Helper or Reference)
