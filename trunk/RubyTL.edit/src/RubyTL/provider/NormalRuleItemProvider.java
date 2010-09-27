@@ -7,7 +7,10 @@
 package RubyTL.provider;
 
 
+import RubyTL.FromElement;
 import RubyTL.NormalRule;
+import RubyTL.ToElement;
+import RubyTL.TopRule;
 
 import java.util.Collection;
 import java.util.List;
@@ -76,14 +79,38 @@ public class NormalRuleItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((NormalRule)object).getName();
+		String inElement="";
+		String metamodel="NotDefined";
+		if(((NormalRule)object).getFrom()!=null){
+			FromElement from=((NormalRule)object).getFrom(); 
+			if(from.getMetamodel()!=null){
+				metamodel=from.getMetamodel().getName();
+			}
+			inElement=from.getClassname()+"::"+metamodel;
+		}
+		
+		String outElements=new  String("");
+		int count=0;
+		for(Object i:((NormalRule) object).getTo()){
+			count++;
+			metamodel="NotDefined";
+			ToElement to=(ToElement)i;
+			if(to.getMetamodel()!=null){
+				metamodel=to.getMetamodel().getName();
+			}
+			outElements+=to.getClassname()+"::"+metamodel;
+			if(count!=((NormalRule) object).getTo().size()){
+				outElements+=", ";
+			}
+		}
 		return label == null || label.length() == 0 ?
 			getString("_UI_NormalRule_type") :
-			getString("_UI_NormalRule_type") + " " + label;
+			getString("_UI_NormalRule_type") + " " + label + " ("+inElement+" -> "+outElements+")";
 	}
 
 	/**

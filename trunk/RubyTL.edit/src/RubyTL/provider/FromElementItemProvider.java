@@ -120,11 +120,17 @@ public class FromElementItemProvider extends VariableItemProvider implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((FromElement)object).getName();
+		String classname= ((FromElement)object).getClassname();
+		String metamodel="notDefined";
+		if(((FromElement)object).getMetamodel()!=null)
+			metamodel=((FromElement)object).getMetamodel().getName();
+		if(classname!=null && classname.length()>0)
+			label+=" (Class: "+classname+", Metamodel: "+metamodel+")";
 		return label == null || label.length() == 0 ?
 			getString("_UI_FromElement_type") :
 			getString("_UI_FromElement_type") + " " + label;

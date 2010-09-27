@@ -6,6 +6,8 @@
  */
 package RubyTL.provider;
 
+import RubyTL.FromElement;
+import RubyTL.ToElement;
 import RubyTL.TopRule;
 
 import java.util.Collection;
@@ -70,14 +72,38 @@ public class TopRuleItemProvider extends RuleItemProvider implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((TopRule)object).getName();
+		String inElement="";
+		String metamodel="NotDefined";
+		if(((TopRule)object).getFrom()!=null){
+			FromElement from=((TopRule)object).getFrom(); 
+			if(from.getMetamodel()!=null){
+				metamodel=from.getMetamodel().getName();
+			}
+			inElement=from.getClassname()+"::"+metamodel;
+		}
+		
+		String outElements=new  String("");
+		int count=0;
+		for(Object i:((TopRule) object).getTo()){
+			count++;
+			metamodel="NotDefined";
+			ToElement to=(ToElement)i;
+			if(to.getMetamodel()!=null){
+				metamodel=to.getMetamodel().getName();
+			}
+			outElements+=to.getClassname()+"::"+metamodel;
+			if(count!=((TopRule) object).getTo().size()){
+				outElements+=", ";
+			}
+		}
 		return label == null || label.length() == 0 ?
 			getString("_UI_TopRule_type") :
-			getString("_UI_TopRule_type") + " " + label;
+			getString("_UI_TopRule_type") + " " + label + " ("+inElement+" -> "+outElements+")";
 	}
 
 	/**

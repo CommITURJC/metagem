@@ -7,6 +7,8 @@
 package RubyTL.provider;
 
 import RubyTL.Binding;
+import RubyTL.ExpGet;
+import RubyTL.ExpVariable;
 import RubyTL.RubyTLFactory;
 import RubyTL.RubyTLPackage;
 
@@ -135,14 +137,59 @@ public class BindingItemProvider extends ItemProviderAdapter implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Binding)object).getProperty();
+		String label = "";
+		if(((Binding)object).getProperty()!=null)
+			label=((Binding)object).getProperty();
+		
+		String source="";
+		if(((Binding)object).getSource()!=null){
+			if(((Binding)object).getSource().getClass().getName().equals("RubyTL.impl.ExpGetImpl")){
+				ExpGet get=(ExpGet) ((Binding)object).getSource();
+				String sourceGet="";
+				if(get.getSource()!=null){
+					ExpVariable var=get.getSource();
+					if(var.getVariable()!=null){
+						sourceGet=var.getVariable().getName()+".";
+					}
+				}
+				source=sourceGet+get.getProperty();
+			}else{ //ExpVariable
+				ExpVariable var=(ExpVariable) ((Binding)object).getSource();
+				if(var.getVariable()!=null){
+					source=var.getVariable().getName();
+				}
+			}
+		}
+		
+		String target="";
+		if(((Binding)object).getTarget()!=null){
+			if(((Binding)object).getTarget().getClass().getName().equals("RubyTL.impl.ExpGetImpl")){
+				ExpGet get=(ExpGet) ((Binding)object).getTarget();
+				String sourceGet="";
+				if(get.getSource()!=null){
+					ExpVariable var=get.getSource();
+					if(var.getVariable()!=null){
+						sourceGet=var.getVariable().getName()+".";
+					}
+				}
+				target=sourceGet+get.getProperty();
+			}else{ //ExpVariable
+				ExpVariable var=(ExpVariable) ((Binding)object).getTarget();
+				if(var.getVariable()!=null){
+					target=var.getVariable().getName();
+				}
+			}
+		}
+		
+		String label2=" ("+source+"->"+target+")";
+		label+=label2;
 		return label == null || label.length() == 0 ?
 			getString("_UI_Binding_type") :
-			getString("_UI_Binding_type") + " " + label;
+			getString("_UI_Binding_type") + " " +label;
 	}
 
 	/**
@@ -150,7 +197,7 @@ public class BindingItemProvider extends ItemProviderAdapter implements
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
@@ -162,7 +209,7 @@ public class BindingItemProvider extends ItemProviderAdapter implements
 				return;
 			case RubyTLPackage.BINDING__TARGET:
 			case RubyTLPackage.BINDING__SOURCE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, true));
 				return;
 		}
 		super.notifyChanged(notification);

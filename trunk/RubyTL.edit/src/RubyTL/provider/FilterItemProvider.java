@@ -106,14 +106,14 @@ public class FilterItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((Filter)object).getExpression();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Filter_type") :
-			getString("_UI_Filter_type") + " " + label;
+			getString("_UI_Filter_type") + " (" + label+")";
 	}
 
 	/**

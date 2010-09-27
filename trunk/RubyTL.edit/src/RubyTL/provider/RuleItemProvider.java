@@ -164,7 +164,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
@@ -179,7 +179,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 			case RubyTLPackage.RULE__TO:
 			case RubyTLPackage.RULE__MAPPING:
 			case RubyTLPackage.RULE__FILTER:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, true));
 				return;
 		}
 		super.notifyChanged(notification);
