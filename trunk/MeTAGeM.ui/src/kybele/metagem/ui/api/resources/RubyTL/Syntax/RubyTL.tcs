@@ -53,10 +53,10 @@ syntax RubyTL {
 			"copy_rule" name{as = stringSymbol} "do" <newline>
 			"\t""from" from{separator=",",autoCreate=never} <newline>
 			"\t""to" to{separator=",",autoCreate=never} 
-			(isDefined(filter)? <newline> 
+			(isDefined(filter)?(filter=""?: <newline>
 				"\t" "filter" "do |" from {refersTo=name,separator=",", lookIn='#context'.Variable} "|" <newline>
 				"\t""\t" filter <newline>
-				"\t" "end" <newline>)
+				"\t" "end" <newline>))
 			(isDefined(mapping)? <newline> 
 				"\t" "mapping" "do |" from{refersTo=name,separator=",", lookIn='#context'.Variable} (isDefined(to)?",") 
 				to{refersTo=name,separator=",", autoCreate=never} "|" <newline>
@@ -70,10 +70,10 @@ syntax RubyTL {
 			"top_rule" name{as = stringSymbol} "do" <newline>
 			"\t""from" from{separator=","} <newline>
 			"\t""to" to{separator=","} 
-			(isDefined(filter)? <newline> 
+			(isDefined(filter)?(filter=""?: <newline>
 				"\t" "filter" "do |" from {refersTo=name,separator=",",lookIn='#context'.Variable} "|" <newline>
 				"\t""\t" filter <newline>
-				"\t" "end" <newline>)
+				"\t" "end" <newline>))
 			(isDefined(mapping)? <newline> 
 				"\t" "mapping" "do |" from{refersTo=name,separator=",",lookIn='#context'.Variable} (isDefined(to)?",") 
 				to{refersTo=name,separator=",",lookIn='#context'.Variable} "|" <newline>
@@ -87,10 +87,10 @@ syntax RubyTL {
 			"rule" name{as = stringSymbol} "do" <newline>
 			"\t""from" from{separator=","} <newline>
 			"\t""to" to{separator=","} 
-			(isDefined(filter)? <newline> 
+			(isDefined(filter)?(filter=""?: <newline>
 				"\t" "filter" "do |" from {refersTo=name,separator=",",lookIn='#context'.Variable} "|" <newline>
 				"\t""\t" filter <newline>
-				"\t" "end" <newline>)
+				"\t" "end" <newline>))
 			(isDefined(mapping)? <newline> 
 				"\t" "mapping" "do |" from{refersTo=name,separator=",", lookIn='#context'.Variable} (isDefined(to)?",") 
 				to{refersTo=name,separator=",", lookIn='#context'.Variable} "|" <newline>
@@ -124,15 +124,11 @@ syntax RubyTL {
 		
 	template FromElement addToContext
 		:
-		metamodel{refersTo=name}"::"classname 
+		metamodel{refersTo=name}"::"classname
 		;
 		
-	function getName(FromElement):
-		name
-	;
-	
 	template ToElement  addToContext
-		:	metamodel{refersTo=name}"::"classname 
+		:	metamodel{refersTo=name}"::"classname
 		;
 		
 	template Decorator  addToContext
