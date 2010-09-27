@@ -332,7 +332,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 		}
 		
 		return label == null || label.length() == 0 ? getString("_UI_Rule_type") : //$NON-NLS-1$
-				getString("_UI_Rule_type") + " " + label+ " ("+inElements+" -> "+outElements+")"; //$NON-NLS-1$ //$NON-NLS-2$
+				getString("_UI_Rule_type") + " " + label + " ("+inElements+" -> "+outElements+")"; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
