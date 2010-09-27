@@ -84,7 +84,8 @@ public class TopRuleItemProvider extends RuleItemProvider implements
 			if(from.getMetamodel()!=null){
 				metamodel=from.getMetamodel().getName();
 			}
-			inElement=from.getClassname()+"::"+metamodel;
+			if(from.getClassname().length()>0)
+				inElement=from.getClassname()+"::"+metamodel;
 		}
 		
 		String outElements=new  String("");
@@ -96,9 +97,11 @@ public class TopRuleItemProvider extends RuleItemProvider implements
 			if(to.getMetamodel()!=null){
 				metamodel=to.getMetamodel().getName();
 			}
-			outElements+=to.getClassname()+"::"+metamodel;
-			if(count!=((TopRule) object).getTo().size()){
-				outElements+=", ";
+			if(to.getClassname().length()>0){
+				outElements+=to.getClassname()+"::"+metamodel;
+				if(count!=((TopRule) object).getTo().size()){
+					outElements+=", ";
+				}
 			}
 		}
 		return label == null || label.length() == 0 ?

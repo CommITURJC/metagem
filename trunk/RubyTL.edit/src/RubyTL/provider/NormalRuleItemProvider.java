@@ -7,23 +7,21 @@
 package RubyTL.provider;
 
 
-import RubyTL.FromElement;
-import RubyTL.NormalRule;
-import RubyTL.ToElement;
-import RubyTL.TopRule;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import RubyTL.FromElement;
+import RubyTL.NormalRule;
+import RubyTL.ToElement;
 
 /**
  * This is the item provider adapter for a {@link RubyTL.NormalRule} object.
@@ -91,7 +89,8 @@ public class NormalRuleItemProvider
 			if(from.getMetamodel()!=null){
 				metamodel=from.getMetamodel().getName();
 			}
-			inElement=from.getClassname()+"::"+metamodel;
+			if(from.getClassname()!=null && from.getClassname().length()>0)
+				inElement=from.getClassname()+"::"+metamodel;
 		}
 		
 		String outElements=new  String("");
@@ -103,9 +102,11 @@ public class NormalRuleItemProvider
 			if(to.getMetamodel()!=null){
 				metamodel=to.getMetamodel().getName();
 			}
-			outElements+=to.getClassname()+"::"+metamodel;
-			if(count!=((NormalRule) object).getTo().size()){
-				outElements+=", ";
+			if(to.getClassname()!=null && to.getClassname().length()>0){
+				outElements+=to.getClassname()+"::"+metamodel;
+				if(count!=((NormalRule) object).getTo().size()){
+					outElements+=", ";
+				}
 			}
 		}
 		return label == null || label.length() == 0 ?
