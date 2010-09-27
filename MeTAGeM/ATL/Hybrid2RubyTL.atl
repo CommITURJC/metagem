@@ -7,7 +7,7 @@ rule Module {
 		mm_hybrid : MM_Hybrid!Module
 	to
 		rubytl : RubyTL!Transformation (
-			name <- mm_hybrid.name_module.debug('Modulo'),
+			name <- mm_hybrid.name_module.debug('Module'),
 		    sourceMetamodels <- mm_hybrid.inMM,
 			targetMetamodels <- mm_hybrid.outMM,
 			rules <- mm_hybrid."rule",
@@ -265,7 +265,7 @@ helper context MM_Hybrid!Rule def : getGuard () : String =
 	if self."in".asSequence().first().guard.isEmpty() then
 		''
 	else
-		self."in".asSequence().first().guard.asSequence()->collect(i | i.value).toString().debug('Filter')
+		self."in".asSequence().first().guard.asSequence()->collect(i | i.value).toString()
 	endif
 	;
 	
