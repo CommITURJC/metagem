@@ -12,6 +12,9 @@ import java.util.List;
 import mm_hybrid.LeftPattern;
 import mm_hybrid.MM_HybridFactory;
 import mm_hybrid.MM_HybridPackage;
+import mm_hybrid.RightPattern;
+import mm_hybrid.SourceElementRule;
+import mm_hybrid.TargetElementRule;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -134,13 +137,22 @@ public class LeftPatternItemProvider extends ItemProviderAdapter implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((LeftPattern) object).getName_pattern();
+		String element="";
+		TargetElementRule ter=((LeftPattern) object).getTargetElement();
+		if(ter!=null){
+			String metamodel="NotDefined";
+			if(ter.getMetamodel()!=null){
+				metamodel=ter.getMetamodel().getName_mm();
+			}
+			element=ter.getName_element()+"::"+metamodel;
+		}
 		return label == null || label.length() == 0 ? getString("_UI_LeftPattern_type") : //$NON-NLS-1$
-				getString("_UI_LeftPattern_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+				getString("_UI_LeftPattern_type") + " " + label + " (" + element + ")";  //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -148,7 +160,7 @@ public class LeftPatternItemProvider extends ItemProviderAdapter implements
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
@@ -161,7 +173,7 @@ public class LeftPatternItemProvider extends ItemProviderAdapter implements
 			return;
 		case MM_HybridPackage.LEFT_PATTERN__TARGET_ELEMENT:
 			fireNotifyChanged(new ViewerNotification(notification, notification
-					.getNotifier(), true, false));
+					.getNotifier(), true, true));
 			return;
 		}
 		super.notifyChanged(notification);

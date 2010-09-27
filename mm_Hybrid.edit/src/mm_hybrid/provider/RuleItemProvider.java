@@ -303,7 +303,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 	@Override
 	public String getText(Object object) {
 		String label = ((Rule) object).getName_rule();
-		String inElements=new  String("");
+		String inElements="";
 		int count=0;
 		for(Object i:((Rule) object).getIn()){
 			count++;
@@ -358,7 +358,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 		case MM_HybridPackage.RULE__IN:
 		case MM_HybridPackage.RULE__OUT:
 			fireNotifyChanged(new ViewerNotification(notification, notification
-					.getNotifier(), true, false));
+					.getNotifier(), true, true));
 			return;
 		}
 		super.notifyChanged(notification);

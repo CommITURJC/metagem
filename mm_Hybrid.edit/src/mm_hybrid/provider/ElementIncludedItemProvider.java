@@ -158,14 +158,15 @@ public class ElementIncludedItemProvider extends ItemProviderAdapter implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
-		TypeAtribute labelValue = ((ElementIncluded) object).getTypeAttribute();
+		/*TypeAtribute labelValue = ((ElementIncluded) object).getTypeAttribute();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ? getString("_UI_ElementIncluded_type") : //$NON-NLS-1$
-				getString("_UI_ElementIncluded_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+				getString("_UI_ElementIncluded_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$*/
+		return getString("_UI_ElementIncluded_type");
 	}
 
 	/**
