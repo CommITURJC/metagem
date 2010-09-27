@@ -8,6 +8,7 @@ package RubyTL.provider;
 
 
 import RubyTL.Decorator;
+import RubyTL.FromElement;
 import RubyTL.RubyTLPackage;
 
 import java.util.Collection;
@@ -141,7 +142,7 @@ public class DecoratorItemProvider
 	 * This returns Decorator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public Object getImage(Object object) {
@@ -157,9 +158,16 @@ public class DecoratorItemProvider
 	@Override
 	public String getText(Object object) {
 		String label = ((Decorator)object).getName();
+		String context="";
+		FromElement contextElement= ((Decorator)object).getContext();
+		if(contextElement!=null){
+			context=contextElement.getClassname();
+			if(contextElement.getMetamodel()!=null)
+				context+="::"+contextElement.getMetamodel().getName();
+		}
 		return label == null || label.length() == 0 ?
 			getString("_UI_Decorator_type") :
-			getString("_UI_Decorator_type") + " " + label;
+			getString("_UI_Decorator_type") + " " + label+" ("+context+")";
 	}
 
 	/**
@@ -167,7 +175,7 @@ public class DecoratorItemProvider
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
@@ -176,8 +184,9 @@ public class DecoratorItemProvider
 		switch (notification.getFeatureID(Decorator.class)) {
 			case RubyTLPackage.DECORATOR__NAME:
 			case RubyTLPackage.DECORATOR__BODY:
+			case RubyTLPackage.DECORATOR__CONTEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+				return;			
 		}
 		super.notifyChanged(notification);
 	}

@@ -6,20 +6,21 @@
  */
 package RubyTL.provider;
 
-import RubyTL.CopyRule;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import RubyTL.CopyRule;
+import RubyTL.FromElement;
+import RubyTL.ToElement;
 
 /**
  * This is the item provider adapter for a {@link RubyTL.CopyRule} object.
@@ -70,14 +71,38 @@ public class CopyRuleItemProvider extends RuleItemProvider implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((CopyRule)object).getName();
+		String inElement="";
+		String metamodel="NotDefined";
+		if(((CopyRule)object).getFrom()!=null){
+			FromElement from=((CopyRule)object).getFrom(); 
+			if(from.getMetamodel()!=null){
+				metamodel=from.getMetamodel().getName();
+			}
+			inElement=from.getClassname()+"::"+metamodel;
+		}
+		
+		String outElements=new  String("");
+		int count=0;
+		for(Object i:((CopyRule) object).getTo()){
+			count++;
+			metamodel="NotDefined";
+			ToElement to=(ToElement)i;
+			if(to.getMetamodel()!=null){
+				metamodel=to.getMetamodel().getName();
+			}
+			outElements+=to.getClassname()+"::"+metamodel;
+			if(count!=((CopyRule) object).getTo().size()){
+				outElements+=", ";
+			}
+		}
 		return label == null || label.length() == 0 ?
 			getString("_UI_CopyRule_type") :
-			getString("_UI_CopyRule_type") + " " + label;
+			getString("_UI_CopyRule_type") + " " + label + " ("+inElement+" -> "+outElements+")";
 	}
 
 	/**

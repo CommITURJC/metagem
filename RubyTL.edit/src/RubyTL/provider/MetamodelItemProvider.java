@@ -6,22 +6,20 @@
  */
 package RubyTL.provider;
 
-import RubyTL.Metamodel;
-import RubyTL.RubyTLPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import RubyTL.Metamodel;
 
 /**
  * This is the item provider adapter for a {@link RubyTL.Metamodel} object.
@@ -72,14 +70,23 @@ public class MetamodelItemProvider extends NamedElementItemProvider implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Metamodel)object).getName();
+		String label=((Metamodel)object).getName();
+		EReference containment=((Metamodel)object).eContainmentFeature();
+		String type="";
+		if(containment!=null){
+			type=containment.getName();
+			if(type.equals("sourceMetamodels"))
+				type="Source ";
+			else
+				type="Target ";
+		}
 		return label == null || label.length() == 0 ?
-			getString("_UI_Metamodel_type") :
-			getString("_UI_Metamodel_type") + " " + label;
+			type + getString("_UI_Metamodel_type") :
+			type + getString("_UI_Metamodel_type") + " " + label;
 	}
 
 	/**
