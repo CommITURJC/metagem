@@ -249,6 +249,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 						false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 						null, null));
 	}
+	
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -339,7 +340,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
