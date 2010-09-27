@@ -12,6 +12,8 @@ import java.util.List;
 import mm_hybrid.MM_HybridFactory;
 import mm_hybrid.MM_HybridPackage;
 import mm_hybrid.RightPattern;
+import mm_hybrid.Rule;
+import mm_hybrid.SourceElementRule;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -194,13 +196,26 @@ public class RightPatternItemProvider extends ItemProviderAdapter implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((RightPattern) object).getName_pattern();
+		String elements="";
+		int count=0;
+		for(Object i:((RightPattern) object).getSourceElement()){
+			count++;
+			String metamodel="NotDefined";
+			if(((SourceElementRule)i).getMetamodel()!=null){
+				metamodel=((SourceElementRule)i).getMetamodel().getName_mm();
+			}
+			elements+=((SourceElementRule)i).getName_element()+"::"+metamodel;
+			if(count!=((RightPattern) object).getSourceElement().size()){
+				elements+=", ";
+			}
+		}
 		return label == null || label.length() == 0 ? getString("_UI_RightPattern_type") : //$NON-NLS-1$
-				getString("_UI_RightPattern_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+				getString("_UI_RightPattern_type") + " " + label + " (" + elements + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -208,7 +223,7 @@ public class RightPatternItemProvider extends ItemProviderAdapter implements
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
@@ -221,7 +236,7 @@ public class RightPatternItemProvider extends ItemProviderAdapter implements
 			return;
 		case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
 			fireNotifyChanged(new ViewerNotification(notification, notification
-					.getNotifier(), true, false));
+					.getNotifier(), true, true));
 			return;
 		}
 		super.notifyChanged(notification);

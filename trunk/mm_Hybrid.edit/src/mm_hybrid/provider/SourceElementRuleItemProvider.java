@@ -140,7 +140,7 @@ public class SourceElementRuleItemProvider extends ElementItemProvider
 			metamodel=((SourceElementRule)object).getMetamodel().getName_mm();
 		}
 		return label == null || label.length() == 0 ? "Source" : //$NON-NLS-1$
-				"Source:" + " " + label+"::"+metamodel; //$NON-NLS-1$ //$NON-NLS-2$
+				"Source" + " " + label+"::"+metamodel; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
