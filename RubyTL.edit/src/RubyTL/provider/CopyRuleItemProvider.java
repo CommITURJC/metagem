@@ -83,7 +83,8 @@ public class CopyRuleItemProvider extends RuleItemProvider implements
 			if(from.getMetamodel()!=null){
 				metamodel=from.getMetamodel().getName();
 			}
-			inElement=from.getClassname()+"::"+metamodel;
+			if(from.getClassname()!=null && from.getClassname().length()>0)
+				inElement=from.getClassname()+"::"+metamodel;
 		}
 		
 		String outElements=new  String("");
@@ -95,9 +96,11 @@ public class CopyRuleItemProvider extends RuleItemProvider implements
 			if(to.getMetamodel()!=null){
 				metamodel=to.getMetamodel().getName();
 			}
-			outElements+=to.getClassname()+"::"+metamodel;
-			if(count!=((CopyRule) object).getTo().size()){
-				outElements+=", ";
+			if(to.getClassname()!=null && to.getClassname().length()>0){
+				outElements+=to.getClassname()+"::"+metamodel;
+				if(count!=((CopyRule) object).getTo().size()){
+					outElements+=", ";
+				}
 			}
 		}
 		return label == null || label.length() == 0 ?
