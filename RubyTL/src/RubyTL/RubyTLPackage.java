@@ -235,22 +235,22 @@ public interface RubyTLPackage extends EPackage {
 	int RULE__TO = 2;
 
 	/**
-	 * The feature id for the '<em><b>Mapping</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RULE__MAPPING = 3;
-
-	/**
 	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__FILTER = 4;
+	int RULE__FILTER = 3;
+
+	/**
+	 * The feature id for the '<em><b>Mapping</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__MAPPING = 4;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -446,15 +446,6 @@ public interface RubyTLPackage extends EPackage {
 	int TOP_RULE__TO = RULE__TO;
 
 	/**
-	 * The feature id for the '<em><b>Mapping</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOP_RULE__MAPPING = RULE__MAPPING;
-
-	/**
 	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -462,6 +453,15 @@ public interface RubyTLPackage extends EPackage {
 	 * @ordered
 	 */
 	int TOP_RULE__FILTER = RULE__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Mapping</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOP_RULE__MAPPING = RULE__MAPPING;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -599,15 +599,6 @@ public interface RubyTLPackage extends EPackage {
 	int NORMAL_RULE__TO = RULE__TO;
 
 	/**
-	 * The feature id for the '<em><b>Mapping</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NORMAL_RULE__MAPPING = RULE__MAPPING;
-
-	/**
 	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -615,6 +606,15 @@ public interface RubyTLPackage extends EPackage {
 	 * @ordered
 	 */
 	int NORMAL_RULE__FILTER = RULE__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Mapping</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_RULE__MAPPING = RULE__MAPPING;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -662,15 +662,6 @@ public interface RubyTLPackage extends EPackage {
 	int COPY_RULE__TO = RULE__TO;
 
 	/**
-	 * The feature id for the '<em><b>Mapping</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COPY_RULE__MAPPING = RULE__MAPPING;
-
-	/**
 	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -678,6 +669,15 @@ public interface RubyTLPackage extends EPackage {
 	 * @ordered
 	 */
 	int COPY_RULE__FILTER = RULE__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Mapping</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COPY_RULE__MAPPING = RULE__MAPPING;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.

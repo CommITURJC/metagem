@@ -339,7 +339,7 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 	 * @generated
 	 */
 	public EReference getRule_Mapping() {
-		return (EReference)ruleEClass.getEStructuralFeatures().get(3);
+		return (EReference)ruleEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -348,7 +348,7 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 	 * @generated
 	 */
 	public EReference getRule_Filter() {
-		return (EReference)ruleEClass.getEStructuralFeatures().get(4);
+		return (EReference)ruleEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -743,8 +743,8 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 		createEAttribute(ruleEClass, RULE__NAME);
 		createEReference(ruleEClass, RULE__FROM);
 		createEReference(ruleEClass, RULE__TO);
-		createEReference(ruleEClass, RULE__MAPPING);
 		createEReference(ruleEClass, RULE__FILTER);
+		createEReference(ruleEClass, RULE__MAPPING);
 		createEAttribute(ruleEClass, RULE__COMMENT);
 
 		fromElementEClass = createEClass(FROM_ELEMENT);
@@ -851,8 +851,8 @@ public class RubyTLPackageImpl extends EPackageImpl implements RubyTLPackage {
 		initEAttribute(getRule_Name(), ecorePackage.getEString(), "name", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRule_From(), this.getFromElement(), this.getFromElement_Rule(), "from", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRule_To(), this.getToElement(), this.getToElement_Rule(), "to", null, 1, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRule_Mapping(), this.getMapping(), this.getMapping_Rule(), "mapping", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRule_Filter(), this.getFilter(), this.getFilter_Rule(), "filter", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRule_Mapping(), this.getMapping(), this.getMapping_Rule(), "mapping", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRule_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fromElementEClass, FromElement.class, "FromElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

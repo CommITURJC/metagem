@@ -36,8 +36,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link RubyTL.impl.RuleImpl#getName <em>Name</em>}</li>
  *   <li>{@link RubyTL.impl.RuleImpl#getFrom <em>From</em>}</li>
  *   <li>{@link RubyTL.impl.RuleImpl#getTo <em>To</em>}</li>
- *   <li>{@link RubyTL.impl.RuleImpl#getMapping <em>Mapping</em>}</li>
  *   <li>{@link RubyTL.impl.RuleImpl#getFilter <em>Filter</em>}</li>
+ *   <li>{@link RubyTL.impl.RuleImpl#getMapping <em>Mapping</em>}</li>
  *   <li>{@link RubyTL.impl.RuleImpl#getComment <em>Comment</em>}</li>
  * </ul>
  * </p>
@@ -86,16 +86,6 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	protected EList<ToElement> to;
 
 	/**
-	 * The cached value of the '{@link #getMapping() <em>Mapping</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMapping()
-	 * @generated
-	 * @ordered
-	 */
-	protected Mapping mapping;
-
-	/**
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,6 +94,16 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 	 * @ordered
 	 */
 	protected Filter filter;
+
+	/**
+	 * The cached value of the '{@link #getMapping() <em>Mapping</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMapping()
+	 * @generated
+	 * @ordered
+	 */
+	protected Mapping mapping;
 
 	/**
 	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
@@ -343,14 +343,14 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				return basicSetFrom((FromElement)otherEnd, msgs);
 			case RubyTLPackage.RULE__TO:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTo()).basicAdd(otherEnd, msgs);
-			case RubyTLPackage.RULE__MAPPING:
-				if (mapping != null)
-					msgs = ((InternalEObject)mapping).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__MAPPING, null, msgs);
-				return basicSetMapping((Mapping)otherEnd, msgs);
 			case RubyTLPackage.RULE__FILTER:
 				if (filter != null)
 					msgs = ((InternalEObject)filter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__FILTER, null, msgs);
 				return basicSetFilter((Filter)otherEnd, msgs);
+			case RubyTLPackage.RULE__MAPPING:
+				if (mapping != null)
+					msgs = ((InternalEObject)mapping).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RubyTLPackage.RULE__MAPPING, null, msgs);
+				return basicSetMapping((Mapping)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -368,10 +368,10 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				return basicSetFrom(null, msgs);
 			case RubyTLPackage.RULE__TO:
 				return ((InternalEList<?>)getTo()).basicRemove(otherEnd, msgs);
-			case RubyTLPackage.RULE__MAPPING:
-				return basicSetMapping(null, msgs);
 			case RubyTLPackage.RULE__FILTER:
 				return basicSetFilter(null, msgs);
+			case RubyTLPackage.RULE__MAPPING:
+				return basicSetMapping(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -390,10 +390,10 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				return getFrom();
 			case RubyTLPackage.RULE__TO:
 				return getTo();
-			case RubyTLPackage.RULE__MAPPING:
-				return getMapping();
 			case RubyTLPackage.RULE__FILTER:
 				return getFilter();
+			case RubyTLPackage.RULE__MAPPING:
+				return getMapping();
 			case RubyTLPackage.RULE__COMMENT:
 				return getComment();
 		}
@@ -419,11 +419,11 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				getTo().clear();
 				getTo().addAll((Collection<? extends ToElement>)newValue);
 				return;
-			case RubyTLPackage.RULE__MAPPING:
-				setMapping((Mapping)newValue);
-				return;
 			case RubyTLPackage.RULE__FILTER:
 				setFilter((Filter)newValue);
+				return;
+			case RubyTLPackage.RULE__MAPPING:
+				setMapping((Mapping)newValue);
 				return;
 			case RubyTLPackage.RULE__COMMENT:
 				setComment((String)newValue);
@@ -449,11 +449,11 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 			case RubyTLPackage.RULE__TO:
 				getTo().clear();
 				return;
-			case RubyTLPackage.RULE__MAPPING:
-				setMapping((Mapping)null);
-				return;
 			case RubyTLPackage.RULE__FILTER:
 				setFilter((Filter)null);
+				return;
+			case RubyTLPackage.RULE__MAPPING:
+				setMapping((Mapping)null);
 				return;
 			case RubyTLPackage.RULE__COMMENT:
 				setComment(COMMENT_EDEFAULT);
@@ -476,10 +476,10 @@ public abstract class RuleImpl extends EObjectImpl implements Rule {
 				return from != null;
 			case RubyTLPackage.RULE__TO:
 				return to != null && !to.isEmpty();
-			case RubyTLPackage.RULE__MAPPING:
-				return mapping != null;
 			case RubyTLPackage.RULE__FILTER:
 				return filter != null;
+			case RubyTLPackage.RULE__MAPPING:
+				return mapping != null;
 			case RubyTLPackage.RULE__COMMENT:
 				return COMMENT_EDEFAULT == null ? comment != null : !COMMENT_EDEFAULT.equals(comment);
 		}

@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link RubyTL.Rule#getName <em>Name</em>}</li>
  *   <li>{@link RubyTL.Rule#getFrom <em>From</em>}</li>
  *   <li>{@link RubyTL.Rule#getTo <em>To</em>}</li>
- *   <li>{@link RubyTL.Rule#getMapping <em>Mapping</em>}</li>
  *   <li>{@link RubyTL.Rule#getFilter <em>Filter</em>}</li>
+ *   <li>{@link RubyTL.Rule#getMapping <em>Mapping</em>}</li>
  *   <li>{@link RubyTL.Rule#getComment <em>Comment</em>}</li>
  * </ul>
  * </p>
