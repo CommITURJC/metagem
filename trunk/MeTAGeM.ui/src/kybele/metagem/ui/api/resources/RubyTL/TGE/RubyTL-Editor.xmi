@@ -12,6 +12,16 @@
       <font font="times"/>
     </format>
   </block>
+  <group type="types">
+    <format>
+      <color red="42" green="0" blue="255"/>
+      <font font="times" bold="true"/>
+    </format>
+    <element element="String"/>
+    <element element="String"/>
+    <element element="Integer"/>
+    <element element="Double"/>
+  </group>
   <group type="symbols">
     <format>
       <color red="127" green="0" blue="85"/>
@@ -68,15 +78,5 @@
     <element element=" = "/>
     <element element="decorator"/>
     <element element="def "/>
-  </group>
-  <group type="types">
-    <format>
-      <color red="42" green="0" blue="255"/>
-      <font font="times" bold="true"/>
-    </format>
-    <element element="String"/>
-    <element element="String"/>
-    <element element="Integer"/>
-    <element element="Double"/>
   </group>
 </edt:Editor>

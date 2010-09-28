@@ -59,7 +59,7 @@ syntax RubyTL {
 				"\t" "end" <newline>)
 			(isDefined(mapping)? <newline> 
 				"\t" "mapping" "do |" from{refersTo=name,separator=",", lookIn='#context'.Variable} (isDefined(to)?",") 
-				to{refersTo=name,separator=","} "|" <newline>
+				to{refersTo=name,separator=",",lookIn='#context'.Variable} "|" <newline>
 				mapping <newline>
 				"\t" "end" <newline>)
 			"end"

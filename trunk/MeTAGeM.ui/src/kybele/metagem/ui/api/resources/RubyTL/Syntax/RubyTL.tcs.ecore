@@ -203,16 +203,20 @@
                 <elements xsi:type="tcs:LiteralRef" location="61:104-61:107" referredLiteral="/0/@symbols.3"/>
               </thenSequence>
             </elements>
-            <elements xsi:type="tcs:Property" location="62:5-62:36" name="to">
+            <elements xsi:type="tcs:Property" location="62:5-62:63" name="to">
               <propertyArgs xsi:type="tcs:RefersToPArg" location="62:8-62:21" propertyName="name"/>
               <propertyArgs xsi:type="tcs:SeparatorPArg" location="62:22-62:35">
                 <separatorSequence location="62:32-62:35">
                   <elements xsi:type="tcs:LiteralRef" location="62:32-62:35" referredLiteral="/0/@symbols.3"/>
                 </separatorSequence>
               </propertyArgs>
+              <propertyArgs xsi:type="tcs:LookInPArg" location="62:36-62:62">
+                <propertyName>#context</propertyName>
+                <propertyName>Variable</propertyName>
+              </propertyArgs>
             </elements>
-            <elements xsi:type="tcs:LiteralRef" location="62:37-62:40" referredLiteral="/0/@symbols.10"/>
-            <elements xsi:type="tcs:CustomSeparator" location="62:41-62:50" name="newline"/>
+            <elements xsi:type="tcs:LiteralRef" location="62:64-62:67" referredLiteral="/0/@symbols.10"/>
+            <elements xsi:type="tcs:CustomSeparator" location="62:68-62:77" name="newline"/>
             <elements xsi:type="tcs:Property" location="63:5-63:12" name="mapping"/>
             <elements xsi:type="tcs:CustomSeparator" location="63:13-63:22" name="newline"/>
             <elements xsi:type="tcs:LiteralRef" location="64:5-64:9" referredLiteral="/7"/>
