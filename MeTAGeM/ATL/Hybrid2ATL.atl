@@ -42,6 +42,7 @@ rule outMM{
 		)
 }
 
+
 -- Create MatchedRule 
 rule createRule2MatchedRule{
 	from 
@@ -195,6 +196,17 @@ rule Bindings {
 			varName <- elemInc.getReferredVariable() 
 		) 
 }
+
+
+-- Create Filter
+--rule createGuard2Filter{
+--	from
+--		mm_hybrid_guard : MM_Hybrid!Guard
+--	to
+--		atl : ATL!OperationCallExp (
+--			operationName <- mm_hybrid_guard.value
+--		)
+--}
 
 
 --Helper with String return type
@@ -403,13 +415,13 @@ helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : ATL!OclE
 
 
  
-helper context MM_Hybrid!Rule def : getFilterExp () : String = 
-	if self."in".asSequence().guard.isEmpty() then
-		''
-	else
-		self."in".asSequence().first().guard.asSequence()->collect(i | i.value).toString()
-	endif
-	;
+--helper context MM_Hybrid!Rule def : getFilterExp () : String = 
+--	if self."in".asSequence().guard.isEmpty() then
+--		''
+--	else
+--		self."in".asSequence().first().guard.asSequence()->collect(i | i.value).toString()
+--	endif
+--	;
 
 --helper context MM_Hybrid!ElementIncluded def : getSourceBindingCompRule () : String =
 --	self.right."rule".asSequence().first().name_rule.debug;
