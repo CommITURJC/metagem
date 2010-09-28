@@ -126,8 +126,8 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(RubyTLPackage.Literals.RULE__FROM);
 			childrenFeatures.add(RubyTLPackage.Literals.RULE__TO);
-			childrenFeatures.add(RubyTLPackage.Literals.RULE__MAPPING);
 			childrenFeatures.add(RubyTLPackage.Literals.RULE__FILTER);
+			childrenFeatures.add(RubyTLPackage.Literals.RULE__MAPPING);
 		}
 		return childrenFeatures;
 	}
@@ -209,13 +209,13 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RubyTLPackage.Literals.RULE__MAPPING,
-				 RubyTLFactory.eINSTANCE.createMapping()));
+				(RubyTLPackage.Literals.RULE__FILTER,
+				 RubyTLFactory.eINSTANCE.createFilter()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RubyTLPackage.Literals.RULE__FILTER,
-				 RubyTLFactory.eINSTANCE.createFilter()));
+				(RubyTLPackage.Literals.RULE__MAPPING,
+				 RubyTLFactory.eINSTANCE.createMapping()));
 	}
 
 	/**
