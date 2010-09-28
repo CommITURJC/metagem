@@ -18,8 +18,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RubyTL.ecore#/0/Rule/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Rule/from"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Rule/to"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Rule/mapping"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Rule/filter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RubyTL.ecore#/0/Rule/mapping"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RubyTL.ecore#/0/Rule/comment"/>
     </genClasses>
     <genClasses ecoreClass="RubyTL.ecore#/0/FromElement">
