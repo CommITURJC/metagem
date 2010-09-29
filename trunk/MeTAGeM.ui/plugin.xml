@@ -47,7 +47,7 @@
          point="org.eclipse.debug.ui.launchShortcuts">
       <shortcut
             class="kybele.metagem.ui.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchShortcut"
-            icon="icons/metagem_2_hybrid_24.png"
+            icon="icons/metagem2hybrid.gif"
             id="MeTAGeM_UI.shortcut4"
             label="MeTAGeM -&gt; Hybrid"
             modes="run, debug">
@@ -80,6 +80,7 @@
       </shortcut>
       <shortcut
             class="kybele.metagem.ui.launchs.hybrid2atl.HYBRID2ATLLaunchShortcut"
+            icon="icons/hybrid2ATL.gif"
             id="MeTAGeM_UI.shortcut5"
             label="Hybrid -&gt; ATL"
             modes="run,debug">
@@ -112,6 +113,7 @@
       </shortcut>
       <shortcut
             class="kybele.metagem.ui.launchs.hybrid2rubytl.HYBRID2RubyTLLaunchShortcut"
+            icon="icons/hybrid2rubyTL.gif"
             id="MeTAGeM.ui.shortcut1"
             label="Hybrid -&gt; RubyTL"
             modes="run,debug">
