@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="ModuleTest">
   <rule name_rule="MR11" isMain="true" comment="">
-    <in name_element="SrcMR1" isRefered="//@rule.0/@out.0/@included.0/@right" metamodel="//@inMM.0"/>
+    <in name_element="SrcMR1" isRefered="//@rule.0/@out.0/@included.0/@right" metamodel="//@inMM.0">
+      <guard value="Filter Expression Test"/>
+    </in>
     <out name_element="TrgMR1" metamodel="//@outMM.0">
       <included>
         <right operation="//@operations.1" name_pattern="RPMR11a" reference="//@rule.0/@in.0"/>
@@ -102,10 +104,13 @@
   </rule>
   <inMM name_mm="MMNameIN" type_mm="MMTypeIN" elements="//@rule.2/@in.1 //@rule.2/@in.0 //@rule.1/@in.0 //@rule.0/@in.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.0 //@rule.3/@in.0 //@rule.2/@out.2/@included.0/@right/@sourceElement.0 //@rule.3/@out.0/@included.0/@right/@sourceElement.0 //@rule.5/@out.0/@included.0/@right/@sourceElement.0 //@rule.4/@in.0 //@rule.4/@out.0/@included.0/@right/@sourceElement.0"/>
   <outMM name_mm="MMNameOUT" type_mm="MMTypeOUT" elements="//@rule.0/@out.0/@included.0/@left/@targetElement //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.1/@out.1/@included.0/@left/@targetElement //@rule.2/@out.0/@included.0/@left/@targetElement //@rule.2/@out.2/@included.0/@left/@targetElement //@rule.3/@out.0 //@rule.0/@out.0 //@rule.1/@out.0 //@rule.2/@out.0 //@rule.2/@out.1 //@rule.3/@out.0/@included.0/@left/@targetElement //@rule.5/@out.0/@included.0/@left/@targetElement //@rule.5/@out.0 //@rule.1/@out.1 //@rule.2/@out.2 //@rule.2/@out.1/@included.0/@left/@targetElement //@rule.4/@out.0 //@rule.4/@out.0/@included.0/@left/@targetElement"/>
-  <operations name_operation="OP1" body="Esto hace algo" context="//@rule.2/@in.1" rightPattern="//@rule.2/@out.2/@included.0/@right">
+  <operations name_operation="OP1" body="Esto hace algo" rightPattern="//@rule.2/@out.2/@included.0/@right">
     <returnType datatype="String"/>
   </operations>
   <operations name_operation="OP2" body="Esto hace algo mas" context="//@rule.0/@in.0" rightPattern="//@rule.0/@out.0/@included.0/@right">
-    <returnType element="//@rule.0/@in.0"/>
+    <returnType datatype="Boolean"/>
+  </operations>
+  <operations name_operation="OP3" body="Esto hace otra cosa">
+    <returnType datatype="Integer"/>
   </operations>
 </mm_hybrid:Module>
