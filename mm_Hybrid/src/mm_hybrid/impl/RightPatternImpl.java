@@ -44,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mm_hybrid.impl.RightPatternImpl#getOperation <em>Operation</em>}</li>
  *   <li>{@link mm_hybrid.impl.RightPatternImpl#getName_pattern <em>Name pattern</em>}</li>
  *   <li>{@link mm_hybrid.impl.RightPatternImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link mm_hybrid.impl.RightPatternImpl#getConcreteValue <em>Concrete Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,6 +110,26 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * @ordered
 	 */
 	protected Element reference;
+
+	/**
+	 * The default value of the '{@link #getConcreteValue() <em>Concrete Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConcreteValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONCRETE_VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getConcreteValue() <em>Concrete Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConcreteValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String concreteValue = CONCRETE_VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -276,6 +297,29 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getConcreteValue() {
+		return concreteValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConcreteValue(String newConcreteValue) {
+		String oldConcreteValue = concreteValue;
+		concreteValue = newConcreteValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE,
+					oldConcreteValue, concreteValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
@@ -343,6 +387,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			if (resolve)
 				return getReference();
 			return basicGetReference();
+		case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
+			return getConcreteValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -375,6 +421,9 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
 			setReference((Element) newValue);
 			return;
+		case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
+			setConcreteValue((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -402,6 +451,9 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
 			setReference((Element) null);
 			return;
+		case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
+			setConcreteValue(CONCRETE_VALUE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -425,6 +477,9 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 					: !NAME_PATTERN_EDEFAULT.equals(name_pattern);
 		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
 			return reference != null;
+		case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
+			return CONCRETE_VALUE_EDEFAULT == null ? concreteValue != null
+					: !CONCRETE_VALUE_EDEFAULT.equals(concreteValue);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -442,6 +497,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name_pattern: "); //$NON-NLS-1$
 		result.append(name_pattern);
+		result.append(", concreteValue: "); //$NON-NLS-1$
+		result.append(concreteValue);
 		result.append(')');
 		return result.toString();
 	}

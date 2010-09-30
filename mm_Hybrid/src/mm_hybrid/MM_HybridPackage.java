@@ -666,13 +666,22 @@ public interface MM_HybridPackage extends EPackage {
 	int RIGHT_PATTERN__REFERENCE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Concrete Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RIGHT_PATTERN__CONCRETE_VALUE = 5;
+
+	/**
 	 * The number of structural features of the '<em>Right Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RIGHT_PATTERN_FEATURE_COUNT = 5;
+	int RIGHT_PATTERN_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link mm_hybrid.impl.LeftPatternImpl <em>Left Pattern</em>}' class.
@@ -1394,6 +1403,17 @@ public interface MM_HybridPackage extends EPackage {
 	EReference getRightPattern_Reference();
 
 	/**
+	 * Returns the meta object for the attribute '{@link mm_hybrid.RightPattern#getConcreteValue <em>Concrete Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Concrete Value</em>'.
+	 * @see mm_hybrid.RightPattern#getConcreteValue()
+	 * @see #getRightPattern()
+	 * @generated
+	 */
+	EAttribute getRightPattern_ConcreteValue();
+
+	/**
 	 * Returns the meta object for class '{@link mm_hybrid.LeftPattern <em>Left Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2018,6 +2038,15 @@ public interface MM_HybridPackage extends EPackage {
 		 */
 		EReference RIGHT_PATTERN__REFERENCE = eINSTANCE
 				.getRightPattern_Reference();
+
+		/**
+		 * The meta object literal for the '<em><b>Concrete Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RIGHT_PATTERN__CONCRETE_VALUE = eINSTANCE
+				.getRightPattern_ConcreteValue();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.LeftPatternImpl <em>Left Pattern</em>}' class.
