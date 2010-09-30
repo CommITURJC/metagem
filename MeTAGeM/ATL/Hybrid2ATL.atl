@@ -67,6 +67,7 @@ rule createRule2MatchedRule{
 	)
 }
 
+
 -- Create LazyRule
 rule createRule2LazyRule{ 
 	from 
@@ -117,7 +118,6 @@ rule createRule2UniqueLazyRule{
 }
 
 
-
 -- Create CalledRule [0..1] - [0..N] 
 rule createRule2CalledRule{
 	from 
@@ -137,6 +137,7 @@ rule createRule2CalledRule{
 		)
 }
 
+
 --InputPattern (from part)
 rule InPatternElement {
 	from 
@@ -149,11 +150,9 @@ rule InPatternElement {
 		aType : ATL!OclModelElement(
 			name <- inPattern.name_element,
 			model <- thisModule.resolveTemp(inPattern.metamodel,'ametamodelinMM')
-		),
-		atl_element:ATL!OclModelElement(
-			name <- inPattern.name_element	
 		)
 }
+
 
 --OutputPattern (to part)
 rule OutPatternElement { 
@@ -168,209 +167,29 @@ rule OutPatternElement {
 		aType : ATL!OclModelElement(
 			name <- outPattern.name_element,
 			model <- thisModule.resolveTemp(outPattern.metamodel,'ametamodeloutMM') --amodel--outPattern.metamodel
-		),
-		atl_element:ATL!OclModelElement(
-			name <- outPattern.name_element	
 		)
 }
 
---Bindigs -> Formulas (TargetElements <- SourceElements)
-rule Bindings {
-	from 
-		elemInc : MM_Hybrid!ElementIncluded
-	to
-		atl : ATL!Binding (
-			--Left side of formula, that will receive the value
-			propertyName <- elemInc.left.targetElement.asSequence().first().name_element,
-			--Right side of formula, that has the value - issues
-			value <- avalue
-		),
-		avalue : ATL!NavigationOrAttributeCallExp(
-			name <- elemInc.getSourceBinding(),
-			source <- asource
-		),
-		asource : ATL!VariableExp(
-			referredVariable <- areferred	
-		),
-		areferred : ATL!VariableDeclaration(
-			varName <- elemInc.getReferredVariable() 
-		) 
-}
 
-
--- Create Filter
---rule createGuard2Filter{
---	from
---		mm_hybrid_guard : MM_Hybrid!Guard
---	to
---		atl : ATL!OperationCallExp (
---			operationName <- mm_hybrid_guard.value
---		)
---}
-
-
---Helper with String return type
-rule createOperation2Helper_String {
-	from
-		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"String")
-	to
-		atl : ATL!Helper (
-			"module" <- oper.refImmediateComposite(),
-			definition <- adefinition,
-			commentsBefore <- Set {'-- Comments -> This is a Helper: ' + oper.name_operation},
-			commentsAfter <- Set {'-- Body: ' + oper.body}
-		),
-		adefinition : ATL!OclFeatureDefinition (
-			feature <- afeature,
-			context_ <- acontext
-		),
-		acontext : ATL!OclContextDefinition (
-			context_ <- acontextin
-		),
-		acontextin : ATL!OclModelElement (
-			name <- oper."context".name_element,
-			model <- amodelin	
-		),
-		amodelin : ATL!OclModel(
-			name <- oper."context".metamodel.type_mm
-		),
-		afeature : ATL!Operation (
-			name <- oper.name_operation,
-			returnType <- areturnType
-		),
-		areturnType : ATL!StringType (
-			operation <- afeature
-		)
-}
-
---Helper with Integer return type
-rule createOperation2Helper_Integer {
-	from
-		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"Integer")
-	to
-		atl : ATL!Helper (
-			"module" <- oper.refImmediateComposite(),
-			definition <- adefinition,
-			commentsBefore <- Set {'-- Comments -> This is a Helper: ' + oper.name_operation},
-			commentsAfter <- Set {'-- Body: ' + oper.body}
-		),
-		adefinition : ATL!OclFeatureDefinition (
-			feature <- afeature,
-			context_ <- acontext
-		),
-		acontext : ATL!OclContextDefinition (
-			context_ <- acontextin
-		),
-		acontextin : ATL!OclModelElement (
-			name <- oper."context".name_element,
-			model <- amodelin	
-		),
-		amodelin : ATL!OclModel(
-			name <- oper."context".metamodel.type_mm
-		),
-		afeature : ATL!Operation (
-			name <- oper.name_operation,
-			returnType <- areturnType
-		),
-		areturnType : ATL!IntegerType (
-			operation <- afeature
-		)
-}
-
---Helper with Boolean return type
-rule createOperation2Helper_Boolean {
-	from
-		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"Boolean")
-	to
-		atl : ATL!Helper (
-			"module" <- oper.refImmediateComposite(),
-			definition <- adefinition,
-			commentsBefore <- Set {'-- Comments -> This is a Helper: ' + oper.name_operation},
-			commentsAfter <- Set {'-- Body: ' + oper.body}
-		),
-		adefinition : ATL!OclFeatureDefinition (
-			feature <- afeature,
-			context_ <- acontext
-		),
-		acontext : ATL!OclContextDefinition (
-			context_ <- acontextin
-		),
-		acontextin : ATL!OclModelElement (
-			name <- oper."context".name_element,
-			model <- amodelin	
-		),
-		amodelin : ATL!OclModel(
-			name <- oper."context".metamodel.type_mm
-		),
-		afeature : ATL!Operation (
-			name <- oper.name_operation,
-			returnType <- areturnType
-		),
-		areturnType : ATL!BooleanType (
-			operation <- afeature
-		)
-}
-
---Helper with Element return type
-rule createOperation2Helper_Element {
-	from
-		oper : MM_Hybrid!Operation (not oper.returnType.element.oclIsUndefined())
-	to
-		atl : ATL!Helper (
-			"module" <- oper.refImmediateComposite(),
-			definition <- adefinition,
-			commentsBefore <- Set {'-- Comments -> This is a Helper: ' + oper.name_operation},
-			commentsAfter <- Set {'-- Body: ' + oper.body}
-		),
-		adefinition : ATL!OclFeatureDefinition (
-			feature <- afeature,
-			context_ <- acontext
-		),
-		acontext : ATL!OclContextDefinition (
-			context_ <- acontextin
-		),
-		acontextin : ATL!OclModelElement (
-			name <- oper."context".name_element,
-			model <- amodelin	
-		),
-		amodelin : ATL!OclModel(
-			name <- oper."context".metamodel.type_mm
-		),
-		afeature : ATL!Operation (
-			name <- oper.name_operation,
-			returnType <- areturnType
-		),
-		areturnType : ATL!OclModelElement (
-			name <- oper.returnType.element.name_element,
-			model <- amodel,
-			operation <- afeature
-		),
-		amodel : ATL!OclModel (
-			name <- oper.returnType.element.metamodel.type_mm				
-		)
-}
-
---Helper -> Return the number of inputPatterns 
-helper context MM_Hybrid!Rule def : getSizeIP () : Integer = 
-	self."in".size();
-
-
---Helper -> Return the comment of the rule 
-helper context MM_Hybrid!Rule def : getComment () : String = 
-	if self.comment.oclIsUndefined() then
-		''
+-- To call the correct lazy rule
+helper context MM_Hybrid!ElementIncluded def : getBindingSource() : ATL!OclExpression =
+	if (self.right."rule".asSequence().first().oclIsUndefined() and 
+		self.right.operation.asSequence().first().oclIsUndefined() and
+		self.right.sourceElement.asSequence().first().oclIsUndefined() and
+		not self.right.reference.oclIsUndefined()) then
+			thisModule.getNewSource(self)
 	else
-		self.comment
-	endif
-	;
+		thisModule.getSimpleBinding(self)
+	endif;
 
 
 --Helper -> Define the source binding (Element, Rule, Helper or Reference)
-helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : ATL!OclExpression = --String = 
+helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpression = --String = 
 	--rule undefined, operation undefined, srcElement undefined, reference defined	
 	if (self.right."rule".asSequence().first().oclIsUndefined() and 
 		self.right.operation.asSequence().first().oclIsUndefined() and
-		self.right.sourceElement.asSequence().first().oclIsUndefined()) then
+		self.right.sourceElement.asSequence().first().oclIsUndefined() and
+		not self.right.reference.oclIsUndefined()) then
 			OclUndefined
 	else
 		--rule undefined
@@ -403,6 +222,7 @@ helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : ATL!OclExpr
 
 --Helper -> Return the variable used on source binding
 helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : ATL!OclExpression = --String =
+--OclUndefined.debug('test');
 	if self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().oclIsUndefined()  then
 		'???'
 	else
@@ -414,17 +234,257 @@ helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : ATL!OclE
 	endif;
 
 
- 
---helper context MM_Hybrid!Rule def : getFilterExp () : String = 
---	if self."in".asSequence().guard.isEmpty() then
---		''
---	else
---		self."in".asSequence().first().guard.asSequence()->collect(i | i.value).toString()
---	endif
---	;
+--Bindigs -> Formulas (TargetElements <- SourceElements)
+rule Bindings {
+	from 
+		elemInc : MM_Hybrid!ElementIncluded
+	to
+		atl : ATL!Binding (
+			--Left side of formula, that will receive the value
+			propertyName <- elemInc.left.targetElement.asSequence().first().name_element,
+			--Right side of formula, that has the value - issues
+			value <- elemInc.getBindingSource()
+		)
+}
 
---helper context MM_Hybrid!ElementIncluded def : getSourceBindingCompRule () : String =
---	self.right."rule".asSequence().first().name_rule.debug;
 
---helper context MM_Hybrid!ElementIncluded def : getSourceBindingCompHelper () : String =
---	self.right.operations.asSequence().first().name_operation;
+lazy rule getNewSource {
+	from
+		elemInc : MM_Hybrid!ElementIncluded
+	to 
+		source : ATL!VariableExp(
+			referredVariable <- areferred	
+		),
+		areferred : ATL!VariableDeclaration(
+			varName <- elemInc.getReferredVariable() 
+		) 		
+}
+
+
+lazy rule getSimpleBinding {
+	from
+		elemInc : MM_Hybrid!ElementIncluded
+	to
+		value : ATL!NavigationOrAttributeCallExp(
+			name <- elemInc.getValueBinding(),
+			source <- asource
+		),
+		asource : ATL!VariableExp(
+			referredVariable <- areferred	
+		),
+		areferred : ATL!VariableDeclaration(
+			varName <- elemInc.getReferredVariable()
+		) 
+}
+
+
+-- Create Filter
+--rule createGuard2Filter{
+--	from
+--		mm_hybrid_guard : MM_Hybrid!Guard
+--	to
+--		atl : ATL!OperationCallExp (
+--			operationName <- mm_hybrid_guard.value
+--		)
+--}
+
+
+-- To call the context lazy rule or Undefined 
+helper context MM_Hybrid!Operation def : getContext () : ATL!OclExpression =
+	if self."context".oclIsUndefined() then
+		OclUndefined
+	else
+		thisModule.getSimpleContext(self)
+	endif;
+
+
+lazy rule getSimpleContext {
+	from
+		oper : MM_Hybrid!Operation
+	to
+		acontext : ATL!OclContextDefinition (
+			context_ <- acontextin
+		),
+		acontextin : ATL!OclModelElement (
+			name <- oper."context".name_element,
+			model <- amodelin	
+		),
+		amodelin : ATL!OclModel(
+			name <- oper."context".metamodel.type_mm
+		) 
+}
+
+
+-- To call the ReturnType lazy rule or Undefined 
+helper context MM_Hybrid!Operation def : getReturnType () : ATL!OclExpression =
+	if self.returnType.oclIsUndefined() then
+		OclUndefined
+	else
+		if self.returnType.datatype = #"String" then
+			thisModule.getReturnStringType(self)
+		else 
+			if self.returnType.datatype = #"Integer" then
+				thisModule.getReturnIntegerType(self)
+			else 
+				if self.returnType.datatype = #"Boolean" then
+					thisModule.getReturnBooleanType(self)
+				else
+					OclUndefined
+				endif
+			endif
+		endif
+	endif;
+
+
+lazy rule getReturnStringType {
+	from
+		oper : MM_Hybrid!Operation
+	to
+		returnType : ATL!StringType 
+}
+
+lazy rule getReturnIntegerType {
+	from
+		oper : MM_Hybrid!Operation
+	to
+		returnType : ATL!IntegerType 
+}
+
+lazy rule getReturnBooleanType {
+	from
+		oper : MM_Hybrid!Operation
+	to
+		returnType : ATL!BooleanType 
+}
+
+
+
+
+-- Helper 
+rule createOperation2Helper {
+	from
+		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"String" or oper.returnType.datatype = #"Integer" or oper.returnType.datatype = #"Boolean")
+	to
+		atl : ATL!Helper (
+			"module" <- oper.refImmediateComposite(),
+			definition <- adefinition,
+			commentsBefore <- Set {'-- Comments -> This is a Helper: ' + oper.name_operation},
+			commentsAfter <- Set {'-- Body: ' + oper.body}
+		),
+		adefinition : ATL!OclFeatureDefinition (
+			feature <- afeature,
+			context_ <- oper.getContext() --acontext
+		),
+--		acontext : ATL!OclContextDefinition (
+--			context_ <- acontextin
+--		),
+--		acontextin : ATL!OclModelElement (
+--			name <- oper."context".name_element,
+--			model <- amodelin	
+--		),
+--		amodelin : ATL!OclModel(
+--			name <- oper."context".metamodel.type_mm
+--		),
+		afeature : ATL!Operation (
+			name <- oper.name_operation,
+			returnType <- oper.getReturnType() --areturnType
+		)--,
+--		areturnType : ATL!StringType (
+--			operation <- afeature
+--		)
+}
+
+
+--Helper with Integer return type
+--rule createOperation2Helper_Integer {
+--	from
+--		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"Integer")
+--	to
+--		atl : ATL!Helper (
+--			"module" <- oper.refImmediateComposite(),
+--			definition <- adefinition,
+--			commentsBefore <- Set {'-- Comments -> This is a Helper: ' + oper.name_operation},
+--			commentsAfter <- Set {'-- Body: ' + oper.body}
+--		),
+--		adefinition : ATL!OclFeatureDefinition (
+--			feature <- afeature,
+--			context_ <- oper.getContext()
+--		),
+--		afeature : ATL!Operation (
+--			name <- oper.name_operation,
+--			returnType <- oper.getReturnType() --areturnType
+--		)--,
+--		areturnType : ATL!IntegerType (
+--			operation <- afeature
+--		)
+--}
+
+
+--Helper with Boolean return type
+--rule createOperation2Helper_Boolean {
+--	from
+--		oper : MM_Hybrid!Operation (oper.returnType.datatype = #"Boolean")
+--	to
+--		atl : ATL!Helper (
+--			"module" <- oper.refImmediateComposite(),
+--			definition <- adefinition,
+--			commentsBefore <- Set {'-- Comments -> This is a Helper: ' + oper.name_operation},
+--			commentsAfter <- Set {'-- Body: ' + oper.body}
+--		),
+--		adefinition : ATL!OclFeatureDefinition (
+--			feature <- afeature,
+--			context_ <- oper.getContext()
+--		),
+--		afeature : ATL!Operation (
+--			name <- oper.name_operation,
+--			returnType <- oper.getReturnType() --areturnType
+--		)--,
+--		areturnType : ATL!BooleanType (
+--			operation <- afeature
+--		)
+--}
+
+
+--Helper with Element return type
+rule createOperation2Helper_Element {
+	from
+		oper : MM_Hybrid!Operation (not oper.returnType.element.oclIsUndefined())
+	to
+		atl : ATL!Helper (
+			"module" <- oper.refImmediateComposite(),
+			definition <- adefinition,
+			commentsBefore <- Set {'-- Comments -> This is a Helper: ' + oper.name_operation},
+			commentsAfter <- Set {'-- Body: ' + oper.body}
+		),
+		adefinition : ATL!OclFeatureDefinition (
+			feature <- afeature,
+			context_ <- oper.getContext()
+		),
+		afeature : ATL!Operation (
+			name <- oper.name_operation,
+			returnType <- areturnType
+		),
+		areturnType : ATL!OclModelElement (
+			name <- oper.returnType.element.name_element,
+			model <- amodel,
+			operation <- afeature
+		),
+		amodel : ATL!OclModel (
+			name <- oper.returnType.element.metamodel.type_mm				
+		)
+}
+
+
+--Helper -> Return the number of inputPatterns 
+helper context MM_Hybrid!Rule def : getSizeIP () : Integer = 
+	self."in".size();
+
+
+--Helper -> Return the comment of the rule 
+helper context MM_Hybrid!Rule def : getComment () : String = 
+	if self.comment.oclIsUndefined() then
+		''
+	else
+		self.comment
+	endif
+	;
