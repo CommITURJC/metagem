@@ -135,12 +135,13 @@ public class SourceElementRuleItemProvider extends ElementItemProvider
 	@Override
 	public String getText(Object object) {
 		String label = ((SourceElementRule) object).getName_element();
-		String metamodel="NotDefined";
-		if(((SourceElementRule)object).getMetamodel()!=null){
-			metamodel=((SourceElementRule)object).getMetamodel().getName_mm();
+		String metamodel = "NotDefined";
+		if (((SourceElementRule) object).getMetamodel() != null) {
+			metamodel = ((SourceElementRule) object).getMetamodel()
+					.getName_mm();
 		}
 		return label == null || label.length() == 0 ? "Source" : //$NON-NLS-1$
-				"Source" + " " + label+"::"+metamodel; //$NON-NLS-1$ //$NON-NLS-2$
+				"Source" + " " + label + "::" + metamodel; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -67,6 +67,7 @@ public class RightPatternItemProvider extends ItemProviderAdapter implements
 			addOperationPropertyDescriptor(object);
 			addName_patternPropertyDescriptor(object);
 			addReferencePropertyDescriptor(object);
+			addConcreteValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -149,6 +150,26 @@ public class RightPatternItemProvider extends ItemProviderAdapter implements
 	}
 
 	/**
+	 * This adds a property descriptor for the Concrete Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConcreteValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_RightPattern_concreteValue_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_RightPattern_concreteValue_feature", "_UI_RightPattern_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						MM_HybridPackage.Literals.RIGHT_PATTERN__CONCRETE_VALUE,
+						true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -201,17 +222,18 @@ public class RightPatternItemProvider extends ItemProviderAdapter implements
 	@Override
 	public String getText(Object object) {
 		String label = ((RightPattern) object).getName_pattern();
-		String elements="";
-		int count=0;
-		for(Object i:((RightPattern) object).getSourceElement()){
+		String elements = "";
+		int count = 0;
+		for (Object i : ((RightPattern) object).getSourceElement()) {
 			count++;
-			String metamodel="NotDefined";
-			if(((SourceElementRule)i).getMetamodel()!=null){
-				metamodel=((SourceElementRule)i).getMetamodel().getName_mm();
+			String metamodel = "NotDefined";
+			if (((SourceElementRule) i).getMetamodel() != null) {
+				metamodel = ((SourceElementRule) i).getMetamodel().getName_mm();
 			}
-			elements+=((SourceElementRule)i).getName_element()+"::"+metamodel;
-			if(count!=((RightPattern) object).getSourceElement().size()){
-				elements+=", ";
+			elements += ((SourceElementRule) i).getName_element() + "::"
+					+ metamodel;
+			if (count != ((RightPattern) object).getSourceElement().size()) {
+				elements += ", ";
 			}
 		}
 		return label == null || label.length() == 0 ? getString("_UI_RightPattern_type") : //$NON-NLS-1$

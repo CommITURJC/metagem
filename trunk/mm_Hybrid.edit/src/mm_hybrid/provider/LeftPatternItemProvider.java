@@ -142,17 +142,17 @@ public class LeftPatternItemProvider extends ItemProviderAdapter implements
 	@Override
 	public String getText(Object object) {
 		String label = ((LeftPattern) object).getName_pattern();
-		String element="";
-		TargetElementRule ter=((LeftPattern) object).getTargetElement();
-		if(ter!=null){
-			String metamodel="NotDefined";
-			if(ter.getMetamodel()!=null){
-				metamodel=ter.getMetamodel().getName_mm();
+		String element = "";
+		TargetElementRule ter = ((LeftPattern) object).getTargetElement();
+		if (ter != null) {
+			String metamodel = "NotDefined";
+			if (ter.getMetamodel() != null) {
+				metamodel = ter.getMetamodel().getName_mm();
 			}
-			element=ter.getName_element()+"::"+metamodel;
+			element = ter.getName_element() + "::" + metamodel;
 		}
 		return label == null || label.length() == 0 ? getString("_UI_LeftPattern_type") : //$NON-NLS-1$
-				getString("_UI_LeftPattern_type") + " " + label + " (" + element + ")";  //$NON-NLS-1$ //$NON-NLS-2$
+				getString("_UI_LeftPattern_type") + " " + label + " (" + element + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

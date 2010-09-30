@@ -147,9 +147,9 @@ public class OutMetaModelItemProvider extends ItemProviderAdapter implements
 	@Override
 	public String getText(Object object) {
 		String label = ((OutMetaModel) object).getName_mm();
-		return label == null || label.length() == 0 ? "OUT MetaModel"://getString("_UI_OutMetaModel_type") : //$NON-NLS-1$
+		return label == null || label.length() == 0 ? "OUT MetaModel" : //getString("_UI_OutMetaModel_type") : //$NON-NLS-1$
 				//getString("_UI_OutMetaModel_type") 
-				"OUT MetaModel"+ " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+				"OUT MetaModel" + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

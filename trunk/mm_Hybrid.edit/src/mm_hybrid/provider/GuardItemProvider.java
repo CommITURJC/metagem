@@ -105,7 +105,7 @@ public class GuardItemProvider extends ItemProviderAdapter implements
 	public String getText(Object object) {
 		String label = ((Guard) object).getValue();
 		return label == null || label.length() == 0 ? getString("_UI_Guard_type") : //$NON-NLS-1$
-				getString("_UI_Guard_type") + " (" + label+")"; //$NON-NLS-1$ //$NON-NLS-2$
+				getString("_UI_Guard_type") + " (" + label + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

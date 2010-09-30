@@ -11,6 +11,7 @@ import java.util.List;
 
 import mm_hybrid.Element;
 import mm_hybrid.MM_HybridPackage;
+import mm_hybrid.Rule;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
