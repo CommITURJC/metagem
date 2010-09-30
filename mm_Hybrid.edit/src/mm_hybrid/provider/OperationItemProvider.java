@@ -199,22 +199,24 @@ public class OperationItemProvider extends ItemProviderAdapter implements
 	@Override
 	public String getText(Object object) {
 		String label = ((Operation) object).getName_operation();
-		String context="";
-		String returnString="";
-		
-		if(((Operation) object).getContext()!=null)
-			context =((Operation) object).getContext().getName_element();
-		
-		if(((Operation) object).getReturnType()!=null){
-			if(((Operation) object).getReturnType().getElement()!=null){
-				returnString=((Operation) object).getReturnType().getElement().getName_element();
-			}else{
-				returnString=((Operation) object).getReturnType().getDatatype().getName();
+		String context = "";
+		String returnString = "";
+
+		if (((Operation) object).getContext() != null)
+			context = ((Operation) object).getContext().getName_element();
+
+		if (((Operation) object).getReturnType() != null) {
+			if (((Operation) object).getReturnType().getElement() != null) {
+				returnString = ((Operation) object).getReturnType()
+						.getElement().getName_element();
+			} else {
+				returnString = ((Operation) object).getReturnType()
+						.getDatatype().getName();
 			}
 		}
-		
+
 		return label == null || label.length() == 0 ? getString("_UI_Operation_type") : //$NON-NLS-1$
-				getString("_UI_Operation_type") + " " + label+" ("+context+") : "+returnString; //$NON-NLS-1$ //$NON-NLS-2$
+				getString("_UI_Operation_type") + " " + label + " (" + context + ") : " + returnString; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

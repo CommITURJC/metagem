@@ -134,12 +134,13 @@ public class TargetElementRuleItemProvider extends ElementItemProvider
 	@Override
 	public String getText(Object object) {
 		String label = ((TargetElementRule) object).getName_element();
-		String metamodel="NotDefined";
-		if(((TargetElementRule)object).getMetamodel()!=null){
-			metamodel=((TargetElementRule)object).getMetamodel().getName_mm();
+		String metamodel = "NotDefined";
+		if (((TargetElementRule) object).getMetamodel() != null) {
+			metamodel = ((TargetElementRule) object).getMetamodel()
+					.getName_mm();
 		}
 		return label == null || label.length() == 0 ? "Target" : //$NON-NLS-1$
-				"Target" + " "+ label+"::"+metamodel;//$NON-NLS-1$ //$NON-NLS-2$
+				"Target" + " " + label + "::" + metamodel;//$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -163,7 +164,7 @@ public class TargetElementRuleItemProvider extends ElementItemProvider
 					.getNotifier(), true, true));
 			return;
 		}
-	
+
 		super.notifyChanged(notification);
 	}
 

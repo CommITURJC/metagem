@@ -14,6 +14,8 @@ import mm_hybrid.MM_HybridPackage;
 import mm_hybrid.Rule;
 import mm_hybrid.SourceElementRule;
 import mm_hybrid.TargetElementRule;
+import mm_hybrid.impl.SourceElementRuleImpl;
+import mm_hybrid.impl.TargetElementRuleImpl;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -249,7 +251,6 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 						false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 						null, null));
 	}
-	
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -304,35 +305,37 @@ public class RuleItemProvider extends ItemProviderAdapter implements
 	@Override
 	public String getText(Object object) {
 		String label = ((Rule) object).getName_rule();
-		String inElements="";
-		int count=0;
-		for(Object i:((Rule) object).getIn()){
+		String inElements = "";
+		int count = 0;
+		for (Object i : ((Rule) object).getIn()) {
 			count++;
-			String metamodel="NotDefined";
-			if(((SourceElementRule)i).getMetamodel()!=null){
-				metamodel=((SourceElementRule)i).getMetamodel().getName_mm();
+			String metamodel = "NotDefined";
+			if (((SourceElementRule) i).getMetamodel() != null) {
+				metamodel = ((SourceElementRule) i).getMetamodel().getName_mm();
 			}
-			inElements+=((SourceElementRule)i).getName_element()+"::"+metamodel;
-			if(count!=((Rule) object).getIn().size()){
-				inElements+=", ";
+			inElements += ((SourceElementRule) i).getName_element() + "::"
+					+ metamodel;
+			if (count != ((Rule) object).getIn().size()) {
+				inElements += ", ";
 			}
 		}
-		String outElements=new  String("");
-		count=0;
-		for(Object i:((Rule) object).getOut()){
+		String outElements = new String("");
+		count = 0;
+		for (Object i : ((Rule) object).getOut()) {
 			count++;
-			String metamodel="NotDefined";
-			if(((TargetElementRule)i).getMetamodel()!=null){
-				metamodel=((TargetElementRule)i).getMetamodel().getName_mm();
+			String metamodel = "NotDefined";
+			if (((TargetElementRule) i).getMetamodel() != null) {
+				metamodel = ((TargetElementRule) i).getMetamodel().getName_mm();
 			}
-			outElements+=((TargetElementRule)i).getName_element()+"::"+metamodel;
-			if(count!=((Rule) object).getOut().size()){
-				outElements+=", ";
+			outElements += ((TargetElementRule) i).getName_element() + "::"
+					+ metamodel;
+			if (count != ((Rule) object).getOut().size()) {
+				outElements += ", ";
 			}
 		}
-		
+
 		return label == null || label.length() == 0 ? getString("_UI_Rule_type") : //$NON-NLS-1$
-				getString("_UI_Rule_type") + " " + label + " ("+inElements+" -> "+outElements+")"; //$NON-NLS-1$ //$NON-NLS-2$
+				getString("_UI_Rule_type") + " " + label + " (" + inElements + " -> " + outElements + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

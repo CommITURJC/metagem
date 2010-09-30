@@ -126,8 +126,8 @@ public class ReturnItemProvider extends ItemProviderAdapter implements
 	public String getText(Object object) {
 		Datatype labelValue = ((Return) object).getDatatype();
 		String label = labelValue == null ? null : labelValue.toString();
-		if(((Return)object).getElement()!=null){
-			label=((Return)object).getElement().getName_element();
+		if (((Return) object).getElement() != null) {
+			label = ((Return) object).getElement().getName_element();
 		}
 		return label == null || label.length() == 0 ? getString("_UI_Return_type") : //$NON-NLS-1$
 				getString("_UI_Return_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$

@@ -147,9 +147,9 @@ public class InMetaModelItemProvider extends ItemProviderAdapter implements
 	@Override
 	public String getText(Object object) {
 		String label = ((InMetaModel) object).getName_mm();
-		return label == null || label.length() == 0 ? "IN MetaModel": //getString("_UI_InMetaModel_type") : //$NON-NLS-1$
+		return label == null || label.length() == 0 ? "IN MetaModel" : //getString("_UI_InMetaModel_type") : //$NON-NLS-1$
 				//getString("_UI_InMetaModel_type") 
-				"IN MetaModel"+ " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+				"IN MetaModel" + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
