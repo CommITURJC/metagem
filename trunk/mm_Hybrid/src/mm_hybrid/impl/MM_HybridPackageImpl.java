@@ -701,6 +701,15 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRightPattern_ConcreteValue() {
+		return (EAttribute) rightPatternEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLeftPattern() {
 		return leftPatternEClass;
 	}
@@ -925,6 +934,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		createEReference(rightPatternEClass, RIGHT_PATTERN__OPERATION);
 		createEAttribute(rightPatternEClass, RIGHT_PATTERN__NAME_PATTERN);
 		createEReference(rightPatternEClass, RIGHT_PATTERN__REFERENCE);
+		createEAttribute(rightPatternEClass, RIGHT_PATTERN__CONCRETE_VALUE);
 
 		leftPatternEClass = createEClass(LEFT_PATTERN);
 		createEReference(leftPatternEClass, LEFT_PATTERN__TARGET_ELEMENT);
@@ -1218,6 +1228,10 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 				this.getElement(),
 				this.getElement_IsRefered(),
 				"reference", null, 0, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getRightPattern_ConcreteValue(),
+				ecorePackage.getEString(),
+				"concreteValue", null, 0, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(
 				leftPatternEClass,

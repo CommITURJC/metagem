@@ -90,6 +90,7 @@ class RightPattern {
   ref Operation[*]#rightPattern operation;
   !unique !ordered attr String[1] name_pattern;
   ref Element#isRefered reference;
+  !unique !ordered attr String concreteValue;
 }
 
 class LeftPattern {

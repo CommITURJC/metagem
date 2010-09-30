@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link mm_hybrid.RightPattern#getOperation <em>Operation</em>}</li>
  *   <li>{@link mm_hybrid.RightPattern#getName_pattern <em>Name pattern</em>}</li>
  *   <li>{@link mm_hybrid.RightPattern#getReference <em>Reference</em>}</li>
+ *   <li>{@link mm_hybrid.RightPattern#getConcreteValue <em>Concrete Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -138,5 +139,31 @@ public interface RightPattern extends EObject {
 	 * @generated
 	 */
 	void setReference(Element value);
+
+	/**
+	 * Returns the value of the '<em><b>Concrete Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Concrete Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Concrete Value</em>' attribute.
+	 * @see #setConcreteValue(String)
+	 * @see mm_hybrid.MM_HybridPackage#getRightPattern_ConcreteValue()
+	 * @model unique="false" ordered="false"
+	 * @generated
+	 */
+	String getConcreteValue();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.RightPattern#getConcreteValue <em>Concrete Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Concrete Value</em>' attribute.
+	 * @see #getConcreteValue()
+	 * @generated
+	 */
+	void setConcreteValue(String value);
 
 } // RightPattern
