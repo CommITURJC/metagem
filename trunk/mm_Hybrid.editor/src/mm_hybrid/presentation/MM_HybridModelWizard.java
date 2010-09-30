@@ -445,19 +445,19 @@ public class MM_HybridModelWizard extends Wizard implements INewWizard {
 				data.grabExcessHorizontalSpace = true;
 				initialObjectField.setLayoutData(data);
 			}
-			
-			int moduleIndex=0;
+
+			int moduleIndex = 0;
 			for (String objectName : getInitialObjectNames()) {
-				if(objectName.equals("Module"))
-					moduleIndex=initialObjectField.getItemCount(); //Obtains module index
+				if (objectName.equals("Module"))
+					moduleIndex = initialObjectField.getItemCount(); //Obtains module index
 				initialObjectField.add(getLabel(objectName));
 			}
 
-//			if (initialObjectField.getItemCount() == 1) {
-//				initialObjectField.select(0);
-//			}
+			//			if (initialObjectField.getItemCount() == 1) {
+			//				initialObjectField.select(0);
+			//			}
 			initialObjectField.select(moduleIndex); //Select root model (module)
-			
+
 			initialObjectField.addModifyListener(validator);
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
