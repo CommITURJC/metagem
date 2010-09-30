@@ -199,7 +199,7 @@ context Operation{
 		}
 		
 	-- Operation 'body' must be set
-	 constraint opration_body{
+	 constraint operation_body{
 	 	check: self.body.isDefined()
 	 	message: 'The required feature \'body\' of \''+ self.type().name.asString() + '\' must be set' 
 	 }
@@ -212,6 +212,12 @@ context Return {
  	constraint datatypeORelement{
  		check: not(self.element.isDefined() and  (not(self.datatype==Datatype#null.instance)))
  		message : 'Cannot be define an element and a datatype at the same time in Return'
+ 	}
+ 	
+ 	-- A Return element must return a datatype or an element
+ 	constraint datatypeORelement_notEmpty{
+ 		check: self.element.isDefined() or (not(self.datatype==Datatype#null.instance))
+ 		message: 'A Return element must return a datatype or an element'
  	}
  	
  }
@@ -304,10 +310,10 @@ context Return {
 		    }
 		}
 	
-	--RightPattern must have a reference, a rule, a operation or a SourceElementRule
+	--RightPattern must have a reference, a rule, a operation, a SourceElementRule or a concreteValue
 	constraint hasSourceElementRule_Reference_Rule_or_Operation{
-		check: self.sourceElement->size()>0 or self.reference->size()>0 or self.rule->size()>0 or self."operation"->size()>0
-		message: '\''+self.type().name.asString()+'\' must have one of following elements: \'SourceElementRule\', \'Reference\', \'Rule\' or \'Operation\''
+		check: self.sourceElement->size()>0 or self.reference->size()>0 or self.rule->size()>0 or self."operation"->size()>0 or self.concreteValue.isDefined()
+		message: '\''+self.type().name.asString()+'\' must have one of following elements: \'SourceElementRule\', \'Reference\', \'Rule\',  \'Operation\' or \'Concrete value\''
 	}
 	
 	--RightPattern cannot have a rule and a operation at the same time
