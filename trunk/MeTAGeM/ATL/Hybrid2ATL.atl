@@ -173,13 +173,21 @@ rule OutPatternElement {
 
 -- To call the correct lazy rule
 helper context MM_Hybrid!ElementIncluded def : getBindingSource() : ATL!OclExpression =
-	if (self.right."rule".asSequence().first().oclIsUndefined() and 
-		self.right.operation.asSequence().first().oclIsUndefined() and
-		self.right.sourceElement.asSequence().first().oclIsUndefined() and
-		not self.right.reference.oclIsUndefined()) then
-			thisModule.getNewSource(self)
-	else
-		thisModule.getSimpleBinding(self)
+		if (self.right."rule".asSequence().first().oclIsUndefined() and 
+			self.right.operation.asSequence().first().oclIsUndefined() and
+			self.right.sourceElement.asSequence().first().oclIsUndefined() and
+			self.right.reference.oclIsUndefined()) then
+				thisModule.getConcreteBinding(self)
+		else
+			if (not self.right.reference.oclIsUndefined()) then
+				if self.right.reference.oclIsTypeOf(MM_Hybrid!SourceElementRule) then
+					thisModule.getComplexBinding(self)
+				else
+					thisModule.getSimpleBinding(self)
+				endif
+			else
+				thisModule.getComplexBinding(self)
+		endif
 	endif;
 
 
@@ -222,7 +230,6 @@ helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpre
 
 --Helper -> Return the variable used on source binding
 helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : ATL!OclExpression = --String =
---OclUndefined.debug('test');
 	if self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().oclIsUndefined()  then
 		'???'
 	else
@@ -252,7 +259,20 @@ rule Bindings {
 }
 
 
-lazy rule getNewSource {
+lazy rule getConcreteBinding {
+	from
+		elemInc : MM_Hybrid!ElementIncluded
+	to 
+		source : ATL!VariableExp(
+			referredVariable <- areferred	
+		),
+		areferred : ATL!VariableDeclaration(
+			varName <- elemInc.right.concreteValue.toString().debug('ConcreteValue')
+		) 		
+}
+
+
+lazy rule getSimpleBinding {
 	from
 		elemInc : MM_Hybrid!ElementIncluded
 	to 
@@ -265,7 +285,7 @@ lazy rule getNewSource {
 }
 
 
-lazy rule getSimpleBinding {
+lazy rule getComplexBinding {
 	from
 		elemInc : MM_Hybrid!ElementIncluded
 	to
@@ -376,7 +396,7 @@ helper context MM_Hybrid!Operation def : getReturnDefined () : Boolean =
 	;
 
 
--- Helper 
+-- Create Helper with Return Type 
 rule createOperation2Helper {
 	from
 		oper : MM_Hybrid!Operation (oper.getReturnDefined())
@@ -397,7 +417,7 @@ rule createOperation2Helper {
 		)
 }
 
--- Helper 
+-- Create Helper without Return Type 
 rule createOperation2HelperNoReturn {
 	from
 		oper : MM_Hybrid!Operation (not oper.getReturnDefined())
@@ -413,11 +433,9 @@ rule createOperation2HelperNoReturn {
 			context_ <- oper.getContext()
 		),
 		afeature : ATL!Operation (
-			name <- oper.name_operation--,
+			name <- oper.name_operation
 		)
 }
-
-
 
 
 --Helper -> Return the number of inputPatterns 
