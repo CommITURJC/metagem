@@ -311,37 +311,44 @@ context Return {
 		}
 	
 	--RightPattern must have a reference, a rule, a operation, a SourceElementRule or a concreteValue
-	constraint hasSourceElementRule_Reference_Rule_or_Operation{
+	constraint hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue{
 		check: self.sourceElement->size()>0 or self.reference->size()>0 or self.rule->size()>0 or self."operation"->size()>0 or self.concreteValue.isDefined()
 		message: '\''+self.type().name.asString()+'\' must have one of following elements: \'SourceElementRule\', \'Reference\', \'Rule\',  \'Operation\' or \'Concrete value\''
 	}
 	
 	--RightPattern cannot have a rule and a operation at the same time
 	constraint hasRule_and_operation{
-		guard: self.satisfies('hasSourceElementRule_Reference_Rule_or_Operation')
+		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
 		check: not(self.rule->size()>0 and self."operation"->size()>0)
 		message: '\''+self.type().name.asString()+'\' cannot be associated with a \'Rule\' and an \'Operation\' '
 	}
 	
 	--RightPattern cannot have a rule and a reference at the same time
 	constraint hasRule_and_reference{
-		guard: self.satisfies('hasSourceElementRule_Reference_Rule_or_Operation')
+		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
 		check: not(self.rule->size()>0 and self.reference->size()>0)
 		message: '\''+self.type().name.asString()+'\' cannot be associated with a \'Rule\' and a \'Reference\' '
 	}
 	
 	--RightPattern cannot have an operation and a reference at the same time
 	constraint hasOperation_and_reference{
-		guard: self.satisfies('hasSourceElementRule_Reference_Rule_or_Operation')
+		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
 		check: not(self."operation"->size()>0 and self.reference->size()>0)
 		message: '\''+self.type().name.asString()+'\' cannot be associated with an \'Operation\' and a \'Reference\' '
 	}
 	
 	--RightPattern cannot have a SourceElementRule and a reference at the same time
 	constraint hasSourceElementRule_and_reference{
-		guard: self.satisfies('hasSourceElementRule_Reference_Rule_or_Operation')
+		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
 		check: not(self.sourceElement->size()>0 and self.reference->size()>0)
 		message: '\''+self.type().name.asString()+'\' cannot have \'Source Element Rule\' and be associated with a \'Reference\' '
+	}
+	
+	--If RightPattern has defined a ConcreteValue, cannot define SourceElementRule, Reference, Rule or Operation
+	constraint hasONLYconcreteValue{
+		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
+		check: not(self.concreteValue.isDefined() and (self.sourceElement->size()>0 or self.reference->size()>0 or self.rule->size()>0 or self."operation"->size()>0)) 
+		message: 'If \''+self.type().name.asString()+'\' has defined a \'Concrete Value\', cannot define \'SourceElementRule\', \'Reference\', \'Rule\' or \'Operation\' '
 	}
 		
  }
