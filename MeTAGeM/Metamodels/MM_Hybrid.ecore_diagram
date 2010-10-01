@@ -231,6 +231,10 @@
         <element xmi:type="ecore:EAttribute" href="MM_Hybrid.ecore#//RightPattern/name_pattern"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_h6TSUZiREd-mW535tX38wA"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_f2vBkMymEd-hXY_YJ4F9jg" type="3001">
+        <element xmi:type="ecore:EAttribute" href="MM_Hybrid.ecore#//RightPattern/concreteValue"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_f2vBkcymEd-hXY_YJ4F9jg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_sOjIfZAWEd-LhOqPqqdR1w"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_sOjIfpAWEd-LhOqPqqdR1w"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_sOjIf5AWEd-LhOqPqqdR1w"/>

@@ -150,6 +150,8 @@
         unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//Element"
         eOpposite="#//Element/isRefered"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="concreteValue" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LeftPattern">
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetElement" ordered="false"
