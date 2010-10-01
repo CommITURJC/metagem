@@ -12,8 +12,6 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
-import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
-import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
@@ -99,7 +97,7 @@ public class HYBRID2RubyTLLaunchConfigurationTab extends AbstractExtendedLaunchC
 		   {
 			   boolean isValid = false;
 				try {
-					isValid = ValidationExecution.isValid(orLoc.lastSegment(), orLoc.toOSString(), Constants.HYBRIDURI,Constants.NOT_SHOW_DIALOG);
+					isValid = ValidationExecution.isValid(orLoc.lastSegment(), orLoc.toOSString(), Constants.HYBRIDURI,Constants.RubyTLURI,Constants.NOT_SHOW_DIALOG);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

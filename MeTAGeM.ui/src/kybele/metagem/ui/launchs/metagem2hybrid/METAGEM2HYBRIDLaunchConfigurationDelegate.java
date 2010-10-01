@@ -45,7 +45,7 @@ public class METAGEM2HYBRIDLaunchConfigurationDelegate implements
 				
 		boolean isValid = false;
 		try {
-			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.METAGEMURI,Constants.SHOW_DIALOG);
+			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.METAGEMURI,null,Constants.SHOW_DIALOG);
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "One or more models cannot be found.\nPlease, check your Launch Configuration", "Problems Launching...", JOptionPane.ERROR_MESSAGE);
 			isValid=false;
