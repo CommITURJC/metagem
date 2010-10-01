@@ -97,7 +97,7 @@ public class HYBRID2ATLLaunchConfigurationTab extends AbstractExtendedLaunchConf
 			   {
 				   boolean isValid = false;
 					try {
-						isValid = ValidationExecution.isValid(orLoc.lastSegment(), orLoc.toOSString(), Constants.HYBRIDURI,Constants.NOT_SHOW_DIALOG);
+						isValid = ValidationExecution.isValid(orLoc.lastSegment(), orLoc.toOSString(), Constants.HYBRIDURI,Constants.ATLURI,Constants.NOT_SHOW_DIALOG);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

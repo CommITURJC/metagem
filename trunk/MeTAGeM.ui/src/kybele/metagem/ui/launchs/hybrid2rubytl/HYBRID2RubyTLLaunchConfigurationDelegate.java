@@ -5,7 +5,6 @@ import javax.swing.UIManager;
 
 import kybele.metagem.ui.api.Transformations;
 import kybele.metagem.ui.api.ValidationExecution;
-import kybele.metagem.ui.launchs.metagem2hybrid.METAGEM2HYBRIDConstants;
 import kybele.metagem.ui.utils.Constants;
 
 import org.eclipse.core.resources.IFolder;
@@ -43,7 +42,7 @@ public class HYBRID2RubyTLLaunchConfigurationDelegate implements
 		
 		boolean isValid = false;
 		try {
-			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.HYBRIDURI,Constants.SHOW_DIALOG);
+			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.HYBRIDURI,Constants.RubyTLURI,Constants.SHOW_DIALOG);
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "One or more models cannot be found.\nPlease, check your Launch Configuration", "Problems Launching...", JOptionPane.ERROR_MESSAGE);
 			isValid=false;
