@@ -16,6 +16,7 @@ rule Module {
 		)
 }
 
+
 rule inMM{
 	from
 		inMM_hybrid : MM_Hybrid!InMetaModel
@@ -28,6 +29,7 @@ rule inMM{
 			name <- inMM_hybrid.type_mm
 		)
 }
+
 
 rule outMM{
 	from
@@ -171,7 +173,7 @@ rule OutPatternElement {
 }
 
 
--- To call the correct lazy rule
+-- Helper -> To call the correct lazy rule to define the Binding
 helper context MM_Hybrid!ElementIncluded def : getBindingSource() : ATL!OclExpression =
 		if (self.right."rule".asSequence().first().oclIsUndefined() and 
 			self.right.operation.asSequence().first().oclIsUndefined() and
@@ -191,7 +193,7 @@ helper context MM_Hybrid!ElementIncluded def : getBindingSource() : ATL!OclExpre
 	endif;
 
 
---Helper -> Define the source binding (Element, Rule, Helper or Reference)
+-- Helper -> Define the source binding (Element, Rule, Helper or Reference)
 helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpression = --String = 
 	--rule undefined, operation undefined, srcElement undefined, reference defined	
 	if (self.right."rule".asSequence().first().oclIsUndefined() and 
@@ -228,7 +230,7 @@ helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpre
 	endif;
 
 
---Helper -> Return the variable used on source binding
+-- Helper -> Return the variable used on source binding
 helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : ATL!OclExpression = --String =
 	if self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().oclIsUndefined()  then
 		'???'
@@ -245,7 +247,7 @@ helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : ATL!OclE
 	endif;
 
 
---Bindigs -> Formulas (TargetElements <- SourceElements)
+-- Bindigs -> Formulas (TargetElements <- SourceElements)
 rule Bindings {
 	from 
 		elemInc : MM_Hybrid!ElementIncluded
@@ -267,7 +269,7 @@ lazy rule getConcreteBinding {
 			referredVariable <- areferred	
 		),
 		areferred : ATL!VariableDeclaration(
-			varName <- elemInc.right.concreteValue.toString().debug('ConcreteValue')
+			varName <- elemInc.right.concreteValue
 		) 		
 }
 
@@ -386,7 +388,7 @@ lazy rule getReturnElementType {
 		) 
 }
 
-
+-- Helper -> Return Boolean if Operation.returnType is defined
 helper context MM_Hybrid!Operation def : getReturnDefined () : Boolean = 
 	if self.returnType.oclIsUndefined() then
 		false
@@ -396,7 +398,7 @@ helper context MM_Hybrid!Operation def : getReturnDefined () : Boolean =
 	;
 
 
--- Create Helper with Return Type 
+-- Create Helper with ReturnType 
 rule createOperation2Helper {
 	from
 		oper : MM_Hybrid!Operation (oper.getReturnDefined())
@@ -417,7 +419,7 @@ rule createOperation2Helper {
 		)
 }
 
--- Create Helper without Return Type 
+-- Create Helper without ReturnType 
 rule createOperation2HelperNoReturn {
 	from
 		oper : MM_Hybrid!Operation (not oper.getReturnDefined())
@@ -451,14 +453,3 @@ helper context MM_Hybrid!Rule def : getComment () : String =
 		self.comment
 	endif
 	;
-
-
--- Create Filter
---rule createGuard2Filter{
---	from
---		mm_hybrid_guard : MM_Hybrid!Guard
---	to
---		atl : ATL!OperationCallExp (
---			operationName <- mm_hybrid_guard.value
---		)
---}
