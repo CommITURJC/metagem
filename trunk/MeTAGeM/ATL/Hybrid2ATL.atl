@@ -388,20 +388,11 @@ lazy rule getReturnElementType {
 		) 
 }
 
--- Helper -> Return Boolean if Operation.returnType is defined
-helper context MM_Hybrid!Operation def : getReturnDefined () : Boolean = 
-	if self.returnType.oclIsUndefined() then
-		false
-	else
-		true
-	endif
-	;
-
 
 -- Create Helper with ReturnType 
 rule createOperation2Helper {
 	from
-		oper : MM_Hybrid!Operation (oper.getReturnDefined())
+		oper : MM_Hybrid!Operation --(oper.getReturnDefined())
 	to
 		atl : ATL!Helper (
 			"module" <- oper.refImmediateComposite(),
@@ -416,26 +407,6 @@ rule createOperation2Helper {
 		afeature : ATL!Operation (
 			name <- oper.name_operation,
 			returnType <- oper.getReturnType()
-		)
-}
-
--- Create Helper without ReturnType 
-rule createOperation2HelperNoReturn {
-	from
-		oper : MM_Hybrid!Operation (not oper.getReturnDefined())
-	to
-		atl : ATL!Helper (
-			"module" <- oper.refImmediateComposite(),
-			commentsBefore <- Set {'-- Comments -> This is a Helper: ' + oper.name_operation},
-			commentsAfter <- Set {'-- Body: ' + oper.body},
-			definition <- adefinition
-		),
-		adefinition : ATL!OclFeatureDefinition (
-			feature <- afeature,
-			context_ <- oper.getContext()
-		),
-		afeature : ATL!Operation (
-			name <- oper.name_operation
 		)
 }
 
