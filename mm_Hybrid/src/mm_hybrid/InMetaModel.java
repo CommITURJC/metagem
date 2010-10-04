@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link mm_hybrid.InMetaModel#getName_mm <em>Name mm</em>}</li>
  *   <li>{@link mm_hybrid.InMetaModel#getType_mm <em>Type mm</em>}</li>
  *   <li>{@link mm_hybrid.InMetaModel#getElements <em>Elements</em>}</li>
+ *   <li>{@link mm_hybrid.InMetaModel#getModule <em>Module</em>}</li>
  * </ul>
  * </p>
  *
@@ -97,5 +98,33 @@ public interface InMetaModel extends EObject {
 	 * @generated
 	 */
 	EList<SourceElementRule> getElements();
+
+	/**
+	 * Returns the value of the '<em><b>Module</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.Module#getInMM <em>In MM</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Module</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Module</em>' container reference.
+	 * @see #setModule(Module)
+	 * @see mm_hybrid.MM_HybridPackage#getInMetaModel_Module()
+	 * @see mm_hybrid.Module#getInMM
+	 * @model opposite="inMM" required="true" transient="false"
+	 * @generated
+	 */
+	Module getModule();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.InMetaModel#getModule <em>Module</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Module</em>' container reference.
+	 * @see #getModule()
+	 * @generated
+	 */
+	void setModule(Module value);
 
 } // InMetaModel

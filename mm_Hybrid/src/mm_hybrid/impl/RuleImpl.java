@@ -9,6 +9,7 @@ package mm_hybrid.impl;
 import java.util.Collection;
 
 import mm_hybrid.MM_HybridPackage;
+import mm_hybrid.Module;
 import mm_hybrid.RightPattern;
 import mm_hybrid.Rule;
 import mm_hybrid.SourceElementRule;
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -51,6 +53,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mm_hybrid.impl.RuleImpl#getIsExtended <em>Is Extended</em>}</li>
  *   <li>{@link mm_hybrid.impl.RuleImpl#getRightPattern <em>Right Pattern</em>}</li>
  *   <li>{@link mm_hybrid.impl.RuleImpl#getComment <em>Comment</em>}</li>
+ *   <li>{@link mm_hybrid.impl.RuleImpl#getModule <em>Module</em>}</li>
  * </ul>
  * </p>
  *
@@ -320,8 +323,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 */
 	public EList<SourceElementRule> getIn() {
 		if (in == null) {
-			in = new EObjectContainmentEList<SourceElementRule>(
-					SourceElementRule.class, this, MM_HybridPackage.RULE__IN);
+			in = new EObjectContainmentWithInverseEList<SourceElementRule>(
+					SourceElementRule.class, this, MM_HybridPackage.RULE__IN,
+					MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE);
 		}
 		return in;
 	}
@@ -333,8 +337,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 */
 	public EList<TargetElementRule> getOut() {
 		if (out == null) {
-			out = new EObjectContainmentEList<TargetElementRule>(
-					TargetElementRule.class, this, MM_HybridPackage.RULE__OUT);
+			out = new EObjectContainmentWithInverseEList<TargetElementRule>(
+					TargetElementRule.class, this, MM_HybridPackage.RULE__OUT,
+					MM_HybridPackage.TARGET_ELEMENT_RULE__RULE);
 		}
 		return out;
 	}
@@ -514,11 +519,65 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Module getModule() {
+		if (eContainerFeatureID != MM_HybridPackage.RULE__MODULE)
+			return null;
+		return (Module) eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetModule(Module newModule,
+			NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newModule,
+				MM_HybridPackage.RULE__MODULE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModule(Module newModule) {
+		if (newModule != eInternalContainer()
+				|| (eContainerFeatureID != MM_HybridPackage.RULE__MODULE && newModule != null)) {
+			if (EcoreUtil.isAncestor(this, newModule))
+				throw new IllegalArgumentException(
+						"Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newModule != null)
+				msgs = ((InternalEObject) newModule).eInverseAdd(this,
+						MM_HybridPackage.MODULE__RULE, Module.class, msgs);
+			msgs = basicSetModule(newModule, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.RULE__MODULE, newModule, newModule));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case MM_HybridPackage.RULE__IN:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getIn())
+					.basicAdd(otherEnd, msgs);
+		case MM_HybridPackage.RULE__OUT:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOut())
+					.basicAdd(otherEnd, msgs);
 		case MM_HybridPackage.RULE__EXTENDS:
 			if (extends_ != null)
 				msgs = ((InternalEObject) extends_).eInverseRemove(this,
@@ -530,6 +589,10 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		case MM_HybridPackage.RULE__RIGHT_PATTERN:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getRightPattern())
 					.basicAdd(otherEnd, msgs);
+		case MM_HybridPackage.RULE__MODULE:
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return basicSetModule((Module) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -555,8 +618,26 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		case MM_HybridPackage.RULE__RIGHT_PATTERN:
 			return ((InternalEList<?>) getRightPattern()).basicRemove(otherEnd,
 					msgs);
+		case MM_HybridPackage.RULE__MODULE:
+			return basicSetModule(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(
+			NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+		case MM_HybridPackage.RULE__MODULE:
+			return eInternalContainer().eInverseRemove(this,
+					MM_HybridPackage.MODULE__RULE, Module.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -591,6 +672,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 			return getRightPattern();
 		case MM_HybridPackage.RULE__COMMENT:
 			return getComment();
+		case MM_HybridPackage.RULE__MODULE:
+			return getModule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -642,6 +725,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		case MM_HybridPackage.RULE__COMMENT:
 			setComment((String) newValue);
 			return;
+		case MM_HybridPackage.RULE__MODULE:
+			setModule((Module) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -687,6 +773,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		case MM_HybridPackage.RULE__COMMENT:
 			setComment(COMMENT_EDEFAULT);
 			return;
+		case MM_HybridPackage.RULE__MODULE:
+			setModule((Module) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -723,6 +812,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		case MM_HybridPackage.RULE__COMMENT:
 			return COMMENT_EDEFAULT == null ? comment != null
 					: !COMMENT_EDEFAULT.equals(comment);
+		case MM_HybridPackage.RULE__MODULE:
+			return getModule() != null;
 		}
 		return super.eIsSet(featureID);
 	}

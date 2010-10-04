@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link mm_hybrid.TargetElementRule#getIncluded <em>Included</em>}</li>
  *   <li>{@link mm_hybrid.TargetElementRule#getMetamodel <em>Metamodel</em>}</li>
  *   <li>{@link mm_hybrid.TargetElementRule#getLeftPattern <em>Left Pattern</em>}</li>
+ *   <li>{@link mm_hybrid.TargetElementRule#getRule <em>Rule</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,6 +32,7 @@ public interface TargetElementRule extends Element {
 	/**
 	 * Returns the value of the '<em><b>Included</b></em>' containment reference list.
 	 * The list contents are of type {@link mm_hybrid.ElementIncluded}.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.ElementIncluded#getTargetElement <em>Target Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Included</em>' containment reference list isn't clear,
@@ -39,7 +41,8 @@ public interface TargetElementRule extends Element {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Included</em>' containment reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getTargetElementRule_Included()
-	 * @model containment="true"
+	 * @see mm_hybrid.ElementIncluded#getTargetElement
+	 * @model opposite="targetElement" containment="true"
 	 * @generated
 	 */
 	EList<ElementIncluded> getIncluded();
@@ -99,4 +102,32 @@ public interface TargetElementRule extends Element {
 	 * @generated
 	 */
 	void setLeftPattern(LeftPattern value);
+
+	/**
+	 * Returns the value of the '<em><b>Rule</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.Rule#getOut <em>Out</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rule</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rule</em>' container reference.
+	 * @see #setRule(Rule)
+	 * @see mm_hybrid.MM_HybridPackage#getTargetElementRule_Rule()
+	 * @see mm_hybrid.Rule#getOut
+	 * @model opposite="out" required="true" transient="false"
+	 * @generated
+	 */
+	Rule getRule();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.TargetElementRule#getRule <em>Rule</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rule</em>' container reference.
+	 * @see #getRule()
+	 * @generated
+	 */
+	void setRule(Rule value);
 } // TargetElementRule

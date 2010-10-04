@@ -10,6 +10,7 @@ import java.util.Collection;
 import mm_hybrid.InMetaModel;
 import mm_hybrid.MM_HybridPackage;
 
+import mm_hybrid.Module;
 import mm_hybrid.SourceElementRule;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -34,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mm_hybrid.impl.InMetaModelImpl#getName_mm <em>Name mm</em>}</li>
  *   <li>{@link mm_hybrid.impl.InMetaModelImpl#getType_mm <em>Type mm</em>}</li>
  *   <li>{@link mm_hybrid.impl.InMetaModelImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link mm_hybrid.impl.InMetaModelImpl#getModule <em>Module</em>}</li>
  * </ul>
  * </p>
  *
@@ -175,6 +178,55 @@ public class InMetaModelImpl extends EObjectImpl implements InMetaModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Module getModule() {
+		if (eContainerFeatureID != MM_HybridPackage.IN_META_MODEL__MODULE)
+			return null;
+		return (Module) eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetModule(Module newModule,
+			NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newModule,
+				MM_HybridPackage.IN_META_MODEL__MODULE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModule(Module newModule) {
+		if (newModule != eInternalContainer()
+				|| (eContainerFeatureID != MM_HybridPackage.IN_META_MODEL__MODULE && newModule != null)) {
+			if (EcoreUtil.isAncestor(this, newModule))
+				throw new IllegalArgumentException(
+						"Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newModule != null)
+				msgs = ((InternalEObject) newModule).eInverseAdd(this,
+						MM_HybridPackage.MODULE__IN_MM, Module.class, msgs);
+			msgs = basicSetModule(newModule, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.IN_META_MODEL__MODULE, newModule,
+					newModule));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
@@ -183,6 +235,10 @@ public class InMetaModelImpl extends EObjectImpl implements InMetaModel {
 		case MM_HybridPackage.IN_META_MODEL__ELEMENTS:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getElements())
 					.basicAdd(otherEnd, msgs);
+		case MM_HybridPackage.IN_META_MODEL__MODULE:
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return basicSetModule((Module) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -199,8 +255,26 @@ public class InMetaModelImpl extends EObjectImpl implements InMetaModel {
 		case MM_HybridPackage.IN_META_MODEL__ELEMENTS:
 			return ((InternalEList<?>) getElements()).basicRemove(otherEnd,
 					msgs);
+		case MM_HybridPackage.IN_META_MODEL__MODULE:
+			return basicSetModule(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(
+			NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+		case MM_HybridPackage.IN_META_MODEL__MODULE:
+			return eInternalContainer().eInverseRemove(this,
+					MM_HybridPackage.MODULE__IN_MM, Module.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -217,6 +291,8 @@ public class InMetaModelImpl extends EObjectImpl implements InMetaModel {
 			return getType_mm();
 		case MM_HybridPackage.IN_META_MODEL__ELEMENTS:
 			return getElements();
+		case MM_HybridPackage.IN_META_MODEL__MODULE:
+			return getModule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -241,6 +317,9 @@ public class InMetaModelImpl extends EObjectImpl implements InMetaModel {
 			getElements().addAll(
 					(Collection<? extends SourceElementRule>) newValue);
 			return;
+		case MM_HybridPackage.IN_META_MODEL__MODULE:
+			setModule((Module) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -262,6 +341,9 @@ public class InMetaModelImpl extends EObjectImpl implements InMetaModel {
 		case MM_HybridPackage.IN_META_MODEL__ELEMENTS:
 			getElements().clear();
 			return;
+		case MM_HybridPackage.IN_META_MODEL__MODULE:
+			setModule((Module) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -282,6 +364,8 @@ public class InMetaModelImpl extends EObjectImpl implements InMetaModel {
 					: !TYPE_MM_EDEFAULT.equals(type_mm);
 		case MM_HybridPackage.IN_META_MODEL__ELEMENTS:
 			return elements != null && !elements.isEmpty();
+		case MM_HybridPackage.IN_META_MODEL__MODULE:
+			return getModule() != null;
 		}
 		return super.eIsSet(featureID);
 	}

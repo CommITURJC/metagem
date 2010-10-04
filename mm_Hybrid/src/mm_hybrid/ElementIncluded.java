@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link mm_hybrid.ElementIncluded#getTypeElement <em>Type Element</em>}</li>
  *   <li>{@link mm_hybrid.ElementIncluded#getRight <em>Right</em>}</li>
  *   <li>{@link mm_hybrid.ElementIncluded#getLeft <em>Left</em>}</li>
+ *   <li>{@link mm_hybrid.ElementIncluded#getTargetElement <em>Target Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,6 +91,7 @@ public interface ElementIncluded extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Right</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.RightPattern#getElementIncluded <em>Element Included</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Right</em>' containment reference isn't clear,
@@ -99,7 +101,8 @@ public interface ElementIncluded extends EObject {
 	 * @return the value of the '<em>Right</em>' containment reference.
 	 * @see #setRight(RightPattern)
 	 * @see mm_hybrid.MM_HybridPackage#getElementIncluded_Right()
-	 * @model containment="true" required="true"
+	 * @see mm_hybrid.RightPattern#getElementIncluded
+	 * @model opposite="elementIncluded" containment="true" required="true"
 	 * @generated
 	 */
 	RightPattern getRight();
@@ -116,6 +119,7 @@ public interface ElementIncluded extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Left</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.LeftPattern#getElementIncluded <em>Element Included</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Left</em>' containment reference isn't clear,
@@ -125,7 +129,8 @@ public interface ElementIncluded extends EObject {
 	 * @return the value of the '<em>Left</em>' containment reference.
 	 * @see #setLeft(LeftPattern)
 	 * @see mm_hybrid.MM_HybridPackage#getElementIncluded_Left()
-	 * @model containment="true" required="true"
+	 * @see mm_hybrid.LeftPattern#getElementIncluded
+	 * @model opposite="elementIncluded" containment="true" required="true"
 	 * @generated
 	 */
 	LeftPattern getLeft();
@@ -139,5 +144,33 @@ public interface ElementIncluded extends EObject {
 	 * @generated
 	 */
 	void setLeft(LeftPattern value);
+
+	/**
+	 * Returns the value of the '<em><b>Target Element</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.TargetElementRule#getIncluded <em>Included</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Element</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target Element</em>' container reference.
+	 * @see #setTargetElement(TargetElementRule)
+	 * @see mm_hybrid.MM_HybridPackage#getElementIncluded_TargetElement()
+	 * @see mm_hybrid.TargetElementRule#getIncluded
+	 * @model opposite="included" required="true" transient="false"
+	 * @generated
+	 */
+	TargetElementRule getTargetElement();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.ElementIncluded#getTargetElement <em>Target Element</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Element</em>' container reference.
+	 * @see #getTargetElement()
+	 * @generated
+	 */
+	void setTargetElement(TargetElementRule value);
 
 } // ElementIncluded

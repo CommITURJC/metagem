@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -156,8 +157,9 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	 */
 	public EList<Rule> getRule() {
 		if (rule == null) {
-			rule = new EObjectContainmentEList<Rule>(Rule.class, this,
-					MM_HybridPackage.MODULE__RULE);
+			rule = new EObjectContainmentWithInverseEList<Rule>(Rule.class,
+					this, MM_HybridPackage.MODULE__RULE,
+					MM_HybridPackage.RULE__MODULE);
 		}
 		return rule;
 	}
@@ -169,8 +171,9 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	 */
 	public EList<InMetaModel> getInMM() {
 		if (inMM == null) {
-			inMM = new EObjectContainmentEList<InMetaModel>(InMetaModel.class,
-					this, MM_HybridPackage.MODULE__IN_MM);
+			inMM = new EObjectContainmentWithInverseEList<InMetaModel>(
+					InMetaModel.class, this, MM_HybridPackage.MODULE__IN_MM,
+					MM_HybridPackage.IN_META_MODEL__MODULE);
 		}
 		return inMM;
 	}
@@ -182,8 +185,9 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	 */
 	public EList<OutMetaModel> getOutMM() {
 		if (outMM == null) {
-			outMM = new EObjectContainmentEList<OutMetaModel>(
-					OutMetaModel.class, this, MM_HybridPackage.MODULE__OUT_MM);
+			outMM = new EObjectContainmentWithInverseEList<OutMetaModel>(
+					OutMetaModel.class, this, MM_HybridPackage.MODULE__OUT_MM,
+					MM_HybridPackage.OUT_META_MODEL__MODULE);
 		}
 		return outMM;
 	}
@@ -195,10 +199,37 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	 */
 	public EList<Operation> getOperations() {
 		if (operations == null) {
-			operations = new EObjectContainmentEList<Operation>(
-					Operation.class, this, MM_HybridPackage.MODULE__OPERATIONS);
+			operations = new EObjectContainmentWithInverseEList<Operation>(
+					Operation.class, this, MM_HybridPackage.MODULE__OPERATIONS,
+					MM_HybridPackage.OPERATION__MODULE);
 		}
 		return operations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case MM_HybridPackage.MODULE__RULE:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getRule())
+					.basicAdd(otherEnd, msgs);
+		case MM_HybridPackage.MODULE__IN_MM:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getInMM())
+					.basicAdd(otherEnd, msgs);
+		case MM_HybridPackage.MODULE__OUT_MM:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOutMM())
+					.basicAdd(otherEnd, msgs);
+		case MM_HybridPackage.MODULE__OPERATIONS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOperations())
+					.basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

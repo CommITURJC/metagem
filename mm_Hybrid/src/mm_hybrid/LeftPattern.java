@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link mm_hybrid.LeftPattern#getTargetElement <em>Target Element</em>}</li>
  *   <li>{@link mm_hybrid.LeftPattern#getName_pattern <em>Name pattern</em>}</li>
+ *   <li>{@link mm_hybrid.LeftPattern#getElementIncluded <em>Element Included</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,5 +83,33 @@ public interface LeftPattern extends EObject {
 	 * @generated
 	 */
 	void setName_pattern(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Element Included</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.ElementIncluded#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Element Included</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Element Included</em>' container reference.
+	 * @see #setElementIncluded(ElementIncluded)
+	 * @see mm_hybrid.MM_HybridPackage#getLeftPattern_ElementIncluded()
+	 * @see mm_hybrid.ElementIncluded#getLeft
+	 * @model opposite="left" required="true" transient="false"
+	 * @generated
+	 */
+	ElementIncluded getElementIncluded();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.LeftPattern#getElementIncluded <em>Element Included</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Element Included</em>' container reference.
+	 * @see #getElementIncluded()
+	 * @generated
+	 */
+	void setElementIncluded(ElementIncluded value);
 
 } // LeftPattern

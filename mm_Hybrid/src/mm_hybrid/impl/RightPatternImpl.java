@@ -9,6 +9,7 @@ package mm_hybrid.impl;
 import java.util.Collection;
 
 import mm_hybrid.Element;
+import mm_hybrid.ElementIncluded;
 import mm_hybrid.MM_HybridPackage;
 import mm_hybrid.Operation;
 import mm_hybrid.RightPattern;
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -45,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mm_hybrid.impl.RightPatternImpl#getName_pattern <em>Name pattern</em>}</li>
  *   <li>{@link mm_hybrid.impl.RightPatternImpl#getReference <em>Reference</em>}</li>
  *   <li>{@link mm_hybrid.impl.RightPatternImpl#getConcreteValue <em>Concrete Value</em>}</li>
+ *   <li>{@link mm_hybrid.impl.RightPatternImpl#getElementIncluded <em>Element Included</em>}</li>
  * </ul>
  * </p>
  *
@@ -320,6 +323,56 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ElementIncluded getElementIncluded() {
+		if (eContainerFeatureID != MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED)
+			return null;
+		return (ElementIncluded) eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetElementIncluded(
+			ElementIncluded newElementIncluded, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newElementIncluded,
+				MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setElementIncluded(ElementIncluded newElementIncluded) {
+		if (newElementIncluded != eInternalContainer()
+				|| (eContainerFeatureID != MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED && newElementIncluded != null)) {
+			if (EcoreUtil.isAncestor(this, newElementIncluded))
+				throw new IllegalArgumentException(
+						"Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newElementIncluded != null)
+				msgs = ((InternalEObject) newElementIncluded).eInverseAdd(this,
+						MM_HybridPackage.ELEMENT_INCLUDED__RIGHT,
+						ElementIncluded.class, msgs);
+			msgs = basicSetElementIncluded(newElementIncluded, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED,
+					newElementIncluded, newElementIncluded));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
@@ -340,6 +393,10 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 						MM_HybridPackage.ELEMENT__IS_REFERED, Element.class,
 						msgs);
 			return basicSetReference((Element) otherEnd, msgs);
+		case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return basicSetElementIncluded((ElementIncluded) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -363,8 +420,27 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 					msgs);
 		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
 			return basicSetReference(null, msgs);
+		case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
+			return basicSetElementIncluded(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(
+			NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+		case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
+			return eInternalContainer().eInverseRemove(this,
+					MM_HybridPackage.ELEMENT_INCLUDED__RIGHT,
+					ElementIncluded.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -389,6 +465,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			return basicGetReference();
 		case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
 			return getConcreteValue();
+		case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
+			return getElementIncluded();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -424,6 +502,9 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
 			setConcreteValue((String) newValue);
 			return;
+		case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
+			setElementIncluded((ElementIncluded) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -454,6 +535,9 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
 			setConcreteValue(CONCRETE_VALUE_EDEFAULT);
 			return;
+		case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
+			setElementIncluded((ElementIncluded) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -480,6 +564,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
 			return CONCRETE_VALUE_EDEFAULT == null ? concreteValue != null
 					: !CONCRETE_VALUE_EDEFAULT.equals(concreteValue);
+		case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
+			return getElementIncluded() != null;
 		}
 		return super.eIsSet(featureID);
 	}

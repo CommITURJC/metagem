@@ -24,13 +24,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_module" ordered="false"
         unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rule" ordered="false" lowerBound="1"
-        upperBound="-1" eType="#//Rule" containment="true"/>
+        upperBound="-1" eType="#//Rule" containment="true" eOpposite="#//Rule/module"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inMM" ordered="false" lowerBound="1"
-        upperBound="-1" eType="#//InMetaModel" containment="true"/>
+        upperBound="-1" eType="#//InMetaModel" containment="true" eOpposite="#//InMetaModel/module"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outMM" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//OutMetaModel" containment="true"/>
+        lowerBound="1" upperBound="-1" eType="#//OutMetaModel" containment="true"
+        eOpposite="#//OutMetaModel/module"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
-        eType="#//Operation" containment="true"/>
+        eType="#//Operation" containment="true" eOpposite="#//Operation/module"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InMetaModel">
     <eAnnotations source="gmf.node">
@@ -45,6 +46,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//SourceElementRule" eOpposite="#//SourceElementRule/metamodel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
+        eType="#//Module" eOpposite="#//Module/inMM"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutMetaModel">
     <eAnnotations source="gmf.node">
@@ -59,6 +62,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//TargetElementRule" eOpposite="#//TargetElementRule/metamodel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
+        eType="#//Module" eOpposite="#//Module/outMM"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rule">
     <eAnnotations source="gmf.node">
@@ -74,9 +79,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMain" ordered="false"
         unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="in" ordered="false" upperBound="-1"
-        eType="#//SourceElementRule" containment="true"/>
+        eType="#//SourceElementRule" containment="true" eOpposite="#//SourceElementRule/rule"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="out" ordered="false" upperBound="-1"
-        eType="#//TargetElementRule" containment="true"/>
+        eType="#//TargetElementRule" containment="true" eOpposite="#//TargetElementRule/rule"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeAttribute" ordered="false"
         unique="false" lowerBound="1" eType="#//TypeAtribute"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeElement" ordered="false"
@@ -89,6 +94,8 @@
         eType="#//RightPattern" eOpposite="#//RightPattern/rule"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" ordered="false"
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
+        eType="#//Module" eOpposite="#//Module/rule"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_element" ordered="false"
@@ -106,11 +113,13 @@
       <details key="color" value="218,238,243"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guard" ordered="false"
-        upperBound="-1" eType="#//Guard" containment="true"/>
+        upperBound="-1" eType="#//Guard" containment="true" eOpposite="#//Guard/sourceElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" lowerBound="1"
         eType="#//InMetaModel" eOpposite="#//InMetaModel/elements"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightPattern" eType="#//RightPattern"
         eOpposite="#//RightPattern/sourceElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1" eType="#//Rule"
+        eOpposite="#//Rule/in"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TargetElementRule" eSuperTypes="#//Element">
     <eAnnotations source="gmf.node">
@@ -120,11 +129,13 @@
       <details key="color" value="204,255,204"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="included" upperBound="-1"
-        eType="#//ElementIncluded" containment="true"/>
+        eType="#//ElementIncluded" containment="true" eOpposite="#//ElementIncluded/targetElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" lowerBound="1"
         eType="#//OutMetaModel" eOpposite="#//OutMetaModel/elements"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftPattern" eType="#//LeftPattern"
         eOpposite="#//LeftPattern/targetElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1" eType="#//Rule"
+        eOpposite="#//Rule/out"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElementIncluded">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeAttribute" ordered="false"
@@ -132,12 +143,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeElement" ordered="false"
         unique="false" lowerBound="1" eType="#//TypeElem"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" lowerBound="1" eType="#//RightPattern"
-        containment="true"/>
+        containment="true" eOpposite="#//RightPattern/elementIncluded"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="#//LeftPattern"
-        containment="true"/>
+        containment="true" eOpposite="#//LeftPattern/elementIncluded"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetElement" lowerBound="1"
+        eType="#//TargetElementRule" eOpposite="#//TargetElementRule/included"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Guard">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceElement" lowerBound="1"
+        eType="#//SourceElementRule" eOpposite="#//SourceElementRule/guard"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RightPattern">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceElement" ordered="false"
@@ -152,6 +167,8 @@
         eOpposite="#//Element/isRefered"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="concreteValue" ordered="false"
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementIncluded" lowerBound="1"
+        eType="#//ElementIncluded" eOpposite="#//ElementIncluded/right"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LeftPattern">
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetElement" ordered="false"
@@ -159,6 +176,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_pattern" ordered="false"
         unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementIncluded" lowerBound="1"
+        eType="#//ElementIncluded" eOpposite="#//ElementIncluded/left"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_operation" ordered="false"
@@ -170,6 +189,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightPattern" upperBound="-1"
         eType="#//RightPattern" eOpposite="#//RightPattern/operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
+        eType="#//Module" eOpposite="#//Module/operations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Return">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//Element"/>

@@ -18,10 +18,10 @@ enum TypeElem {
 @gmf.diagram(foo="bar")
 class Module {
   !unique !ordered attr String[1] name_module;
-  !ordered val Rule[+] rule;
-  !ordered val InMetaModel[+] inMM;
-  !ordered val OutMetaModel[+] outMM;
-  val Operation[*] operations;
+  !ordered val Rule[+]#module rule;
+  !ordered val InMetaModel[+]#module inMM;
+  !ordered val OutMetaModel[+]#module outMM;
+  val Operation[*]#module operations;
 }
 
 @gmf.node(label="name_mm", label.icon="false", border.color="0,0,128", color="198,198,236")
@@ -29,6 +29,7 @@ class InMetaModel {
   !unique !ordered attr String[1] name_mm;
   attr String[1] type_mm;
   ref SourceElementRule[*]#metamodel elements;
+  ref Module[1]#inMM module;
 }
 
 @gmf.node(label="name_mm", label.icon="false", border.color="210,0,0", color="255,147,147")
@@ -36,6 +37,7 @@ class OutMetaModel {
   !unique !ordered attr String[1] name_mm;
   attr String[1] type_mm;
   ref TargetElementRule[*]#metamodel elements;
+  ref Module[1]#outMM module;
 }
 
 @gmf.node(label="name_rule", label.icon="false", border.color="204,153,0", color="253,229,141")
@@ -43,14 +45,15 @@ class Rule {
   !unique !ordered attr String[1] name_rule;
   !unique !ordered attr boolean[1] isAbstract;
   !unique !ordered attr boolean[1] isMain;
-  !ordered val SourceElementRule[*] in;
-  !ordered val TargetElementRule[*] out;
+  !ordered val SourceElementRule[*]#rule in;
+  !ordered val TargetElementRule[*]#rule out;
   !unique !ordered attr TypeAtribute[1] typeAttribute;
   !unique !ordered attr TypeElem[1] typeElement;
   ref Rule#isExtended ~extends;
   ref Rule[*]#~extends isExtended;
   ref RightPattern[*]#rule rightPattern;
   !unique !ordered attr String comment;
+  ref Module[1]#rule module;
 }
 
 abstract class Element {
@@ -61,27 +64,31 @@ abstract class Element {
 
 @gmf.node(label="name_element", label.icon="false", border.color="31,73,125", color="218,238,243")
 class SourceElementRule extends Element {
-  !ordered val Guard[*] guard;
+  !ordered val Guard[*]#sourceElement guard;
   ref InMetaModel[1]#elements metamodel;
   ref RightPattern#sourceElement rightPattern;
+  ref Rule[1]#in rule;
 }
 
 @gmf.node(label="name_element", label.icon="false", border.color="51,153,102", color="204,255,204")
 class TargetElementRule extends Element {
-  val ElementIncluded[*] included;
+  val ElementIncluded[*]#targetElement included;
   ref OutMetaModel[1]#elements metamodel;
   ref LeftPattern#targetElement leftPattern;
+  ref Rule[1]#out rule;
 }
 
 class ElementIncluded {
   !unique !ordered attr TypeAtribute[1] typeAttribute;
   !unique !ordered attr TypeElem[1] typeElement;
-  val RightPattern[1] right;
-  val LeftPattern[1] left;
+  val RightPattern[1]#elementIncluded right;
+  val LeftPattern[1]#elementIncluded left;
+  ref TargetElementRule[1]#included targetElement;
 }
 
 class Guard {
   attr String[1] value;
+  ref SourceElementRule[1]#guard sourceElement;
 }
 
 class RightPattern {
@@ -91,11 +98,13 @@ class RightPattern {
   !unique !ordered attr String[1] name_pattern;
   ref Element#isRefered reference;
   !unique !ordered attr String concreteValue;
+  ref ElementIncluded[1]#right elementIncluded;
 }
 
 class LeftPattern {
   !ordered val TargetElementRule[1]#leftPattern targetElement;
   !unique !ordered attr String[1] name_pattern = "";
+  ref ElementIncluded[1]#left elementIncluded;
 }
 
 class Operation {
@@ -104,6 +113,7 @@ class Operation {
   ref Element context;
   val Return returnType;
   ref RightPattern[*]#operation rightPattern;
+  ref Module[1]#operations module;
 }
 
 class Return {
