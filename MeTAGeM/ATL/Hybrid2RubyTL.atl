@@ -214,9 +214,6 @@ rule target2to{
 }
 
 
-
-
-
 -- Decorator (Operations)
 rule createOperation2Decorator {
 	from
@@ -238,14 +235,6 @@ rule createOperation2Decorator {
 }
 
 
-
-
-
-
---******************************************BEGIN TEST********************************************
-
-
-
 -- Helper -> To call the correct lazy rule to define the Binding
 helper context MM_Hybrid!ElementIncluded def : defineBinding() : ATL!OclExpression =
 		if (self.right."rule".asSequence().first().oclIsUndefined() and 
@@ -264,8 +253,7 @@ helper context MM_Hybrid!ElementIncluded def : defineBinding() : ATL!OclExpressi
 				thisModule.getComplexBinding(self)
 			endif
 	endif;
-			
-			
+					
 
 lazy rule getConcreteBinding {
 	from
@@ -349,9 +337,6 @@ rule Bindings {
 }
 
 
---******************************************END TEST********************************************
-
-
 
 -- Helper -> Define the source binding (Element, Rule, Helper or Reference)
 helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : String = 
@@ -430,7 +415,6 @@ helper context MM_Hybrid!Rule def : getComment () : String =
 		endif
 	endif
 	;
-
 
 
 -- Helper -> Return the filter expression (Input > 1)

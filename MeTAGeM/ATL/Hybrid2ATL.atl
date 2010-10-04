@@ -168,7 +168,7 @@ rule OutPatternElement {
 		),
 		aType : ATL!OclModelElement(
 			name <- outPattern.name_element,
-			model <- thisModule.resolveTemp(outPattern.metamodel,'ametamodeloutMM') --amodel--outPattern.metamodel
+			model <- thisModule.resolveTemp(outPattern.metamodel,'ametamodeloutMM') 
 		)
 }
 
@@ -194,7 +194,7 @@ helper context MM_Hybrid!ElementIncluded def : getBindingSource() : ATL!OclExpre
 
 
 -- Helper -> Define the source binding (Element, Rule, Helper or Reference)
-helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpression = --String = 
+helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpression =  
 	--rule undefined, operation undefined, srcElement undefined, reference defined	
 	if (self.right."rule".asSequence().first().oclIsUndefined() and 
 		self.right.operation.asSequence().first().oclIsUndefined() and
@@ -213,7 +213,7 @@ helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpre
 				if self.right.sourceElement.asSequence().first().oclIsUndefined() then
 					self.right.operation.asSequence().first().name_operation
 				-- rule undefined, operation defined and srcElement defined
-				else -- CORREGIR LA GENERACIÓN DE LA STRING - QUITAR LAS COMILLAS
+				else 
 					self.right.sourceElement.asSequence().first().name_element + '.' + self.right.operation.asSequence().first().name_operation
 				endif
 			endif
@@ -223,7 +223,7 @@ helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpre
 			if self.right.sourceElement.asSequence().first().oclIsUndefined() then
 				self.right."rule".asSequence().first().name_rule
 			--rule defined and srcElement defined
-			else  -- CORREGIR LA GENERACIÓN DE LA STRING - QUITAR LAS COMILLAS
+			else  
 				self.right.sourceElement.asSequence().first().name_element + '.' + self.right."rule".asSequence().first().name_rule
 			endif
 		endif
