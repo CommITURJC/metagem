@@ -60,6 +60,7 @@ public interface Module extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Rule</b></em>' containment reference list.
 	 * The list contents are of type {@link mm_hybrid.Rule}.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.Rule#getModule <em>Module</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rule</em>' containment reference list isn't clear,
@@ -68,7 +69,8 @@ public interface Module extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rule</em>' containment reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getModule_Rule()
-	 * @model containment="true" required="true" ordered="false"
+	 * @see mm_hybrid.Rule#getModule
+	 * @model opposite="module" containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	EList<Rule> getRule();
@@ -76,6 +78,7 @@ public interface Module extends EObject {
 	/**
 	 * Returns the value of the '<em><b>In MM</b></em>' containment reference list.
 	 * The list contents are of type {@link mm_hybrid.InMetaModel}.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.InMetaModel#getModule <em>Module</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>In MM</em>' containment reference list isn't clear,
@@ -84,7 +87,8 @@ public interface Module extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>In MM</em>' containment reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getModule_InMM()
-	 * @model containment="true" required="true" ordered="false"
+	 * @see mm_hybrid.InMetaModel#getModule
+	 * @model opposite="module" containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	EList<InMetaModel> getInMM();
@@ -92,6 +96,7 @@ public interface Module extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Out MM</b></em>' containment reference list.
 	 * The list contents are of type {@link mm_hybrid.OutMetaModel}.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.OutMetaModel#getModule <em>Module</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Out MM</em>' containment reference list isn't clear,
@@ -100,7 +105,8 @@ public interface Module extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Out MM</em>' containment reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getModule_OutMM()
-	 * @model containment="true" required="true" ordered="false"
+	 * @see mm_hybrid.OutMetaModel#getModule
+	 * @model opposite="module" containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	EList<OutMetaModel> getOutMM();
@@ -108,6 +114,7 @@ public interface Module extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Operations</b></em>' containment reference list.
 	 * The list contents are of type {@link mm_hybrid.Operation}.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.Operation#getModule <em>Module</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Operations</em>' containment reference list isn't clear,
@@ -116,7 +123,8 @@ public interface Module extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operations</em>' containment reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getModule_Operations()
-	 * @model containment="true"
+	 * @see mm_hybrid.Operation#getModule
+	 * @model opposite="module" containment="true"
 	 * @generated
 	 */
 	EList<Operation> getOperations();

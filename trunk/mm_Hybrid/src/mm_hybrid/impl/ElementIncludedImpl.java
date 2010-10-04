@@ -44,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mm_hybrid.impl.ElementIncludedImpl#getTypeElement <em>Type Element</em>}</li>
  *   <li>{@link mm_hybrid.impl.ElementIncludedImpl#getRight <em>Right</em>}</li>
  *   <li>{@link mm_hybrid.impl.ElementIncludedImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link mm_hybrid.impl.ElementIncludedImpl#getTargetElement <em>Target Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -217,14 +218,12 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 			NotificationChain msgs = null;
 			if (right != null)
 				msgs = ((InternalEObject) right).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE
-								- MM_HybridPackage.ELEMENT_INCLUDED__RIGHT,
-						null, msgs);
+						MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED,
+						RightPattern.class, msgs);
 			if (newRight != null)
 				msgs = ((InternalEObject) newRight).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE
-								- MM_HybridPackage.ELEMENT_INCLUDED__RIGHT,
-						null, msgs);
+						MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED,
+						RightPattern.class, msgs);
 			msgs = basicSetRight(newRight, msgs);
 			if (msgs != null)
 				msgs.dispatch();
@@ -274,20 +273,99 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 			NotificationChain msgs = null;
 			if (left != null)
 				msgs = ((InternalEObject) left).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE
-								- MM_HybridPackage.ELEMENT_INCLUDED__LEFT,
-						null, msgs);
+						MM_HybridPackage.LEFT_PATTERN__ELEMENT_INCLUDED,
+						LeftPattern.class, msgs);
 			if (newLeft != null)
 				msgs = ((InternalEObject) newLeft).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE
-								- MM_HybridPackage.ELEMENT_INCLUDED__LEFT,
-						null, msgs);
+						MM_HybridPackage.LEFT_PATTERN__ELEMENT_INCLUDED,
+						LeftPattern.class, msgs);
 			msgs = basicSetLeft(newLeft, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					MM_HybridPackage.ELEMENT_INCLUDED__LEFT, newLeft, newLeft));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TargetElementRule getTargetElement() {
+		if (eContainerFeatureID != MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT)
+			return null;
+		return (TargetElementRule) eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTargetElement(
+			TargetElementRule newTargetElement, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newTargetElement,
+				MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetElement(TargetElementRule newTargetElement) {
+		if (newTargetElement != eInternalContainer()
+				|| (eContainerFeatureID != MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT && newTargetElement != null)) {
+			if (EcoreUtil.isAncestor(this, newTargetElement))
+				throw new IllegalArgumentException(
+						"Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newTargetElement != null)
+				msgs = ((InternalEObject) newTargetElement).eInverseAdd(this,
+						MM_HybridPackage.TARGET_ELEMENT_RULE__INCLUDED,
+						TargetElementRule.class, msgs);
+			msgs = basicSetTargetElement(newTargetElement, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT,
+					newTargetElement, newTargetElement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case MM_HybridPackage.ELEMENT_INCLUDED__RIGHT:
+			if (right != null)
+				msgs = ((InternalEObject) right).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE
+								- MM_HybridPackage.ELEMENT_INCLUDED__RIGHT,
+						null, msgs);
+			return basicSetRight((RightPattern) otherEnd, msgs);
+		case MM_HybridPackage.ELEMENT_INCLUDED__LEFT:
+			if (left != null)
+				msgs = ((InternalEObject) left).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE
+								- MM_HybridPackage.ELEMENT_INCLUDED__LEFT,
+						null, msgs);
+			return basicSetLeft((LeftPattern) otherEnd, msgs);
+		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return basicSetTargetElement((TargetElementRule) otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -303,8 +381,27 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 			return basicSetRight(null, msgs);
 		case MM_HybridPackage.ELEMENT_INCLUDED__LEFT:
 			return basicSetLeft(null, msgs);
+		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
+			return basicSetTargetElement(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(
+			NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
+			return eInternalContainer().eInverseRemove(this,
+					MM_HybridPackage.TARGET_ELEMENT_RULE__INCLUDED,
+					TargetElementRule.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -323,6 +420,8 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 			return getRight();
 		case MM_HybridPackage.ELEMENT_INCLUDED__LEFT:
 			return getLeft();
+		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
+			return getTargetElement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -348,6 +447,9 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 		case MM_HybridPackage.ELEMENT_INCLUDED__LEFT:
 			setLeft((LeftPattern) newValue);
 			return;
+		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
+			setTargetElement((TargetElementRule) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -372,6 +474,9 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 		case MM_HybridPackage.ELEMENT_INCLUDED__LEFT:
 			setLeft((LeftPattern) null);
 			return;
+		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
+			setTargetElement((TargetElementRule) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -392,6 +497,8 @@ public class ElementIncludedImpl extends EObjectImpl implements ElementIncluded 
 			return right != null;
 		case MM_HybridPackage.ELEMENT_INCLUDED__LEFT:
 			return left != null;
+		case MM_HybridPackage.ELEMENT_INCLUDED__TARGET_ELEMENT:
+			return getTargetElement() != null;
 		}
 		return super.eIsSet(featureID);
 	}

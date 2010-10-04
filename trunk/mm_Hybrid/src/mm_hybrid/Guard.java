@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link mm_hybrid.Guard#getValue <em>Value</em>}</li>
+ *   <li>{@link mm_hybrid.Guard#getSourceElement <em>Source Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,5 +51,33 @@ public interface Guard extends EObject {
 	 * @generated
 	 */
 	void setValue(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Element</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.SourceElementRule#getGuard <em>Guard</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Element</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Element</em>' container reference.
+	 * @see #setSourceElement(SourceElementRule)
+	 * @see mm_hybrid.MM_HybridPackage#getGuard_SourceElement()
+	 * @see mm_hybrid.SourceElementRule#getGuard
+	 * @model opposite="guard" required="true" transient="false"
+	 * @generated
+	 */
+	SourceElementRule getSourceElement();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.Guard#getSourceElement <em>Source Element</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Element</em>' container reference.
+	 * @see #getSourceElement()
+	 * @generated
+	 */
+	void setSourceElement(SourceElementRule value);
 
 } // Guard

@@ -9,6 +9,7 @@ package mm_hybrid.impl;
 import java.util.Collection;
 import mm_hybrid.Element;
 import mm_hybrid.MM_HybridPackage;
+import mm_hybrid.Module;
 import mm_hybrid.Operation;
 import mm_hybrid.Return;
 
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -37,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mm_hybrid.impl.OperationImpl#getContext <em>Context</em>}</li>
  *   <li>{@link mm_hybrid.impl.OperationImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link mm_hybrid.impl.OperationImpl#getRightPattern <em>Right Pattern</em>}</li>
+ *   <li>{@link mm_hybrid.impl.OperationImpl#getModule <em>Module</em>}</li>
  * </ul>
  * </p>
  *
@@ -295,6 +298,55 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Module getModule() {
+		if (eContainerFeatureID != MM_HybridPackage.OPERATION__MODULE)
+			return null;
+		return (Module) eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetModule(Module newModule,
+			NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newModule,
+				MM_HybridPackage.OPERATION__MODULE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModule(Module newModule) {
+		if (newModule != eInternalContainer()
+				|| (eContainerFeatureID != MM_HybridPackage.OPERATION__MODULE && newModule != null)) {
+			if (EcoreUtil.isAncestor(this, newModule))
+				throw new IllegalArgumentException(
+						"Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newModule != null)
+				msgs = ((InternalEObject) newModule)
+						.eInverseAdd(this, MM_HybridPackage.MODULE__OPERATIONS,
+								Module.class, msgs);
+			msgs = basicSetModule(newModule, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MM_HybridPackage.OPERATION__MODULE, newModule, newModule));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
@@ -303,6 +355,10 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getRightPattern())
 					.basicAdd(otherEnd, msgs);
+		case MM_HybridPackage.OPERATION__MODULE:
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return basicSetModule((Module) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -321,8 +377,26 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
 			return ((InternalEList<?>) getRightPattern()).basicRemove(otherEnd,
 					msgs);
+		case MM_HybridPackage.OPERATION__MODULE:
+			return basicSetModule(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(
+			NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+		case MM_HybridPackage.OPERATION__MODULE:
+			return eInternalContainer().eInverseRemove(this,
+					MM_HybridPackage.MODULE__OPERATIONS, Module.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -345,6 +419,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 			return getReturnType();
 		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
 			return getRightPattern();
+		case MM_HybridPackage.OPERATION__MODULE:
+			return getModule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -375,6 +451,9 @@ public class OperationImpl extends EObjectImpl implements Operation {
 			getRightPattern().addAll(
 					(Collection<? extends RightPattern>) newValue);
 			return;
+		case MM_HybridPackage.OPERATION__MODULE:
+			setModule((Module) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -402,6 +481,9 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
 			getRightPattern().clear();
 			return;
+		case MM_HybridPackage.OPERATION__MODULE:
+			setModule((Module) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -426,6 +508,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 			return returnType != null;
 		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
 			return rightPattern != null && !rightPattern.isEmpty();
+		case MM_HybridPackage.OPERATION__MODULE:
+			return getModule() != null;
 		}
 		return super.eIsSet(featureID);
 	}

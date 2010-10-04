@@ -357,6 +357,8 @@ context Return {
 		check: not(self.concreteValue.isDefined() and (self.sourceElement->size()>0 or self.reference->size()>0 or self.rule->size()>0 or self."operation"->size()>0)) 
 		message: 'If \''+self.type().name.asString()+'\' has defined a \'Concrete Value\', cannot define \'SourceElementRule\', \'Reference\', \'Rule\' or \'Operation\' '
 	}
+	
+	
 		
  }
  

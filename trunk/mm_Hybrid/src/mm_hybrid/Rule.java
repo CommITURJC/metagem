@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link mm_hybrid.Rule#getIsExtended <em>Is Extended</em>}</li>
  *   <li>{@link mm_hybrid.Rule#getRightPattern <em>Right Pattern</em>}</li>
  *   <li>{@link mm_hybrid.Rule#getComment <em>Comment</em>}</li>
+ *   <li>{@link mm_hybrid.Rule#getModule <em>Module</em>}</li>
  * </ul>
  * </p>
  *
@@ -118,6 +119,7 @@ public interface Rule extends EObject {
 	/**
 	 * Returns the value of the '<em><b>In</b></em>' containment reference list.
 	 * The list contents are of type {@link mm_hybrid.SourceElementRule}.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.SourceElementRule#getRule <em>Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>In</em>' containment reference isn't clear,
@@ -126,7 +128,8 @@ public interface Rule extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>In</em>' containment reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getRule_In()
-	 * @model containment="true" ordered="false"
+	 * @see mm_hybrid.SourceElementRule#getRule
+	 * @model opposite="rule" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<SourceElementRule> getIn();
@@ -134,6 +137,7 @@ public interface Rule extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Out</b></em>' containment reference list.
 	 * The list contents are of type {@link mm_hybrid.TargetElementRule}.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.TargetElementRule#getRule <em>Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Out</em>' containment reference list isn't clear,
@@ -142,7 +146,8 @@ public interface Rule extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Out</em>' containment reference list.
 	 * @see mm_hybrid.MM_HybridPackage#getRule_Out()
-	 * @model containment="true" ordered="false"
+	 * @see mm_hybrid.TargetElementRule#getRule
+	 * @model opposite="rule" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<TargetElementRule> getOut();
@@ -294,5 +299,33 @@ public interface Rule extends EObject {
 	 * @generated
 	 */
 	void setComment(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Module</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link mm_hybrid.Module#getRule <em>Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Module</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Module</em>' container reference.
+	 * @see #setModule(Module)
+	 * @see mm_hybrid.MM_HybridPackage#getRule_Module()
+	 * @see mm_hybrid.Module#getRule
+	 * @model opposite="rule" required="true" transient="false"
+	 * @generated
+	 */
+	Module getModule();
+
+	/**
+	 * Sets the value of the '{@link mm_hybrid.Rule#getModule <em>Module</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Module</em>' container reference.
+	 * @see #getModule()
+	 * @generated
+	 */
+	void setModule(Module value);
 
 } // Rule

@@ -358,6 +358,13 @@ context Return {
 		check: not(self.concreteValue.isDefined() and (self.sourceElement->size()>0 or self.reference->size()>0 or self.rule->size()>0 or self."operation"->size()>0)) 
 		message: 'If \''+self.type().name.asString()+'\' has defined a \'Concrete Value\', cannot define \'SourceElementRule\', \'Reference\', \'Rule\' or \'Operation\' '
 	}
+	
+	-- Validation to transform to ATL:
+	-- In ATL, if rule hasn't source, rightPattern can only have a concrete value
+	constraint ruleWithoutSource{
+		check: self.elementIncluded.targetElement.rule."in".size()>0 or (self.concreteValue.isDefined() and self.satisfies('hasONLYconcreteValue'))
+		message: 'Due to current ATL version implemented: '+self.type().name.asString()+' belongs to a Rule without Source Elements, so you must only define a Concrete Value'
+	}
 		
  }
  
