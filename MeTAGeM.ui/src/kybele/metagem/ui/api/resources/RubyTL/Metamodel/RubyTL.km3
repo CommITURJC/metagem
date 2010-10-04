@@ -86,7 +86,7 @@ package RubyTL {
 	class Decorator {
 		attribute name : String;
 		attribute body[0-1] : String;
-		reference context[0-1] : FromElement;
+		reference context : FromElement;
 		reference transformation : Transformation oppositeOf decorators;
 	}
 }

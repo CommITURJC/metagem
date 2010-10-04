@@ -97,7 +97,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" ordered="false"
           unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="context" ordered="false"
-          eType="#/0/FromElement"/>
+          lowerBound="1" eType="#/0/FromElement"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" lowerBound="1"
           eType="#/0/Transformation" eOpposite="#/0/Transformation/decorators"/>
     </eClassifiers>
