@@ -23,10 +23,10 @@
           lowerBound="1" eType="#/0/FromElement" containment="true" eOpposite="#/0/FromElement/rule"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="to" ordered="false" lowerBound="1"
           upperBound="-1" eType="#/0/ToElement" containment="true" eOpposite="#/0/ToElement/rule"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" ordered="false"
-          eType="#/0/Mapping" containment="true" eOpposite="#/0/Mapping/rule"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="filter" ordered="false"
           eType="#/0/Filter" containment="true" eOpposite="#/0/Filter/rule"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" ordered="false"
+          eType="#/0/Mapping" containment="true" eOpposite="#/0/Mapping/rule"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FromElement" eSuperTypes="#/0/Variable">
@@ -97,7 +97,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" ordered="false"
           unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="context" ordered="false"
-          eType="#/0/FromElement"/>
+          lowerBound="1" eType="#/0/FromElement"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" lowerBound="1"
           eType="#/0/Transformation" eOpposite="#/0/Transformation/decorators"/>
     </eClassifiers>
