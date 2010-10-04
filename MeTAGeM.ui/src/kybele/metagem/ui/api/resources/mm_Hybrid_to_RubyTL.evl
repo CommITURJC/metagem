@@ -210,6 +210,13 @@ context Operation{
 	 	check: self.body.isDefined()
 	 	message: 'The required feature \'body\' of \''+ self.type().name.asString() + '\' must be set' 
 	 }
+	 
+	 -- Validation to transform to RubyTL:
+	-- In RubyTL, an operation must have a context
+	 constraint operation_mustHave_context{
+	 	check: (self."context".size()>0)
+	 	message: 'Due to current RubyTL version implemented: '+self.type().name+' must have a context'
+	 }
 		
 }
 
@@ -356,6 +363,13 @@ context Return {
 		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
 		check: not(self.concreteValue.isDefined() and (self.sourceElement->size()>0 or self.reference->size()>0 or self.rule->size()>0 or self."operation"->size()>0)) 
 		message: 'If \''+self.type().name.asString()+'\' has defined a \'Concrete Value\', cannot define \'SourceElementRule\', \'Reference\', \'Rule\' or \'Operation\' '
+	}
+	
+	-- Validation to transform to RubyTL:
+	-- In RubyTL, the reference cannot be a To Element 
+	constraint referenceNOTtarget{
+		check: not self.reference.isTypeOf(TargetElementRule)
+		message: 'Due to current RubyTL version implemented: '+self.type().name+' reference cannot be a Target Element'
 	}
 		
  }
