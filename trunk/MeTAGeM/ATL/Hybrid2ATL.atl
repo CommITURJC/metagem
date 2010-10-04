@@ -233,7 +233,7 @@ helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpre
 -- Helper -> Return the variable used on source binding
 helper context MM_Hybrid!ElementIncluded def : getReferredVariable () : ATL!OclExpression = --String =
 	if self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().oclIsUndefined()  then
-		'???'
+		OclUndefined --'???' 
 	else
 		if self.right.reference.oclIsUndefined() then
 			self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()+'_in'
