@@ -91,7 +91,7 @@ public interface Decorator extends EObject {
 	 * @return the value of the '<em>Context</em>' reference.
 	 * @see #setContext(FromElement)
 	 * @see RubyTL.RubyTLPackage#getDecorator_Context()
-	 * @model ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	FromElement getContext();
