@@ -320,22 +320,6 @@
     <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/Decorator"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NglwzcSPEd--hcmwcdP3-A" x="160" y="160"/>
   </children>
-  <children xmi:type="notation:Node" xmi:id="_wUb8IM-xEd-kJcFmd1I8tg" type="1001">
-    <children xmi:type="notation:Node" xmi:id="_wUb8I8-xEd-kJcFmd1I8tg" type="4001"/>
-    <children xmi:type="notation:Node" xmi:id="_wUb8JM-xEd-kJcFmd1I8tg" type="5001">
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_wUb8Jc-xEd-kJcFmd1I8tg"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_wUb8Js-xEd-kJcFmd1I8tg"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_wUb8J8-xEd-kJcFmd1I8tg"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_wUb8KM-xEd-kJcFmd1I8tg" type="5002">
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_wUb8Kc-xEd-kJcFmd1I8tg"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_wUb8Ks-xEd-kJcFmd1I8tg"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_wUb8K8-xEd-kJcFmd1I8tg"/>
-    </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_wUb8Ic-xEd-kJcFmd1I8tg" fontHeight="10" fillColor="13761016" lineColor="0"/>
-    <element xmi:type="ecore:EClass" href="RubyTL.ecore#/0/EClass0"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wUb8Is-xEd-kJcFmd1I8tg" x="-190" y="745"/>
-  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_NdARQsSPEd--hcmwcdP3-A"/>
   <element xmi:type="ecore:EPackage" href="RubyTL.ecore#/0"/>
   <edges xmi:type="notation:Edge" xmi:id="_Nglw28SPEd--hcmwcdP3-A" type="3002" source="_NfsY4MSPEd--hcmwcdP3-A" target="_NgSOy8SPEd--hcmwcdP3-A">
