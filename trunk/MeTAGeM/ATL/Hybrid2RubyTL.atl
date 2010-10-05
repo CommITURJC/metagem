@@ -440,13 +440,3 @@ helper context MM_Hybrid!Rule def : getFilterMultiIN () : String =
 	(i | i.metamodel.name_mm + '::' + i.name_element + '.all_objects.map').toString().substring(
 		sizeInitial, sizeSequence - 1);
 
-			
--- Helper -> Return the filter expression (Input = 1) 
---helper context MM_Hybrid!Rule def : getGuard () : String = 
---	if self."in".asSequence().first().guard.isEmpty() then
---		''
---	else
---		self."in".asSequence().first().guard.asSequence()->collect(i | i.value).toString()
---	endif
---	;
-
