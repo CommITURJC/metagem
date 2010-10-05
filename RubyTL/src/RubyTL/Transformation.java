@@ -68,7 +68,7 @@ public interface Transformation extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Metamodels</em>' containment reference list.
 	 * @see RubyTL.RubyTLPackage#getTransformation_SourceMetamodels()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<Metamodel> getSourceMetamodels();
@@ -84,7 +84,7 @@ public interface Transformation extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target Metamodels</em>' containment reference list.
 	 * @see RubyTL.RubyTLPackage#getTransformation_TargetMetamodels()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<Metamodel> getTargetMetamodels();
