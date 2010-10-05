@@ -2,8 +2,8 @@ package RubyTL {
 
 	class Transformation {
 		attribute name[0-1] : String;
-		reference sourceMetamodels[*] ordered container : Metamodel;
-		reference targetMetamodels[*] ordered container : Metamodel;
+		reference sourceMetamodels[1-*] ordered container : Metamodel;
+		reference targetMetamodels[1-*] ordered container : Metamodel;
 		reference rules[*] ordered container : Rule;
 		reference decorators[*] ordered container : Decorator oppositeOf transformation;
 	}

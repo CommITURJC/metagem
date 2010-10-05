@@ -6,10 +6,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="Transformation">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
           unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceMetamodels" upperBound="-1"
-          eType="#/0/Metamodel" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="targetMetamodels" upperBound="-1"
-          eType="#/0/Metamodel" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceMetamodels" lowerBound="1"
+          upperBound="-1" eType="#/0/Metamodel" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetMetamodels" lowerBound="1"
+          upperBound="-1" eType="#/0/Metamodel" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
           eType="#/0/Rule" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="decorators" upperBound="-1"
