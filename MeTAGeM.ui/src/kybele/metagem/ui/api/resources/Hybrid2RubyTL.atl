@@ -214,9 +214,6 @@ rule target2to{
 }
 
 
-
-
-
 -- Decorator (Operations)
 rule createOperation2Decorator {
 	from
@@ -224,7 +221,7 @@ rule createOperation2Decorator {
 	to
 		rubytl : RubyTL!Decorator (
 			name <- oper.name_operation,
-			body <- oper.body + ' - Return Type: ' + oper.returnType.datatype.toString(),
+			body <- oper.body + oper.getReturnType(),  --' - Return Type: ' + oper.returnType.datatype.toString(), 
 			"context" <- acontext  
 		),
 		acontext : RubyTL!FromElement (
@@ -238,12 +235,16 @@ rule createOperation2Decorator {
 }
 
 
-
-
-
-
---******************************************BEGIN TEST********************************************
-
+helper context MM_Hybrid!Operation def : getReturnType() : ATL!OclExpression =
+	if self.returnType.oclIsUndefined() then
+		'' --OclUndefined
+	else
+		if self.returnType.element.oclIsUndefined() then
+			' - ReturnType: ' + self.returnType.datatype.toString().debug('dataType')
+		else
+			' - ReturnType: ' + self.returnType.element.name_element.debug('elementType')
+		endif
+	endif;
 
 
 -- Helper -> To call the correct lazy rule to define the Binding
@@ -264,8 +265,7 @@ helper context MM_Hybrid!ElementIncluded def : defineBinding() : ATL!OclExpressi
 				thisModule.getComplexBinding(self)
 			endif
 	endif;
-			
-			
+					
 
 lazy rule getConcreteBinding {
 	from
@@ -349,9 +349,6 @@ rule Bindings {
 }
 
 
---******************************************END TEST********************************************
-
-
 
 -- Helper -> Define the source binding (Element, Rule, Helper or Reference)
 helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : String = 
@@ -432,7 +429,6 @@ helper context MM_Hybrid!Rule def : getComment () : String =
 	;
 
 
-
 -- Helper -> Return the filter expression (Input > 1)
 helper context MM_Hybrid!Rule def : getFilterMultiIN () : String = 
 	
@@ -443,14 +439,4 @@ helper context MM_Hybrid!Rule def : getFilterMultiIN () : String =
 	'# Inputs -> ' + self."in".asSequence()->collect
 	(i | i.metamodel.name_mm + '::' + i.name_element + '.all_objects.map').toString().substring(
 		sizeInitial, sizeSequence - 1);
-
-			
--- Helper -> Return the filter expression (Input = 1) 
---helper context MM_Hybrid!Rule def : getGuard () : String = 
---	if self."in".asSequence().first().guard.isEmpty() then
---		''
---	else
---		self."in".asSequence().first().guard.asSequence()->collect(i | i.value).toString()
---	endif
---	;
 
