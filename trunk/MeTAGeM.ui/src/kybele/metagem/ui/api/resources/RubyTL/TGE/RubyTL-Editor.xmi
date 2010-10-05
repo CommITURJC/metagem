@@ -62,11 +62,11 @@
     </format>
     <element element="transformation"/>
     <element element="input"/>
+    <element element="&#x9;"/>
     <element element="output"/>
     <element element=" => "/>
     <element element="copy_rule"/>
     <element element="do"/>
-    <element element="&#x9;"/>
     <element element="from"/>
     <element element="to"/>
     <element element="filter"/>

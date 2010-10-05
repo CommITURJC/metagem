@@ -34,8 +34,8 @@ syntax RubyTL {
 
 	template Transformation main context
 		:	"transformation" name{as = stringSymbol}   <newline> 
-			"input" sourceMetamodels <newline> 
-			"output" targetMetamodels  
+			"input" sourceMetamodels{separator=","<newline>"\t"} <newline> 
+			"output" targetMetamodels{separator=","<newline>"\t"}  
 			(isDefined(decorators)?<newline><newline>)
 			decorators{separator=<newline><newline>}
 			(isDefined(rules)?<newline><newline>)
