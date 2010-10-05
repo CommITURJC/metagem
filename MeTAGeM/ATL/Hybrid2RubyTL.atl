@@ -221,7 +221,7 @@ rule createOperation2Decorator {
 	to
 		rubytl : RubyTL!Decorator (
 			name <- oper.name_operation,
-			body <- oper.body + ' - Return Type: ' + oper.returnType.datatype.toString(),
+			body <- oper.body + oper.getReturnType(),  --' - Return Type: ' + oper.returnType.datatype.toString(), 
 			"context" <- acontext  
 		),
 		acontext : RubyTL!FromElement (
@@ -233,6 +233,18 @@ rule createOperation2Decorator {
 		name <- oper."context".metamodel.name_mm
 		)
 }
+
+
+helper context MM_Hybrid!Operation def : getReturnType() : ATL!OclExpression =
+	if self.returnType.oclIsUndefined() then
+		'' --OclUndefined
+	else
+		if self.returnType.element.oclIsUndefined() then
+			' - ReturnType: ' + self.returnType.datatype.toString().debug('dataType')
+		else
+			' - ReturnType: ' + self.returnType.element.name_element.debug('elementType')
+		endif
+	endif;
 
 
 -- Helper -> To call the correct lazy rule to define the Binding
