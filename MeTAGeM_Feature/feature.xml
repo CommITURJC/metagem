@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="MeTAGeM_Feature"
-      label="MeTAGeM_Feature Feature"
+      label="MeTAGeM Feature"
       version="1.0.0"
       provider-name="org.eclipse.Kybele.MeTAGeM">
 
