@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="ModuleRubyTL">
   <rule name_rule="RuleTest1" isMain="true" comment="This is a Comment...">
-    <in name_element="Src1" metamodel="//@inMM.0"/>
+    <in name_element="Src1" metamodel="//@inMM.0">
+      <guard value="GuardAux"/>
+    </in>
     <out name_element="Trg1" metamodel="//@outMM.0">
       <included>
         <right name_pattern="R1">
@@ -37,7 +39,9 @@
     </out>
   </rule>
   <rule name_rule="RuleTest3" isMain="true" comment="Multi IN ">
-    <in name_element="Src3" isRefered="//@rule.2/@out.0/@included.0/@right" metamodel="//@inMM.0"/>
+    <in name_element="Src3" isRefered="//@rule.2/@out.0/@included.0/@right" metamodel="//@inMM.0">
+      <guard value="Another guard"/>
+    </in>
     <in name_element="Src4" isRefered="//@rule.2/@out.1/@included.0/@right" metamodel="//@inMM.0"/>
     <out name_element="Trg3" metamodel="//@outMM.0">
       <included>
