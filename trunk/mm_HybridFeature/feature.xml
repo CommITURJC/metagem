@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="mm_HybridFeature"
+      id="mm_Hybrid_Feature"
       label="mm_Hybrid Feature"
       version="1.0.0"
       provider-name="org.eclipse.Kybele.MeTAGeM">
