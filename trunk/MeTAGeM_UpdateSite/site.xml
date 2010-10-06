@@ -36,6 +36,75 @@
    <feature url="features/org.eclipse.epsilon.gmf.feature_0.8.6.200906121335.jar" id="org.eclipse.epsilon.gmf.feature" version="0.8.6.200906121335">
       <category name="Dependencies"/>
    </feature>
+   <feature url="features/org.eclipse.emf.codegen_2.4.0.v200902171115.jar" id="org.eclipse.emf.codegen" version="2.4.0.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.codegen.ecore_2.4.2.v200902171115.jar" id="org.eclipse.emf.codegen.ecore" version="2.4.2.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.codegen.ecore.ui_2.4.1.v200902171115.jar" id="org.eclipse.emf.codegen.ecore.ui" version="2.4.1.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.codegen.ui_2.4.0.v200902171115.jar" id="org.eclipse.emf.codegen.ui" version="2.4.0.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.common_2.4.0.v200902171115.jar" id="org.eclipse.emf.common" version="2.4.0.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.common.ui_2.4.0.v200902171115.jar" id="org.eclipse.emf.common.ui" version="2.4.0.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.converter_2.4.1.v200902171115.jar" id="org.eclipse.emf.converter" version="2.4.1.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.databinding_1.0.0.v200902171115.jar" id="org.eclipse.emf.databinding" version="1.0.0.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.databinding.edit_1.0.0.v200902171115.jar" id="org.eclipse.emf.databinding.edit" version="1.0.0.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.doc_2.4.2.v200902171115.jar" id="org.eclipse.emf.doc" version="2.4.2.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.edit_2.4.2.v200902171115.jar" id="org.eclipse.emf.edit" version="2.4.2.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.edit.ui_2.4.2.v200902171115.jar" id="org.eclipse.emf.edit.ui" version="2.4.2.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.emfatic_feature_0.3.0.200810132307.jar" id="org.eclipse.emf.emfatic_feature" version="0.3.0.200810132307">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.mapping_2.4.0.v200902171115.jar" id="org.eclipse.emf.mapping" version="2.4.0.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.mapping.ecore_2.4.0.v200902171115.jar" id="org.eclipse.emf.mapping.ecore" version="2.4.0.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.mapping.ecore.editor_2.4.0.v200902171115.jar" id="org.eclipse.emf.mapping.ecore.editor" version="2.4.0.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.mapping.ui_2.4.0.v200902171115.jar" id="org.eclipse.emf.mapping.ui" version="2.4.0.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.ocl_1.1.101.v200808291106-108Z7w3119193_2217.jar" id="org.eclipse.emf.ocl" version="1.1.101.v200808291106-108Z7w3119193_2217">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.query_1.2.0.v200805130238-11-7w311916241349.jar" id="org.eclipse.emf.query" version="1.2.0.v200805130238-11-7w311916241349">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.sdk_2.4.2.v200902171115.jar" id="org.eclipse.emf.sdk" version="2.4.2.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.source_2.4.2.v200902171115.jar" id="org.eclipse.emf.source" version="2.4.2.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.transaction_1.2.1.v200807161719-2308s733I3E5B4B7J.jar" id="org.eclipse.emf.transaction" version="1.2.1.v200807161719-2308s733I3E5B4B7J">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.workspace_1.2.3.v200810041753-2328s733J3_56398B.jar" id="org.eclipse.emf.workspace" version="1.2.3.v200810041753-2328s733J3_56398B">
+      <category name="Dependencies"/>
+   </feature>
    <category-def name="MeTAGeM" label="MeTAGeM"/>
    <category-def name="Dependencies" label="Dependencies"/>
 </site>
