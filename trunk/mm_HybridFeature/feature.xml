@@ -18,7 +18,7 @@
    </license>
 
    <url>
-      <update url="http://cerbero.escet.urjc.es:81/metagem/mm_Hybrid"/>
+      <update url="http://cerbero.escet.urjc.es:81/metagem"/>
    </url>
 
    <requires>
