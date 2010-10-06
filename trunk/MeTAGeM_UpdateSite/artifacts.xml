@@ -3,14 +3,14 @@
 <repository name='file:/C:/Documents and Settings/ajimenez.GRUPO_KYBELE/Escritorio/Vero/workspace/MeTAGeM_UpdateSite/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1286359337720'/>
+    <property name='p2.timestamp' value='1286363258456'/>
   </properties>
   <mappings size='3'>
     <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
     <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
-  <artifacts size='266'>
+  <artifacts size='271'>
     <artifact classifier='osgi.bundle' id='org.eclipse.emf.mapping.ecore2ecore' version='2.4.0.v200902171115'>
       <properties size='3'>
         <property name='artifact.size' value='40210'/>
@@ -274,6 +274,12 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='MeTAGeM_Feature' version='1.0.0'>
+      <properties size='2'>
+        <property name='artifact.size' value='1853'/>
+        <property name='download.size' value='1853'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='org.eclipse.gmt.tcs.builder' version='0.8.0'>
       <properties size='3'>
         <property name='artifact.size' value='85328'/>
@@ -299,6 +305,13 @@
       <properties size='2'>
         <property name='artifact.size' value='14571'/>
         <property name='download.size' value='14571'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.m2m.atl.engine' version='2.0.3.201010061305'>
+      <properties size='3'>
+        <property name='artifact.size' value='193698'/>
+        <property name='download.size' value='193698'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='org.eclipse.emf.mapping' version='2.4.0.v200902171115'>
@@ -365,6 +378,13 @@
       <properties size='3'>
         <property name='artifact.size' value='62108'/>
         <property name='download.size' value='62108'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.m2m.atl.engine' version='2.0.3.201010061245'>
+      <properties size='3'>
+        <property name='artifact.size' value='193697'/>
+        <property name='download.size' value='193697'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -534,6 +554,13 @@
       <properties size='3'>
         <property name='artifact.size' value='11792'/>
         <property name='download.size' value='11792'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.m2m.atl.engine' version='2.0.3.201010061241'>
+      <properties size='3'>
+        <property name='artifact.size' value='193685'/>
+        <property name='download.size' value='193685'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -807,6 +834,13 @@
       <properties size='3'>
         <property name='artifact.size' value='24829'/>
         <property name='download.size' value='24829'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='MeTAGeM_UI' version='1.0.0'>
+      <properties size='3'>
+        <property name='artifact.size' value='815166'/>
+        <property name='download.size' value='815166'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -1289,17 +1323,17 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='org.eclipse.emf.ant' version='2.4.0.v200902171115'>
-      <properties size='3'>
-        <property name='artifact.size' value='24659'/>
-        <property name='download.size' value='24659'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='org.eclipse.m2m.atl.dsls' version='0.0.1.200811031752'>
       <properties size='3'>
         <property name='artifact.size' value='289146'/>
         <property name='download.size' value='289146'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.emf.ant' version='2.4.0.v200902171115'>
+      <properties size='3'>
+        <property name='artifact.size' value='24659'/>
+        <property name='download.size' value='24659'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
