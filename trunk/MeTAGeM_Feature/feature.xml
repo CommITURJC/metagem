@@ -82,6 +82,14 @@
       <import plugin="org.eclipse.update.core"/>
       <import plugin="org.antlr.runtime"/>
       <import plugin="org.antlr.runtime" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.help"/>
+      <import plugin="org.eclipse.uml2.uml"/>
+      <import plugin="org.eclipse.core.runtime.compatibility"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gymnast.runtime.core"/>
+      <import plugin="org.eclipse.jdt.ui"/>
+      <import plugin="org.eclipse.core.expressions"/>
+      <import plugin="org.eclipse.gymnast.runtime.ui"/>
    </requires>
 
    <plugin
