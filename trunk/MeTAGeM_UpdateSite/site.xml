@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/MeTAGeM_Feature_1.0.0.jar" id="MeTAGeM_Feature" version="1.0.0">
+      <category name="MeTAGeM"/>
+   </feature>
+   <feature url="features/mm_Hybrid_Feature_1.0.0.jar" id="mm_Hybrid_Feature" version="1.0.0">
+      <category name="MeTAGeM"/>
+   </feature>
+   <feature url="features/RubyTL_Feature_1.0.0.jar" id="RubyTL_Feature" version="1.0.0">
+      <category name="MeTAGeM"/>
+   </feature>
+   <feature url="features/org.eclipse.emf_2.4.2.v200902171115.jar" id="org.eclipse.emf" version="2.4.2.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.ecore_2.4.2.v200902171115.jar" id="org.eclipse.emf.ecore" version="2.4.2.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.ecore.edit_2.4.1.v200902171115.jar" id="org.eclipse.emf.ecore.edit" version="2.4.1.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.ecore.editor_2.4.0.v200902171115.jar" id="org.eclipse.emf.ecore.editor" version="2.4.0.v200902171115">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.validation_1.2.0.v200805130238-35-9oA55S5L8G6FCT.jar" id="org.eclipse.emf.validation" version="1.2.0.v200805130238-35-9oA55S5L8G6FCT">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.epsilon.eugenia.feature_0.8.6.200906121335.jar" id="org.eclipse.epsilon.eugenia.feature" version="0.8.6.200906121335">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.epsilon.evl.emf.validation.feature_0.8.6.200906121335.jar" id="org.eclipse.epsilon.evl.emf.validation.feature" version="0.8.6.200906121335">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.epsilon.feature_0.8.6.200906121335.jar" id="org.eclipse.epsilon.feature" version="0.8.6.200906121335">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.epsilon.gmf.feature_0.8.6.200906121335.jar" id="org.eclipse.epsilon.gmf.feature" version="0.8.6.200906121335">
+      <category name="Dependencies"/>
+   </feature>
+   <category-def name="MeTAGeM" label="MeTAGeM"/>
+   <category-def name="Dependencies" label="Dependencies"/>
+</site>
