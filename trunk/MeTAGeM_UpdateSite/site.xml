@@ -105,6 +105,15 @@
    <feature url="features/org.eclipse.emf.workspace_1.2.3.v200810041753-2328s733J3_56398B.jar" id="org.eclipse.emf.workspace" version="1.2.3.v200810041753-2328s733J3_56398B">
       <category name="Dependencies"/>
    </feature>
+   <feature url="features/org.eclipse.equinox.p2.user.ui_1.0.2.r34x_v20090120-7d-7tEQcCaaYSBeNOClOn02267.jar" id="org.eclipse.equinox.p2.user.ui" version="1.0.2.r34x_v20090120-7d-7tEQcCaaYSBeNOClOn02267">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.equinox.p2.user.ui.source_1.0.2.r34x_v20090120-7d-7tEQcCaaYSBeNOClOn02267.jar" id="org.eclipse.equinox.p2.user.ui.source" version="1.0.2.r34x_v20090120-7d-7tEQcCaaYSBeNOClOn02267">
+      <category name="Dependencies"/>
+   </feature>
+   <feature url="features/org.eclipse.gymnast.runtime_0.3.0.200810132307.jar" id="org.eclipse.gymnast.runtime" version="0.3.0.200810132307">
+      <category name="Dependencies"/>
+   </feature>
    <category-def name="MeTAGeM" label="MeTAGeM"/>
    <category-def name="Dependencies" label="Dependencies"/>
 </site>
