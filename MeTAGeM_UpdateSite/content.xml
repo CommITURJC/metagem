@@ -3,7 +3,7 @@
 <repository name='file:/C:/Documents and Settings/ajimenez.GRUPO_KYBELE/Escritorio/Vero/workspace/MeTAGeM_UpdateSite/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1286377552232'/>
+    <property name='p2.timestamp' value='1286377953634'/>
   </properties>
   <references size='8'>
     <repository url='http://download.eclipse.org/eclipse/updates/3.4' type='0' options='0'/>
@@ -16,72 +16,34 @@
     <repository url='http://cerbero.escet.urjc.es:81/metagem' type='1' options='0'/>
   </references>
   <units size='302'>
-    <unit id='org.rubypeople.rdt.launching.tests' version='0.8.1' singleton='false'>
-      <update id='org.rubypeople.rdt.launching.tests' range='[0.0.0,0.8.1)' severity='0'/>
-      <properties size='1'>
-        <property name='org.eclipse.equinox.p2.name' value='org.rubypeople.rdt.launching.tests'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.launching.tests' version='0.8.1'/>
-        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.launching.tests' version='0.8.1'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='7'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime.compatibility' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.junit' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.shams' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.launching' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.testutils' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.launching.tests' version='0.8.1'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='2'>
-          <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-Activator: org.eclipse.core.internal.compatibility.PluginActivator&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.launching.tests&#xA;Bundle-Name: org.rubypeople.rdt.launching.tests&#xA;Bundle-ClassPath: rdtlaunchingtests.jar&#xA;Bundle-Version: 0.8.1&#xA;Require-Bundle: org.eclipse.core.runtime.compatibility,&#xA; org.eclipse.debug.core,&#xA; org.junit,&#xA; org.rubypeople.eclipse.shams,&#xA; org.rubypeople.rdt.launching,&#xA; org.eclipse.core.resources,&#xA; org.rubypeople.eclipse.testutils
-          </instruction>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='org.rubypeople.rdt.debug.core' version='0.8.1'>
-      <update id='org.rubypeople.rdt.debug.core' range='[0.0.0,0.8.1)' severity='0'/>
-      <properties size='4'>
-        <property name='df_LT.Plugin.name' value='Ruby Development Debug Core'/>
-        <property name='df_LT.providerName' value='RubyPeople, Inc.'/>
-        <property name='org.eclipse.equinox.p2.name' value='%Plugin.name'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+    <unit id='mm_Hybrid.editor' version='1.0.0'>
+      <update id='mm_Hybrid.editor' range='[0.0.0,1.0.0)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='mm_Hybrid_editor'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Kybele'/>
       </properties>
       <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.debug.core' version='0.8.1'/>
-        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.debug.core' version='0.8.1'/>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='mm_Hybrid.editor' version='1.0.0'/>
+        <provided namespace='osgi.bundle' name='mm_Hybrid.editor' version='1.0.0'/>
+        <provided namespace='java.package' name='mm_hybrid.presentation' version='0.0.0'/>
         <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
       </provides>
-      <requires size='5'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.kxml2' range='0.0.0'/>
+      <requires size='6'>
         <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='mm_Hybrid.edit' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.edit.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
       </requires>
       <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.debug.core' version='0.8.1'/>
+        <artifact classifier='osgi.bundle' id='mm_Hybrid.editor' version='1.0.0'/>
       </artifacts>
       <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
       <touchpointData size='1'>
-        <instructions size='2'>
+        <instructions size='1'>
           <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-Activator: org.rubypeople.rdt.internal.debug.core.RdtDebugCorePlugin&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.debug.core; singleton:=true&#xA;Bundle-Vendor: %providerName&#xA;Bundle-Name: %Plugin.name&#xA;Bundle-ClassPath: rdtdebugcore.jar&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.core.resources,&#xA; org.eclipse.debug.core,&#xA; org.rubypeople.rdt.core,&#xA; org.kxml2,&#xA; org.eclipse.core.runtime
-          </instruction>
-          <instruction key='zipped'>
-            true
+            Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Name: mm_Hybrid_editor&#xA;Bundle-Activator: mm_hybrid.presentation.MM_HybridEditorPlugin$Implementation&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Kybele&#xA;Bundle-ClassPath: .&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: mm_Hybrid.editor;singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0&#xA;Bundle-Localization: plugin&#xA;Export-Package: mm_hybrid.presentation&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.core.resources;visibility:=reexport,mm_Hybrid.edit;visibility:=reexport,org.eclipse.emf.ecore.xmi;visibility:=reexport,org.eclipse.emf.edit.ui;visibility:=reexport,org.eclipse.ui.ide;visibility:=reexport
           </instruction>
         </instructions>
       </touchpointData>
@@ -111,6 +73,42 @@
           </instruction>
         </instructions>
       </touchpointData>
+    </unit>
+    <unit id='RubyTL_Feature.feature.jar' version='1.0.0'>
+      <update id='RubyTL_Feature.feature.jar' range='[0.0.0,1.0.0)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='RubyTL Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://www.kybele.etsii.urjc.es'/>
+        <property name='org.eclipse.equinox.p2.provider' value='org.eclipse.Kybele.MeTAGeM'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='RubyTL_Feature.feature.jar' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='RubyTL_Feature' version='1.0.0'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='RubyTL_Feature' version='1.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license url='http://www.example.com/license'>
+          [Enter License Description here.]
+        </license>
+      </licenses>
+      <copyright url='http://www.example.com/copyright'>
+        [Enter Copyright Description here.]
+      </copyright>
     </unit>
     <unit id='MeTAGeM_Dependencies.feature.group' version='1.0.0' singleton='false'>
       <update id='MeTAGeM_Dependencies.feature.group' range='[0.0.0,1.0.0)' severity='0'/>
@@ -232,7 +230,7 @@
         <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2m.atl.drivers.mdr4atl' range='[2.0.0.200811031752,2.0.0.200811031752]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2m.atl.drivers.uml24atl' range='[2.0.0.200811031752,2.0.0.200811031752]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2m.atl.dsls' range='[0.0.1.200811031752,0.0.1.200811031752]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2m.atl.engine' range='[2.0.3.201010061704,2.0.3.201010061704]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2m.atl.engine' range='[2.0.3.201010061710,2.0.3.201010061710]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2m.atl.engine.emfvm' range='[2.0.0.200811031752,2.0.0.200811031752]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2m.atl.engine.vm' range='[2.0.0.200811031752,2.0.0.200811031752]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2m.atl.ocl.core' range='[2.0.0.200811031752,2.0.0.200811031752]'/>
@@ -343,134 +341,64 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='org.rubypeople.rdt.launching' version='0.8.1'>
-      <update id='org.rubypeople.rdt.launching' range='[0.0.0,0.8.1)' severity='0'/>
-      <properties size='3'>
-        <property name='df_LT.Plugin.name' value='Ruby Development Tools Launching Support'/>
-        <property name='org.eclipse.equinox.p2.name' value='%Plugin.name'/>
-        <property name='org.eclipse.equinox.p2.provider' value='RubyPeople, Inc.'/>
+    <unit id='tooling.osgi.bundle.default' version='1.0.0' singleton='false'>
+      <hostRequirements size='1'>
+        <required namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' range='0.0.0' multiple='true' greedy='false'/>
+      </hostRequirements>
+      <properties size='1'>
+        <property name='org.eclipse.equinox.p2.type.fragment' value='true'/>
       </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.launching' version='0.8.1'/>
-        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.launching' version='0.8.1'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      <provides size='2'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='tooling.osgi.bundle.default' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.flavor' name='tooling' version='1.0.0'/>
       </provides>
-      <requires size='5'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+      <requires size='1'>
+        <required namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' range='0.0.0' multiple='true' greedy='false'/>
       </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.launching' version='0.8.1'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpoint id='null' version='0.0.0'/>
       <touchpointData size='1'>
-        <instructions size='2'>
-          <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-Activator: org.rubypeople.rdt.internal.launching.RdtLaunchingPlugin&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.launching; singleton:=true&#xA;Bundle-Vendor: RubyPeople, Inc.&#xA;Bundle-Name: %Plugin.name&#xA;Bundle-ClassPath: launching.jar&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.core.resources,&#xA; org.eclipse.debug.core,&#xA; org.rubypeople.rdt.core,&#xA; org.rubypeople.rdt.debug.core,&#xA; org.eclipse.core.runtime
+        <instructions size='4'>
+          <instruction key='install'>
+            installBundle(bundle:${artifact})
           </instruction>
-          <instruction key='zipped'>
-            true
+          <instruction key='uninstall'>
+            uninstallBundle(bundle:${artifact})
+          </instruction>
+          <instruction key='unconfigure'>
+
+          </instruction>
+          <instruction key='configure'>
+            setStartLevel(startLevel:4);
           </instruction>
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='org.rubypeople.rdt.debug.ui' version='0.8.1'>
-      <update id='org.rubypeople.rdt.debug.ui' range='[0.0.0,0.8.1)' severity='0'/>
-      <properties size='3'>
-        <property name='df_LT.Plugin.name' value='Ruby Development Tools Debug UI'/>
-        <property name='org.eclipse.equinox.p2.name' value='%Plugin.name'/>
-        <property name='org.eclipse.equinox.p2.provider' value='RubyPeople, Inc.'/>
-      </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.debug.ui' version='0.8.1'/>
-        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.debug.ui' version='0.8.1'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <requires size='16'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.debug.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.launching' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.cheatsheets' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.console' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.debug.ui' version='0.8.1'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='2'>
-          <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-Activator: org.rubypeople.rdt.internal.debug.ui.RdtDebugUiPlugin&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.debug.ui; singleton:=true&#xA;Bundle-Vendor: RubyPeople, Inc.&#xA;Bundle-Name: %Plugin.name&#xA;Bundle-ClassPath: rdtdebugui.jar&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.core.resources,&#xA; org.eclipse.ui,&#xA; org.eclipse.debug.core,&#xA; org.eclipse.debug.ui,&#xA; org.rubypeople.rdt.launching,&#xA; org.rubypeople.rdt.ui,&#xA; org.rubypeople.rdt.core,&#xA; org.rubypeople.rdt.debug.core,&#xA; org.eclipse.ui.workbench,&#xA; org.eclipse.ui.workbench.texteditor,&#xA; org.eclipse.jface.text,&#xA; org.eclipse.ui.editors,&#xA; org.eclipse.ui.ide,&#xA; org.eclipse.ui.cheatsheets,&#xA; org.eclipse.core.runtime,&#xA; org.eclipse.ui.console
-          </instruction>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='org.eclipse.gmt.weaver.doc.user' version='1.0.0'>
-      <update id='org.eclipse.gmt.weaver.doc.user' range='[0.0.0,1.0.0)' severity='0'/>
+    <unit id='RubyTL' version='1.0.0'>
+      <update id='RubyTL' range='[0.0.0,1.0.0)' severity='0'/>
       <properties size='2'>
-        <property name='org.eclipse.equinox.p2.name' value='ModelWeaver Plug-in User Guide'/>
-        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.name' value='org.eclipse.kybele.metagem.rubytl'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Kybele'/>
       </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.gmt.weaver.doc.user' version='1.0.0'/>
-        <provided namespace='osgi.bundle' name='org.eclipse.gmt.weaver.doc.user' version='1.0.0'/>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='RubyTL' version='1.0.0'/>
+        <provided namespace='osgi.bundle' name='RubyTL' version='1.0.0'/>
+        <provided namespace='java.package' name='RubyTL' version='0.0.0'/>
+        <provided namespace='java.package' name='RubyTL.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='RubyTL.util' version='0.0.0'/>
         <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
       </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
+      </requires>
       <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.eclipse.gmt.weaver.doc.user' version='1.0.0'/>
+        <artifact classifier='osgi.bundle' id='RubyTL' version='1.0.0'/>
       </artifacts>
       <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.eclipse.gmt.weaver.doc.user; singleton:=true&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-Name: ModelWeaver Plug-in User Guide&#xA;Bundle-Version: 1.0.0&#xA;Eclipse-LazyStart: true
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='org.eclipse.m2m.atl.drivers.mdr4atl' version='2.0.0.200811031752'>
-      <update id='org.eclipse.m2m.atl.drivers.mdr4atl' range='[0.0.0,2.0.0.200811031752)' severity='0'/>
-      <properties size='2'>
-        <property name='org.eclipse.equinox.p2.name' value='MDR4ATL Plug-in'/>
-        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2m.atl.drivers.mdr4atl' version='2.0.0.200811031752'/>
-        <provided namespace='osgi.bundle' name='org.eclipse.m2m.atl.drivers.mdr4atl' version='2.0.0.200811031752'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='3'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.engine' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.eclipse.m2m.atl.drivers.mdr4atl' version='2.0.0.200811031752'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.eclipse.m2m.atl.drivers.mdr4atl; singleton:=true&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-Name: MDR4ATL Plug-in&#xA;Bundle-ClassPath: org.eclipse.m2m.atl.drivers.mdr4atl.jar,&#xA; lib/jmi.jar,&#xA; lib/jmiutils.jar,&#xA; lib/mdrapi.jar,&#xA; lib/mof.jar,&#xA; lib/nbmdr.jar,&#xA; lib/openide-util.jar&#xA;Bundle-Version: 2.0.0.200811031752&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.core.resources,&#xA; org.eclipse.core.runtime,&#xA; org.eclipse.m2m.atl.engine
+            Bundle-ManifestVersion: 2&#xA;Export-Package: RubyTL,RubyTL.impl,RubyTL.util&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibility:=reexport&#xA;Bundle-Name: org.eclipse.kybele.metagem.rubytl&#xA;Bundle-Version: 1.0.0&#xA;Bundle-Vendor: Kybele&#xA;Bundle-SymbolicName: RubyTL;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-ClassPath: .&#xA;Manifest-Version: 1.0
           </instruction>
         </instructions>
       </touchpointData>
@@ -554,517 +482,6 @@
       <copyright url='http://www.example.com/copyright'>
         [Enter Copyright Description here.]
       </copyright>
-    </unit>
-    <unit id='org.rubypeople.rdt.tests.all' version='0.8.1' singleton='false'>
-      <update id='org.rubypeople.rdt.tests.all' range='[0.0.0,0.8.1)' severity='0'/>
-      <properties size='1'>
-        <property name='org.eclipse.equinox.p2.name' value='RDT All Tests'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.tests.all' version='0.8.1'/>
-        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.tests.all' version='0.8.1'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='6'>
-        <required namespace='osgi.bundle' name='org.junit' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.ui.tests' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core.tests' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.launching.tests' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.core.tests' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.ui.tests' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.tests.all' version='0.8.1'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='2'>
-          <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.tests.all&#xA;Bundle-Name: RDT All Tests&#xA;Bundle-ClassPath: rdttestsall.jar&#xA;Bundle-Version: 0.8.1&#xA;Require-Bundle: org.junit,&#xA; org.rubypeople.rdt.debug.ui.tests,&#xA; org.rubypeople.rdt.core.tests,&#xA; org.rubypeople.rdt.launching.tests,&#xA; org.rubypeople.rdt.debug.core.tests,&#xA; org.rubypeople.rdt.ui.tests
-          </instruction>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='org.rubypeople.rdt.ui.tests' version='0.8.1' singleton='false'>
-      <update id='org.rubypeople.rdt.ui.tests' range='[0.0.0,0.8.1)' severity='0'/>
-      <properties size='2'>
-        <property name='org.eclipse.equinox.p2.name' value='RDT UI Tests'/>
-        <property name='org.eclipse.equinox.p2.provider' value='RubyPeople Inc.'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.ui.tests' version='0.8.1'/>
-        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.ui.tests' version='0.8.1'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='15'>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.shams' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.junit' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.testutils' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.search' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core.tests' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.ui.tests' version='0.8.1'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='2'>
-          <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-Activator: org.rubypeople.rdt.internal.ui.RdtUiTestsPlugin&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.ui.tests&#xA;Bundle-Vendor: RubyPeople Inc.&#xA;Bundle-Name: RDT UI Tests&#xA;Bundle-ClassPath: rdtuitests.jar&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.ui.ide,&#xA; org.eclipse.ui.views,&#xA; org.eclipse.jface.text,&#xA; org.eclipse.ui.workbench.texteditor,&#xA; org.eclipse.ui.editors,&#xA; org.rubypeople.rdt.ui,&#xA; org.rubypeople.eclipse.shams,&#xA; org.rubypeople.rdt.core,&#xA; org.junit,&#xA; org.eclipse.ui,&#xA; org.eclipse.core.resources,&#xA; org.rubypeople.eclipse.testutils,&#xA; org.eclipse.core.runtime,&#xA; org.eclipse.search,&#xA; org.rubypeople.rdt.core.tests
-          </instruction>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='mm_Hybrid' version='1.0.0'>
-      <update id='mm_Hybrid' range='[0.0.0,1.0.0)' severity='0'/>
-      <properties size='2'>
-        <property name='org.eclipse.equinox.p2.name' value='mm_Hybrid'/>
-        <property name='org.eclipse.equinox.p2.provider' value='Kybele'/>
-      </properties>
-      <provides size='6'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='mm_Hybrid' version='1.0.0'/>
-        <provided namespace='osgi.bundle' name='mm_Hybrid' version='1.0.0'/>
-        <provided namespace='java.package' name='mm_hybrid' version='0.0.0'/>
-        <provided namespace='java.package' name='mm_hybrid.impl' version='0.0.0'/>
-        <provided namespace='java.package' name='mm_hybrid.util' version='0.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='4'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.epsilon.evl.emf.validation' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='mm_Hybrid' version='1.0.0'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Export-Package: mm_hybrid,mm_hybrid.impl,mm_hybrid.util&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibility:=reexport,org.eclipse.epsilon.evl.emf.validation,org.eclipse.ui.ide&#xA;Bundle-Name: mm_Hybrid&#xA;Bundle-Version: 1.0.0&#xA;Bundle-Vendor: Kybele&#xA;Bundle-SymbolicName: mm_Hybrid;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-ClassPath: .&#xA;Manifest-Version: 1.0
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='mm_Hybrid.edit' version='1.0.0'>
-      <update id='mm_Hybrid.edit' range='[0.0.0,1.0.0)' severity='0'/>
-      <properties size='2'>
-        <property name='org.eclipse.equinox.p2.name' value='mm_Hybrid_edit'/>
-        <property name='org.eclipse.equinox.p2.provider' value='Kybele'/>
-      </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='mm_Hybrid.edit' version='1.0.0'/>
-        <provided namespace='osgi.bundle' name='mm_Hybrid.edit' version='1.0.0'/>
-        <provided namespace='java.package' name='mm_hybrid.provider' version='0.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='3'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='mm_Hybrid' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.edit' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='mm_Hybrid.edit' version='1.0.0'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Name: mm_Hybrid_edit&#xA;Bundle-Activator: mm_hybrid.provider.MM_HybridEditPlugin$Implementation&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Kybele&#xA;Bundle-ClassPath: .&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: mm_Hybrid.edit;singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0&#xA;Bundle-Localization: plugin&#xA;Export-Package: mm_hybrid.provider&#xA;Require-Bundle: org.eclipse.core.runtime,mm_Hybrid;visibility:=reexport,org.eclipse.emf.edit;visibility:=reexport
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='RubyTL_Feature.feature.group' version='1.0.0' singleton='false'>
-      <update id='RubyTL_Feature.feature.group' range='[0.0.0,1.0.0)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='RubyTL Feature'/>
-        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
-        <property name='org.eclipse.equinox.p2.description.url' value='http://www.kybele.etsii.urjc.es'/>
-        <property name='org.eclipse.equinox.p2.provider' value='org.eclipse.Kybele.MeTAGeM'/>
-        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
-      </properties>
-      <provides size='1'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='RubyTL_Feature.feature.group' version='1.0.0'/>
-      </provides>
-      <requires size='11'>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.ecore' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.edit' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.ecore.xmi' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.edit.ui' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.ide' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='RubyTL' range='[1.0.0,1.0.0]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='RubyTL.edit' range='[1.0.0,1.0.0]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='RubyTL.editor' range='[1.0.0,1.0.0]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='RubyTL_Feature.feature.jar' range='[1.0.0,1.0.0]'>
-          <filter>
-            (org.eclipse.update.install.features=true)
-          </filter>
-        </required>
-      </requires>
-      <touchpoint id='null' version='0.0.0'/>
-      <licenses size='1'>
-        <license url='http://www.example.com/license'>
-          [Enter License Description here.]
-        </license>
-      </licenses>
-      <copyright url='http://www.example.com/copyright'>
-        [Enter Copyright Description here.]
-      </copyright>
-    </unit>
-    <unit id='org.eclipse.m2m.atl.engine' version='2.0.3.201010061704'>
-      <update id='org.eclipse.m2m.atl.engine' range='[0.0.0,2.0.3.201010061704)' severity='0'/>
-      <properties size='2'>
-        <property name='org.eclipse.equinox.p2.name' value='ATL Engine'/>
-        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
-      </properties>
-      <provides size='8'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2m.atl.engine' version='2.0.3.201010061704'/>
-        <provided namespace='osgi.bundle' name='org.eclipse.m2m.atl.engine' version='2.0.3.201010061704'/>
-        <provided namespace='java.package' name='org.eclipse.gmt.tcs.extractor' version='0.0.0'/>
-        <provided namespace='java.package' name='org.eclipse.gmt.tcs.injector' version='0.0.0'/>
-        <provided namespace='java.package' name='org.eclipse.gmt.tcs.injector.wrappers' version='0.0.0'/>
-        <provided namespace='java.package' name='org.eclipse.gmt.tcs.injector.wrappers.antlr3' version='0.0.0'/>
-        <provided namespace='java.package' name='org.eclipse.m2m.atl.engine' version='0.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='7'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.engine.vm' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.drivers.emf4atl' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.antlr.runtime' range='3.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.eclipse.m2m.atl.engine' version='2.0.3.201010061704'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='2'>
-          <instruction key='manifest'>
-            Bundle-RequiredExecutionEnvironment: J2SE-1.4&#xA;Bundle-Name: ATL Engine&#xA;Bundle-Activator: org.eclipse.m2m.atl.engine.EnginePlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-ClassPath: org.eclipse.m2m.atl.engine.jar,lib/org.eclipse.gmt.tcs.extractor_1.0.0.jar,lib/org.eclipse.gmt.tcs.injector_1.0.0.jar,lib/ATL-parser.jar&#xA;Bundle-SymbolicName: org.eclipse.m2m.atl.engine; singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 2.0.3.201010061704&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.gmt.tcs.extractor,org.eclipse.gmt.tcs.injector,org.eclipse.gmt.tcs.injector.wrappers,org.eclipse.gmt.tcs.injector.wrappers.antlr3,org.eclipse.m2m.atl.engine&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore,org.eclipse.core.resources,org.eclipse.emf.ecore.xmi,org.eclipse.m2m.atl.engine.vm;visibility:=reexport,org.eclipse.m2m.atl.drivers.emf4atl;visibility:=reexport,org.antlr.runtime;bundle-version=&quot;3.0.0&quot;;visibility:=reexport
-          </instruction>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='mm_Hybrid.editor' version='1.0.0'>
-      <update id='mm_Hybrid.editor' range='[0.0.0,1.0.0)' severity='0'/>
-      <properties size='2'>
-        <property name='org.eclipse.equinox.p2.name' value='mm_Hybrid_editor'/>
-        <property name='org.eclipse.equinox.p2.provider' value='Kybele'/>
-      </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='mm_Hybrid.editor' version='1.0.0'/>
-        <provided namespace='osgi.bundle' name='mm_Hybrid.editor' version='1.0.0'/>
-        <provided namespace='java.package' name='mm_hybrid.presentation' version='0.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='6'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='mm_Hybrid.edit' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.edit.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='mm_Hybrid.editor' version='1.0.0'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Name: mm_Hybrid_editor&#xA;Bundle-Activator: mm_hybrid.presentation.MM_HybridEditorPlugin$Implementation&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Kybele&#xA;Bundle-ClassPath: .&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: mm_Hybrid.editor;singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0&#xA;Bundle-Localization: plugin&#xA;Export-Package: mm_hybrid.presentation&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.core.resources;visibility:=reexport,mm_Hybrid.edit;visibility:=reexport,org.eclipse.emf.ecore.xmi;visibility:=reexport,org.eclipse.emf.edit.ui;visibility:=reexport,org.eclipse.ui.ide;visibility:=reexport
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='org.eclipse.gmt.weaver.doc.developer' version='1.0.0'>
-      <update id='org.eclipse.gmt.weaver.doc.developer' range='[0.0.0,1.0.0)' severity='0'/>
-      <properties size='2'>
-        <property name='org.eclipse.equinox.p2.name' value='ModelWeaver Plug-in Developer Guide'/>
-        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.gmt.weaver.doc.developer' version='1.0.0'/>
-        <provided namespace='osgi.bundle' name='org.eclipse.gmt.weaver.doc.developer' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.eclipse.gmt.weaver.doc.developer' version='1.0.0'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.eclipse.gmt.weaver.doc.developer; singleton:=true&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-Name: ModelWeaver Plug-in Developer Guide&#xA;Bundle-Version: 1.0.0&#xA;Eclipse-LazyStart: true
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='RubyTL_Feature.feature.jar' version='1.0.0'>
-      <update id='RubyTL_Feature.feature.jar' range='[0.0.0,1.0.0)' severity='0'/>
-      <properties size='4'>
-        <property name='org.eclipse.equinox.p2.name' value='RubyTL Feature'/>
-        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
-        <property name='org.eclipse.equinox.p2.description.url' value='http://www.kybele.etsii.urjc.es'/>
-        <property name='org.eclipse.equinox.p2.provider' value='org.eclipse.Kybele.MeTAGeM'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='RubyTL_Feature.feature.jar' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-        <provided namespace='org.eclipse.update.feature' name='RubyTL_Feature' version='1.0.0'/>
-      </provides>
-      <filter>
-        (org.eclipse.update.install.features=true)
-      </filter>
-      <artifacts size='1'>
-        <artifact classifier='org.eclipse.update.feature' id='RubyTL_Feature' version='1.0.0'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-      <licenses size='1'>
-        <license url='http://www.example.com/license'>
-          [Enter License Description here.]
-        </license>
-      </licenses>
-      <copyright url='http://www.example.com/copyright'>
-        [Enter Copyright Description here.]
-      </copyright>
-    </unit>
-    <unit id='tooling.osgi.bundle.default' version='1.0.0' singleton='false'>
-      <hostRequirements size='1'>
-        <required namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' range='0.0.0' multiple='true' greedy='false'/>
-      </hostRequirements>
-      <properties size='1'>
-        <property name='org.eclipse.equinox.p2.type.fragment' value='true'/>
-      </properties>
-      <provides size='2'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='tooling.osgi.bundle.default' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.flavor' name='tooling' version='1.0.0'/>
-      </provides>
-      <requires size='1'>
-        <required namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' range='0.0.0' multiple='true' greedy='false'/>
-      </requires>
-      <touchpoint id='null' version='0.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='4'>
-          <instruction key='install'>
-            installBundle(bundle:${artifact})
-          </instruction>
-          <instruction key='uninstall'>
-            uninstallBundle(bundle:${artifact})
-          </instruction>
-          <instruction key='unconfigure'>
-
-          </instruction>
-          <instruction key='configure'>
-            setStartLevel(startLevel:4);
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='RubyTL' version='1.0.0'>
-      <update id='RubyTL' range='[0.0.0,1.0.0)' severity='0'/>
-      <properties size='2'>
-        <property name='org.eclipse.equinox.p2.name' value='org.eclipse.kybele.metagem.rubytl'/>
-        <property name='org.eclipse.equinox.p2.provider' value='Kybele'/>
-      </properties>
-      <provides size='6'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='RubyTL' version='1.0.0'/>
-        <provided namespace='osgi.bundle' name='RubyTL' version='1.0.0'/>
-        <provided namespace='java.package' name='RubyTL' version='0.0.0'/>
-        <provided namespace='java.package' name='RubyTL.impl' version='0.0.0'/>
-        <provided namespace='java.package' name='RubyTL.util' version='0.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='2'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='RubyTL' version='1.0.0'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Export-Package: RubyTL,RubyTL.impl,RubyTL.util&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibility:=reexport&#xA;Bundle-Name: org.eclipse.kybele.metagem.rubytl&#xA;Bundle-Version: 1.0.0&#xA;Bundle-Vendor: Kybele&#xA;Bundle-SymbolicName: RubyTL;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-ClassPath: .&#xA;Manifest-Version: 1.0
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='org.rubypeople.rdt' version='0.8.1'>
-      <update id='org.rubypeople.rdt' range='[0.0.0,0.8.1)' severity='0'/>
-      <properties size='4'>
-        <property name='df_LT.providerName' value='RubyPeople, Inc.'/>
-        <property name='df_LT.pluginName' value='Ruby Development Tools'/>
-        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
-      </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt' version='0.8.1'/>
-        <provided namespace='osgi.bundle' name='org.rubypeople.rdt' version='0.8.1'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <requires size='1'>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.intro' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt' version='0.8.1'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt; singleton:=true&#xA;Bundle-Vendor: %providerName&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.ui.intro
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='org.rubypeople.rdt.debug.core.tests' version='0.8.1' singleton='false'>
-      <update id='org.rubypeople.rdt.debug.core.tests' range='[0.0.0,0.8.1)' severity='0'/>
-      <properties size='2'>
-        <property name='org.eclipse.equinox.p2.name' value='RDT Debug Core Tests'/>
-        <property name='org.eclipse.equinox.p2.provider' value='RubyPeople'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.debug.core.tests' version='0.8.1'/>
-        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.debug.core.tests' version='0.8.1'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='9'>
-        <required namespace='osgi.bundle' name='org.junit' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.kxml2' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.launching' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.testutils' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.debug.core.tests' version='0.8.1'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='2'>
-          <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-Activator: org.rubypeople.rdt.debug.core.tests.RdtDebugTestsPlugin&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.debug.core.tests&#xA;Bundle-Vendor: RubyPeople&#xA;Bundle-Name: RDT Debug Core Tests&#xA;Bundle-ClassPath: rdtdebugcoretests.jar&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.junit,&#xA; org.rubypeople.rdt.debug.core,&#xA; org.eclipse.debug.core,&#xA; org.kxml2,&#xA; org.eclipse.core.resources,&#xA; org.rubypeople.rdt.launching,&#xA; org.eclipse.core.runtime,&#xA; org.rubypeople.rdt.core,&#xA; org.rubypeople.eclipse.testutils
-          </instruction>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='org.rubypeople.rdt.testunit' version='0.8.1'>
-      <update id='org.rubypeople.rdt.testunit' range='[0.0.0,0.8.1)' severity='0'/>
-      <properties size='4'>
-        <property name='df_LT.providerName' value='RubyPeople, Inc.'/>
-        <property name='df_LT.pluginName' value='Ruby Development Tools Test::Unit support'/>
-        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
-      </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.testunit' version='0.8.1'/>
-        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.testunit' version='0.8.1'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <requires size='11'>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.debug.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.launching' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.text' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.testunit' version='0.8.1'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='2'>
-          <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-Activator: org.rubypeople.rdt.testunit.TestunitPlugin&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.testunit; singleton:=true&#xA;Bundle-Vendor: %providerName&#xA;Bundle-Name: %pluginName&#xA;Bundle-ClassPath: testunit.jar&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.ui,&#xA; org.eclipse.core.runtime,&#xA; org.eclipse.debug.core,&#xA; org.eclipse.debug.ui,&#xA; org.rubypeople.rdt.launching,&#xA; org.rubypeople.rdt.core,&#xA; org.eclipse.core.resources,&#xA; org.rubypeople.rdt.ui,&#xA; org.rubypeople.rdt.debug.ui,&#xA; org.eclipse.ui.workbench.texteditor,&#xA; org.eclipse.text
-          </instruction>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='org.rubypeople.eclipse.shams' version='0.8.1' singleton='false'>
-      <update id='org.rubypeople.eclipse.shams' range='[0.0.0,0.8.1)' severity='0'/>
-      <properties size='2'>
-        <property name='org.eclipse.equinox.p2.name' value='Shams'/>
-        <property name='org.eclipse.equinox.p2.provider' value='RubyPeople, Inc.'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.eclipse.shams' version='0.8.1'/>
-        <provided namespace='osgi.bundle' name='org.rubypeople.eclipse.shams' version='0.8.1'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='6'>
-        <required namespace='osgi.bundle' name='org.eclipse.swt' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime.compatibility' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.junit' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.rubypeople.eclipse.shams' version='0.8.1'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='2'>
-          <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-Activator: org.eclipse.core.internal.compatibility.PluginActivator&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.eclipse.shams&#xA;Bundle-Vendor: RubyPeople, Inc.&#xA;Bundle-Name: Shams&#xA;Bundle-ClassPath: rdteclipseshams.jar&#xA;Bundle-Version: 0.8.1&#xA;Require-Bundle: org.eclipse.swt,&#xA; org.eclipse.core.runtime.compatibility,&#xA; org.eclipse.core.resources,&#xA; org.eclipse.ui,&#xA; org.eclipse.debug.core,&#xA; org.junit
-          </instruction>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
     </unit>
     <unit id='a.jre' version='1.6.0' singleton='false'>
       <provides size='117'>
@@ -1188,35 +605,34 @@
       </provides>
       <touchpoint id='org.eclipse.equinox.p2.native' version='1.0.0'/>
     </unit>
-    <unit id='org.rubypeople.rdt.core.tests' version='0.8.1' singleton='false'>
-      <update id='org.rubypeople.rdt.core.tests' range='[0.0.0,0.8.1)' severity='0'/>
-      <properties size='1'>
-        <property name='org.eclipse.equinox.p2.name' value='org.rubypeople.rdt.core.tests'/>
+    <unit id='mm_Hybrid' version='1.0.0'>
+      <update id='mm_Hybrid' range='[0.0.0,1.0.0)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='mm_Hybrid'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Kybele'/>
       </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.core.tests' version='0.8.1'/>
-        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.core.tests' version='0.8.1'/>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='mm_Hybrid' version='1.0.0'/>
+        <provided namespace='osgi.bundle' name='mm_Hybrid' version='1.0.0'/>
+        <provided namespace='java.package' name='mm_hybrid' version='0.0.0'/>
+        <provided namespace='java.package' name='mm_hybrid.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='mm_hybrid.util' version='0.0.0'/>
         <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
       </provides>
-      <requires size='6'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime.compatibility' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.junit' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.shams' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.testutils' range='0.0.0'/>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.epsilon.evl.emf.validation' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
       </requires>
       <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.core.tests' version='0.8.1'/>
+        <artifact classifier='osgi.bundle' id='mm_Hybrid' version='1.0.0'/>
       </artifacts>
       <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
       <touchpointData size='1'>
-        <instructions size='2'>
+        <instructions size='1'>
           <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-Activator: org.eclipse.core.internal.compatibility.PluginActivator&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.core.tests&#xA;Bundle-Name: org.rubypeople.rdt.core.tests&#xA;Bundle-ClassPath: rdtcoretests.jar&#xA;Bundle-Version: 0.8.1&#xA;Require-Bundle: org.eclipse.core.resources,&#xA; org.eclipse.core.runtime.compatibility,&#xA; org.junit,&#xA; org.rubypeople.rdt.core,&#xA; org.rubypeople.eclipse.shams,&#xA; org.rubypeople.eclipse.testutils
-          </instruction>
-          <instruction key='zipped'>
-            true
+            Bundle-ManifestVersion: 2&#xA;Export-Package: mm_hybrid,mm_hybrid.impl,mm_hybrid.util&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibility:=reexport,org.eclipse.epsilon.evl.emf.validation,org.eclipse.ui.ide&#xA;Bundle-Name: mm_Hybrid&#xA;Bundle-Version: 1.0.0&#xA;Bundle-Vendor: Kybele&#xA;Bundle-SymbolicName: mm_Hybrid;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-ClassPath: .&#xA;Manifest-Version: 1.0
           </instruction>
         </instructions>
       </touchpointData>
@@ -1325,6 +741,97 @@
         [Enter Copyright Description here.]
       </copyright>
     </unit>
+    <unit id='mm_Hybrid.edit' version='1.0.0'>
+      <update id='mm_Hybrid.edit' range='[0.0.0,1.0.0)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='mm_Hybrid_edit'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Kybele'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='mm_Hybrid.edit' version='1.0.0'/>
+        <provided namespace='osgi.bundle' name='mm_Hybrid.edit' version='1.0.0'/>
+        <provided namespace='java.package' name='mm_hybrid.provider' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='mm_Hybrid' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.edit' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='mm_Hybrid.edit' version='1.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Name: mm_Hybrid_edit&#xA;Bundle-Activator: mm_hybrid.provider.MM_HybridEditPlugin$Implementation&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Kybele&#xA;Bundle-ClassPath: .&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: mm_Hybrid.edit;singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0&#xA;Bundle-Localization: plugin&#xA;Export-Package: mm_hybrid.provider&#xA;Require-Bundle: org.eclipse.core.runtime,mm_Hybrid;visibility:=reexport,org.eclipse.emf.edit;visibility:=reexport
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='RubyTL_Feature.feature.group' version='1.0.0' singleton='false'>
+      <update id='RubyTL_Feature.feature.group' range='[0.0.0,1.0.0)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='RubyTL Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://www.kybele.etsii.urjc.es'/>
+        <property name='org.eclipse.equinox.p2.provider' value='org.eclipse.Kybele.MeTAGeM'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='RubyTL_Feature.feature.group' version='1.0.0'/>
+      </provides>
+      <requires size='11'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.ecore' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.edit' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.ecore.xmi' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.edit.ui' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='RubyTL' range='[1.0.0,1.0.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='RubyTL.edit' range='[1.0.0,1.0.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='RubyTL.editor' range='[1.0.0,1.0.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='RubyTL_Feature.feature.jar' range='[1.0.0,1.0.0]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license url='http://www.example.com/license'>
+          [Enter License Description here.]
+        </license>
+      </licenses>
+      <copyright url='http://www.example.com/copyright'>
+        [Enter Copyright Description here.]
+      </copyright>
+    </unit>
+    <unit id='MeTAGeM' version='1.0.0'>
+      <update id='MeTAGeM' range='[0.0.0,1.0.0)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='MeTAGeM'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Kybele'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='MeTAGeM' version='1.0.0'/>
+        <provided namespace='osgi.bundle' name='MeTAGeM' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='MeTAGeM' version='1.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: MeTAGeM;singleton:=true&#xA;Bundle-Name: MeTAGeM&#xA;Bundle-Localization: plugin&#xA;Bundle-Vendor: Kybele&#xA;Bundle-ClassPath: .
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='mm_Hybrid_Feature.feature.group' version='1.0.0' singleton='false'>
       <update id='mm_Hybrid_Feature.feature.group' range='[0.0.0,1.0.0)' severity='0'/>
       <properties size='5'>
@@ -1364,76 +871,6 @@
       <copyright url='http://www.example.com/copyright'>
         [Enter Copyright Description here.]
       </copyright>
-    </unit>
-    <unit id='MeTAGeM' version='1.0.0'>
-      <update id='MeTAGeM' range='[0.0.0,1.0.0)' severity='0'/>
-      <properties size='2'>
-        <property name='org.eclipse.equinox.p2.name' value='MeTAGeM'/>
-        <property name='org.eclipse.equinox.p2.provider' value='Kybele'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='MeTAGeM' version='1.0.0'/>
-        <provided namespace='osgi.bundle' name='MeTAGeM' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='MeTAGeM' version='1.0.0'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: MeTAGeM;singleton:=true&#xA;Bundle-Name: MeTAGeM&#xA;Bundle-Localization: plugin&#xA;Bundle-Vendor: Kybele&#xA;Bundle-ClassPath: .
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='org.rubypeople.rdt.debug.ui.tests' version='0.8.1'>
-      <update id='org.rubypeople.rdt.debug.ui.tests' range='[0.0.0,0.8.1)' severity='0'/>
-      <properties size='2'>
-        <property name='org.eclipse.equinox.p2.name' value='RDT Debug UI Tests'/>
-        <property name='org.eclipse.equinox.p2.provider' value='RubyPeople Inc.'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.debug.ui.tests' version='0.8.1'/>
-        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.debug.ui.tests' version='0.8.1'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='19'>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.launching' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.junit' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.shams' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.debug.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.testutils' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.console' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.debug.ui.tests' version='0.8.1'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='2'>
-          <instruction key='manifest'>
-            Manifest-Version: 1.0&#xA;Bundle-Activator: org.rubypeople.rdt.debug.ui.tests.RdtDebugUiTestsPlugin&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.debug.ui.tests; singleton:=true&#xA;Bundle-Vendor: RubyPeople Inc.&#xA;Bundle-Name: RDT Debug UI Tests&#xA;Bundle-ClassPath: rdtdebuguitests.jar&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.ui.ide,&#xA; org.eclipse.ui.views,&#xA; org.eclipse.jface.text,&#xA; org.eclipse.ui.workbench.texteditor,&#xA; org.eclipse.ui.editors,&#xA; org.eclipse.core.resources,&#xA; org.eclipse.ui,&#xA; org.rubypeople.rdt.debug.ui,&#xA; org.rubypeople.rdt.launching,&#xA; org.rubypeople.rdt.ui,&#xA; org.rubypeople.rdt.core,&#xA; org.junit,&#xA; org.rubypeople.eclipse.shams,&#xA; org.eclipse.debug.core,&#xA; org.eclipse.debug.ui,&#xA; org.rubypeople.eclipse.testutils,&#xA; org.rubypeople.rdt.debug.core,&#xA; org.eclipse.core.runtime,&#xA; org.eclipse.ui.console
-          </instruction>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
     </unit>
     <unit id='config.a.jre' version='1.6.0' singleton='false'>
       <hostRequirements size='1'>
@@ -1567,6 +1004,46 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='org.eclipse.m2m.atl.engine' version='2.0.3.201010061710'>
+      <update id='org.eclipse.m2m.atl.engine' range='[0.0.0,2.0.3.201010061710)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='ATL Engine'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2m.atl.engine' version='2.0.3.201010061710'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.m2m.atl.engine' version='2.0.3.201010061710'/>
+        <provided namespace='java.package' name='org.eclipse.gmt.tcs.extractor' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.gmt.tcs.injector' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.gmt.tcs.injector.wrappers' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.gmt.tcs.injector.wrappers.antlr3' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.m2m.atl.engine' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.engine.vm' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.drivers.emf4atl' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.antlr.runtime' range='3.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.m2m.atl.engine' version='2.0.3.201010061710'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.4&#xA;Bundle-Name: ATL Engine&#xA;Bundle-Activator: org.eclipse.m2m.atl.engine.EnginePlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-ClassPath: org.eclipse.m2m.atl.engine.jar,lib/org.eclipse.gmt.tcs.extractor_1.0.0.jar,lib/org.eclipse.gmt.tcs.injector_1.0.0.jar,lib/ATL-parser.jar&#xA;Bundle-SymbolicName: org.eclipse.m2m.atl.engine; singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 2.0.3.201010061710&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.gmt.tcs.extractor,org.eclipse.gmt.tcs.injector,org.eclipse.gmt.tcs.injector.wrappers,org.eclipse.gmt.tcs.injector.wrappers.antlr3,org.eclipse.m2m.atl.engine&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore,org.eclipse.core.resources,org.eclipse.emf.ecore.xmi,org.eclipse.m2m.atl.engine.vm;visibility:=reexport,org.eclipse.m2m.atl.drivers.emf4atl;visibility:=reexport,org.antlr.runtime;bundle-version=&quot;3.0.0&quot;;visibility:=reexport
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.emf.databinding.edit.feature.group' version='1.0.0.v200902171115' singleton='false'>
       <update id='org.eclipse.emf.databinding.edit.feature.group' range='[0.0.0,1.0.0.v200902171115)' severity='0'/>
       <properties size='8'>
@@ -1605,6 +1082,42 @@
       <copyright url='http://www.eclipse.org/legal/epl-v10.html'>
         Copyright (c) 2007 IBM Corporation and others.&#xA;All rights reserved.   This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html
       </copyright>
+    </unit>
+    <unit id='org.rubypeople.rdt.debug.core' version='0.8.1'>
+      <update id='org.rubypeople.rdt.debug.core' range='[0.0.0,0.8.1)' severity='0'/>
+      <properties size='4'>
+        <property name='df_LT.Plugin.name' value='Ruby Development Debug Core'/>
+        <property name='df_LT.providerName' value='RubyPeople, Inc.'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Plugin.name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.debug.core' version='0.8.1'/>
+        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.debug.core' version='0.8.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='5'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.kxml2' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.debug.core' version='0.8.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-Activator: org.rubypeople.rdt.internal.debug.core.RdtDebugCorePlugin&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.debug.core; singleton:=true&#xA;Bundle-Vendor: %providerName&#xA;Bundle-Name: %Plugin.name&#xA;Bundle-ClassPath: rdtdebugcore.jar&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.core.resources,&#xA; org.eclipse.debug.core,&#xA; org.rubypeople.rdt.core,&#xA; org.kxml2,&#xA; org.eclipse.core.runtime&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
     </unit>
     <unit id='org.eclipse.epsilon.eml.dt' version='0.8.6.200906121335'>
       <update id='org.eclipse.epsilon.eml.dt' range='[0.0.0,0.8.6.200906121335)' severity='0'/>
@@ -2209,6 +1722,29 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='org.eclipse.gmt.weaver.doc.developer' version='1.0.0'>
+      <update id='org.eclipse.gmt.weaver.doc.developer' range='[0.0.0,1.0.0)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='ModelWeaver Plug-in Developer Guide'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.gmt.weaver.doc.developer' version='1.0.0'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.gmt.weaver.doc.developer' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.gmt.weaver.doc.developer' version='1.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.eclipse.gmt.weaver.doc.developer; singleton:=true&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-Name: ModelWeaver Plug-in Developer Guide&#xA;Bundle-Version: 1.0.0&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.emf.ecore' version='2.4.2.v200902171115'>
       <update id='org.eclipse.emf.ecore' range='[0.0.0,2.4.2.v200902171115)' severity='0'/>
       <properties size='4'>
@@ -2327,6 +1863,43 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-ManifestVersion: 2&#xA;Bundle-Activator: gts.eclipse.emf.Activator&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf,org.eclipse.emf.ecore,org.eclipse.emf.ecore.xmi&#xA;Bundle-Name: Emf Plug-in&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: gts.eclipse.emf&#xA;Bundle-Version: 0.3.4&#xA;Created-By: 1.6.0_03-b05 (Sun Microsystems Inc.)&#xA;Eclipse-LazyStart: true&#xA;Export-Package: gts.eclipse.emf.tasks&#xA;Ant-Version: Apache Ant 1.7.0&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.rubypeople.rdt.debug.core.tests' version='0.8.1' singleton='false'>
+      <update id='org.rubypeople.rdt.debug.core.tests' range='[0.0.0,0.8.1)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='RDT Debug Core Tests'/>
+        <property name='org.eclipse.equinox.p2.provider' value='RubyPeople'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.debug.core.tests' version='0.8.1'/>
+        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.debug.core.tests' version='0.8.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='9'>
+        <required namespace='osgi.bundle' name='org.junit' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.kxml2' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.launching' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.testutils' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.debug.core.tests' version='0.8.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-Activator: org.rubypeople.rdt.debug.core.tests.RdtDebugTestsPlugin&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.debug.core.tests&#xA;Bundle-Vendor: RubyPeople&#xA;Bundle-Name: RDT Debug Core Tests&#xA;Bundle-ClassPath: rdtdebugcoretests.jar&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.junit,&#xA; org.rubypeople.rdt.debug.core,&#xA; org.eclipse.debug.core,&#xA; org.kxml2,&#xA; org.eclipse.core.resources,&#xA; org.rubypeople.rdt.launching,&#xA; org.eclipse.core.runtime,&#xA; org.rubypeople.rdt.core,&#xA; org.rubypeople.eclipse.testutils&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
           </instruction>
         </instructions>
       </touchpointData>
@@ -2598,6 +2171,39 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='org.rubypeople.rdt.core.tests' version='0.8.1' singleton='false'>
+      <update id='org.rubypeople.rdt.core.tests' range='[0.0.0,0.8.1)' severity='0'/>
+      <properties size='1'>
+        <property name='org.eclipse.equinox.p2.name' value='org.rubypeople.rdt.core.tests'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.core.tests' version='0.8.1'/>
+        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.core.tests' version='0.8.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime.compatibility' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.junit' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.shams' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.testutils' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.core.tests' version='0.8.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-Activator: org.eclipse.core.internal.compatibility.PluginActivator&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.core.tests&#xA;Bundle-Name: org.rubypeople.rdt.core.tests&#xA;Bundle-ClassPath: rdtcoretests.jar&#xA;Bundle-Version: 0.8.1&#xA;Require-Bundle: org.eclipse.core.resources,&#xA; org.eclipse.core.runtime.compatibility,&#xA; org.junit,&#xA; org.rubypeople.rdt.core,&#xA; org.rubypeople.eclipse.shams,&#xA; org.rubypeople.eclipse.testutils&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.equinox.security.ui' version='1.0.0.v20080603-1810'>
       <update id='org.eclipse.equinox.security.ui' range='[0.0.0,1.0.0.v20080603-1810)' severity='0'/>
       <properties size='4'>
@@ -2787,6 +2393,53 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='org.rubypeople.rdt.debug.ui.tests' version='0.8.1'>
+      <update id='org.rubypeople.rdt.debug.ui.tests' range='[0.0.0,0.8.1)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='RDT Debug UI Tests'/>
+        <property name='org.eclipse.equinox.p2.provider' value='RubyPeople Inc.'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.debug.ui.tests' version='0.8.1'/>
+        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.debug.ui.tests' version='0.8.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='19'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.launching' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.junit' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.shams' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.testutils' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.console' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.debug.ui.tests' version='0.8.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-Activator: org.rubypeople.rdt.debug.ui.tests.RdtDebugUiTestsPlugin&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.debug.ui.tests; singleton:=true&#xA;Bundle-Vendor: RubyPeople Inc.&#xA;Bundle-Name: RDT Debug UI Tests&#xA;Bundle-ClassPath: rdtdebuguitests.jar&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.ui.ide,&#xA; org.eclipse.ui.views,&#xA; org.eclipse.jface.text,&#xA; org.eclipse.ui.workbench.texteditor,&#xA; org.eclipse.ui.editors,&#xA; org.eclipse.core.resources,&#xA; org.eclipse.ui,&#xA; org.rubypeople.rdt.debug.ui,&#xA; org.rubypeople.rdt.launching,&#xA; org.rubypeople.rdt.ui,&#xA; org.rubypeople.rdt.core,&#xA; org.junit,&#xA; org.rubypeople.eclipse.shams,&#xA; org.eclipse.debug.core,&#xA; org.eclipse.debug.ui,&#xA; org.rubypeople.eclipse.testutils,&#xA; org.rubypeople.rdt.debug.core,&#xA; org.eclipse.core.runtime,&#xA; org.eclipse.ui.console&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.equinox.p2.extensionlocation.source' version='1.0.4.v20081027-2115' singleton='false'>
       <update id='org.eclipse.equinox.p2.extensionlocation.source' range='[0.0.0,1.0.4.v20081027-2115)' severity='0'/>
       <properties size='4'>
@@ -2809,6 +2462,40 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.4.v20081027-2115&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.eclipse.equinox.p2.extensionlocation.source&#xA;Bundle-Name: %pluginName&#xA;Bundle-Localization: plugin&#xA;Eclipse-SourceBundle: org.eclipse.equinox.p2.extensionlocation;version=&quot;1.0.4.v20081027-2115&quot;;roots:=&quot;.&quot;&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.rubypeople.rdt.launching.tests' version='0.8.1' singleton='false'>
+      <update id='org.rubypeople.rdt.launching.tests' range='[0.0.0,0.8.1)' severity='0'/>
+      <properties size='1'>
+        <property name='org.eclipse.equinox.p2.name' value='org.rubypeople.rdt.launching.tests'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.launching.tests' version='0.8.1'/>
+        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.launching.tests' version='0.8.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime.compatibility' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.junit' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.shams' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.launching' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.testutils' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.launching.tests' version='0.8.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-Activator: org.eclipse.core.internal.compatibility.PluginActivator&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.launching.tests&#xA;Bundle-Name: org.rubypeople.rdt.launching.tests&#xA;Bundle-ClassPath: rdtlaunchingtests.jar&#xA;Bundle-Version: 0.8.1&#xA;Require-Bundle: org.eclipse.core.runtime.compatibility,&#xA; org.eclipse.debug.core,&#xA; org.junit,&#xA; org.rubypeople.eclipse.shams,&#xA; org.rubypeople.rdt.launching,&#xA; org.eclipse.core.resources,&#xA; org.rubypeople.eclipse.testutils&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
           </instruction>
         </instructions>
       </touchpointData>
@@ -4009,6 +3696,39 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='org.rubypeople.rdt.tests.all' version='0.8.1' singleton='false'>
+      <update id='org.rubypeople.rdt.tests.all' range='[0.0.0,0.8.1)' severity='0'/>
+      <properties size='1'>
+        <property name='org.eclipse.equinox.p2.name' value='RDT All Tests'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.tests.all' version='0.8.1'/>
+        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.tests.all' version='0.8.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='osgi.bundle' name='org.junit' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.ui.tests' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core.tests' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.launching.tests' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.core.tests' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.ui.tests' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.tests.all' version='0.8.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.tests.all&#xA;Bundle-Name: RDT All Tests&#xA;Bundle-ClassPath: rdttestsall.jar&#xA;Bundle-Version: 0.8.1&#xA;Require-Bundle: org.junit,&#xA; org.rubypeople.rdt.debug.ui.tests,&#xA; org.rubypeople.rdt.core.tests,&#xA; org.rubypeople.rdt.launching.tests,&#xA; org.rubypeople.rdt.debug.core.tests,&#xA; org.rubypeople.rdt.ui.tests&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.emf.edit' version='2.4.2.v200902171115'>
       <update id='org.eclipse.emf.edit' range='[0.0.0,2.4.2.v200902171115)' severity='0'/>
       <properties size='4'>
@@ -4822,6 +4542,35 @@
         Copyright (c) 2005, 2008 IBM Corporation, Zeligsoft Inc. and others.&#xA;All rights reserved.   This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html
       </copyright>
     </unit>
+    <unit id='org.rubypeople.rdt' version='0.8.1'>
+      <update id='org.rubypeople.rdt' range='[0.0.0,0.8.1)' severity='0'/>
+      <properties size='4'>
+        <property name='df_LT.providerName' value='RubyPeople, Inc.'/>
+        <property name='df_LT.pluginName' value='Ruby Development Tools'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt' version='0.8.1'/>
+        <provided namespace='osgi.bundle' name='org.rubypeople.rdt' version='0.8.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.intro' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt' version='0.8.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt; singleton:=true&#xA;Bundle-Vendor: %providerName&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.ui.intro&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.equinox.p2.touchpoint.natives' version='1.0.0.v20080505-1850'>
       <update id='org.eclipse.equinox.p2.touchpoint.natives' range='[0.0.0,1.0.0.v20080505-1850)' severity='0'/>
       <properties size='4'>
@@ -4903,6 +4652,40 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-ManifestVersion: 2&#xA;Export-Package: org.eclipse.emf.emfatic.ui,org.eclipse.emf.emfatic.ui.actions,org.eclipse.emf.emfatic.ui.editor&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.resources,org.eclipse.ui.workbench.texteditor,org.eclipse.jface.text,org.eclipse.ui.console,org.eclipse.ui.views,org.eclipse.ui.ide,org.eclipse.ui.editors,org.eclipse.core.runtime,org.eclipse.emf.emfatic.core,org.eclipse.emf.ecore,org.eclipse.jdt.ui,org.eclipse.core.expressions,org.eclipse.gymnast.runtime.core,org.eclipse.gymnast.runtime.ui&#xA;Bundle-Activator: org.eclipse.emf.emfatic.ui.EmfaticUIPlugin&#xA;Bundle-Name: %Plugin.name (Incubation)&#xA;Bundle-Version: 0.7.0.200810132307&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-SymbolicName: org.eclipse.emf.emfatic.ui;singleton:=true&#xA;Bundle-ClassPath: .&#xA;Manifest-Version: 1.0&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.rubypeople.eclipse.shams' version='0.8.1' singleton='false'>
+      <update id='org.rubypeople.eclipse.shams' range='[0.0.0,0.8.1)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Shams'/>
+        <property name='org.eclipse.equinox.p2.provider' value='RubyPeople, Inc.'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.eclipse.shams' version='0.8.1'/>
+        <provided namespace='osgi.bundle' name='org.rubypeople.eclipse.shams' version='0.8.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='osgi.bundle' name='org.eclipse.swt' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime.compatibility' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.junit' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.rubypeople.eclipse.shams' version='0.8.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-Activator: org.eclipse.core.internal.compatibility.PluginActivator&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.eclipse.shams&#xA;Bundle-Vendor: RubyPeople, Inc.&#xA;Bundle-Name: Shams&#xA;Bundle-ClassPath: rdteclipseshams.jar&#xA;Bundle-Version: 0.8.1&#xA;Require-Bundle: org.eclipse.swt,&#xA; org.eclipse.core.runtime.compatibility,&#xA; org.eclipse.core.resources,&#xA; org.eclipse.ui,&#xA; org.eclipse.debug.core,&#xA; org.junit&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
           </instruction>
         </instructions>
       </touchpointData>
@@ -5676,6 +5459,49 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.4.v20081217&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.eclipse.equinox.p2.metadata.generator.source&#xA;Bundle-Name: %pluginName&#xA;Bundle-Localization: plugin&#xA;Eclipse-SourceBundle: org.eclipse.equinox.p2.metadata.generator;version=&quot;1.0.4.v20081217&quot;;roots:=&quot;ant_tasks/generator-antsrc,.&quot;&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.rubypeople.rdt.ui.tests' version='0.8.1' singleton='false'>
+      <update id='org.rubypeople.rdt.ui.tests' range='[0.0.0,0.8.1)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='RDT UI Tests'/>
+        <property name='org.eclipse.equinox.p2.provider' value='RubyPeople Inc.'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.ui.tests' version='0.8.1'/>
+        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.ui.tests' version='0.8.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='15'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.shams' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.junit' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.eclipse.testutils' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.search' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core.tests' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.ui.tests' version='0.8.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-Activator: org.rubypeople.rdt.internal.ui.RdtUiTestsPlugin&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.ui.tests&#xA;Bundle-Vendor: RubyPeople Inc.&#xA;Bundle-Name: RDT UI Tests&#xA;Bundle-ClassPath: rdtuitests.jar&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.ui.ide,&#xA; org.eclipse.ui.views,&#xA; org.eclipse.jface.text,&#xA; org.eclipse.ui.workbench.texteditor,&#xA; org.eclipse.ui.editors,&#xA; org.rubypeople.rdt.ui,&#xA; org.rubypeople.eclipse.shams,&#xA; org.rubypeople.rdt.core,&#xA; org.junit,&#xA; org.eclipse.ui,&#xA; org.eclipse.core.resources,&#xA; org.rubypeople.eclipse.testutils,&#xA; org.eclipse.core.runtime,&#xA; org.eclipse.search,&#xA; org.rubypeople.rdt.core.tests&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
           </instruction>
         </instructions>
       </touchpointData>
@@ -6779,6 +6605,87 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='org.rubypeople.rdt.launching' version='0.8.1'>
+      <update id='org.rubypeople.rdt.launching' range='[0.0.0,0.8.1)' severity='0'/>
+      <properties size='3'>
+        <property name='df_LT.Plugin.name' value='Ruby Development Tools Launching Support'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Plugin.name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='RubyPeople, Inc.'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.launching' version='0.8.1'/>
+        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.launching' version='0.8.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='5'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.launching' version='0.8.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-Activator: org.rubypeople.rdt.internal.launching.RdtLaunchingPlugin&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.launching; singleton:=true&#xA;Bundle-Vendor: RubyPeople, Inc.&#xA;Bundle-Name: %Plugin.name&#xA;Bundle-ClassPath: launching.jar&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.core.resources,&#xA; org.eclipse.debug.core,&#xA; org.rubypeople.rdt.core,&#xA; org.rubypeople.rdt.debug.core,&#xA; org.eclipse.core.runtime&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.rubypeople.rdt.debug.ui' version='0.8.1'>
+      <update id='org.rubypeople.rdt.debug.ui' range='[0.0.0,0.8.1)' severity='0'/>
+      <properties size='3'>
+        <property name='df_LT.Plugin.name' value='Ruby Development Tools Debug UI'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Plugin.name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='RubyPeople, Inc.'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.debug.ui' version='0.8.1'/>
+        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.debug.ui' version='0.8.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='16'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.launching' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.cheatsheets' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.console' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.debug.ui' version='0.8.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-Activator: org.rubypeople.rdt.internal.debug.ui.RdtDebugUiPlugin&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.debug.ui; singleton:=true&#xA;Bundle-Vendor: RubyPeople, Inc.&#xA;Bundle-Name: %Plugin.name&#xA;Bundle-ClassPath: rdtdebugui.jar&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.core.resources,&#xA; org.eclipse.ui,&#xA; org.eclipse.debug.core,&#xA; org.eclipse.debug.ui,&#xA; org.rubypeople.rdt.launching,&#xA; org.rubypeople.rdt.ui,&#xA; org.rubypeople.rdt.core,&#xA; org.rubypeople.rdt.debug.core,&#xA; org.eclipse.ui.workbench,&#xA; org.eclipse.ui.workbench.texteditor,&#xA; org.eclipse.jface.text,&#xA; org.eclipse.ui.editors,&#xA; org.eclipse.ui.ide,&#xA; org.eclipse.ui.cheatsheets,&#xA; org.eclipse.core.runtime,&#xA; org.eclipse.ui.console&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.emf.ecore.feature.group' version='2.4.2.v200902171115' singleton='false'>
       <update id='org.eclipse.emf.ecore.feature.group' range='[0.0.0,2.4.2.v200902171115)' severity='0'/>
       <properties size='8'>
@@ -7400,6 +7307,48 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='org.rubypeople.rdt.testunit' version='0.8.1'>
+      <update id='org.rubypeople.rdt.testunit' range='[0.0.0,0.8.1)' severity='0'/>
+      <properties size='4'>
+        <property name='df_LT.providerName' value='RubyPeople, Inc.'/>
+        <property name='df_LT.pluginName' value='Ruby Development Tools Test::Unit support'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.rubypeople.rdt.testunit' version='0.8.1'/>
+        <provided namespace='osgi.bundle' name='org.rubypeople.rdt.testunit' version='0.8.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='11'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.launching' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.rubypeople.rdt.debug.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.text' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.rubypeople.rdt.testunit' version='0.8.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-Activator: org.rubypeople.rdt.testunit.TestunitPlugin&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.rubypeople.rdt.testunit; singleton:=true&#xA;Bundle-Vendor: %providerName&#xA;Bundle-Name: %pluginName&#xA;Bundle-ClassPath: testunit.jar&#xA;Bundle-Version: 0.8.1&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.ui,&#xA; org.eclipse.core.runtime,&#xA; org.eclipse.debug.core,&#xA; org.eclipse.debug.ui,&#xA; org.rubypeople.rdt.launching,&#xA; org.rubypeople.rdt.core,&#xA; org.eclipse.core.resources,&#xA; org.rubypeople.rdt.ui,&#xA; org.rubypeople.rdt.debug.ui,&#xA; org.eclipse.ui.workbench.texteditor,&#xA; org.eclipse.text&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.gmt.tcs.wizard' version='0.8.0'>
       <update id='org.eclipse.gmt.tcs.wizard' range='[0.0.0,0.8.0)' severity='0'/>
       <properties size='4'>
@@ -7860,6 +7809,29 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.gmt.am3.core,org.eclipse.gmt.am3.modelhandler.emf,org.eclipse.m2m.atl.engine,org.eclipse.emf.ecore&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 0.4.0&#xA;Export-Package: org.eclipse.gmt.am3.extractor.launchers&#xA;Bundle-SymbolicName: org.eclipse.gmt.am3.extractor.launchers&#xA;Bundle-ClassPath: .&#xA;Bundle-Name: AM3 Launchers Extractors Plug-in (Incubation)&#xA;Bundle-Vendor: Eclipse.org&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.gmt.weaver.doc.user' version='1.0.0'>
+      <update id='org.eclipse.gmt.weaver.doc.user' range='[0.0.0,1.0.0)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='ModelWeaver Plug-in User Guide'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.gmt.weaver.doc.user' version='1.0.0'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.gmt.weaver.doc.user' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.gmt.weaver.doc.user' version='1.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.eclipse.gmt.weaver.doc.user; singleton:=true&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-Name: ModelWeaver Plug-in User Guide&#xA;Bundle-Version: 1.0.0&#xA;Eclipse-LazyStart: true&#xA;
           </instruction>
         </instructions>
       </touchpointData>
@@ -10407,6 +10379,34 @@
       <copyright>
         %copyright
       </copyright>
+    </unit>
+    <unit id='org.eclipse.m2m.atl.drivers.mdr4atl' version='2.0.0.200811031752'>
+      <update id='org.eclipse.m2m.atl.drivers.mdr4atl' range='[0.0.0,2.0.0.200811031752)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='MDR4ATL Plug-in'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2m.atl.drivers.mdr4atl' version='2.0.0.200811031752'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.m2m.atl.drivers.mdr4atl' version='2.0.0.200811031752'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.engine' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.m2m.atl.drivers.mdr4atl' version='2.0.0.200811031752'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Manifest-Version: 1.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.eclipse.m2m.atl.drivers.mdr4atl; singleton:=true&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-Name: MDR4ATL Plug-in&#xA;Bundle-ClassPath: org.eclipse.m2m.atl.drivers.mdr4atl.jar,&#xA; lib/jmi.jar,&#xA; lib/jmiutils.jar,&#xA; lib/mdrapi.jar,&#xA; lib/mof.jar,&#xA; lib/nbmdr.jar,&#xA; lib/openide-util.jar&#xA;Bundle-Version: 2.0.0.200811031752&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.eclipse.core.resources,&#xA; org.eclipse.core.runtime,&#xA; org.eclipse.m2m.atl.engine&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
     </unit>
     <unit id='org.eclipse.equinox.p2.extensionlocation' version='1.0.4.v20081027-2115'>
       <update id='org.eclipse.equinox.p2.extensionlocation' range='[0.0.0,1.0.4.v20081027-2115)' severity='0'/>
