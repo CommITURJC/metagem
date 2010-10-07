@@ -323,25 +323,25 @@ context Return {
 		message: '\''+self.type().name.asString()+'\' cannot be associated with a \'Rule\' and an \'Operation\' '
 	}
 	
-	--RightPattern cannot have a rule and a reference at the same time
+	--RightPattern cannot have a rule and a reference(to a Target) at the same time
 	constraint hasRule_and_reference{
 		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
-		check: not(self.rule->size()>0 and self.reference->size()>0)
-		message: '\''+self.type().name.asString()+'\' cannot be associated with a \'Rule\' and a \'Reference\' '
+		check: not(self.rule->size()>0 and self.reference->size()>0 and self.reference.isTypeOf(TargetElementRule))
+		message: '\''+self.type().name.asString()+'\' cannot be associated with a \'Rule\' and a \'Reference (to a TargetElementRule)\' '
 	}
 	
-	--RightPattern cannot have an operation and a reference at the same time
+	--RightPattern cannot have an operation and a reference(to a Target) at the same time
 	constraint hasOperation_and_reference{
 		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
-		check: not(self."operation"->size()>0 and self.reference->size()>0)
-		message: '\''+self.type().name.asString()+'\' cannot be associated with an \'Operation\' and a \'Reference\' '
+		check: not(self."operation"->size()>0 and self.reference->size()>0 and self.reference.isTypeOf(TargetElementRule))
+		message: '\''+self.type().name.asString()+'\' cannot be associated with an \'Operation\' and a \'Reference (to a TargetElementRule)\' '
 	}
 	
-	--RightPattern cannot have a SourceElementRule and a reference at the same time
+	--RightPattern cannot have a SourceElementRule and a reference(to a Target) at the same time
 	constraint hasSourceElementRule_and_reference{
 		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
-		check: not(self.sourceElement->size()>0 and self.reference->size()>0)
-		message: '\''+self.type().name.asString()+'\' cannot have \'Source Element Rule\' and be associated with a \'Reference\' '
+		check: not(self.sourceElement->size()>0 and self.reference->size()>0 and self.reference.isTypeOf(TargetElementRule))
+		message: '\''+self.type().name.asString()+'\' cannot have \'Source Element Rule\' and be associated with a \'Reference (to a TargetElementRule)\' '
 	}
 	
 	--If RightPattern has defined a ConcreteValue, cannot define SourceElementRule, Reference, Rule or Operation
