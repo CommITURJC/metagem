@@ -44,7 +44,7 @@ class OutMetaModel {
 class Rule {
   !unique !ordered attr String[1] name_rule;
   !unique !ordered attr boolean[1] isAbstract;
-  !unique !ordered attr boolean[1] isMain;
+  !unique !ordered attr boolean[1] isMain = true;
   !ordered val SourceElementRule[*]#rule in;
   !ordered val TargetElementRule[*]#rule out;
   !unique !ordered attr TypeAtribute[1] typeAttribute;

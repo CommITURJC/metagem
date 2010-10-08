@@ -92,6 +92,7 @@ public interface Rule extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Is Main</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Is Main</em>' attribute isn't clear,
@@ -101,7 +102,7 @@ public interface Rule extends EObject {
 	 * @return the value of the '<em>Is Main</em>' attribute.
 	 * @see #setIsMain(boolean)
 	 * @see mm_hybrid.MM_HybridPackage#getRule_IsMain()
-	 * @model unique="false" required="true" ordered="false"
+	 * @model default="true" unique="false" required="true" ordered="false"
 	 * @generated
 	 */
 	boolean isIsMain();

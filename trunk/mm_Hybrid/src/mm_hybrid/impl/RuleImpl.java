@@ -108,7 +108,7 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_MAIN_EDEFAULT = false;
+	protected static final boolean IS_MAIN_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isIsMain() <em>Is Main</em>}' attribute.
