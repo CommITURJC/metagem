@@ -1184,7 +1184,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		initEAttribute(
 				getRule_IsMain(),
 				ecorePackage.getEBoolean(),
-				"isMain", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+				"isMain", "true", 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEReference(
 				getRule_In(),
 				this.getSourceElementRule(),
