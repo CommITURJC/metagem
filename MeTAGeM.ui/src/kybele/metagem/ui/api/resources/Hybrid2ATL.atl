@@ -45,6 +45,9 @@ rule outMM{
 }
 
 
+
+
+
 -- Create MatchedRule 
 rule createRule2MatchedRule{
 	from 
@@ -62,7 +65,8 @@ rule createRule2MatchedRule{
 			commentsBefore <- Set {'-- Comments -> This is a MatchedRule: ' + mm_hybrid_rule.name_rule + ' -> ' + mm_hybrid_rule.getComment()}
 		),
 		inPattern : ATL!InPattern (
-			elements <- mm_hybrid_rule."in".asSequence()
+			elements <- mm_hybrid_rule."in".asSequence(),
+			filter <- mm_hybrid_rule.getFilter()
 		),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
@@ -87,7 +91,8 @@ rule createRule2LazyRule{
 			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + mm_hybrid_rule.name_rule + ' -> ' + mm_hybrid_rule.getComment()}
 		),
 		inPattern : ATL!InPattern (
-			elements <- mm_hybrid_rule."in".asSequence()
+			elements <- mm_hybrid_rule."in".asSequence(),
+			filter <- mm_hybrid_rule.getFilter()
 		),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
@@ -112,7 +117,8 @@ rule createRule2UniqueLazyRule{
 			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + mm_hybrid_rule.name_rule + ' -> ' + mm_hybrid_rule.getComment()}
 		),
 		inPattern : ATL!InPattern (
-			elements <- mm_hybrid_rule."in".asSequence()
+			elements <- mm_hybrid_rule."in".asSequence(),
+			filter <- mm_hybrid_rule.getFilter()
 		),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
@@ -168,7 +174,7 @@ rule OutPatternElement {
 		),
 		aType : ATL!OclModelElement(
 			name <- outPattern.name_element,
-			model <- thisModule.resolveTemp(outPattern.metamodel,'ametamodeloutMM') --amodel--outPattern.metamodel
+			model <- thisModule.resolveTemp(outPattern.metamodel,'ametamodeloutMM') 
 		)
 }
 
@@ -194,7 +200,7 @@ helper context MM_Hybrid!ElementIncluded def : getBindingSource() : ATL!OclExpre
 
 
 -- Helper -> Define the source binding (Element, Rule, Helper or Reference)
-helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpression = --String = 
+helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpression =  
 	--rule undefined, operation undefined, srcElement undefined, reference defined	
 	if (self.right."rule".asSequence().first().oclIsUndefined() and 
 		self.right.operation.asSequence().first().oclIsUndefined() and
@@ -213,7 +219,7 @@ helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpre
 				if self.right.sourceElement.asSequence().first().oclIsUndefined() then
 					self.right.operation.asSequence().first().name_operation
 				-- rule undefined, operation defined and srcElement defined
-				else -- CORREGIR LA GENERACIÓN DE LA STRING - QUITAR LAS COMILLAS
+				else 
 					self.right.sourceElement.asSequence().first().name_element + '.' + self.right.operation.asSequence().first().name_operation
 				endif
 			endif
@@ -223,7 +229,7 @@ helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpre
 			if self.right.sourceElement.asSequence().first().oclIsUndefined() then
 				self.right."rule".asSequence().first().name_rule
 			--rule defined and srcElement defined
-			else  -- CORREGIR LA GENERACIÓN DE LA STRING - QUITAR LAS COMILLAS
+			else  
 				self.right.sourceElement.asSequence().first().name_element + '.' + self.right."rule".asSequence().first().name_rule
 			endif
 		endif
@@ -330,7 +336,7 @@ lazy rule getSimpleContext {
 }
 
 
--- To call the ReturnType lazy rule or Undefined 
+-- To call the ReturnType lazy rule
 helper context MM_Hybrid!Operation def : getReturnType () : ATL!OclExpression =
 	if self.returnType.oclIsUndefined() then
 		OclUndefined
@@ -410,6 +416,33 @@ rule createOperation2Helper {
 		)
 }
 
+helper context MM_Hybrid!Rule def : getFilter () :  ATL!OclExpression = 
+	if self."in".asSequence()->collect(i | i.guard)->flatten()->asSet().isEmpty() then 
+		OclUndefined
+	else
+		thisModule.getFilterExp(self)
+	endif;
+	
+
+lazy rule getFilterExp {
+	from
+		mm_hybrid_rule : MM_Hybrid!Rule
+	to 
+		filter : ATL!VariableExp(
+			commentsAfter <- mm_hybrid_rule.getCommentRule() 
+	)
+}
+
+
+-- Helper -> Return the filter expression
+helper context MM_Hybrid!Rule def : getCommentRule () : String = 
+	
+	let sizeSequence : Integer = self."in".asSequence()->collect(i|i.guard.asSequence()->collect(j|j.value))->flatten().toString().size()  in
+	let sizeInitial : Integer = 11 in
+			
+	self."in".asSequence()->collect(i|i.guard.asSequence()->collect(j|j.value))->flatten().toString().substring(sizeInitial, sizeSequence - 1).debug('Guard Value')
+	;
+
 
 --Helper -> Return the number of inputPatterns 
 helper context MM_Hybrid!Rule def : getSizeIP () : Integer = 
@@ -424,3 +457,5 @@ helper context MM_Hybrid!Rule def : getComment () : String =
 		self.comment
 	endif
 	;
+
+
