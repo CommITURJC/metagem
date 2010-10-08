@@ -440,7 +440,7 @@ helper context MM_Hybrid!Rule def : getCommentRule () : String =
 	let sizeSequence : Integer = self."in".asSequence()->collect(i|i.guard.asSequence()->collect(j|j.value))->flatten().toString().size()  in
 	let sizeInitial : Integer = 11 in
 			
-	self."in".asSequence()->collect(i|i.guard.asSequence()->collect(j|j.value))->flatten().toString().substring(sizeInitial, sizeSequence - 1).debug('Guard Value')
+	self."in".asSequence()->collect(i|i.guard.asSequence()->collect(j|j.value))->flatten().toString().substring(sizeInitial, sizeSequence - 1)
 	;
 
 
