@@ -1,11 +1,15 @@
 package kybele.metagem.ui.actions;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IWorkspace;
@@ -57,7 +61,7 @@ public class RubyTLExtract implements IObjectActionDelegate {
 		AtlModelHandler amh = emfMof;
 		try {
 			ASMModel mm = amh.loadModel("RubyTL", amh.getMof(), this.getClass()
-					.getResourceAsStream("../api/resources/RubyTL/Metamodel/RubyTL.ecore"));
+				.getResourceAsStream("/src/kybele/metagem/ui/api/resources/RubyTL/Metamodel/RubyTL.ecore"));
 
 			final ASMModel model = amh.loadModel(currentFile.getName(), mm,
 					currentFile.getContents());
@@ -65,8 +69,8 @@ public class RubyTLExtract implements IObjectActionDelegate {
 			final OutputStream out = new PipedOutputStream(in);
 			
 			Map tempParam = new HashMap();
-			ASMModel mmTCS=amh.loadModel("TCS", amh.getMof(), this.getClass().getResourceAsStream("../api/resources/TCS.ecore"));
-			ASMModel modelTCS = emfMof.loadModel("TCS_RubyTL", mmTCS, this.getClass().getResourceAsStream("../api/resources/RubyTL/Syntax/RubyTL.tcs.ecore"));
+			ASMModel mmTCS=amh.loadModel("TCS", amh.getMof(), this.getClass().getResourceAsStream("/src/kybele/metagem/ui/api/resources/TCS.ecore"));
+			ASMModel modelTCS = emfMof.loadModel("TCS_RubyTL", mmTCS, this.getClass().getResourceAsStream("/src/kybele/metagem/ui/api/resources/RubyTL/Syntax/RubyTL.tcs.ecore"));
 			tempParam.put("format", modelTCS);
 			final Map parameters = tempParam;
 
