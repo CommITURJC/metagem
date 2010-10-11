@@ -77,7 +77,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" ordered="false"
         unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMain" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="in" ordered="false" upperBound="-1"
         eType="#//SourceElementRule" containment="true" eOpposite="#//SourceElementRule/rule"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="out" ordered="false" upperBound="-1"
