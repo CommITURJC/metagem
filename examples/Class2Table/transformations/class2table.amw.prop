@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<weaver>
+<weaving>
+<relative-path>/Class2Table/transformations/class2table.amw</relative-path>
+<panel>TransformationWeavingPanelExtension</panel>
+<wmodel>ModelRoot</wmodel>
+</weaving>
+<metamodels>
+<plugin>
+<relative-path>MeTAGeM/Metamodels/mmw_metagem_v2.km3</relative-path>
+</plugin>
+<local/>
+<complete/>
+</metamodels>
+<woven id="0">
+<model-relative-path>null</model-relative-path>
+<metamodel-relative-path>/Class2Table/metamodels/ClassM.ecore</metamodel-relative-path>
+<reference>inputModel</reference>
+<title>Class</title>
+<panel>DefaultWovenPanelExtension</panel>
+<wmodelref>InModelTransf</wmodelref>
+</woven>
+<woven id="1">
+<model-relative-path>null</model-relative-path>
+<metamodel-relative-path>/Class2Table/metamodels/TableM.ecore</metamodel-relative-path>
+<reference>outputModel</reference>
+<title>Table</title>
+<panel>DefaultWovenPanelExtension</panel>
+<wmodelref>OutModelTransf</wmodelref>
+</woven>
+</weaver>
