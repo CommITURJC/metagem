@@ -1,0 +1,20 @@
+<xmi:XMI xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://gts.inf.um.es/examples/relational ../metamodels/TableM.ecore' xmi:version='2.0' xmlns:relational='http://gts.inf.um.es/examples/relational' xmlns:xmi='http://www.omg.org/XMI'>
+  <relational:Table name='Pet'>
+    <cols name='name' type='String' xsi:type='relational:Column'/>
+    <cols name='age' type='Integer' xsi:type='relational:Column'/>
+  </relational:Table>
+  <relational:Table name='Job'>
+    <cols name='name' type='String' xsi:type='relational:Column'/>
+    <cols name='address' type='String' xsi:type='relational:Column'/>
+    <cols name='best_employee' type='Person' xsi:type='relational:Column'/>
+    <fkeys references='#/2' xsi:type='relational:FKey' cols='#/2/@cols.2'/>
+  </relational:Table>
+  <relational:Table name='Person'>
+    <cols name='pet' type='Pet' xsi:type='relational:Column'/>
+    <cols name='job' type='Job' xsi:type='relational:Column'/>
+    <cols name='name' type='String' xsi:type='relational:Column'/>
+    <cols name='age' type='Integer' xsi:type='relational:Column'/>
+    <fkeys references='#/0' xsi:type='relational:FKey' cols='#/0/@cols.0'/>
+    <fkeys references='#/1' xsi:type='relational:FKey' cols='#/1/@cols.0 #/1/@cols.1'/>
+  </relational:Table>
+</xmi:XMI>
