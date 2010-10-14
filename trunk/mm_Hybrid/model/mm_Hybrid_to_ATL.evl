@@ -181,6 +181,14 @@ context Rule{
 			check: self."extends"->select(r|r.isKindOf(Rule))->forAll(r2|r2.isAbstract=true)
 			message: '\''+self.type().name.asString() +'\' only can extends abstract rules'
 		}
+		
+		-- Validation to transform to ATL:
+		-- A rule with more than one source, must be 'concatenation'
+		constraint manySources_concatenation{
+			check: (self."in".size()<2 and not(self.typeAttribute==TypeAtribute#concatenation.instance)) or
+						(self."in".size()>1 and self.typeAttribute==TypeAtribute#concatenation.instance)
+			message: 'Due to current ATL version implemented: '+self.type().name+' with two or more sources must set \'typeAttribute=concatenation\''
+		}
 
 }
 
@@ -301,6 +309,14 @@ context Return {
  		check: self.left.isDefined()
  		message: 'The required feature \'left\' of \''+ self.type().name.asString() + '\' must be set' 
  	}
+ 	
+ 	-- Validation to transform to ATL:
+	-- A ElementIncluded with more than one source, must be 'concatenation'
+	constraint manySources_concatenation{
+		check: (self.right.sourceElement.size()<2 and not(self.typeAttribute==TypeAtribute#concatenation.instance)) or
+					(self.right.sourceElement.size()>1 and self.typeAttribute==TypeAtribute#concatenation.instance)
+		message: 'Due to current ATL version implemented: '+self.type().name+' with two or more sources in the \'RightPattern\' must set \'typeAttribute=concatenation\''
+	}
  
  }
  
