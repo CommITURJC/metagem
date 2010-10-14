@@ -240,9 +240,9 @@ helper context MM_Hybrid!Operation def : getReturnType() : ATL!OclExpression =
 		'' --OclUndefined
 	else
 		if self.returnType.element.oclIsUndefined() then
-			' - ReturnType: ' + self.returnType.datatype.toString().debug('dataType')
+			' - ReturnType: ' + self.returnType.datatype.toString()
 		else
-			' - ReturnType: ' + self.returnType.element.name_element.debug('elementType')
+			' - ReturnType: ' + self.returnType.element.name_element
 		endif
 	endif;
 
