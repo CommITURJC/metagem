@@ -45,9 +45,6 @@ rule outMM{
 }
 
 
-
-
-
 -- Create MatchedRule 
 rule createRule2MatchedRule{
 	from 
@@ -216,7 +213,7 @@ helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpre
 		if self.right."rule".asSequence().first().oclIsUndefined() then
 			--rule undefined and operation undefined
 			if self.right.operation.asSequence().first().oclIsUndefined() then
-				self.right.sourceElement.asSequence().first().name_element  --AQUI 
+				self.right.sourceElement.asSequence().first().name_element  
 			--rule undefined and operation defined 
 			else
 				--rule undefined, operation defined and srcElement undefined
@@ -224,7 +221,7 @@ helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpre
 					self.right.operation.asSequence().first().name_operation
 				-- rule undefined, operation defined and srcElement defined 
 				else 
-					self.right.sourceElement.asSequence().first().name_element + '.' + self.right.operation.asSequence().first().name_operation --AQUI
+					self.right.sourceElement.asSequence().first().name_element + '.' + self.right.operation.asSequence().first().name_operation 
 				endif
 			endif
 		--rule defined (operation undefined by validation)		
@@ -234,18 +231,10 @@ helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpre
 				self.right."rule".asSequence().first().name_rule
 			--rule defined and srcElement defined
 			else  
-				self.right.sourceElement.asSequence().first().name_element + '.' + self.right."rule".asSequence().first().name_rule --AQUI
+				self.right.sourceElement.asSequence().first().name_element + '.' + self.right."rule".asSequence().first().name_rule 
 			endif
 		endif
 	endif;
-
-
-
-
-
-
-
-
 
 
 -- Helper -> Return the variable used on source binding
@@ -321,6 +310,8 @@ lazy rule getComplexBinding {
 		) 
 }
 
+
+-- Called Rule -> Create concatenation on Bindings
 rule CreateConcatBinding (elemInc : MM_Hybrid!ElementIncluded, attrRefs : Sequence(String)){
 	to
 		operation : ATL!OperatorCallExp (
@@ -337,8 +328,6 @@ rule CreateConcatBinding (elemInc : MM_Hybrid!ElementIncluded, attrRefs : Sequen
 	}
 		}
 		
-		
-
 
 rule CreateReferredConcatElement(elemInc : MM_Hybrid!ElementIncluded, attrRef : String) {	-- : ATL!NavigationOrAttributeCallExp
 	to
@@ -479,6 +468,7 @@ rule createOperation2Helper {
 		)
 }
 
+
 helper context MM_Hybrid!Rule def : getFilter () :  ATL!OclExpression = 
 	if self."in".asSequence()->collect(i | i.guard)->flatten()->asSet().isEmpty() then 
 		OclUndefined
@@ -519,5 +509,3 @@ helper context MM_Hybrid!Rule def : getComment () : String =
 		self.comment
 	endif
 	;
-
-
