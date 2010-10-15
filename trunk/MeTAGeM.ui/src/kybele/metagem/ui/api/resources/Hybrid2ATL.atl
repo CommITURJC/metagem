@@ -55,7 +55,7 @@ rule createRule2MatchedRule{
 		(mm_hybrid_rule.isMain=true and mm_hybrid_rule.getSizeIP()>0)
 	to
 		atl : ATL!MatchedRule (
-			name <- mm_hybrid_rule.name_rule.debug('Name MatchedRule'),
+			name <- mm_hybrid_rule.name_rule.debug('MatchedRule'),
 			isAbstract <- mm_hybrid_rule.isAbstract,
 			isRefining <- false,
 			isNoDefault <- false,
@@ -81,7 +81,7 @@ rule createRule2LazyRule{
 		(mm_hybrid_rule.isMain=false and not(mm_hybrid_rule.typeAttribute = #"unique") and mm_hybrid_rule.getSizeIP()>0)
 	to
 		atl : ATL!LazyMatchedRule (
-			name <- mm_hybrid_rule.name_rule.debug('Name LazyRule'),
+			name <- mm_hybrid_rule.name_rule.debug('LazyRule'),
 			isAbstract <- mm_hybrid_rule.isAbstract,
 			isRefining <- false,
 			isNoDefault <- false,
@@ -107,7 +107,7 @@ rule createRule2UniqueLazyRule{
 		(mm_hybrid_rule.isMain=false and mm_hybrid_rule.typeAttribute = #"unique" and mm_hybrid_rule.getSizeIP()>0)
 	to
 		atl : ATL!LazyMatchedRule (
-			name <- mm_hybrid_rule.name_rule.debug('Name LazyRule'),
+			name <- mm_hybrid_rule.name_rule.debug('Unique LazyRule'),
 			isAbstract <- mm_hybrid_rule.isAbstract,
 			isRefining <- false,
 			isNoDefault <- false,
@@ -132,7 +132,7 @@ rule createRule2CalledRule{
 		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()=0)
 	to
 		atl : ATL!CalledRule (
-			name <- mm_hybrid_rule.name_rule.debug('Name CalledRule'),
+			name <- mm_hybrid_rule.name_rule.debug('CalledRule'),
 			outPattern <- outPattern,
 			actionBlock <- anAction,
 			commentsBefore <- Set {'-- Comments -> This is a CalledRule: ' + mm_hybrid_rule.name_rule + ' -> ' + mm_hybrid_rule.getComment()}
@@ -181,20 +181,24 @@ rule OutPatternElement {
 
 -- Helper -> To call the correct lazy rule to define the Binding
 helper context MM_Hybrid!ElementIncluded def : getBindingSource() : ATL!OclExpression =
-		if (self.right."rule".asSequence().first().oclIsUndefined() and 
-			self.right.operation.asSequence().first().oclIsUndefined() and
-			self.right.sourceElement.asSequence().first().oclIsUndefined() and
-			self.right.reference.oclIsUndefined()) then
-				thisModule.getConcreteBinding(self)
+		if self.typeAttribute = #"concatenation" then
+			thisModule.CreateConcatBinding(self, self.right.sourceElement.asSequence()->collect(i | i.name_element))
 		else
-			if (not self.right.reference.oclIsUndefined()) then
-				if self.right.reference.oclIsTypeOf(MM_Hybrid!SourceElementRule) then
-					thisModule.getComplexBinding(self)
-				else
-					thisModule.getSimpleBinding(self)
-				endif
+			if (self.right."rule".asSequence().first().oclIsUndefined() and 
+				self.right.operation.asSequence().first().oclIsUndefined() and
+				self.right.sourceElement.asSequence().first().oclIsUndefined() and
+				self.right.reference.oclIsUndefined()) then
+					thisModule.getConcreteBinding(self)
 			else
-				thisModule.getComplexBinding(self)
+				if (not self.right.reference.oclIsUndefined()) then
+					if self.right.reference.oclIsTypeOf(MM_Hybrid!SourceElementRule) then
+						thisModule.getComplexBinding(self)
+					else
+						thisModule.getSimpleBinding(self)
+					endif
+				else
+					thisModule.getComplexBinding(self)
+			endif
 		endif
 	endif;
 
@@ -207,20 +211,20 @@ helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpre
 		self.right.sourceElement.asSequence().first().oclIsUndefined() and
 		not self.right.reference.oclIsUndefined()) then
 			OclUndefined
-	else
+	else --reference undefined
 		--rule undefined
 		if self.right."rule".asSequence().first().oclIsUndefined() then
 			--rule undefined and operation undefined
 			if self.right.operation.asSequence().first().oclIsUndefined() then
-				self.right.sourceElement.asSequence().first().name_element
+				self.right.sourceElement.asSequence().first().name_element  --AQUI 
 			--rule undefined and operation defined 
 			else
 				--rule undefined, operation defined and srcElement undefined
 				if self.right.sourceElement.asSequence().first().oclIsUndefined() then
 					self.right.operation.asSequence().first().name_operation
-				-- rule undefined, operation defined and srcElement defined
+				-- rule undefined, operation defined and srcElement defined 
 				else 
-					self.right.sourceElement.asSequence().first().name_element + '.' + self.right.operation.asSequence().first().name_operation
+					self.right.sourceElement.asSequence().first().name_element + '.' + self.right.operation.asSequence().first().name_operation --AQUI
 				endif
 			endif
 		--rule defined (operation undefined by validation)		
@@ -230,10 +234,18 @@ helper context MM_Hybrid!ElementIncluded def : getValueBinding () : ATL!OclExpre
 				self.right."rule".asSequence().first().name_rule
 			--rule defined and srcElement defined
 			else  
-				self.right.sourceElement.asSequence().first().name_element + '.' + self.right."rule".asSequence().first().name_rule
+				self.right.sourceElement.asSequence().first().name_element + '.' + self.right."rule".asSequence().first().name_rule --AQUI
 			endif
 		endif
 	endif;
+
+
+
+
+
+
+
+
 
 
 -- Helper -> Return the variable used on source binding
@@ -307,6 +319,57 @@ lazy rule getComplexBinding {
 		areferred : ATL!VariableDeclaration(
 			varName <- elemInc.getReferredVariable()
 		) 
+}
+
+rule CreateConcatBinding (elemInc : MM_Hybrid!ElementIncluded, attrRefs : Sequence(String)){
+	to
+		operation : ATL!OperatorCallExp (
+			operationName <- '+'
+		)
+	do {
+		operation.source <- thisModule.CreateReferredConcatElement(elemInc, attrRefs.first());
+		if(attrRefs->size() = 2) {
+			operation.arguments <- thisModule.CreateReferredConcatElement(elemInc, attrRefs->last());
+		} else {
+			operation.arguments <- thisModule.CreateConcatBinding(elemInc, attrRefs->subSequence(2, attrRefs->size()));
+		}
+		operation;
+	}
+		}
+		
+		
+
+
+rule CreateReferredConcatElement(elemInc : MM_Hybrid!ElementIncluded, attrRef : String) {	-- : ATL!NavigationOrAttributeCallExp
+	to
+		subelement : ATL!NavigationOrAttributeCallExp (
+			--name <- attrRef, --AQUI	elemInc.getValueBinding(),		
+			source <- asource
+		),	 						
+		asource : ATL!VariableExp (
+			referredVariable <- areferred	
+		),
+		areferred : ATL!VariableDeclaration(
+			varName <- elemInc.getReferredVariable()
+		)
+	do {
+		
+		if(elemInc.right."rule".asSequence().first().oclIsUndefined() and 
+		elemInc.right.operation.asSequence().first().oclIsUndefined()) {
+			subelement.name <- attrRef;
+		} else {
+			if (not elemInc.right."rule".asSequence().first().oclIsUndefined()) {
+				subelement.name <- attrRef + '.' + elemInc.right."rule".asSequence().first().name_rule;
+			} else {
+				if (not elemInc.right.operation.asSequence().first().oclIsUndefined()) {
+					subelement.name <- attrRef + '.' + elemInc.right.operation.asSequence().first().name_operation;
+				} else{
+					OclUndefined;
+				  }
+			  }
+		  }
+		subelement;
+	}
 }
 
 
@@ -429,14 +492,13 @@ lazy rule getFilterExp {
 		mm_hybrid_rule : MM_Hybrid!Rule
 	to 
 		filter : ATL!VariableExp(
-			commentsAfter <- mm_hybrid_rule.getCommentRule() 
+			commentsAfter <- mm_hybrid_rule.getCommentFilter() 
 	)
 }
 
 
 -- Helper -> Return the filter expression
-helper context MM_Hybrid!Rule def : getCommentRule () : String = 
-	
+helper context MM_Hybrid!Rule def : getCommentFilter () : String = 
 	let sizeSequence : Integer = self."in".asSequence()->collect(i|i.guard.asSequence()->collect(j|j.value))->flatten().toString().size()  in
 	let sizeInitial : Integer = 11 in
 			
