@@ -343,7 +343,7 @@ rule CreateConcatBinding (elemInc : MM_Hybrid!ElementIncluded, attrRefs : Sequen
 rule CreateReferredConcatElement(elemInc : MM_Hybrid!ElementIncluded, attrRef : String) {	-- : ATL!NavigationOrAttributeCallExp
 	to
 		subelement : ATL!NavigationOrAttributeCallExp (
-			name <- attrRef,			
+			--name <- attrRef, --AQUI	elemInc.getValueBinding(),		
 			source <- asource
 		),	 						
 		asource : ATL!VariableExp (
@@ -353,6 +353,21 @@ rule CreateReferredConcatElement(elemInc : MM_Hybrid!ElementIncluded, attrRef : 
 			varName <- elemInc.getReferredVariable()
 		)
 	do {
+		
+		if(elemInc.right."rule".asSequence().first().oclIsUndefined() and 
+		elemInc.right.operation.asSequence().first().oclIsUndefined()) {
+			subelement.name <- attrRef;
+		} else {
+			if (not elemInc.right."rule".asSequence().first().oclIsUndefined()) {
+				subelement.name <- attrRef + '.' + elemInc.right."rule".asSequence().first().name_rule;
+			} else {
+				if (not elemInc.right.operation.asSequence().first().oclIsUndefined()) {
+					subelement.name <- attrRef + '.' + elemInc.right.operation.asSequence().first().name_operation;
+				} else{
+					OclUndefined;
+				  }
+			  }
+		  }
 		subelement;
 	}
 }
