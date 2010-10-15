@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="ModuleTest">
   <rule name_rule="MR11" isMain="true" comment="">
-    <in name_element="SrcMR1" metamodel="//@inMM.0"/>
+    <in name_element="SrcMR1" metamodel="//@inMM.0">
+      <guard value="Filter expression"/>
+    </in>
     <out name_element="TrgMR1" metamodel="//@outMM.0">
       <included>
         <right name_pattern="RPMR11a" concreteValue="#valorConcreto"/>
@@ -14,9 +16,10 @@
   <rule name_rule="MR1N" isMain="true" comment="Rule 1..N">
     <in name_element="SrcMR2" metamodel="//@inMM.0"/>
     <out name_element="TrgMR2" metamodel="//@outMM.0">
-      <included>
+      <included typeAttribute="concatenation">
         <right name_pattern="RPMR1Na">
           <sourceElement name_element="ElIncSrcMR1Na" metamodel="//@inMM.0"/>
+          <sourceElement name_element="ElIncSrcMR1Nab" metamodel="//@inMM.0"/>
         </right>
         <left name_pattern="LPMR1Na">
           <targetElement name_element="ElIncTrg1Na" metamodel="//@outMM.0"/>
@@ -34,7 +37,9 @@
   </rule>
   <rule name_rule="MRNN" isMain="true" comment="Rule N..N">
     <in name_element="SrcMR3" metamodel="//@inMM.0"/>
-    <in name_element="SrcMR4" isRefered="//@rule.2/@out.2/@included.0/@right" metamodel="//@inMM.0"/>
+    <in name_element="SrcMR4" isRefered="//@rule.2/@out.2/@included.0/@right" metamodel="//@inMM.0">
+      <guard value="Another Filter"/>
+    </in>
     <out name_element="TrgMR4" metamodel="//@outMM.0">
       <included>
         <right rule="//@rule.3" name_pattern="RPMRNNa"/>
@@ -52,9 +57,10 @@
       </included>
     </out>
     <out name_element="TrgMR6" isRefered="//@rule.2/@out.1/@included.0/@right" metamodel="//@outMM.0">
-      <included>
+      <included typeAttribute="concatenation">
         <right operation="//@operations.0" name_pattern="RPMRNNc" reference="//@rule.2/@in.1">
           <sourceElement name_element="ElIncSrcMRNNa" metamodel="//@inMM.0"/>
+          <sourceElement name_element="ElIncSrcMRNNab" metamodel="//@inMM.0"/>
         </right>
         <left name_pattern="LPMRNNc">
           <targetElement name_element="ElIncTrgNNc" metamodel="//@outMM.0"/>
@@ -100,7 +106,7 @@
       </included>
     </out>
   </rule>
-  <inMM name_mm="MMNameIN" type_mm="MMTypeIN" elements="//@rule.2/@in.1 //@rule.2/@in.0 //@rule.1/@in.0 //@rule.0/@in.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.0 //@rule.3/@in.0 //@rule.2/@out.2/@included.0/@right/@sourceElement.0 //@rule.3/@out.0/@included.0/@right/@sourceElement.0 //@rule.5/@out.0/@included.0/@right/@sourceElement.0 //@rule.4/@in.0 //@rule.4/@out.0/@included.0/@right/@sourceElement.0"/>
+  <inMM name_mm="MMNameIN" type_mm="MMTypeIN" elements="//@rule.2/@in.1 //@rule.2/@in.0 //@rule.1/@in.0 //@rule.0/@in.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.0 //@rule.3/@in.0 //@rule.2/@out.2/@included.0/@right/@sourceElement.0 //@rule.3/@out.0/@included.0/@right/@sourceElement.0 //@rule.5/@out.0/@included.0/@right/@sourceElement.0 //@rule.4/@in.0 //@rule.4/@out.0/@included.0/@right/@sourceElement.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.1 //@rule.2/@out.2/@included.0/@right/@sourceElement.1"/>
   <outMM name_mm="MMNameOUT" type_mm="MMTypeOUT" elements="//@rule.0/@out.0/@included.0/@left/@targetElement //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.1/@out.1/@included.0/@left/@targetElement //@rule.2/@out.0/@included.0/@left/@targetElement //@rule.2/@out.2/@included.0/@left/@targetElement //@rule.3/@out.0 //@rule.0/@out.0 //@rule.1/@out.0 //@rule.2/@out.0 //@rule.2/@out.1 //@rule.3/@out.0/@included.0/@left/@targetElement //@rule.5/@out.0/@included.0/@left/@targetElement //@rule.5/@out.0 //@rule.1/@out.1 //@rule.2/@out.2 //@rule.2/@out.1/@included.0/@left/@targetElement //@rule.4/@out.0 //@rule.4/@out.0/@included.0/@left/@targetElement"/>
   <operations name_operation="OP1" body="Esto hace algo" rightPattern="//@rule.2/@out.2/@included.0/@right">
     <returnType datatype="String"/>
