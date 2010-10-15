@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.adt.launching.atlTransformation">
+<stringAttribute key="ATL File Name" value="/Families2Persons/Transformations/families2persons-atl.atl"/>
+<stringAttribute key="ATL VM" value="Regular VM (with debugger)"/>
+<booleanAttribute key="AllowInterModelReferences" value="false"/>
+<mapAttribute key="Input">
+<mapEntry key="families_model" value="families"/>
+</mapAttribute>
+<mapAttribute key="Libs"/>
+<booleanAttribute key="Mode Debug" value="false"/>
+<mapAttribute key="Model Handler">
+<mapEntry key="families" value="EMF"/>
+<mapEntry key="persons" value="EMF"/>
+</mapAttribute>
+<mapAttribute key="ModelType">
+<mapEntry key="persons_model" value="MODELOUTPUT"/>
+<mapEntry key="families_model" value="MODELINPUT"/>
+<mapEntry key="families" value="METAMODELINPUT"/>
+<mapEntry key="persons" value="METAMODELOUTPUT"/>
+</mapAttribute>
+<mapAttribute key="Output">
+<mapEntry key="persons_model" value="persons"/>
+</mapAttribute>
+<mapAttribute key="Path">
+<mapEntry key="persons_model" value="/Families2Persons/Models/sample-Persons.xmi"/>
+<mapEntry key="families_model" value="/Families2Persons/Models/sample-Families.xmi"/>
+<mapEntry key="families" value="/Families2Persons/Metamodels/Families.ecore"/>
+<mapEntry key="persons" value="/Families2Persons/Metamodels/Persons.ecore"/>
+</mapAttribute>
+<stringAttribute key="Project Name" value="Families2Persons"/>
+<listAttribute key="Superimpose"/>
+<booleanAttribute key="continueAfterError" value="false"/>
+<booleanAttribute key="disableAttributeHelperCache" value="false"/>
+<booleanAttribute key="printExecutionTime" value="false"/>
+<booleanAttribute key="profile" value="false"/>
+<booleanAttribute key="showSummary" value="false"/>
+<booleanAttribute key="step" value="false"/>
+</launchConfiguration>

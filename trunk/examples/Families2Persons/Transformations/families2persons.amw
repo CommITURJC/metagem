@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mmw_metagem" xmi:id="ModelRoot1" name="families2persons">
+  <inputModel xmi:id="InModelTransf1" name="families" ref="/Families2Persons/Metamodels/Families.ecore">
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Member" ref="//Member"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_firstName" ref="//Member/firstName"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_lastName" ref="//Family/lastName"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Father" ref="//Father"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_familyFather" ref="//Father/familyFather"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Mother" ref="//Mother"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Son" ref="//Son"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Daughter" ref="//Daughter"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_familyMother" ref="//Mother/familyMother"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_familySon" ref="//Son/familySon"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_familyDaughter" ref="//Daughter/familyDaughter"/>
+  </inputModel>
+  <outputModel xmi:id="OutModelTransf1" name="persons" ref="/Families2Persons/Metamodels/Persons.ecore">
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Male" ref="//Male"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_fullName" ref="//Person/fullName"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Female" ref="//Female"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Person" ref="//Person"/>
+  </outputModel>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="father2male">
+    <source xmi:id="InElement1" name="Father" element="//@inputModel.0/@ownedElementRef.3"/>
+    <target xmi:id="OutElement1" name="Male" element="//@outputModel.0/@ownedElementRef.0">
+      <zerotoOne xmi:id="ZeroToOne1">
+        <target name="fullName" element="//@outputModel.0/@ownedElementRef.1"/>
+      </zerotoOne>
+    </target>
+  </relations>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne2" name="mother2female">
+    <source xmi:id="InElement2" name="Mother" element="//@inputModel.0/@ownedElementRef.5"/>
+    <target xmi:id="OutElement2" name="Female" element="//@outputModel.0/@ownedElementRef.2">
+      <manytoOne xmi:id="ManyToOne1" typeAttri="concatenation">
+        <source xmi:id="InElement3" name="firstName" element="//@inputModel.0/@ownedElementRef.1"/>
+        <source xmi:id="InElement4" name="familyMother" element="//@inputModel.0/@ownedElementRef.8"/>
+        <target xmi:id="OutElement5" name="fullName" element="//@outputModel.0/@ownedElementRef.1"/>
+      </manytoOne>
+    </target>
+  </relations>
+  <relations xsi:type="OneToOne" name="son2male">
+    <source name="Son" element="//@inputModel.0/@ownedElementRef.6"/>
+    <target xmi:id="OutElement3" name="Male" element="//@outputModel.0/@ownedElementRef.0">
+      <manytoOne xmi:id="ManyToOne2" typeAttri="concatenation">
+        <source name="firstName" element="//@inputModel.0/@ownedElementRef.1"/>
+        <source name="familySon" element="//@inputModel.0/@ownedElementRef.9"/>
+        <target name="fullName" element="//@outputModel.0/@ownedElementRef.1"/>
+      </manytoOne>
+    </target>
+  </relations>
+  <relations xsi:type="OneToOne" name="daughter2female">
+    <source name="Daughter" element="//@inputModel.0/@ownedElementRef.7"/>
+    <target xmi:id="OutElement4" name="Female" element="//@outputModel.0/@ownedElementRef.2">
+      <manytoOne xmi:id="ManyToOne3" typeAttri="concatenation">
+        <source name="firstName" element="//@inputModel.0/@ownedElementRef.1"/>
+        <source name="familyDaughter" element="//@inputModel.0/@ownedElementRef.10"/>
+        <target name="fullName" element="//@outputModel.0/@ownedElementRef.1"/>
+      </manytoOne>
+    </target>
+  </relations>
+</ModelRoot>
