@@ -67,7 +67,10 @@ rule createRule2MatchedRule{
 		),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
-	)
+		),
+		anAction : ATL!ActionBlock(
+			commentsBefore <- Set {'-- ActionBlock: '}	
+		)
 }
 
 
@@ -93,6 +96,9 @@ rule createRule2LazyRule{
 		),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
+		),
+		anAction : ATL!ActionBlock(
+			commentsBefore <- Set {'-- ActionBlock: '}	
 		)
 }
 
@@ -119,6 +125,9 @@ rule createRule2UniqueLazyRule{
 		),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
+		),
+		anAction : ATL!ActionBlock(
+			commentsBefore <- Set {'-- ActionBlock: '}	
 		)
 }
 
