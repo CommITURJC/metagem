@@ -59,6 +59,7 @@ rule createRule2MatchedRule{
 			superRule <- mm_hybrid_rule."extends",
 			inPattern <- inPattern, 
 			outPattern <- outPattern,
+			actionBlock <- anAction,
 			commentsBefore <- Set {'-- Comments -> This is a MatchedRule: ' + mm_hybrid_rule.name_rule + ' -> ' + mm_hybrid_rule.getComment()}
 		),
 		inPattern : ATL!InPattern (
@@ -67,7 +68,10 @@ rule createRule2MatchedRule{
 		),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
-	)
+		),
+		anAction : ATL!ActionBlock(
+			commentsBefore <- Set {'-- ActionBlock: '}	
+		)
 }
 
 
@@ -85,6 +89,7 @@ rule createRule2LazyRule{
 			isUnique <- false,
 			inPattern <- inPattern,
 			outPattern <- outPattern,
+			actionBlock <- anAction,
 			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + mm_hybrid_rule.name_rule + ' -> ' + mm_hybrid_rule.getComment()}
 		),
 		inPattern : ATL!InPattern (
@@ -93,6 +98,9 @@ rule createRule2LazyRule{
 		),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
+		),
+		anAction : ATL!ActionBlock(
+			commentsBefore <- Set {'-- ActionBlock: '}	
 		)
 }
 
@@ -111,6 +119,7 @@ rule createRule2UniqueLazyRule{
 			isUnique <- true,
 			inPattern <- inPattern,
 			outPattern <- outPattern,
+			actionBlock <- anAction,
 			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + mm_hybrid_rule.name_rule + ' -> ' + mm_hybrid_rule.getComment()}
 		),
 		inPattern : ATL!InPattern (
@@ -119,6 +128,9 @@ rule createRule2UniqueLazyRule{
 		),
 		outPattern : ATL!OutPattern(
 			elements <- mm_hybrid_rule.out.asSequence()	
+		),
+		anAction : ATL!ActionBlock(
+			commentsBefore <- Set {'-- ActionBlock: '}	
 		)
 }
 
