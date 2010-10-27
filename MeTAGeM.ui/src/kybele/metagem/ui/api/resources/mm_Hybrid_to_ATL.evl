@@ -214,10 +214,10 @@ context Operation{
 	 
 	 
 	-- Validation to transform to ATL:
-	-- In ATL, an operation must have a returnType and a context
-	 constraint operation_mustHave_returnType_and_context{
-	 	check: (self.returnType.size()>0 and self."context".size()>0)
-	 	message: 'Due to current ATL version implemented: '+self.type().name+' must have a returnType and a context'
+	-- In ATL, an operation must have a returnType 
+	 constraint operation_mustHave_returnType{
+	 	check: (self.returnType.size()>0)
+	 	message: 'Due to current ATL version implemented: '+self.type().name+' must have a returnType'
 	 }
 		
 }
