@@ -38,7 +38,7 @@ rule outModel{
 
 rule InElement2SourceElementRuleWithoutGuard{
 	from
-		inElem: AMW!InElement (inElem.guardCondition.oclIsUndefined() and not( inElem.element.oclIsUndefined()))
+		inElem: AMW!InElement ((inElem.guardCondition.oclIsUndefined() or inElem.guardCondition='') and not( inElem.element.oclIsUndefined()))
 	to
 		sourceElem: MM_Hybrid!SourceElementRule(
 			name_element <- inElem.name,
@@ -48,7 +48,7 @@ rule InElement2SourceElementRuleWithoutGuard{
 
 rule InElement2SourceElementRuleWithGuard{
 	from
-		inElem: AMW!InElement (not inElem.guardCondition.oclIsUndefined() and not( inElem.element.oclIsUndefined()))
+		inElem: AMW!InElement (not (inElem.guardCondition.oclIsUndefined() or inElem.guardCondition='')  and not( inElem.element.oclIsUndefined()))
 	to
 		sourceElem: MM_Hybrid!SourceElementRule(
 			name_element <- inElem.name,
