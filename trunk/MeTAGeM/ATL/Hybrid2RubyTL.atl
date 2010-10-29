@@ -217,11 +217,11 @@ rule target2to{
 -- Decorator (Operations)
 rule createOperation2Decorator {
 	from
-		oper : MM_Hybrid!Operation 
+		oper : MM_Hybrid!Operation (not oper."context".oclIsUndefined())
 	to
 		rubytl : RubyTL!Decorator (
 			name <- oper.name_operation,
-			body <- oper.body + oper.getReturnType(),  --' - Return Type: ' + oper.returnType.datatype.toString(), 
+			body <- oper.body + oper.getReturnType(),  
 			"context" <- acontext  
 		),
 		acontext : RubyTL!FromElement (
@@ -233,6 +233,7 @@ rule createOperation2Decorator {
 		name <- oper."context".metamodel.name_mm
 		)
 }
+
 
 
 helper context MM_Hybrid!Operation def : getReturnType() : ATL!OclExpression =
