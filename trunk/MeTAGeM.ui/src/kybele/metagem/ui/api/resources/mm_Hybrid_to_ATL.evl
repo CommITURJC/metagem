@@ -378,8 +378,8 @@ context Return {
 	-- Validation to transform to ATL:
 	-- In ATL, if rule hasn't source, rightPattern can only have a concrete value
 	constraint ruleWithoutSource{
-		check: self.elementIncluded.targetElement.rule."in".size()>0 or (self.concreteValue.isDefined() and self.satisfies('hasONLYconcreteValue'))
-		message: 'Due to current ATL version implemented: '+self.type().name.asString()+' belongs to a Rule without Source Elements, so you must only define a Concrete Value'
+		check: self.elementIncluded.targetElement.rule."in".size()>0 or (self.concreteValue.isDefined() and self.satisfies('hasONLYconcreteValue')) or (self.reference->size()>0 and self.reference.isTypeOf(TargetElementRule))
+		message: 'Due to current ATL version implemented: '+self.type().name.asString()+' belongs to a Rule without Source Elements, so you must only define a Concrete Value or a Reference to a TargetElement'
 	}
 		
  }
