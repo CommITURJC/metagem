@@ -9,6 +9,7 @@ import java.util.List;
 
 import kybele.metagem.ui.Activator;
 import kybele.metagem.ui.dialogs.ErrorValidationDialog;
+import kybele.metagem.ui.dialogs.WarningTransformationDialog;
 import kybele.metagem.ui.utils.Constants;
 
 import org.eclipse.core.runtime.FileLocator;
@@ -32,25 +33,29 @@ public abstract class ValidationExecution {
 		return (IEolExecutableModule) new EvlModule();
 	}
 	
-	private static String getSource(String sourceMM, String targetMM) throws Exception {
-		
-		if(sourceMM.equals(Constants.METAGEMURI))
-			return "resources/MeTAGeM.evl";
-		if(sourceMM.equals(Constants.HYBRIDURI) && targetMM.equals(Constants.ATLURI))
-			return "resources/mm_Hybrid_to_ATL.evl";
-		if(sourceMM.equals(Constants.HYBRIDURI) && targetMM.equals(Constants.RubyTLURI))
-			return "resources/mm_Hybrid_to_RubyTL.evl";
+	private static String getSource(String sourceMM, String targetMM, int type) throws Exception {
+		if (type==Constants.SHOW_WARNING){
+			if(sourceMM.equals(Constants.HYBRIDURI) && targetMM.equals(Constants.RubyTLURI))
+				return "resources/RubyTL_warning.evl";
+		}else{
+			if(sourceMM.equals(Constants.METAGEMURI))
+				return "resources/MeTAGeM.evl";
+			if(sourceMM.equals(Constants.HYBRIDURI) && targetMM.equals(Constants.ATLURI))
+				return "resources/mm_Hybrid_to_ATL.evl";
+			if(sourceMM.equals(Constants.HYBRIDURI) && targetMM.equals(Constants.RubyTLURI))
+				return "resources/mm_Hybrid_to_RubyTL.evl";
+		}
 		return "";
 	}
 
-	private static boolean postProcess(int type) {
+	private static boolean postProcess(final int type) {
 		
 		EvlModule module = (EvlModule) ValidationExecution.module;
 		
 		Collection<EvlUnsatisfiedConstraint> unsatisfied = module.getContext().getUnsatisfiedConstraints();
 	
 		if (unsatisfied.size() > 0) {
-			if (type == Constants.SHOW_DIALOG) {
+			if ((type == Constants.SHOW_DIALOG)||(type == Constants.SHOW_WARNING)) {
 							
 				 new Thread(new Runnable() {
 				      public void run() {
@@ -64,13 +69,21 @@ public abstract class ValidationExecution {
 									for (EvlUnsatisfiedConstraint uc : unsatisfied) {
 										message+="- "+uc.getMessage()+"\n";
 									}
-				           		   
-				           		   ErrorValidationDialog dialog = new ErrorValidationDialog(Display.getDefault().getActiveShell(), "Validation problems",
-				  				         null, "Problems encountered during validation \n\n"
-				  							+ "Reason:\n" + "Diagnosis of "
-				  							+ module.getContext().getModelRepository().getModels().get(0).getName(), 
-				  							message);
-				            	   dialog.open();
+				           		   if(type == Constants.SHOW_DIALOG){
+					           		   ErrorValidationDialog dialog = new ErrorValidationDialog(Display.getDefault().getActiveShell(), "Validation problems",
+					  				         null, "Problems encountered during validation \n\n"
+					  							+ "Reason:\n" + "Diagnosis of "
+					  							+ module.getContext().getModelRepository().getModels().get(0).getName(), 
+					  							message);
+					            	   dialog.open();
+				            	   }else if (type == Constants.SHOW_WARNING){
+				            		   WarningTransformationDialog dialog = new WarningTransformationDialog(Display.getDefault().getActiveShell(), "Transformation warning",
+						  				         null, "Some elements cannot be transformated \n\n"
+						  							+ "Reason:\n" + "Diagnosis of "
+						  							+ module.getContext().getModelRepository().getModels().get(0).getName(), 
+						  							message);
+						            	   dialog.open();
+				            	   }
 				               }
 				            });
 				      }
@@ -104,7 +117,7 @@ public abstract class ValidationExecution {
 		models.add(createEmfModelByURI(name, modelName, sourceMM, true, true));
 		
 		module = createModule();
-		module.parse(getFile(getSource(sourceMM,targetMM)));
+		module.parse(getFile(getSource(sourceMM,targetMM,type)));
 		
 		if (module.getParseProblems().size() > 0) {
 			System.err.println("Parse errors occured...");

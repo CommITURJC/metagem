@@ -51,6 +51,7 @@ public class HYBRID2RubyTLLaunchConfigurationDelegate implements
 		{
 			monitor.subTask("Executing transformation");
 			try{
+				ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.HYBRIDURI,Constants.RubyTLURI, Constants.SHOW_WARNING);
 				Transformations transf = Transformations.getInstance();
 				transf.hybrid2rubytl(uriIN, uriOUT);
 				monitor.worked(85);		
