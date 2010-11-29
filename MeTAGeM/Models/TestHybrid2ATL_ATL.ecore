@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:atl="http://www.eclipse.org/gmt/2005/ATL" xmlns:ocl="http://www.eclipse.org/gmt/2005/OCL">
+  <atl:Module xmi:id="_eocvUJQYEd-DRLZyYW9RfA" name="Module1">
+    <commentsBefore>-- @atlcompiler atl2006</commentsBefore>
+    <inModels xmi:id="_eocvUZQYEd-DRLZyYW9RfA" name="TIN" metamodel="_eocvYJQYEd-DRLZyYW9RfA" elements="_eocvXJQYEd-DRLZyYW9RfA"/>
+    <outModels xmi:id="_eocvUpQYEd-DRLZyYW9RfA" name="TOUT" metamodel="_eocvYZQYEd-DRLZyYW9RfA" elements="_eocvVpQYEd-DRLZyYW9RfA"/>
+    <elements xsi:type="atl:MatchedRule" xmi:id="_eocvU5QYEd-DRLZyYW9RfA" name="R">
+      <commentsBefore>-- Comments -> This is a MatchedRule: R</commentsBefore>
+      <outPattern xmi:id="_eocvVJQYEd-DRLZyYW9RfA">
+        <elements xsi:type="atl:SimpleOutPatternElement" xmi:id="_eocvVZQYEd-DRLZyYW9RfA" varName="trg1">
+          <type xsi:type="ocl:OclModelElement" xmi:id="_eocvVpQYEd-DRLZyYW9RfA" name="Trg1" model="_eocvUpQYEd-DRLZyYW9RfA"/>
+          <bindings xmi:id="_eocvV5QYEd-DRLZyYW9RfA" propertyName="ElemIncTrg1">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" xmi:id="_eocvWJQYEd-DRLZyYW9RfA" name="ElemIncSrc1">
+              <source xsi:type="ocl:VariableExp" xmi:id="_eocvWZQYEd-DRLZyYW9RfA" referredVariable="_eocvZJQYEd-DRLZyYW9RfA"/>
+            </value>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern xmi:id="_eocvWpQYEd-DRLZyYW9RfA">
+        <elements xsi:type="atl:SimpleInPatternElement" xmi:id="_eocvW5QYEd-DRLZyYW9RfA" varName="src1">
+          <type xsi:type="ocl:OclModelElement" xmi:id="_eocvXJQYEd-DRLZyYW9RfA" name="Src1" model="_eocvUZQYEd-DRLZyYW9RfA"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:Helper" xmi:id="_eocvXZQYEd-DRLZyYW9RfA">
+      <commentsBefore>-- Comments -> This is a Helper: OP</commentsBefore>
+      <commentsAfter>-- Body: Esto sirve para algo</commentsAfter>
+      <definition xmi:id="_eocvXpQYEd-DRLZyYW9RfA">
+        <feature xsi:type="ocl:Operation" xmi:id="_eocvX5QYEd-DRLZyYW9RfA" name="OP"/>
+      </definition>
+    </elements>
+  </atl:Module>
+  <ocl:OclModel xmi:id="_eocvYJQYEd-DRLZyYW9RfA" name="TIN" model="_eocvUZQYEd-DRLZyYW9RfA"/>
+  <ocl:OclModel xmi:id="_eocvYZQYEd-DRLZyYW9RfA" name="TOUT" model="_eocvUpQYEd-DRLZyYW9RfA"/>
+  <ocl:OclModelElement xmi:id="_eocvYpQYEd-DRLZyYW9RfA" name="Src1"/>
+  <ocl:OclModelElement xmi:id="_eocvY5QYEd-DRLZyYW9RfA" name="Trg1"/>
+  <ocl:VariableDeclaration xmi:id="_eocvZJQYEd-DRLZyYW9RfA" varName="src1" variableExp="_eocvWZQYEd-DRLZyYW9RfA"/>
+</xmi:XMI>
