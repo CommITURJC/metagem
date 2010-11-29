@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mw_base_ext" xmlns:_1="mmw_metagem" xmi:id="Model1">
+  <ownedElement xsi:type="_1:OnetoOne" xmi:id="OnetoOne1">
+    <left xsi:type="_1:TopSource" xmi:id="TopSource1" name="AcceptEventAction" element="ElementRef1"/>
+    <right xsi:type="_1:TopTarget" xmi:id="TopTarget1" name="DatetimeType" element="ElementRef2"/>
+    <relations xsi:type="_1:OnetoOne" xmi:id="OnetoOne2"/>
+  </ownedElement>
+  <leftModel xsi:type="ModelRef" xmi:id="ModelRef1" name="leftModel" ref="/MeTAGeM/Metamodels/UML.ecore">
+    <ownedElementRef xsi:type="ElementRef" xmi:id="ElementRef1" name="ref_AcceptEventAction" ref="//AcceptEventAction"/>
+  </leftModel>
+  <rightModel xsi:type="ModelRef" xmi:id="ModelRef2" name="rightModel" ref="/MeTAGeM/Metamodels/ORDB4ORA.ecore">
+    <ownedElementRef xsi:type="ElementRef" xmi:id="ElementRef2" name="ref_DatetimeType" ref="//DatetimeType"/>
+  </rightModel>
+</Model>

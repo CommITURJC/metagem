@@ -1,0 +1,443 @@
+module Hybrid2RubyTL; -- Module Template
+create OUT : RubyTL from IN : MM_Hybrid;
+
+-- Create transformation header
+rule Module {
+	from 
+		mm_hybrid : MM_Hybrid!Module
+	to
+		rubytl : RubyTL!Transformation (
+			name <- mm_hybrid.name_module.debug('Module'),
+		    sourceMetamodels <- mm_hybrid.inMM,
+			targetMetamodels <- mm_hybrid.outMM,
+			rules <- mm_hybrid."rule",
+			decorators <- mm_hybrid.operations
+		)
+}
+
+
+-- Define input metamodel
+rule inMM{
+	from
+		inMM_hybrid : MM_Hybrid!InMetaModel
+	to
+		inMM_rubytl : RubyTL!Metamodel(
+			name <- inMM_hybrid.name_mm.debug('SourceMetamodel')
+		)
+}
+
+
+-- Define output metamodel
+rule outMM{
+	from
+		outMM_hybrid : MM_Hybrid!OutMetaModel
+	to
+		outMM_rubytl : RubyTL!Metamodel(
+			name <- outMM_hybrid.name_mm.debug('TargetMetamodel')			
+		)
+}
+
+
+-- Create Filter
+rule createGuard2Filter{
+	from
+		mm_hybrid_guard : MM_Hybrid!Guard
+	to
+		rubytl : RubyTL!Filter (
+			expression <- mm_hybrid_guard.value,
+			"rule" <- mm_hybrid_guard.refImmediateComposite().refImmediateComposite()
+		)
+}
+
+
+-- Generation TopRule 1..N
+rule createRule2TopRule{
+	from 
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()=1 and mm_hybrid_rule.isMain=true)
+	to
+		rubytl : RubyTL!TopRule (
+			name <- mm_hybrid_rule.name_rule.debug('Name TopRule'),
+			"from" <- mm_hybrid_rule."in".asSequence().first(),  
+			"to" <- mm_hybrid_rule.out.asSequence(),
+			comment <- mm_hybrid_rule.getComment(),
+			mapping <- amapping
+		),
+		amapping : RubyTL!Mapping (
+			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
+		)
+}
+
+
+-- Generation TopRule N..N
+rule createRule2TopRuleMulti{
+	from 
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()>1 and mm_hybrid_rule.isMain=true)
+	to
+		rubytl : RubyTL!TopRule (
+			name <- mm_hybrid_rule.name_rule.debug('Name TopRule'),
+			"from" <- mm_hybrid_rule."in".asSequence().first(),  
+			"to" <- mm_hybrid_rule.out.asSequence(),
+			comment <- mm_hybrid_rule.getComment(),
+			filter <- afilter,
+			mapping <- amapping
+		),
+		afilter : RubyTL!Filter(
+			expression <- mm_hybrid_rule.getFilterMultiIN()
+		),
+		amapping : RubyTL!Mapping (
+			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
+		)
+}
+
+
+-- Generation CopyRule 1..N
+rule createRule2CopyRule{
+	from 
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()=1 and mm_hybrid_rule.isMain=false and not(mm_hybrid_rule.typeAttribute = #"unique"))
+	to
+		rubytl : RubyTL!CopyRule (
+			name <- mm_hybrid_rule.name_rule.debug('Name CopyRule'),
+			"from" <- mm_hybrid_rule."in".asSequence().first(),  
+			"to" <- mm_hybrid_rule.out.asSequence(),
+			comment <- mm_hybrid_rule.getComment(),
+			mapping <- amapping
+		),
+		amapping : RubyTL!Mapping (
+			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
+		)
+}
+
+
+-- Generation CopyRule N..N
+rule createRule2CopyRuleMulti{
+	from 
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()>1 and mm_hybrid_rule.isMain=false and not(mm_hybrid_rule.typeAttribute = #"unique"))
+	to
+		rubytl : RubyTL!CopyRule (
+			name <- mm_hybrid_rule.name_rule.debug('Name CopyRule'),
+			"from" <- mm_hybrid_rule."in".asSequence().first(),  
+			"to" <- mm_hybrid_rule.out.asSequence(),
+			comment <- mm_hybrid_rule.getComment(),
+			filter <- afilter,
+			mapping <- amapping
+		),
+		afilter : RubyTL!Filter(
+			expression <- mm_hybrid_rule.getFilterMultiIN()
+		),
+		amapping : RubyTL!Mapping (
+			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
+		)
+}
+
+
+-- Generation NormalRule 1..N
+rule createRule2NormalRule{
+	from 
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()=1 and mm_hybrid_rule.isMain=false and mm_hybrid_rule.typeAttribute = #"unique")
+	to
+		rubytl : RubyTL!NormalRule (
+			name <- mm_hybrid_rule.name_rule.debug('Name NormalRule'),
+			"from" <- mm_hybrid_rule."in".asSequence().first(),  
+			"to" <- mm_hybrid_rule.out.asSequence(),
+			comment <- mm_hybrid_rule.getComment(),
+			mapping <- amapping
+		),
+		amapping : RubyTL!Mapping (
+			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
+		)
+}
+
+
+-- Generation NormalRule N..N
+rule createRule2NormalRuleMulti{
+	from 
+		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()>1 and mm_hybrid_rule.isMain=false and mm_hybrid_rule.typeAttribute = #"unique")
+	to
+		rubytl : RubyTL!NormalRule (
+			name <- mm_hybrid_rule.name_rule.debug('Name NormalRule'),
+			"from" <- mm_hybrid_rule."in".asSequence().first(),  
+			"to" <- mm_hybrid_rule.out.asSequence(),
+			comment <- mm_hybrid_rule.getComment(),
+			filter <- afilter,
+			mapping <- amapping
+		),
+		afilter : RubyTL!Filter(
+			expression <- mm_hybrid_rule.getFilterMultiIN()
+		),
+		amapping : RubyTL!Mapping (
+			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
+		)
+}
+
+
+-- Generation ZeroINPUTRule 
+--rule createRule2Rule{
+--	from 
+--		mm_hybrid_rule : MM_Hybrid!Rule (mm_hybrid_rule.getSizeIP()=0)
+--	to
+--		rubytl : RubyTL!Rule (
+--			name <- mm_hybrid_rule.name_rule,
+--			"from" <- --mm_hybrid_rule."in".asSequence().first(),  
+--			"to" <- mm_hybrid_rule.out.asSequence(),
+--			comment <- mm_hybrid_rule.getComment(),
+--			mapping <- amapping
+--		),
+--		amapping : RubyTL!Mapping (
+--			bindings <- mm_hybrid_rule.out.asSequence()->collect(i | i.included)
+--		)
+--}
+
+
+-- Generation FromElements
+rule source2from{
+	from 
+		inPattern : MM_Hybrid!SourceElementRule (inPattern.refImmediateComposite().oclIsTypeOf(MM_Hybrid!Rule))
+	to
+		fromElement : RubyTL!FromElement (
+			name <-  inPattern.name_element.toLower()+'_in',
+			classname <- inPattern.name_element,
+			metamodel <- thisModule.resolveTemp(inPattern.metamodel,'inMM_rubytl')  
+		)
+}
+
+
+-- Generation ToElements
+rule target2to{
+	from 
+		outPattern : MM_Hybrid!TargetElementRule (outPattern.refImmediateComposite().oclIsTypeOf(MM_Hybrid!Rule))
+	to
+		toElement : RubyTL!ToElement (
+			name <-  outPattern.name_element.toLower()+'_out',
+			classname <- outPattern.name_element,
+			metamodel <- thisModule.resolveTemp(outPattern.metamodel,'outMM_rubytl')  
+		)
+}
+
+
+-- Decorator (Operations)
+rule createOperation2Decorator {
+	from
+		oper : MM_Hybrid!Operation (not oper."context".oclIsUndefined())
+	to
+		rubytl : RubyTL!Decorator (
+			name <- oper.name_operation,
+			body <- oper.body + oper.getReturnType(),  
+			"context" <- acontext  
+		),
+		acontext : RubyTL!FromElement (
+			classname <-  oper."context".name_element,
+			name <- oper."context".name_element.toLower()+'_in',
+			metamodel <- ametamodel 
+		),
+		ametamodel : RubyTL!Metamodel(
+		name <- oper."context".metamodel.name_mm
+		)
+}
+
+
+
+helper context MM_Hybrid!Operation def : getReturnType() : ATL!OclExpression =
+	if self.returnType.oclIsUndefined() then
+		'' --OclUndefined
+	else
+		if self.returnType.element.oclIsUndefined() then
+			' - ReturnType: ' + self.returnType.datatype.toString()
+		else
+			' - ReturnType: ' + self.returnType.element.name_element
+		endif
+	endif;
+
+
+-- Helper -> To call the correct lazy rule to define the Binding
+helper context MM_Hybrid!ElementIncluded def : defineBinding() : ATL!OclExpression =
+		if (self.right."rule".asSequence().first().oclIsUndefined() and 
+			self.right.operation.asSequence().first().oclIsUndefined() and
+			self.right.sourceElement.asSequence().first().oclIsUndefined() and
+			self.right.reference.oclIsUndefined()) then
+				thisModule.getConcreteBinding(self)
+		else
+			if (not self.right.reference.oclIsUndefined()) then
+				if self.right.reference.oclIsTypeOf(MM_Hybrid!SourceElementRule) then
+					thisModule.getComplexBinding(self)
+				else
+					thisModule.getSimpleBinding(self)
+				endif
+			else
+				thisModule.getComplexBinding(self)
+			endif
+	endif;
+					
+
+lazy rule getConcreteBinding {
+	from
+		elemInc : MM_Hybrid!ElementIncluded
+	to 
+		asourcevalue : RubyTL!ExpGet(
+			--property of source
+			property <- elemInc.right.concreteValue
+		)
+}
+
+
+lazy rule getSimpleBinding {
+	from
+		elemInc : MM_Hybrid!ElementIncluded
+	to 
+		asourcevalue : RubyTL!ExpGet(
+			--property of source
+			property <- elemInc.getReferredVariableSrc()
+		)
+}
+
+
+lazy rule getComplexBinding {
+	from
+		elemInc : MM_Hybrid!ElementIncluded
+	to
+		asourcevalue : RubyTL!ExpGet(
+			--property of source
+			property <- elemInc.getSourceBinding(), 
+			source <- asourcename1
+		),
+		asourcename1 : RubyTL!ExpVariable(
+			variable <- avariablesrc
+		),
+		avariablesrc : RubyTL!FromElement (
+			name <- elemInc.getReferredVariableSrc()
+		)
+}
+
+
+-- Helper -> Return the variable used on source binding
+helper context MM_Hybrid!ElementIncluded def : getReferredVariableSrc () : ATL!OclExpression = --String =
+	if self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().oclIsUndefined()  then
+		'???'
+	else
+		if self.right.reference.oclIsUndefined() then
+			self.refImmediateComposite().refImmediateComposite()."in".asSequence().first().name_element.toLower()+'_in'
+		else
+			if self.right.reference.oclIsTypeOf(MM_Hybrid!SourceElementRule) then
+				self.right.reference.name_element.toLower()+'_in'
+			else
+				self.right.reference.name_element.toLower()+'_out'
+			endif
+		endif
+	endif;
+
+
+-- Formulas (TargetElements <- SourceElements)
+rule Bindings {
+	from 
+		elemInc : MM_Hybrid!ElementIncluded
+	to
+		rubytl : RubyTL!Binding (
+			--Right side of formula, that has the value - issues
+			source <- elemInc.defineBinding(),
+			--Left side of formula, that will receive the value
+			target <- atargetvalue
+		),
+		atargetvalue : RubyTL!ExpGet(
+			--property of target
+			property <- elemInc.left.targetElement.asSequence().first().name_element,
+			source <- asourcename
+		),
+		asourcename : RubyTL!ExpVariable(
+			variable <- avariabletrg
+		),
+		avariabletrg : RubyTL!ToElement (
+			name <- elemInc.refImmediateComposite().name_element.toLower()+'_out' 
+		)
+}
+
+
+
+-- Helper -> Define the source binding (Element, Rule, Helper or Reference)
+helper context MM_Hybrid!ElementIncluded def : getSourceBinding () : String = 
+	--rule undefined, operation undefined, srcElement undefined, reference defined	
+	if (self.right."rule".asSequence().first().oclIsUndefined() and 
+		self.right.operation.asSequence().first().oclIsUndefined() and
+		self.right.sourceElement.asSequence().first().oclIsUndefined()) then
+			OclUndefined
+	else
+		--rule undefined
+		if self.right."rule".asSequence().first().oclIsUndefined() then
+			--rule undefined and operation undefined
+			if self.right.operation.asSequence().first().oclIsUndefined() then
+				self.right.sourceElement.asSequence().first().name_element
+			--rule undefined and operation defined 
+			else
+				--rule undefined, operation defined and srcElement undefined
+				if self.right.sourceElement.asSequence().first().oclIsUndefined() then
+					self.right.operation.asSequence().first().name_operation
+				-- rule undefined, operation defined and srcElement defined
+				else 
+					self.right.sourceElement.asSequence().first().name_element + '.' + self.right.operation.asSequence().first().name_operation
+				endif
+			endif
+		--rule defined (operation undefined by validation)		
+		else
+			--rule defined and srcElement undefined
+			if self.right.sourceElement.asSequence().first().oclIsUndefined() then
+				self.right."rule".asSequence().first().name_rule
+			--rule defined and srcElement defined
+			else  
+				self.right.sourceElement.asSequence().first().name_element + '.' + self.right."rule".asSequence().first().name_rule
+			endif
+		endif
+	endif;
+
+
+
+-- Helper -> Return the number of inputPatterns 
+helper context MM_Hybrid!Rule def : getSizeIP () : Integer = 
+	self."in".size();
+
+
+-- Helper -> Return the number of ouputPatterns 
+helper context MM_Hybrid!Rule def : getSizeOP () : Integer = 
+	self.out.size();
+
+
+-- Helper -> Return the comment of the rule 
+helper context MM_Hybrid!Rule def : getComment () : String = 
+	if self.comment.oclIsUndefined() then
+		if self.getSizeIP()>1 then
+			'Se realiza el producto cartesiano de todos los elementos de entrada'
+			+ '\n' +
+			'# Se cambia el to MM::Class -> to many(MM::Class).'
+			+ '\n' +
+			'# Se utiliza la propiedad values para imitar un nuevo binding: (trg_aux.values = InMM:SrcX.all_objects.map do |srcx|).'
+			+ '\n' +
+			'# Para cada par de elementos se crea un nuevo elemento de destino: (trgx = OutMM::TrgX.new).'
+		else
+			''
+		endif
+	else 
+		if self.getSizeIP()>1 then
+			self.comment 
+			+ '\n' +
+			'# Se realiza el producto cartesiano de todos los elementos de entrada'
+			+ '\n' +
+			'# Se cambia el to MM::Class -> to many(MM::Class).'
+			+ '\n' +
+			'# Se utiliza la propiedad values para imitar un nuevo binding: (trg_aux.values = InMM:SrcX.all_objects.map do |srcx|).'
+			+ '\n' +
+			'# Para cada par de elementos se crea un nuevo elemento de destino: (trgx = OutMM::TrgX.new).'
+		else
+			self.comment
+		endif
+	endif
+	;
+
+
+-- Helper -> Return the filter expression (Input > 1)
+helper context MM_Hybrid!Rule def : getFilterMultiIN () : String = 
+	
+	let sizeSequence : Integer = self."in".asSequence()->collect(i | i.metamodel.name_mm + '::' + i.name_element 
+			+ '.all_objects.map').toString().size()  in
+	let sizeInitial : Integer = 11 in
+			
+	'# Inputs -> ' + self."in".asSequence()->collect
+	(i | i.metamodel.name_mm + '::' + i.name_element + '.all_objects.map').toString().substring(
+		sizeInitial, sizeSequence - 1);
+

@@ -1,0 +1,44 @@
+package mw_base_extension2 {   
+
+	class Model extends WModel {
+		reference leftModel container subsets wovenModel : WModelRef;
+		reference rightModel container subsets wovenModel : WModelRef;
+		--reference others[*] container subsets wovenModel : WModelRef;
+	}
+	
+-------------------------------------------------------------------
+
+	class ElementRef extends WElementRef {
+		reference modelRef: ModelRef oppositeOf ownedElementRef;
+	}		
+	class ModelRef extends WModelRef {
+		reference ownedElementRef[*] container : ElementRef oppositeOf modelRef;
+	}
+
+	class ModelRefXMI extends WModelRef {
+		reference ownedElementRef[0-*] container: ElementRefXMI oppositeOf modelRef;
+	}	
+	
+	class ElementRefXMI extends WElementRef {
+		reference modelRef: ModelRefXMI oppositeOf ownedElementRef;
+	}
+	
+-------------------------------------------------------------------
+
+	class Association extends WAssociation {
+	}
+
+	class AssociationEnd extends WAssociationEnd {
+	}						
+	
+--------------------------------------------------------------------	
+
+	class Link extends WLink {
+		reference left container subsets end: WLinkEnd;
+		reference right container subsets end: WLinkEnd;
+	}
+	
+	class LinkEnd extends WLinkEnd {
+	}				
+	
+}

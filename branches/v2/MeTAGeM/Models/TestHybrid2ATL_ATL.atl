@@ -1,0 +1,73 @@
+-- @atlcompiler atl2006
+module ModuleTest;
+create MMNameOUT : MMTypeOUT from MMNameIN : MMTypeIN;
+
+-- Comments -> This is a MatchedRule: MR11
+rule MR11 {
+  from
+    srcmr1 : MMTypeIN!SrcMR1
+  to
+    trgmr1 : MMTypeOUT!TrgMR1 (
+      ElIncTrg11a <- srcmr1.""
+    )
+}
+
+-- Comments -> This is a MatchedRule: MR1N
+rule MR1N {
+  from
+    srcmr2 : MMTypeIN!SrcMR2
+  to
+    trgmr2 : MMTypeOUT!TrgMR2 (
+      ElIncTrg1Na <- srcmr2.ElIncSrcMR1Na
+    ),
+    trgmr3 : MMTypeOUT!TrgMR3 (
+      ElIncTrg1Nb <- srcmr2.LR11
+    )
+}
+
+-- Comments -> This is a MatchedRule: MRNN
+rule MRNN {
+  from
+    srcmr3 : MMTypeIN!SrcMR3,
+    srcmr4 : MMTypeIN!SrcMR4
+  to
+    trgmr4 : MMTypeOUT!TrgMR4 (
+      ElIncTrgNNa <- srcmr3.LR11
+    ),
+    trgmr5 : MMTypeOUT!TrgMR5 (
+      ElIncTrgNNb <- trgmr6.
+    ),
+    trgmr6 : MMTypeOUT!TrgMR6 (
+      ElIncTrgNNc <- srcmr4."ElIncSrcMRNNa.OP1"
+    )
+}
+
+-- Comments -> This is a LazyRule: LR11
+lazy rule LR11 {
+  from
+    srclr1 : MMTypeIN!SrcLR1
+  to
+    trglr1 : MMTypeOUT!TrgLR1 (
+      ElIncTrgLR11a <- srclr1.ElIncSrcLR11a
+    )
+}
+
+-- Comments -> This is a CalledRule: CR01
+rule CR01() {
+  to
+    trgcr1 : MMTypeOUT!TrgCR1 (
+      ElIncTrgCR01a <- "???".ElIncSrcCR01a
+    )
+  -- ActionBlock: 
+  do {
+    
+  }
+}
+
+-- Comments -> This is a Helper: OP1
+helper context MMTypeIN!SrcMR4 def: OP1() : String =
+  ; -- Body: Esto hace algo
+-- Comments -> This is a Helper: 
+helper context MMTypeIN!SrcMR1 def: ""() : MMTypeIN!SrcMR1 =
+  ; -- Body: 
+

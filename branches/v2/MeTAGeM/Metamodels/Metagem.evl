@@ -1,0 +1,14 @@
+context ModelRoot {
+
+	-- El nombre del modelroot es obligatorio y no puede estar vacío
+	constraint notEmptyModelRootName {
+		check : self.name.isDefined()
+		message : getMessageNotEmptyName('ModelRoot')
+		fix {
+     		title : getTitleNotEmptyName('ModelRoot')
+     		do {
+    			self.name := getInputNotEmptyName('ModelRoot'); 
+     		}
+    	}
+    }
+}

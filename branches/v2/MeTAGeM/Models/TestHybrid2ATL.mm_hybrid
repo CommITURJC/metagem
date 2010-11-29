@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="ModuleTest">
+  <rule name_rule="MR11" isMain="true" comment="">
+    <in name_element="SrcMR1" metamodel="//@inMM.0">
+      <guard value="Filter expression"/>
+    </in>
+    <out name_element="TrgMR1" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="RPMR11a" concreteValue="#valorConcreto"/>
+        <left name_pattern="LPMR11a">
+          <targetElement name_element="ElIncTrg11a" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="MR1N" isMain="true" comment="Rule 1..N">
+    <in name_element="SrcMR2" metamodel="//@inMM.0"/>
+    <out name_element="TrgMR2" metamodel="//@outMM.0">
+      <included typeAttribute="concatenation">
+        <right name_pattern="RPMR1Na">
+          <sourceElement name_element="ElIncSrcMR1Na" metamodel="//@inMM.0"/>
+          <sourceElement name_element="ElIncSrcMR1Nab" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="LPMR1Na">
+          <targetElement name_element="ElIncTrg1Na" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+    <out name_element="TrgMR3" metamodel="//@outMM.0">
+      <included>
+        <right rule="//@rule.3" name_pattern="RPMR1Nb"/>
+        <left name_pattern="LPMR1Nb">
+          <targetElement name_element="ElIncTrg1Nb" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="MRNN" isMain="true" comment="Rule N..N">
+    <in name_element="SrcMR3" metamodel="//@inMM.0"/>
+    <in name_element="SrcMR4" isRefered="//@rule.2/@out.2/@included.0/@right" metamodel="//@inMM.0">
+      <guard value="Another Filter"/>
+    </in>
+    <out name_element="TrgMR4" metamodel="//@outMM.0">
+      <included>
+        <right rule="//@rule.3" name_pattern="RPMRNNa"/>
+        <left name_pattern="LPMRNNa">
+          <targetElement name_element="ElIncTrgNNa" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+    <out name_element="TrgMR5" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="RPMRNNb" reference="//@rule.2/@out.2"/>
+        <left name_pattern="LPMRNNb">
+          <targetElement name_element="ElIncTrgNNb" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+    <out name_element="TrgMR6" isRefered="//@rule.2/@out.1/@included.0/@right" metamodel="//@outMM.0">
+      <included typeAttribute="concatenation">
+        <right operation="//@operations.0" name_pattern="RPMRNNc" reference="//@rule.2/@in.1">
+          <sourceElement name_element="ElIncSrcMRNNa" metamodel="//@inMM.0"/>
+          <sourceElement name_element="ElIncSrcMRNNab" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="LPMRNNc">
+          <targetElement name_element="ElIncTrgNNc" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="LR11" rightPattern="//@rule.1/@out.1/@included.0/@right //@rule.2/@out.0/@included.0/@right" comment="Rule 1..1">
+    <in name_element="SrcLR1" metamodel="//@inMM.0"/>
+    <out name_element="TrgLR1" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="RPLR11a">
+          <sourceElement name_element="ElIncSrcLR11a" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="LPLR11a">
+          <targetElement name_element="ElIncTrgLR11a" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="ULR11" typeAttribute="unique" comment="Rule 1..1">
+    <in name_element="SrcULR1" metamodel="//@inMM.0"/>
+    <out name_element="TrgULR1" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="RPULR11a">
+          <sourceElement name_element="ElIncSrcULR11a" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="LPULR11a">
+          <targetElement name_element="ElIncTrgULR11a" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="CR01" comment="Rule O..1">
+    <out name_element="TrgCR1" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="RPCR01a">
+          <sourceElement name_element="ElIncSrcCR01a" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="LPCR01a">
+          <targetElement name_element="ElIncTrgCR01a" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <inMM name_mm="MMNameIN" type_mm="MMTypeIN" elements="//@rule.2/@in.1 //@rule.2/@in.0 //@rule.1/@in.0 //@rule.0/@in.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.0 //@rule.3/@in.0 //@rule.2/@out.2/@included.0/@right/@sourceElement.0 //@rule.3/@out.0/@included.0/@right/@sourceElement.0 //@rule.5/@out.0/@included.0/@right/@sourceElement.0 //@rule.4/@in.0 //@rule.4/@out.0/@included.0/@right/@sourceElement.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.1 //@rule.2/@out.2/@included.0/@right/@sourceElement.1"/>
+  <outMM name_mm="MMNameOUT" type_mm="MMTypeOUT" elements="//@rule.0/@out.0/@included.0/@left/@targetElement //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.1/@out.1/@included.0/@left/@targetElement //@rule.2/@out.0/@included.0/@left/@targetElement //@rule.2/@out.2/@included.0/@left/@targetElement //@rule.3/@out.0 //@rule.0/@out.0 //@rule.1/@out.0 //@rule.2/@out.0 //@rule.2/@out.1 //@rule.3/@out.0/@included.0/@left/@targetElement //@rule.5/@out.0/@included.0/@left/@targetElement //@rule.5/@out.0 //@rule.1/@out.1 //@rule.2/@out.2 //@rule.2/@out.1/@included.0/@left/@targetElement //@rule.4/@out.0 //@rule.4/@out.0/@included.0/@left/@targetElement"/>
+  <operations name_operation="OP1" body="Esto hace algo" rightPattern="//@rule.2/@out.2/@included.0/@right">
+    <returnType datatype="String"/>
+  </operations>
+  <operations name_operation="OP2" body="Esto hace algo mas" context="//@rule.0/@in.0"/>
+  <operations name_operation="OP3" body="Esto hace algo " context="//@rule.1/@in.0">
+    <returnType element="//@rule.5/@out.0/@included.0/@right/@sourceElement.0"/>
+  </operations>
+</mm_hybrid:Module>

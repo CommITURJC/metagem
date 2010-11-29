@@ -1,0 +1,162 @@
+-- Copyright (c) 2006 INRIA.
+-- All rights reserved. This program and the accompanying materials
+-- are made available under the terms of the Eclipse Public License v1.0
+-- which accompanies this distribution, and is available at
+-- http://www.eclipse.org/legal/epl-v10.html
+
+-- @name			Abstract weaving metamodel
+-- @version			1.0
+-- @domains			
+-- @authors			Marcos Didonet Del Fabro, Frédéric Jouault, Guillaume Gueltas
+-- @date			2005/03/01
+-- @description		Abstract weaving metamodel. It is the base metamodel for the GMT/AMW tool.
+-- @see				http://www.eclipse.org/gmt/amw
+
+package mwcore {   
+	abstract class WElement{	
+		attribute name : String;
+		attribute description : String;		
+		reference model : WModel oppositeOf ownedElement;
+	}	
+	
+	abstract class WModel extends WElement{
+		reference ownedElement[*] ordered container : WElement oppositeOf model;
+		reference wovenModel[1-*] container : WModelRef;
+	}	
+	
+	abstract class WRef extends WElement{
+		attribute ref : String;
+	}
+	
+	abstract class WModelRef extends WRef{
+		reference ownedElementRef[0-*] container : WElementRef oppositeOf modelRef;
+	}	
+	
+	abstract class WElementRef extends WRef{
+		reference modelRef : WModelRef oppositeOf ownedElementRef;
+	}
+		
+	abstract class WAssociation extends WElement{
+		reference associationEnd[1-*] container : WAssociationEnd oppositeOf association;
+	}
+	
+	abstract class WAssociationEnd extends WElement {
+		reference association : WAssociation oppositeOf associationEnd;
+		reference relatedLink : WLink;
+	}
+		
+	abstract class WLink extends WElement{
+		reference child[0-*] ordered container : WLink oppositeOf parent;
+		reference parent : WLink oppositeOf child;
+		reference end[1-*] container : WLinkEnd oppositeOf link;
+	}
+	
+	abstract class WLinkEnd extends WElement{
+		reference link : WLink oppositeOf end;	
+		reference element : WElementRef;
+	}		
+}	
+	
+package PrimitiveTypes {
+	datatype Boolean;
+	datatype Integer;
+	datatype String;
+}
+
+package mw_base_ext {   
+
+	class Model extends WModel {
+	
+		-- @subsets wovenModel
+		reference leftModel container : WModelRef;
+		
+		-- @subsets wovenModel
+		reference rightModel container : WModelRef;
+		--reference others[*] container subsets wovenModel : WModelRef;
+	}
+	
+-------------------------------------------------------------------
+
+	-- @wmodelRefType ModelRef
+	class ElementRef extends WElementRef {
+	}		
+	
+	-- @welementRefType ElementRef
+	class ModelRef extends WModelRef {
+	}
+
+	-- @welementRefType ElementRefXMI
+	class ModelRefXMI extends WModelRef {
+	}	
+
+	-- @wmodelRefType ModelRef
+	class ElementRefXMI extends WElementRef{
+	}
+	
+-------------------------------------------------------------------
+
+	class Association extends WAssociation {
+	}
+
+	class AssociationEnd extends WAssociationEnd {
+	}						
+	
+--------------------------------------------------------------------	
+
+	class Link extends WLink {
+		
+		-- @subsets end
+		reference left container : WLinkEnd;
+		
+		-- @subsets end
+		reference right container : WLinkEnd;
+	}
+	
+	class LinkEnd extends WLinkEnd {
+	}				
+	
+}
+
+
+package mmw_metagem_v02 {
+--la extension para metagem
+
+	class ModelRoot extends WModel {
+		
+		reference sourceModel container subsets  wovenModel : WModelRef;
+		
+	    reference targetModel container subsets  wovenModel : WModelRef;
+	    --@subsets ownedElement
+	    reference relations [1-*] container: Relations;
+	
+	}
+	
+	class ModelTransf extends WModelRef{
+	}
+	
+	class InModelTransf extends ModelTransf{
+	}
+	
+	class OutModelTransf extends ModelTransf{
+	}
+	
+	abstract class Relations extends WLink{
+	}
+	
+	class ElementTransf extends WLinkEnd{
+	}
+	
+	class InputElement extends  ElementTransf {
+	}
+	
+	class OutputElement extends  ElementTransf {
+	}
+	
+	class OneToOne extends Relations{
+
+--		reference source [1-1] container subsets end: InputElement;
+--		reference target [1-1] container subsets end: OutputElement;
+		
+		reference relations container: Relations;
+	}
+}
