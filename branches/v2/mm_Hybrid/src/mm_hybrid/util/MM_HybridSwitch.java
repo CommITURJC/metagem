@@ -68,10 +68,13 @@ public class MM_HybridSwitch<T> {
 	protected T doSwitch(EClass theEClass, EObject theEObject) {
 		if (theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
-		} else {
+		}
+		else {
 			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(
-					eSuperTypes.get(0), theEObject);
+			return
+				eSuperTypes.isEmpty() ?
+					defaultCase(theEObject) :
+					doSwitch(eSuperTypes.get(0), theEObject);
 		}
 	}
 
@@ -84,103 +87,87 @@ public class MM_HybridSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case MM_HybridPackage.MODULE: {
-			Module module = (Module) theEObject;
-			T result = caseModule(module);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MM_HybridPackage.IN_META_MODEL: {
-			InMetaModel inMetaModel = (InMetaModel) theEObject;
-			T result = caseInMetaModel(inMetaModel);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MM_HybridPackage.OUT_META_MODEL: {
-			OutMetaModel outMetaModel = (OutMetaModel) theEObject;
-			T result = caseOutMetaModel(outMetaModel);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MM_HybridPackage.RULE: {
-			Rule rule = (Rule) theEObject;
-			T result = caseRule(rule);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MM_HybridPackage.ELEMENT: {
-			Element element = (Element) theEObject;
-			T result = caseElement(element);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE: {
-			SourceElementRule sourceElementRule = (SourceElementRule) theEObject;
-			T result = caseSourceElementRule(sourceElementRule);
-			if (result == null)
-				result = caseElement(sourceElementRule);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MM_HybridPackage.TARGET_ELEMENT_RULE: {
-			TargetElementRule targetElementRule = (TargetElementRule) theEObject;
-			T result = caseTargetElementRule(targetElementRule);
-			if (result == null)
-				result = caseElement(targetElementRule);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MM_HybridPackage.ELEMENT_INCLUDED: {
-			ElementIncluded elementIncluded = (ElementIncluded) theEObject;
-			T result = caseElementIncluded(elementIncluded);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MM_HybridPackage.GUARD: {
-			Guard guard = (Guard) theEObject;
-			T result = caseGuard(guard);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MM_HybridPackage.RIGHT_PATTERN: {
-			RightPattern rightPattern = (RightPattern) theEObject;
-			T result = caseRightPattern(rightPattern);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MM_HybridPackage.LEFT_PATTERN: {
-			LeftPattern leftPattern = (LeftPattern) theEObject;
-			T result = caseLeftPattern(leftPattern);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MM_HybridPackage.OPERATION: {
-			Operation operation = (Operation) theEObject;
-			T result = caseOperation(operation);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MM_HybridPackage.RETURN: {
-			Return return_ = (Return) theEObject;
-			T result = caseReturn(return_);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case MM_HybridPackage.MODULE: {
+				Module module = (Module)theEObject;
+				T result = caseModule(module);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MM_HybridPackage.IN_META_MODEL: {
+				InMetaModel inMetaModel = (InMetaModel)theEObject;
+				T result = caseInMetaModel(inMetaModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MM_HybridPackage.OUT_META_MODEL: {
+				OutMetaModel outMetaModel = (OutMetaModel)theEObject;
+				T result = caseOutMetaModel(outMetaModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MM_HybridPackage.RULE: {
+				Rule rule = (Rule)theEObject;
+				T result = caseRule(rule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MM_HybridPackage.ELEMENT: {
+				Element element = (Element)theEObject;
+				T result = caseElement(element);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE: {
+				SourceElementRule sourceElementRule = (SourceElementRule)theEObject;
+				T result = caseSourceElementRule(sourceElementRule);
+				if (result == null) result = caseElement(sourceElementRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MM_HybridPackage.TARGET_ELEMENT_RULE: {
+				TargetElementRule targetElementRule = (TargetElementRule)theEObject;
+				T result = caseTargetElementRule(targetElementRule);
+				if (result == null) result = caseElement(targetElementRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MM_HybridPackage.ELEMENT_INCLUDED: {
+				ElementIncluded elementIncluded = (ElementIncluded)theEObject;
+				T result = caseElementIncluded(elementIncluded);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MM_HybridPackage.GUARD: {
+				Guard guard = (Guard)theEObject;
+				T result = caseGuard(guard);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MM_HybridPackage.RIGHT_PATTERN: {
+				RightPattern rightPattern = (RightPattern)theEObject;
+				T result = caseRightPattern(rightPattern);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MM_HybridPackage.LEFT_PATTERN: {
+				LeftPattern leftPattern = (LeftPattern)theEObject;
+				T result = caseLeftPattern(leftPattern);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MM_HybridPackage.OPERATION: {
+				Operation operation = (Operation)theEObject;
+				T result = caseOperation(operation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MM_HybridPackage.RETURN: {
+				Return return_ = (Return)theEObject;
+				T result = caseReturn(return_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
 		}
 	}
 

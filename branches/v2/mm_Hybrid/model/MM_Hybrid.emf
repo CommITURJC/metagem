@@ -67,7 +67,7 @@ class SourceElementRule extends Element {
   !ordered val Guard[*]#sourceElement guard;
   ref InMetaModel[1]#elements metamodel;
   ref RightPattern#sourceElement rightPattern;
-  ref Rule[1]#in rule;
+  ref Rule#in rule;
 }
 
 @gmf.node(label="name_element", label.icon="false", border.color="51,153,102", color="204,255,204")
@@ -75,7 +75,7 @@ class TargetElementRule extends Element {
   val ElementIncluded[*]#targetElement included;
   ref OutMetaModel[1]#elements metamodel;
   ref LeftPattern#targetElement leftPattern;
-  ref Rule[1]#out rule;
+  ref Rule#out rule;
 }
 
 class ElementIncluded {

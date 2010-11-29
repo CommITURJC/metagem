@@ -116,7 +116,7 @@ public interface TargetElementRule extends Element {
 	 * @see #setRule(Rule)
 	 * @see mm_hybrid.MM_HybridPackage#getTargetElementRule_Rule()
 	 * @see mm_hybrid.Rule#getOut
-	 * @model opposite="out" required="true" transient="false"
+	 * @model opposite="out" transient="false"
 	 * @generated
 	 */
 	Rule getRule();

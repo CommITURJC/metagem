@@ -125,7 +125,11 @@ public enum TypeAtribute implements Enumerator {
 	 * @generated
 	 */
 	private static final TypeAtribute[] VALUES_ARRAY = new TypeAtribute[] {
-			COPY, CONCATENATION, UNIQUE, VARIOUS, };
+			COPY,
+			CONCATENATION,
+			UNIQUE,
+			VARIOUS,
+		};
 
 	/**
 	 * A public read-only list of all the '<em><b>Type Atribute</b></em>' enumerators.
@@ -133,8 +137,7 @@ public enum TypeAtribute implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<TypeAtribute> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<TypeAtribute> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Type Atribute</b></em>' literal with the specified literal value.
@@ -176,14 +179,10 @@ public enum TypeAtribute implements Enumerator {
 	 */
 	public static TypeAtribute get(int value) {
 		switch (value) {
-		case COPY_VALUE:
-			return COPY;
-		case CONCATENATION_VALUE:
-			return CONCATENATION;
-		case UNIQUE_VALUE:
-			return UNIQUE;
-		case VARIOUS_VALUE:
-			return VARIOUS;
+			case COPY_VALUE: return COPY;
+			case CONCATENATION_VALUE: return CONCATENATION;
+			case UNIQUE_VALUE: return UNIQUE;
+			case VARIOUS_VALUE: return VARIOUS;
 		}
 		return null;
 	}
@@ -227,7 +226,7 @@ public enum TypeAtribute implements Enumerator {
 	 * @generated
 	 */
 	public int getValue() {
-		return value;
+	  return value;
 	}
 
 	/**
@@ -236,7 +235,7 @@ public enum TypeAtribute implements Enumerator {
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+	  return name;
 	}
 
 	/**
@@ -245,7 +244,7 @@ public enum TypeAtribute implements Enumerator {
 	 * @generated
 	 */
 	public String getLiteral() {
-		return literal;
+	  return literal;
 	}
 
 	/**

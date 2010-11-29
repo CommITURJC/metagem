@@ -58,7 +58,7 @@ public class MM_HybridAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject) object).eClass().getEPackage() == modelPackage;
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -70,76 +70,63 @@ public class MM_HybridAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	protected MM_HybridSwitch<Adapter> modelSwitch = new MM_HybridSwitch<Adapter>() {
-		@Override
-		public Adapter caseModule(Module object) {
-			return createModuleAdapter();
-		}
-
-		@Override
-		public Adapter caseInMetaModel(InMetaModel object) {
-			return createInMetaModelAdapter();
-		}
-
-		@Override
-		public Adapter caseOutMetaModel(OutMetaModel object) {
-			return createOutMetaModelAdapter();
-		}
-
-		@Override
-		public Adapter caseRule(Rule object) {
-			return createRuleAdapter();
-		}
-
-		@Override
-		public Adapter caseElement(Element object) {
-			return createElementAdapter();
-		}
-
-		@Override
-		public Adapter caseSourceElementRule(SourceElementRule object) {
-			return createSourceElementRuleAdapter();
-		}
-
-		@Override
-		public Adapter caseTargetElementRule(TargetElementRule object) {
-			return createTargetElementRuleAdapter();
-		}
-
-		@Override
-		public Adapter caseElementIncluded(ElementIncluded object) {
-			return createElementIncludedAdapter();
-		}
-
-		@Override
-		public Adapter caseGuard(Guard object) {
-			return createGuardAdapter();
-		}
-
-		@Override
-		public Adapter caseRightPattern(RightPattern object) {
-			return createRightPatternAdapter();
-		}
-
-		@Override
-		public Adapter caseLeftPattern(LeftPattern object) {
-			return createLeftPatternAdapter();
-		}
-
-		@Override
-		public Adapter caseOperation(Operation object) {
-			return createOperationAdapter();
-		}
-
-		@Override
-		public Adapter caseReturn(Return object) {
-			return createReturnAdapter();
-		}
-
-		@Override
-		public Adapter defaultCase(EObject object) {
-			return createEObjectAdapter();
-		}
-	};
+			@Override
+			public Adapter caseModule(Module object) {
+				return createModuleAdapter();
+			}
+			@Override
+			public Adapter caseInMetaModel(InMetaModel object) {
+				return createInMetaModelAdapter();
+			}
+			@Override
+			public Adapter caseOutMetaModel(OutMetaModel object) {
+				return createOutMetaModelAdapter();
+			}
+			@Override
+			public Adapter caseRule(Rule object) {
+				return createRuleAdapter();
+			}
+			@Override
+			public Adapter caseElement(Element object) {
+				return createElementAdapter();
+			}
+			@Override
+			public Adapter caseSourceElementRule(SourceElementRule object) {
+				return createSourceElementRuleAdapter();
+			}
+			@Override
+			public Adapter caseTargetElementRule(TargetElementRule object) {
+				return createTargetElementRuleAdapter();
+			}
+			@Override
+			public Adapter caseElementIncluded(ElementIncluded object) {
+				return createElementIncludedAdapter();
+			}
+			@Override
+			public Adapter caseGuard(Guard object) {
+				return createGuardAdapter();
+			}
+			@Override
+			public Adapter caseRightPattern(RightPattern object) {
+				return createRightPatternAdapter();
+			}
+			@Override
+			public Adapter caseLeftPattern(LeftPattern object) {
+				return createLeftPatternAdapter();
+			}
+			@Override
+			public Adapter caseOperation(Operation object) {
+				return createOperationAdapter();
+			}
+			@Override
+			public Adapter caseReturn(Return object) {
+				return createReturnAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -151,7 +138,7 @@ public class MM_HybridAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject) target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
 
 	/**

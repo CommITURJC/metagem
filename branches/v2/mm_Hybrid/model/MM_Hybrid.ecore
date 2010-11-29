@@ -119,8 +119,7 @@
         eType="#//InMetaModel" eOpposite="#//InMetaModel/elements"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightPattern" eType="#//RightPattern"
         eOpposite="#//RightPattern/sourceElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1" eType="#//Rule"
-        eOpposite="#//Rule/in"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="#//Rule" eOpposite="#//Rule/in"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TargetElementRule" eSuperTypes="#//Element">
     <eAnnotations source="gmf.node">

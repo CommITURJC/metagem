@@ -145,9 +145,7 @@ public class ModuleImpl extends EObjectImpl implements Module {
 		String oldName_module = name_module;
 		name_module = newName_module;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.MODULE__NAME_MODULE, oldName_module,
-					name_module));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.MODULE__NAME_MODULE, oldName_module, name_module));
 	}
 
 	/**
@@ -157,9 +155,7 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	 */
 	public EList<Rule> getRule() {
 		if (rule == null) {
-			rule = new EObjectContainmentWithInverseEList<Rule>(Rule.class,
-					this, MM_HybridPackage.MODULE__RULE,
-					MM_HybridPackage.RULE__MODULE);
+			rule = new EObjectContainmentWithInverseEList<Rule>(Rule.class, this, MM_HybridPackage.MODULE__RULE, MM_HybridPackage.RULE__MODULE);
 		}
 		return rule;
 	}
@@ -171,9 +167,7 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	 */
 	public EList<InMetaModel> getInMM() {
 		if (inMM == null) {
-			inMM = new EObjectContainmentWithInverseEList<InMetaModel>(
-					InMetaModel.class, this, MM_HybridPackage.MODULE__IN_MM,
-					MM_HybridPackage.IN_META_MODEL__MODULE);
+			inMM = new EObjectContainmentWithInverseEList<InMetaModel>(InMetaModel.class, this, MM_HybridPackage.MODULE__IN_MM, MM_HybridPackage.IN_META_MODEL__MODULE);
 		}
 		return inMM;
 	}
@@ -185,9 +179,7 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	 */
 	public EList<OutMetaModel> getOutMM() {
 		if (outMM == null) {
-			outMM = new EObjectContainmentWithInverseEList<OutMetaModel>(
-					OutMetaModel.class, this, MM_HybridPackage.MODULE__OUT_MM,
-					MM_HybridPackage.OUT_META_MODEL__MODULE);
+			outMM = new EObjectContainmentWithInverseEList<OutMetaModel>(OutMetaModel.class, this, MM_HybridPackage.MODULE__OUT_MM, MM_HybridPackage.OUT_META_MODEL__MODULE);
 		}
 		return outMM;
 	}
@@ -199,9 +191,7 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	 */
 	public EList<Operation> getOperations() {
 		if (operations == null) {
-			operations = new EObjectContainmentWithInverseEList<Operation>(
-					Operation.class, this, MM_HybridPackage.MODULE__OPERATIONS,
-					MM_HybridPackage.OPERATION__MODULE);
+			operations = new EObjectContainmentWithInverseEList<Operation>(Operation.class, this, MM_HybridPackage.MODULE__OPERATIONS, MM_HybridPackage.OPERATION__MODULE);
 		}
 		return operations;
 	}
@@ -216,18 +206,14 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.MODULE__RULE:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getRule())
-					.basicAdd(otherEnd, msgs);
-		case MM_HybridPackage.MODULE__IN_MM:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getInMM())
-					.basicAdd(otherEnd, msgs);
-		case MM_HybridPackage.MODULE__OUT_MM:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOutMM())
-					.basicAdd(otherEnd, msgs);
-		case MM_HybridPackage.MODULE__OPERATIONS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOperations())
-					.basicAdd(otherEnd, msgs);
+			case MM_HybridPackage.MODULE__RULE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRule()).basicAdd(otherEnd, msgs);
+			case MM_HybridPackage.MODULE__IN_MM:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInMM()).basicAdd(otherEnd, msgs);
+			case MM_HybridPackage.MODULE__OUT_MM:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutMM()).basicAdd(otherEnd, msgs);
+			case MM_HybridPackage.MODULE__OPERATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOperations()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -241,15 +227,14 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.MODULE__RULE:
-			return ((InternalEList<?>) getRule()).basicRemove(otherEnd, msgs);
-		case MM_HybridPackage.MODULE__IN_MM:
-			return ((InternalEList<?>) getInMM()).basicRemove(otherEnd, msgs);
-		case MM_HybridPackage.MODULE__OUT_MM:
-			return ((InternalEList<?>) getOutMM()).basicRemove(otherEnd, msgs);
-		case MM_HybridPackage.MODULE__OPERATIONS:
-			return ((InternalEList<?>) getOperations()).basicRemove(otherEnd,
-					msgs);
+			case MM_HybridPackage.MODULE__RULE:
+				return ((InternalEList<?>)getRule()).basicRemove(otherEnd, msgs);
+			case MM_HybridPackage.MODULE__IN_MM:
+				return ((InternalEList<?>)getInMM()).basicRemove(otherEnd, msgs);
+			case MM_HybridPackage.MODULE__OUT_MM:
+				return ((InternalEList<?>)getOutMM()).basicRemove(otherEnd, msgs);
+			case MM_HybridPackage.MODULE__OPERATIONS:
+				return ((InternalEList<?>)getOperations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -262,16 +247,16 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MM_HybridPackage.MODULE__NAME_MODULE:
-			return getName_module();
-		case MM_HybridPackage.MODULE__RULE:
-			return getRule();
-		case MM_HybridPackage.MODULE__IN_MM:
-			return getInMM();
-		case MM_HybridPackage.MODULE__OUT_MM:
-			return getOutMM();
-		case MM_HybridPackage.MODULE__OPERATIONS:
-			return getOperations();
+			case MM_HybridPackage.MODULE__NAME_MODULE:
+				return getName_module();
+			case MM_HybridPackage.MODULE__RULE:
+				return getRule();
+			case MM_HybridPackage.MODULE__IN_MM:
+				return getInMM();
+			case MM_HybridPackage.MODULE__OUT_MM:
+				return getOutMM();
+			case MM_HybridPackage.MODULE__OPERATIONS:
+				return getOperations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -285,25 +270,25 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MM_HybridPackage.MODULE__NAME_MODULE:
-			setName_module((String) newValue);
-			return;
-		case MM_HybridPackage.MODULE__RULE:
-			getRule().clear();
-			getRule().addAll((Collection<? extends Rule>) newValue);
-			return;
-		case MM_HybridPackage.MODULE__IN_MM:
-			getInMM().clear();
-			getInMM().addAll((Collection<? extends InMetaModel>) newValue);
-			return;
-		case MM_HybridPackage.MODULE__OUT_MM:
-			getOutMM().clear();
-			getOutMM().addAll((Collection<? extends OutMetaModel>) newValue);
-			return;
-		case MM_HybridPackage.MODULE__OPERATIONS:
-			getOperations().clear();
-			getOperations().addAll((Collection<? extends Operation>) newValue);
-			return;
+			case MM_HybridPackage.MODULE__NAME_MODULE:
+				setName_module((String)newValue);
+				return;
+			case MM_HybridPackage.MODULE__RULE:
+				getRule().clear();
+				getRule().addAll((Collection<? extends Rule>)newValue);
+				return;
+			case MM_HybridPackage.MODULE__IN_MM:
+				getInMM().clear();
+				getInMM().addAll((Collection<? extends InMetaModel>)newValue);
+				return;
+			case MM_HybridPackage.MODULE__OUT_MM:
+				getOutMM().clear();
+				getOutMM().addAll((Collection<? extends OutMetaModel>)newValue);
+				return;
+			case MM_HybridPackage.MODULE__OPERATIONS:
+				getOperations().clear();
+				getOperations().addAll((Collection<? extends Operation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -316,21 +301,21 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.MODULE__NAME_MODULE:
-			setName_module(NAME_MODULE_EDEFAULT);
-			return;
-		case MM_HybridPackage.MODULE__RULE:
-			getRule().clear();
-			return;
-		case MM_HybridPackage.MODULE__IN_MM:
-			getInMM().clear();
-			return;
-		case MM_HybridPackage.MODULE__OUT_MM:
-			getOutMM().clear();
-			return;
-		case MM_HybridPackage.MODULE__OPERATIONS:
-			getOperations().clear();
-			return;
+			case MM_HybridPackage.MODULE__NAME_MODULE:
+				setName_module(NAME_MODULE_EDEFAULT);
+				return;
+			case MM_HybridPackage.MODULE__RULE:
+				getRule().clear();
+				return;
+			case MM_HybridPackage.MODULE__IN_MM:
+				getInMM().clear();
+				return;
+			case MM_HybridPackage.MODULE__OUT_MM:
+				getOutMM().clear();
+				return;
+			case MM_HybridPackage.MODULE__OPERATIONS:
+				getOperations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -343,17 +328,16 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.MODULE__NAME_MODULE:
-			return NAME_MODULE_EDEFAULT == null ? name_module != null
-					: !NAME_MODULE_EDEFAULT.equals(name_module);
-		case MM_HybridPackage.MODULE__RULE:
-			return rule != null && !rule.isEmpty();
-		case MM_HybridPackage.MODULE__IN_MM:
-			return inMM != null && !inMM.isEmpty();
-		case MM_HybridPackage.MODULE__OUT_MM:
-			return outMM != null && !outMM.isEmpty();
-		case MM_HybridPackage.MODULE__OPERATIONS:
-			return operations != null && !operations.isEmpty();
+			case MM_HybridPackage.MODULE__NAME_MODULE:
+				return NAME_MODULE_EDEFAULT == null ? name_module != null : !NAME_MODULE_EDEFAULT.equals(name_module);
+			case MM_HybridPackage.MODULE__RULE:
+				return rule != null && !rule.isEmpty();
+			case MM_HybridPackage.MODULE__IN_MM:
+				return inMM != null && !inMM.isEmpty();
+			case MM_HybridPackage.MODULE__OUT_MM:
+				return outMM != null && !outMM.isEmpty();
+			case MM_HybridPackage.MODULE__OPERATIONS:
+				return operations != null && !operations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -365,11 +349,10 @@ public class ModuleImpl extends EObjectImpl implements Module {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name_module: "); //$NON-NLS-1$
+		result.append(" (name_module: ");
 		result.append(name_module);
 		result.append(')');
 		return result.toString();

@@ -126,8 +126,12 @@ public enum Datatype implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final Datatype[] VALUES_ARRAY = new Datatype[] { NULL,
-			BOOLEAN, INTEGER, STRING, };
+	private static final Datatype[] VALUES_ARRAY = new Datatype[] {
+			NULL,
+			BOOLEAN,
+			INTEGER,
+			STRING,
+		};
 
 	/**
 	 * A public read-only list of all the '<em><b>Datatype</b></em>' enumerators.
@@ -135,8 +139,7 @@ public enum Datatype implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<Datatype> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<Datatype> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Datatype</b></em>' literal with the specified literal value.
@@ -178,14 +181,10 @@ public enum Datatype implements Enumerator {
 	 */
 	public static Datatype get(int value) {
 		switch (value) {
-		case NULL_VALUE:
-			return NULL;
-		case BOOLEAN_VALUE:
-			return BOOLEAN;
-		case INTEGER_VALUE:
-			return INTEGER;
-		case STRING_VALUE:
-			return STRING;
+			case NULL_VALUE: return NULL;
+			case BOOLEAN_VALUE: return BOOLEAN;
+			case INTEGER_VALUE: return INTEGER;
+			case STRING_VALUE: return STRING;
 		}
 		return null;
 	}
@@ -229,7 +228,7 @@ public enum Datatype implements Enumerator {
 	 * @generated
 	 */
 	public int getValue() {
-		return value;
+	  return value;
 	}
 
 	/**
@@ -238,7 +237,7 @@ public enum Datatype implements Enumerator {
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+	  return name;
 	}
 
 	/**
@@ -247,7 +246,7 @@ public enum Datatype implements Enumerator {
 	 * @generated
 	 */
 	public String getLiteral() {
-		return literal;
+	  return literal;
 	}
 
 	/**

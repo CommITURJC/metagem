@@ -92,8 +92,7 @@ public class GuardImpl extends EObjectImpl implements Guard {
 		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.GUARD__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.GUARD__VALUE, oldValue, value));
 	}
 
 	/**
@@ -102,9 +101,8 @@ public class GuardImpl extends EObjectImpl implements Guard {
 	 * @generated
 	 */
 	public SourceElementRule getSourceElement() {
-		if (eContainerFeatureID != MM_HybridPackage.GUARD__SOURCE_ELEMENT)
-			return null;
-		return (SourceElementRule) eContainer();
+		if (eContainerFeatureID() != MM_HybridPackage.GUARD__SOURCE_ELEMENT) return null;
+		return (SourceElementRule)eContainer();
 	}
 
 	/**
@@ -114,8 +112,7 @@ public class GuardImpl extends EObjectImpl implements Guard {
 	 */
 	public NotificationChain basicSetSourceElement(
 			SourceElementRule newSourceElement, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newSourceElement,
-				MM_HybridPackage.GUARD__SOURCE_ELEMENT, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newSourceElement, MM_HybridPackage.GUARD__SOURCE_ELEMENT, msgs);
 		return msgs;
 	}
 
@@ -125,25 +122,19 @@ public class GuardImpl extends EObjectImpl implements Guard {
 	 * @generated
 	 */
 	public void setSourceElement(SourceElementRule newSourceElement) {
-		if (newSourceElement != eInternalContainer()
-				|| (eContainerFeatureID != MM_HybridPackage.GUARD__SOURCE_ELEMENT && newSourceElement != null)) {
+		if (newSourceElement != eInternalContainer() || (eContainerFeatureID() != MM_HybridPackage.GUARD__SOURCE_ELEMENT && newSourceElement != null)) {
 			if (EcoreUtil.isAncestor(this, newSourceElement))
-				throw new IllegalArgumentException(
-						"Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newSourceElement != null)
-				msgs = ((InternalEObject) newSourceElement).eInverseAdd(this,
-						MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD,
-						SourceElementRule.class, msgs);
+				msgs = ((InternalEObject)newSourceElement).eInverseAdd(this, MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD, SourceElementRule.class, msgs);
 			msgs = basicSetSourceElement(newSourceElement, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.GUARD__SOURCE_ELEMENT, newSourceElement,
-					newSourceElement));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.GUARD__SOURCE_ELEMENT, newSourceElement, newSourceElement));
 	}
 
 	/**
@@ -155,10 +146,10 @@ public class GuardImpl extends EObjectImpl implements Guard {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.GUARD__SOURCE_ELEMENT:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetSourceElement((SourceElementRule) otherEnd, msgs);
+			case MM_HybridPackage.GUARD__SOURCE_ELEMENT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetSourceElement((SourceElementRule)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -172,8 +163,8 @@ public class GuardImpl extends EObjectImpl implements Guard {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.GUARD__SOURCE_ELEMENT:
-			return basicSetSourceElement(null, msgs);
+			case MM_HybridPackage.GUARD__SOURCE_ELEMENT:
+				return basicSetSourceElement(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -186,11 +177,9 @@ public class GuardImpl extends EObjectImpl implements Guard {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(
 			NotificationChain msgs) {
-		switch (eContainerFeatureID) {
-		case MM_HybridPackage.GUARD__SOURCE_ELEMENT:
-			return eInternalContainer().eInverseRemove(this,
-					MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD,
-					SourceElementRule.class, msgs);
+		switch (eContainerFeatureID()) {
+			case MM_HybridPackage.GUARD__SOURCE_ELEMENT:
+				return eInternalContainer().eInverseRemove(this, MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD, SourceElementRule.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -203,10 +192,10 @@ public class GuardImpl extends EObjectImpl implements Guard {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MM_HybridPackage.GUARD__VALUE:
-			return getValue();
-		case MM_HybridPackage.GUARD__SOURCE_ELEMENT:
-			return getSourceElement();
+			case MM_HybridPackage.GUARD__VALUE:
+				return getValue();
+			case MM_HybridPackage.GUARD__SOURCE_ELEMENT:
+				return getSourceElement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -219,12 +208,12 @@ public class GuardImpl extends EObjectImpl implements Guard {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MM_HybridPackage.GUARD__VALUE:
-			setValue((String) newValue);
-			return;
-		case MM_HybridPackage.GUARD__SOURCE_ELEMENT:
-			setSourceElement((SourceElementRule) newValue);
-			return;
+			case MM_HybridPackage.GUARD__VALUE:
+				setValue((String)newValue);
+				return;
+			case MM_HybridPackage.GUARD__SOURCE_ELEMENT:
+				setSourceElement((SourceElementRule)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -237,12 +226,12 @@ public class GuardImpl extends EObjectImpl implements Guard {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.GUARD__VALUE:
-			setValue(VALUE_EDEFAULT);
-			return;
-		case MM_HybridPackage.GUARD__SOURCE_ELEMENT:
-			setSourceElement((SourceElementRule) null);
-			return;
+			case MM_HybridPackage.GUARD__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
+			case MM_HybridPackage.GUARD__SOURCE_ELEMENT:
+				setSourceElement((SourceElementRule)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -255,11 +244,10 @@ public class GuardImpl extends EObjectImpl implements Guard {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.GUARD__VALUE:
-			return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT
-					.equals(value);
-		case MM_HybridPackage.GUARD__SOURCE_ELEMENT:
-			return getSourceElement() != null;
+			case MM_HybridPackage.GUARD__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case MM_HybridPackage.GUARD__SOURCE_ELEMENT:
+				return getSourceElement() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -271,11 +259,10 @@ public class GuardImpl extends EObjectImpl implements Guard {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (value: "); //$NON-NLS-1$
+		result.append(" (value: ");
 		result.append(value);
 		result.append(')');
 		return result.toString();

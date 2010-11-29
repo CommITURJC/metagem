@@ -90,13 +90,11 @@ public class ReturnImpl extends EObjectImpl implements Return {
 	 */
 	public Element getElement() {
 		if (element != null && element.eIsProxy()) {
-			InternalEObject oldElement = (InternalEObject) element;
-			element = (Element) eResolveProxy(oldElement);
+			InternalEObject oldElement = (InternalEObject)element;
+			element = (Element)eResolveProxy(oldElement);
 			if (element != oldElement) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							MM_HybridPackage.RETURN__ELEMENT, oldElement,
-							element));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MM_HybridPackage.RETURN__ELEMENT, oldElement, element));
 			}
 		}
 		return element;
@@ -120,8 +118,7 @@ public class ReturnImpl extends EObjectImpl implements Return {
 		Element oldElement = element;
 		element = newElement;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RETURN__ELEMENT, oldElement, element));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RETURN__ELEMENT, oldElement, element));
 	}
 
 	/**
@@ -142,8 +139,7 @@ public class ReturnImpl extends EObjectImpl implements Return {
 		Datatype oldDatatype = datatype;
 		datatype = newDatatype == null ? DATATYPE_EDEFAULT : newDatatype;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RETURN__DATATYPE, oldDatatype, datatype));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RETURN__DATATYPE, oldDatatype, datatype));
 	}
 
 	/**
@@ -154,12 +150,11 @@ public class ReturnImpl extends EObjectImpl implements Return {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MM_HybridPackage.RETURN__ELEMENT:
-			if (resolve)
-				return getElement();
-			return basicGetElement();
-		case MM_HybridPackage.RETURN__DATATYPE:
-			return getDatatype();
+			case MM_HybridPackage.RETURN__ELEMENT:
+				if (resolve) return getElement();
+				return basicGetElement();
+			case MM_HybridPackage.RETURN__DATATYPE:
+				return getDatatype();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,12 +167,12 @@ public class ReturnImpl extends EObjectImpl implements Return {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MM_HybridPackage.RETURN__ELEMENT:
-			setElement((Element) newValue);
-			return;
-		case MM_HybridPackage.RETURN__DATATYPE:
-			setDatatype((Datatype) newValue);
-			return;
+			case MM_HybridPackage.RETURN__ELEMENT:
+				setElement((Element)newValue);
+				return;
+			case MM_HybridPackage.RETURN__DATATYPE:
+				setDatatype((Datatype)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -190,12 +185,12 @@ public class ReturnImpl extends EObjectImpl implements Return {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.RETURN__ELEMENT:
-			setElement((Element) null);
-			return;
-		case MM_HybridPackage.RETURN__DATATYPE:
-			setDatatype(DATATYPE_EDEFAULT);
-			return;
+			case MM_HybridPackage.RETURN__ELEMENT:
+				setElement((Element)null);
+				return;
+			case MM_HybridPackage.RETURN__DATATYPE:
+				setDatatype(DATATYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -208,10 +203,10 @@ public class ReturnImpl extends EObjectImpl implements Return {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.RETURN__ELEMENT:
-			return element != null;
-		case MM_HybridPackage.RETURN__DATATYPE:
-			return datatype != DATATYPE_EDEFAULT;
+			case MM_HybridPackage.RETURN__ELEMENT:
+				return element != null;
+			case MM_HybridPackage.RETURN__DATATYPE:
+				return datatype != DATATYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -223,11 +218,10 @@ public class ReturnImpl extends EObjectImpl implements Return {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (datatype: "); //$NON-NLS-1$
+		result.append(" (datatype: ");
 		result.append(datatype);
 		result.append(')');
 		return result.toString();
