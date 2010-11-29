@@ -267,8 +267,7 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		String oldName_rule = name_rule;
 		name_rule = newName_rule;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RULE__NAME_RULE, oldName_rule, name_rule));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RULE__NAME_RULE, oldName_rule, name_rule));
 	}
 
 	/**
@@ -289,9 +288,7 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		boolean oldIsAbstract = isAbstract;
 		isAbstract = newIsAbstract;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RULE__IS_ABSTRACT, oldIsAbstract,
-					isAbstract));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RULE__IS_ABSTRACT, oldIsAbstract, isAbstract));
 	}
 
 	/**
@@ -312,8 +309,7 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		boolean oldIsMain = isMain;
 		isMain = newIsMain;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RULE__IS_MAIN, oldIsMain, isMain));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RULE__IS_MAIN, oldIsMain, isMain));
 	}
 
 	/**
@@ -323,9 +319,7 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 */
 	public EList<SourceElementRule> getIn() {
 		if (in == null) {
-			in = new EObjectContainmentWithInverseEList<SourceElementRule>(
-					SourceElementRule.class, this, MM_HybridPackage.RULE__IN,
-					MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE);
+			in = new EObjectContainmentWithInverseEList<SourceElementRule>(SourceElementRule.class, this, MM_HybridPackage.RULE__IN, MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE);
 		}
 		return in;
 	}
@@ -337,9 +331,7 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 */
 	public EList<TargetElementRule> getOut() {
 		if (out == null) {
-			out = new EObjectContainmentWithInverseEList<TargetElementRule>(
-					TargetElementRule.class, this, MM_HybridPackage.RULE__OUT,
-					MM_HybridPackage.TARGET_ELEMENT_RULE__RULE);
+			out = new EObjectContainmentWithInverseEList<TargetElementRule>(TargetElementRule.class, this, MM_HybridPackage.RULE__OUT, MM_HybridPackage.TARGET_ELEMENT_RULE__RULE);
 		}
 		return out;
 	}
@@ -360,12 +352,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 */
 	public void setTypeAttribute(TypeAtribute newTypeAttribute) {
 		TypeAtribute oldTypeAttribute = typeAttribute;
-		typeAttribute = newTypeAttribute == null ? TYPE_ATTRIBUTE_EDEFAULT
-				: newTypeAttribute;
+		typeAttribute = newTypeAttribute == null ? TYPE_ATTRIBUTE_EDEFAULT : newTypeAttribute;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RULE__TYPE_ATTRIBUTE, oldTypeAttribute,
-					typeAttribute));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RULE__TYPE_ATTRIBUTE, oldTypeAttribute, typeAttribute));
 	}
 
 	/**
@@ -384,12 +373,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 */
 	public void setTypeElement(TypeElem newTypeElement) {
 		TypeElem oldTypeElement = typeElement;
-		typeElement = newTypeElement == null ? TYPE_ELEMENT_EDEFAULT
-				: newTypeElement;
+		typeElement = newTypeElement == null ? TYPE_ELEMENT_EDEFAULT : newTypeElement;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RULE__TYPE_ELEMENT, oldTypeElement,
-					typeElement));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RULE__TYPE_ELEMENT, oldTypeElement, typeElement));
 	}
 
 	/**
@@ -399,13 +385,11 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 */
 	public Rule getExtends() {
 		if (extends_ != null && extends_.eIsProxy()) {
-			InternalEObject oldExtends = (InternalEObject) extends_;
-			extends_ = (Rule) eResolveProxy(oldExtends);
+			InternalEObject oldExtends = (InternalEObject)extends_;
+			extends_ = (Rule)eResolveProxy(oldExtends);
 			if (extends_ != oldExtends) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							MM_HybridPackage.RULE__EXTENDS, oldExtends,
-							extends_));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MM_HybridPackage.RULE__EXTENDS, oldExtends, extends_));
 			}
 		}
 		return extends_;
@@ -430,13 +414,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		Rule oldExtends = extends_;
 		extends_ = newExtends;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this,
-					Notification.SET, MM_HybridPackage.RULE__EXTENDS,
-					oldExtends, newExtends);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RULE__EXTENDS, oldExtends, newExtends);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -450,17 +429,14 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		if (newExtends != extends_) {
 			NotificationChain msgs = null;
 			if (extends_ != null)
-				msgs = ((InternalEObject) extends_).eInverseRemove(this,
-						MM_HybridPackage.RULE__IS_EXTENDED, Rule.class, msgs);
+				msgs = ((InternalEObject)extends_).eInverseRemove(this, MM_HybridPackage.RULE__IS_EXTENDED, Rule.class, msgs);
 			if (newExtends != null)
-				msgs = ((InternalEObject) newExtends).eInverseAdd(this,
-						MM_HybridPackage.RULE__IS_EXTENDED, Rule.class, msgs);
+				msgs = ((InternalEObject)newExtends).eInverseAdd(this, MM_HybridPackage.RULE__IS_EXTENDED, Rule.class, msgs);
 			msgs = basicSetExtends(newExtends, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RULE__EXTENDS, newExtends, newExtends));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RULE__EXTENDS, newExtends, newExtends));
 	}
 
 	/**
@@ -470,9 +446,7 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 */
 	public EList<Rule> getIsExtended() {
 		if (isExtended == null) {
-			isExtended = new EObjectWithInverseResolvingEList<Rule>(Rule.class,
-					this, MM_HybridPackage.RULE__IS_EXTENDED,
-					MM_HybridPackage.RULE__EXTENDS);
+			isExtended = new EObjectWithInverseResolvingEList<Rule>(Rule.class, this, MM_HybridPackage.RULE__IS_EXTENDED, MM_HybridPackage.RULE__EXTENDS);
 		}
 		return isExtended;
 	}
@@ -484,10 +458,7 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 */
 	public EList<RightPattern> getRightPattern() {
 		if (rightPattern == null) {
-			rightPattern = new EObjectWithInverseResolvingEList.ManyInverse<RightPattern>(
-					RightPattern.class, this,
-					MM_HybridPackage.RULE__RIGHT_PATTERN,
-					MM_HybridPackage.RIGHT_PATTERN__RULE);
+			rightPattern = new EObjectWithInverseResolvingEList.ManyInverse<RightPattern>(RightPattern.class, this, MM_HybridPackage.RULE__RIGHT_PATTERN, MM_HybridPackage.RIGHT_PATTERN__RULE);
 		}
 		return rightPattern;
 	}
@@ -510,8 +481,7 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		String oldComment = comment;
 		comment = newComment;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RULE__COMMENT, oldComment, comment));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RULE__COMMENT, oldComment, comment));
 	}
 
 	/**
@@ -520,9 +490,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 * @generated
 	 */
 	public Module getModule() {
-		if (eContainerFeatureID != MM_HybridPackage.RULE__MODULE)
-			return null;
-		return (Module) eContainer();
+		if (eContainerFeatureID() != MM_HybridPackage.RULE__MODULE) return null;
+		return (Module)eContainer();
 	}
 
 	/**
@@ -532,8 +501,7 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 */
 	public NotificationChain basicSetModule(Module newModule,
 			NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newModule,
-				MM_HybridPackage.RULE__MODULE, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newModule, MM_HybridPackage.RULE__MODULE, msgs);
 		return msgs;
 	}
 
@@ -543,23 +511,19 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 * @generated
 	 */
 	public void setModule(Module newModule) {
-		if (newModule != eInternalContainer()
-				|| (eContainerFeatureID != MM_HybridPackage.RULE__MODULE && newModule != null)) {
+		if (newModule != eInternalContainer() || (eContainerFeatureID() != MM_HybridPackage.RULE__MODULE && newModule != null)) {
 			if (EcoreUtil.isAncestor(this, newModule))
-				throw new IllegalArgumentException(
-						"Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newModule != null)
-				msgs = ((InternalEObject) newModule).eInverseAdd(this,
-						MM_HybridPackage.MODULE__RULE, Module.class, msgs);
+				msgs = ((InternalEObject)newModule).eInverseAdd(this, MM_HybridPackage.MODULE__RULE, Module.class, msgs);
 			msgs = basicSetModule(newModule, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RULE__MODULE, newModule, newModule));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RULE__MODULE, newModule, newModule));
 	}
 
 	/**
@@ -572,27 +536,22 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.RULE__IN:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getIn())
-					.basicAdd(otherEnd, msgs);
-		case MM_HybridPackage.RULE__OUT:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOut())
-					.basicAdd(otherEnd, msgs);
-		case MM_HybridPackage.RULE__EXTENDS:
-			if (extends_ != null)
-				msgs = ((InternalEObject) extends_).eInverseRemove(this,
-						MM_HybridPackage.RULE__IS_EXTENDED, Rule.class, msgs);
-			return basicSetExtends((Rule) otherEnd, msgs);
-		case MM_HybridPackage.RULE__IS_EXTENDED:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getIsExtended())
-					.basicAdd(otherEnd, msgs);
-		case MM_HybridPackage.RULE__RIGHT_PATTERN:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getRightPattern())
-					.basicAdd(otherEnd, msgs);
-		case MM_HybridPackage.RULE__MODULE:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetModule((Module) otherEnd, msgs);
+			case MM_HybridPackage.RULE__IN:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIn()).basicAdd(otherEnd, msgs);
+			case MM_HybridPackage.RULE__OUT:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOut()).basicAdd(otherEnd, msgs);
+			case MM_HybridPackage.RULE__EXTENDS:
+				if (extends_ != null)
+					msgs = ((InternalEObject)extends_).eInverseRemove(this, MM_HybridPackage.RULE__IS_EXTENDED, Rule.class, msgs);
+				return basicSetExtends((Rule)otherEnd, msgs);
+			case MM_HybridPackage.RULE__IS_EXTENDED:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsExtended()).basicAdd(otherEnd, msgs);
+			case MM_HybridPackage.RULE__RIGHT_PATTERN:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRightPattern()).basicAdd(otherEnd, msgs);
+			case MM_HybridPackage.RULE__MODULE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetModule((Module)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -606,20 +565,18 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.RULE__IN:
-			return ((InternalEList<?>) getIn()).basicRemove(otherEnd, msgs);
-		case MM_HybridPackage.RULE__OUT:
-			return ((InternalEList<?>) getOut()).basicRemove(otherEnd, msgs);
-		case MM_HybridPackage.RULE__EXTENDS:
-			return basicSetExtends(null, msgs);
-		case MM_HybridPackage.RULE__IS_EXTENDED:
-			return ((InternalEList<?>) getIsExtended()).basicRemove(otherEnd,
-					msgs);
-		case MM_HybridPackage.RULE__RIGHT_PATTERN:
-			return ((InternalEList<?>) getRightPattern()).basicRemove(otherEnd,
-					msgs);
-		case MM_HybridPackage.RULE__MODULE:
-			return basicSetModule(null, msgs);
+			case MM_HybridPackage.RULE__IN:
+				return ((InternalEList<?>)getIn()).basicRemove(otherEnd, msgs);
+			case MM_HybridPackage.RULE__OUT:
+				return ((InternalEList<?>)getOut()).basicRemove(otherEnd, msgs);
+			case MM_HybridPackage.RULE__EXTENDS:
+				return basicSetExtends(null, msgs);
+			case MM_HybridPackage.RULE__IS_EXTENDED:
+				return ((InternalEList<?>)getIsExtended()).basicRemove(otherEnd, msgs);
+			case MM_HybridPackage.RULE__RIGHT_PATTERN:
+				return ((InternalEList<?>)getRightPattern()).basicRemove(otherEnd, msgs);
+			case MM_HybridPackage.RULE__MODULE:
+				return basicSetModule(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -632,10 +589,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(
 			NotificationChain msgs) {
-		switch (eContainerFeatureID) {
-		case MM_HybridPackage.RULE__MODULE:
-			return eInternalContainer().eInverseRemove(this,
-					MM_HybridPackage.MODULE__RULE, Module.class, msgs);
+		switch (eContainerFeatureID()) {
+			case MM_HybridPackage.RULE__MODULE:
+				return eInternalContainer().eInverseRemove(this, MM_HybridPackage.MODULE__RULE, Module.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -648,32 +604,31 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MM_HybridPackage.RULE__NAME_RULE:
-			return getName_rule();
-		case MM_HybridPackage.RULE__IS_ABSTRACT:
-			return isIsAbstract() ? Boolean.TRUE : Boolean.FALSE;
-		case MM_HybridPackage.RULE__IS_MAIN:
-			return isIsMain() ? Boolean.TRUE : Boolean.FALSE;
-		case MM_HybridPackage.RULE__IN:
-			return getIn();
-		case MM_HybridPackage.RULE__OUT:
-			return getOut();
-		case MM_HybridPackage.RULE__TYPE_ATTRIBUTE:
-			return getTypeAttribute();
-		case MM_HybridPackage.RULE__TYPE_ELEMENT:
-			return getTypeElement();
-		case MM_HybridPackage.RULE__EXTENDS:
-			if (resolve)
-				return getExtends();
-			return basicGetExtends();
-		case MM_HybridPackage.RULE__IS_EXTENDED:
-			return getIsExtended();
-		case MM_HybridPackage.RULE__RIGHT_PATTERN:
-			return getRightPattern();
-		case MM_HybridPackage.RULE__COMMENT:
-			return getComment();
-		case MM_HybridPackage.RULE__MODULE:
-			return getModule();
+			case MM_HybridPackage.RULE__NAME_RULE:
+				return getName_rule();
+			case MM_HybridPackage.RULE__IS_ABSTRACT:
+				return isIsAbstract();
+			case MM_HybridPackage.RULE__IS_MAIN:
+				return isIsMain();
+			case MM_HybridPackage.RULE__IN:
+				return getIn();
+			case MM_HybridPackage.RULE__OUT:
+				return getOut();
+			case MM_HybridPackage.RULE__TYPE_ATTRIBUTE:
+				return getTypeAttribute();
+			case MM_HybridPackage.RULE__TYPE_ELEMENT:
+				return getTypeElement();
+			case MM_HybridPackage.RULE__EXTENDS:
+				if (resolve) return getExtends();
+				return basicGetExtends();
+			case MM_HybridPackage.RULE__IS_EXTENDED:
+				return getIsExtended();
+			case MM_HybridPackage.RULE__RIGHT_PATTERN:
+				return getRightPattern();
+			case MM_HybridPackage.RULE__COMMENT:
+				return getComment();
+			case MM_HybridPackage.RULE__MODULE:
+				return getModule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -687,47 +642,46 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MM_HybridPackage.RULE__NAME_RULE:
-			setName_rule((String) newValue);
-			return;
-		case MM_HybridPackage.RULE__IS_ABSTRACT:
-			setIsAbstract(((Boolean) newValue).booleanValue());
-			return;
-		case MM_HybridPackage.RULE__IS_MAIN:
-			setIsMain(((Boolean) newValue).booleanValue());
-			return;
-		case MM_HybridPackage.RULE__IN:
-			getIn().clear();
-			getIn().addAll((Collection<? extends SourceElementRule>) newValue);
-			return;
-		case MM_HybridPackage.RULE__OUT:
-			getOut().clear();
-			getOut().addAll((Collection<? extends TargetElementRule>) newValue);
-			return;
-		case MM_HybridPackage.RULE__TYPE_ATTRIBUTE:
-			setTypeAttribute((TypeAtribute) newValue);
-			return;
-		case MM_HybridPackage.RULE__TYPE_ELEMENT:
-			setTypeElement((TypeElem) newValue);
-			return;
-		case MM_HybridPackage.RULE__EXTENDS:
-			setExtends((Rule) newValue);
-			return;
-		case MM_HybridPackage.RULE__IS_EXTENDED:
-			getIsExtended().clear();
-			getIsExtended().addAll((Collection<? extends Rule>) newValue);
-			return;
-		case MM_HybridPackage.RULE__RIGHT_PATTERN:
-			getRightPattern().clear();
-			getRightPattern().addAll(
-					(Collection<? extends RightPattern>) newValue);
-			return;
-		case MM_HybridPackage.RULE__COMMENT:
-			setComment((String) newValue);
-			return;
-		case MM_HybridPackage.RULE__MODULE:
-			setModule((Module) newValue);
-			return;
+			case MM_HybridPackage.RULE__NAME_RULE:
+				setName_rule((String)newValue);
+				return;
+			case MM_HybridPackage.RULE__IS_ABSTRACT:
+				setIsAbstract((Boolean)newValue);
+				return;
+			case MM_HybridPackage.RULE__IS_MAIN:
+				setIsMain((Boolean)newValue);
+				return;
+			case MM_HybridPackage.RULE__IN:
+				getIn().clear();
+				getIn().addAll((Collection<? extends SourceElementRule>)newValue);
+				return;
+			case MM_HybridPackage.RULE__OUT:
+				getOut().clear();
+				getOut().addAll((Collection<? extends TargetElementRule>)newValue);
+				return;
+			case MM_HybridPackage.RULE__TYPE_ATTRIBUTE:
+				setTypeAttribute((TypeAtribute)newValue);
+				return;
+			case MM_HybridPackage.RULE__TYPE_ELEMENT:
+				setTypeElement((TypeElem)newValue);
+				return;
+			case MM_HybridPackage.RULE__EXTENDS:
+				setExtends((Rule)newValue);
+				return;
+			case MM_HybridPackage.RULE__IS_EXTENDED:
+				getIsExtended().clear();
+				getIsExtended().addAll((Collection<? extends Rule>)newValue);
+				return;
+			case MM_HybridPackage.RULE__RIGHT_PATTERN:
+				getRightPattern().clear();
+				getRightPattern().addAll((Collection<? extends RightPattern>)newValue);
+				return;
+			case MM_HybridPackage.RULE__COMMENT:
+				setComment((String)newValue);
+				return;
+			case MM_HybridPackage.RULE__MODULE:
+				setModule((Module)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -740,42 +694,42 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.RULE__NAME_RULE:
-			setName_rule(NAME_RULE_EDEFAULT);
-			return;
-		case MM_HybridPackage.RULE__IS_ABSTRACT:
-			setIsAbstract(IS_ABSTRACT_EDEFAULT);
-			return;
-		case MM_HybridPackage.RULE__IS_MAIN:
-			setIsMain(IS_MAIN_EDEFAULT);
-			return;
-		case MM_HybridPackage.RULE__IN:
-			getIn().clear();
-			return;
-		case MM_HybridPackage.RULE__OUT:
-			getOut().clear();
-			return;
-		case MM_HybridPackage.RULE__TYPE_ATTRIBUTE:
-			setTypeAttribute(TYPE_ATTRIBUTE_EDEFAULT);
-			return;
-		case MM_HybridPackage.RULE__TYPE_ELEMENT:
-			setTypeElement(TYPE_ELEMENT_EDEFAULT);
-			return;
-		case MM_HybridPackage.RULE__EXTENDS:
-			setExtends((Rule) null);
-			return;
-		case MM_HybridPackage.RULE__IS_EXTENDED:
-			getIsExtended().clear();
-			return;
-		case MM_HybridPackage.RULE__RIGHT_PATTERN:
-			getRightPattern().clear();
-			return;
-		case MM_HybridPackage.RULE__COMMENT:
-			setComment(COMMENT_EDEFAULT);
-			return;
-		case MM_HybridPackage.RULE__MODULE:
-			setModule((Module) null);
-			return;
+			case MM_HybridPackage.RULE__NAME_RULE:
+				setName_rule(NAME_RULE_EDEFAULT);
+				return;
+			case MM_HybridPackage.RULE__IS_ABSTRACT:
+				setIsAbstract(IS_ABSTRACT_EDEFAULT);
+				return;
+			case MM_HybridPackage.RULE__IS_MAIN:
+				setIsMain(IS_MAIN_EDEFAULT);
+				return;
+			case MM_HybridPackage.RULE__IN:
+				getIn().clear();
+				return;
+			case MM_HybridPackage.RULE__OUT:
+				getOut().clear();
+				return;
+			case MM_HybridPackage.RULE__TYPE_ATTRIBUTE:
+				setTypeAttribute(TYPE_ATTRIBUTE_EDEFAULT);
+				return;
+			case MM_HybridPackage.RULE__TYPE_ELEMENT:
+				setTypeElement(TYPE_ELEMENT_EDEFAULT);
+				return;
+			case MM_HybridPackage.RULE__EXTENDS:
+				setExtends((Rule)null);
+				return;
+			case MM_HybridPackage.RULE__IS_EXTENDED:
+				getIsExtended().clear();
+				return;
+			case MM_HybridPackage.RULE__RIGHT_PATTERN:
+				getRightPattern().clear();
+				return;
+			case MM_HybridPackage.RULE__COMMENT:
+				setComment(COMMENT_EDEFAULT);
+				return;
+			case MM_HybridPackage.RULE__MODULE:
+				setModule((Module)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -788,32 +742,30 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.RULE__NAME_RULE:
-			return NAME_RULE_EDEFAULT == null ? name_rule != null
-					: !NAME_RULE_EDEFAULT.equals(name_rule);
-		case MM_HybridPackage.RULE__IS_ABSTRACT:
-			return isAbstract != IS_ABSTRACT_EDEFAULT;
-		case MM_HybridPackage.RULE__IS_MAIN:
-			return isMain != IS_MAIN_EDEFAULT;
-		case MM_HybridPackage.RULE__IN:
-			return in != null && !in.isEmpty();
-		case MM_HybridPackage.RULE__OUT:
-			return out != null && !out.isEmpty();
-		case MM_HybridPackage.RULE__TYPE_ATTRIBUTE:
-			return typeAttribute != TYPE_ATTRIBUTE_EDEFAULT;
-		case MM_HybridPackage.RULE__TYPE_ELEMENT:
-			return typeElement != TYPE_ELEMENT_EDEFAULT;
-		case MM_HybridPackage.RULE__EXTENDS:
-			return extends_ != null;
-		case MM_HybridPackage.RULE__IS_EXTENDED:
-			return isExtended != null && !isExtended.isEmpty();
-		case MM_HybridPackage.RULE__RIGHT_PATTERN:
-			return rightPattern != null && !rightPattern.isEmpty();
-		case MM_HybridPackage.RULE__COMMENT:
-			return COMMENT_EDEFAULT == null ? comment != null
-					: !COMMENT_EDEFAULT.equals(comment);
-		case MM_HybridPackage.RULE__MODULE:
-			return getModule() != null;
+			case MM_HybridPackage.RULE__NAME_RULE:
+				return NAME_RULE_EDEFAULT == null ? name_rule != null : !NAME_RULE_EDEFAULT.equals(name_rule);
+			case MM_HybridPackage.RULE__IS_ABSTRACT:
+				return isAbstract != IS_ABSTRACT_EDEFAULT;
+			case MM_HybridPackage.RULE__IS_MAIN:
+				return isMain != IS_MAIN_EDEFAULT;
+			case MM_HybridPackage.RULE__IN:
+				return in != null && !in.isEmpty();
+			case MM_HybridPackage.RULE__OUT:
+				return out != null && !out.isEmpty();
+			case MM_HybridPackage.RULE__TYPE_ATTRIBUTE:
+				return typeAttribute != TYPE_ATTRIBUTE_EDEFAULT;
+			case MM_HybridPackage.RULE__TYPE_ELEMENT:
+				return typeElement != TYPE_ELEMENT_EDEFAULT;
+			case MM_HybridPackage.RULE__EXTENDS:
+				return extends_ != null;
+			case MM_HybridPackage.RULE__IS_EXTENDED:
+				return isExtended != null && !isExtended.isEmpty();
+			case MM_HybridPackage.RULE__RIGHT_PATTERN:
+				return rightPattern != null && !rightPattern.isEmpty();
+			case MM_HybridPackage.RULE__COMMENT:
+				return COMMENT_EDEFAULT == null ? comment != null : !COMMENT_EDEFAULT.equals(comment);
+			case MM_HybridPackage.RULE__MODULE:
+				return getModule() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -825,21 +777,20 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name_rule: "); //$NON-NLS-1$
+		result.append(" (name_rule: ");
 		result.append(name_rule);
-		result.append(", isAbstract: "); //$NON-NLS-1$
+		result.append(", isAbstract: ");
 		result.append(isAbstract);
-		result.append(", isMain: "); //$NON-NLS-1$
+		result.append(", isMain: ");
 		result.append(isMain);
-		result.append(", typeAttribute: "); //$NON-NLS-1$
+		result.append(", typeAttribute: ");
 		result.append(typeAttribute);
-		result.append(", typeElement: "); //$NON-NLS-1$
+		result.append(", typeElement: ");
 		result.append(typeElement);
-		result.append(", comment: "); //$NON-NLS-1$
+		result.append(", comment: ");
 		result.append(comment);
 		result.append(')');
 		return result.toString();

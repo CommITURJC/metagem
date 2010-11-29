@@ -153,9 +153,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		String oldName_operation = name_operation;
 		name_operation = newName_operation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.OPERATION__NAME_OPERATION,
-					oldName_operation, name_operation));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.OPERATION__NAME_OPERATION, oldName_operation, name_operation));
 	}
 
 	/**
@@ -176,8 +174,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		String oldBody = body;
 		body = newBody;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.OPERATION__BODY, oldBody, body));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.OPERATION__BODY, oldBody, body));
 	}
 
 	/**
@@ -187,13 +184,11 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 */
 	public Element getContext() {
 		if (context != null && context.eIsProxy()) {
-			InternalEObject oldContext = (InternalEObject) context;
-			context = (Element) eResolveProxy(oldContext);
+			InternalEObject oldContext = (InternalEObject)context;
+			context = (Element)eResolveProxy(oldContext);
 			if (context != oldContext) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							MM_HybridPackage.OPERATION__CONTEXT, oldContext,
-							context));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MM_HybridPackage.OPERATION__CONTEXT, oldContext, context));
 			}
 		}
 		return context;
@@ -217,8 +212,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		Element oldContext = context;
 		context = newContext;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.OPERATION__CONTEXT, oldContext, context));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.OPERATION__CONTEXT, oldContext, context));
 	}
 
 	/**
@@ -240,13 +234,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		Return oldReturnType = returnType;
 		returnType = newReturnType;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this,
-					Notification.SET, MM_HybridPackage.OPERATION__RETURN_TYPE,
-					oldReturnType, newReturnType);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MM_HybridPackage.OPERATION__RETURN_TYPE, oldReturnType, newReturnType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -260,22 +249,14 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		if (newReturnType != returnType) {
 			NotificationChain msgs = null;
 			if (returnType != null)
-				msgs = ((InternalEObject) returnType).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE
-								- MM_HybridPackage.OPERATION__RETURN_TYPE,
-						null, msgs);
+				msgs = ((InternalEObject)returnType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MM_HybridPackage.OPERATION__RETURN_TYPE, null, msgs);
 			if (newReturnType != null)
-				msgs = ((InternalEObject) newReturnType).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE
-								- MM_HybridPackage.OPERATION__RETURN_TYPE,
-						null, msgs);
+				msgs = ((InternalEObject)newReturnType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MM_HybridPackage.OPERATION__RETURN_TYPE, null, msgs);
 			msgs = basicSetReturnType(newReturnType, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.OPERATION__RETURN_TYPE, newReturnType,
-					newReturnType));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.OPERATION__RETURN_TYPE, newReturnType, newReturnType));
 	}
 
 	/**
@@ -285,10 +266,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 */
 	public EList<RightPattern> getRightPattern() {
 		if (rightPattern == null) {
-			rightPattern = new EObjectWithInverseResolvingEList.ManyInverse<RightPattern>(
-					RightPattern.class, this,
-					MM_HybridPackage.OPERATION__RIGHT_PATTERN,
-					MM_HybridPackage.RIGHT_PATTERN__OPERATION);
+			rightPattern = new EObjectWithInverseResolvingEList.ManyInverse<RightPattern>(RightPattern.class, this, MM_HybridPackage.OPERATION__RIGHT_PATTERN, MM_HybridPackage.RIGHT_PATTERN__OPERATION);
 		}
 		return rightPattern;
 	}
@@ -299,9 +277,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * @generated
 	 */
 	public Module getModule() {
-		if (eContainerFeatureID != MM_HybridPackage.OPERATION__MODULE)
-			return null;
-		return (Module) eContainer();
+		if (eContainerFeatureID() != MM_HybridPackage.OPERATION__MODULE) return null;
+		return (Module)eContainer();
 	}
 
 	/**
@@ -311,8 +288,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 */
 	public NotificationChain basicSetModule(Module newModule,
 			NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newModule,
-				MM_HybridPackage.OPERATION__MODULE, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newModule, MM_HybridPackage.OPERATION__MODULE, msgs);
 		return msgs;
 	}
 
@@ -322,24 +298,19 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * @generated
 	 */
 	public void setModule(Module newModule) {
-		if (newModule != eInternalContainer()
-				|| (eContainerFeatureID != MM_HybridPackage.OPERATION__MODULE && newModule != null)) {
+		if (newModule != eInternalContainer() || (eContainerFeatureID() != MM_HybridPackage.OPERATION__MODULE && newModule != null)) {
 			if (EcoreUtil.isAncestor(this, newModule))
-				throw new IllegalArgumentException(
-						"Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newModule != null)
-				msgs = ((InternalEObject) newModule)
-						.eInverseAdd(this, MM_HybridPackage.MODULE__OPERATIONS,
-								Module.class, msgs);
+				msgs = ((InternalEObject)newModule).eInverseAdd(this, MM_HybridPackage.MODULE__OPERATIONS, Module.class, msgs);
 			msgs = basicSetModule(newModule, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.OPERATION__MODULE, newModule, newModule));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.OPERATION__MODULE, newModule, newModule));
 	}
 
 	/**
@@ -352,13 +323,12 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getRightPattern())
-					.basicAdd(otherEnd, msgs);
-		case MM_HybridPackage.OPERATION__MODULE:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetModule((Module) otherEnd, msgs);
+			case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRightPattern()).basicAdd(otherEnd, msgs);
+			case MM_HybridPackage.OPERATION__MODULE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetModule((Module)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -372,13 +342,12 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.OPERATION__RETURN_TYPE:
-			return basicSetReturnType(null, msgs);
-		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
-			return ((InternalEList<?>) getRightPattern()).basicRemove(otherEnd,
-					msgs);
-		case MM_HybridPackage.OPERATION__MODULE:
-			return basicSetModule(null, msgs);
+			case MM_HybridPackage.OPERATION__RETURN_TYPE:
+				return basicSetReturnType(null, msgs);
+			case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
+				return ((InternalEList<?>)getRightPattern()).basicRemove(otherEnd, msgs);
+			case MM_HybridPackage.OPERATION__MODULE:
+				return basicSetModule(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -391,10 +360,9 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(
 			NotificationChain msgs) {
-		switch (eContainerFeatureID) {
-		case MM_HybridPackage.OPERATION__MODULE:
-			return eInternalContainer().eInverseRemove(this,
-					MM_HybridPackage.MODULE__OPERATIONS, Module.class, msgs);
+		switch (eContainerFeatureID()) {
+			case MM_HybridPackage.OPERATION__MODULE:
+				return eInternalContainer().eInverseRemove(this, MM_HybridPackage.MODULE__OPERATIONS, Module.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -407,20 +375,19 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MM_HybridPackage.OPERATION__NAME_OPERATION:
-			return getName_operation();
-		case MM_HybridPackage.OPERATION__BODY:
-			return getBody();
-		case MM_HybridPackage.OPERATION__CONTEXT:
-			if (resolve)
-				return getContext();
-			return basicGetContext();
-		case MM_HybridPackage.OPERATION__RETURN_TYPE:
-			return getReturnType();
-		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
-			return getRightPattern();
-		case MM_HybridPackage.OPERATION__MODULE:
-			return getModule();
+			case MM_HybridPackage.OPERATION__NAME_OPERATION:
+				return getName_operation();
+			case MM_HybridPackage.OPERATION__BODY:
+				return getBody();
+			case MM_HybridPackage.OPERATION__CONTEXT:
+				if (resolve) return getContext();
+				return basicGetContext();
+			case MM_HybridPackage.OPERATION__RETURN_TYPE:
+				return getReturnType();
+			case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
+				return getRightPattern();
+			case MM_HybridPackage.OPERATION__MODULE:
+				return getModule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -434,26 +401,25 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MM_HybridPackage.OPERATION__NAME_OPERATION:
-			setName_operation((String) newValue);
-			return;
-		case MM_HybridPackage.OPERATION__BODY:
-			setBody((String) newValue);
-			return;
-		case MM_HybridPackage.OPERATION__CONTEXT:
-			setContext((Element) newValue);
-			return;
-		case MM_HybridPackage.OPERATION__RETURN_TYPE:
-			setReturnType((Return) newValue);
-			return;
-		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
-			getRightPattern().clear();
-			getRightPattern().addAll(
-					(Collection<? extends RightPattern>) newValue);
-			return;
-		case MM_HybridPackage.OPERATION__MODULE:
-			setModule((Module) newValue);
-			return;
+			case MM_HybridPackage.OPERATION__NAME_OPERATION:
+				setName_operation((String)newValue);
+				return;
+			case MM_HybridPackage.OPERATION__BODY:
+				setBody((String)newValue);
+				return;
+			case MM_HybridPackage.OPERATION__CONTEXT:
+				setContext((Element)newValue);
+				return;
+			case MM_HybridPackage.OPERATION__RETURN_TYPE:
+				setReturnType((Return)newValue);
+				return;
+			case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
+				getRightPattern().clear();
+				getRightPattern().addAll((Collection<? extends RightPattern>)newValue);
+				return;
+			case MM_HybridPackage.OPERATION__MODULE:
+				setModule((Module)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -466,24 +432,24 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.OPERATION__NAME_OPERATION:
-			setName_operation(NAME_OPERATION_EDEFAULT);
-			return;
-		case MM_HybridPackage.OPERATION__BODY:
-			setBody(BODY_EDEFAULT);
-			return;
-		case MM_HybridPackage.OPERATION__CONTEXT:
-			setContext((Element) null);
-			return;
-		case MM_HybridPackage.OPERATION__RETURN_TYPE:
-			setReturnType((Return) null);
-			return;
-		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
-			getRightPattern().clear();
-			return;
-		case MM_HybridPackage.OPERATION__MODULE:
-			setModule((Module) null);
-			return;
+			case MM_HybridPackage.OPERATION__NAME_OPERATION:
+				setName_operation(NAME_OPERATION_EDEFAULT);
+				return;
+			case MM_HybridPackage.OPERATION__BODY:
+				setBody(BODY_EDEFAULT);
+				return;
+			case MM_HybridPackage.OPERATION__CONTEXT:
+				setContext((Element)null);
+				return;
+			case MM_HybridPackage.OPERATION__RETURN_TYPE:
+				setReturnType((Return)null);
+				return;
+			case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
+				getRightPattern().clear();
+				return;
+			case MM_HybridPackage.OPERATION__MODULE:
+				setModule((Module)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -496,20 +462,18 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.OPERATION__NAME_OPERATION:
-			return NAME_OPERATION_EDEFAULT == null ? name_operation != null
-					: !NAME_OPERATION_EDEFAULT.equals(name_operation);
-		case MM_HybridPackage.OPERATION__BODY:
-			return BODY_EDEFAULT == null ? body != null : !BODY_EDEFAULT
-					.equals(body);
-		case MM_HybridPackage.OPERATION__CONTEXT:
-			return context != null;
-		case MM_HybridPackage.OPERATION__RETURN_TYPE:
-			return returnType != null;
-		case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
-			return rightPattern != null && !rightPattern.isEmpty();
-		case MM_HybridPackage.OPERATION__MODULE:
-			return getModule() != null;
+			case MM_HybridPackage.OPERATION__NAME_OPERATION:
+				return NAME_OPERATION_EDEFAULT == null ? name_operation != null : !NAME_OPERATION_EDEFAULT.equals(name_operation);
+			case MM_HybridPackage.OPERATION__BODY:
+				return BODY_EDEFAULT == null ? body != null : !BODY_EDEFAULT.equals(body);
+			case MM_HybridPackage.OPERATION__CONTEXT:
+				return context != null;
+			case MM_HybridPackage.OPERATION__RETURN_TYPE:
+				return returnType != null;
+			case MM_HybridPackage.OPERATION__RIGHT_PATTERN:
+				return rightPattern != null && !rightPattern.isEmpty();
+			case MM_HybridPackage.OPERATION__MODULE:
+				return getModule() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -521,13 +485,12 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name_operation: "); //$NON-NLS-1$
+		result.append(" (name_operation: ");
 		result.append(name_operation);
-		result.append(", body: "); //$NON-NLS-1$
+		result.append(", body: ");
 		result.append(body);
 		result.append(')');
 		return result.toString();

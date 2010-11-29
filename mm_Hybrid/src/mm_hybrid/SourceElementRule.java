@@ -115,7 +115,7 @@ public interface SourceElementRule extends Element {
 	 * @see #setRule(Rule)
 	 * @see mm_hybrid.MM_HybridPackage#getSourceElementRule_Rule()
 	 * @see mm_hybrid.Rule#getIn
-	 * @model opposite="in" required="true" transient="false"
+	 * @model opposite="in" transient="false"
 	 * @generated
 	 */
 	Rule getRule();

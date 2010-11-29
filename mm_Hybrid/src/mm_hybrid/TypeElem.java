@@ -104,7 +104,10 @@ public enum TypeElem implements Enumerator {
 	 * @generated
 	 */
 	private static final TypeElem[] VALUES_ARRAY = new TypeElem[] {
-			MY_ECLASSIFIER, MY_EATTRIBUTE, MY_EREFERENCE, };
+			MY_ECLASSIFIER,
+			MY_EATTRIBUTE,
+			MY_EREFERENCE,
+		};
 
 	/**
 	 * A public read-only list of all the '<em><b>Type Elem</b></em>' enumerators.
@@ -112,8 +115,7 @@ public enum TypeElem implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<TypeElem> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<TypeElem> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Type Elem</b></em>' literal with the specified literal value.
@@ -155,12 +157,9 @@ public enum TypeElem implements Enumerator {
 	 */
 	public static TypeElem get(int value) {
 		switch (value) {
-		case MY_ECLASSIFIER_VALUE:
-			return MY_ECLASSIFIER;
-		case MY_EATTRIBUTE_VALUE:
-			return MY_EATTRIBUTE;
-		case MY_EREFERENCE_VALUE:
-			return MY_EREFERENCE;
+			case MY_ECLASSIFIER_VALUE: return MY_ECLASSIFIER;
+			case MY_EATTRIBUTE_VALUE: return MY_EATTRIBUTE;
+			case MY_EREFERENCE_VALUE: return MY_EREFERENCE;
 		}
 		return null;
 	}
@@ -204,7 +203,7 @@ public enum TypeElem implements Enumerator {
 	 * @generated
 	 */
 	public int getValue() {
-		return value;
+	  return value;
 	}
 
 	/**
@@ -213,7 +212,7 @@ public enum TypeElem implements Enumerator {
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+	  return name;
 	}
 
 	/**
@@ -222,7 +221,7 @@ public enum TypeElem implements Enumerator {
 	 * @generated
 	 */
 	public String getLiteral() {
-		return literal;
+	  return literal;
 	}
 
 	/**

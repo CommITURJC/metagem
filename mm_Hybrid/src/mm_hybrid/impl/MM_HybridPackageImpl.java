@@ -181,20 +181,10 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this
-	 * model, and for any others upon which it depends.  Simple
-	 * dependencies are satisfied by calling this method on all
-	 * dependent packages before doing anything else.  This method drives
-	 * initialization for interdependent packages directly, in parallel
-	 * with this package, itself.
-	 * <p>Of this package and its interdependencies, all packages which
-	 * have not yet been registered by their URI values are first created
-	 * and registered.  The packages are then initialized in two steps:
-	 * meta-model objects for all of the packages are created before any
-	 * are initialized, since one package's meta-model objects may refer to
-	 * those of another.
-	 * <p>Invocation of this method will not affect any packages that have
-	 * already been initialized.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * 
+	 * <p>This method is used to initialize {@link MM_HybridPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
@@ -203,15 +193,10 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public static MM_HybridPackage init() {
-		if (isInited)
-			return (MM_HybridPackage) EPackage.Registry.INSTANCE
-					.getEPackage(MM_HybridPackage.eNS_URI);
+		if (isInited) return (MM_HybridPackage)EPackage.Registry.INSTANCE.getEPackage(MM_HybridPackage.eNS_URI);
 
 		// Obtain or create and register package
-		MM_HybridPackageImpl theMM_HybridPackage = (MM_HybridPackageImpl) (EPackage.Registry.INSTANCE
-				.getEPackage(eNS_URI) instanceof MM_HybridPackageImpl ? EPackage.Registry.INSTANCE
-				.getEPackage(eNS_URI)
-				: new MM_HybridPackageImpl());
+		MM_HybridPackageImpl theMM_HybridPackage = (MM_HybridPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MM_HybridPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new MM_HybridPackageImpl());
 
 		isInited = true;
 
@@ -224,6 +209,9 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		// Mark meta-data to indicate it can't be changed
 		theMM_HybridPackage.freeze();
 
+  
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(MM_HybridPackage.eNS_URI, theMM_HybridPackage);
 		return theMM_HybridPackage;
 	}
 
@@ -242,7 +230,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getModule_Name_module() {
-		return (EAttribute) moduleEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)moduleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -251,7 +239,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getModule_Rule() {
-		return (EReference) moduleEClass.getEStructuralFeatures().get(1);
+		return (EReference)moduleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -260,7 +248,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getModule_InMM() {
-		return (EReference) moduleEClass.getEStructuralFeatures().get(2);
+		return (EReference)moduleEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -269,7 +257,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getModule_OutMM() {
-		return (EReference) moduleEClass.getEStructuralFeatures().get(3);
+		return (EReference)moduleEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -278,7 +266,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getModule_Operations() {
-		return (EReference) moduleEClass.getEStructuralFeatures().get(4);
+		return (EReference)moduleEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -296,7 +284,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getInMetaModel_Name_mm() {
-		return (EAttribute) inMetaModelEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)inMetaModelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -305,7 +293,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getInMetaModel_Type_mm() {
-		return (EAttribute) inMetaModelEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)inMetaModelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -314,7 +302,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getInMetaModel_Elements() {
-		return (EReference) inMetaModelEClass.getEStructuralFeatures().get(2);
+		return (EReference)inMetaModelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -323,7 +311,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getInMetaModel_Module() {
-		return (EReference) inMetaModelEClass.getEStructuralFeatures().get(3);
+		return (EReference)inMetaModelEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -341,7 +329,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getOutMetaModel_Name_mm() {
-		return (EAttribute) outMetaModelEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)outMetaModelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -350,7 +338,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getOutMetaModel_Type_mm() {
-		return (EAttribute) outMetaModelEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)outMetaModelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -359,7 +347,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getOutMetaModel_Elements() {
-		return (EReference) outMetaModelEClass.getEStructuralFeatures().get(2);
+		return (EReference)outMetaModelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -368,7 +356,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getOutMetaModel_Module() {
-		return (EReference) outMetaModelEClass.getEStructuralFeatures().get(3);
+		return (EReference)outMetaModelEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -386,7 +374,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getRule_Name_rule() {
-		return (EAttribute) ruleEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -395,7 +383,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getRule_IsAbstract() {
-		return (EAttribute) ruleEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -404,7 +392,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getRule_IsMain() {
-		return (EAttribute) ruleEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -413,7 +401,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getRule_In() {
-		return (EReference) ruleEClass.getEStructuralFeatures().get(3);
+		return (EReference)ruleEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -422,7 +410,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getRule_Out() {
-		return (EReference) ruleEClass.getEStructuralFeatures().get(4);
+		return (EReference)ruleEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -431,7 +419,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getRule_TypeAttribute() {
-		return (EAttribute) ruleEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -440,7 +428,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getRule_TypeElement() {
-		return (EAttribute) ruleEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -449,7 +437,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getRule_Extends() {
-		return (EReference) ruleEClass.getEStructuralFeatures().get(7);
+		return (EReference)ruleEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -458,7 +446,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getRule_IsExtended() {
-		return (EReference) ruleEClass.getEStructuralFeatures().get(8);
+		return (EReference)ruleEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -467,7 +455,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getRule_RightPattern() {
-		return (EReference) ruleEClass.getEStructuralFeatures().get(9);
+		return (EReference)ruleEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -476,7 +464,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getRule_Comment() {
-		return (EAttribute) ruleEClass.getEStructuralFeatures().get(10);
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -485,7 +473,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getRule_Module() {
-		return (EReference) ruleEClass.getEStructuralFeatures().get(11);
+		return (EReference)ruleEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -503,7 +491,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getElement_Name_element() {
-		return (EAttribute) elementEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -512,7 +500,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getElement_Operation() {
-		return (EReference) elementEClass.getEStructuralFeatures().get(1);
+		return (EReference)elementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -521,7 +509,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getElement_IsRefered() {
-		return (EReference) elementEClass.getEStructuralFeatures().get(2);
+		return (EReference)elementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -539,8 +527,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getSourceElementRule_Guard() {
-		return (EReference) sourceElementRuleEClass.getEStructuralFeatures()
-				.get(0);
+		return (EReference)sourceElementRuleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -549,8 +536,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getSourceElementRule_Metamodel() {
-		return (EReference) sourceElementRuleEClass.getEStructuralFeatures()
-				.get(1);
+		return (EReference)sourceElementRuleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -559,8 +545,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getSourceElementRule_RightPattern() {
-		return (EReference) sourceElementRuleEClass.getEStructuralFeatures()
-				.get(2);
+		return (EReference)sourceElementRuleEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -569,8 +554,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getSourceElementRule_Rule() {
-		return (EReference) sourceElementRuleEClass.getEStructuralFeatures()
-				.get(3);
+		return (EReference)sourceElementRuleEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -588,8 +572,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getTargetElementRule_Included() {
-		return (EReference) targetElementRuleEClass.getEStructuralFeatures()
-				.get(0);
+		return (EReference)targetElementRuleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -598,8 +581,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getTargetElementRule_Metamodel() {
-		return (EReference) targetElementRuleEClass.getEStructuralFeatures()
-				.get(1);
+		return (EReference)targetElementRuleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -608,8 +590,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getTargetElementRule_LeftPattern() {
-		return (EReference) targetElementRuleEClass.getEStructuralFeatures()
-				.get(2);
+		return (EReference)targetElementRuleEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -618,8 +599,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getTargetElementRule_Rule() {
-		return (EReference) targetElementRuleEClass.getEStructuralFeatures()
-				.get(3);
+		return (EReference)targetElementRuleEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -637,8 +617,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getElementIncluded_TypeAttribute() {
-		return (EAttribute) elementIncludedEClass.getEStructuralFeatures().get(
-				0);
+		return (EAttribute)elementIncludedEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -647,8 +626,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getElementIncluded_TypeElement() {
-		return (EAttribute) elementIncludedEClass.getEStructuralFeatures().get(
-				1);
+		return (EAttribute)elementIncludedEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -657,8 +635,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getElementIncluded_Right() {
-		return (EReference) elementIncludedEClass.getEStructuralFeatures().get(
-				2);
+		return (EReference)elementIncludedEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -667,8 +644,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getElementIncluded_Left() {
-		return (EReference) elementIncludedEClass.getEStructuralFeatures().get(
-				3);
+		return (EReference)elementIncludedEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -677,8 +653,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getElementIncluded_TargetElement() {
-		return (EReference) elementIncludedEClass.getEStructuralFeatures().get(
-				4);
+		return (EReference)elementIncludedEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -696,7 +671,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getGuard_Value() {
-		return (EAttribute) guardEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)guardEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -705,7 +680,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getGuard_SourceElement() {
-		return (EReference) guardEClass.getEStructuralFeatures().get(1);
+		return (EReference)guardEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -723,7 +698,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getRightPattern_SourceElement() {
-		return (EReference) rightPatternEClass.getEStructuralFeatures().get(0);
+		return (EReference)rightPatternEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -732,7 +707,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getRightPattern_Rule() {
-		return (EReference) rightPatternEClass.getEStructuralFeatures().get(1);
+		return (EReference)rightPatternEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -741,7 +716,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getRightPattern_Operation() {
-		return (EReference) rightPatternEClass.getEStructuralFeatures().get(2);
+		return (EReference)rightPatternEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -750,7 +725,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getRightPattern_Name_pattern() {
-		return (EAttribute) rightPatternEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)rightPatternEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -759,7 +734,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getRightPattern_Reference() {
-		return (EReference) rightPatternEClass.getEStructuralFeatures().get(4);
+		return (EReference)rightPatternEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -768,7 +743,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getRightPattern_ConcreteValue() {
-		return (EAttribute) rightPatternEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)rightPatternEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -777,7 +752,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getRightPattern_ElementIncluded() {
-		return (EReference) rightPatternEClass.getEStructuralFeatures().get(6);
+		return (EReference)rightPatternEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -795,7 +770,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getLeftPattern_TargetElement() {
-		return (EReference) leftPatternEClass.getEStructuralFeatures().get(0);
+		return (EReference)leftPatternEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -804,7 +779,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getLeftPattern_Name_pattern() {
-		return (EAttribute) leftPatternEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)leftPatternEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -813,7 +788,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getLeftPattern_ElementIncluded() {
-		return (EReference) leftPatternEClass.getEStructuralFeatures().get(2);
+		return (EReference)leftPatternEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -831,7 +806,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getOperation_Name_operation() {
-		return (EAttribute) operationEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -840,7 +815,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getOperation_Body() {
-		return (EAttribute) operationEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -849,7 +824,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getOperation_Context() {
-		return (EReference) operationEClass.getEStructuralFeatures().get(2);
+		return (EReference)operationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -858,7 +833,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getOperation_ReturnType() {
-		return (EReference) operationEClass.getEStructuralFeatures().get(3);
+		return (EReference)operationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -867,7 +842,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getOperation_RightPattern() {
-		return (EReference) operationEClass.getEStructuralFeatures().get(4);
+		return (EReference)operationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -876,7 +851,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getOperation_Module() {
-		return (EReference) operationEClass.getEStructuralFeatures().get(5);
+		return (EReference)operationEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -894,7 +869,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getReturn_Element() {
-		return (EReference) returnEClass.getEStructuralFeatures().get(0);
+		return (EReference)returnEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -903,7 +878,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getReturn_Datatype() {
-		return (EAttribute) returnEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)returnEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -939,7 +914,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public MM_HybridFactory getMM_HybridFactory() {
-		return (MM_HybridFactory) getEFactoryInstance();
+		return (MM_HybridFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -957,8 +932,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
-			return;
+		if (isCreated) return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -1002,28 +976,22 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 
 		sourceElementRuleEClass = createEClass(SOURCE_ELEMENT_RULE);
 		createEReference(sourceElementRuleEClass, SOURCE_ELEMENT_RULE__GUARD);
-		createEReference(sourceElementRuleEClass,
-				SOURCE_ELEMENT_RULE__METAMODEL);
-		createEReference(sourceElementRuleEClass,
-				SOURCE_ELEMENT_RULE__RIGHT_PATTERN);
+		createEReference(sourceElementRuleEClass, SOURCE_ELEMENT_RULE__METAMODEL);
+		createEReference(sourceElementRuleEClass, SOURCE_ELEMENT_RULE__RIGHT_PATTERN);
 		createEReference(sourceElementRuleEClass, SOURCE_ELEMENT_RULE__RULE);
 
 		targetElementRuleEClass = createEClass(TARGET_ELEMENT_RULE);
 		createEReference(targetElementRuleEClass, TARGET_ELEMENT_RULE__INCLUDED);
-		createEReference(targetElementRuleEClass,
-				TARGET_ELEMENT_RULE__METAMODEL);
-		createEReference(targetElementRuleEClass,
-				TARGET_ELEMENT_RULE__LEFT_PATTERN);
+		createEReference(targetElementRuleEClass, TARGET_ELEMENT_RULE__METAMODEL);
+		createEReference(targetElementRuleEClass, TARGET_ELEMENT_RULE__LEFT_PATTERN);
 		createEReference(targetElementRuleEClass, TARGET_ELEMENT_RULE__RULE);
 
 		elementIncludedEClass = createEClass(ELEMENT_INCLUDED);
-		createEAttribute(elementIncludedEClass,
-				ELEMENT_INCLUDED__TYPE_ATTRIBUTE);
+		createEAttribute(elementIncludedEClass, ELEMENT_INCLUDED__TYPE_ATTRIBUTE);
 		createEAttribute(elementIncludedEClass, ELEMENT_INCLUDED__TYPE_ELEMENT);
 		createEReference(elementIncludedEClass, ELEMENT_INCLUDED__RIGHT);
 		createEReference(elementIncludedEClass, ELEMENT_INCLUDED__LEFT);
-		createEReference(elementIncludedEClass,
-				ELEMENT_INCLUDED__TARGET_ELEMENT);
+		createEReference(elementIncludedEClass, ELEMENT_INCLUDED__TARGET_ELEMENT);
 
 		guardEClass = createEClass(GUARD);
 		createEAttribute(guardEClass, GUARD__VALUE);
@@ -1076,8 +1044,7 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
-			return;
+		if (isInitialized) return;
 		isInitialized = true;
 
 		// Initialize package
@@ -1094,368 +1061,106 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 		targetElementRuleEClass.getESuperTypes().add(this.getElement());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(
-				moduleEClass,
-				Module.class,
-				"Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(
-				getModule_Name_module(),
-				ecorePackage.getEString(),
-				"name_module", null, 1, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getModule_Rule(),
-				this.getRule(),
-				this.getRule_Module(),
-				"rule", null, 1, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getModule_InMM(),
-				this.getInMetaModel(),
-				this.getInMetaModel_Module(),
-				"inMM", null, 1, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getModule_OutMM(),
-				this.getOutMetaModel(),
-				this.getOutMetaModel_Module(),
-				"outMM", null, 1, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getModule_Operations(),
-				this.getOperation(),
-				this.getOperation_Module(),
-				"operations", null, 0, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(moduleEClass, Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getModule_Name_module(), ecorePackage.getEString(), "name_module", null, 1, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getModule_Rule(), this.getRule(), this.getRule_Module(), "rule", null, 1, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getModule_InMM(), this.getInMetaModel(), this.getInMetaModel_Module(), "inMM", null, 1, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getModule_OutMM(), this.getOutMetaModel(), this.getOutMetaModel_Module(), "outMM", null, 1, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getModule_Operations(), this.getOperation(), this.getOperation_Module(), "operations", null, 0, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-				inMetaModelEClass,
-				InMetaModel.class,
-				"InMetaModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(
-				getInMetaModel_Name_mm(),
-				ecorePackage.getEString(),
-				"name_mm", null, 1, 1, InMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getInMetaModel_Type_mm(),
-				ecorePackage.getEString(),
-				"type_mm", null, 1, 1, InMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getInMetaModel_Elements(),
-				this.getSourceElementRule(),
-				this.getSourceElementRule_Metamodel(),
-				"elements", null, 0, -1, InMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getInMetaModel_Module(),
-				this.getModule(),
-				this.getModule_InMM(),
-				"module", null, 1, 1, InMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(inMetaModelEClass, InMetaModel.class, "InMetaModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getInMetaModel_Name_mm(), ecorePackage.getEString(), "name_mm", null, 1, 1, InMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getInMetaModel_Type_mm(), ecorePackage.getEString(), "type_mm", null, 1, 1, InMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInMetaModel_Elements(), this.getSourceElementRule(), this.getSourceElementRule_Metamodel(), "elements", null, 0, -1, InMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInMetaModel_Module(), this.getModule(), this.getModule_InMM(), "module", null, 1, 1, InMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-				outMetaModelEClass,
-				OutMetaModel.class,
-				"OutMetaModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(
-				getOutMetaModel_Name_mm(),
-				ecorePackage.getEString(),
-				"name_mm", null, 1, 1, OutMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getOutMetaModel_Type_mm(),
-				ecorePackage.getEString(),
-				"type_mm", null, 1, 1, OutMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getOutMetaModel_Elements(),
-				this.getTargetElementRule(),
-				this.getTargetElementRule_Metamodel(),
-				"elements", null, 0, -1, OutMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getOutMetaModel_Module(),
-				this.getModule(),
-				this.getModule_OutMM(),
-				"module", null, 1, 1, OutMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(outMetaModelEClass, OutMetaModel.class, "OutMetaModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOutMetaModel_Name_mm(), ecorePackage.getEString(), "name_mm", null, 1, 1, OutMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getOutMetaModel_Type_mm(), ecorePackage.getEString(), "type_mm", null, 1, 1, OutMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOutMetaModel_Elements(), this.getTargetElementRule(), this.getTargetElementRule_Metamodel(), "elements", null, 0, -1, OutMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOutMetaModel_Module(), this.getModule(), this.getModule_OutMM(), "module", null, 1, 1, OutMetaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-				ruleEClass,
-				Rule.class,
-				"Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(
-				getRule_Name_rule(),
-				ecorePackage.getEString(),
-				"name_rule", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getRule_IsAbstract(),
-				ecorePackage.getEBoolean(),
-				"isAbstract", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getRule_IsMain(),
-				ecorePackage.getEBoolean(),
-				"isMain", "true", 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
-		initEReference(
-				getRule_In(),
-				this.getSourceElementRule(),
-				this.getSourceElementRule_Rule(),
-				"in", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getRule_Out(),
-				this.getTargetElementRule(),
-				this.getTargetElementRule_Rule(),
-				"out", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getRule_TypeAttribute(),
-				this.getTypeAtribute(),
-				"typeAttribute", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getRule_TypeElement(),
-				this.getTypeElem(),
-				"typeElement", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getRule_Extends(),
-				this.getRule(),
-				this.getRule_IsExtended(),
-				"extends", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getRule_IsExtended(),
-				this.getRule(),
-				this.getRule_Extends(),
-				"isExtended", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getRule_RightPattern(),
-				this.getRightPattern(),
-				this.getRightPattern_Rule(),
-				"rightPattern", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getRule_Comment(),
-				ecorePackage.getEString(),
-				"comment", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getRule_Module(),
-				this.getModule(),
-				this.getModule_Rule(),
-				"module", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRule_Name_rule(), ecorePackage.getEString(), "name_rule", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRule_IsAbstract(), ecorePackage.getEBoolean(), "isAbstract", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRule_IsMain(), ecorePackage.getEBoolean(), "isMain", "true", 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRule_In(), this.getSourceElementRule(), this.getSourceElementRule_Rule(), "in", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRule_Out(), this.getTargetElementRule(), this.getTargetElementRule_Rule(), "out", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRule_TypeAttribute(), this.getTypeAtribute(), "typeAttribute", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRule_TypeElement(), this.getTypeElem(), "typeElement", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRule_Extends(), this.getRule(), this.getRule_IsExtended(), "extends", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRule_IsExtended(), this.getRule(), this.getRule_Extends(), "isExtended", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRule_RightPattern(), this.getRightPattern(), this.getRightPattern_Rule(), "rightPattern", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRule_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRule_Module(), this.getModule(), this.getModule_Rule(), "module", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-				elementEClass,
-				Element.class,
-				"Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(
-				getElement_Name_element(),
-				ecorePackage.getEString(),
-				"name_element", null, 1, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getElement_Operation(),
-				this.getOperation(),
-				null,
-				"operation", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getElement_IsRefered(),
-				this.getRightPattern(),
-				this.getRightPattern_Reference(),
-				"isRefered", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getElement_Name_element(), ecorePackage.getEString(), "name_element", null, 1, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getElement_Operation(), this.getOperation(), null, "operation", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElement_IsRefered(), this.getRightPattern(), this.getRightPattern_Reference(), "isRefered", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-				sourceElementRuleEClass,
-				SourceElementRule.class,
-				"SourceElementRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-				getSourceElementRule_Guard(),
-				this.getGuard(),
-				this.getGuard_SourceElement(),
-				"guard", null, 0, -1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getSourceElementRule_Metamodel(),
-				this.getInMetaModel(),
-				this.getInMetaModel_Elements(),
-				"metamodel", null, 1, 1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getSourceElementRule_RightPattern(),
-				this.getRightPattern(),
-				this.getRightPattern_SourceElement(),
-				"rightPattern", null, 0, 1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getSourceElementRule_Rule(),
-				this.getRule(),
-				this.getRule_In(),
-				"rule", null, 1, 1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(sourceElementRuleEClass, SourceElementRule.class, "SourceElementRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSourceElementRule_Guard(), this.getGuard(), this.getGuard_SourceElement(), "guard", null, 0, -1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSourceElementRule_Metamodel(), this.getInMetaModel(), this.getInMetaModel_Elements(), "metamodel", null, 1, 1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSourceElementRule_RightPattern(), this.getRightPattern(), this.getRightPattern_SourceElement(), "rightPattern", null, 0, 1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSourceElementRule_Rule(), this.getRule(), this.getRule_In(), "rule", null, 0, 1, SourceElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-				targetElementRuleEClass,
-				TargetElementRule.class,
-				"TargetElementRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-				getTargetElementRule_Included(),
-				this.getElementIncluded(),
-				this.getElementIncluded_TargetElement(),
-				"included", null, 0, -1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getTargetElementRule_Metamodel(),
-				this.getOutMetaModel(),
-				this.getOutMetaModel_Elements(),
-				"metamodel", null, 1, 1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getTargetElementRule_LeftPattern(),
-				this.getLeftPattern(),
-				this.getLeftPattern_TargetElement(),
-				"leftPattern", null, 0, 1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getTargetElementRule_Rule(),
-				this.getRule(),
-				this.getRule_Out(),
-				"rule", null, 1, 1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(targetElementRuleEClass, TargetElementRule.class, "TargetElementRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTargetElementRule_Included(), this.getElementIncluded(), this.getElementIncluded_TargetElement(), "included", null, 0, -1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTargetElementRule_Metamodel(), this.getOutMetaModel(), this.getOutMetaModel_Elements(), "metamodel", null, 1, 1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTargetElementRule_LeftPattern(), this.getLeftPattern(), this.getLeftPattern_TargetElement(), "leftPattern", null, 0, 1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTargetElementRule_Rule(), this.getRule(), this.getRule_Out(), "rule", null, 0, 1, TargetElementRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-				elementIncludedEClass,
-				ElementIncluded.class,
-				"ElementIncluded", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(
-				getElementIncluded_TypeAttribute(),
-				this.getTypeAtribute(),
-				"typeAttribute", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getElementIncluded_TypeElement(),
-				this.getTypeElem(),
-				"typeElement", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getElementIncluded_Right(),
-				this.getRightPattern(),
-				this.getRightPattern_ElementIncluded(),
-				"right", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getElementIncluded_Left(),
-				this.getLeftPattern(),
-				this.getLeftPattern_ElementIncluded(),
-				"left", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getElementIncluded_TargetElement(),
-				this.getTargetElementRule(),
-				this.getTargetElementRule_Included(),
-				"targetElement", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(elementIncludedEClass, ElementIncluded.class, "ElementIncluded", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getElementIncluded_TypeAttribute(), this.getTypeAtribute(), "typeAttribute", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getElementIncluded_TypeElement(), this.getTypeElem(), "typeElement", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getElementIncluded_Right(), this.getRightPattern(), this.getRightPattern_ElementIncluded(), "right", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementIncluded_Left(), this.getLeftPattern(), this.getLeftPattern_ElementIncluded(), "left", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementIncluded_TargetElement(), this.getTargetElementRule(), this.getTargetElementRule_Included(), "targetElement", null, 1, 1, ElementIncluded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-				guardEClass,
-				Guard.class,
-				"Guard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(
-				getGuard_Value(),
-				ecorePackage.getEString(),
-				"value", null, 1, 1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getGuard_SourceElement(),
-				this.getSourceElementRule(),
-				this.getSourceElementRule_Guard(),
-				"sourceElement", null, 1, 1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(guardEClass, Guard.class, "Guard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGuard_Value(), ecorePackage.getEString(), "value", null, 1, 1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGuard_SourceElement(), this.getSourceElementRule(), this.getSourceElementRule_Guard(), "sourceElement", null, 1, 1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-				rightPatternEClass,
-				RightPattern.class,
-				"RightPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-				getRightPattern_SourceElement(),
-				this.getSourceElementRule(),
-				this.getSourceElementRule_RightPattern(),
-				"sourceElement", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getRightPattern_Rule(),
-				this.getRule(),
-				this.getRule_RightPattern(),
-				"rule", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getRightPattern_Operation(),
-				this.getOperation(),
-				this.getOperation_RightPattern(),
-				"operation", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getRightPattern_Name_pattern(),
-				ecorePackage.getEString(),
-				"name_pattern", null, 1, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getRightPattern_Reference(),
-				this.getElement(),
-				this.getElement_IsRefered(),
-				"reference", null, 0, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getRightPattern_ConcreteValue(),
-				ecorePackage.getEString(),
-				"concreteValue", null, 0, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getRightPattern_ElementIncluded(),
-				this.getElementIncluded(),
-				this.getElementIncluded_Right(),
-				"elementIncluded", null, 1, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(rightPatternEClass, RightPattern.class, "RightPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRightPattern_SourceElement(), this.getSourceElementRule(), this.getSourceElementRule_RightPattern(), "sourceElement", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRightPattern_Rule(), this.getRule(), this.getRule_RightPattern(), "rule", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRightPattern_Operation(), this.getOperation(), this.getOperation_RightPattern(), "operation", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRightPattern_Name_pattern(), ecorePackage.getEString(), "name_pattern", null, 1, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRightPattern_Reference(), this.getElement(), this.getElement_IsRefered(), "reference", null, 0, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRightPattern_ConcreteValue(), ecorePackage.getEString(), "concreteValue", null, 0, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRightPattern_ElementIncluded(), this.getElementIncluded(), this.getElementIncluded_Right(), "elementIncluded", null, 1, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-				leftPatternEClass,
-				LeftPattern.class,
-				"LeftPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-				getLeftPattern_TargetElement(),
-				this.getTargetElementRule(),
-				this.getTargetElementRule_LeftPattern(),
-				"targetElement", null, 1, 1, LeftPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getLeftPattern_Name_pattern(),
-				ecorePackage.getEString(),
-				"name_pattern", "", 1, 1, LeftPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
-		initEReference(
-				getLeftPattern_ElementIncluded(),
-				this.getElementIncluded(),
-				this.getElementIncluded_Left(),
-				"elementIncluded", null, 1, 1, LeftPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(leftPatternEClass, LeftPattern.class, "LeftPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLeftPattern_TargetElement(), this.getTargetElementRule(), this.getTargetElementRule_LeftPattern(), "targetElement", null, 1, 1, LeftPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getLeftPattern_Name_pattern(), ecorePackage.getEString(), "name_pattern", "", 1, 1, LeftPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getLeftPattern_ElementIncluded(), this.getElementIncluded(), this.getElementIncluded_Left(), "elementIncluded", null, 1, 1, LeftPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-				operationEClass,
-				Operation.class,
-				"Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(
-				getOperation_Name_operation(),
-				ecorePackage.getEString(),
-				"name_operation", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getOperation_Body(),
-				ecorePackage.getEString(),
-				"body", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getOperation_Context(),
-				this.getElement(),
-				null,
-				"context", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getOperation_ReturnType(),
-				this.getReturn(),
-				null,
-				"returnType", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getOperation_RightPattern(),
-				this.getRightPattern(),
-				this.getRightPattern_Operation(),
-				"rightPattern", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getOperation_Module(),
-				this.getModule(),
-				this.getModule_Operations(),
-				"module", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOperation_Name_operation(), ecorePackage.getEString(), "name_operation", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getOperation_Body(), ecorePackage.getEString(), "body", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getOperation_Context(), this.getElement(), null, "context", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_ReturnType(), this.getReturn(), null, "returnType", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_RightPattern(), this.getRightPattern(), this.getRightPattern_Operation(), "rightPattern", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Module(), this.getModule(), this.getModule_Operations(), "module", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-				returnEClass,
-				Return.class,
-				"Return", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-				getReturn_Element(),
-				this.getElement(),
-				null,
-				"element", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getReturn_Datatype(),
-				this.getDatatype(),
-				"datatype", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEClass(returnEClass, Return.class, "Return", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getReturn_Element(), this.getElement(), null, "element", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReturn_Datatype(), this.getDatatype(), "datatype", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(typeAtributeEEnum, TypeAtribute.class, "TypeAtribute"); //$NON-NLS-1$
+		initEEnum(typeAtributeEEnum, TypeAtribute.class, "TypeAtribute");
 		addEEnumLiteral(typeAtributeEEnum, TypeAtribute.COPY);
 		addEEnumLiteral(typeAtributeEEnum, TypeAtribute.CONCATENATION);
 		addEEnumLiteral(typeAtributeEEnum, TypeAtribute.UNIQUE);
 		addEEnumLiteral(typeAtributeEEnum, TypeAtribute.VARIOUS);
 
-		initEEnum(typeElemEEnum, TypeElem.class, "TypeElem"); //$NON-NLS-1$
+		initEEnum(typeElemEEnum, TypeElem.class, "TypeElem");
 		addEEnumLiteral(typeElemEEnum, TypeElem.MY_ECLASSIFIER);
 		addEEnumLiteral(typeElemEEnum, TypeElem.MY_EATTRIBUTE);
 		addEEnumLiteral(typeElemEEnum, TypeElem.MY_EREFERENCE);
 
-		initEEnum(datatypeEEnum, Datatype.class, "Datatype"); //$NON-NLS-1$
+		initEEnum(datatypeEEnum, Datatype.class, "Datatype");
 		addEEnumLiteral(datatypeEEnum, Datatype.NULL);
 		addEEnumLiteral(datatypeEEnum, Datatype.BOOLEAN);
 		addEEnumLiteral(datatypeEEnum, Datatype.INTEGER);
@@ -1480,9 +1185,13 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	protected void createGmfAnnotations() {
-		String source = "gmf"; //$NON-NLS-1$		
-		addAnnotation(this, source, new String[] { "foo", "bar" //$NON-NLS-1$ //$NON-NLS-2$
-		});
+		String source = "gmf";		
+		addAnnotation
+		  (this, 
+		   source, 
+		   new String[] {
+			 "foo", "bar"
+		   });						
 	}
 
 	/**
@@ -1492,9 +1201,13 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	protected void createGmf_1Annotations() {
-		String source = "gmf.diagram"; //$NON-NLS-1$			
-		addAnnotation(moduleEClass, source, new String[] { "foo", "bar" //$NON-NLS-1$ //$NON-NLS-2$
-		});
+		String source = "gmf.diagram";			
+		addAnnotation
+		  (moduleEClass, 
+		   source, 
+		   new String[] {
+			 "foo", "bar"
+		   });					
 	}
 
 	/**
@@ -1504,36 +1217,52 @@ public class MM_HybridPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	protected void createGmf_2Annotations() {
-		String source = "gmf.node"; //$NON-NLS-1$				
-		addAnnotation(inMetaModelEClass, source, new String[] {
-				"label", "name_mm", //$NON-NLS-1$ //$NON-NLS-2$
-				"label.icon", "false", //$NON-NLS-1$ //$NON-NLS-2$
-				"border.color", "0,0,128", //$NON-NLS-1$ //$NON-NLS-2$
-				"color", "198,198,236" //$NON-NLS-1$ //$NON-NLS-2$
-		});
-		addAnnotation(outMetaModelEClass, source, new String[] {
-				"label", "name_mm", //$NON-NLS-1$ //$NON-NLS-2$
-				"label.icon", "false", //$NON-NLS-1$ //$NON-NLS-2$
-				"border.color", "210,0,0", //$NON-NLS-1$ //$NON-NLS-2$
-				"color", "255,147,147" //$NON-NLS-1$ //$NON-NLS-2$
-		});
-		addAnnotation(ruleEClass, source, new String[] { "label", "name_rule", //$NON-NLS-1$ //$NON-NLS-2$
-				"label.icon", "false", //$NON-NLS-1$ //$NON-NLS-2$
-				"border.color", "204,153,0", //$NON-NLS-1$ //$NON-NLS-2$
-				"color", "253,229,141" //$NON-NLS-1$ //$NON-NLS-2$
-		});
-		addAnnotation(sourceElementRuleEClass, source, new String[] {
-				"label", "name_element", //$NON-NLS-1$ //$NON-NLS-2$
-				"label.icon", "false", //$NON-NLS-1$ //$NON-NLS-2$
-				"border.color", "31,73,125", //$NON-NLS-1$ //$NON-NLS-2$
-				"color", "218,238,243" //$NON-NLS-1$ //$NON-NLS-2$
-		});
-		addAnnotation(targetElementRuleEClass, source, new String[] {
-				"label", "name_element", //$NON-NLS-1$ //$NON-NLS-2$
-				"label.icon", "false", //$NON-NLS-1$ //$NON-NLS-2$
-				"border.color", "51,153,102", //$NON-NLS-1$ //$NON-NLS-2$
-				"color", "204,255,204" //$NON-NLS-1$ //$NON-NLS-2$
-		});
+		String source = "gmf.node";				
+		addAnnotation
+		  (inMetaModelEClass, 
+		   source, 
+		   new String[] {
+			 "label", "name_mm",
+			 "label.icon", "false",
+			 "border.color", "0,0,128",
+			 "color", "198,198,236"
+		   });		
+		addAnnotation
+		  (outMetaModelEClass, 
+		   source, 
+		   new String[] {
+			 "label", "name_mm",
+			 "label.icon", "false",
+			 "border.color", "210,0,0",
+			 "color", "255,147,147"
+		   });		
+		addAnnotation
+		  (ruleEClass, 
+		   source, 
+		   new String[] {
+			 "label", "name_rule",
+			 "label.icon", "false",
+			 "border.color", "204,153,0",
+			 "color", "253,229,141"
+		   });		
+		addAnnotation
+		  (sourceElementRuleEClass, 
+		   source, 
+		   new String[] {
+			 "label", "name_element",
+			 "label.icon", "false",
+			 "border.color", "31,73,125",
+			 "color", "218,238,243"
+		   });		
+		addAnnotation
+		  (targetElementRuleEClass, 
+		   source, 
+		   new String[] {
+			 "label", "name_element",
+			 "label.icon", "false",
+			 "border.color", "51,153,102",
+			 "color", "204,255,204"
+		   });
 	}
 
 } //MM_HybridPackageImpl

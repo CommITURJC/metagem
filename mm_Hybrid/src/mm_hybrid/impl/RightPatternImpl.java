@@ -160,10 +160,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 */
 	public EList<SourceElementRule> getSourceElement() {
 		if (sourceElement == null) {
-			sourceElement = new EObjectContainmentWithInverseEList<SourceElementRule>(
-					SourceElementRule.class, this,
-					MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT,
-					MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN);
+			sourceElement = new EObjectContainmentWithInverseEList<SourceElementRule>(SourceElementRule.class, this, MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT, MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN);
 		}
 		return sourceElement;
 	}
@@ -175,9 +172,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 */
 	public EList<Rule> getRule() {
 		if (rule == null) {
-			rule = new EObjectWithInverseResolvingEList.ManyInverse<Rule>(
-					Rule.class, this, MM_HybridPackage.RIGHT_PATTERN__RULE,
-					MM_HybridPackage.RULE__RIGHT_PATTERN);
+			rule = new EObjectWithInverseResolvingEList.ManyInverse<Rule>(Rule.class, this, MM_HybridPackage.RIGHT_PATTERN__RULE, MM_HybridPackage.RULE__RIGHT_PATTERN);
 		}
 		return rule;
 	}
@@ -189,10 +184,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 */
 	public EList<Operation> getOperation() {
 		if (operation == null) {
-			operation = new EObjectWithInverseResolvingEList.ManyInverse<Operation>(
-					Operation.class, this,
-					MM_HybridPackage.RIGHT_PATTERN__OPERATION,
-					MM_HybridPackage.OPERATION__RIGHT_PATTERN);
+			operation = new EObjectWithInverseResolvingEList.ManyInverse<Operation>(Operation.class, this, MM_HybridPackage.RIGHT_PATTERN__OPERATION, MM_HybridPackage.OPERATION__RIGHT_PATTERN);
 		}
 		return operation;
 	}
@@ -215,9 +207,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		String oldName_pattern = name_pattern;
 		name_pattern = newName_pattern;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN,
-					oldName_pattern, name_pattern));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN, oldName_pattern, name_pattern));
 	}
 
 	/**
@@ -227,13 +217,11 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 */
 	public Element getReference() {
 		if (reference != null && reference.eIsProxy()) {
-			InternalEObject oldReference = (InternalEObject) reference;
-			reference = (Element) eResolveProxy(oldReference);
+			InternalEObject oldReference = (InternalEObject)reference;
+			reference = (Element)eResolveProxy(oldReference);
 			if (reference != oldReference) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							MM_HybridPackage.RIGHT_PATTERN__REFERENCE,
-							oldReference, reference));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MM_HybridPackage.RIGHT_PATTERN__REFERENCE, oldReference, reference));
 			}
 		}
 		return reference;
@@ -258,14 +246,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		Element oldReference = reference;
 		reference = newReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this,
-					Notification.SET,
-					MM_HybridPackage.RIGHT_PATTERN__REFERENCE, oldReference,
-					newReference);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RIGHT_PATTERN__REFERENCE, oldReference, newReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -279,20 +261,14 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		if (newReference != reference) {
 			NotificationChain msgs = null;
 			if (reference != null)
-				msgs = ((InternalEObject) reference).eInverseRemove(this,
-						MM_HybridPackage.ELEMENT__IS_REFERED, Element.class,
-						msgs);
+				msgs = ((InternalEObject)reference).eInverseRemove(this, MM_HybridPackage.ELEMENT__IS_REFERED, Element.class, msgs);
 			if (newReference != null)
-				msgs = ((InternalEObject) newReference).eInverseAdd(this,
-						MM_HybridPackage.ELEMENT__IS_REFERED, Element.class,
-						msgs);
+				msgs = ((InternalEObject)newReference).eInverseAdd(this, MM_HybridPackage.ELEMENT__IS_REFERED, Element.class, msgs);
 			msgs = basicSetReference(newReference, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RIGHT_PATTERN__REFERENCE, newReference,
-					newReference));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RIGHT_PATTERN__REFERENCE, newReference, newReference));
 	}
 
 	/**
@@ -313,9 +289,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 		String oldConcreteValue = concreteValue;
 		concreteValue = newConcreteValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE,
-					oldConcreteValue, concreteValue));
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE, oldConcreteValue, concreteValue));
 	}
 
 	/**
@@ -324,9 +298,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * @generated
 	 */
 	public ElementIncluded getElementIncluded() {
-		if (eContainerFeatureID != MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED)
-			return null;
-		return (ElementIncluded) eContainer();
+		if (eContainerFeatureID() != MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED) return null;
+		return (ElementIncluded)eContainer();
 	}
 
 	/**
@@ -336,8 +309,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 */
 	public NotificationChain basicSetElementIncluded(
 			ElementIncluded newElementIncluded, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newElementIncluded,
-				MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newElementIncluded, MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED, msgs);
 		return msgs;
 	}
 
@@ -347,25 +319,19 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * @generated
 	 */
 	public void setElementIncluded(ElementIncluded newElementIncluded) {
-		if (newElementIncluded != eInternalContainer()
-				|| (eContainerFeatureID != MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED && newElementIncluded != null)) {
+		if (newElementIncluded != eInternalContainer() || (eContainerFeatureID() != MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED && newElementIncluded != null)) {
 			if (EcoreUtil.isAncestor(this, newElementIncluded))
-				throw new IllegalArgumentException(
-						"Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newElementIncluded != null)
-				msgs = ((InternalEObject) newElementIncluded).eInverseAdd(this,
-						MM_HybridPackage.ELEMENT_INCLUDED__RIGHT,
-						ElementIncluded.class, msgs);
+				msgs = ((InternalEObject)newElementIncluded).eInverseAdd(this, MM_HybridPackage.ELEMENT_INCLUDED__RIGHT, ElementIncluded.class, msgs);
 			msgs = basicSetElementIncluded(newElementIncluded, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED,
-					newElementIncluded, newElementIncluded));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED, newElementIncluded, newElementIncluded));
 	}
 
 	/**
@@ -378,25 +344,20 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getSourceElement())
-					.basicAdd(otherEnd, msgs);
-		case MM_HybridPackage.RIGHT_PATTERN__RULE:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getRule())
-					.basicAdd(otherEnd, msgs);
-		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOperation())
-					.basicAdd(otherEnd, msgs);
-		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
-			if (reference != null)
-				msgs = ((InternalEObject) reference).eInverseRemove(this,
-						MM_HybridPackage.ELEMENT__IS_REFERED, Element.class,
-						msgs);
-			return basicSetReference((Element) otherEnd, msgs);
-		case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetElementIncluded((ElementIncluded) otherEnd, msgs);
+			case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSourceElement()).basicAdd(otherEnd, msgs);
+			case MM_HybridPackage.RIGHT_PATTERN__RULE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRule()).basicAdd(otherEnd, msgs);
+			case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOperation()).basicAdd(otherEnd, msgs);
+			case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
+				if (reference != null)
+					msgs = ((InternalEObject)reference).eInverseRemove(this, MM_HybridPackage.ELEMENT__IS_REFERED, Element.class, msgs);
+				return basicSetReference((Element)otherEnd, msgs);
+			case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetElementIncluded((ElementIncluded)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -410,18 +371,16 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
-			return ((InternalEList<?>) getSourceElement()).basicRemove(
-					otherEnd, msgs);
-		case MM_HybridPackage.RIGHT_PATTERN__RULE:
-			return ((InternalEList<?>) getRule()).basicRemove(otherEnd, msgs);
-		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
-			return ((InternalEList<?>) getOperation()).basicRemove(otherEnd,
-					msgs);
-		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
-			return basicSetReference(null, msgs);
-		case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
-			return basicSetElementIncluded(null, msgs);
+			case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
+				return ((InternalEList<?>)getSourceElement()).basicRemove(otherEnd, msgs);
+			case MM_HybridPackage.RIGHT_PATTERN__RULE:
+				return ((InternalEList<?>)getRule()).basicRemove(otherEnd, msgs);
+			case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
+				return ((InternalEList<?>)getOperation()).basicRemove(otherEnd, msgs);
+			case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
+				return basicSetReference(null, msgs);
+			case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
+				return basicSetElementIncluded(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -434,11 +393,9 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(
 			NotificationChain msgs) {
-		switch (eContainerFeatureID) {
-		case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
-			return eInternalContainer().eInverseRemove(this,
-					MM_HybridPackage.ELEMENT_INCLUDED__RIGHT,
-					ElementIncluded.class, msgs);
+		switch (eContainerFeatureID()) {
+			case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
+				return eInternalContainer().eInverseRemove(this, MM_HybridPackage.ELEMENT_INCLUDED__RIGHT, ElementIncluded.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -451,22 +408,21 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
-			return getSourceElement();
-		case MM_HybridPackage.RIGHT_PATTERN__RULE:
-			return getRule();
-		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
-			return getOperation();
-		case MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN:
-			return getName_pattern();
-		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
-			if (resolve)
-				return getReference();
-			return basicGetReference();
-		case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
-			return getConcreteValue();
-		case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
-			return getElementIncluded();
+			case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
+				return getSourceElement();
+			case MM_HybridPackage.RIGHT_PATTERN__RULE:
+				return getRule();
+			case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
+				return getOperation();
+			case MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN:
+				return getName_pattern();
+			case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
+				if (resolve) return getReference();
+				return basicGetReference();
+			case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
+				return getConcreteValue();
+			case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
+				return getElementIncluded();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -480,31 +436,30 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
-			getSourceElement().clear();
-			getSourceElement().addAll(
-					(Collection<? extends SourceElementRule>) newValue);
-			return;
-		case MM_HybridPackage.RIGHT_PATTERN__RULE:
-			getRule().clear();
-			getRule().addAll((Collection<? extends Rule>) newValue);
-			return;
-		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
-			getOperation().clear();
-			getOperation().addAll((Collection<? extends Operation>) newValue);
-			return;
-		case MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN:
-			setName_pattern((String) newValue);
-			return;
-		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
-			setReference((Element) newValue);
-			return;
-		case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
-			setConcreteValue((String) newValue);
-			return;
-		case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
-			setElementIncluded((ElementIncluded) newValue);
-			return;
+			case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
+				getSourceElement().clear();
+				getSourceElement().addAll((Collection<? extends SourceElementRule>)newValue);
+				return;
+			case MM_HybridPackage.RIGHT_PATTERN__RULE:
+				getRule().clear();
+				getRule().addAll((Collection<? extends Rule>)newValue);
+				return;
+			case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
+				getOperation().clear();
+				getOperation().addAll((Collection<? extends Operation>)newValue);
+				return;
+			case MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN:
+				setName_pattern((String)newValue);
+				return;
+			case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
+				setReference((Element)newValue);
+				return;
+			case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
+				setConcreteValue((String)newValue);
+				return;
+			case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
+				setElementIncluded((ElementIncluded)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -517,27 +472,27 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
-			getSourceElement().clear();
-			return;
-		case MM_HybridPackage.RIGHT_PATTERN__RULE:
-			getRule().clear();
-			return;
-		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
-			getOperation().clear();
-			return;
-		case MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN:
-			setName_pattern(NAME_PATTERN_EDEFAULT);
-			return;
-		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
-			setReference((Element) null);
-			return;
-		case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
-			setConcreteValue(CONCRETE_VALUE_EDEFAULT);
-			return;
-		case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
-			setElementIncluded((ElementIncluded) null);
-			return;
+			case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
+				getSourceElement().clear();
+				return;
+			case MM_HybridPackage.RIGHT_PATTERN__RULE:
+				getRule().clear();
+				return;
+			case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
+				getOperation().clear();
+				return;
+			case MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN:
+				setName_pattern(NAME_PATTERN_EDEFAULT);
+				return;
+			case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
+				setReference((Element)null);
+				return;
+			case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
+				setConcreteValue(CONCRETE_VALUE_EDEFAULT);
+				return;
+			case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
+				setElementIncluded((ElementIncluded)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -550,22 +505,20 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
-			return sourceElement != null && !sourceElement.isEmpty();
-		case MM_HybridPackage.RIGHT_PATTERN__RULE:
-			return rule != null && !rule.isEmpty();
-		case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
-			return operation != null && !operation.isEmpty();
-		case MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN:
-			return NAME_PATTERN_EDEFAULT == null ? name_pattern != null
-					: !NAME_PATTERN_EDEFAULT.equals(name_pattern);
-		case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
-			return reference != null;
-		case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
-			return CONCRETE_VALUE_EDEFAULT == null ? concreteValue != null
-					: !CONCRETE_VALUE_EDEFAULT.equals(concreteValue);
-		case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
-			return getElementIncluded() != null;
+			case MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT:
+				return sourceElement != null && !sourceElement.isEmpty();
+			case MM_HybridPackage.RIGHT_PATTERN__RULE:
+				return rule != null && !rule.isEmpty();
+			case MM_HybridPackage.RIGHT_PATTERN__OPERATION:
+				return operation != null && !operation.isEmpty();
+			case MM_HybridPackage.RIGHT_PATTERN__NAME_PATTERN:
+				return NAME_PATTERN_EDEFAULT == null ? name_pattern != null : !NAME_PATTERN_EDEFAULT.equals(name_pattern);
+			case MM_HybridPackage.RIGHT_PATTERN__REFERENCE:
+				return reference != null;
+			case MM_HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
+				return CONCRETE_VALUE_EDEFAULT == null ? concreteValue != null : !CONCRETE_VALUE_EDEFAULT.equals(concreteValue);
+			case MM_HybridPackage.RIGHT_PATTERN__ELEMENT_INCLUDED:
+				return getElementIncluded() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -577,13 +530,12 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name_pattern: "); //$NON-NLS-1$
+		result.append(" (name_pattern: ");
 		result.append(name_pattern);
-		result.append(", concreteValue: "); //$NON-NLS-1$
+		result.append(", concreteValue: ");
 		result.append(concreteValue);
 		result.append(')');
 		return result.toString();

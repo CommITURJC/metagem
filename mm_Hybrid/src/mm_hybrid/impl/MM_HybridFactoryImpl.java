@@ -33,12 +33,12 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 	 */
 	public static MM_HybridFactory init() {
 		try {
-			MM_HybridFactory theMM_HybridFactory = (MM_HybridFactory) EPackage.Registry.INSTANCE
-					.getEFactory("http:///MM_Hybrid.ecore"); //$NON-NLS-1$ 
+			MM_HybridFactory theMM_HybridFactory = (MM_HybridFactory)EPackage.Registry.INSTANCE.getEFactory("http:///MM_Hybrid.ecore"); 
 			if (theMM_HybridFactory != null) {
 				return theMM_HybridFactory;
 			}
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new MM_HybridFactoryImpl();
@@ -62,33 +62,20 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case MM_HybridPackage.MODULE:
-			return createModule();
-		case MM_HybridPackage.IN_META_MODEL:
-			return createInMetaModel();
-		case MM_HybridPackage.OUT_META_MODEL:
-			return createOutMetaModel();
-		case MM_HybridPackage.RULE:
-			return createRule();
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE:
-			return createSourceElementRule();
-		case MM_HybridPackage.TARGET_ELEMENT_RULE:
-			return createTargetElementRule();
-		case MM_HybridPackage.ELEMENT_INCLUDED:
-			return createElementIncluded();
-		case MM_HybridPackage.GUARD:
-			return createGuard();
-		case MM_HybridPackage.RIGHT_PATTERN:
-			return createRightPattern();
-		case MM_HybridPackage.LEFT_PATTERN:
-			return createLeftPattern();
-		case MM_HybridPackage.OPERATION:
-			return createOperation();
-		case MM_HybridPackage.RETURN:
-			return createReturn();
-		default:
-			throw new IllegalArgumentException(
-					"The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+			case MM_HybridPackage.MODULE: return createModule();
+			case MM_HybridPackage.IN_META_MODEL: return createInMetaModel();
+			case MM_HybridPackage.OUT_META_MODEL: return createOutMetaModel();
+			case MM_HybridPackage.RULE: return createRule();
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE: return createSourceElementRule();
+			case MM_HybridPackage.TARGET_ELEMENT_RULE: return createTargetElementRule();
+			case MM_HybridPackage.ELEMENT_INCLUDED: return createElementIncluded();
+			case MM_HybridPackage.GUARD: return createGuard();
+			case MM_HybridPackage.RIGHT_PATTERN: return createRightPattern();
+			case MM_HybridPackage.LEFT_PATTERN: return createLeftPattern();
+			case MM_HybridPackage.OPERATION: return createOperation();
+			case MM_HybridPackage.RETURN: return createReturn();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -100,15 +87,14 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-		case MM_HybridPackage.TYPE_ATRIBUTE:
-			return createTypeAtributeFromString(eDataType, initialValue);
-		case MM_HybridPackage.TYPE_ELEM:
-			return createTypeElemFromString(eDataType, initialValue);
-		case MM_HybridPackage.DATATYPE:
-			return createDatatypeFromString(eDataType, initialValue);
-		default:
-			throw new IllegalArgumentException(
-					"The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+			case MM_HybridPackage.TYPE_ATRIBUTE:
+				return createTypeAtributeFromString(eDataType, initialValue);
+			case MM_HybridPackage.TYPE_ELEM:
+				return createTypeElemFromString(eDataType, initialValue);
+			case MM_HybridPackage.DATATYPE:
+				return createDatatypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -120,15 +106,14 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-		case MM_HybridPackage.TYPE_ATRIBUTE:
-			return convertTypeAtributeToString(eDataType, instanceValue);
-		case MM_HybridPackage.TYPE_ELEM:
-			return convertTypeElemToString(eDataType, instanceValue);
-		case MM_HybridPackage.DATATYPE:
-			return convertDatatypeToString(eDataType, instanceValue);
-		default:
-			throw new IllegalArgumentException(
-					"The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+			case MM_HybridPackage.TYPE_ATRIBUTE:
+				return convertTypeAtributeToString(eDataType, instanceValue);
+			case MM_HybridPackage.TYPE_ELEM:
+				return convertTypeElemToString(eDataType, instanceValue);
+			case MM_HybridPackage.DATATYPE:
+				return convertDatatypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -260,9 +245,7 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 	public TypeAtribute createTypeAtributeFromString(EDataType eDataType,
 			String initialValue) {
 		TypeAtribute result = TypeAtribute.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException(
-					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -284,9 +267,7 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 	public TypeElem createTypeElemFromString(EDataType eDataType,
 			String initialValue) {
 		TypeElem result = TypeElem.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException(
-					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -308,9 +289,7 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 	public Datatype createDatatypeFromString(EDataType eDataType,
 			String initialValue) {
 		Datatype result = Datatype.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException(
-					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -330,7 +309,7 @@ public class MM_HybridFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public MM_HybridPackage getMM_HybridPackage() {
-		return (MM_HybridPackage) getEPackage();
+		return (MM_HybridPackage)getEPackage();
 	}
 
 	/**

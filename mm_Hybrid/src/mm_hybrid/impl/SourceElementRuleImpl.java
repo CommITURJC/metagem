@@ -93,9 +93,7 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	 */
 	public EList<Guard> getGuard() {
 		if (guard == null) {
-			guard = new EObjectContainmentWithInverseEList<Guard>(Guard.class,
-					this, MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD,
-					MM_HybridPackage.GUARD__SOURCE_ELEMENT);
+			guard = new EObjectContainmentWithInverseEList<Guard>(Guard.class, this, MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD, MM_HybridPackage.GUARD__SOURCE_ELEMENT);
 		}
 		return guard;
 	}
@@ -107,13 +105,11 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	 */
 	public InMetaModel getMetamodel() {
 		if (metamodel != null && metamodel.eIsProxy()) {
-			InternalEObject oldMetamodel = (InternalEObject) metamodel;
-			metamodel = (InMetaModel) eResolveProxy(oldMetamodel);
+			InternalEObject oldMetamodel = (InternalEObject)metamodel;
+			metamodel = (InMetaModel)eResolveProxy(oldMetamodel);
 			if (metamodel != oldMetamodel) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL,
-							oldMetamodel, metamodel));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL, oldMetamodel, metamodel));
 			}
 		}
 		return metamodel;
@@ -138,14 +134,8 @@ public class SourceElementRuleImpl extends ElementImpl implements
 		InMetaModel oldMetamodel = metamodel;
 		metamodel = newMetamodel;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this,
-					Notification.SET,
-					MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL,
-					oldMetamodel, newMetamodel);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL, oldMetamodel, newMetamodel);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -159,20 +149,14 @@ public class SourceElementRuleImpl extends ElementImpl implements
 		if (newMetamodel != metamodel) {
 			NotificationChain msgs = null;
 			if (metamodel != null)
-				msgs = ((InternalEObject) metamodel).eInverseRemove(this,
-						MM_HybridPackage.IN_META_MODEL__ELEMENTS,
-						InMetaModel.class, msgs);
+				msgs = ((InternalEObject)metamodel).eInverseRemove(this, MM_HybridPackage.IN_META_MODEL__ELEMENTS, InMetaModel.class, msgs);
 			if (newMetamodel != null)
-				msgs = ((InternalEObject) newMetamodel).eInverseAdd(this,
-						MM_HybridPackage.IN_META_MODEL__ELEMENTS,
-						InMetaModel.class, msgs);
+				msgs = ((InternalEObject)newMetamodel).eInverseAdd(this, MM_HybridPackage.IN_META_MODEL__ELEMENTS, InMetaModel.class, msgs);
 			msgs = basicSetMetamodel(newMetamodel, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL,
-					newMetamodel, newMetamodel));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL, newMetamodel, newMetamodel));
 	}
 
 	/**
@@ -181,9 +165,8 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	 * @generated
 	 */
 	public RightPattern getRightPattern() {
-		if (eContainerFeatureID != MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN)
-			return null;
-		return (RightPattern) eContainer();
+		if (eContainerFeatureID() != MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN) return null;
+		return (RightPattern)eContainer();
 	}
 
 	/**
@@ -193,8 +176,7 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	 */
 	public NotificationChain basicSetRightPattern(RightPattern newRightPattern,
 			NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newRightPattern,
-				MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newRightPattern, MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN, msgs);
 		return msgs;
 	}
 
@@ -204,25 +186,19 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	 * @generated
 	 */
 	public void setRightPattern(RightPattern newRightPattern) {
-		if (newRightPattern != eInternalContainer()
-				|| (eContainerFeatureID != MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN && newRightPattern != null)) {
+		if (newRightPattern != eInternalContainer() || (eContainerFeatureID() != MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN && newRightPattern != null)) {
 			if (EcoreUtil.isAncestor(this, newRightPattern))
-				throw new IllegalArgumentException(
-						"Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRightPattern != null)
-				msgs = ((InternalEObject) newRightPattern).eInverseAdd(this,
-						MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT,
-						RightPattern.class, msgs);
+				msgs = ((InternalEObject)newRightPattern).eInverseAdd(this, MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT, RightPattern.class, msgs);
 			msgs = basicSetRightPattern(newRightPattern, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN,
-					newRightPattern, newRightPattern));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN, newRightPattern, newRightPattern));
 	}
 
 	/**
@@ -231,9 +207,8 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	 * @generated
 	 */
 	public Rule getRule() {
-		if (eContainerFeatureID != MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE)
-			return null;
-		return (Rule) eContainer();
+		if (eContainerFeatureID() != MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE) return null;
+		return (Rule)eContainer();
 	}
 
 	/**
@@ -242,8 +217,7 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	 * @generated
 	 */
 	public NotificationChain basicSetRule(Rule newRule, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newRule,
-				MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newRule, MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE, msgs);
 		return msgs;
 	}
 
@@ -253,24 +227,19 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	 * @generated
 	 */
 	public void setRule(Rule newRule) {
-		if (newRule != eInternalContainer()
-				|| (eContainerFeatureID != MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE && newRule != null)) {
+		if (newRule != eInternalContainer() || (eContainerFeatureID() != MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE && newRule != null)) {
 			if (EcoreUtil.isAncestor(this, newRule))
-				throw new IllegalArgumentException(
-						"Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRule != null)
-				msgs = ((InternalEObject) newRule).eInverseAdd(this,
-						MM_HybridPackage.RULE__IN, Rule.class, msgs);
+				msgs = ((InternalEObject)newRule).eInverseAdd(this, MM_HybridPackage.RULE__IN, Rule.class, msgs);
 			msgs = basicSetRule(newRule, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE, newRule,
-					newRule));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE, newRule, newRule));
 	}
 
 	/**
@@ -283,23 +252,20 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getGuard())
-					.basicAdd(otherEnd, msgs);
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
-			if (metamodel != null)
-				msgs = ((InternalEObject) metamodel).eInverseRemove(this,
-						MM_HybridPackage.IN_META_MODEL__ELEMENTS,
-						InMetaModel.class, msgs);
-			return basicSetMetamodel((InMetaModel) otherEnd, msgs);
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetRightPattern((RightPattern) otherEnd, msgs);
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetRule((Rule) otherEnd, msgs);
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGuard()).basicAdd(otherEnd, msgs);
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
+				if (metamodel != null)
+					msgs = ((InternalEObject)metamodel).eInverseRemove(this, MM_HybridPackage.IN_META_MODEL__ELEMENTS, InMetaModel.class, msgs);
+				return basicSetMetamodel((InMetaModel)otherEnd, msgs);
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetRightPattern((RightPattern)otherEnd, msgs);
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetRule((Rule)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -313,14 +279,14 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD:
-			return ((InternalEList<?>) getGuard()).basicRemove(otherEnd, msgs);
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
-			return basicSetMetamodel(null, msgs);
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
-			return basicSetRightPattern(null, msgs);
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE:
-			return basicSetRule(null, msgs);
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD:
+				return ((InternalEList<?>)getGuard()).basicRemove(otherEnd, msgs);
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
+				return basicSetMetamodel(null, msgs);
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
+				return basicSetRightPattern(null, msgs);
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE:
+				return basicSetRule(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -333,14 +299,11 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(
 			NotificationChain msgs) {
-		switch (eContainerFeatureID) {
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
-			return eInternalContainer().eInverseRemove(this,
-					MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT,
-					RightPattern.class, msgs);
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE:
-			return eInternalContainer().eInverseRemove(this,
-					MM_HybridPackage.RULE__IN, Rule.class, msgs);
+		switch (eContainerFeatureID()) {
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
+				return eInternalContainer().eInverseRemove(this, MM_HybridPackage.RIGHT_PATTERN__SOURCE_ELEMENT, RightPattern.class, msgs);
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE:
+				return eInternalContainer().eInverseRemove(this, MM_HybridPackage.RULE__IN, Rule.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -353,16 +316,15 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD:
-			return getGuard();
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
-			if (resolve)
-				return getMetamodel();
-			return basicGetMetamodel();
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
-			return getRightPattern();
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE:
-			return getRule();
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD:
+				return getGuard();
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
+				if (resolve) return getMetamodel();
+				return basicGetMetamodel();
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
+				return getRightPattern();
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE:
+				return getRule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -376,19 +338,19 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD:
-			getGuard().clear();
-			getGuard().addAll((Collection<? extends Guard>) newValue);
-			return;
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
-			setMetamodel((InMetaModel) newValue);
-			return;
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
-			setRightPattern((RightPattern) newValue);
-			return;
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE:
-			setRule((Rule) newValue);
-			return;
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD:
+				getGuard().clear();
+				getGuard().addAll((Collection<? extends Guard>)newValue);
+				return;
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
+				setMetamodel((InMetaModel)newValue);
+				return;
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
+				setRightPattern((RightPattern)newValue);
+				return;
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE:
+				setRule((Rule)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -401,18 +363,18 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD:
-			getGuard().clear();
-			return;
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
-			setMetamodel((InMetaModel) null);
-			return;
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
-			setRightPattern((RightPattern) null);
-			return;
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE:
-			setRule((Rule) null);
-			return;
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD:
+				getGuard().clear();
+				return;
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
+				setMetamodel((InMetaModel)null);
+				return;
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
+				setRightPattern((RightPattern)null);
+				return;
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE:
+				setRule((Rule)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -425,14 +387,14 @@ public class SourceElementRuleImpl extends ElementImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD:
-			return guard != null && !guard.isEmpty();
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
-			return metamodel != null;
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
-			return getRightPattern() != null;
-		case MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE:
-			return getRule() != null;
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__GUARD:
+				return guard != null && !guard.isEmpty();
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__METAMODEL:
+				return metamodel != null;
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__RIGHT_PATTERN:
+				return getRightPattern() != null;
+			case MM_HybridPackage.SOURCE_ELEMENT_RULE__RULE:
+				return getRule() != null;
 		}
 		return super.eIsSet(featureID);
 	}

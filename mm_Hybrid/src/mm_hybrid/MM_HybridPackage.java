@@ -1876,8 +1876,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference IN_META_MODEL__ELEMENTS = eINSTANCE
-				.getInMetaModel_Elements();
+		EReference IN_META_MODEL__ELEMENTS = eINSTANCE.getInMetaModel_Elements();
 
 		/**
 		 * The meta object literal for the '<em><b>Module</b></em>' container reference feature.
@@ -1903,8 +1902,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OUT_META_MODEL__NAME_MM = eINSTANCE
-				.getOutMetaModel_Name_mm();
+		EAttribute OUT_META_MODEL__NAME_MM = eINSTANCE.getOutMetaModel_Name_mm();
 
 		/**
 		 * The meta object literal for the '<em><b>Type mm</b></em>' attribute feature.
@@ -1912,8 +1910,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OUT_META_MODEL__TYPE_MM = eINSTANCE
-				.getOutMetaModel_Type_mm();
+		EAttribute OUT_META_MODEL__TYPE_MM = eINSTANCE.getOutMetaModel_Type_mm();
 
 		/**
 		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
@@ -1921,8 +1918,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OUT_META_MODEL__ELEMENTS = eINSTANCE
-				.getOutMetaModel_Elements();
+		EReference OUT_META_MODEL__ELEMENTS = eINSTANCE.getOutMetaModel_Elements();
 
 		/**
 		 * The meta object literal for the '<em><b>Module</b></em>' container reference feature.
@@ -2088,8 +2084,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SOURCE_ELEMENT_RULE__GUARD = eINSTANCE
-				.getSourceElementRule_Guard();
+		EReference SOURCE_ELEMENT_RULE__GUARD = eINSTANCE.getSourceElementRule_Guard();
 
 		/**
 		 * The meta object literal for the '<em><b>Metamodel</b></em>' reference feature.
@@ -2097,8 +2092,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SOURCE_ELEMENT_RULE__METAMODEL = eINSTANCE
-				.getSourceElementRule_Metamodel();
+		EReference SOURCE_ELEMENT_RULE__METAMODEL = eINSTANCE.getSourceElementRule_Metamodel();
 
 		/**
 		 * The meta object literal for the '<em><b>Right Pattern</b></em>' container reference feature.
@@ -2106,8 +2100,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SOURCE_ELEMENT_RULE__RIGHT_PATTERN = eINSTANCE
-				.getSourceElementRule_RightPattern();
+		EReference SOURCE_ELEMENT_RULE__RIGHT_PATTERN = eINSTANCE.getSourceElementRule_RightPattern();
 
 		/**
 		 * The meta object literal for the '<em><b>Rule</b></em>' container reference feature.
@@ -2115,8 +2108,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SOURCE_ELEMENT_RULE__RULE = eINSTANCE
-				.getSourceElementRule_Rule();
+		EReference SOURCE_ELEMENT_RULE__RULE = eINSTANCE.getSourceElementRule_Rule();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.TargetElementRuleImpl <em>Target Element Rule</em>}' class.
@@ -2134,8 +2126,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TARGET_ELEMENT_RULE__INCLUDED = eINSTANCE
-				.getTargetElementRule_Included();
+		EReference TARGET_ELEMENT_RULE__INCLUDED = eINSTANCE.getTargetElementRule_Included();
 
 		/**
 		 * The meta object literal for the '<em><b>Metamodel</b></em>' reference feature.
@@ -2143,8 +2134,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TARGET_ELEMENT_RULE__METAMODEL = eINSTANCE
-				.getTargetElementRule_Metamodel();
+		EReference TARGET_ELEMENT_RULE__METAMODEL = eINSTANCE.getTargetElementRule_Metamodel();
 
 		/**
 		 * The meta object literal for the '<em><b>Left Pattern</b></em>' container reference feature.
@@ -2152,8 +2142,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TARGET_ELEMENT_RULE__LEFT_PATTERN = eINSTANCE
-				.getTargetElementRule_LeftPattern();
+		EReference TARGET_ELEMENT_RULE__LEFT_PATTERN = eINSTANCE.getTargetElementRule_LeftPattern();
 
 		/**
 		 * The meta object literal for the '<em><b>Rule</b></em>' container reference feature.
@@ -2161,8 +2150,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TARGET_ELEMENT_RULE__RULE = eINSTANCE
-				.getTargetElementRule_Rule();
+		EReference TARGET_ELEMENT_RULE__RULE = eINSTANCE.getTargetElementRule_Rule();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.ElementIncludedImpl <em>Element Included</em>}' class.
@@ -2180,8 +2168,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ELEMENT_INCLUDED__TYPE_ATTRIBUTE = eINSTANCE
-				.getElementIncluded_TypeAttribute();
+		EAttribute ELEMENT_INCLUDED__TYPE_ATTRIBUTE = eINSTANCE.getElementIncluded_TypeAttribute();
 
 		/**
 		 * The meta object literal for the '<em><b>Type Element</b></em>' attribute feature.
@@ -2189,8 +2176,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ELEMENT_INCLUDED__TYPE_ELEMENT = eINSTANCE
-				.getElementIncluded_TypeElement();
+		EAttribute ELEMENT_INCLUDED__TYPE_ELEMENT = eINSTANCE.getElementIncluded_TypeElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -2198,8 +2184,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_INCLUDED__RIGHT = eINSTANCE
-				.getElementIncluded_Right();
+		EReference ELEMENT_INCLUDED__RIGHT = eINSTANCE.getElementIncluded_Right();
 
 		/**
 		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -2215,8 +2200,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_INCLUDED__TARGET_ELEMENT = eINSTANCE
-				.getElementIncluded_TargetElement();
+		EReference ELEMENT_INCLUDED__TARGET_ELEMENT = eINSTANCE.getElementIncluded_TargetElement();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.GuardImpl <em>Guard</em>}' class.
@@ -2260,8 +2244,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RIGHT_PATTERN__SOURCE_ELEMENT = eINSTANCE
-				.getRightPattern_SourceElement();
+		EReference RIGHT_PATTERN__SOURCE_ELEMENT = eINSTANCE.getRightPattern_SourceElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Rule</b></em>' reference list feature.
@@ -2277,8 +2260,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RIGHT_PATTERN__OPERATION = eINSTANCE
-				.getRightPattern_Operation();
+		EReference RIGHT_PATTERN__OPERATION = eINSTANCE.getRightPattern_Operation();
 
 		/**
 		 * The meta object literal for the '<em><b>Name pattern</b></em>' attribute feature.
@@ -2286,8 +2268,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RIGHT_PATTERN__NAME_PATTERN = eINSTANCE
-				.getRightPattern_Name_pattern();
+		EAttribute RIGHT_PATTERN__NAME_PATTERN = eINSTANCE.getRightPattern_Name_pattern();
 
 		/**
 		 * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
@@ -2295,8 +2276,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RIGHT_PATTERN__REFERENCE = eINSTANCE
-				.getRightPattern_Reference();
+		EReference RIGHT_PATTERN__REFERENCE = eINSTANCE.getRightPattern_Reference();
 
 		/**
 		 * The meta object literal for the '<em><b>Concrete Value</b></em>' attribute feature.
@@ -2304,8 +2284,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RIGHT_PATTERN__CONCRETE_VALUE = eINSTANCE
-				.getRightPattern_ConcreteValue();
+		EAttribute RIGHT_PATTERN__CONCRETE_VALUE = eINSTANCE.getRightPattern_ConcreteValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Element Included</b></em>' container reference feature.
@@ -2313,8 +2292,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RIGHT_PATTERN__ELEMENT_INCLUDED = eINSTANCE
-				.getRightPattern_ElementIncluded();
+		EReference RIGHT_PATTERN__ELEMENT_INCLUDED = eINSTANCE.getRightPattern_ElementIncluded();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.LeftPatternImpl <em>Left Pattern</em>}' class.
@@ -2332,8 +2310,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LEFT_PATTERN__TARGET_ELEMENT = eINSTANCE
-				.getLeftPattern_TargetElement();
+		EReference LEFT_PATTERN__TARGET_ELEMENT = eINSTANCE.getLeftPattern_TargetElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Name pattern</b></em>' attribute feature.
@@ -2341,8 +2318,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LEFT_PATTERN__NAME_PATTERN = eINSTANCE
-				.getLeftPattern_Name_pattern();
+		EAttribute LEFT_PATTERN__NAME_PATTERN = eINSTANCE.getLeftPattern_Name_pattern();
 
 		/**
 		 * The meta object literal for the '<em><b>Element Included</b></em>' container reference feature.
@@ -2350,8 +2326,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LEFT_PATTERN__ELEMENT_INCLUDED = eINSTANCE
-				.getLeftPattern_ElementIncluded();
+		EReference LEFT_PATTERN__ELEMENT_INCLUDED = eINSTANCE.getLeftPattern_ElementIncluded();
 
 		/**
 		 * The meta object literal for the '{@link mm_hybrid.impl.OperationImpl <em>Operation</em>}' class.
@@ -2369,8 +2344,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OPERATION__NAME_OPERATION = eINSTANCE
-				.getOperation_Name_operation();
+		EAttribute OPERATION__NAME_OPERATION = eINSTANCE.getOperation_Name_operation();
 
 		/**
 		 * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
@@ -2402,8 +2376,7 @@ public interface MM_HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OPERATION__RIGHT_PATTERN = eINSTANCE
-				.getOperation_RightPattern();
+		EReference OPERATION__RIGHT_PATTERN = eINSTANCE.getOperation_RightPattern();
 
 		/**
 		 * The meta object literal for the '<em><b>Module</b></em>' container reference feature.
