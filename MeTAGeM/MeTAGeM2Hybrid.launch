@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.m2m.atl.adt.launching.atlTransformation">
 <stringAttribute key="ATL File Name" value="/MeTAGeM/ATL/MeTAGeM2Hybrid.atl"/>
-<stringAttribute key="ATL VM" value="Regular VM (with debugger)"/>
+<stringAttribute key="ATL VM" value="Regular VM"/>
+<stringAttribute key="ATL_COMPILER" value="atl2006"/>
 <booleanAttribute key="AllowInterModelReferences" value="false"/>
+<booleanAttribute key="IS_REFINING" value="false"/>
 <mapAttribute key="Input">
 <mapEntry key="IN" value="AMW"/>
 <mapEntry key="left" value="MOF"/>
@@ -11,29 +13,49 @@
 <mapAttribute key="Libs"/>
 <booleanAttribute key="Mode Debug" value="false"/>
 <mapAttribute key="Model Handler">
-<mapEntry key="MM_Hybrid" value="EMF"/>
 <mapEntry key="AMW" value="EMF"/>
+<mapEntry key="MM_Hybrid" value="EMF"/>
 <mapEntry key="MOF" value="EMF"/>
 </mapAttribute>
 <mapAttribute key="ModelType">
-<mapEntry key="MM_Hybrid" value="METAMODELOUTPUT"/>
 <mapEntry key="AMW" value="METAMODELINPUT"/>
 <mapEntry key="IN" value="MODELINPUT"/>
+<mapEntry key="MM_Hybrid" value="METAMODELOUTPUT"/>
+<mapEntry key="MOF" value="METAMODELINPUT"/>
 <mapEntry key="OUT" value="MODELOUTPUT"/>
 <mapEntry key="left" value="MODELINPUT"/>
-<mapEntry key="MOF" value="METAMODELINPUT"/>
 <mapEntry key="right" value="MODELINPUT"/>
 </mapAttribute>
+<mapAttribute key="Options">
+<mapEntry key="OPTION_CLEAR" value="false"/>
+<mapEntry key="OPTION_CONTENT_TYPE" value="false"/>
+<mapEntry key="OPTION_DERIVED" value="true"/>
+<mapEntry key="allowInterModelReferences" value="false"/>
+<mapEntry key="continueAfterError" value="false"/>
+<mapEntry key="disableAttributeHelperCache" value="false"/>
+<mapEntry key="printExecutionTime" value="false"/>
+<mapEntry key="profile" value="false"/>
+<mapEntry key="showSummary" value="false"/>
+<mapEntry key="step" value="false"/>
+</mapAttribute>
+<listAttribute key="OrderedInput">
+<listEntry value="IN"/>
+<listEntry value="left"/>
+<listEntry value="right"/>
+</listAttribute>
+<listAttribute key="OrderedOutput">
+<listEntry value="OUT"/>
+</listAttribute>
 <mapAttribute key="Output">
 <mapEntry key="OUT" value="MM_Hybrid"/>
 </mapAttribute>
 <mapAttribute key="Path">
-<mapEntry key="MM_Hybrid" value="/MeTAGeM/Metamodels/MM_Hybrid.ecore"/>
-<mapEntry key="IN" value="/MeTAGeM/Models/SQL2ORDB_HybridTEST.amw"/>
 <mapEntry key="AMW" value="/MeTAGeM/Metamodels/mw_metagem.ecore"/>
+<mapEntry key="IN" value="/MeTAGeM/Models/SQL2ORDB_HybridTEST.amw"/>
+<mapEntry key="MM_Hybrid" value="/MeTAGeM/Metamodels/MM_Hybrid.ecore"/>
+<mapEntry key="MOF" value="#EMF"/>
 <mapEntry key="OUT" value="/MeTAGeM/Models/SQL2ORDB_Hybrid.mm_hybrid"/>
 <mapEntry key="left" value="/MeTAGeM/Metamodels/SQL2003.ecore"/>
-<mapEntry key="MOF" value="#EMF"/>
 <mapEntry key="right" value="/MeTAGeM/Metamodels/ORDB4ORA.ecore"/>
 </mapAttribute>
 <stringAttribute key="Project Name" value="MeTAGeM"/>
