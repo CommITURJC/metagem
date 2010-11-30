@@ -1,0 +1,202 @@
+-- @name 			Hybrid (MeTAGeM)
+-- @version		2.0
+-- @domains		meta-transformation, metamodel, model
+-- @authors		Verónica Bollati, Juan M. Vara, David Granada, Álvaro Jiménez  (Universidad Rey Juan Carlos)
+-- @date       		29-11-2010
+-- @description	Constraints applied to Hybrid metamodel to transform to ATL.
+
+context Module{
+   
+    -- Module name  cannot be empty and should start with a letter
+	-- following letters, numbers, dashes and underscores 
+	constraint validModuleName {
+		check : self.name_module.isValidName()
+		message : getMessageValidName(self.type().name.asString())
+		fix {
+     		title : getTitleValidName("Module", self.name_module)
+     		do {
+    			self.name := getInputValidName(self.type().name.asString(), self.name_module); 
+     		}
+    	}
+    }
+}
+
+context InMetaModel{
+	-- InMetaModel name cannot be empty and should start with a letter
+	-- following letters, numbers, dashes and underscores 
+	constraint validInMMName {
+		check : self.name_mm.isValidName()
+		message : getMessageValidName(self.type().name.asString())
+    }
+	
+}
+
+context OutMetaModel{
+
+	-- OutMetaModel name cannot be empty and should start with a letter
+	-- following letters, numbers, dashes and underscores 
+	constraint validOutMMName {
+		check : self.name_mm.isValidName()
+		message : getMessageValidName(self.type().name.asString())
+		fix {
+     		title : getTitleValidName("OutMetaModel", self.name_mm)
+     		do {
+    			self.name_mm := getInputValidName(self.type().name.asString(), self.name_mm); 
+     		}
+    	}
+    }
+}
+
+
+context Rule{		
+	--Rule only can extends abstract rules
+	constraint superRules{
+		check: self.`extends`->select(r|r.isKindOf(Rule))->forAll(r2|r2.isAbstract=true)
+		message: '\''+self.type().name.asString() +'\' only can extends abstract rules'
+	}
+		
+	-- Validation to transform to ATL:
+	-- A rule with more than one source, must be 'concatenation'
+	constraint manySources_concatenation{
+		check: (self.`in`.size()<2 and not(self.typeAttribute==TypeAtribute#concatenation)) or
+		(self.`in`.size()>1 and self.typeAttribute==TypeAtribute#concatenation)
+		message: 'Due to current ATL version implemented: '+self.type().name+' with two or more sources must set \'typeAttribute=concatenation\''
+	}
+
+}
+
+context Operation {
+
+	-- Validation to transform to ATL:
+	-- In ATL, an operation must have a returnType 
+	constraint operation_mustHave_returnType{
+		check: (self.returnType.size()>0)
+		message: 'Due to current ATL version implemented: '+self.type().name+' must have a returnType'
+	}
+}
+
+
+context Return {
+
+ 	--Cannot be define an element and a datatype at the same Return Operation
+ 	constraint datatypeORelement{
+ 		check: not(self.element.isDefined() and  (not(self.datatype==Datatype#null)))
+ 		message : 'Cannot be define an element and a datatype at the same time in Return'
+ 	}
+ 	
+ 	-- A Return element must return a datatype or an element
+ 	constraint datatypeORelement_notEmpty{
+ 		check: self.element.isDefined() or (not(self.datatype==Datatype#null))
+ 		message: 'A Return element must return a datatype or an element'
+ 	}
+ 	
+ }
+ 
+ context ElementIncluded {
+	-- Validation to transform to ATL:
+	-- A ElementIncluded with more than one source, must be 'concatenation'
+	constraint manySources_concatenation{
+		check: (self.right.sourceElement.size()<2 and not(self.typeAttribute==TypeAtribute#concatenation)) or
+					(self.right.sourceElement.size()>1 and self.typeAttribute==TypeAtribute#concatenation)
+		message: 'Due to current ATL version implemented: '+self.type().name+' with two or more sources in the \'RightPattern\' must set \'typeAttribute=concatenation\''
+	}
+ }
+ 
+ context RightPattern{
+ 	
+	--RightPattern must have a reference, a rule, a operation, a SourceElementRule or a concreteValue
+	constraint hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue{
+		check: self.sourceElement->size()>0 or self.reference->size()>0 or self.rule->size()>0 or self.`operation`->size()>0 or self.concreteValue.isDefined()
+		message: '\''+self.type().name.asString()+'\' must have one of following elements: \'SourceElementRule\', \'Reference\', \'Rule\',  \'Operation\' or \'Concrete value\''
+	}
+	
+	--RightPattern cannot have a rule and a operation at the same time
+	constraint hasRule_and_operation{
+		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
+		check: not(self.rule->size()>0 and self.`operation`->size()>0)
+		message: '\''+self.type().name.asString()+'\' cannot be associated with a \'Rule\' and an \'Operation\' '
+	}
+	
+	--RightPattern cannot have a rule and a reference(to a Target) at the same time
+	constraint hasRule_and_reference{
+		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
+		check: not(self.rule->size()>0 and self.reference->size()>0 and self.reference.isTypeOf(TargetElementRule))
+		message: '\''+self.type().name.asString()+'\' cannot be associated with a \'Rule\' and a \'Reference (to a TargetElementRule)\' '
+	}
+	
+	--RightPattern cannot have an operation and a reference(to a Target) at the same time
+	constraint hasOperation_and_reference{
+		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
+		check: not(self.`operation`->size()>0 and self.reference->size()>0 and self.reference.isTypeOf(TargetElementRule))
+		message: '\''+self.type().name.asString()+'\' cannot be associated with an \'Operation\' and a \'Reference (to a TargetElementRule)\' '
+	}
+	
+	--RightPattern cannot have a SourceElementRule and a reference(to a Target) at the same time
+	constraint hasSourceElementRule_and_reference{
+		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
+		check: not(self.sourceElement->size()>0 and self.reference->size()>0 and self.reference.isTypeOf(TargetElementRule))
+		message: '\''+self.type().name.asString()+'\' cannot have \'Source Element Rule\' and be associated with a \'Reference (to a TargetElementRule)\' '
+	}
+	
+	--If RightPattern has defined a ConcreteValue, cannot define SourceElementRule, Reference, Rule or Operation
+	constraint hasONLYconcreteValue{
+		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
+		check: not(self.concreteValue.isDefined() and (self.sourceElement->size()>0 or (self.reference->size()>0 and self.reference.isTypeOf(TargetElementRule)) or self.rule->size()>0 or self.`operation`->size()>0)) 
+		message: 'If \''+self.type().name.asString()+'\' has defined a \'Concrete Value\', cannot define \'SourceElementRule\', \'Reference\', \'Rule\' or \'Operation\' '
+	}
+	
+	-- Validation to transform to ATL:
+	-- In ATL, if rule hasn't source, rightPattern can only have a concrete value
+	constraint ruleWithoutSource{
+		check: self.elementIncluded.targetElement.rule.`in`.size()>0 or (self.concreteValue.isDefined() and self.satisfies('hasONLYconcreteValue')) or (self.reference->size()>0 and self.reference.isTypeOf(TargetElementRule))
+		message: 'Due to current ATL version implemented: '+self.type().name.asString()+' belongs to a Rule without Source Elements, so you must only define a Concrete Value or a Reference to a TargetElement'
+	}
+		
+ }	
+ 
+operation getMessageNotEmptyName(objectClass : String) {
+	return 'The name of \'' + objectClass + '\' should be filled';
+}
+
+operation getInputNotEmptyName(objectClass : String) {
+	return UserInput.prompt('Name of \'' + objectClass+'\'');
+}
+
+operation getMessageValidName(objectClass : String) {
+	return 'The name of \'' + objectClass + '\' should start with a letter and ' +
+		   'contain letters, numbers, underscores or dashes';
+}
+
+operation getTitleValidName(objectClass : String, objectName : String) {
+	return 'Change the name of \'' + objectClass + '\' "' + objectName + '"';
+}
+
+operation getInputValidName(objectClass : String, objectName : String) {
+	return UserInput.prompt('Name of \'' + objectClass+'\'', objectName);
+}
+
+operation getMessageNotEmptyType(objectClass : String) {
+	return 'The type of \'' + objectClass + '\' should be filled';
+}
+
+operation getInputNotEmptyType(objectClass : String) {
+	return UserInput.prompt('Type of \'' + objectClass+'\'');
+}
+
+operation getInputValidType(objectClass : String, objectName : String) {
+	return UserInput.prompt('Type of \'' + objectClass+'\'', objectName);
+}
+
+operation getTitleNotEmptyName(objectClass : String) {
+	return 'Fill the name of ' + objectClass;
+}
+
+-- A valid name should start with a letter and only contain
+-- letters, numbers, '-' or '_'
+operation String isValidName() : Boolean {
+	var result : Boolean := false;
+	if (self.isDefined()) {
+		result := self.matches('[(A-Z)(a-z)][\\s\\w\\[\\]_-]*');
+	}
+	return result;
+}
