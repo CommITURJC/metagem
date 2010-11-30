@@ -1,0 +1,81 @@
+-- @name 		MeTAGeM
+-- @version		2.0
+-- @domains	meta-transformation, metamodel, model
+-- @authors		Verónica Bollati, Juan M. Vara, David Granada, Álvaro Jiménez  (Universidad Rey Juan Carlos)
+-- @date       	30-11-2010
+-- @description	Constraints applied to MeTAGeM metamodel.
+
+context ModelRoot {
+   
+    -- ModelRoot name cannot be empty and should start with a letter
+	-- following letters, numbers, dashes and underscores 
+	constraint validModelRootName {
+		check : self.name.isValidName()
+		message : getMessageValidName(self.type().name.asString())
+		fix {
+     		title : getTitleValidName("ModelRoot", self.name)
+     		do {
+    			self.name := getInputValidName(self.type().name.asString(), self.name); 
+     		}
+    	}
+    }
+    
+}
+
+context ModelTransf{
+
+	-- Model name cannot be empty and should start with a letter
+	-- following letters, numbers, dashes and underscores 
+	constraint validModelName {
+		check : self.name.isValidName()
+		message : getMessageValidName(self.type().name.asString())
+		fix {
+     		title : getTitleValidName("Model", self.name)
+     		do {
+    			self.name := getInputValidName(self.type().name.asString(), self.name); 
+     		}
+    	}
+    }
+	
+}
+
+context Relations{
+	
+	--Relations only can extends abstract relations
+	constraint superRelations{
+		check: self.extend->select(r|r.isKindOf(Relations))->forAll(r2|r2.typeRelation=MyTypeRelation#IsAbstract)
+		message: 'Relation \''+self.type().name.asString() +'\' only can extends abstract relations'
+	}
+	
+}
+
+operation getMessageNotEmptyName(objectClass : String) {
+	return 'The name of \'' + objectClass + '\' should be filled';
+}
+
+operation getInputNotEmptyName(objectClass : String) {
+	return UserInput.prompt('Name of \'' + objectClass+'\'');
+}
+
+operation getMessageValidName(objectClass : String) {
+	return 'The name of \'' + objectClass + '\' should start with a letter and ' +
+		   'contain letters, numbers, underscores or dashes';
+}
+
+operation getTitleValidName(objectClass : String, objectName : String) {
+	return 'Change the name of \'' + objectClass + '\' "' + objectName + '"';
+}
+
+operation getInputValidName(objectClass : String, objectName : String) {
+	return UserInput.prompt('Name of \'' + objectClass+'\'', objectName);
+}
+
+-- A valid name should start with a letter and only contain
+-- letters, numbers, '-' or '_'
+operation String isValidName() : Boolean {
+	var result : Boolean := false;
+	if (self.isDefined()) {
+		result := self.matches('[(A-Z)(a-z)][\\s\\w\\[\\]_-]*');
+	}
+	return result;
+}
