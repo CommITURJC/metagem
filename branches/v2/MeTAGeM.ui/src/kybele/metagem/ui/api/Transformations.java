@@ -57,9 +57,13 @@ public class Transformations {
 	}
 		
 	public void metagem2hybrid(String inFilePath, String leftFilePath, String rightFilePath,String outFilePath) throws Exception {
+		try{
 		Map<String, Object> models=loadModelsMeTAGeM2Hybrid(inFilePath, leftFilePath, rightFilePath);
 		doMeTAGeM2Hybrid(models,new NullProgressMonitor());
 		saveModels(((IModel)models.get("OUT")),outFilePath);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	private void doMeTAGeM2Hybrid(Map<String, Object> models, NullProgressMonitor nullProgressMonitor) throws Exception {
@@ -102,9 +106,13 @@ public class Transformations {
 	
 	
 	public void hybrid2atl(String inFilePath, String outFilePath) throws Exception {
+		try{
 		Map<String, Object> models=loadModelsHybrid2ATL(inFilePath);
 		doHybrid2ATL(models,new NullProgressMonitor());
 		saveModels(((IModel)models.get("OUT")),outFilePath);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		
 		// Register ATL metamodel
 		Bundle b = Activator.getDefault().getBundle();
@@ -145,9 +153,13 @@ public class Transformations {
 	
 	
 	public void hybrid2rubytl(String inFilePath, String outFilePath) throws Exception {		
+		try{
 		Map<String, Object> models=loadModelsHybrid2RubyTL(inFilePath);
 		doHybrid2RubyTL(models,new NullProgressMonitor());
 		saveModels(((IModel)models.get("OUT")),outFilePath);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 	private void doHybrid2RubyTL(Map<String, Object> models, NullProgressMonitor nullProgressMonitor) throws Exception {
