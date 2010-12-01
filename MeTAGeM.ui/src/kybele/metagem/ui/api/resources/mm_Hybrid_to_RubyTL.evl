@@ -50,12 +50,7 @@ context Module{
     	check: self.rule->size()>0
     	message: 'The feature \'rule\' of \''+self.type().name.asString() +'\' with 0 values must have at least 1 value'
     }
-    -- Validation to transform to RubyTL:
-	-- In RubyTL, a rule cardinality is: from (1..1), target (1..N)
-	constraint from_and_to_cardinality{
-		check: self.`in`.size()>0 and self.out.size()>0
-		message: 'Due to current RubyTL version implemented: '+self.type().name+' must have a source and a target, at least'
-	}
+    
 }
 
 context InMetaModel{
@@ -177,6 +172,12 @@ context Rule{
 		constraint superRules{
 			check: self.`extends`->select(r|r.isKindOf(Rule))->forAll(r2|r2.isAbstract=true)
 			message: '\''+self.type().name.asString() +'\' only can extends abstract rules'
+		}
+		-- Validation to transform to RubyTL:
+		-- In RubyTL, a rule cardinality is: from (1..1), target (1..N)
+		constraint from_and_to_cardinality{
+			check: self.`in`.size()>0 and self.out.size()>0
+			message: 'Due to current RubyTL version implemented: '+self.type().name+' must have a source and a target, at least'
 		}
 
 }
