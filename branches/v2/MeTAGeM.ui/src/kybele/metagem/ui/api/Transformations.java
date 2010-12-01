@@ -144,20 +144,10 @@ public class Transformations {
 	}
 	
 	
-	public void hybrid2rubytl(String inFilePath, String outFilePath) {
-		try{		
+	public void hybrid2rubytl(String inFilePath, String outFilePath) throws Exception {		
 		Map<String, Object> models=loadModelsHybrid2RubyTL(inFilePath);
 		doHybrid2RubyTL(models,new NullProgressMonitor());
 		saveModels(((IModel)models.get("OUT")),outFilePath);
-		
-		// Register RubyTL metamodel
-		Bundle b = Activator.getDefault().getBundle();
-		InputStream input = FileLocator.openStream(b, new Path("/src/kybele/metagem/ui/api/resources/RubyTL/Metamodel/RubyTL.ecore"), false);
-		Utils.registerMetamodel(Constants.RubyTLURI, input);
-		input.close();
-		}catch(Exception e){
-			e.printStackTrace();
-		}
 	}
 	
 	private void doHybrid2RubyTL(Map<String, Object> models, NullProgressMonitor nullProgressMonitor) throws Exception {
