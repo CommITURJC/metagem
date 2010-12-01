@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mmw_metagem" xmi:id="ModelRoot1" name="name">
+  <inputModel xmi:id="InModelTransf1" name="in" ref="/Families2PersonsAMW/Metamodels/Families.ecore">
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Member" ref="//Member"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_firstName" ref="//Member/firstName"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_lastName" ref="//Family/lastName"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Father" ref="//Father"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_familyFather" ref="//Father/familyFather"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Mother" ref="//Mother"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Son" ref="//Son"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Daughter" ref="//Daughter"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_familyMother" ref="//Mother/familyMother"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_familySon" ref="//Son/familySon"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_familyDaughter" ref="//Daughter/familyDaughter"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Family" ref="/1/Family"/>
+  </inputModel>
+  <outputModel xmi:id="OutModelTransf1" name="out" ref="/Families2PersonsAMW/Metamodels/Persons.ecore">
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Male" ref="//Male"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_fullName" ref="//Person/fullName"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Female" ref="//Female"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Person" ref="//Person"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Persons" ref="/1"/>
+  </outputModel>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne1">
+    <source xmi:id="InElement1" name="Family" element="//@inputModel.0/@ownedElementRef.11"/>
+    <target xmi:id="OutElement1" name="Persons" element="//@outputModel.0/@ownedElementRef.4"/>
+  </relations>
+</ModelRoot>
