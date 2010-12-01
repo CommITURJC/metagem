@@ -35,14 +35,13 @@ public class Transformations {
 	private Properties METAGEM2HYBRID_properties;
 	private Properties HYBRID2ATL_properties;
 	private Properties HYBRID2RUBYTL_properties;
-	private ILauncher launcher;
+
 	
 	final static int _METAGEM2HYBRID=1;
 	final static int _HYBRID2ATL=2;
 	final static int _HYBRID2RUBYTL=3;
 		
 	private Transformations() throws IOException {
-		launcher = new EMFVMLauncher();
 		
 		METAGEM2HYBRID_properties = new Properties();
 		METAGEM2HYBRID_properties.load(getFileURL("MeTAGeM2Hybrid.properties").openStream());
