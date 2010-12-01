@@ -23,7 +23,7 @@ public class Constants {
 	
 	public static int SHOW_DIALOG = 0;
 	public static int NOT_SHOW_DIALOG = 1;
-	public static int SHOW_WARNING = 1;
+	public static int SHOW_WARNING = 2;
 	
 	
 }
