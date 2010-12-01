@@ -177,7 +177,6 @@ public class Transformations {
 		injector.inject(mm_hybridMetamodel, HYBRID2RUBYTL_properties.getProperty("Hybrid2RubyTL.metamodels.MM_Hybrid"));
 		IReferenceModel RubyTLMetamodel = factory.newReferenceModel();
 		injector.inject(RubyTLMetamodel, HYBRID2RUBYTL_properties.getProperty("Hybrid2RubyTL.metamodels.RubyTL"));
-		//injector.inject(RubyTLMetamodel, getFileURL("resources/RubyTL/Metamodel/RubyTL.ecore").toString());
 
 		
 		IModel hybridInputModel = factory.newModel(mm_hybridMetamodel);
