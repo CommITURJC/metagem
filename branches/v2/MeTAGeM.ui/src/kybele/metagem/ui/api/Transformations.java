@@ -200,11 +200,11 @@ public class Transformations {
 		InputStream[] modules = null;
 		String modulesList="";
 		switch (process){
-		case '1': modulesList = METAGEM2HYBRID_properties.getProperty("MeTAGeM2Hybrid.modules");
+		case 1: modulesList = METAGEM2HYBRID_properties.getProperty("MeTAGeM2Hybrid.modules");
 					break;
-		case '2':modulesList = HYBRID2ATL_properties.getProperty("Hybrid2ATL.modules");
+		case 2:modulesList = HYBRID2ATL_properties.getProperty("Hybrid2ATL.modules");
 				break;
-		case '3':modulesList = HYBRID2RUBYTL_properties.getProperty("Hybrid2RUBYTL.modules");
+		case 3:modulesList = HYBRID2RUBYTL_properties.getProperty("Hybrid2RubyTL.modules");
 				break;
 		}
 		if (modulesList != null) {
@@ -232,15 +232,15 @@ public class Transformations {
 		String text="";
 		
 		switch(process){
-			case '1': property=METAGEM2HYBRID_properties;
+			case 1: property=METAGEM2HYBRID_properties;
 					  text="MeTAGEM2HYBRID.options.";
 					  break;
-			case '2': property=HYBRID2ATL_properties;
+			case 2: property=HYBRID2ATL_properties;
 			  		text="Hybrid2ATL.options.";
 			  		break;
-			case '3': property=HYBRID2RUBYTL_properties;
-	  		text="Hybrid2RUBYTL.options.";
-	  		break;
+			case 3: property=HYBRID2RUBYTL_properties;
+	  				text="Hybrid2RubyTL.options.";
+	  				break;
 				
 		}
 		
