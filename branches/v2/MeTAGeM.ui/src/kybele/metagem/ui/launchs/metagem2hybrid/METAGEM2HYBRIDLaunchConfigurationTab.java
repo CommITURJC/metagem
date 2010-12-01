@@ -1,6 +1,8 @@
 package kybele.metagem.ui.launchs.metagem2hybrid;
 
+import kybele.metagem.ui.api.ValidationExecution;
 import kybele.metagem.ui.launchs.core.AbstractExtendedLaunchConfigurationTab;
+import kybele.metagem.ui.utils.Constants;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -98,12 +100,11 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 			   else
 			   {
 				   boolean isValid = false;
-				   isValid=true;
-//					try {
-//						isValid = ValidationExecution.isValid(orLoc.lastSegment(), orLoc.toOSString(), Constants.METAGEMURI,null,Constants.NOT_SHOW_DIALOG);
-//					} catch (Exception e) {
-//						e.printStackTrace();
-//					}
+					try {
+						isValid = ValidationExecution.isValid(orLoc.lastSegment(), orLoc.toOSString(), Constants.METAGEMURI,null,Constants.NOT_SHOW_DIALOG);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 					if(isValid)
 					{
 					      setMessage("Valid METAGEM file");

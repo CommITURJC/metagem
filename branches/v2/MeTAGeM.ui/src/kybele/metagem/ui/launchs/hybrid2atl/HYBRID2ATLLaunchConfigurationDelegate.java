@@ -48,13 +48,12 @@ public class HYBRID2ATLLaunchConfigurationDelegate implements
 			return;
 		
 		boolean isValid = false;
-		isValid=true;
-//		try {
-//			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.HYBRIDURI,Constants.ATLURI,Constants.SHOW_DIALOG);
-//		} catch (Exception e) {
-//			JOptionPane.showMessageDialog(null, "One or more models cannot be found.\nPlease, check your Launch Configuration", "Problems Launching...", JOptionPane.ERROR_MESSAGE);
-//			isValid=false;
-//		}
+		try {
+			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.HYBRIDURI,Constants.ATLURI,Constants.SHOW_DIALOG);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "One or more models cannot be found.\nPlease, check your Launch Configuration", "Problems Launching...", JOptionPane.ERROR_MESSAGE);
+			isValid=false;
+		}
 		if(isValid)
 		{
 			monitor.subTask("Executing transformation");

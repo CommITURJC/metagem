@@ -6,12 +6,15 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 import kybele.metagem.ui.api.Transformations;
+import kybele.metagem.ui.api.ValidationExecution;
+import kybele.metagem.ui.utils.Constants;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
@@ -51,13 +54,13 @@ if (monitor.isCanceled())
 	return;
 		
 boolean isValid = false;
-//try {
-//	isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.METAGEMURI,null,Constants.SHOW_DIALOG);
-//} catch (Exception e) {
-//	JOptionPane.showMessageDialog(null, "One or more models cannot be found.\nPlease, check your Launch Configuration", "Problems Launching...", JOptionPane.ERROR_MESSAGE);
-//	isValid=false;
-//}
-isValid=true;
+try {
+	isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.METAGEMURI,null,Constants.SHOW_DIALOG);
+} catch (Exception e) {
+	JOptionPane.showMessageDialog(null, "One or more models cannot be found.\nPlease, check your Launch Configuration", "Problems Launching...", JOptionPane.ERROR_MESSAGE);
+	isValid=false;
+}
+
 if(isValid)
 {
 	monitor.subTask("Executing transformation");

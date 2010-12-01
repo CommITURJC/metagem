@@ -47,18 +47,17 @@ public class HYBRID2RubyTLLaunchConfigurationDelegate implements
 			return;
 		
 		boolean isValid = false;
-		isValid=true;
-//		try {
-//			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.HYBRIDURI,Constants.RubyTLURI,Constants.SHOW_DIALOG);
-//		} catch (Exception e) {
-//			JOptionPane.showMessageDialog(null, "One or more models cannot be found.\nPlease, check your Launch Configuration", "Problems Launching...", JOptionPane.ERROR_MESSAGE);
-//			isValid=false;
-//		}
+		try {
+			isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.HYBRIDURI,Constants.RubyTLURI,Constants.SHOW_DIALOG);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "One or more models cannot be found.\nPlease, check your Launch Configuration", "Problems Launching...", JOptionPane.ERROR_MESSAGE);
+			isValid=false;
+		}
 		if(isValid)
 		{
 			monitor.subTask("Executing transformation");
 			try{
-				//ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.HYBRIDURI,Constants.RubyTLURI, Constants.SHOW_WARNING);
+				ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.HYBRIDURI,Constants.RubyTLURI, Constants.SHOW_WARNING);
 				Transformations transf = Transformations.getInstance();
 				transf.hybrid2rubytl(uriIN, uriOUT);
 				monitor.worked(85);		

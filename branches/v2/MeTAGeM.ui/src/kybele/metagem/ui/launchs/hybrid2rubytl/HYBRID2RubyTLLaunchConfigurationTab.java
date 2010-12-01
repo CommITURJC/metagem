@@ -96,12 +96,11 @@ public class HYBRID2RubyTLLaunchConfigurationTab extends AbstractExtendedLaunchC
 		   else
 		   {
 			   boolean isValid = false;
-			   isValid=true;
-//				try {
-//					isValid = ValidationExecution.isValid(orLoc.lastSegment(), orLoc.toOSString(), Constants.HYBRIDURI,Constants.RubyTLURI,Constants.NOT_SHOW_DIALOG);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
+				try {
+					isValid = ValidationExecution.isValid(orLoc.lastSegment(), orLoc.toOSString(), Constants.HYBRIDURI,Constants.RubyTLURI,Constants.NOT_SHOW_DIALOG);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				if(isValid)
 				{
 				      setMessage("Valid Hybrid file");
