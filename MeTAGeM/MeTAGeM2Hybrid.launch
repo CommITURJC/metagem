@@ -51,7 +51,7 @@
 </mapAttribute>
 <mapAttribute key="Path">
 <mapEntry key="AMW" value="/MeTAGeM/Metamodels/mw_metagem.ecore"/>
-<mapEntry key="IN" value="/MeTAGeM/Models/SQL2ORDB_HybridTEST.amw"/>
+<mapEntry key="IN" value="/MeTAGeM/Models/zz.amw"/>
 <mapEntry key="MM_Hybrid" value="/MeTAGeM/Metamodels/MM_Hybrid.ecore"/>
 <mapEntry key="MOF" value="#EMF"/>
 <mapEntry key="OUT" value="/MeTAGeM/Models/SQL2ORDB_Hybrid.mm_hybrid"/>
