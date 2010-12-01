@@ -134,7 +134,7 @@ public class Transformations {
 
 		
 		IModel hybridInputModel = factory.newModel(mm_hybridMetamodel);
-		injector.inject(mm_hybridMetamodel, inFilePath);
+		injector.inject(hybridInputModel, inFilePath);
 		models.put("IN", hybridInputModel);
 		
 		
@@ -180,7 +180,7 @@ public class Transformations {
 
 		
 		IModel hybridInputModel = factory.newModel(mm_hybridMetamodel);
-		injector.inject(mm_hybridMetamodel, inFilePath);
+		injector.inject(hybridInputModel, inFilePath);
 		models.put("IN", hybridInputModel);
 		
 		
