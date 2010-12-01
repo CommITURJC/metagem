@@ -145,10 +145,16 @@ public class Transformations {
 	
 	
 	public void hybrid2rubytl(String inFilePath, String outFilePath) {
-		try{
+		try{		
 		Map<String, Object> models=loadModelsHybrid2RubyTL(inFilePath);
 		doHybrid2RubyTL(models,new NullProgressMonitor());
 		saveModels(((IModel)models.get("OUT")),outFilePath);
+		
+		// Register RubyTL metamodel
+		Bundle b = Activator.getDefault().getBundle();
+		InputStream input = FileLocator.openStream(b, new Path("/src/kybele/metagem/ui/api/resources/RubyTL/Metamodel/RubyTL.ecore"), false);
+		Utils.registerMetamodel(Constants.RubyTLURI, input);
+		input.close();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -170,7 +176,8 @@ public class Transformations {
 	 	IReferenceModel mm_hybridMetamodel = factory.newReferenceModel();
 		injector.inject(mm_hybridMetamodel, HYBRID2RUBYTL_properties.getProperty("Hybrid2RubyTL.metamodels.MM_Hybrid"));
 		IReferenceModel RubyTLMetamodel = factory.newReferenceModel();
-		injector.inject(RubyTLMetamodel, getFileURL("resources/RubyTL/Metamodel/RubyTL.ecore").toString());
+		injector.inject(RubyTLMetamodel, HYBRID2RUBYTL_properties.getProperty("Hybrid2RubyTL.metamodels.RubyTL"));
+		//injector.inject(RubyTLMetamodel, getFileURL("resources/RubyTL/Metamodel/RubyTL.ecore").toString());
 
 		
 		IModel hybridInputModel = factory.newModel(mm_hybridMetamodel);
