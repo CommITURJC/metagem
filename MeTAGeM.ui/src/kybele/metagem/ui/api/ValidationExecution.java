@@ -5,12 +5,15 @@ import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
+import kybele.metagem.ui.Activator;
+import kybele.metagem.ui.dialogs.ErrorValidationDialog;
+import kybele.metagem.ui.dialogs.WarningTransformationDialog;
+import kybele.metagem.ui.utils.Constants;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.swt.widgets.Display;
-import org.osgi.framework.Bundle;
-
 import org.eclipse.epsilon.commons.parse.problem.ParseProblem;
 import org.eclipse.epsilon.commons.util.StringProperties;
 import org.eclipse.epsilon.emc.emf.EmfModel;
@@ -19,13 +22,8 @@ import org.eclipse.epsilon.eol.exceptions.models.EolModelLoadingException;
 import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.evl.EvlModule;
 import org.eclipse.epsilon.evl.EvlUnsatisfiedConstraint;
-
-import kybele.metagem.ui.Activator;
-import kybele.metagem.ui.dialogs.ErrorValidationDialog;
-import kybele.metagem.ui.dialogs.WarningTransformationDialog;
-import kybele.metagem.ui.utils.Constants;
-
-
+import org.eclipse.swt.widgets.Display;
+import org.osgi.framework.Bundle;
 
 public abstract class ValidationExecution {
 	
