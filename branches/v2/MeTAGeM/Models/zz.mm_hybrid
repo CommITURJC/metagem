@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="name">
+  <rule name_rule="Family_2_Persons">
+    <in name_element="Family" metamodel="//@inMM.0"/>
+    <out name_element="Persons" metamodel="//@outMM.0"/>
+  </rule>
+  <inMM name_mm="in_model" type_mm="in" elements="//@rule.0/@in.0"/>
+  <outMM name_mm="out_model" type_mm="out" elements="//@rule.0/@out.0"/>
+</mm_hybrid:Module>

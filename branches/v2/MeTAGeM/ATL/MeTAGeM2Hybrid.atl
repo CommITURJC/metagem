@@ -79,8 +79,8 @@ rule OneToOne2rule extends Relations2Rule{
 		relation: AMW!OneToOne
 	to
 		r_hybrid: MM_Hybrid!Rule(
-			"in" <- relation.source.asSequence(),
-			out <- relation.target.asSequence()
+			"in" <- relation.source,
+			out <- relation.target
 		)
 	do {
 		thisModule.countRules <- thisModule.countRules + 1;
@@ -92,7 +92,7 @@ rule OneToZero2rule extends Relations2Rule{
 		relation: AMW!OneToZero
 	to
 		r_hybrid: MM_Hybrid!Rule(
-			"in" <- relation.source.asSequence()
+			"in" <- relation.source
 		)
 	do {
 		thisModule.countRules <- thisModule.countRules + 1;
@@ -104,7 +104,7 @@ rule ZeroToOne2rule extends Relations2Rule{
 		relation: AMW!ZeroToOne
 	to
 		r_hybrid: MM_Hybrid!Rule(
-			out <- relation.target.asSequence()
+			out <- relation.target
 		)
 	do {
 		thisModule.countRules <- thisModule.countRules + 1;
@@ -116,7 +116,7 @@ rule OneToMany2rule extends Relations2Rule{
 		relation: AMW!OneToMany
 	to
 		r_hybrid: MM_Hybrid!Rule(
-			"in" <- relation.source.asSequence(),
+			"in" <- relation.source,
 			out <- relation.target.asSequence()
 		)
 	do {
@@ -129,7 +129,7 @@ rule ManyToOne2rule extends Relations2Rule{
 	to
 		r_hybrid: MM_Hybrid!Rule(
 			"in" <- relation.source.asSequence(),
-			out <- relation.target.asSequence()
+			out <- relation.target
 		)
 	do {
 		thisModule.countRules <- thisModule.countRules + 1;
@@ -174,7 +174,7 @@ rule OneToOne2ElementIncluded extends Relations2ElementIncluded{
 		),
 		rightPattern:MM_Hybrid!RightPattern(
 			name_pattern <- relation_in.getRuleName().concat('_rightPattern'),
-			sourceElement <- relation_in.source.asSequence(),
+			sourceElement <- relation_in.source,
 			"rule" <- relation_in.getRuleInvoked()
 		),
 		leftPattern:MM_Hybrid!LeftPattern(
@@ -252,7 +252,7 @@ helper context AMW!Relations def: isNotIncluded() : Boolean =
 
 helper context AMW!Relations def: isIncluded() : Boolean =
 	if ((self.oclIsTypeOf(AMW!OneToOne))  or  (self.oclIsTypeOf(AMW!ManyToOne)) or (self.oclIsTypeOf(AMW!ZeroToOne))) then
-		self.outElement.asSequence().size()>0
+		not self.outElement.oclIsUndefined()
 	else
 		false
 	endif;
@@ -272,9 +272,40 @@ helper context AMW!Relations def : getInOutPatternName () : String =
 	if ((self.oclIsTypeOf(AMW!ZeroToOne))  or  (self.oclIsTypeOf(AMW!OneToZero))) then
 		'R' + thisModule.countRules.toString()
 	else
-	if not self.source.asSequence()->first().oclIsUndefined() and not self.target.asSequence()->first().oclIsUndefined() then
-		self.source.asSequence()->first().name + '_2_'+ self.target.asSequence()->first().name
-	else
-		'R' + thisModule.countRules.toString()
-	endif
+		if (self.oclIsTypeOf(AMW!OneToOne)) then
+			if not self.source.name.oclIsUndefined() and not self.target.name.oclIsUndefined() then
+				self.source.name + '_2_'+ self.target.name
+			else
+				'R' + thisModule.countRules.toString()
+			endif
+		else
+			if (self.oclIsTypeOf(AMW!OneToMany)) then
+				if not self.source.name.oclIsUndefined() and not self.target.asSequence()->first().name.oclIsUndefined() then
+					self.source.name + '_2_'+ self.target.asSequence()->first().name
+				else
+					'R' + thisModule.countRules.toString()
+				endif
+			else
+				if (self.oclIsTypeOf(AMW!ManyToOne)) then
+					if not self.source.asSequence()->first().name.oclIsUndefined() and not self.target.name.oclIsUndefined() then
+						self.source.asSequence()->first().name + '_2_'+ self.target.name
+					else
+						'R' + thisModule.countRules.toString()
+					endif
+				else
+					if (self.oclIsTypeOf(AMW!ManyToMany)) then
+						if not self.source.asSequence()->first().oclIsUndefined() and not self.target.asSequence()->first().oclIsUndefined() then
+							self.source.asSequence()->first().name + '_2_'+ self.target.asSequence()->first().name
+						else
+							'R' + thisModule.countRules.toString()
+						endif
+					else
+						'R' + thisModule.countRules.toString()
+			    	endif
+			    endif
+			endif	
+		endif
 	endif;
+			
+			
+	
