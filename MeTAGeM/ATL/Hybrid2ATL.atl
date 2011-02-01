@@ -273,7 +273,7 @@ rule Bindings {
 	to
 		atl : ATL!Binding (
 			--Left side of formula, that will receive the value
-			propertyName <- elemInc.left.targetElement.asSequence().first().name_element,
+			propertyName <- elemInc.left.targetElement.name_element,
 			--Right side of formula, that has the value - issues
 			value <- elemInc.getBindingSource()
 		)
