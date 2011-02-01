@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rubytl:Transformation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rubytl="http://org.eclipse.kybele.metagem.rubytl" name="name">
+  <sourceMetamodels name="in_model"/>
+  <targetMetamodels name="out_model"/>
+</rubytl:Transformation>

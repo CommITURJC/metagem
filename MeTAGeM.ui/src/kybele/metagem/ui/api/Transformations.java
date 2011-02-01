@@ -81,7 +81,7 @@ public class Transformations {
 		ModelFactory factory = new EMFModelFactory();
 		IInjector injector = new EMFInjector();
 	 	IReferenceModel mm_hybridMetamodel = factory.newReferenceModel();
-		injector.inject(mm_hybridMetamodel, METAGEM2HYBRID_properties.getProperty("MeTAGeM2Hybrid.metamodels.MM_Hybrid"));
+		injector.inject(mm_hybridMetamodel, getFileURL("resources/MM_Hybrid.ecore").toString());
 		IReferenceModel metagemMetamodel = factory.newReferenceModel();
 		injector.inject(metagemMetamodel, getFileURL("resources/mw_metagem.ecore").toString());
 		IReferenceModel mofMetamodel = factory.getMetametamodel();

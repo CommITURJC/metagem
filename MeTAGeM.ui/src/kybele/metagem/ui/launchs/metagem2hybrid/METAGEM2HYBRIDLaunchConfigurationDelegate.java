@@ -61,6 +61,7 @@ try {
 	isValid=false;
 }
 
+
 if(isValid)
 {
 	monitor.subTask("Executing transformation");
