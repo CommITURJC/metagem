@@ -30,4 +30,11 @@ Import-Package: org.eclipse.emf.common.ui.dialogs,
  org.eclipse.m2m.atl.core,
  org.eclipse.m2m.atl.core.emf,
  org.eclipse.m2m.atl.core.launch,
- org.eclipse.m2m.atl.engine.emfvm.launch
+ org.eclipse.m2m.atl.drivers.emf4atl,
+ org.eclipse.m2m.atl.drivers.emf4atl.tcs.extractor,
+ org.eclipse.m2m.atl.drivers.emf4atl.tcs.injector,
+ org.eclipse.m2m.atl.dsls.textsource,
+ org.eclipse.m2m.atl.engine,
+ org.eclipse.m2m.atl.engine.emfvm.launch,
+ org.eclipse.m2m.atl.engine.vm,
+ org.eclipse.m2m.atl.engine.vm.nativelib
