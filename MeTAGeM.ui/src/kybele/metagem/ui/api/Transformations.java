@@ -2,7 +2,6 @@ package kybele.metagem.ui.api;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -14,7 +13,6 @@ import kybele.metagem.ui.utils.Constants;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.m2m.atl.core.ATLCoreException;
@@ -44,13 +42,13 @@ public class Transformations {
 	private Transformations() throws IOException {
 		
 		METAGEM2HYBRID_properties = new Properties();
-		METAGEM2HYBRID_properties.load(getFileURL("MeTAGeM2Hybrid.properties").openStream());
+		METAGEM2HYBRID_properties.load(Utils.getFileURL("MeTAGeM2Hybrid.properties").openStream());
 		
 		HYBRID2ATL_properties = new Properties();
-		HYBRID2ATL_properties.load(getFileURL("Hybrid2ATL.properties").openStream());
+		HYBRID2ATL_properties.load(Utils.getFileURL("Hybrid2ATL.properties").openStream());
 		
 		HYBRID2RUBYTL_properties = new Properties();
-		HYBRID2RUBYTL_properties.load(getFileURL("Hybrid2RubyTL.properties").openStream());
+		HYBRID2RUBYTL_properties.load(Utils.getFileURL("Hybrid2RubyTL.properties").openStream());
 		
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
 	}
@@ -81,9 +79,9 @@ public class Transformations {
 		ModelFactory factory = new EMFModelFactory();
 		IInjector injector = new EMFInjector();
 	 	IReferenceModel mm_hybridMetamodel = factory.newReferenceModel();
-		injector.inject(mm_hybridMetamodel, getFileURL("resources/MM_Hybrid.ecore").toString());
+		injector.inject(mm_hybridMetamodel, Utils.getFileURL("resources/MM_Hybrid.ecore").toString());
 		IReferenceModel metagemMetamodel = factory.newReferenceModel();
-		injector.inject(metagemMetamodel, getFileURL("resources/mw_metagem.ecore").toString());
+		injector.inject(metagemMetamodel, Utils.getFileURL("resources/mw_metagem.ecore").toString());
 		IReferenceModel mofMetamodel = factory.getMetametamodel();
 		IModel metagemInputModel = factory.newModel(metagemMetamodel);
 		injector.inject(metagemInputModel, inFilePath);
@@ -137,7 +135,7 @@ public class Transformations {
 	 	IReferenceModel mm_hybridMetamodel = factory.newReferenceModel();
 		injector.inject(mm_hybridMetamodel, HYBRID2ATL_properties.getProperty("Hybrid2ATL.metamodels.MM_Hybrid"));
 		IReferenceModel ATLMetamodel = factory.newReferenceModel();
-		injector.inject(ATLMetamodel, getFileURL("resources/ATL.ecore").toString());
+		injector.inject(ATLMetamodel, Utils.getFileURL("resources/ATL.ecore").toString());
 
 		
 		IModel hybridInputModel = factory.newModel(mm_hybridMetamodel);
@@ -219,7 +217,7 @@ public class Transformations {
 			modules = new InputStream[moduleNames.length];
 			for (int i = 0; i < moduleNames.length; i++) {
 				String asmModulePath = new Path(moduleNames[i].trim()).removeFileExtension().addFileExtension("asm").toString();
-				modules[i] = getFileURL(asmModulePath).openStream();
+				modules[i] = Utils.getFileURL(asmModulePath).openStream();
 			}
 		}
 		return modules;
@@ -276,52 +274,7 @@ public class Transformations {
 		IExtractor extractor = new EMFExtractor();
 		extractor.extract(outModel, outModelPath);
 	}
-	/**
-	 * Finds the file in the plug-in. Returns the file URL.
-	 * 
-	 * @param fileName
-	 *            the file name
-	 * @return the file URL
-	 * @throws IOException
-	 *             if the file doesn't exist
-	 * 
-	 * @generated
-	 */
 	
-	protected static URL getFileURL(String fileName) throws IOException {
-		final URL fileURL;
-		if (isEclipseRunning()) {
-			URL resourceURL = Transformations.class.getResource(fileName);
-			if (resourceURL != null) {
-				fileURL = FileLocator.toFileURL(resourceURL);
-			} else {
-				fileURL = null;
-			}
-		} else {
-			fileURL = Transformations.class.getResource(fileName);
-		}
-		if (fileURL == null) {
-			throw new IOException("'" + fileName + "' not found");
-		} else {
-			return fileURL;
-		}
-	}
-
-	/**
-	 * Tests if eclipse is running.
-	 * 
-	 * @return <code>true</code> if eclipse is running
-	 *
-	 * @generated
-	 */
-	public static boolean isEclipseRunning() {
-		try {
-			return Platform.isRunning();
-		} catch (Throwable exception) {
-			// Assume that we aren't running.
-		}
-		return false;
-	}
 	
 	static synchronized public Transformations getInstance() throws Exception {
 
