@@ -169,5 +169,28 @@
                label="Inject RubyTL file to RubyTL model (MeTAGeM)">
          </action>
       </objectContribution>
+      <objectContribution
+            id="ExtractATL"
+            nameFilter="*atl.ecore"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="kybele.metagem.ui.actions.ATLExtract"
+               enablesFor="1"
+               id="ExtractATL"
+               label="Extract ATL model to ATL file (MeTAGeM)">
+         </action>
+      </objectContribution>
+      <objectContribution
+            adaptable="false"
+            id="InjectATL"
+            nameFilter="*.atl"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="kybele.metagem.ui.actions.ATLInject"
+               enablesFor="1"
+               id="InjectATL"
+               label="Inject ATL file to ATL model (MeTAGeM)">
+         </action>
+      </objectContribution>
    </extension>
 </plugin>

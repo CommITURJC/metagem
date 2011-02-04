@@ -6,12 +6,15 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -105,5 +108,52 @@ public class Utils {
 				ret.add(eo);
 		}
 		return ret;
+	}
+	
+	/**
+	 * Finds the file in the plug-in. Returns the file URL.
+	 * 
+	 * @param fileName
+	 *            the file name
+	 * @return the file URL
+	 * @throws IOException
+	 *             if the file doesn't exist
+	 * 
+	 * @generated
+	 */
+	
+	public static URL getFileURL(String fileName) throws IOException {
+		final URL fileURL;
+		if (isEclipseRunning()) {
+			URL resourceURL = Transformations.class.getResource(fileName);
+			if (resourceURL != null) {
+				fileURL = FileLocator.toFileURL(resourceURL);
+			} else {
+				fileURL = null;
+			}
+		} else {
+			fileURL = Transformations.class.getResource(fileName);
+		}
+		if (fileURL == null) {
+			throw new IOException("'" + fileName + "' not found");
+		} else {
+			return fileURL;
+		}
+	}
+
+	/**
+	 * Tests if eclipse is running.
+	 * 
+	 * @return <code>true</code> if eclipse is running
+	 *
+	 * @generated
+	 */
+	public static boolean isEclipseRunning() {
+		try {
+			return Platform.isRunning();
+		} catch (Throwable exception) {
+			// Assume that we aren't running.
+		}
+		return false;
 	}
 }
