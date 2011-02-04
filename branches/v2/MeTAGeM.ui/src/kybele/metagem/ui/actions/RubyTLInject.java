@@ -6,11 +6,23 @@ import java.util.Map;
 
 import javax.swing.JOptionPane;
 
+import kybele.metagem.ui.api.Utils;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.m2m.atl.core.IExtractor;
+import org.eclipse.m2m.atl.core.IInjector;
+import org.eclipse.m2m.atl.core.IModel;
+import org.eclipse.m2m.atl.core.IReferenceModel;
+import org.eclipse.m2m.atl.core.ModelFactory;
+import org.eclipse.m2m.atl.core.emf.EMFExtractor;
+import org.eclipse.m2m.atl.core.emf.EMFInjector;
+import org.eclipse.m2m.atl.core.emf.EMFModel;
+import org.eclipse.m2m.atl.core.emf.EMFModelFactory;
 import org.eclipse.m2m.atl.drivers.emf4atl.tcs.injector.TCSInjector;
+import org.eclipse.m2m.atl.dsls.core.EMFTCSInjector;
 import org.eclipse.m2m.atl.dsls.textsource.IFileTextSource;
 import org.eclipse.m2m.atl.engine.vm.AtlModelHandler;
 import org.eclipse.m2m.atl.engine.vm.ModelLoader;
@@ -53,14 +65,45 @@ public class RubyTLInject  implements IObjectActionDelegate {
 	 * Works!!!
 	 * */
 	public void injectRubyTL() throws IOException{
-		IFile file = currentFile;
-		Language language = LanguageRegistry.getDefault().getLanguage(file.getFileExtension());
-		AtlModelHandler amh = AtlModelHandler.getDefault(AtlModelHandler.AMH_EMF);
-		Map params = new HashMap();
-		String name = file.getFullPath().toString();
-		name=name.substring(0, name.length() - 3) +".rubytl"; // 3= ".rb"
-		ASMModel model = (ASMModel)language.inject(ASMModelFactory.getDefault(), null, new IFileTextSource(file), params);
-		amh.createModelLoader().save(model,name);
+//		IFile file = currentFile;
+//		Language language = LanguageRegistry.getDefault().getLanguage(file.getFileExtension());
+//		AtlModelHandler amh = AtlModelHandler.getDefault(AtlModelHandler.AMH_EMF);
+//		Map params = new HashMap();
+//		String name = file.getFullPath().toString();
+//		name=name.substring(0, name.length() - 3) +".rubytl"; // 3= ".rb"
+//		ASMModel model = (ASMModel)language.inject(ASMModelFactory.getDefault(), null, new IFileTextSource(file), params);
+//		amh.createModelLoader().save(model,name);
+		try {
+			EMFModelFactory modelFactory = new EMFModelFactory();
+			IReferenceModel problemMetamodel = modelFactory.getBuiltInResource("Problem.ecore"); 
+			final EMFTCSInjector ebnfi = new EMFTCSInjector();
+			ModelFactory factory = new EMFModelFactory();
+			IInjector injector = new EMFInjector();
+			
+			IReferenceModel RubyTLMetamodel = factory.newReferenceModel();
+			injector.inject(RubyTLMetamodel, Utils.getFileURL("resources/RubyTL/Metamodel/RubyTL.ecore").toString());
+			IModel model = factory.newModel(RubyTLMetamodel);
+			
+			
+			final Map params = new HashMap();
+			params.put("name", "RubyTL"); //$NON-NLS-1$ //$NON-NLS-2$
+			params.put("problems", modelFactory.newModel(problemMetamodel)); //$NON-NLS-1$
+			params.put("parserGenerator", arg1);
+		
+			ebnfi.inject((EMFModel)model, currentFile.getContents(), params);
+			
+			String name = currentFile.getFullPath().toString();
+			//This converts XXX-atl.ecore to XXX-atl.atl 
+			name = name.substring(0, name.length()
+					- currentFile.getFileExtension().length())
+					+ "rubytl";
+			IExtractor extractor = new EMFExtractor();
+			extractor.extract(model, name);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 //	private void injectRubyTL2() {
