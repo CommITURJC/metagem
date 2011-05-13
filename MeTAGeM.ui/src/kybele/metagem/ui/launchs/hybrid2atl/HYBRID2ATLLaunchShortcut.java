@@ -116,7 +116,7 @@ public class HYBRID2ATLLaunchShortcut implements ILaunchShortcut {
 		ILaunchConfigurationWorkingCopy wc = null;
 		try {
 			ILaunchConfigurationType configType = getConfigurationType();
-			wc = configType.newInstance(null, getLaunchManager().generateUniqueLaunchConfigurationNameFrom("New_configuration"));
+			wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName("New_configuration"));
 			wc.setAttribute(HYBRID2ATLConstants.ATTR_TRANSFORMATION_IN, pathIN);
 			wc.setAttribute(HYBRID2ATLConstants.ATTR_TRANSFORMATION_OUT, new Path(pathIN).removeFileExtension().toOSString() + "-atl.ecore");
 			config = wc.doSave();

@@ -114,7 +114,7 @@ public class HYBRID2RubyTLLaunchShortcut implements ILaunchShortcut {
 		ILaunchConfigurationWorkingCopy wc = null;
 		try {
 			ILaunchConfigurationType configType = getConfigurationType();
-			wc = configType.newInstance(null, getLaunchManager().generateUniqueLaunchConfigurationNameFrom("New_configuration"));
+			wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName("New_configuration"));
 			wc.setAttribute(HYBRID2RUBYTLConstants.ATTR_TRANSFORMATION_IN, pathIN);
 			wc.setAttribute(HYBRID2RUBYTLConstants.ATTR_TRANSFORMATION_OUT, new Path(pathIN).removeFileExtension().toOSString() + ".rubytl");
 			config = wc.doSave();
