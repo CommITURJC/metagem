@@ -1,14 +1,23 @@
 package kybele.metagem.ui.actions;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JOptionPane;
 
+import kybele.metagem.ui.Activator;
 import kybele.metagem.ui.api.Utils;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtensionPoint;
+import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -21,15 +30,12 @@ import org.eclipse.m2m.atl.core.emf.EMFExtractor;
 import org.eclipse.m2m.atl.core.emf.EMFInjector;
 import org.eclipse.m2m.atl.core.emf.EMFModel;
 import org.eclipse.m2m.atl.core.emf.EMFModelFactory;
-import org.eclipse.m2m.atl.drivers.emf4atl.tcs.injector.TCSInjector;
 import org.eclipse.m2m.atl.dsls.core.EMFTCSInjector;
-import org.eclipse.m2m.atl.dsls.textsource.IFileTextSource;
-import org.eclipse.m2m.atl.engine.vm.AtlModelHandler;
-import org.eclipse.m2m.atl.engine.vm.ModelLoader;
-import org.eclipse.m2m.atl.engine.vm.nativelib.ASMModel;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
+import org.osgi.framework.Bundle;
+
 
 public class RubyTLInject  implements IObjectActionDelegate {
 
@@ -55,10 +61,29 @@ public class RubyTLInject  implements IObjectActionDelegate {
 			currentFile = (IFile) iss.getFirstElement();
 			injectRubyTL();
 			//injectRubyTL2();
+			//injectRubyTL3();
 		}catch (Exception e){
 			JOptionPane.showMessageDialog(null, "RubyTL Inject: Unexpected Error", "Problems Injecting...",JOptionPane.ERROR_MESSAGE);
 		}
 	}
+	
+	
+//	public void injectRubyTL3() throws IOException{
+//		IExtensionRegistry registry = Platform.getExtensionRegistry();
+//		IExtensionPoint point = registry.getExtensionPoint("org.eclipse.gmt.tcs.metadata.language ");//$NON-NLS-1$	
+//		IConfigurationElement[] elements = point.getExtensions()[0].getConfigurationElements();
+//		for(int j = 0 ; j < elements.length ; j++){
+//		String pluginId = elements[j].getContributor().getName();
+//		Bundle bundle = Platform.getBundle("RubyTL_TCS");
+//		URI metamodelUri = getURI(bundle, elements[j].getAttribute("metamodel"));
+//		URL parser = getURL(bundle, elements[j], "parser");
+//		}
+//		
+//		Map injParams = new HashMap();
+//		injParams.put("name", "RubyTL");
+//		injParams.put("parserGenerator", "antlr3");
+//		injParams.put("extraClasspath", new URL[] {parser});
+//	}
 	
 	/*
 	 * Based on InjectAction from org.eclipse.gmt.tcs.actions
@@ -84,13 +109,39 @@ public class RubyTLInject  implements IObjectActionDelegate {
 			injector.inject(RubyTLMetamodel, Utils.getFileURL("resources/RubyTL/Metamodel/RubyTL.ecore").toString());
 			IModel model = factory.newModel(RubyTLMetamodel);
 			
-			
+			URL parser = Utils.getFileURL("resources/RubyTL/Syntax/RubyTL-parser.jar");
 			final Map params = new HashMap();
 			params.put("name", "RubyTL"); //$NON-NLS-1$ //$NON-NLS-2$
 			params.put("problems", modelFactory.newModel(problemMetamodel)); //$NON-NLS-1$
-			params.put("parserGenerator", arg1);
-		
-			ebnfi.inject((EMFModel)model, currentFile.getContents(), params);
+			params.put("parserGenerator", "antlr3");
+			params.put("extraClasspath", new URL[] {parser});
+			
+//			Bundle bundle = Activator.getDefault().getBundle();
+//			Class c=bundle.loadClass("org.eclipse.gmt.tcs.injector.RubyTL_ANTLR3Parser");
+//			
+//			
+//			File parserjar2=new File(Utils.getFileURL("resources/RubyTL/Syntax/metagem2.jar").toString());
+//			URL url2 = parserjar2.toURI().toURL(); 
+//			//URL url2 =new URL("jar:"+parserjar2.getPath()+"!/");
+//			System.out.println(url2);
+//			URL[] urls2=new URL[]{url2};
+//			ClassLoader cl2 = new URLClassLoader(urls2);
+//			Class activator=cl2.loadClass("kybele.metagem.ui.Activator");
+//			
+//			
+//			
+//			File parserjar=new File(Utils.getFileURL("resources/RubyTL/Syntax/RubyTL-parser.jar").toString());
+//			URL url = parserjar.toURI().toURL(); 
+//			URL[] urls=new URL[]{url};
+//			ClassLoader cl = new URLClassLoader (urls);
+//
+//			Class lexer = cl.loadClass ("org.eclipse.gmt.tcs.injector.RubyTL_ANTLR3Lexer");
+//			Class parser = cl.loadClass ("org.eclipse.gmt.tcs.injector.RubyTL_ANTLR3Parser");
+//
+//			params.put("lexerClass", lexer); 
+//			params.put("parserClass", parser); 
+//		
+			ebnfi.inject((EMFModel) model, currentFile.getContents(), params);
 			
 			String name = currentFile.getFullPath().toString();
 			//This converts XXX-atl.ecore to XXX-atl.atl 
