@@ -27,7 +27,7 @@
             class="Traceability.presentation.TraceabilityEditorTrace"
             contributorClass="Traceability.presentation.TraceabilityActionBarContributor"
             default="true"
-            extensions="traceability"
+            extensions="mtrace"
             icon="icons/full/obj16/TraceabilityModelFile.gif"
             id="Traceability.presentation.TraceabilityEditorID"
             name="%_UI_TraceabilityEditor_label">
@@ -36,7 +36,7 @@
             class="Traceability.presentation.TraceabilityEditor"
             contributorClass="Traceability.presentation.TraceabilityActionBarContributor"
             default="false"
-            extensions="traceability"
+            extensions="mtrace"
             icon="icons/full/obj16/TraceabilityModelFile.gif"
             id="Traceability.presentation.TraceabilityEditorID_emf"
             name="%_UI_TraceabilityEditorEMF_label">
