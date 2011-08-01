@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
+import java.util.StringTokenizer;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -40,11 +41,14 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
@@ -118,6 +122,14 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected TraceabilityModelWizardNewFileCreationPage newFileCreationPage;
+
+	/**
+	 * This is the initial object creation page.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TraceabilityModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
 	/**
 	 * This is the source models creation page.
@@ -379,6 +391,215 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 	}
 	
 	/**
+	 * This is the page where the type of object to create is selected.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public class TraceabilityModelWizardInitialObjectCreationPage extends WizardPage {
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		protected Combo initialObjectField;
+
+		/**
+		 * @generated
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 */
+		protected List<String> encodings;
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		protected Combo encodingField;
+
+		/**
+		 * Pass in the selection.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public TraceabilityModelWizardInitialObjectCreationPage(String pageId) {
+			super(pageId);
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public void createControl(Composite parent) {
+			Composite composite = new Composite(parent, SWT.NONE);
+			{
+				GridLayout layout = new GridLayout();
+				layout.numColumns = 1;
+				layout.verticalSpacing = 12;
+				composite.setLayout(layout);
+
+				GridData data = new GridData();
+				data.verticalAlignment = GridData.FILL;
+				data.grabExcessVerticalSpace = true;
+				data.horizontalAlignment = GridData.FILL;
+				composite.setLayoutData(data);
+			}
+
+			Label containerLabel = new Label(composite, SWT.LEFT);
+			{
+				containerLabel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+
+				GridData data = new GridData();
+				data.horizontalAlignment = GridData.FILL;
+				containerLabel.setLayoutData(data);
+			}
+
+			initialObjectField = new Combo(composite, SWT.BORDER);
+			{
+				GridData data = new GridData();
+				data.horizontalAlignment = GridData.FILL;
+				data.grabExcessHorizontalSpace = true;
+				initialObjectField.setLayoutData(data);
+			}
+
+			for (String objectName : getInitialObjectNames()) {
+				initialObjectField.add(getLabel(objectName));
+			}
+
+			if (initialObjectField.getItemCount() == 1) {
+				initialObjectField.select(0);
+			}
+			initialObjectField.addModifyListener(validator);
+
+			Label encodingLabel = new Label(composite, SWT.LEFT);
+			{
+				encodingLabel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+
+				GridData data = new GridData();
+				data.horizontalAlignment = GridData.FILL;
+				encodingLabel.setLayoutData(data);
+			}
+			encodingField = new Combo(composite, SWT.BORDER);
+			{
+				GridData data = new GridData();
+				data.horizontalAlignment = GridData.FILL;
+				data.grabExcessHorizontalSpace = true;
+				encodingField.setLayoutData(data);
+			}
+
+			for (String encoding : getEncodings()) {
+				encodingField.add(encoding);
+			}
+
+			encodingField.select(0);
+			encodingField.addModifyListener(validator);
+
+			setPageComplete(validatePage());
+			setControl(composite);
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		protected ModifyListener validator =
+			new ModifyListener() {
+				public void modifyText(ModifyEvent e) {
+					setPageComplete(validatePage());
+				}
+			};
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		protected boolean validatePage() {
+			return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		@Override
+		public void setVisible(boolean visible) {
+			super.setVisible(visible);
+			if (visible) {
+				if (initialObjectField.getItemCount() == 1) {
+					initialObjectField.clearSelection();
+					encodingField.setFocus();
+				}
+				else {
+					encodingField.clearSelection();
+					initialObjectField.setFocus();
+				}
+			}
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public String getInitialObjectName() {
+			String label = initialObjectField.getText();
+
+			for (String name : getInitialObjectNames()) {
+				if (getLabel(name).equals(label)) {
+					return name;
+				}
+			}
+			return null;
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public String getEncoding() {
+			return encodingField.getText();
+		}
+
+		/**
+		 * Returns the label for the specified type name.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		protected String getLabel(String typeName) {
+			try {
+				return TraceabilityEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+			}
+			catch(MissingResourceException mre) {
+				TraceabilityEditorPlugin.INSTANCE.log(mre);
+			}
+			return typeName;
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		protected Collection<String> getEncodings() {
+			if (encodings == null) {
+				encodings = new ArrayList<String>();
+				for (StringTokenizer stringTokenizer = new StringTokenizer(TraceabilityEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+					encodings.add(stringTokenizer.nextToken());
+				}
+			}
+			return encodings;
+		}
+	}
+
+	/**
 	 * This is the page where the source models are selected.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -534,33 +755,6 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 			}
 		}
 
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		@Override
-		public void setVisible(boolean visible) {
-			super.setVisible(visible);
-		}
-
-		
-		/**
-		 * Returns the label for the specified type name.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		protected String getLabel(String typeName) {
-			try {
-				return TraceabilityEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
-			}
-			catch(MissingResourceException mre) {
-				TraceabilityEditorPlugin.INSTANCE.log(mre);
-			}
-			return typeName;
-		}
-		
 		protected void rewriteTable(){
 			modelTable.removeAll();
 			for(int cont1=0;cont1<models.size();cont1++){
