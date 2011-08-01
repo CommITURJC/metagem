@@ -5,7 +5,8 @@
     modelPluginID="Traceability" modelName="Traceability" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="6.0" copyrightFields="false">
   <foreignModel>Traceability.ecore</foreignModel>
-  <genPackages prefix="Traceability" disposableProviderFactory="true" ecorePackage="Traceability.ecore#_3FKmwXcuEeC2IKVRQNr-xA">
+  <genPackages prefix="Traceability" disposableProviderFactory="true" fileExtensions="mtrace"
+      ecorePackage="Traceability.ecore#_3FKmwXcuEeC2IKVRQNr-xA">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Traceability.ecore#//Operations">
       <genEnumLiterals ecoreEnumLiteral="Traceability.ecore#//Operations/Transform"/>
       <genEnumLiterals ecoreEnumLiteral="Traceability.ecore#//Operations/Create"/>
