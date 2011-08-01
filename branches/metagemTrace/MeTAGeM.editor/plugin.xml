@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.kybele.metagem.Wizard.category.ID"
+            name="MeTAGeM"/>
+      <wizard
+            id="metagem.presentation.MetagemModelWizardID"
+            name="%_UI_MetagemModelWizard_label"
+            class="metagem.presentation.MetagemModelWizard"
+            category="org.eclipse.kybele.metagem.Wizard.category.ID"
+            icon="icons/full/obj16/MetagemModelFile.gif">
+         <description>%_UI_MetagemModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="metagem.presentation.MetagemEditorID"
+            name="%_UI_MetagemEditor_label"
+            icon="icons/full/obj16/MetagemModelFile.gif"
+            extensions="metagem"
+            class="metagem.presentation.MetagemEditor"
+            contributorClass="metagem.presentation.MetagemActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
