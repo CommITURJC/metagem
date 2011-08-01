@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            id="Traceability.presentation.TraceabilityModelWizardID"
+            name="%_UI_TraceabilityModelWizard_label"
+            class="Traceability.presentation.TraceabilityModelWizard"
+            category="org.eclipse.kybele.metagem.Wizard.category.ID"
+            icon="icons/full/obj16/TraceabilityModelFile.gif">
+         <description>%_UI_TraceabilityModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            class="Traceability.presentation.TraceabilityEditorTrace"
+            contributorClass="Traceability.presentation.TraceabilityActionBarContributor"
+            default="true"
+            extensions="traceability"
+            icon="icons/full/obj16/TraceabilityModelFile.gif"
+            id="Traceability.presentation.TraceabilityEditorID"
+            name="%_UI_TraceabilityEditor_label">
+      </editor>
+      <editor
+            class="Traceability.presentation.TraceabilityEditor"
+            contributorClass="Traceability.presentation.TraceabilityActionBarContributor"
+            default="false"
+            extensions="traceability"
+            icon="icons/full/obj16/TraceabilityModelFile.gif"
+            id="Traceability.presentation.TraceabilityEditorID_emf"
+            name="%_UI_TraceabilityEditorEMF_label">
+      </editor>
+   </extension>
+
+</plugin>
