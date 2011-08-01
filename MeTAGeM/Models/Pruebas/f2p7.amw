@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mw_base_ext" xmlns:_1="mmw_metagem_v02" xmi:id="Model1">
-  <ownedElement xsi:type="_1:OneToOne" xmi:id="OneToOne1"/>
-  <leftModel xsi:type="_1:InModelTransf" xmi:id="InModelTransf1" name="leftModel" ref="/MeTAGeM/Metamodels/Families.ecore"/>
-  <rightModel xsi:type="_1:OutModelTransf" xmi:id="OutModelTransf1" name="rightModel" ref="/MeTAGeM/Metamodels/Persons.ecore"/>
-</Model>

@@ -1,5 +1,0 @@
--- @atlcompiler atl2006
-module SQL2ORDB;
-create ORDB_model : ORDB from SQL_model : SQL;
-
-
