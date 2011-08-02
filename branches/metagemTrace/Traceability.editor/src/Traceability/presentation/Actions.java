@@ -7,10 +7,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -19,13 +21,16 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
@@ -217,51 +222,65 @@ public class Actions {
 
 	//This method allows register a Metamodel
 	private static void registerMetamodel(String URImetaModel, InputStream input) {
+		if(!isRegistered(URImetaModel)){
 		
-		Resource.Factory myEcoreFactory = new EcoreResourceFactoryImpl();
-		Resource mmExtent = myEcoreFactory.createResource(URI.createURI(URImetaModel));
-		try {
-			mmExtent.load(input,Collections.EMPTY_MAP);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		
-		for(Iterator<EObject> it = getElementsByType(mmExtent,"EPackage").iterator() ; it.hasNext() ; ) {
-			EPackage p = (EPackage)it.next();
-			String nsURI = p.getNsURI();
-			if(nsURI == null) {
-				nsURI = p.getName();
-				p.setNsURI(nsURI);
+			Resource.Factory myEcoreFactory = new EcoreResourceFactoryImpl();
+			Resource mmExtent = myEcoreFactory.createResource(URI.createURI(URImetaModel));
+			try {
+				mmExtent.load(input,Collections.EMPTY_MAP);
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (Exception ex) {
+				ex.printStackTrace();
 			}
-			EPackage.Registry.INSTANCE.put(nsURI, p);
-		}
-		
-		for(Iterator<?> it = getElementsByType(mmExtent,"EDataType").iterator(); it.hasNext(); ) {
-			EObject eo = (EObject)it.next();
-			EStructuralFeature sf;
-			sf = eo.eClass().getEStructuralFeature("name");	 
-			String tname = (String)eo.eGet(sf);			 
-			String icn = null;
-			if(tname.equals("Boolean"))
-				icn = "java.lang.Boolean";
-			else if(tname.equals("Double"))
-				icn = "java.lang.Double";
-			else if(tname.equals("Float"))
-				icn = "java.lang.Float";
-			else if(tname.equals("Integer"))
-				icn = "java.lang.Integer";
-			else if(tname.equals("String"))
-				icn = "java.lang.String";
 			
-			if(icn != null) {
-				sf = eo.eClass().getEStructuralFeature("instanceClassName");
-				eo.eSet(sf, icn);                
+			for(Iterator<EObject> it = getElementsByType(mmExtent,"EPackage").iterator() ; it.hasNext() ; ) {
+				EPackage p = (EPackage)it.next();
+				String nsURI = p.getNsURI();
+				if(nsURI == null) {
+					nsURI = p.getName();
+					p.setNsURI(nsURI);
+				}
+				EPackage.Registry.INSTANCE.put(nsURI, p);
 			}
-		}
+			
+			for(Iterator<?> it = getElementsByType(mmExtent,"EDataType").iterator(); it.hasNext(); ) {
+				EObject eo = (EObject)it.next();
+				EStructuralFeature sf;
+				sf = eo.eClass().getEStructuralFeature("name");	 
+				String tname = (String)eo.eGet(sf);			 
+				String icn = null;
+				if(tname.equals("Boolean"))
+					icn = "java.lang.Boolean";
+				else if(tname.equals("Double"))
+					icn = "java.lang.Double";
+				else if(tname.equals("Float"))
+					icn = "java.lang.Float";
+				else if(tname.equals("Integer"))
+					icn = "java.lang.Integer";
+				else if(tname.equals("String"))
+					icn = "java.lang.String";
+				
+				if(icn != null) {
+					sf = eo.eClass().getEStructuralFeature("instanceClassName");
+					eo.eSet(sf, icn);                
+				}
+			}
+	 }
 		
 	}
+	private static boolean isRegistered(String uri) {
+		Object[] result = EPackage.Registry.INSTANCE.keySet().toArray(
+				new Object[EPackage.Registry.INSTANCE.size()]);
+		Arrays.sort(result);
+		
+	  for(int i=0;i<result.length;i++){
+		  if(uri.equals(result[i].toString()))
+			  return true;
+	  }
+	  return false;
+	}
+
 	private static Set<EObject> getElementsByType(Resource extent,String type) {
 		Set<EObject> ret = new HashSet<EObject>();
 		for(Iterator<?> i = extent.getAllContents(); i.hasNext(); ) {
