@@ -187,6 +187,7 @@ public class TraceabilityEditorTrace
 	 * @generated
 	 */
 	protected TreeViewer contentOutlineViewer;
+	
 
 	/**
 	 * This is the property sheet page.
@@ -969,6 +970,7 @@ public class TraceabilityEditorTrace
 			sourceViewer.setInput(sourceRs);
 			sourceViewer.setSelection(new StructuredSelection(sourceRs.getResources().get(0)), true);
 			
+			Actions.createsElementsModel(sourceRs, sources,editingDomain);
 			
 			viewerPane.setTitle("Source Models");
 			sourceViewer.addSelectionChangedListener
@@ -1277,6 +1279,7 @@ public class TraceabilityEditorTrace
 						getActionBarContributor().shareGlobalActions(this, actionBars);
 					}
 				};
+					
 			propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
 		}
 
