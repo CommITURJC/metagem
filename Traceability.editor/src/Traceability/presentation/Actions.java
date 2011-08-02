@@ -12,7 +12,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -26,25 +25,29 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import Traceability.Model;
+import Traceability.ModelElement;
 import Traceability.SourceModel;
 import Traceability.TargetModel;
+import Traceability.TraceabilityPackage;
 import Traceability.impl.SourceModelImpl;
 import Traceability.impl.TargetModelImpl;
 import Traceability.impl.TraceModelImpl;
+import Traceability.impl.TraceabilityFactoryImpl;
 
 public class Actions {
 
@@ -218,6 +221,12 @@ public class Actions {
 		}
 		
 		registerMetamodel(uri,is);
+		try {
+			is.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	//This method allows register a Metamodel
@@ -295,12 +304,115 @@ public class Actions {
 	
 	public static Image getImage(String key){
 		ImageDescriptor imageDescriptor;
-		URL imageURL = TraceabilityEditorTrace_deprecated.class.getResource("icons/" + key + ".gif");
+		URL imageURL = TraceabilityEditorTrace.class.getResource("icons/" + key + ".gif");
 		imageDescriptor = ImageDescriptor.createFromURL(imageURL);
 		return imageDescriptor.createImage();
 	}
 
-	
+	public static void createsElementsModel(ResourceSet resourceSet, ArrayList<SourceModelImpl> sources, EditingDomain domain) {
+				
+		EList<Resource> resources = resourceSet.getResources();
+		//each resource must be a model
+		for(int cont1=0; cont1<resources.size();cont1++){
+			for(Iterator<?> contents = resources.get(cont1).getAllContents(); contents
+			.hasNext();){
+				Object content = contents.next();
+				if(content instanceof EObject){
+					EObject eContent = (EObject) content;
+					//Get the ID of the element
+					XMIResource resourceXMI = (XMIResource) eContent.eResource();
+					String id = resourceXMI.getID(eContent); // Get element id
+					if(id==null)
+						id=resourceXMI.getURIFragment(eContent);
+					createElement(sources.get(cont1), id, eContent, domain);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Creates a Element in a model or metamodel
+	 * @param model
+	 * @param id
+	 * @param eModelElement
+	 * @return
+	 */
+	private static Traceability.Element createElement(Model model, String id,	EObject eModelElement, EditingDomain domain){
+		Traceability.Element ownedElement=null;
+		TraceabilityFactoryImpl traceabilityFactory = new TraceabilityFactoryImpl();
+		Traceability.Element element=traceabilityFactory.createElement();
+		//Looking for ownedElement of the feature
+		EObject ownedEObject = eModelElement.eContainer();
+		if ((ownedEObject!=null)&&(!(ownedEObject instanceof EPackage))){
+			//Get the ID of the ownedElement
+			XMIResource resource = (XMIResource) ownedEObject.eResource();
+			String id_ownedElement = resource.getID(ownedEObject); // Get element id
+			if(id_ownedElement==null)
+				id_ownedElement=resource.getURIFragment(ownedEObject);
+			
+			TreeIterator<EObject> elements_model = model.eAllContents();
+			while (elements_model.hasNext()){
+				EObject next = elements_model.next();
+				if(next instanceof Traceability.Element){
+					Traceability.Element element_model = (Traceability.Element) next;
+					if(id_ownedElement!=null&&
+							element_model.getRef()!=null&&
+							element_model.getRef().equals(id_ownedElement)){
+							ownedElement = element_model;
+						}
+				}
+				
+			}
+			//if ownedElement doesn't exist in the trace model, we creates it.
+			if (ownedElement==null){
+				 ModelElement ownedCreated = createElement(model,id_ownedElement,ownedEObject,domain);
+				 if(ownedCreated instanceof Element){
+					 ownedElement = (Traceability.Element)ownedCreated;
+				 }
+			}
+			element.setSuper_element(ownedElement);
+			element.setRef(id);
+			String name = null;
+			EList<EStructuralFeature> allESF = eModelElement.eClass().getEAllStructuralFeatures();
+			for(int c1=0;c1<allESF.size();c1++){
+				EStructuralFeature feature = allESF.get(c1);
+				if(eModelElement.eGet(feature) instanceof String){
+					if((c1==0)|| (feature.getName().toUpperCase().contains("NAME"))){
+						name = eModelElement.eGet(feature).toString();
+					}
+				}
+			}
+			if (name==null)
+				name=eModelElement.eClass().getName();
+			
+			element.setName(name);
+			//Creates the element in the model
+			CreateChildCommand cmdCreate = new CreateChildCommand(domain, ownedElement, TraceabilityPackage.eINSTANCE.getModel_Elements(), element, null);
+			domain.getCommandStack().execute(cmdCreate);
+			
+		}else{
+			element.setModel(model);
+			element.setRef(id);
+			String name = null;
+			EList<EStructuralFeature> allESF = eModelElement.eClass().getEAllStructuralFeatures();
+			for(int c1=0;c1<allESF.size();c1++){
+				EStructuralFeature feature = allESF.get(c1);
+				if(eModelElement.eGet(feature) instanceof String){
+					if((c1==0)|| (feature.getName().toUpperCase().contains("NAME"))){
+						name = eModelElement.eGet(feature).toString();
+					}
+				}
+			}
+			if (name==null)
+				name=eModelElement.eClass().getName();
+			element.setName(name);
+			//Creates the element in the model
+			CreateChildCommand cmdCreate = new CreateChildCommand(domain, model, TraceabilityPackage.eINSTANCE.getModel_Elements(), element, null);
+			domain.getCommandStack().execute(cmdCreate);
+		}
+		
+		return element;	
+	}
 	
 
 	
