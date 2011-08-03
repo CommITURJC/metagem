@@ -44,6 +44,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link Traceability.impl.TraceLinkImpl#getSource <em>Source</em>}</li>
  *   <li>{@link Traceability.impl.TraceLinkImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link Traceability.impl.TraceLinkImpl#getOperation <em>Operation</em>}</li>
+ *   <li>{@link Traceability.impl.TraceLinkImpl#getChildLinks <em>Child Links</em>}</li>
+ *   <li>{@link Traceability.impl.TraceLinkImpl#getParentLink <em>Parent Link</em>}</li>
  * </ul>
  * </p>
  *
@@ -89,6 +91,16 @@ public class TraceLinkImpl extends TraceElementImpl implements TraceLink {
 	 * @ordered
 	 */
 	protected Operations operation = OPERATION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getChildLinks() <em>Child Links</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getChildLinks()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TraceLink> childLinks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -200,6 +212,59 @@ public class TraceLinkImpl extends TraceElementImpl implements TraceLink {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<TraceLink> getChildLinks() {
+		if (childLinks == null) {
+			childLinks = new EObjectContainmentWithInverseEList<TraceLink>(TraceLink.class, this, TraceabilityPackage.TRACE_LINK__CHILD_LINKS, TraceabilityPackage.TRACE_LINK__PARENT_LINK);
+		}
+		return childLinks;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TraceLink getParentLink() {
+		if (eContainerFeatureID() != TraceabilityPackage.TRACE_LINK__PARENT_LINK) return null;
+		return (TraceLink)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParentLink(TraceLink newParentLink, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParentLink, TraceabilityPackage.TRACE_LINK__PARENT_LINK, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParentLink(TraceLink newParentLink) {
+		if (newParentLink != eInternalContainer() || (eContainerFeatureID() != TraceabilityPackage.TRACE_LINK__PARENT_LINK && newParentLink != null)) {
+			if (EcoreUtil.isAncestor(this, newParentLink))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParentLink != null)
+				msgs = ((InternalEObject)newParentLink).eInverseAdd(this, TraceabilityPackage.TRACE_LINK__CHILD_LINKS, TraceLink.class, msgs);
+			msgs = basicSetParentLink(newParentLink, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TraceabilityPackage.TRACE_LINK__PARENT_LINK, newParentLink, newParentLink));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -212,6 +277,12 @@ public class TraceLinkImpl extends TraceElementImpl implements TraceLink {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSource()).basicAdd(otherEnd, msgs);
 			case TraceabilityPackage.TRACE_LINK__TARGET:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTarget()).basicAdd(otherEnd, msgs);
+			case TraceabilityPackage.TRACE_LINK__CHILD_LINKS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildLinks()).basicAdd(otherEnd, msgs);
+			case TraceabilityPackage.TRACE_LINK__PARENT_LINK:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParentLink((TraceLink)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -230,6 +301,10 @@ public class TraceLinkImpl extends TraceElementImpl implements TraceLink {
 				return ((InternalEList<?>)getSource()).basicRemove(otherEnd, msgs);
 			case TraceabilityPackage.TRACE_LINK__TARGET:
 				return ((InternalEList<?>)getTarget()).basicRemove(otherEnd, msgs);
+			case TraceabilityPackage.TRACE_LINK__CHILD_LINKS:
+				return ((InternalEList<?>)getChildLinks()).basicRemove(otherEnd, msgs);
+			case TraceabilityPackage.TRACE_LINK__PARENT_LINK:
+				return basicSetParentLink(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -244,6 +319,8 @@ public class TraceLinkImpl extends TraceElementImpl implements TraceLink {
 		switch (eContainerFeatureID()) {
 			case TraceabilityPackage.TRACE_LINK__TRACE_MODEL:
 				return eInternalContainer().eInverseRemove(this, TraceabilityPackage.TRACE_MODEL__TRACE_LINKS, TraceModel.class, msgs);
+			case TraceabilityPackage.TRACE_LINK__PARENT_LINK:
+				return eInternalContainer().eInverseRemove(this, TraceabilityPackage.TRACE_LINK__CHILD_LINKS, TraceLink.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -264,6 +341,10 @@ public class TraceLinkImpl extends TraceElementImpl implements TraceLink {
 				return getTarget();
 			case TraceabilityPackage.TRACE_LINK__OPERATION:
 				return getOperation();
+			case TraceabilityPackage.TRACE_LINK__CHILD_LINKS:
+				return getChildLinks();
+			case TraceabilityPackage.TRACE_LINK__PARENT_LINK:
+				return getParentLink();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -291,6 +372,13 @@ public class TraceLinkImpl extends TraceElementImpl implements TraceLink {
 			case TraceabilityPackage.TRACE_LINK__OPERATION:
 				setOperation((Operations)newValue);
 				return;
+			case TraceabilityPackage.TRACE_LINK__CHILD_LINKS:
+				getChildLinks().clear();
+				getChildLinks().addAll((Collection<? extends TraceLink>)newValue);
+				return;
+			case TraceabilityPackage.TRACE_LINK__PARENT_LINK:
+				setParentLink((TraceLink)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -315,6 +403,12 @@ public class TraceLinkImpl extends TraceElementImpl implements TraceLink {
 			case TraceabilityPackage.TRACE_LINK__OPERATION:
 				setOperation(OPERATION_EDEFAULT);
 				return;
+			case TraceabilityPackage.TRACE_LINK__CHILD_LINKS:
+				getChildLinks().clear();
+				return;
+			case TraceabilityPackage.TRACE_LINK__PARENT_LINK:
+				setParentLink((TraceLink)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -335,6 +429,10 @@ public class TraceLinkImpl extends TraceElementImpl implements TraceLink {
 				return target != null && !target.isEmpty();
 			case TraceabilityPackage.TRACE_LINK__OPERATION:
 				return operation != OPERATION_EDEFAULT;
+			case TraceabilityPackage.TRACE_LINK__CHILD_LINKS:
+				return childLinks != null && !childLinks.isEmpty();
+			case TraceabilityPackage.TRACE_LINK__PARENT_LINK:
+				return getParentLink() != null;
 		}
 		return super.eIsSet(featureID);
 	}
