@@ -104,6 +104,7 @@ public class TraceLinkItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TraceabilityPackage.Literals.TRACE_LINK__SOURCE);
 			childrenFeatures.add(TraceabilityPackage.Literals.TRACE_LINK__TARGET);
+			childrenFeatures.add(TraceabilityPackage.Literals.TRACE_LINK__CHILD_LINKS);
 		}
 		return childrenFeatures;
 	}
@@ -163,6 +164,7 @@ public class TraceLinkItemProvider
 				return;
 			case TraceabilityPackage.TRACE_LINK__SOURCE:
 			case TraceabilityPackage.TRACE_LINK__TARGET:
+			case TraceabilityPackage.TRACE_LINK__CHILD_LINKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -189,6 +191,11 @@ public class TraceLinkItemProvider
 			(createChildParameter
 				(TraceabilityPackage.Literals.TRACE_LINK__TARGET,
 				 TraceabilityFactory.eINSTANCE.createTargetElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TraceabilityPackage.Literals.TRACE_LINK__CHILD_LINKS,
+				 TraceabilityFactory.eINSTANCE.createTraceLink()));
 	}
 
 }

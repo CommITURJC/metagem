@@ -20,6 +20,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link Traceability.TraceLink#getSource <em>Source</em>}</li>
  *   <li>{@link Traceability.TraceLink#getTarget <em>Target</em>}</li>
  *   <li>{@link Traceability.TraceLink#getOperation <em>Operation</em>}</li>
+ *   <li>{@link Traceability.TraceLink#getChildLinks <em>Child Links</em>}</li>
+ *   <li>{@link Traceability.TraceLink#getParentLink <em>Parent Link</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,7 +43,7 @@ public interface TraceLink extends TraceElement {
 	 * @see #setTraceModel(TraceModel)
 	 * @see Traceability.TraceabilityPackage#getTraceLink_TraceModel()
 	 * @see Traceability.TraceModel#getTraceLinks
-	 * @model opposite="traceLinks" required="true" transient="false"
+	 * @model opposite="traceLinks" transient="false"
 	 * @generated
 	 */
 	TraceModel getTraceModel();
@@ -121,5 +123,51 @@ public interface TraceLink extends TraceElement {
 	 * @generated
 	 */
 	void setOperation(Operations value);
+
+	/**
+	 * Returns the value of the '<em><b>Child Links</b></em>' containment reference list.
+	 * The list contents are of type {@link Traceability.TraceLink}.
+	 * It is bidirectional and its opposite is '{@link Traceability.TraceLink#getParentLink <em>Parent Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Child Links</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Child Links</em>' containment reference list.
+	 * @see Traceability.TraceabilityPackage#getTraceLink_ChildLinks()
+	 * @see Traceability.TraceLink#getParentLink
+	 * @model opposite="parentLink" containment="true"
+	 * @generated
+	 */
+	EList<TraceLink> getChildLinks();
+
+	/**
+	 * Returns the value of the '<em><b>Parent Link</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link Traceability.TraceLink#getChildLinks <em>Child Links</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent Link</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent Link</em>' container reference.
+	 * @see #setParentLink(TraceLink)
+	 * @see Traceability.TraceabilityPackage#getTraceLink_ParentLink()
+	 * @see Traceability.TraceLink#getChildLinks
+	 * @model opposite="childLinks" transient="false"
+	 * @generated
+	 */
+	TraceLink getParentLink();
+
+	/**
+	 * Sets the value of the '{@link Traceability.TraceLink#getParentLink <em>Parent Link</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent Link</em>' container reference.
+	 * @see #getParentLink()
+	 * @generated
+	 */
+	void setParentLink(TraceLink value);
 
 } // TraceLink

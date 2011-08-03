@@ -31,6 +31,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Traceability.ecore#//TraceLink/source"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Traceability.ecore#//TraceLink/target"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Traceability.ecore#//TraceLink/operation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Traceability.ecore#//TraceLink/childLinks"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Traceability.ecore#//TraceLink/parentLink"/>
     </genClasses>
     <genClasses ecoreClass="Traceability.ecore#//SourceModel">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Traceability.ecore#//SourceModel/traceModel"/>

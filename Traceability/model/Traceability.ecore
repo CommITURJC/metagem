@@ -23,14 +23,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="metamodel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TraceLink" eSuperTypes="#//TraceElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="traceModel" lowerBound="1"
-        eType="#_-9IokHcuEeC2IKVRQNr-xA" eOpposite="#//TraceModel/traceLinks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traceModel" eType="#_-9IokHcuEeC2IKVRQNr-xA"
+        eOpposite="#//TraceModel/traceLinks"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         upperBound="-1" eType="#//SourceElement" containment="true" eOpposite="#//SourceElement/source_traceLinks"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         upperBound="-1" eType="#//TargetElement" containment="true" eOpposite="#//TargetElement/target_traceLinks"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" lowerBound="1"
         eType="#//Operations" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childLinks" upperBound="-1"
+        eType="#//TraceLink" containment="true" eOpposite="#//TraceLink/parentLink"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentLink" eType="#//TraceLink"
+        eOpposite="#//TraceLink/childLinks"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourceModel" eSuperTypes="#//Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="traceModel" lowerBound="1"

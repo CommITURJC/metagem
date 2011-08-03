@@ -330,6 +330,24 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTraceLink_ChildLinks() {
+		return (EReference)traceLinkEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTraceLink_ParentLink() {
+		return (EReference)traceLinkEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSourceModel() {
 		return sourceModelEClass;
 	}
@@ -561,6 +579,8 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 		createEReference(traceLinkEClass, TRACE_LINK__SOURCE);
 		createEReference(traceLinkEClass, TRACE_LINK__TARGET);
 		createEAttribute(traceLinkEClass, TRACE_LINK__OPERATION);
+		createEReference(traceLinkEClass, TRACE_LINK__CHILD_LINKS);
+		createEReference(traceLinkEClass, TRACE_LINK__PARENT_LINK);
 
 		sourceModelEClass = createEClass(SOURCE_MODEL);
 		createEReference(sourceModelEClass, SOURCE_MODEL__TRACE_MODEL);
@@ -648,10 +668,12 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 		initEAttribute(getModel_Metamodel(), ecorePackage.getEString(), "metamodel", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(traceLinkEClass, TraceLink.class, "TraceLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTraceLink_TraceModel(), this.getTraceModel(), this.getTraceModel_TraceLinks(), "traceModel", null, 1, 1, TraceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTraceLink_TraceModel(), this.getTraceModel(), this.getTraceModel_TraceLinks(), "traceModel", null, 0, 1, TraceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTraceLink_Source(), this.getSourceElement(), this.getSourceElement_Source_traceLinks(), "source", null, 1, -1, TraceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTraceLink_Target(), this.getTargetElement(), this.getTargetElement_Target_traceLinks(), "target", null, 1, -1, TraceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTraceLink_Operation(), this.getOperations(), "operation", "", 1, 1, TraceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTraceLink_ChildLinks(), this.getTraceLink(), this.getTraceLink_ParentLink(), "childLinks", null, 0, -1, TraceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTraceLink_ParentLink(), this.getTraceLink(), this.getTraceLink_ChildLinks(), "parentLink", null, 0, 1, TraceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sourceModelEClass, SourceModel.class, "SourceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSourceModel_TraceModel(), this.getTraceModel(), this.getTraceModel_SourceModels(), "traceModel", null, 1, 1, SourceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

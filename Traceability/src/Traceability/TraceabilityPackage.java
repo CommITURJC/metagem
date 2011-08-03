@@ -290,13 +290,31 @@ public interface TraceabilityPackage extends EPackage {
 	int TRACE_LINK__OPERATION = TRACE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Child Links</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_LINK__CHILD_LINKS = TRACE_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Parent Link</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_LINK__PARENT_LINK = TRACE_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Trace Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACE_LINK_FEATURE_COUNT = TRACE_ELEMENT_FEATURE_COUNT + 4;
+	int TRACE_LINK_FEATURE_COUNT = TRACE_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link Traceability.impl.SourceModelImpl <em>Source Model</em>}' class.
@@ -948,6 +966,28 @@ public interface TraceabilityPackage extends EPackage {
 	EAttribute getTraceLink_Operation();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link Traceability.TraceLink#getChildLinks <em>Child Links</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Child Links</em>'.
+	 * @see Traceability.TraceLink#getChildLinks()
+	 * @see #getTraceLink()
+	 * @generated
+	 */
+	EReference getTraceLink_ChildLinks();
+
+	/**
+	 * Returns the meta object for the container reference '{@link Traceability.TraceLink#getParentLink <em>Parent Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent Link</em>'.
+	 * @see Traceability.TraceLink#getParentLink()
+	 * @see #getTraceLink()
+	 * @generated
+	 */
+	EReference getTraceLink_ParentLink();
+
+	/**
 	 * Returns the meta object for class '{@link Traceability.SourceModel <em>Source Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1327,6 +1367,22 @@ public interface TraceabilityPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TRACE_LINK__OPERATION = eINSTANCE.getTraceLink_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Child Links</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRACE_LINK__CHILD_LINKS = eINSTANCE.getTraceLink_ChildLinks();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Link</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRACE_LINK__PARENT_LINK = eINSTANCE.getTraceLink_ParentLink();
 
 		/**
 		 * The meta object literal for the '{@link Traceability.impl.SourceModelImpl <em>Source Model</em>}' class.
