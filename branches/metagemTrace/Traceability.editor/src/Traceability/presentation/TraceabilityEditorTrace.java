@@ -118,6 +118,7 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 
 import Traceability.TraceElement;
 import Traceability.TraceLink;
+import Traceability.impl.ModelImpl;
 import Traceability.impl.SourceElementImpl;
 import Traceability.impl.SourceModelImpl;
 import Traceability.impl.TargetElementImpl;
@@ -970,7 +971,13 @@ public class TraceabilityEditorTrace
 			sourceViewer.setInput(sourceRs);
 			sourceViewer.setSelection(new StructuredSelection(sourceRs.getResources().get(0)), true);
 			
-			Actions.createsElementsModel(sourceRs, sources,editingDomain);
+			final ArrayList<ModelImpl> sources_= new ArrayList<ModelImpl>();
+			for(int c1=0;c1<sources.size();c1++){
+				ModelImpl model = (ModelImpl) sources.get(c1);
+				sources_.add(model);
+			}
+			
+			Actions.createsElementsModel(sourceRs, sources_);
 			
 			viewerPane.setTitle("Source Models");
 			sourceViewer.addSelectionChangedListener
@@ -1067,6 +1074,15 @@ public class TraceabilityEditorTrace
 				targetRs = Actions.createResourceSet(paths_target);
 				targetViewer.setInput(targetRs);
 				targetViewer.setSelection(new StructuredSelection(targetRs.getResources().get(0)), true);
+				
+				final ArrayList<ModelImpl> targets_= new ArrayList<ModelImpl>();
+				for(int c1=0;c1<targets.size();c1++){
+					ModelImpl model = (ModelImpl) targets.get(c1);
+					targets_.add(model);
+				}
+				
+				Actions.createsElementsModel(targetRs, targets_);
+				
 				viewerPane3.setTitle("Target Models");
 				
 				targetViewer.addSelectionChangedListener
