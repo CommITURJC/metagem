@@ -172,22 +172,13 @@ public interface MetagemPackage extends EPackage {
 	int MODEL_TRANSF__PATH = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Metamodel</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_TRANSF__METAMODEL = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_TRANSF__ELEMENTS = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 2;
+	int MODEL_TRANSF__ELEMENTS = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Model Transf</em>' class.
@@ -196,7 +187,7 @@ public interface MetagemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_TRANSF_FEATURE_COUNT = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 3;
+	int MODEL_TRANSF_FEATURE_COUNT = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link metagem.impl.SourceModelTransfImpl <em>Source Model Transf</em>}' class.
@@ -225,15 +216,6 @@ public interface MetagemPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOURCE_MODEL_TRANSF__PATH = MODEL_TRANSF__PATH;
-
-	/**
-	 * The feature id for the '<em><b>Metamodel</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE_MODEL_TRANSF__METAMODEL = MODEL_TRANSF__METAMODEL;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -289,15 +271,6 @@ public interface MetagemPackage extends EPackage {
 	 * @ordered
 	 */
 	int TARGET_MODEL_TRANSF__PATH = MODEL_TRANSF__PATH;
-
-	/**
-	 * The feature id for the '<em><b>Metamodel</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TARGET_MODEL_TRANSF__METAMODEL = MODEL_TRANSF__METAMODEL;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1266,7 +1239,7 @@ public interface MetagemPackage extends EPackage {
 	int MODEL_ELEMENT__SUPER_ELEMENT = MODEL_COMPONENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Owned Element</b></em>' reference.
+	 * The feature id for the '<em><b>Owned Element</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1464,17 +1437,6 @@ public interface MetagemPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getModelTransf_Path();
-
-	/**
-	 * Returns the meta object for the attribute '{@link metagem.ModelTransf#getMetamodel <em>Metamodel</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Metamodel</em>'.
-	 * @see metagem.ModelTransf#getMetamodel()
-	 * @see #getModelTransf()
-	 * @generated
-	 */
-	EAttribute getModelTransf_Metamodel();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link metagem.ModelTransf#getElements <em>Elements</em>}'.
@@ -1958,10 +1920,10 @@ public interface MetagemPackage extends EPackage {
 	EReference getModelElement_SuperElement();
 
 	/**
-	 * Returns the meta object for the reference '{@link metagem.ModelElement#getOwnedElement <em>Owned Element</em>}'.
+	 * Returns the meta object for the container reference '{@link metagem.ModelElement#getOwnedElement <em>Owned Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Owned Element</em>'.
+	 * @return the meta object for the container reference '<em>Owned Element</em>'.
 	 * @see metagem.ModelElement#getOwnedElement()
 	 * @see #getModelElement()
 	 * @generated
@@ -2118,14 +2080,6 @@ public interface MetagemPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MODEL_TRANSF__PATH = eINSTANCE.getModelTransf_Path();
-
-		/**
-		 * The meta object literal for the '<em><b>Metamodel</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MODEL_TRANSF__METAMODEL = eINSTANCE.getModelTransf_Metamodel();
 
 		/**
 		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
@@ -2516,7 +2470,7 @@ public interface MetagemPackage extends EPackage {
 		EReference MODEL_ELEMENT__SUPER_ELEMENT = eINSTANCE.getModelElement_SuperElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Owned Element</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Owned Element</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

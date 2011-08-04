@@ -65,7 +65,6 @@ public class ModelTransfItemProvider
 			super.getPropertyDescriptors(object);
 
 			addPathPropertyDescriptor(object);
-			addMetamodelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,28 +83,6 @@ public class ModelTransfItemProvider
 				 getString("_UI_ModelTransf_path_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ModelTransf_path_feature", "_UI_ModelTransf_type"),
 				 MetagemPackage.Literals.MODEL_TRANSF__PATH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Metamodel feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMetamodelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ModelTransf_metamodel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModelTransf_metamodel_feature", "_UI_ModelTransf_type"),
-				 MetagemPackage.Literals.MODEL_TRANSF__METAMODEL,
 				 true,
 				 false,
 				 false,
@@ -171,7 +148,6 @@ public class ModelTransfItemProvider
 
 		switch (notification.getFeatureID(ModelTransf.class)) {
 			case MetagemPackage.MODEL_TRANSF__PATH:
-			case MetagemPackage.MODEL_TRANSF__METAMODEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MetagemPackage.MODEL_TRANSF__ELEMENTS:

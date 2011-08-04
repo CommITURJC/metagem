@@ -17,9 +17,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelTransf" abstract="true" eSuperTypes="#//TransformationElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metamodel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//ModelElement" containment="true"/>
+        eType="#//ModelElement" containment="true" eOpposite="#//ModelElement/ownedElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourceModelTransf" eSuperTypes="#//ModelTransf">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElement" lowerBound="1"
@@ -118,7 +117,8 @@
         eType="#//ModelElement" containment="true" eOpposite="#//ModelElement/superElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superElement" eType="#//ModelElement"
         eOpposite="#//ModelElement/elements"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElement" eType="#//ModelTransf"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElement" eType="#//ModelTransf"
+        eOpposite="#//ModelTransf/elements"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelFeature" eSuperTypes="#//ModelComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"

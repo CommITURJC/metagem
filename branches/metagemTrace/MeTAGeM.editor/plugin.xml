@@ -27,12 +27,22 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            id="metagem.presentation.MetagemEditorID"
-            name="%_UI_MetagemEditor_label"
-            icon="icons/full/obj16/MetagemModelFile.gif"
+            class="metagem.presentation.MetagemEditorTrace"
+            contributorClass="metagem.presentation.MetagemActionBarContributor"
+            default="true"
             extensions="metagem"
+            icon="icons/full/obj16/MetagemModelFile.gif"
+            id="metagem.presentation.MetagemEditorID"
+            name="%_UI_MetagemEditor_label">
+      </editor>
+      <editor
             class="metagem.presentation.MetagemEditor"
-            contributorClass="metagem.presentation.MetagemActionBarContributor">
+            contributorClass="metagem.presentation.MetagemActionBarContributor"
+            default="false"
+            extensions="metagem"
+            icon="icons/full/obj16/MetagemModelFile.gif"
+            id="metagem.presentation.MetagemEditorID_emf"
+            name="%_UI_MetagemEditorEMF_label">
       </editor>
    </extension>
 

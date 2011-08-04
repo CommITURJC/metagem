@@ -93,26 +93,28 @@ public interface ModelElement extends ModelComponent {
 	void setSuperElement(ModelElement value);
 
 	/**
-	 * Returns the value of the '<em><b>Owned Element</b></em>' reference.
+	 * Returns the value of the '<em><b>Owned Element</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link metagem.ModelTransf#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Owned Element</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owned Element</em>' reference.
+	 * @return the value of the '<em>Owned Element</em>' container reference.
 	 * @see #setOwnedElement(ModelTransf)
 	 * @see metagem.MetagemPackage#getModelElement_OwnedElement()
-	 * @model
+	 * @see metagem.ModelTransf#getElements
+	 * @model opposite="elements" transient="false"
 	 * @generated
 	 */
 	ModelTransf getOwnedElement();
 
 	/**
-	 * Sets the value of the '{@link metagem.ModelElement#getOwnedElement <em>Owned Element</em>}' reference.
+	 * Sets the value of the '{@link metagem.ModelElement#getOwnedElement <em>Owned Element</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Owned Element</em>' reference.
+	 * @param value the new value of the '<em>Owned Element</em>' container reference.
 	 * @see #getOwnedElement()
 	 * @generated
 	 */

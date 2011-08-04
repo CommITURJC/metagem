@@ -32,7 +32,6 @@
     </genClasses>
     <genClasses image="false" ecoreClass="MeTAGeM.ecore#//ModelTransf">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MeTAGeM.ecore#//ModelTransf/path"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MeTAGeM.ecore#//ModelTransf/metamodel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelTransf/elements"/>
     </genClasses>
     <genClasses ecoreClass="MeTAGeM.ecore#//SourceModelTransf">
@@ -91,7 +90,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelElement/features"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelElement/elements"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelElement/superElement"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelElement/ownedElement"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelElement/ownedElement"/>
     </genClasses>
     <genClasses ecoreClass="MeTAGeM.ecore#//ModelFeature">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelFeature/parent"/>

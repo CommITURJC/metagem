@@ -65,16 +65,6 @@ public class ModelElementImpl extends ModelComponentImpl implements ModelElement
 	protected EList<ModelElement> elements;
 
 	/**
-	 * The cached value of the '{@link #getOwnedElement() <em>Owned Element</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnedElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected ModelTransf ownedElement;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -164,15 +154,8 @@ public class ModelElementImpl extends ModelComponentImpl implements ModelElement
 	 * @generated
 	 */
 	public ModelTransf getOwnedElement() {
-		if (ownedElement != null && ownedElement.eIsProxy()) {
-			InternalEObject oldOwnedElement = (InternalEObject)ownedElement;
-			ownedElement = (ModelTransf)eResolveProxy(oldOwnedElement);
-			if (ownedElement != oldOwnedElement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MetagemPackage.MODEL_ELEMENT__OWNED_ELEMENT, oldOwnedElement, ownedElement));
-			}
-		}
-		return ownedElement;
+		if (eContainerFeatureID() != MetagemPackage.MODEL_ELEMENT__OWNED_ELEMENT) return null;
+		return (ModelTransf)eContainer();
 	}
 
 	/**
@@ -180,8 +163,9 @@ public class ModelElementImpl extends ModelComponentImpl implements ModelElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelTransf basicGetOwnedElement() {
-		return ownedElement;
+	public NotificationChain basicSetOwnedElement(ModelTransf newOwnedElement, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newOwnedElement, MetagemPackage.MODEL_ELEMENT__OWNED_ELEMENT, msgs);
+		return msgs;
 	}
 
 	/**
@@ -190,10 +174,19 @@ public class ModelElementImpl extends ModelComponentImpl implements ModelElement
 	 * @generated
 	 */
 	public void setOwnedElement(ModelTransf newOwnedElement) {
-		ModelTransf oldOwnedElement = ownedElement;
-		ownedElement = newOwnedElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetagemPackage.MODEL_ELEMENT__OWNED_ELEMENT, oldOwnedElement, ownedElement));
+		if (newOwnedElement != eInternalContainer() || (eContainerFeatureID() != MetagemPackage.MODEL_ELEMENT__OWNED_ELEMENT && newOwnedElement != null)) {
+			if (EcoreUtil.isAncestor(this, newOwnedElement))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newOwnedElement != null)
+				msgs = ((InternalEObject)newOwnedElement).eInverseAdd(this, MetagemPackage.MODEL_TRANSF__ELEMENTS, ModelTransf.class, msgs);
+			msgs = basicSetOwnedElement(newOwnedElement, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetagemPackage.MODEL_ELEMENT__OWNED_ELEMENT, newOwnedElement, newOwnedElement));
 	}
 
 	/**
@@ -213,6 +206,10 @@ public class ModelElementImpl extends ModelComponentImpl implements ModelElement
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetSuperElement((ModelElement)otherEnd, msgs);
+			case MetagemPackage.MODEL_ELEMENT__OWNED_ELEMENT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetOwnedElement((ModelTransf)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -231,6 +228,8 @@ public class ModelElementImpl extends ModelComponentImpl implements ModelElement
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case MetagemPackage.MODEL_ELEMENT__SUPER_ELEMENT:
 				return basicSetSuperElement(null, msgs);
+			case MetagemPackage.MODEL_ELEMENT__OWNED_ELEMENT:
+				return basicSetOwnedElement(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -245,6 +244,8 @@ public class ModelElementImpl extends ModelComponentImpl implements ModelElement
 		switch (eContainerFeatureID()) {
 			case MetagemPackage.MODEL_ELEMENT__SUPER_ELEMENT:
 				return eInternalContainer().eInverseRemove(this, MetagemPackage.MODEL_ELEMENT__ELEMENTS, ModelElement.class, msgs);
+			case MetagemPackage.MODEL_ELEMENT__OWNED_ELEMENT:
+				return eInternalContainer().eInverseRemove(this, MetagemPackage.MODEL_TRANSF__ELEMENTS, ModelTransf.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -264,8 +265,7 @@ public class ModelElementImpl extends ModelComponentImpl implements ModelElement
 			case MetagemPackage.MODEL_ELEMENT__SUPER_ELEMENT:
 				return getSuperElement();
 			case MetagemPackage.MODEL_ELEMENT__OWNED_ELEMENT:
-				if (resolve) return getOwnedElement();
-				return basicGetOwnedElement();
+				return getOwnedElement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -336,7 +336,7 @@ public class ModelElementImpl extends ModelComponentImpl implements ModelElement
 			case MetagemPackage.MODEL_ELEMENT__SUPER_ELEMENT:
 				return getSuperElement() != null;
 			case MetagemPackage.MODEL_ELEMENT__OWNED_ELEMENT:
-				return ownedElement != null;
+				return getOwnedElement() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -33,7 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link metagem.impl.ModelTransfImpl#getPath <em>Path</em>}</li>
- *   <li>{@link metagem.impl.ModelTransfImpl#getMetamodel <em>Metamodel</em>}</li>
  *   <li>{@link metagem.impl.ModelTransfImpl#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
@@ -60,26 +60,6 @@ public abstract class ModelTransfImpl extends TransformationElementImpl implemen
 	 * @ordered
 	 */
 	protected String path = PATH_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMetamodel() <em>Metamodel</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMetamodel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String METAMODEL_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getMetamodel() <em>Metamodel</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMetamodel()
-	 * @generated
-	 * @ordered
-	 */
-	protected String metamodel = METAMODEL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -136,32 +116,26 @@ public abstract class ModelTransfImpl extends TransformationElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getMetamodel() {
-		return metamodel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMetamodel(String newMetamodel) {
-		String oldMetamodel = metamodel;
-		metamodel = newMetamodel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetagemPackage.MODEL_TRANSF__METAMODEL, oldMetamodel, metamodel));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<ModelElement> getElements() {
 		if (elements == null) {
-			elements = new EObjectContainmentEList<ModelElement>(ModelElement.class, this, MetagemPackage.MODEL_TRANSF__ELEMENTS);
+			elements = new EObjectContainmentWithInverseEList<ModelElement>(ModelElement.class, this, MetagemPackage.MODEL_TRANSF__ELEMENTS, MetagemPackage.MODEL_ELEMENT__OWNED_ELEMENT);
 		}
 		return elements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MetagemPackage.MODEL_TRANSF__ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -188,8 +162,6 @@ public abstract class ModelTransfImpl extends TransformationElementImpl implemen
 		switch (featureID) {
 			case MetagemPackage.MODEL_TRANSF__PATH:
 				return getPath();
-			case MetagemPackage.MODEL_TRANSF__METAMODEL:
-				return getMetamodel();
 			case MetagemPackage.MODEL_TRANSF__ELEMENTS:
 				return getElements();
 		}
@@ -207,9 +179,6 @@ public abstract class ModelTransfImpl extends TransformationElementImpl implemen
 		switch (featureID) {
 			case MetagemPackage.MODEL_TRANSF__PATH:
 				setPath((String)newValue);
-				return;
-			case MetagemPackage.MODEL_TRANSF__METAMODEL:
-				setMetamodel((String)newValue);
 				return;
 			case MetagemPackage.MODEL_TRANSF__ELEMENTS:
 				getElements().clear();
@@ -230,9 +199,6 @@ public abstract class ModelTransfImpl extends TransformationElementImpl implemen
 			case MetagemPackage.MODEL_TRANSF__PATH:
 				setPath(PATH_EDEFAULT);
 				return;
-			case MetagemPackage.MODEL_TRANSF__METAMODEL:
-				setMetamodel(METAMODEL_EDEFAULT);
-				return;
 			case MetagemPackage.MODEL_TRANSF__ELEMENTS:
 				getElements().clear();
 				return;
@@ -250,8 +216,6 @@ public abstract class ModelTransfImpl extends TransformationElementImpl implemen
 		switch (featureID) {
 			case MetagemPackage.MODEL_TRANSF__PATH:
 				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
-			case MetagemPackage.MODEL_TRANSF__METAMODEL:
-				return METAMODEL_EDEFAULT == null ? metamodel != null : !METAMODEL_EDEFAULT.equals(metamodel);
 			case MetagemPackage.MODEL_TRANSF__ELEMENTS:
 				return elements != null && !elements.isEmpty();
 		}
@@ -270,8 +234,6 @@ public abstract class ModelTransfImpl extends TransformationElementImpl implemen
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (path: ");
 		result.append(path);
-		result.append(", metamodel: ");
-		result.append(metamodel);
 		result.append(')');
 		return result.toString();
 	}

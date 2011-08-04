@@ -339,17 +339,8 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModelTransf_Metamodel() {
-		return (EAttribute)modelTransfEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getModelTransf_Elements() {
-		return (EReference)modelTransfEClass.getEStructuralFeatures().get(2);
+		return (EReference)modelTransfEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -841,7 +832,6 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 
 		modelTransfEClass = createEClass(MODEL_TRANSF);
 		createEAttribute(modelTransfEClass, MODEL_TRANSF__PATH);
-		createEAttribute(modelTransfEClass, MODEL_TRANSF__METAMODEL);
 		createEReference(modelTransfEClass, MODEL_TRANSF__ELEMENTS);
 
 		sourceModelTransfEClass = createEClass(SOURCE_MODEL_TRANSF);
@@ -969,8 +959,7 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 
 		initEClass(modelTransfEClass, ModelTransf.class, "ModelTransf", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelTransf_Path(), ecorePackage.getEString(), "path", null, 1, 1, ModelTransf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getModelTransf_Metamodel(), ecorePackage.getEString(), "metamodel", null, 0, 1, ModelTransf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelTransf_Elements(), this.getModelElement(), null, "elements", null, 0, -1, ModelTransf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModelTransf_Elements(), this.getModelElement(), this.getModelElement_OwnedElement(), "elements", null, 0, -1, ModelTransf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sourceModelTransfEClass, SourceModelTransf.class, "SourceModelTransf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSourceModelTransf_OwnedElement(), this.getModelRoot(), this.getModelRoot_SourceModels(), "ownedElement", null, 1, 1, SourceModelTransf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1029,7 +1018,7 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 		initEReference(getModelElement_Features(), this.getModelFeature(), this.getModelFeature_Parent(), "features", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModelElement_Elements(), this.getModelElement(), this.getModelElement_SuperElement(), "elements", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModelElement_SuperElement(), this.getModelElement(), this.getModelElement_Elements(), "superElement", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElement_OwnedElement(), this.getModelTransf(), null, "ownedElement", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModelElement_OwnedElement(), this.getModelTransf(), this.getModelTransf_Elements(), "ownedElement", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelFeatureEClass, ModelFeature.class, "ModelFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModelFeature_Parent(), this.getModelElement(), this.getModelElement_Features(), "parent", null, 1, 1, ModelFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
