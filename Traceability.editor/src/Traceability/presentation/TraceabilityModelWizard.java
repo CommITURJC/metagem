@@ -30,7 +30,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -695,7 +694,7 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 			addModel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_AddModel"));
 			addModel.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
-					TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),models,getCreationPage());
+					TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),models,getCreationPage(),getModelFile().getParent().getName());
 					dialogModel.open();
 					setPageComplete(validatePage());
 				}
@@ -707,7 +706,7 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 				public void widgetSelected(SelectionEvent e) {
 					int index = modelTable.getSelectionIndex();
 					if(index>-1){
-						TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),models,getCreationPage(),index);
+						TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),models,getCreationPage(),index, getModelFile().getParent().getName());
 						dialogModel.open();
 					}
 					setPageComplete(validatePage());
@@ -828,6 +827,7 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 					// Set this for the container.
 					//
 					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
+					
 
 					// Make up a unique new name here.
 					//

@@ -414,6 +414,9 @@ public class Actions {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}else{
+			//element exists
+			element = getElementFromModel(id,model);
 		}
 		
 		if(model.getMetamodel()==""){ 
@@ -463,74 +466,24 @@ public class Actions {
 
 		}
 		
-//		Traceability.Element element = null;
-//		if (!exists(id, model)) {
-//			TraceabilityFactoryImpl traceabilityFactory = new TraceabilityFactoryImpl();
-//			element = traceabilityFactory.createElement();
-//			Traceability.Element ownedElement = null;
-//
-//			// Looking for ownedElement of the feature
-//			EObject ownedEObject = eModelElement.eContainer();
-//			if (ownedEObject != null) {
-//				
-//				
-//				// Get the ID of the ownedElement
-//				XMIResource resource = (XMIResource) ownedEObject.eResource();
-//				String id_ownedElement = resource.getID(ownedEObject); 
-//				if (id_ownedElement == null)
-//					id_ownedElement = resource.getURIFragment(ownedEObject);
-//
-//				TreeIterator<EObject> elements_model = model.eAllContents();
-//				while (elements_model.hasNext()) {
-//					EObject next = elements_model.next();
-//					if (next instanceof Traceability.Element) {
-//						Traceability.Element element_model = (Traceability.Element) next;
-//						if (id_ownedElement != null
-//								&& element_model.getRef() != null
-//								&& element_model.getRef().equals(
-//										id_ownedElement)) {
-//							ownedElement = element_model;
-//						}
-//					}
-//
-//				}
-//				if (ownedElement == null) {
-//					element.setModel(model);
-//				} else {
-//					element.setSuper_element(ownedElement);
-//				}
-//			} else {
-//				element.setModel(model);
-//			}
-//			element.setRef(id);
-//
-//			String name = null;
-//			EList<EStructuralFeature> allESF = eModelElement.eClass()
-//					.getEAllStructuralFeatures();
-//			for (int c1 = 0; c1 < allESF.size(); c1++) {
-//				EStructuralFeature feature = allESF.get(c1);
-//				if (eModelElement.eGet(feature) instanceof String) {
-//					if ((c1 == 0)
-//							|| (feature.getName().toUpperCase()
-//									.contains("NAME"))) {
-//						name = eModelElement.eGet(feature).toString();
-//					}
-//				}
-//			}
-//			if (name == null)
-//				name = eModelElement.eClass().getName();
-//			element.setName(name);
-//
-//			// Creates the element in the model
-//			try {
-//				element.eResource().save(new HashMap<Object, Object>());
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//			
-//		}
 		return element;
 	
+	}
+
+	private static Traceability.Element getElementFromModel(String id, Model model) {
+		TreeIterator<EObject> elements = model.eAllContents();
+		while(elements.hasNext()){
+			EObject next = elements.next();
+			if(next instanceof Traceability.Element){
+				Traceability.Element element = (Traceability.Element) next;
+				if(id!=null&&
+						element.getRef()!=null&&
+						element.getRef().equals(id)){
+							return element;
+					}
+			}
+		}
+		return null;
 	}
 
 	private static boolean exists(String id, Model model) {
