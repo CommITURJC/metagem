@@ -137,7 +137,9 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @NOT generated
 	 */
-	protected TraceabilityModelWizardSourceModelsCreationPage sourceModelsCreationPage;
+	//protected TraceabilityModelWizardSourceModelsCreationPage sourceModelsCreationPage;
+	
+	protected TraceabilityModelWizardModelsCreationPage modelsCreationPage;
 	
 	/**
 	 * This is the source models creation page.
@@ -145,7 +147,7 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @NOT generated
 	 */
-	protected TraceabilityModelWizardTargetModelsCreationPage targetModelsCreationPage;
+	//protected TraceabilityModelWizardTargetModelsCreationPage targetModelsCreationPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
@@ -598,27 +600,35 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 		}
 	}
 
+
+
+	
 	/**
-	 * This is the page where the source models are selected.
+	 * This is the page where the models are selected.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @NOT generated
 	 */
-	public abstract class TraceabilityModelWizardModelsCreationPage extends WizardPage {
+	public  class TraceabilityModelWizardModelsCreationPage extends WizardPage {
 		
-		private Button addModel;
-		private Button editModel;
-		private Button removeModel;
-		private Table modelTable;
-		private ArrayList<ModelData> models;
+		private Button addSourceModel;
+		private Button editSourceModel;
+		private Button removeSourceModel;
+		private Button addTargetModel;
+		private Button editTargetModel;
+		private Button removeTargetModel;
+		private Table modelSourceTable;
+		private Table modelTargetTable;
+		private ArrayList<ModelData> sourceModels;
+		private ArrayList<ModelData> targetModels;
 
 		protected TraceabilityModelWizardModelsCreationPage(
-				String pageName, ArrayList<ModelData> models) {
+				String pageName, ArrayList<ModelData> sourceModels, ArrayList<ModelData> targetModels) {
 			super(pageName);
-			this.models=models;
+			this.sourceModels=sourceModels;
+			this.targetModels=targetModels;
 		}
 		
-		protected abstract String getContainerLabel();
 		
 		/**
 		 * <!-- begin-user-doc -->
@@ -626,6 +636,7 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 		 * @NOT generated
 		 */
 		public void createControl(Composite parent) {
+						
 			Composite composite = new Composite(parent, SWT.NULL); {
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 3;
@@ -637,17 +648,17 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 				data.horizontalAlignment = GridData.FILL;
 				composite.setLayoutData(data);
 			}
-
+			
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(TraceabilityEditorPlugin.INSTANCE.getString(getContainerLabel()));
+				containerLabel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_SourceModels"));
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
 				data.horizontalSpan = 3;
 				containerLabel.setLayoutData(data);
 			}
 
-			modelTable = new Table(composite, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL |SWT.FULL_SELECTION );
+			modelSourceTable = new Table(composite, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL |SWT.FULL_SELECTION );
 			{
 				GridData data = new GridData();
 				data.verticalAlignment = GridData.FILL;
@@ -655,86 +666,192 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 				data.grabExcessVerticalSpace = true;
 				data.horizontalAlignment = GridData.FILL;
 				data.horizontalSpan = 3;
-				data.heightHint = 220;
-				data.widthHint = 450;
-				modelTable.setLayoutData(data);
+				data.heightHint = 100;
+				data.widthHint = 250;
+				modelSourceTable.setLayoutData(data);
 			}
-			modelTable.setHeaderVisible(true);
-			modelTable.setLinesVisible(true);
+			modelSourceTable.setHeaderVisible(true);
+			modelSourceTable.setLinesVisible(true);
 			{
 
-				TableColumn modelColumn = new TableColumn(modelTable,
+				TableColumn modelColumn = new TableColumn(modelSourceTable,
 						SWT.NONE);
 				modelColumn.setWidth(100);
 				modelColumn.setText("Model");
 				modelColumn.setResizable(true);
 
-				TableColumn pathColumn = new TableColumn(modelTable, SWT.NONE);
+				TableColumn pathColumn = new TableColumn(modelSourceTable, SWT.NONE);
 				pathColumn.setText("Path");
 				pathColumn.setWidth(193);
 				pathColumn.setResizable(true);
 				
-				TableColumn metamodelColumn = new TableColumn(modelTable, SWT.NONE);
+				TableColumn metamodelColumn = new TableColumn(modelSourceTable, SWT.NONE);
 				metamodelColumn.setText("Metamodel");
 				metamodelColumn.setWidth(175);
 				metamodelColumn.setResizable(true);
 
 			}
-			modelTable.addSelectionListener(new SelectionAdapter() {
+			modelSourceTable.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
-					editModel.setEnabled(true);
-					removeModel.setEnabled(true);
+					editSourceModel.setEnabled(true);
+					removeSourceModel.setEnabled(true);
 				}
 			});
 			
 			
-			rewriteTable();
 			
-			addModel = new Button(composite,SWT.PUSH);
-			addModel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_AddModel"));
-			addModel.addSelectionListener(new SelectionAdapter() {
+			addSourceModel = new Button(composite,SWT.PUSH);
+			addSourceModel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_AddModel"));
+			addSourceModel.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
-					TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),models,getCreationPage(),getModelFile().getParent().getName());
+					TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),sourceModels,getCreationPage(),getModelFile().getParent().getName());
 					dialogModel.open();
 					setPageComplete(validatePage());
 				}
 			});
 			
-			editModel = new Button(composite,SWT.PUSH);
-			editModel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_EditModel"));
-			editModel.addSelectionListener(new SelectionAdapter() {
+			editSourceModel = new Button(composite,SWT.PUSH);
+			editSourceModel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_EditModel"));
+			editSourceModel.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
-					int index = modelTable.getSelectionIndex();
+					int index = modelSourceTable.getSelectionIndex();
 					if(index>-1){
-						TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),models,getCreationPage(),index, getModelFile().getParent().getName());
+						TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),sourceModels,getCreationPage(),index, getModelFile().getParent().getName());
 						dialogModel.open();
 					}
 					setPageComplete(validatePage());
 				}
 			});
-			editModel.setEnabled(false);
+			editSourceModel.setEnabled(false);
 			
-			removeModel = new Button(composite,SWT.PUSH);
-			removeModel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_RemoveModel"));
-			removeModel.addSelectionListener(new SelectionAdapter() {
+			removeSourceModel = new Button(composite,SWT.PUSH);
+			removeSourceModel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_RemoveModel"));
+			removeSourceModel.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
-					int index = modelTable.getSelectionIndex();
+					int index = modelSourceTable.getSelectionIndex();
 					if(index>-1){
-						models.remove(index);
+						sourceModels.remove(index);
 					}
-					if(models.size()==0){
-						editModel.setEnabled(false);
-						removeModel.setEnabled(false);
+					if(sourceModels.size()==0){
+						editSourceModel.setEnabled(false);
+						removeSourceModel.setEnabled(false);
 					}
 					rewriteTable();
 					setPageComplete(validatePage());
 				}
 			});
-			removeModel.setEnabled(false);
+			removeSourceModel.setEnabled(false);
 			
+			
+			Label separator = new Label (composite, SWT.SEPARATOR | SWT.HORIZONTAL);
+			{	GridData data = new GridData();
+				data.horizontalAlignment = GridData.FILL;
+				data.horizontalSpan = 3;
+				data.verticalSpan = 5;
+				separator.setLayoutData(data);
+			}
+			
+			
+			Label containerLabel2 = new Label(composite, SWT.LEFT);
+			{
+				containerLabel2.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_TargetModels"));
+				GridData data = new GridData();
+				data.horizontalAlignment = GridData.FILL;
+				data.horizontalSpan = 3;
+				containerLabel.setLayoutData(data);
+			}
+
+			modelTargetTable = new Table(composite, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL |SWT.FULL_SELECTION );
+			{
+				GridData data = new GridData();
+				data.verticalAlignment = GridData.FILL;
+				data.grabExcessHorizontalSpace = true;
+				data.grabExcessVerticalSpace = true;
+				data.horizontalAlignment = GridData.FILL;
+				data.horizontalSpan = 3;
+				data.heightHint = 100;
+				data.widthHint = 250;
+				modelTargetTable.setLayoutData(data);
+			}
+			modelTargetTable.setHeaderVisible(true);
+			modelTargetTable.setLinesVisible(true);
+			{
+
+				TableColumn modelColumn = new TableColumn(modelTargetTable,
+						SWT.NONE);
+				modelColumn.setWidth(100);
+				modelColumn.setText("Model");
+				modelColumn.setResizable(true);
+
+				TableColumn pathColumn = new TableColumn(modelTargetTable, SWT.NONE);
+				pathColumn.setText("Path");
+				pathColumn.setWidth(193);
+				pathColumn.setResizable(true);
+				
+				TableColumn metamodelColumn = new TableColumn(modelTargetTable, SWT.NONE);
+				metamodelColumn.setText("Metamodel");
+				metamodelColumn.setWidth(175);
+				metamodelColumn.setResizable(true);
+
+			}
+			modelTargetTable.addSelectionListener(new SelectionAdapter() {
+				public void widgetSelected(SelectionEvent e) {
+					editTargetModel.setEnabled(true);
+					removeTargetModel.setEnabled(true);
+				}
+			});
+			
+			
+			
+			addTargetModel = new Button(composite,SWT.PUSH);
+			addTargetModel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_AddModel"));
+			addTargetModel.addSelectionListener(new SelectionAdapter() {
+				public void widgetSelected(SelectionEvent e) {
+					TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),targetModels,getCreationPage(),getModelFile().getParent().getName());
+					dialogModel.open();
+					setPageComplete(validatePage());
+				}
+			});
+			
+			editTargetModel = new Button(composite,SWT.PUSH);
+			editTargetModel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_EditModel"));
+			editTargetModel.addSelectionListener(new SelectionAdapter() {
+				public void widgetSelected(SelectionEvent e) {
+					int index = modelTargetTable.getSelectionIndex();
+					if(index>-1){
+						TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),targetModels,getCreationPage(),index, getModelFile().getParent().getName());
+						dialogModel.open();
+					}
+					setPageComplete(validatePage());
+				}
+			});
+			editTargetModel.setEnabled(false);
+			
+			removeTargetModel = new Button(composite,SWT.PUSH);
+			removeTargetModel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_RemoveModel"));
+			removeTargetModel.addSelectionListener(new SelectionAdapter() {
+				public void widgetSelected(SelectionEvent e) {
+					int index = modelTargetTable.getSelectionIndex();
+					if(index>-1){
+						targetModels.remove(index);
+					}
+					if(targetModels.size()==0){
+						editTargetModel.setEnabled(false);
+						removeTargetModel.setEnabled(false);
+					}
+					rewriteTable();
+					setPageComplete(validatePage());
+				}
+			});
+			removeTargetModel.setEnabled(false);
+			
+			rewriteTable();
 			setPageComplete(validatePage());
 			setControl(composite);
 		}
+
+
+
 
 		private TraceabilityModelWizardModelsCreationPage getCreationPage(){
 			return this;
@@ -747,7 +864,7 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 		 * @NOT generated
 		 */
 		protected boolean validatePage() {
-			if(models.size()>0){
+			if((sourceModels.size()>0)&&(targetModels.size()>0)){
 				return true;
 			}else{
 				return false;
@@ -755,39 +872,29 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 		}
 
 		protected void rewriteTable(){
-			modelTable.removeAll();
-			for(int cont1=0;cont1<models.size();cont1++){
-				TableItem item = new TableItem(modelTable,SWT.NONE);
-				item.setText(0,models.get(cont1).getName());
-				item.setText(1,models.get(cont1).getPath());
-				if(models.get(cont1).isMetamodel()){
+			modelSourceTable.removeAll();
+			for(int cont1=0;cont1<sourceModels.size();cont1++){
+				TableItem item = new TableItem(modelSourceTable,SWT.NONE);
+				item.setText(0,sourceModels.get(cont1).getName());
+				item.setText(1,sourceModels.get(cont1).getPath());
+				if(sourceModels.get(cont1).isMetamodel()){
 					item.setText(2,"-");
 				}else{
-					item.setText(2,models.get(cont1).getMetamodel());
+					item.setText(2,sourceModels.get(cont1).getMetamodel());
 				}
 			}
-		}
-	}
-	
-	public class TraceabilityModelWizardSourceModelsCreationPage extends TraceabilityModelWizardModelsCreationPage{
-		public TraceabilityModelWizardSourceModelsCreationPage(String pageName, 
-				ArrayList<ModelData> sourceModels) {
-			 super(pageName,sourceModels);
-		}
-
-		protected String getContainerLabel(){
-			return "_UI_SourceModels";
-		}
-	}
-	
-	public class TraceabilityModelWizardTargetModelsCreationPage extends TraceabilityModelWizardModelsCreationPage{
-		public TraceabilityModelWizardTargetModelsCreationPage(String pageName, 
-				ArrayList<ModelData> targetModels) {
-			 super(pageName,targetModels);
-		}
-
-		protected String getContainerLabel(){
-			return "_UI_TargetModels";
+			
+			modelTargetTable.removeAll();
+			for(int cont1=0;cont1<targetModels.size();cont1++){
+				TableItem item = new TableItem(modelTargetTable,SWT.NONE);
+				item.setText(0,targetModels.get(cont1).getName());
+				item.setText(1,targetModels.get(cont1).getPath());
+				if(targetModels.get(cont1).isMetamodel()){
+					item.setText(2,"-");
+				}else{
+					item.setText(2,targetModels.get(cont1).getMetamodel());
+				}
+			}
 		}
 	}
 
@@ -841,20 +948,12 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 				}
 			}
 		}
-//		initialObjectCreationPage = new TraceabilityModelWizardInitialObjectCreationPage("Source Models");
-//		initialObjectCreationPage.setTitle(TraceabilityEditorPlugin.INSTANCE.getString("_UI_TraceabilityModelWizard_label"));
-//		initialObjectCreationPage.setDescription(TraceabilityEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
-//		addPage(initialObjectCreationPage);
+
+		modelsCreationPage = new TraceabilityModelWizardModelsCreationPage("Models",sourceModels,targetModels);
+		modelsCreationPage.setTitle(TraceabilityEditorPlugin.INSTANCE.getString("_UI_TraceabilityModelWizard_label"));
+		modelsCreationPage.setDescription(TraceabilityEditorPlugin.INSTANCE.getString("_UI_Wizard_target_models_description"));
+		addPage(modelsCreationPage);
 		
-		sourceModelsCreationPage = new TraceabilityModelWizardSourceModelsCreationPage("Source Models",sourceModels);
-		sourceModelsCreationPage.setTitle(TraceabilityEditorPlugin.INSTANCE.getString("_UI_TraceabilityModelWizard_label"));
-		sourceModelsCreationPage.setDescription(TraceabilityEditorPlugin.INSTANCE.getString("_UI_Wizard_source_models_description"));
-		addPage(sourceModelsCreationPage);
-		
-		targetModelsCreationPage = new TraceabilityModelWizardTargetModelsCreationPage("Target Models",targetModels);
-		targetModelsCreationPage.setTitle(TraceabilityEditorPlugin.INSTANCE.getString("_UI_TraceabilityModelWizard_label"));
-		targetModelsCreationPage.setDescription(TraceabilityEditorPlugin.INSTANCE.getString("_UI_Wizard_target_models_description"));
-		addPage(targetModelsCreationPage);
 	}
 
 	/**
