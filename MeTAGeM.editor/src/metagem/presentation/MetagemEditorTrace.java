@@ -1094,7 +1094,7 @@ public class MetagemEditorTrace
 				metagemViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 				metagemViewer.setInput(editingDomain.getResourceSet());
 				metagemViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
-				viewerPane2.setTitle("Metagem Model",Actions.getImage("TraceModel"));
+				viewerPane2.setTitle("Metagem Model",Actions.getImage("ModelRoot"));
 				metagemViewer.addSelectionChangedListener
 				(new ISelectionChangedListener() {
 					 // This ensures that we handle selections correctly.
