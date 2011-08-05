@@ -3,6 +3,7 @@ package Traceability.presentation;
 import java.util.ArrayList;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -34,7 +35,8 @@ public class TraceabilityWizardHandleModel extends Dialog {
 	private Text pathText;
 	private Text metamodelText;
 	private Button firstBrowseButton; 
-	//private Button secondBrowseButton;
+	private Button secondBrowseButton;
+	private Button thirdBrowseButton;
 	private Label firstFileLabel;
 	private Label secondFileLabel; 	
 	private Button button1;
@@ -47,6 +49,7 @@ public class TraceabilityWizardHandleModel extends Dialog {
 	final int CREATING = 0;
 	final int EDITING = 1;
 	private int action;
+	private Label labelBoth;
 
 	protected TraceabilityWizardHandleModel(Shell parentShell, ArrayList<ModelData> models, TraceabilityModelWizardModelsCreationPage page, String project) {
 		super(parentShell);
@@ -84,10 +87,12 @@ public class TraceabilityWizardHandleModel extends Dialog {
 			modelNameText.setText("");
 			secondFileLabel.setVisible(false);
 			metamodelText.setVisible(false);
-			//secondBrowseButton.setVisible(false);
+			secondBrowseButton.setVisible(false);
+			thirdBrowseButton.setVisible(false);
 			firstFileLabel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_WizardHandleModelDialog_pathMetamodel"));
 			pathText.setText("");
 			metamodelText.setText("");
+			labelBoth.setVisible(false);
 			resourceType = TYPE_METAMODEL;
 		}else{
 			action = EDITING;
@@ -97,10 +102,12 @@ public class TraceabilityWizardHandleModel extends Dialog {
 				button1.setSelection(true);
 				modelNameText.setText(elementSelected.getName());
 				secondFileLabel.setVisible(false);
+				thirdBrowseButton.setVisible(false);
 				metamodelText.setVisible(false);
-				//secondBrowseButton.setVisible(false);
+				secondBrowseButton.setVisible(false);
 				firstFileLabel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_WizardHandleModelDialog_pathMetamodel"));
 				pathText.setText(elementSelected.getPath());
+				labelBoth.setVisible(false);
 				metamodelText.setText("");
 			}else{
 				resourceType=TYPE_MODEL;
@@ -108,8 +115,10 @@ public class TraceabilityWizardHandleModel extends Dialog {
 				modelNameText.setText(elementSelected.getName());
 				firstFileLabel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_WizardHandleModelDialog_pathModel"));
 				secondFileLabel.setVisible(true);
+				thirdBrowseButton.setVisible(true);
+				labelBoth.setVisible(true);
 				metamodelText.setVisible(true);
-				//secondBrowseButton.setVisible(true);
+				secondBrowseButton.setVisible(true);
 				pathText.setText(elementSelected.getPath());
 				metamodelText.setText(elementSelected.getMetamodel());
 			}
@@ -179,10 +188,13 @@ public class TraceabilityWizardHandleModel extends Dialog {
 				resourceType = TYPE_METAMODEL;
 				secondFileLabel.setVisible(false);
 				metamodelText.setVisible(false);
-				//secondBrowseButton.setVisible(false);
+				firstBrowseButton.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_WizardHandleModelDialog_BrowseMetamodelLabel"));
+				secondBrowseButton.setVisible(false);
+				thirdBrowseButton.setVisible(false);
 				firstFileLabel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_WizardHandleModelDialog_pathMetamodel"));
 				pathText.setText("");
 				metamodelText.setText("");
+				labelBoth.setVisible(false);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent e) {
@@ -200,9 +212,12 @@ public class TraceabilityWizardHandleModel extends Dialog {
 				firstFileLabel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_WizardHandleModelDialog_pathModel"));
 				secondFileLabel.setVisible(true);
 				metamodelText.setVisible(true);
-				//secondBrowseButton.setVisible(true);
+				firstBrowseButton.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_WizardHandleModelDialog_BrowseModelLabel"));
+				secondBrowseButton.setVisible(true);
+				thirdBrowseButton.setVisible(true);
 				pathText.setText("");
 				metamodelText.setText("");
+				labelBoth.setVisible(true);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent e) {
@@ -216,7 +231,7 @@ public class TraceabilityWizardHandleModel extends Dialog {
 		
 		pathText = new Text(parent, SWT.BORDER | SWT.SINGLE);
 		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
-		gd.widthHint = 250;
+		gd.widthHint = 300;
 		pathText.setLayoutData(gd);
 		
 		pathText.addModifyListener(new ModifyListener() {
@@ -225,10 +240,10 @@ public class TraceabilityWizardHandleModel extends Dialog {
 		});
 
 		firstBrowseButton = new Button(parent, SWT.PUSH);
-		firstBrowseButton.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_WizardHandleModelDialog_BrowseLabel"));
+		firstBrowseButton.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_WizardHandleModelDialog_BrowseMetamodelLabel"));
 		firstBrowseButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				handleWorkspaceFileBrowse(pathText,metamodelText, project, resourceType);
+				handleWorkspaceFileBrowse(pathText, project, resourceType);
 			}
 		});	
 		
@@ -244,13 +259,25 @@ public class TraceabilityWizardHandleModel extends Dialog {
 			}
 		});
 		
-//		secondBrowseButton = new Button(parent, SWT.PUSH);
-//		secondBrowseButton.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_WizardHandleModelDialog_BrowseLabel"));
-//		secondBrowseButton.addSelectionListener(new SelectionAdapter() {
-//			public void widgetSelected(SelectionEvent e) {
-//				handleWorkspaceFileBrowse(metamodelText,resourceType);
-//			}
-//		});	
+		secondBrowseButton = new Button(parent, SWT.PUSH);
+		secondBrowseButton.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_WizardHandleModelDialog_BrowseMetamodelLabel"));
+		secondBrowseButton.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				handleWorkspaceFileBrowse(metamodelText,project,TYPE_METAMODEL);
+			}
+		});	
+			
+		
+		label = new Label(parent, SWT.BEGINNING);
+		labelBoth = new Label(parent, SWT.BEGINNING);
+		labelBoth.setText("To select both resources (first the model and later the metamodel):");
+		thirdBrowseButton = new Button(parent, SWT.PUSH);
+		thirdBrowseButton.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_WizardHandleModelDialog_BrowseModelandMetamodelLabel"));
+		thirdBrowseButton.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				handleWorkspaceFileBrowse(pathText,metamodelText,project);
+			}
+		});	
 	}
 	
 	public void okPressed(){
@@ -304,34 +331,49 @@ public class TraceabilityWizardHandleModel extends Dialog {
 	/*
 	 * Shows a dialog to select a file. File path is set on the fileText
 	 */
-	protected void handleWorkspaceFileBrowse(Text modelText, Text metamodelText,String project,int resourceType) {
-//		ResourceSelectionDialog resourceSelectionDialog = 
-//            new ResourceSelectionDialog            
-//            (getShell(), 
-//            ResourcesPlugin.getWorkspace().getRoot(),
-//            TraceabilityEditorPlugin.INSTANCE.getString("_UI_WizardHandleModelDialog_BrowseLabel"));
-		
+	protected void handleWorkspaceFileBrowse(Text text, String project,int resourceType) {
+		ResourceSelectionDialog resourceSelectionDialog;
 		if(resourceType==TYPE_METAMODEL){
-			ResourceSelectionDialog resourceSelectionDialog = 
-				new ResourceSelectionDialog            
-				(getShell(), 
-				ResourcesPlugin.getWorkspace().getRoot().getProject(project),
-				TraceabilityEditorPlugin.INSTANCE.getString("_UI_WizardHandleModelDialog_BrowseLabel"));
-			
-			
-			resourceSelectionDialog.open();
-			
-			if (resourceSelectionDialog.getReturnCode() == ResourceSelectionDialog.OK) {
-				Object[] result = resourceSelectionDialog.getResult();
-				if (result != null) {
-					modelText.setText(((IFile) result[0]).getFullPath()
-							.toString());
-				}
-			}
+			resourceSelectionDialog = new ResourceSelectionDialog(
+					getShell(),
+					ResourcesPlugin.getWorkspace().getRoot()
+							.getProject(project),
+					TraceabilityEditorPlugin.INSTANCE
+							.getString("_UI_WizardHandleModelDialog_SelectMetaModel"));
 		}else{
-			//resourceType==TYPE_MODEL		
-			
+			 resourceSelectionDialog = new ResourceSelectionDialog(
+					getShell(),
+					ResourcesPlugin.getWorkspace().getRoot()
+							.getProject(project),
+					TraceabilityEditorPlugin.INSTANCE
+							.getString("_UI_WizardHandleModelDialog_SelectModel"));
 		}
+
+		String path = text.getText();
+		
+		if (path != "") {
+			ArrayList<IResource> selectedElements = new ArrayList<IResource>();
+			selectedElements.add(ResourcesPlugin.getWorkspace().getRoot()
+					.findMember(path));
+			resourceSelectionDialog
+					.setInitialElementSelections(selectedElements);
+		}
+		resourceSelectionDialog.open();
+
+		if (resourceSelectionDialog.getReturnCode() == ResourceSelectionDialog.OK) {
+			Object[] result = resourceSelectionDialog.getResult();
+			if (result != null) {
+				text.setText(((IFile) result[0]).getFullPath().toString());
+			}
+		}
+	}
+	
+	/*
+	 * Shows a dialog to select a file. File path is set on the fileText
+	 */
+	protected void handleWorkspaceFileBrowse(Text pathText, Text metamodelText, String project) {
+		handleWorkspaceFileBrowse(pathText,project,TYPE_MODEL);
+		handleWorkspaceFileBrowse(metamodelText,project,TYPE_METAMODEL);
 	}
 
 }
