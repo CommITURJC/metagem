@@ -20,33 +20,26 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.impl.EStructuralFeatureImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import Traceability.Model;
 import Traceability.SourceModel;
 import Traceability.TargetModel;
-import Traceability.impl.ModelImpl;
 import Traceability.impl.SourceModelImpl;
 import Traceability.impl.TargetModelImpl;
 import Traceability.impl.TraceModelImpl;
-import Traceability.impl.TraceabilityFactoryImpl;
 
 public class Actions {
 
@@ -71,7 +64,7 @@ public class Actions {
 	 * This method creates a ResourceSet and adds a model in that ResourceSet.
 	 * @param path: the model path 
 	 */
-	protected static ResourceSet createResourceSet(String path) {
+	public static ResourceSet createResourceSet(String path) {
 		ResourceSet rs = new ResourceSetImpl();
 		rs.setPackageRegistry(EPackage.Registry.INSTANCE);
 		rs.getResourceFactoryRegistry().getExtensionToFactoryMap()
@@ -135,10 +128,9 @@ public class Actions {
 	/**
 	 * Return the InputModels paths
 	 */
-	protected static ArrayList<SourceModelImpl> getSourceModels(EditingDomain editingDomain2) {
+	public static ArrayList<SourceModelImpl> getSourceModels(ResourceSet rs) {
 		ArrayList<SourceModelImpl> smodels = new ArrayList<SourceModelImpl>();
-		for (Iterator<?> selectedElements = editingDomain2.getResourceSet()
-				.getResources().iterator(); selectedElements.hasNext();) {
+		for (Iterator<?> selectedElements = rs.getResources().iterator(); selectedElements.hasNext();) {
 			Object selectedElement = selectedElements.next();
 			Resource selectedElementR = (Resource) selectedElement;
 			for (Iterator<?> contents = selectedElementR.getAllContents(); contents
@@ -163,10 +155,9 @@ public class Actions {
 	/**
 	 * Return the OutputModels paths
 	 */
-	protected static ArrayList<TargetModelImpl> getTargetModels(EditingDomain editingDomain2) {
+	public static ArrayList<TargetModelImpl> getTargetModels(ResourceSet rs) {
 		ArrayList<TargetModelImpl> tmodels = new ArrayList<TargetModelImpl>();
-		for (Iterator<?> selectedElements = editingDomain2.getResourceSet()
-				.getResources().iterator(); selectedElements.hasNext();) {
+		for (Iterator<?> selectedElements = rs.getResources().iterator(); selectedElements.hasNext();) {
 			Object selectedElement = selectedElements.next();
 			Resource selectedElementR = (Resource) selectedElement;
 			for (Iterator<?> contents = selectedElementR.getAllContents(); contents
@@ -193,7 +184,7 @@ public class Actions {
 	 * Register a metamodel whose path is 'path'
 	 * @param path: Metamodel path ("/" is the execution workspace)
 	 */
-	protected static void registerMetamodel(String path) {
+	public static void registerMetamodel(String path) {
 		String uri="";
 		FileInputStream is = null;
 		
@@ -223,7 +214,6 @@ public class Actions {
 		try {
 			is.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -308,209 +298,7 @@ public class Actions {
 		return imageDescriptor.createImage();
 	}
 
-	public static void createsElementsModel(ResourceSet resourceSet, ArrayList<ModelImpl> models) {
-				
-		EList<Resource> resources = resourceSet.getResources();
-		//each resource must be a model
-		for (int cont1 = 0; cont1 < resources.size(); cont1++) {
-			EList<EObject> contents = resources.get(cont1).getContents();
-			for (int cont2 = 0;cont2<contents.size();cont2++) {
-				EObject eContent = contents.get(cont2);
-				// Get the ID of the element
-				XMIResource resourceXMI = (XMIResource) eContent
-						.eResource();
-				String id_element = resourceXMI.getID(eContent); 
-				if (id_element == null)
-					id_element = resourceXMI.getURIFragment(eContent);
-				createElement(models.get(cont1), id_element, eContent,null);
-
-			}
-		}
-	}
 	
-	/**
-	 * Creates a Feature in a model or metamodel
-	 * @param feature
-	 * @param id
-	 * @param id_element
-	 * @param model
-	 * @return feature created
-	 */
-	private static Traceability.Feature createFeature(Model model, String id, EStructuralFeature feature,
-			Traceability.Element ownedElement) {
-		Traceability.Feature feature_ = null;
-		if (!exists(id, model)) {
-			TraceabilityFactoryImpl traceabilityFactory = new TraceabilityFactoryImpl();
-			feature_ = traceabilityFactory.createFeature();
-			
-			if (ownedElement!=null){
-				feature_.setParent(ownedElement);
-				feature_.setRef(id);
-				String name = null;
-				EList<EStructuralFeature> allESF = feature.eClass().getEAllStructuralFeatures();
-				for(int c1=0;c1<allESF.size();c1++){
-					EStructuralFeature feature_var = allESF.get(c1);
-					if(feature.eGet(feature_var) instanceof String){
-						if((c1==0)|| (feature_var.getName().toUpperCase().contains("NAME"))){
-							name = feature.eGet(feature_var).toString();
-						}
-					}
-				}
-				if (name==null)
-					name=feature.eClass().getName();
-				feature_.setName(name);
-			
-				try {
-					feature_.eResource().save(new HashMap<Object, Object>());
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			
-		}
-		return feature_;
-	}
-
-	/**
-	 * Creates a Element in a model or metamodel
-	 * @param model
-	 * @param id
-	 * @param eModelElement
-	 * @return
-	 */
-	private static Traceability.Element createElement(Model model, String id, EObject eModelElement,
-			Traceability.Element ownedElement){
-		Traceability.Element element = null;
-		if (!exists(id, model)) {
-			TraceabilityFactoryImpl traceabilityFactory = new TraceabilityFactoryImpl();
-			element = traceabilityFactory.createElement();
-			if (ownedElement == null) {
-				element.setModel(model);
-			} else {
-				element.setSuper_element(ownedElement);
-			}
-			element.setRef(id);
-
-			String name = null;
-			EList<EStructuralFeature> allESF = eModelElement.eClass()
-					.getEAllStructuralFeatures();
-			for (int c1 = 0; c1 < allESF.size(); c1++) {
-				EStructuralFeature feature = allESF.get(c1);
-				if (eModelElement.eGet(feature) instanceof String) {
-					if ((c1 == 0)
-							|| (feature.getName().toUpperCase()
-									.contains("NAME"))) {
-						name = eModelElement.eGet(feature).toString();
-					}
-				}
-			}
-			if (name == null)
-				name = eModelElement.eClass().getName();
-			element.setName(name);
-
-			// Creates the element in the model
-			try {
-				element.eResource().save(new HashMap<Object, Object>());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}else{
-			//element exists
-			element = getElementFromModel(id,model);
-		}
-		
-		if(model.getMetamodel()==""){ 
-			//It's a metamodel
-			EList<EObject> contents = eModelElement.eContents();
-			for (int cont2 = 0; cont2 < contents.size(); cont2++) {
-				EObject eContent = contents.get(cont2);
-				// Get the ID of the element
-				XMIResource resourceXMI = (XMIResource) eContent.eResource();
-				String id_content = resourceXMI.getID(eContent);
-				if (id_content == null)
-					id_content = resourceXMI.getURIFragment(eContent);
-				
-				if(eContent instanceof EStructuralFeatureImpl){
-					createFeature(model, id_content, (EStructuralFeature)eContent, element);
-				}else{
-					createElement(model, id_content, eContent, element);
-				}
-			}			
-		} else {
-
-			EList<EStructuralFeature> allfeatures = eModelElement.eClass()
-					.getEAllStructuralFeatures();
-			for (int cont1 = 0; cont1 < allfeatures.size(); cont1++) {
-				EStructuralFeature feature = allfeatures.get(cont1);
-
-				// Get the ID of the feature
-				XMIResource resourceXMIfeature = (XMIResource) feature
-						.eResource();
-				String id_feature = resourceXMIfeature.getID(feature);
-				if (id_feature == null)
-					id_feature = resourceXMIfeature.getURIFragment(feature);
-
-				createFeature(model, id_feature, feature, element);
-			}
-			
-			EList<EObject> contents = eModelElement.eContents();
-			for (int cont2 = 0; cont2 < contents.size(); cont2++) {
-				EObject eContent = contents.get(cont2);
-				// Get the ID of the element
-				XMIResource resourceXMI = (XMIResource) eContent.eResource();
-				String id_content = resourceXMI.getID(eContent);
-				if (id_content == null)
-					id_content = resourceXMI.getURIFragment(eContent);
-				createElement(model, id_content, eContent, element);
-			}
-
-		}
-		
-		return element;
-	
-	}
-
-	private static Traceability.Element getElementFromModel(String id, Model model) {
-		TreeIterator<EObject> elements = model.eAllContents();
-		while(elements.hasNext()){
-			EObject next = elements.next();
-			if(next instanceof Traceability.Element){
-				Traceability.Element element = (Traceability.Element) next;
-				if(id!=null&&
-						element.getRef()!=null&&
-						element.getRef().equals(id)){
-							return element;
-					}
-			}
-		}
-		return null;
-	}
-
-	private static boolean exists(String id, Model model) {
-		TreeIterator<EObject> elements = model.eAllContents();
-		while(elements.hasNext()){
-			EObject next = elements.next();
-			if(next instanceof Traceability.Element){
-				Traceability.Element element = (Traceability.Element) next;
-				if(id!=null&&
-						element.getRef()!=null&&
-						element.getRef().equals(id)){
-							return true;
-					}
-				EList<Traceability.Feature> features = element.getFeatures();
-				for(int c1=0;c1<features.size();c1++){
-					Traceability.Feature feature = features.get(c1);
-					if(id!=null&&
-							feature.getRef()!=null&&
-							feature.getRef().equals(id)){
-								return true;
-						}
-				}
-			}
-		}
-		
-		return false;
-	}
 	
 	
 

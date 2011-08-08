@@ -611,6 +611,7 @@ public class TraceabilityEditorTrace
 		super();
 		initializeEditingDomain();
 	}
+	
 
 	/**
 	 * This sets up the editing domain for the model editor.
@@ -932,8 +933,8 @@ public class TraceabilityEditorTrace
 		// Only creates the other pages if there is something that can be edited
 		//
 		if (!getEditingDomain().getResourceSet().getResources().isEmpty()) {
-			ArrayList<SourceModelImpl> sources = Actions.getSourceModels(getEditingDomain());
-			ArrayList<TargetModelImpl> targets = Actions.getTargetModels(getEditingDomain());	
+			ArrayList<SourceModelImpl> sources = Actions.getSourceModels(getEditingDomain().getResourceSet());
+			ArrayList<TargetModelImpl> targets = Actions.getTargetModels(getEditingDomain().getResourceSet());	
 			
 			// Create view for sources models.	
 			ViewerPane viewerPane = new ViewerPane(getSite().getPage(),
@@ -977,7 +978,7 @@ public class TraceabilityEditorTrace
 				sources_.add(model);
 			}
 			
-			Actions.createsElementsModel(sourceRs, sources_);
+			//Actions.createsElementsModel(sourceRs, sources_);
 			
 			viewerPane.setTitle("Source Models");
 			sourceViewer.addSelectionChangedListener
@@ -1081,7 +1082,7 @@ public class TraceabilityEditorTrace
 					targets_.add(model);
 				}
 				
-				Actions.createsElementsModel(targetRs, targets_);
+				//Actions.createsElementsModel(targetRs, targets_);
 				
 				viewerPane3.setTitle("Target Models");
 				
