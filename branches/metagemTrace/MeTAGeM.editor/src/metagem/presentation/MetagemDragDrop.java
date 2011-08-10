@@ -23,7 +23,6 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.XMIResource;
@@ -119,13 +118,68 @@ public class MetagemDragDrop extends EditingDomainViewerDropAdapter {
 					if (aTargetObj instanceof ManyToOneImpl){
 						targetType="ManyToOne";
 					}
-					event.detail=DND.DROP_LINK;
+					
+					checkDrop(event,aTargetObj);
+					
+					
 				}
 			}
 		}   
 	  }
 	  
 	  /**
+	   * This method checks whether the targetObject (of the drag&drop process) can be
+	   * receive a new selectionType element
+	   * 
+	   * event.detail = DND.DROP_LINK means it's OK
+	   * event.detail = DND.DROP_NONE means it's forbidden
+	   * 
+	   * @param event
+	   * @param aTargetObj
+	   */
+	  private void checkDrop(DropTargetEvent event, EObject aTargetObj) {
+		  event.detail=DND.DROP_LINK;
+		  if ((targetType.equals("OneToZero")&&(selectionType == TARGET_ELEMENT))||
+				  (targetType.equals("ZeroToOne")&&(selectionType == SOURCE_ELEMENT))){
+			event.detail=DND.DROP_NONE;
+		  }else{
+			if (aTargetObj instanceof OneToZeroImpl) {
+				OneToZeroImpl relation = (OneToZeroImpl) aTargetObj;
+				if ((relation.getSource() != null)
+						&& (selectionType == SOURCE_ELEMENT)) {
+					event.detail = DND.DROP_NONE;
+				}
+
+			}else if (aTargetObj instanceof ZeroToOneImpl) {
+				ZeroToOneImpl relation = (ZeroToOneImpl) aTargetObj;
+				if ((relation.getTarget() != null)
+						&& (selectionType == TARGET_ELEMENT)) {
+					event.detail = DND.DROP_NONE;
+				}
+			} else if (aTargetObj instanceof OneToOneImpl) {
+				OneToOneImpl relation = (OneToOneImpl) aTargetObj;
+				if (((relation.getSource() != null) && (selectionType == SOURCE_ELEMENT))
+						|| ((relation.getTarget() != null) && (selectionType == TARGET_ELEMENT))) {
+					event.detail = DND.DROP_NONE;
+				}
+			} else if (aTargetObj instanceof OneToManyImpl) {
+				OneToManyImpl relation = (OneToManyImpl) aTargetObj;
+				if ((relation.getSource() != null)
+						&& (selectionType == SOURCE_ELEMENT)) {
+					event.detail = DND.DROP_NONE;
+				}
+			} else if (aTargetObj instanceof ManyToOneImpl) {
+				ManyToOneImpl relation = (ManyToOneImpl) aTargetObj;
+				if ((relation.getTarget() != null)
+						&& (selectionType == TARGET_ELEMENT)) {
+					event.detail = DND.DROP_NONE;
+				}
+			}
+		}
+
+	}
+
+	/**
 		 * the drop action
 		 *  @param event
 		 */
