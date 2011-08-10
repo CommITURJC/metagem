@@ -155,8 +155,9 @@ public class TraceabilityDragDrop extends EditingDomainViewerDropAdapter {
 		private void handleSetSourceElement(TraceLinkImpl traceLink, EObject oElement, String id) {
 			ModelElement element=null;
 			TraceModel traceModel = traceLink.getTraceModel();
+			TraceLink tl=traceLink;
 			while(traceModel==null){
-				TraceLink tl=traceLink.getParentLink();
+				tl=tl.getParentLink();
 				traceModel=tl.getTraceModel();
 			}
 			EList<SourceModel> source_models = traceModel.getSourceModels();
@@ -203,8 +204,9 @@ public class TraceabilityDragDrop extends EditingDomainViewerDropAdapter {
 		private void handleSetTargetElement(TraceLinkImpl traceLink, EObject oElement, String id){
 			ModelElement element=null;	
 			TraceModel traceModel = traceLink.getTraceModel();
+			TraceLink tl=traceLink;
 			while(traceModel==null){
-				TraceLink tl=traceLink.getParentLink();
+				tl=tl.getParentLink();
 				traceModel=tl.getTraceModel();
 			}
 			EList<TargetModel> target_models = traceModel.getTargetModels();
