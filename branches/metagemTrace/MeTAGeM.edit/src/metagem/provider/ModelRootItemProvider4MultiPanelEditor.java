@@ -38,7 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @NOT generated
  */
-public class ModelRootItemProviderTrace
+public class ModelRootItemProvider4MultiPanelEditor
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -52,7 +52,7 @@ public class ModelRootItemProviderTrace
 	 * <!-- end-user-doc -->
 	 * @NOT generated
 	 */
-	public ModelRootItemProviderTrace(AdapterFactory adapterFactory) {
+	public ModelRootItemProvider4MultiPanelEditor(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 

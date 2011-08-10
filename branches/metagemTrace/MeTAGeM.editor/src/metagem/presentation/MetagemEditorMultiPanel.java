@@ -173,7 +173,7 @@ import metagem.impl.TargetElementImpl;
 import metagem.impl.TargetModelTransfImpl;
 import metagem.impl.RelationsImpl;
 import metagem.impl.ZeroToOneImpl;
-import metagem.provider.MetagemItemProviderAdapterFactoryTrace;
+import metagem.provider.MetagemItemProviderAdapterFactory4MultiPanelEditor;
 
 
 /**
@@ -182,7 +182,7 @@ import metagem.provider.MetagemItemProviderAdapterFactoryTrace;
  * <!-- end-user-doc -->
  * @NOT generated
  */
-public class MetagemEditorTrace
+public class MetagemEditorMultiPanel
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
@@ -349,18 +349,18 @@ public class MetagemEditorTrace
 			public void partActivated(IWorkbenchPart p) {
 				if (p instanceof ContentOutline) {
 					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
-						getActionBarContributor().setActiveEditor(MetagemEditorTrace.this);
+						getActionBarContributor().setActiveEditor(MetagemEditorMultiPanel.this);
 
 						setCurrentViewer(contentOutlineViewer);
 					}
 				}
 				else if (p instanceof PropertySheet) {
 					if (((PropertySheet)p).getCurrentPage() == propertySheetPage) {
-						getActionBarContributor().setActiveEditor(MetagemEditorTrace.this);
+						getActionBarContributor().setActiveEditor(MetagemEditorMultiPanel.this);
 						handleActivate();
 					}
 				}
-				else if (p == MetagemEditorTrace.this) {
+				else if (p == MetagemEditorMultiPanel.this) {
 					handleActivate();
 				}
 			}
@@ -523,7 +523,7 @@ public class MetagemEditorTrace
 								 public void run() {
 									 removedResources.addAll(visitor.getRemovedResources());
 									 if (!isDirty()) {
-										 getSite().getPage().closeEditor(MetagemEditorTrace.this, false);
+										 getSite().getPage().closeEditor(MetagemEditorMultiPanel.this, false);
 									 }
 								 }
 							 });
@@ -534,7 +534,7 @@ public class MetagemEditorTrace
 							(new Runnable() {
 								 public void run() {
 									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == MetagemEditorTrace.this) {
+									 if (getSite().getPage().getActiveEditor() == MetagemEditorMultiPanel.this) {
 										 handleActivate();
 									 }
 								 }
@@ -566,7 +566,7 @@ public class MetagemEditorTrace
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
-				getSite().getPage().closeEditor(MetagemEditorTrace.this, false);
+				getSite().getPage().closeEditor(MetagemEditorMultiPanel.this, false);
 			}
 			else {
 				removedResources.clear();
@@ -696,7 +696,7 @@ public class MetagemEditorTrace
 	 * <!-- end-user-doc -->
 	 * @NOT generated
 	 */
-	public MetagemEditorTrace() {
+	public MetagemEditorMultiPanel() {
 		super();
 		initializeEditingDomain();
 	}
@@ -713,7 +713,7 @@ public class MetagemEditorTrace
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new MetagemItemProviderAdapterFactoryTrace());
+		adapterFactory.addAdapterFactory(new MetagemItemProviderAdapterFactory4MultiPanelEditor());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -1025,7 +1025,7 @@ public class MetagemEditorTrace
 			ArrayList<TargetModelTransfImpl> targets = Actions.getTargetModels(getEditingDomain());	
 			
 			ViewerPane viewerPane =
-				new ViewerPane(getSite().getPage(), MetagemEditorTrace.this) {
+				new ViewerPane(getSite().getPage(), MetagemEditorMultiPanel.this) {
 					@Override
 					public Viewer createViewer(Composite composite) {
 						Tree tree = new Tree(composite, SWT.MULTI);
@@ -1072,7 +1072,7 @@ public class MetagemEditorTrace
 				//View for metagem model
 				{
 				ViewerPane viewerPane2 = new ViewerPane(getSite().getPage(),
-						MetagemEditorTrace.this) {
+						MetagemEditorMultiPanel.this) {
 					@Override
 					public Viewer createViewer(Composite composite) {
 						Tree tree = new Tree(composite, SWT.MULTI);
@@ -1110,7 +1110,7 @@ public class MetagemEditorTrace
 				
 				// Create view for output models.
 				ViewerPane viewerPane3 = new ViewerPane(getSite().getPage(),
-						MetagemEditorTrace.this)
+						MetagemEditorMultiPanel.this)
 				{
 					@Override
 					public Viewer createViewer(Composite composite) {
@@ -1338,8 +1338,8 @@ public class MetagemEditorTrace
 				new ExtendedPropertySheetPage(editingDomain) {
 					@Override
 					public void setSelectionToViewer(List<?> selection) {
-						MetagemEditorTrace.this.setSelectionToViewer(selection);
-						MetagemEditorTrace.this.setFocus();
+						MetagemEditorMultiPanel.this.setSelectionToViewer(selection);
+						MetagemEditorMultiPanel.this.setFocus();
 					}
 
 					@Override

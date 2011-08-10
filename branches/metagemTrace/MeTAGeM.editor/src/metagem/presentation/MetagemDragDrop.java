@@ -181,7 +181,9 @@ public class MetagemDragDrop extends EditingDomainViewerDropAdapter {
 		private void handleSetSourceElement(RelationsImpl relation, EObject oElement, String id) {
 			Command cmdSet_element = null;
 			ModelComponent element=null;	
-			ModelRoot modelRoot = relation.getOwnedModel();
+			ModelRoot modelRoot = getModelRoot(relation);
+			if (modelRoot==null)
+				return;
 			EList<SourceModelTransf> source_models = modelRoot.getSourceModels();
 			
 			SourceModelTransf sourceModel = null;
@@ -238,7 +240,9 @@ public class MetagemDragDrop extends EditingDomainViewerDropAdapter {
 		private void handleSetTargetElement(RelationsImpl relation, EObject oElement, String id){
 			CreateChildCommand cmdSet_element = null;
 			ModelComponent element=null;	
-			ModelRoot modelRoot = relation.getOwnedModel();
+			ModelRoot modelRoot = getModelRoot(relation);
+			if (modelRoot==null)
+				return;
 			EList<TargetModelTransf> target_models = modelRoot.getTargetModels();
 			
 			 //target element
@@ -288,6 +292,39 @@ public class MetagemDragDrop extends EditingDomainViewerDropAdapter {
 				cmdSet_element = new CreateChildCommand(domain, (EObject)relation, MetagemPackage.eINSTANCE.getManyToMany_Target(), relationElement, null);
 			}
 			domain.getCommandStack().execute(cmdSet_element);
+		}
+		
+		/**
+		 * This method returns the root of the model transformation
+		 * from a relation
+		 * @param relation
+		 * @return modelRoot element
+		 */
+		private ModelRoot getModelRoot (RelationsImpl relation){
+			ModelRoot modelRoot = relation.getOwnedModel();
+			if(modelRoot ==null){			
+				RelationsImpl rl=relation;
+				while(modelRoot==null){
+					TargetElement ownedElement = null;
+					if(rl instanceof OneToOneImpl){
+						OneToOneImpl rel_o2o = (OneToOneImpl) rl;
+						ownedElement = rel_o2o.getOwnedElement();	
+					}else if(rl instanceof ZeroToOneImpl){
+						ZeroToOneImpl rel_z2o = (ZeroToOneImpl) rl;
+						ownedElement = rel_z2o.getOwnedElement();	
+					}else if(rl instanceof ManyToOneImpl){
+						ManyToOneImpl rel_m2o = (ManyToOneImpl) rl;
+						ownedElement = rel_m2o.getOwnedElement();	
+					}
+					if(ownedElement.eContainer() instanceof RelationsImpl){
+						rl = (RelationsImpl) ownedElement.eContainer();
+					}else{
+						return null;
+					}
+					modelRoot = rl.getOwnedModel();
+				}
+			}
+			return modelRoot;
 		}
 		
 		/**
