@@ -1,9 +1,27 @@
 package metagem.presentation;
 
+import metagem.MetagemPackage;
+import metagem.ModelComponent;
+import metagem.ModelElement;
+import metagem.ModelFeature;
+import metagem.ModelRoot;
+import metagem.ModelTransf;
+import metagem.SourceElement;
+import metagem.SourceModelTransf;
+import metagem.TargetElement;
+import metagem.TargetModelTransf;
+import metagem.impl.ManyToManyImpl;
+import metagem.impl.ManyToOneImpl;
+import metagem.impl.MetagemFactoryImpl;
+import metagem.impl.OneToManyImpl;
+import metagem.impl.OneToOneImpl;
+import metagem.impl.OneToZeroImpl;
+import metagem.impl.RelationsImpl;
+import metagem.impl.ZeroToOneImpl;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -17,25 +35,6 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTargetEvent;
-
-import metagem.ModelElement;
-import metagem.ModelFeature;
-import metagem.ModelTransf;
-import metagem.ModelComponent;
-import metagem.SourceElement;
-import metagem.SourceModelTransf;
-import metagem.TargetElement;
-import metagem.TargetModelTransf;
-import metagem.ModelRoot;
-import metagem.MetagemPackage;
-import metagem.impl.ManyToManyImpl;
-import metagem.impl.ManyToOneImpl;
-import metagem.impl.OneToManyImpl;
-import metagem.impl.OneToOneImpl;
-import metagem.impl.OneToZeroImpl;
-import metagem.impl.RelationsImpl;
-import metagem.impl.MetagemFactoryImpl;
-import metagem.impl.ZeroToOneImpl;
 
 public class MetagemDragDrop extends EditingDomainViewerDropAdapter {
 	
@@ -336,10 +335,10 @@ public class MetagemDragDrop extends EditingDomainViewerDropAdapter {
 		 * @return the ModelComponent which has been created
 		 */
 		private ModelComponent createComponent(ModelTransf model, String id, EObject eModelElement) {		
-			if (eModelElement instanceof EClassifier){
-				return createModelElement(model, id, eModelElement);
-			}else{
+			if (eModelElement instanceof EStructuralFeature){
 				return createModelFeature(model, id, eModelElement);
+			}else{
+				return createModelElement(model, id, eModelElement);
 			}
 		}
 		
@@ -356,7 +355,7 @@ public class MetagemDragDrop extends EditingDomainViewerDropAdapter {
 			ModelElement element=metagemFactory.createModelElement();
 			//Looking for ownedElement of the feature
 			EObject ownedEObject = eModelElement.eContainer();
-			if ((ownedEObject!=null)&&(!(ownedEObject instanceof EPackage))){
+			if (ownedEObject!=null){
 				//Get the ID of the ownedElement
 				XMIResource resource = (XMIResource) ownedEObject.eResource();
 				String id_ownedElement = resource.getID(ownedEObject); // Get element id

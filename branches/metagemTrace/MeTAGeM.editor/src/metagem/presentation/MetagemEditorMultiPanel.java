@@ -1021,8 +1021,8 @@ public class MetagemEditorMultiPanel
 		// Only creates the other pages if there is something that can be edited
 		//
 		if (!getEditingDomain().getResourceSet().getResources().isEmpty()) {
-			ArrayList<SourceModelTransfImpl> sources = Actions.getSourceModels(getEditingDomain());
-			ArrayList<TargetModelTransfImpl> targets = Actions.getTargetModels(getEditingDomain());	
+			ArrayList<SourceModelTransfImpl> sources = Actions.getSourceModels(getEditingDomain().getResourceSet());
+			ArrayList<TargetModelTransfImpl> targets = Actions.getTargetModels(getEditingDomain().getResourceSet());	
 			
 			ViewerPane viewerPane =
 				new ViewerPane(getSite().getPage(), MetagemEditorMultiPanel.this) {

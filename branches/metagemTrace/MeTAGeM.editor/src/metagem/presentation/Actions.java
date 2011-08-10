@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -66,7 +67,7 @@ public class Actions {
 	 * @param path: the model path 
 	 * @NOT generated
 	 */
-	protected static ResourceSet createResourceSet(String path) {
+	public static ResourceSet createResourceSet(String path) {
 		ResourceSet rs = new ResourceSetImpl();
 		rs.setPackageRegistry(EPackage.Registry.INSTANCE);
 		rs.getResourceFactoryRegistry().getExtensionToFactoryMap()
@@ -134,10 +135,9 @@ public class Actions {
 	 * Return the InputModels paths
 	 * @NOT generated
 	 */
-	protected static ArrayList<SourceModelTransfImpl> getSourceModels(EditingDomain editingDomain2) {
+	public static ArrayList<SourceModelTransfImpl> getSourceModels(ResourceSet rs) {
 		ArrayList<SourceModelTransfImpl> smodels = new ArrayList<SourceModelTransfImpl>();
-		for (Iterator<?> selectedElements = editingDomain2.getResourceSet()
-				.getResources().iterator(); selectedElements.hasNext();) {
+		for (Iterator<?> selectedElements = rs.getResources().iterator(); selectedElements.hasNext();) {
 			Object selectedElement = selectedElements.next();
 			Resource selectedElementR = (Resource) selectedElement;
 			for (Iterator<?> contents = selectedElementR.getAllContents(); contents
@@ -163,10 +163,9 @@ public class Actions {
 	 * Return the OutputModels paths
 	 * @NOT generated
 	 */
-	protected static ArrayList<TargetModelTransfImpl> getTargetModels(EditingDomain editingDomain2) {
+	public static ArrayList<TargetModelTransfImpl> getTargetModels(ResourceSet rs) {
 		ArrayList<TargetModelTransfImpl> tmodels = new ArrayList<TargetModelTransfImpl>();
-		for (Iterator<?> selectedElements = editingDomain2.getResourceSet()
-				.getResources().iterator(); selectedElements.hasNext();) {
+		for (Iterator<?> selectedElements = rs.getResources().iterator(); selectedElements.hasNext();) {
 			Object selectedElement = selectedElements.next();
 			Resource selectedElementR = (Resource) selectedElement;
 			for (Iterator<?> contents = selectedElementR.getAllContents(); contents
@@ -229,50 +228,63 @@ public class Actions {
 	*/
 	//This method allows register a Metamodel
 	private static void registerMetamodel(String URImetaModel, InputStream input) {
+		if(!isRegistered(URImetaModel)){
 		
-		Resource.Factory myEcoreFactory = new EcoreResourceFactoryImpl();
-		Resource mmExtent = myEcoreFactory.createResource(URI.createURI(URImetaModel));
-		try {
-			mmExtent.load(input,Collections.EMPTY_MAP);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		
-		for(Iterator<EObject> it = getElementsByType(mmExtent,"EPackage").iterator() ; it.hasNext() ; ) {
-			EPackage p = (EPackage)it.next();
-			String nsURI = p.getNsURI();
-			if(nsURI == null) {
-				nsURI = p.getName();
-				p.setNsURI(nsURI);
+			Resource.Factory myEcoreFactory = new EcoreResourceFactoryImpl();
+			Resource mmExtent = myEcoreFactory.createResource(URI.createURI(URImetaModel));
+			try {
+				mmExtent.load(input,Collections.EMPTY_MAP);
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (Exception ex) {
+				ex.printStackTrace();
 			}
-			EPackage.Registry.INSTANCE.put(nsURI, p);
-		}
-		
-		for(Iterator<?> it = getElementsByType(mmExtent,"EDataType").iterator(); it.hasNext(); ) {
-			EObject eo = (EObject)it.next();
-			EStructuralFeature sf;
-			sf = eo.eClass().getEStructuralFeature("name");	 
-			String tname = (String)eo.eGet(sf);			 
-			String icn = null;
-			if(tname.equals("Boolean"))
-				icn = "java.lang.Boolean";
-			else if(tname.equals("Double"))
-				icn = "java.lang.Double";
-			else if(tname.equals("Float"))
-				icn = "java.lang.Float";
-			else if(tname.equals("Integer"))
-				icn = "java.lang.Integer";
-			else if(tname.equals("String"))
-				icn = "java.lang.String";
 			
-			if(icn != null) {
-				sf = eo.eClass().getEStructuralFeature("instanceClassName");
-				eo.eSet(sf, icn);                
+			for(Iterator<EObject> it = getElementsByType(mmExtent,"EPackage").iterator() ; it.hasNext() ; ) {
+				EPackage p = (EPackage)it.next();
+				String nsURI = p.getNsURI();
+				if(nsURI == null) {
+					nsURI = p.getName();
+					p.setNsURI(nsURI);
+				}
+				EPackage.Registry.INSTANCE.put(nsURI, p);
 			}
-		}
+			
+			for(Iterator<?> it = getElementsByType(mmExtent,"EDataType").iterator(); it.hasNext(); ) {
+				EObject eo = (EObject)it.next();
+				EStructuralFeature sf;
+				sf = eo.eClass().getEStructuralFeature("name");	 
+				String tname = (String)eo.eGet(sf);			 
+				String icn = null;
+				if(tname.equals("Boolean"))
+					icn = "java.lang.Boolean";
+				else if(tname.equals("Double"))
+					icn = "java.lang.Double";
+				else if(tname.equals("Float"))
+					icn = "java.lang.Float";
+				else if(tname.equals("Integer"))
+					icn = "java.lang.Integer";
+				else if(tname.equals("String"))
+					icn = "java.lang.String";
+				
+				if(icn != null) {
+					sf = eo.eClass().getEStructuralFeature("instanceClassName");
+					eo.eSet(sf, icn);                
+				}
+			}
+	 }
 		
+	}
+	private static boolean isRegistered(String uri) {
+		Object[] result = EPackage.Registry.INSTANCE.keySet().toArray(
+				new Object[EPackage.Registry.INSTANCE.size()]);
+		Arrays.sort(result);
+		
+	  for(int i=0;i<result.length;i++){
+		  if(uri.equals(result[i].toString()))
+			  return true;
+	  }
+	  return false;
 	}
 	
 	/**
