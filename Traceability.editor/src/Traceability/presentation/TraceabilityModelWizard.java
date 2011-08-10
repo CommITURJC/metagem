@@ -698,8 +698,6 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 				}
 			});
 			
-			
-			
 			addSourceModel = new Button(composite,SWT.PUSH);
 			addSourceModel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_AddModel"));
 			addSourceModel.addSelectionListener(new SelectionAdapter() {
@@ -951,7 +949,7 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 
 		modelsCreationPage = new TraceabilityModelWizardModelsCreationPage("Models",sourceModels,targetModels);
 		modelsCreationPage.setTitle(TraceabilityEditorPlugin.INSTANCE.getString("_UI_TraceabilityModelWizard_label"));
-		modelsCreationPage.setDescription(TraceabilityEditorPlugin.INSTANCE.getString("_UI_Wizard_target_models_description"));
+		modelsCreationPage.setDescription(TraceabilityEditorPlugin.INSTANCE.getString("_UI_Wizard_models_description"));
 		addPage(modelsCreationPage);
 		
 	}
