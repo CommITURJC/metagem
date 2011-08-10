@@ -36,7 +36,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @NOT generated
  */
-public class MetagemItemProviderAdapterFactoryTrace extends MetagemAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class MetagemItemProviderAdapterFactory4MultiPanelEditor extends MetagemAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class MetagemItemProviderAdapterFactoryTrace extends MetagemAdapterFactor
 	 * <!-- end-user-doc -->
 	 * @NOT generated
 	 */
-	public MetagemItemProviderAdapterFactoryTrace() {
+	public MetagemItemProviderAdapterFactory4MultiPanelEditor() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
@@ -81,7 +81,7 @@ public class MetagemItemProviderAdapterFactoryTrace extends MetagemAdapterFactor
 	 * <!-- end-user-doc -->
 	 * @NOT generated
 	 */
-	protected ModelRootItemProviderTrace ModelRootItemProviderTrace;
+	protected ModelRootItemProvider4MultiPanelEditor ModelRootItemProviderTrace;
 
 	/**
 	 * This creates an adapter for a {@link metagem.ModelRoot}.
@@ -92,7 +92,7 @@ public class MetagemItemProviderAdapterFactoryTrace extends MetagemAdapterFactor
 	@Override
 	public Adapter createModelRootAdapter() {
 		if (ModelRootItemProviderTrace == null) {
-			ModelRootItemProviderTrace = new ModelRootItemProviderTrace(this);
+			ModelRootItemProviderTrace = new ModelRootItemProvider4MultiPanelEditor(this);
 		}
 
 		return ModelRootItemProviderTrace;

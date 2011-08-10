@@ -293,7 +293,7 @@ public class Actions {
 	*/
 	public static Image getImage(String key){
 		ImageDescriptor imageDescriptor;
-		URL imageURL = MetagemEditorTrace.class.getResource("icons/" + key + ".gif");
+		URL imageURL = MetagemEditorMultiPanel.class.getResource("icons/" + key + ".gif");
 		imageDescriptor = ImageDescriptor.createFromURL(imageURL);
 		return imageDescriptor.createImage();
 	}

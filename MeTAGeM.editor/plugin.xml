@@ -27,7 +27,7 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            class="metagem.presentation.MetagemEditorTrace"
+            class="metagem.presentation.MetagemEditorMultiPanel"
             contributorClass="metagem.presentation.MetagemActionBarContributor"
             default="true"
             extensions="metagem"
