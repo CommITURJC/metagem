@@ -32,6 +32,7 @@ import Traceability.impl.SourceModelImpl;
 import Traceability.impl.TargetModelImpl;
 import Traceability.impl.TraceabilityFactoryImpl;
 import Traceability.presentation.Actions;
+import Traceability.presentation.TraceabilityEditorPlugin;
 
 public class LoadElements implements IObjectActionDelegate{
 	
@@ -52,12 +53,12 @@ public class LoadElements implements IObjectActionDelegate{
 				try {
 					runLoad(action,monitor);
 				} catch (final Exception ex) {
-					
+					TraceabilityEditorPlugin.INSTANCE.log(ex);
 					PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
-
+						
 						public void run() {
 							MessageDialog.openError(shell, "Error",
-							"An error has occured: "+ ex.getMessage());
+							"An error has occured. Please see the Error Log.");
 						}
 						
 					});

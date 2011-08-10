@@ -2,9 +2,7 @@ package Traceability.presentation;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.XMIResource;
@@ -273,10 +271,10 @@ public class TraceabilityDragDrop extends EditingDomainViewerDropAdapter {
 		 * @return
 		 */
 		private ModelElement createComponentInMetamodel(Model model, String id,	EObject eModelElement) {
-			if (eModelElement instanceof EClassifier){
-				return createElement(model, id, eModelElement);
-			}else{
+			if (eModelElement instanceof EStructuralFeature){
 				return createFeature(model, id, eModelElement);
+			}else{
+				return createElement(model, id, eModelElement);
 			}
 			
 		}
@@ -293,7 +291,7 @@ public class TraceabilityDragDrop extends EditingDomainViewerDropAdapter {
 			Element element=traceabilityFactory.createElement();
 			//Looking for ownedElement of the feature
 			EObject ownedEObject = eModelElement.eContainer();
-			if ((ownedEObject!=null)&&(!(ownedEObject instanceof EPackage))){
+			if (ownedEObject!=null){
 				//Get the ID of the ownedElement
 				XMIResource resource = (XMIResource) ownedEObject.eResource();
 				String id_ownedElement = resource.getID(ownedEObject); // Get element id
