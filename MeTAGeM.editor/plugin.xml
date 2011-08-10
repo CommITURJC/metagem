@@ -45,5 +45,20 @@
             name="%_UI_MetagemEditorEMF_label">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="kybele.es.Metagem.loadElements"
+            nameFilter="*.metagem"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="metagem.actions.LoadElements"
+               enablesFor="1"
+               id="kybele.es.Metagem.loadElements.action"
+               label="Load Elements from Models">
+         </action>
+      </objectContribution>
+   </extension>
 
 </plugin>
