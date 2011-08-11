@@ -238,56 +238,7 @@ public class MetagemEditorMultiPanel
 	 */
 	protected PropertySheetPage propertySheetPage;
 
-	/**
-	 * This is the viewer that shadows the selection in the content outline.
-	 * The parent relation must be correctly defined for this to work.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @NOT generated
-	 */
-	protected TreeViewer selectionViewer;
-
-	/**
-	 * This inverts the roll of parent and child in the content provider and show parents as a tree.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @NOT generated
-	 */
-	protected TreeViewer parentViewer;
-
-	/**
-	 * This shows how a tree view works.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @NOT generated
-	 */
-	protected TreeViewer treeViewer;
-
-	/**
-	 * This shows how a list view works.
-	 * A list viewer doesn't support icons.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @NOT generated
-	 */
-	protected ListViewer listViewer;
-
-	/**
-	 * This shows how a table view works.
-	 * A table can be used as a list with icons.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @NOT generated
-	 */
-	protected TableViewer tableViewer;
-
-	/**
-	 * This shows how a tree view with columns works.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @NOT generated
-	 */
-	protected TreeViewer treeViewerWithColumns;
+	
 
 	/**
 	 * This keeps track of the active viewer pane, in the book.
@@ -1094,7 +1045,7 @@ public class MetagemEditorMultiPanel
 				metagemViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 				metagemViewer.setInput(editingDomain.getResourceSet());
 				metagemViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
-				viewerPane2.setTitle("Metagem Model",Actions.getImage("ModelRoot"));
+				viewerPane2.setTitle("Metagem Model",Actions.getImage("MetagemModelFile"));
 				metagemViewer.addSelectionChangedListener
 				(new ISelectionChangedListener() {
 					 // This ensures that we handle selections correctly.
