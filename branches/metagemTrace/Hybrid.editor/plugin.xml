@@ -24,12 +24,22 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            id="hybrid.presentation.HybridEditorID"
-            name="%_UI_HybridEditor_label"
-            icon="icons/full/obj16/HybridModelFile.gif"
-            extensions="hybrid"
             class="hybrid.presentation.HybridEditor"
-            contributorClass="hybrid.presentation.HybridActionBarContributor">
+            contributorClass="hybrid.presentation.HybridActionBarContributor"
+            default="false"
+            extensions="hybrid"
+            icon="icons/full/obj16/HybridModelFile.gif"
+            id="hybrid.presentation.HybridEditorID_emf"
+            name="%_UI_HybridEditorEMF_label">
+      </editor>
+      <editor
+            class="hybrid.presentation.HybridEditorMultiPanel"
+            contributorClass="hybrid.presentation.HybridActionBarContributor"
+            default="true"
+            extensions="hybrid"
+            icon="icons/full/obj16/HybridModelFile.gif"
+            id="hybrid.presentation.HybridEditorID"
+            name="%_UI_HybridEditor_label">
       </editor>
    </extension>
 
