@@ -42,7 +42,7 @@ public interface TraceabilityPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.kybele.es/Traceability";
+	String eNS_URI = "org.eclipse.kybele.Traceability";
 
 	/**
 	 * The package namespace name.

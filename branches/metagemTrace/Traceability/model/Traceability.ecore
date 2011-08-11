@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmi:id="_3FKmwXcuEeC2IKVRQNr-xA"
-    name="Traceability" nsURI="http://www.kybele.es/Traceability" nsPrefix="Traceability">
+    name="Traceability" nsURI="org.eclipse.kybele.Traceability" nsPrefix="Traceability">
   <eClassifiers xsi:type="ecore:EClass" xmi:id="_-9IokHcuEeC2IKVRQNr-xA" name="TraceModel"
       eSuperTypes="#//TraceElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="traceLinks" lowerBound="1"

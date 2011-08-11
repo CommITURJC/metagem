@@ -32,7 +32,7 @@ public class TraceabilityFactoryImpl extends EFactoryImpl implements Traceabilit
 	 */
 	public static TraceabilityFactory init() {
 		try {
-			TraceabilityFactory theTraceabilityFactory = (TraceabilityFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.kybele.es/Traceability"); 
+			TraceabilityFactory theTraceabilityFactory = (TraceabilityFactory)EPackage.Registry.INSTANCE.getEFactory("org.eclipse.kybele.Traceability"); 
 			if (theTraceabilityFactory != null) {
 				return theTraceabilityFactory;
 			}
