@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            id="hybrid.presentation.HybridModelWizardID"
+            name="%_UI_HybridModelWizard_label"
+            class="hybrid.presentation.HybridModelWizard"
+            category="org.eclipse.kybele.metagem.Wizard.category.ID"
+            icon="icons/full/obj16/HybridModelFile.gif">
+         <description>%_UI_HybridModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="hybrid.presentation.HybridEditorID"
+            name="%_UI_HybridEditor_label"
+            icon="icons/full/obj16/HybridModelFile.gif"
+            extensions="hybrid"
+            class="hybrid.presentation.HybridEditor"
+            contributorClass="hybrid.presentation.HybridActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
