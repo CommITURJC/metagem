@@ -9,7 +9,6 @@ package metagem.presentation;
 
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -20,6 +19,21 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import metagem.Relations;
+import metagem.TransformationElement;
+import metagem.impl.ManyToManyImpl;
+import metagem.impl.ManyToOneImpl;
+import metagem.impl.OneToManyImpl;
+import metagem.impl.OneToOneImpl;
+import metagem.impl.OneToZeroImpl;
+import metagem.impl.RelationsImpl;
+import metagem.impl.SourceElementImpl;
+import metagem.impl.SourceModelTransfImpl;
+import metagem.impl.TargetElementImpl;
+import metagem.impl.TargetModelTransfImpl;
+import metagem.impl.ZeroToOneImpl;
+import metagem.provider.MetagemItemProviderAdapterFactory4MultiPanelEditor;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -28,53 +42,76 @@ import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-
+import org.eclipse.emf.common.command.BasicCommandStack;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.ui.MarkerHelper;
+import org.eclipse.emf.common.ui.ViewerPane;
+import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
+import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EValidator;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.XMIResource;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
+import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
+import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
+import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
+import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
+import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
+import org.eclipse.emf.edit.ui.util.EditUIUtil;
+import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
-
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-
-
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
-
-import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.SashForm;
-
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
-
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
-
 import org.eclipse.swt.graphics.Point;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Tree;
-
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -82,98 +119,17 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
-
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.SaveAsDialog;
-
 import org.eclipse.ui.ide.IGotoMarker;
-
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
-
 import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
-
-import org.eclipse.emf.common.command.BasicCommandStack;
-import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CommandStack;
-import org.eclipse.emf.common.command.CommandStackListener;
-
-import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.ui.MarkerHelper;
-import org.eclipse.emf.common.ui.ViewerPane;
-
-import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
-
-import org.eclipse.emf.common.ui.viewer.IViewerProvider;
-
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.common.util.URI;
-
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EValidator;
-
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-
-import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.xmi.XMIResource;
-
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-
-import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-
-import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
-
-import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
-
-import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
-import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
-
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
-
-import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
-import org.eclipse.emf.edit.ui.util.EditUIUtil;
-
-import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
-
-
-
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
-import metagem.presentation.MetagemDragDrop;
-
-import metagem.TransformationElement;
-import metagem.Relations;
-import metagem.impl.ManyToManyImpl;
-import metagem.impl.ManyToOneImpl;
-import metagem.impl.OneToManyImpl;
-import metagem.impl.OneToOneImpl;
-import metagem.impl.OneToZeroImpl;
-import metagem.impl.SourceElementImpl;
-import metagem.impl.SourceModelTransfImpl;
-import metagem.impl.TargetElementImpl;
-import metagem.impl.TargetModelTransfImpl;
-import metagem.impl.RelationsImpl;
-import metagem.impl.ZeroToOneImpl;
-import metagem.provider.MetagemItemProviderAdapterFactory4MultiPanelEditor;
 
 
 /**
@@ -1350,12 +1306,12 @@ public class MetagemEditorMultiPanel
 					id = resource.getID(eoSelectedElement); // Get element id
 					if(id==null)
 						id=resource.getURIFragment(eoSelectedElement);
-					TreeIterator<?> traceContents = editingDomain
+					TreeIterator<?> metagemContents = editingDomain
 					.getResourceSet().getResources().get(0)
 					.getAllContents();
-					while (traceContents.hasNext()) {
-						// For each source element from a trace model
-						EObject element = (EObject) traceContents.next();
+					while (metagemContents.hasNext()) {
+						// For each source element from a metagem model
+						EObject element = (EObject) metagemContents.next();
 						if (element instanceof SourceElementImpl) {
 							SourceElementImpl source = (SourceElementImpl) element;
 							if (source.getModelComponent().getRef() != null && id != null
@@ -1459,10 +1415,10 @@ public class MetagemEditorMultiPanel
 							// Source
 							if(relation.getSource()!= null){
 								for (int c1 = 0; c1 < sourceRs.getResources().size(); c1++) {
-										// For each ResourceSet (Input)
+										// For each ResourceSet (Source)
 									TreeIterator<?> in_ti = sourceRs.getResources().get(c1).getAllContents();
 									while (in_ti.hasNext()) {
-											// For each element from a input model
+											// For each element from a source model
 										EObject element = (EObject) in_ti.next();
 										XMIResource resource = (XMIResource) element.eResource();
 										String id = resource.getID(element); // Get element id
@@ -1479,10 +1435,10 @@ public class MetagemEditorMultiPanel
 							// Target
 							if(relation.getTarget()!= null){
 								for (int c1 = 0; c1 < targetRs.getResources().size(); c1++) {
-									// For each ResourceSet (Input)
+									// For each ResourceSet (Source)
 									TreeIterator<?> out_ti = targetRs.getResources().get(c1).getAllContents();
 									while (out_ti.hasNext()) {
-										// For each element from a input model
+										// For each element from a source model
 										EObject element = (EObject) out_ti.next();
 										XMIResource resource = (XMIResource) element.eResource();
 										String id = resource.getID(element); // Get element id
@@ -1502,10 +1458,10 @@ public class MetagemEditorMultiPanel
 							// Source
 							if(relation.getSource()!= null){
 								for (int c1 = 0; c1 < sourceRs.getResources().size(); c1++) {
-										// For each ResourceSet (Input)
+										// For each ResourceSet (Source)
 									TreeIterator<?> in_ti = sourceRs.getResources().get(c1).getAllContents();
 									while (in_ti.hasNext()) {
-											// For each element from a input model
+											// For each element from a source model
 										EObject element = (EObject) in_ti.next();
 										XMIResource resource = (XMIResource) element.eResource();
 										String id = resource.getID(element); // Get element id
@@ -1525,10 +1481,10 @@ public class MetagemEditorMultiPanel
 							// Target
 							if(relation.getTarget()!= null){
 								for (int c1 = 0; c1 < targetRs.getResources().size(); c1++) {
-									// For each ResourceSet (Input)
+									// For each ResourceSet (Source)
 									TreeIterator<?> out_ti = targetRs.getResources().get(c1).getAllContents();
 									while (out_ti.hasNext()) {
-										// For each element from a input model
+										// For each element from a source model
 										EObject element = (EObject) out_ti.next();
 										XMIResource resource = (XMIResource) element.eResource();
 										String id = resource.getID(element); // Get element id
@@ -1548,10 +1504,10 @@ public class MetagemEditorMultiPanel
 							// Source
 							if(relation.getSource()!= null){
 								for (int c1 = 0; c1 < sourceRs.getResources().size(); c1++) {
-										// For each ResourceSet (Input)
+										// For each ResourceSet (Source)
 									TreeIterator<?> in_ti = sourceRs.getResources().get(c1).getAllContents();
 									while (in_ti.hasNext()) {
-											// For each element from a input model
+											// For each element from a source model
 										EObject element = (EObject) in_ti.next();
 										XMIResource resource = (XMIResource) element.eResource();
 										String id = resource.getID(element); // Get element id
@@ -1569,11 +1525,11 @@ public class MetagemEditorMultiPanel
 							for (int i = 0; i < relation.getTarget().size(); i++) {
 								// Get target elements from target models
 								for (int c1 = 0; c1 < targetRs.getResources().size(); c1++) {
-									// For each ResourceSet (Input)
+									// For each ResourceSet (Source)
 									TreeIterator<?> out_ti = targetRs.getResources().get(c1)
 											.getAllContents();
 									while (out_ti.hasNext()) {
-										// For each element from a input model
+										// For each element from a source model
 										EObject element = (EObject) out_ti.next();
 										XMIResource resource = (XMIResource) element
 												.eResource();
@@ -1595,11 +1551,11 @@ public class MetagemEditorMultiPanel
 							for (int i = 0; i < relation.getSource().size(); i++) {
 								// Get source elements from source models
 								for (int c1 = 0; c1 < sourceRs.getResources().size(); c1++) {
-									// For each ResourceSet (Input)
+									// For each ResourceSet (Source)
 									TreeIterator<?> in_ti = sourceRs.getResources().get(c1)
 											.getAllContents();
 									while (in_ti.hasNext()) {
-										// For each element from a input model
+										// For each element from a source model
 										EObject element = (EObject) in_ti.next();
 										XMIResource resource = (XMIResource) element.eResource();
 										String id = resource.getID(element); // Get element id
@@ -1616,10 +1572,10 @@ public class MetagemEditorMultiPanel
 							// Target
 							if(relation.getTarget()!= null){
 								for (int c1 = 0; c1 < targetRs.getResources().size(); c1++) {
-									// For each ResourceSet (Input)
+									// For each ResourceSet (Source)
 									TreeIterator<?> out_ti = targetRs.getResources().get(c1).getAllContents();
 									while (out_ti.hasNext()) {
-										// For each element from a input model
+										// For each element from a source model
 										EObject element = (EObject) out_ti.next();
 										XMIResource resource = (XMIResource) element.eResource();
 										String id = resource.getID(element); // Get element id
@@ -1640,11 +1596,11 @@ public class MetagemEditorMultiPanel
 							for (int i = 0; i < relation.getSource().size(); i++) {
 								// Get source elements from source models
 								for (int c1 = 0; c1 < sourceRs.getResources().size(); c1++) {
-									// For each ResourceSet (Input)
+									// For each ResourceSet (Source)
 									TreeIterator<?> in_ti = sourceRs.getResources().get(c1)
 											.getAllContents();
 									while (in_ti.hasNext()) {
-										// For each element from a input model
+										// For each element from a source model
 										EObject element = (EObject) in_ti.next();
 										XMIResource resource = (XMIResource) element.eResource();
 										String id = resource.getID(element); // Get element id
@@ -1662,11 +1618,11 @@ public class MetagemEditorMultiPanel
 							for (int i = 0; i < relation.getTarget().size(); i++) {
 								// Get target elements from target models
 								for (int c1 = 0; c1 < targetRs.getResources().size(); c1++) {
-									// For each ResourceSet (Input)
+									// For each ResourceSet (Source)
 									TreeIterator<?> out_ti = targetRs.getResources().get(c1)
 											.getAllContents();
 									while (out_ti.hasNext()) {
-										// For each element from a input model
+										// For each element from a source model
 										EObject element = (EObject) out_ti.next();
 										XMIResource resource = (XMIResource) element
 												.eResource();
@@ -1691,7 +1647,7 @@ public class MetagemEditorMultiPanel
 							TreeIterator<?> in_ti = sourceRs.getResources().get(c1)
 									.getAllContents();
 							while (in_ti.hasNext()) {
-								// For each element from a input model
+								// For each element from a source model
 								EObject element = (EObject) in_ti.next();
 								XMIResource resource = (XMIResource) element
 										.eResource();
@@ -1716,7 +1672,7 @@ public class MetagemEditorMultiPanel
 							TreeIterator<?> out_ti = targetRs.getResources().get(c1)
 									.getAllContents();
 							while (out_ti.hasNext()) {
-								// For each element from a input model
+								// For each element from a source model
 								EObject element = (EObject) out_ti.next();
 								XMIResource resource = (XMIResource) element
 										.eResource();
