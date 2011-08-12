@@ -6,6 +6,8 @@
  */
 package hybrid;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -17,6 +19,7 @@ package hybrid;
  * <ul>
  *   <li>{@link hybrid.Source#getRule <em>Rule</em>}</li>
  *   <li>{@link hybrid.Source#getRightPatternOwned <em>Right Pattern Owned</em>}</li>
+ *   <li>{@link hybrid.Source#getTraceLink <em>Trace Link</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,5 +83,23 @@ public interface Source extends RuleElement {
 	 * @generated
 	 */
 	void setRightPatternOwned(RightPattern value);
+
+	/**
+	 * Returns the value of the '<em><b>Trace Link</b></em>' reference list.
+	 * The list contents are of type {@link hybrid.TraceLink}.
+	 * It is bidirectional and its opposite is '{@link hybrid.TraceLink#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Trace Link</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Trace Link</em>' reference list.
+	 * @see hybrid.HybridPackage#getSource_TraceLink()
+	 * @see hybrid.TraceLink#getSource
+	 * @model opposite="source"
+	 * @generated
+	 */
+	EList<TraceLink> getTraceLink();
 
 } // Source

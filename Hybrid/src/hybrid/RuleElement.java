@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface RuleElement extends EObject {
+public interface RuleElement extends HybridElement {
 	/**
 	 * Returns the value of the '<em><b>Is Refered</b></em>' reference list.
 	 * The list contents are of type {@link hybrid.RightPattern}.

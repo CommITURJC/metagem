@@ -13,12 +13,16 @@ import hybrid.TraceLink;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -82,7 +86,7 @@ public abstract class TraceLinkImpl extends EObjectImpl implements TraceLink {
 	 */
 	public EList<Source> getSource() {
 		if (source == null) {
-			source = new EObjectResolvingEList<Source>(Source.class, this, HybridPackage.TRACE_LINK__SOURCE);
+			source = new EObjectWithInverseResolvingEList.ManyInverse<Source>(Source.class, this, HybridPackage.TRACE_LINK__SOURCE, HybridPackage.SOURCE__TRACE_LINK);
 		}
 		return source;
 	}
@@ -94,9 +98,42 @@ public abstract class TraceLinkImpl extends EObjectImpl implements TraceLink {
 	 */
 	public EList<Target> getTarget() {
 		if (target == null) {
-			target = new EObjectResolvingEList<Target>(Target.class, this, HybridPackage.TRACE_LINK__TARGET);
+			target = new EObjectWithInverseResolvingEList.ManyInverse<Target>(Target.class, this, HybridPackage.TRACE_LINK__TARGET, HybridPackage.TARGET__TRACE_LINK);
 		}
 		return target;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case HybridPackage.TRACE_LINK__SOURCE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSource()).basicAdd(otherEnd, msgs);
+			case HybridPackage.TRACE_LINK__TARGET:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTarget()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case HybridPackage.TRACE_LINK__SOURCE:
+				return ((InternalEList<?>)getSource()).basicRemove(otherEnd, msgs);
+			case HybridPackage.TRACE_LINK__TARGET:
+				return ((InternalEList<?>)getTarget()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

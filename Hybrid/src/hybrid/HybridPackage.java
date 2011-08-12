@@ -721,13 +721,22 @@ public interface HybridPackage extends EPackage {
 	int RULE_ELEMENT = 11;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_ELEMENT__NAME = HYBRID_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Is Refered</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_ELEMENT__IS_REFERED = 0;
+	int RULE_ELEMENT__IS_REFERED = HYBRID_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Component</b></em>' reference.
@@ -736,7 +745,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_ELEMENT__COMPONENT = 1;
+	int RULE_ELEMENT__COMPONENT = HYBRID_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Rule Element</em>' class.
@@ -745,7 +754,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_ELEMENT_FEATURE_COUNT = 2;
+	int RULE_ELEMENT_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.SourceImpl <em>Source</em>}' class.
@@ -756,6 +765,15 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 */
 	int SOURCE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__NAME = RULE_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Is Refered</b></em>' reference list.
@@ -794,13 +812,22 @@ public interface HybridPackage extends EPackage {
 	int SOURCE__RIGHT_PATTERN_OWNED = RULE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Trace Link</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__TRACE_LINK = RULE_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Source</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FEATURE_COUNT = RULE_ELEMENT_FEATURE_COUNT + 2;
+	int SOURCE_FEATURE_COUNT = RULE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.TargetImpl <em>Target</em>}' class.
@@ -811,6 +838,15 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 */
 	int TARGET = 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET__NAME = RULE_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Is Refered</b></em>' reference list.
@@ -858,13 +894,22 @@ public interface HybridPackage extends EPackage {
 	int TARGET__LEFT_PATTERN_OWNED = RULE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Trace Link</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET__TRACE_LINK = RULE_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Target</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET_FEATURE_COUNT = RULE_ELEMENT_FEATURE_COUNT + 3;
+	int TARGET_FEATURE_COUNT = RULE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.GuardImpl <em>Guard</em>}' class.
@@ -1773,6 +1818,17 @@ public interface HybridPackage extends EPackage {
 	EReference getSource_RightPatternOwned();
 
 	/**
+	 * Returns the meta object for the reference list '{@link hybrid.Source#getTraceLink <em>Trace Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Trace Link</em>'.
+	 * @see hybrid.Source#getTraceLink()
+	 * @see #getSource()
+	 * @generated
+	 */
+	EReference getSource_TraceLink();
+
+	/**
 	 * Returns the meta object for class '{@link hybrid.Target <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1814,6 +1870,17 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTarget_LeftPatternOwned();
+
+	/**
+	 * Returns the meta object for the reference list '{@link hybrid.Target#getTraceLink <em>Trace Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Trace Link</em>'.
+	 * @see hybrid.Target#getTraceLink()
+	 * @see #getTarget()
+	 * @generated
+	 */
+	EReference getTarget_TraceLink();
 
 	/**
 	 * Returns the meta object for class '{@link hybrid.Guard <em>Guard</em>}'.
@@ -2576,6 +2643,14 @@ public interface HybridPackage extends EPackage {
 		EReference SOURCE__RIGHT_PATTERN_OWNED = eINSTANCE.getSource_RightPatternOwned();
 
 		/**
+		 * The meta object literal for the '<em><b>Trace Link</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOURCE__TRACE_LINK = eINSTANCE.getSource_TraceLink();
+
+		/**
 		 * The meta object literal for the '{@link hybrid.impl.TargetImpl <em>Target</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2608,6 +2683,14 @@ public interface HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TARGET__LEFT_PATTERN_OWNED = eINSTANCE.getTarget_LeftPatternOwned();
+
+		/**
+		 * The meta object literal for the '<em><b>Trace Link</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TARGET__TRACE_LINK = eINSTANCE.getTarget_TraceLink();
 
 		/**
 		 * The meta object literal for the '{@link hybrid.impl.GuardImpl <em>Guard</em>}' class.

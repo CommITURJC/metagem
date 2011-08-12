@@ -99,7 +99,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="trace" eType="#//TraceRule"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RuleElement" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="RuleElement" abstract="true" eSuperTypes="#//HybridElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="isRefered" upperBound="-1"
         eType="#//RightPattern" eOpposite="#//RightPattern/reference"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
@@ -109,6 +109,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="#//Rule" eOpposite="#//Rule/sources"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightPatternOwned" eType="#//RightPattern"
         eOpposite="#//RightPattern/source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traceLink" upperBound="-1"
+        eType="#//TraceLink" eOpposite="#//TraceLink/source"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Target" eSuperTypes="#//RuleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="#//Rule" eOpposite="#//Rule/targets"/>
@@ -116,6 +118,8 @@
         eType="#//Binding" containment="true" eOpposite="#//Binding/owned"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftPatternOwned" eType="#//LeftPattern"
         eOpposite="#//LeftPattern/target"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traceLink" upperBound="-1"
+        eType="#//TraceLink" eOpposite="#//TraceLink/target"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Guard">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -159,9 +163,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TraceLink" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" upperBound="-1"
-        eType="#//Source"/>
+        eType="#//Source" eOpposite="#//Source/traceLink"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" upperBound="-1"
-        eType="#//Target"/>
+        eType="#//Target" eOpposite="#//Target/traceLink"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TraceBinding" eSuperTypes="#//TraceLink">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//TraceRule"

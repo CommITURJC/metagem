@@ -31,6 +31,7 @@ public interface TraceLink extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference list.
 	 * The list contents are of type {@link hybrid.Source}.
+	 * It is bidirectional and its opposite is '{@link hybrid.Source#getTraceLink <em>Trace Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Source</em>' reference list isn't clear,
@@ -39,7 +40,8 @@ public interface TraceLink extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference list.
 	 * @see hybrid.HybridPackage#getTraceLink_Source()
-	 * @model
+	 * @see hybrid.Source#getTraceLink
+	 * @model opposite="traceLink"
 	 * @generated
 	 */
 	EList<Source> getSource();
@@ -47,6 +49,7 @@ public interface TraceLink extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference list.
 	 * The list contents are of type {@link hybrid.Target}.
+	 * It is bidirectional and its opposite is '{@link hybrid.Target#getTraceLink <em>Trace Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Target</em>' reference list isn't clear,
@@ -55,7 +58,8 @@ public interface TraceLink extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference list.
 	 * @see hybrid.HybridPackage#getTraceLink_Target()
-	 * @model
+	 * @see hybrid.Target#getTraceLink
+	 * @model opposite="traceLink"
 	 * @generated
 	 */
 	EList<Target> getTarget();
