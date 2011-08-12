@@ -169,6 +169,7 @@ public class HybridSwitch<T> {
 			case HybridPackage.RULE_ELEMENT: {
 				RuleElement ruleElement = (RuleElement)theEObject;
 				T result = caseRuleElement(ruleElement);
+				if (result == null) result = caseHybridElement(ruleElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -176,6 +177,7 @@ public class HybridSwitch<T> {
 				Source source = (Source)theEObject;
 				T result = caseSource(source);
 				if (result == null) result = caseRuleElement(source);
+				if (result == null) result = caseHybridElement(source);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -183,6 +185,7 @@ public class HybridSwitch<T> {
 				Target target = (Target)theEObject;
 				T result = caseTarget(target);
 				if (result == null) result = caseRuleElement(target);
+				if (result == null) result = caseHybridElement(target);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

@@ -7,12 +7,15 @@
 package hybrid.provider;
 
 
+import hybrid.HybridPackage;
+import hybrid.Source;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -55,8 +58,31 @@ public class SourceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTraceLinkPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Trace Link feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTraceLinkPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Source_traceLink_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Source_traceLink_feature", "_UI_Source_type"),
+				 HybridPackage.Literals.SOURCE__TRACE_LINK,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -78,7 +104,10 @@ public class SourceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Source_type");
+		String label = ((Source)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Source_type") :
+			getString("_UI_Source_type") + " " + label;
 	}
 
 	/**

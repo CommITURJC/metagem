@@ -41,7 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class RuleElementImpl extends EObjectImpl implements RuleElement {
+public abstract class RuleElementImpl extends HybridElementImpl implements RuleElement {
 	/**
 	 * The cached value of the '{@link #getIsRefered() <em>Is Refered</em>}' reference list.
 	 * <!-- begin-user-doc -->

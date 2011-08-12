@@ -19,6 +19,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -62,8 +63,31 @@ public class TargetItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTraceLinkPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Trace Link feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTraceLinkPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Target_traceLink_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Target_traceLink_feature", "_UI_Target_type"),
+				 HybridPackage.Literals.TARGET__TRACE_LINK,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -115,7 +139,10 @@ public class TargetItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Target_type");
+		String label = ((Target)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Target_type") :
+			getString("_UI_Target_type") + " " + label;
 	}
 
 	/**

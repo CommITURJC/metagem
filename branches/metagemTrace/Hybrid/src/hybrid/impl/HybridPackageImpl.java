@@ -723,6 +723,15 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSource_TraceLink() {
+		return (EReference)sourceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTarget() {
 		return targetEClass;
 	}
@@ -752,6 +761,15 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 */
 	public EReference getTarget_LeftPatternOwned() {
 		return (EReference)targetEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTarget_TraceLink() {
+		return (EReference)targetEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1113,11 +1131,13 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		sourceEClass = createEClass(SOURCE);
 		createEReference(sourceEClass, SOURCE__RULE);
 		createEReference(sourceEClass, SOURCE__RIGHT_PATTERN_OWNED);
+		createEReference(sourceEClass, SOURCE__TRACE_LINK);
 
 		targetEClass = createEClass(TARGET);
 		createEReference(targetEClass, TARGET__RULE);
 		createEReference(targetEClass, TARGET__BINDINGS);
 		createEReference(targetEClass, TARGET__LEFT_PATTERN_OWNED);
+		createEReference(targetEClass, TARGET__TRACE_LINK);
 
 		guardEClass = createEClass(GUARD);
 		createEAttribute(guardEClass, GUARD__VALUE);
@@ -1197,6 +1217,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		modelFeatureEClass.getESuperTypes().add(this.getModelComponent());
 		modelComponentEClass.getESuperTypes().add(this.getHybridElement());
 		ruleEClass.getESuperTypes().add(this.getHybridElement());
+		ruleElementEClass.getESuperTypes().add(this.getHybridElement());
 		sourceEClass.getESuperTypes().add(this.getRuleElement());
 		targetEClass.getESuperTypes().add(this.getRuleElement());
 		traceRuleEClass.getESuperTypes().add(this.getTraceLink());
@@ -1264,11 +1285,13 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSource_Rule(), this.getRule(), this.getRule_Sources(), "rule", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSource_RightPatternOwned(), this.getRightPattern(), this.getRightPattern_Source(), "rightPatternOwned", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSource_TraceLink(), this.getTraceLink(), this.getTraceLink_Source(), "traceLink", null, 0, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(targetEClass, Target.class, "Target", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTarget_Rule(), this.getRule(), this.getRule_Targets(), "rule", null, 0, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTarget_Bindings(), this.getBinding(), this.getBinding_Owned(), "bindings", null, 0, -1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTarget_LeftPatternOwned(), this.getLeftPattern(), this.getLeftPattern_Target(), "leftPatternOwned", null, 0, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTarget_TraceLink(), this.getTraceLink(), this.getTraceLink_Target(), "traceLink", null, 0, -1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(guardEClass, Guard.class, "Guard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGuard_Value(), ecorePackage.getEString(), "value", null, 1, 1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1297,8 +1320,8 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEReference(getTraceRule_TraceBindings(), this.getTraceBinding(), this.getTraceBinding_Parent(), "traceBindings", null, 0, -1, TraceRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(traceLinkEClass, TraceLink.class, "TraceLink", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTraceLink_Source(), this.getSource(), null, "source", null, 0, -1, TraceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTraceLink_Target(), this.getTarget(), null, "target", null, 0, -1, TraceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTraceLink_Source(), this.getSource(), this.getSource_TraceLink(), "source", null, 0, -1, TraceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTraceLink_Target(), this.getTarget(), this.getTarget_TraceLink(), "target", null, 0, -1, TraceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(traceBindingEClass, TraceBinding.class, "TraceBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTraceBinding_Parent(), this.getTraceRule(), this.getTraceRule_TraceBindings(), "parent", null, 0, 1, TraceBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

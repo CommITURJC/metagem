@@ -12,6 +12,7 @@ import hybrid.LeftPattern;
 import hybrid.Rule;
 import hybrid.Target;
 
+import hybrid.TraceLink;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -38,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link hybrid.impl.TargetImpl#getRule <em>Rule</em>}</li>
  *   <li>{@link hybrid.impl.TargetImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link hybrid.impl.TargetImpl#getLeftPatternOwned <em>Left Pattern Owned</em>}</li>
+ *   <li>{@link hybrid.impl.TargetImpl#getTraceLink <em>Trace Link</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,6 +56,16 @@ public class TargetImpl extends RuleElementImpl implements Target {
 	 * @ordered
 	 */
 	protected EList<Binding> bindings;
+
+	/**
+	 * The cached value of the '{@link #getTraceLink() <em>Trace Link</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTraceLink()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TraceLink> traceLink;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -172,6 +185,18 @@ public class TargetImpl extends RuleElementImpl implements Target {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<TraceLink> getTraceLink() {
+		if (traceLink == null) {
+			traceLink = new EObjectWithInverseResolvingEList.ManyInverse<TraceLink>(TraceLink.class, this, HybridPackage.TARGET__TRACE_LINK, HybridPackage.TRACE_LINK__TARGET);
+		}
+		return traceLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -186,6 +211,8 @@ public class TargetImpl extends RuleElementImpl implements Target {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetLeftPatternOwned((LeftPattern)otherEnd, msgs);
+			case HybridPackage.TARGET__TRACE_LINK:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTraceLink()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -204,6 +231,8 @@ public class TargetImpl extends RuleElementImpl implements Target {
 				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
 			case HybridPackage.TARGET__LEFT_PATTERN_OWNED:
 				return basicSetLeftPatternOwned(null, msgs);
+			case HybridPackage.TARGET__TRACE_LINK:
+				return ((InternalEList<?>)getTraceLink()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -238,6 +267,8 @@ public class TargetImpl extends RuleElementImpl implements Target {
 				return getBindings();
 			case HybridPackage.TARGET__LEFT_PATTERN_OWNED:
 				return getLeftPatternOwned();
+			case HybridPackage.TARGET__TRACE_LINK:
+				return getTraceLink();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -261,6 +292,10 @@ public class TargetImpl extends RuleElementImpl implements Target {
 			case HybridPackage.TARGET__LEFT_PATTERN_OWNED:
 				setLeftPatternOwned((LeftPattern)newValue);
 				return;
+			case HybridPackage.TARGET__TRACE_LINK:
+				getTraceLink().clear();
+				getTraceLink().addAll((Collection<? extends TraceLink>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -282,6 +317,9 @@ public class TargetImpl extends RuleElementImpl implements Target {
 			case HybridPackage.TARGET__LEFT_PATTERN_OWNED:
 				setLeftPatternOwned((LeftPattern)null);
 				return;
+			case HybridPackage.TARGET__TRACE_LINK:
+				getTraceLink().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -300,6 +338,8 @@ public class TargetImpl extends RuleElementImpl implements Target {
 				return bindings != null && !bindings.isEmpty();
 			case HybridPackage.TARGET__LEFT_PATTERN_OWNED:
 				return getLeftPatternOwned() != null;
+			case HybridPackage.TARGET__TRACE_LINK:
+				return traceLink != null && !traceLink.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

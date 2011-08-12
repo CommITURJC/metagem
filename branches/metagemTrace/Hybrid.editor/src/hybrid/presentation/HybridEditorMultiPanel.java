@@ -7,9 +7,17 @@
 package hybrid.presentation;
 
 
+import hybrid.Source;
+import hybrid.Target;
+import hybrid.TraceLink;
+import hybrid.impl.LeftPatternImpl;
+import hybrid.impl.RightPatternImpl;
+import hybrid.impl.RuleImpl;
+import hybrid.impl.SourceImpl;
 import hybrid.impl.SourceModelImpl;
+import hybrid.impl.TargetImpl;
 import hybrid.impl.TargetModelImpl;
-import hybrid.provider.HybridItemProviderAdapterFactory;
+import hybrid.impl.TraceLinkImpl;
 import hybrid.provider.HybridItemProviderAdapterFactoryMulti;
 
 import java.io.IOException;
@@ -48,6 +56,8 @@ import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EValidator;
@@ -55,6 +65,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -961,7 +972,7 @@ public class HybridEditorMultiPanel
 					 // This ensures that we handle selections correctly.
 					 //
 					 public void selectionChanged(SelectionChangedEvent event) {
-						 //handleContentSourceSelection(event.getSelection());
+						 handleContentSourceSelection(event.getSelection());
 					 }
 				 });
 				
@@ -1001,7 +1012,7 @@ public class HybridEditorMultiPanel
 					 // This ensures that we handle selections correctly.
 					 //
 					 public void selectionChanged(SelectionChangedEvent event) {
-						 //handleContentMetagemSelection(event.getSelection());
+						 handleContentMetagemSelection(event.getSelection());
 					 }
 				 });	
 
@@ -1045,7 +1056,7 @@ public class HybridEditorMultiPanel
 						 // This ensures that we handle selections correctly.
 						 //
 						 public void selectionChanged(SelectionChangedEvent event) {
-							 //handleContentTargetSelection(event.getSelection());
+							 handleContentTargetSelection(event.getSelection());
 						 }
 					 });
 					
@@ -1091,6 +1102,9 @@ public class HybridEditorMultiPanel
 	}
 
 
+	
+
+	
 	/**
 	 * If there is just one page in the multi-page editor part,
 	 * this hides the single tab at the bottom.
@@ -1256,12 +1270,226 @@ public class HybridEditorMultiPanel
 
 		return propertySheetPage;
 	}
+	
+	public void handleContentTargetSelection(ISelection selection) {
+		ArrayList<EObject> selections = new ArrayList<EObject>();
+		String id = null;
+		if(currentViewerPane != null
+				&& getViewer().equals(targetViewer)
+				&&!selection.isEmpty()
+				&& selection instanceof IStructuredSelection){
+			Iterator<?> selectedElements = ((IStructuredSelection) selection).iterator();
+			while (selectedElements.hasNext()) {
+				Object selectedElement = selectedElements.next();
+				if (selectedElement instanceof EObject) {
+					EObject eoSelectedElement = (EObject) selectedElement;
+					XMIResource resource = (XMIResource) eoSelectedElement.eResource();
+					id = resource.getID(eoSelectedElement); // Get element id
+					if(id==null)
+						id=resource.getURIFragment(eoSelectedElement);
+					TreeIterator<?> hybridContents = editingDomain
+					.getResourceSet().getResources().get(0)
+					.getAllContents();
+
+					while (hybridContents.hasNext()) {
+						// For each source element from a hybrid model
+						EObject element = (EObject) hybridContents.next();
+						if (element instanceof TargetImpl) {
+							TargetImpl target = (TargetImpl) element;
+							if (target.getComponent().getRef() != null && id != null
+									&& target.getComponent().getRef().equals(id)) {
+								EList<TraceLink> traces = target.getTraceLink();
+								for(int cont=0;cont<traces.size();cont++){
+									selections.add(traces.get(cont));
+								}
+								selections.add(target.getLeftPatternOwned());
+								selections.add(target.getRule());
+								selections.add(target);
+							}
+						}
+					}
+				}
+			}
+			hybridViewer.setSelection(new StructuredSelection(selections),true);
+			sourceViewer.setSelection(new StructuredSelection(new ArrayList<Object>()),true);
+		}
+	}
+	
+	
+	public void handleContentSourceSelection(ISelection selection) {
+		ArrayList<EObject> selections = new ArrayList<EObject>();
+		String id = null;
+		if(currentViewerPane != null
+				&& getViewer().equals(sourceViewer)
+				&&!selection.isEmpty()
+				&& selection instanceof IStructuredSelection){
+			Iterator<?> selectedElements = ((IStructuredSelection) selection).iterator();
+			while (selectedElements.hasNext()) {
+				Object selectedElement = selectedElements.next();
+				if (selectedElement instanceof EObject) {
+					EObject eoSelectedElement = (EObject) selectedElement;
+					XMIResource resource = (XMIResource) eoSelectedElement.eResource();
+					id = resource.getID(eoSelectedElement); // Get element id
+					if(id==null)
+						id=resource.getURIFragment(eoSelectedElement);
+					TreeIterator<?> hybridContents = editingDomain
+					.getResourceSet().getResources().get(0)
+					.getAllContents();
+
+					while (hybridContents.hasNext()) {
+						// For each source element from a hybrid model
+						EObject element = (EObject) hybridContents.next();
+						if (element instanceof SourceImpl) {
+							SourceImpl source = (SourceImpl) element;
+							if (source.getComponent().getRef() != null && id != null
+									&& source.getComponent().getRef().equals(id)) {
+								EList<TraceLink> traces = source.getTraceLink();
+								for(int cont=0;cont<traces.size();cont++){
+									selections.add(traces.get(cont));
+								}
+								selections.add(source.getRightPatternOwned());
+								selections.add(source.getRule());
+								selections.add(source);
+							}
+						}
+					}
+				}
+			}
+			hybridViewer.setSelection(new StructuredSelection(selections),true);
+			targetViewer.setSelection(new StructuredSelection(new ArrayList<Object>()),true);
+		}
+	}
+	
+	public void handleContentMetagemSelection(ISelection selection) {
+		ArrayList<Object> sourceElements = new ArrayList<Object>();
+		ArrayList<Object> targetElements = new ArrayList<Object>();
+		
+		// Get source and target elements from hybrid model
+		if (currentViewerPane != null
+				&& getViewer().equals(hybridViewer)
+				&& !selection.isEmpty()
+				&& selection instanceof IStructuredSelection) {
+			Iterator<?> selectedElements = ((IStructuredSelection) selection)
+					.iterator();
+			while (selectedElements.hasNext()) {
+				Object selectedElement = selectedElements.next();
+				if (selectedElement instanceof EObject) {
+					EObject eoSelectedElement = (EObject) selectedElement;
+					if(eoSelectedElement instanceof RuleImpl){
+						handleSelectedRule((RuleImpl)eoSelectedElement, sourceElements,targetElements);
+					}else if(eoSelectedElement instanceof SourceImpl){
+						handleSelectedSource((SourceImpl)eoSelectedElement, sourceElements);
+					}else if(eoSelectedElement instanceof TargetImpl){
+						handleSelectedTarget((TargetImpl)eoSelectedElement, targetElements);
+					}else if(eoSelectedElement instanceof TraceLinkImpl){
+						handleSelectedTrace((TraceLinkImpl)eoSelectedElement, sourceElements,targetElements);
+					}else if(eoSelectedElement instanceof RightPatternImpl){
+						handleSelectedRightPattern((RightPatternImpl)eoSelectedElement, sourceElements);
+					}else if(eoSelectedElement instanceof LeftPatternImpl){
+						handleSelectedLeftPattern((LeftPatternImpl)eoSelectedElement, targetElements);
+					}
+				}
+			}
+			if (currentViewerPane != null){
+				// Select elements in source and target models
+				sourceViewer.setSelection(new StructuredSelection(sourceElements),true);
+				targetViewer.setSelection(new StructuredSelection(targetElements),true);
+			}
+		}
+	}
+	
+	private void handleSelectedLeftPattern(LeftPatternImpl leftPattern,
+			ArrayList<Object> targetElements) {
+		TargetImpl target = (TargetImpl) leftPattern.getTarget();
+		if(target!=null)
+			handleSelectedTarget(target, targetElements);
+	}
+	
+	private void handleSelectedRightPattern(RightPatternImpl rightPattern,
+			ArrayList<Object> sourceElements) {
+		SourceImpl source = (SourceImpl) rightPattern.getSource();
+		if(source!=null)
+			handleSelectedSource(source, sourceElements);
+	}
+
+	private void handleSelectedSource(SourceImpl source,
+			ArrayList<Object> sourceElements) {
+		
+		// For each ResourceSet (Source)
+		for (int cont1 = 0; cont1 < sourceRs.getResources().size(); cont1++) {
+			TreeIterator<?> in_ti = sourceRs.getResources().get(cont1)
+					.getAllContents();
+			while (in_ti.hasNext()) {
+				// For each element from a source model
+				EObject element = (EObject) in_ti.next();
+				XMIResource resource = (XMIResource) element.eResource();
+				String id = resource.getID(element); // Get element id
+				if (id == null)
+					id = resource.getURIFragment(element);
+				if (source.getComponent() != null
+						&& source.getComponent().getRef() != null && id != null
+						&& id.equals(source.getComponent().getRef())) {
+					sourceElements.add(element);
+				}
+			}
+
+		}
+	}
+	
+	private void handleSelectedTarget(TargetImpl target,
+			ArrayList<Object> targetElements) {
+		
+		// For each ResourceSet (Target)
+		for (int cont1 = 0; cont1 < targetRs.getResources().size(); cont1++) {
+			TreeIterator<?> in_ti = targetRs.getResources().get(cont1)
+					.getAllContents();
+			while (in_ti.hasNext()) {
+				// For each element from a target model
+				EObject element = (EObject) in_ti.next();
+				XMIResource resource = (XMIResource) element.eResource();
+				String id = resource.getID(element); // Get element id
+				if (id == null)
+					id = resource.getURIFragment(element);
+				if (target.getComponent() != null
+						&& target.getComponent().getRef() != null && id != null
+						&& id.equals(target.getComponent().getRef())) {
+					targetElements.add(element);
+				}
+			}
+
+		}
+	}
+
+	private void handleSelectedRule(RuleImpl rule,
+			ArrayList<Object> sourceElements, ArrayList<Object> targetElements) {
+		EList<Source> sources = rule.getSources();
+		for (int cont1 = 0; cont1 < sources.size(); cont1++) {
+			handleSelectedSource((SourceImpl)sources.get(cont1),sourceElements);
+		}
+		EList<Target> targets = rule.getTargets();
+		for(int cont1=0;cont1<targets.size();cont1++){
+			handleSelectedTarget((TargetImpl)targets.get(cont1),targetElements);
+		}
+	}
+	
+	private void handleSelectedTrace(TraceLinkImpl trace,
+			ArrayList<Object> sourceElements, ArrayList<Object> targetElements) {
+		EList<Source> sources = trace.getSource();
+		for (int cont1 = 0; cont1 < sources.size(); cont1++) {
+			handleSelectedSource((SourceImpl)sources.get(cont1),sourceElements);
+		}
+		EList<Target> targets = trace.getTarget();
+		for(int cont1=0;cont1<targets.size();cont1++){
+			handleSelectedTarget((TargetImpl)targets.get(cont1),targetElements);
+		}
+		
+	}
 
 	/**
 	 * This deals with how we want selection in the outliner to affect the other views.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NOT generated
 	 */
 	public void handleContentOutlineSelection(ISelection selection) {
 		if (currentViewerPane != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
