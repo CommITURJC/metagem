@@ -16,7 +16,9 @@ import hybrid.TraceRule;
 import hybrid.TypeElement;
 import hybrid.TypeRelation;
 
+import java.io.IOException;
 import java.util.Collection;
+import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
