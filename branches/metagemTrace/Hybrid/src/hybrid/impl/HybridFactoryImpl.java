@@ -6,6 +6,9 @@
  */
 package hybrid.impl;
 
+import java.io.IOException;
+import java.util.HashMap;
+
 import hybrid.*;
 
 import org.eclipse.emf.ecore.EClass;
@@ -194,6 +197,7 @@ public class HybridFactoryImpl extends EFactoryImpl implements HybridFactory {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
+	 * Note: Modify to create a traceRule in the rule
 	 */
 	public Rule createRule() {
 		RuleImpl rule = new RuleImpl();
