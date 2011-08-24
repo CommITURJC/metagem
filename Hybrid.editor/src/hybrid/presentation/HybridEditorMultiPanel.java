@@ -981,7 +981,7 @@ public class HybridEditorMultiPanel
 				//To show the contextual menu (disabled for input and output models)
 				//createContextMenuFor(inputViewer.get(i));
 				
-				//View for metagem model
+				//View for hybrid model
 				{
 				ViewerPane viewerPane2 = new ViewerPane(getSite().getPage(),
 						HybridEditorMultiPanel.this) {
@@ -1006,13 +1006,13 @@ public class HybridEditorMultiPanel
 				hybridViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 				hybridViewer.setInput(editingDomain.getResourceSet());
 				hybridViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
-				viewerPane2.setTitle("Metagem Model",Actions.getImage("HybridModelFile"));
+				viewerPane2.setTitle("Hybrid Model",Actions.getImage("HybridModelFile"));
 				hybridViewer.addSelectionChangedListener
 				(new ISelectionChangedListener() {
 					 // This ensures that we handle selections correctly.
 					 //
 					 public void selectionChanged(SelectionChangedEvent event) {
-						 handleContentMetagemSelection(event.getSelection());
+						 handleContentHybridSelection(event.getSelection());
 					 }
 				 });	
 
@@ -1360,7 +1360,7 @@ public class HybridEditorMultiPanel
 		}
 	}
 	
-	public void handleContentMetagemSelection(ISelection selection) {
+	public void handleContentHybridSelection(ISelection selection) {
 		ArrayList<Object> sourceElements = new ArrayList<Object>();
 		ArrayList<Object> targetElements = new ArrayList<Object>();
 		
