@@ -16,20 +16,14 @@ import hybrid.TraceRule;
 import hybrid.TypeElement;
 import hybrid.TypeRelation;
 
-import java.io.IOException;
 import java.util.Collection;
-import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -200,10 +194,17 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NOT generated
 	 */
 	protected RuleImpl() {
 		super();
+		
+//		if(this.getTrace()==null){
+//		//To create a TraceRule programmatically
+//			HybridFactoryImpl factory = new HybridFactoryImpl();
+//			TraceRule tracerule = factory.createTraceRule();
+//			this.setTrace(tracerule);
+//		}
 	}
 
 	/**
@@ -365,24 +366,44 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NOT generated
 	 */
 	public EList<Source> getSources() {
 		if (sources == null) {
 			sources = new EObjectContainmentWithInverseEList<Source>(Source.class, this, HybridPackage.RULE__SOURCES, HybridPackage.SOURCE__RULE);
 		}
+		//Update TraceRule Sources
+		TraceRule traceRule = this.getTrace();
+		if(traceRule!=null){
+			for(int i=0;i<sources.size();i++){
+				if(!traceRule.getSource().contains(sources.get(i))){
+					traceRule.getSource().add(sources.get(i));
+				}
+			}
+					
+		}			
 		return sources;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NOT generated
 	 */
 	public EList<Target> getTargets() {
 		if (targets == null) {
 			targets = new EObjectContainmentWithInverseEList<Target>(Target.class, this, HybridPackage.RULE__TARGETS, HybridPackage.TARGET__RULE);
 		}
+		//Update TraceRule Targets
+		TraceRule traceRule = this.getTrace();
+		if(traceRule!=null){
+			for(int i=0;i<targets.size();i++){
+				if(!traceRule.getTarget().contains(targets.get(i))){
+					traceRule.getTarget().add(targets.get(i));
+				}
+			}
+			
+		}	
 		return targets;
 	}
 
