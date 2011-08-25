@@ -76,7 +76,7 @@ public class HybridFactoryImpl extends EFactoryImpl implements HybridFactory {
 			case HybridPackage.BINDING: return createBinding();
 			case HybridPackage.RIGHT_PATTERN: return createRightPattern();
 			case HybridPackage.LEFT_PATTERN: return createLeftPattern();
-			case HybridPackage.TRACE_RULE:	return createTraceRule();
+			case HybridPackage.TRACE_RULE: return createTraceRule();
 			case HybridPackage.TRACE_BINDING: return createTraceBinding();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -195,7 +195,6 @@ public class HybridFactoryImpl extends EFactoryImpl implements HybridFactory {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 * Note: Modify to create a traceRule in the rule
 	 */
 	public Rule createRule() {
 		RuleImpl rule = new RuleImpl();

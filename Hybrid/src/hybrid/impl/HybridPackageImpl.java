@@ -1220,7 +1220,9 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		ruleElementEClass.getESuperTypes().add(this.getHybridElement());
 		sourceEClass.getESuperTypes().add(this.getRuleElement());
 		targetEClass.getESuperTypes().add(this.getRuleElement());
+		bindingEClass.getESuperTypes().add(this.getHybridElement());
 		traceRuleEClass.getESuperTypes().add(this.getTraceLink());
+		traceLinkEClass.getESuperTypes().add(this.getHybridElement());
 		traceBindingEClass.getESuperTypes().add(this.getTraceLink());
 
 		// Initialize classes and features; add operations and parameters

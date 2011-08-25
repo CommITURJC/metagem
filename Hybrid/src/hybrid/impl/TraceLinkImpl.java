@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *
  * @generated
  */
-public abstract class TraceLinkImpl extends EObjectImpl implements TraceLink {
+public abstract class TraceLinkImpl extends HybridElementImpl implements TraceLink {
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference list.
 	 * <!-- begin-user-doc -->

@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface TraceLink extends EObject {
+public interface TraceLink extends HybridElement {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference list.
 	 * The list contents are of type {@link hybrid.Source}.

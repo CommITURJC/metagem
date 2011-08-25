@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Binding extends EObject {
+public interface Binding extends HybridElement {
 	/**
 	 * Returns the value of the '<em><b>Owned</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link hybrid.Target#getBindings <em>Bindings</em>}'.

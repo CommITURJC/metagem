@@ -9,6 +9,7 @@ package hybrid.provider;
 
 import hybrid.HybridPackage;
 
+import hybrid.TraceBinding;
 import java.util.Collection;
 import java.util.List;
 
@@ -104,7 +105,10 @@ public class TraceBindingItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_TraceBinding_type");
+		String label = ((TraceBinding)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_TraceBinding_type") :
+			getString("_UI_TraceBinding_type") + " " + label;
 	}
 
 	/**

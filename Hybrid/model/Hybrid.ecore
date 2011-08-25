@@ -126,7 +126,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1" eType="#//Rule"
         eOpposite="#//Rule/guard"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Binding">
+  <eClassifiers xsi:type="ecore:EClass" name="Binding" eSuperTypes="#//HybridElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="owned" lowerBound="1" eType="#//Target"
         eOpposite="#//Target/bindings"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" lowerBound="1" eType="#//RightPattern"
@@ -161,7 +161,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="traceBindings" upperBound="-1"
         eType="#//TraceBinding" containment="true" eOpposite="#//TraceBinding/parent"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TraceLink" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="TraceLink" abstract="true" eSuperTypes="#//HybridElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" upperBound="-1"
         eType="#//Source" eOpposite="#//Source/traceLink"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" upperBound="-1"

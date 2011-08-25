@@ -198,6 +198,7 @@ public class HybridSwitch<T> {
 			case HybridPackage.BINDING: {
 				Binding binding = (Binding)theEObject;
 				T result = caseBinding(binding);
+				if (result == null) result = caseHybridElement(binding);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -217,12 +218,14 @@ public class HybridSwitch<T> {
 				TraceRule traceRule = (TraceRule)theEObject;
 				T result = caseTraceRule(traceRule);
 				if (result == null) result = caseTraceLink(traceRule);
+				if (result == null) result = caseHybridElement(traceRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case HybridPackage.TRACE_LINK: {
 				TraceLink traceLink = (TraceLink)theEObject;
 				T result = caseTraceLink(traceLink);
+				if (result == null) result = caseHybridElement(traceLink);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -230,6 +233,7 @@ public class HybridSwitch<T> {
 				TraceBinding traceBinding = (TraceBinding)theEObject;
 				T result = caseTraceBinding(traceBinding);
 				if (result == null) result = caseTraceLink(traceBinding);
+				if (result == null) result = caseHybridElement(traceBinding);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

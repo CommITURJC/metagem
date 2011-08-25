@@ -959,13 +959,22 @@ public interface HybridPackage extends EPackage {
 	int BINDING = 15;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING__NAME = HYBRID_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Owned</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__OWNED = 0;
+	int BINDING__OWNED = HYBRID_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -974,7 +983,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__RIGHT = 1;
+	int BINDING__RIGHT = HYBRID_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -983,7 +992,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__LEFT = 2;
+	int BINDING__LEFT = HYBRID_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Type Relation</b></em>' attribute.
@@ -992,7 +1001,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__TYPE_RELATION = 3;
+	int BINDING__TYPE_RELATION = HYBRID_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Type Element</b></em>' attribute.
@@ -1001,7 +1010,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__TYPE_ELEMENT = 4;
+	int BINDING__TYPE_ELEMENT = HYBRID_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Trace</b></em>' reference.
@@ -1010,7 +1019,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__TRACE = 5;
+	int BINDING__TRACE = HYBRID_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Binding</em>' class.
@@ -1019,7 +1028,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING_FEATURE_COUNT = 6;
+	int BINDING_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.RightPatternImpl <em>Right Pattern</em>}' class.
@@ -1133,13 +1142,22 @@ public interface HybridPackage extends EPackage {
 	int TRACE_LINK = 19;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_LINK__NAME = HYBRID_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACE_LINK__SOURCE = 0;
+	int TRACE_LINK__SOURCE = HYBRID_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference list.
@@ -1148,7 +1166,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRACE_LINK__TARGET = 1;
+	int TRACE_LINK__TARGET = HYBRID_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Trace Link</em>' class.
@@ -1157,7 +1175,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRACE_LINK_FEATURE_COUNT = 2;
+	int TRACE_LINK_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.TraceRuleImpl <em>Trace Rule</em>}' class.
@@ -1168,6 +1186,15 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 */
 	int TRACE_RULE = 18;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_RULE__NAME = TRACE_LINK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -1214,6 +1241,15 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 */
 	int TRACE_BINDING = 20;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_BINDING__NAME = TRACE_LINK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
