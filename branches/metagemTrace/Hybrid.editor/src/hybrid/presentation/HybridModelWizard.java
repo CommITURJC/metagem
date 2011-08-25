@@ -460,8 +460,8 @@ public class HybridModelWizard extends Wizard implements INewWizard {
 			addSourceModel.setText(HybridEditorPlugin.INSTANCE.getString("_UI_AddModel"));
 			addSourceModel.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
-					//HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),sourceModels,getCreationPage(),getModelFile().getParent().getName());
-					//dialogModel.open();
+					HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),sourceModels,getCreationPage(),getModelFile().getParent().getName());
+					dialogModel.open();
 					setPageComplete(validatePage());
 				}
 			});
@@ -472,8 +472,8 @@ public class HybridModelWizard extends Wizard implements INewWizard {
 				public void widgetSelected(SelectionEvent e) {
 					int index = modelSourceTable.getSelectionIndex();
 					if(index>-1){
-						//HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),sourceModels,getCreationPage(),index, getModelFile().getParent().getName());
-						//dialogModel.open();
+						HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),sourceModels,getCreationPage(),index, getModelFile().getParent().getName());
+						dialogModel.open();
 					}
 					setPageComplete(validatePage());
 				}
@@ -564,8 +564,8 @@ public class HybridModelWizard extends Wizard implements INewWizard {
 			addTargetModel.setText(HybridEditorPlugin.INSTANCE.getString("_UI_AddModel"));
 			addTargetModel.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
-					//HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),targetModels,getCreationPage(),getModelFile().getParent().getName());
-					//dialogModel.open();
+					HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),targetModels,getCreationPage(),getModelFile().getParent().getName());
+					dialogModel.open();
 					setPageComplete(validatePage());
 				}
 			});
@@ -576,8 +576,8 @@ public class HybridModelWizard extends Wizard implements INewWizard {
 				public void widgetSelected(SelectionEvent e) {
 					int index = modelTargetTable.getSelectionIndex();
 					if(index>-1){
-						//HybridWizardHandleModel dialogModel=new MetagemWizardHandleModel(getShell(),targetModels,getCreationPage(),index, getModelFile().getParent().getName());
-						//dialogModel.open();
+						HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),targetModels,getCreationPage(),index, getModelFile().getParent().getName());
+						dialogModel.open();
 					}
 					setPageComplete(validatePage());
 				}
