@@ -6,8 +6,6 @@
  */
 package hybrid.impl;
 
-import java.io.IOException;
-import java.util.HashMap;
 
 import hybrid.*;
 
@@ -78,7 +76,7 @@ public class HybridFactoryImpl extends EFactoryImpl implements HybridFactory {
 			case HybridPackage.BINDING: return createBinding();
 			case HybridPackage.RIGHT_PATTERN: return createRightPattern();
 			case HybridPackage.LEFT_PATTERN: return createLeftPattern();
-			case HybridPackage.TRACE_RULE: return createTraceRule();
+			case HybridPackage.TRACE_RULE:	return createTraceRule();
 			case HybridPackage.TRACE_BINDING: return createTraceBinding();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");

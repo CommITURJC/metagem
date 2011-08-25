@@ -8,6 +8,10 @@ package hybrid.impl;
 
 import hybrid.Binding;
 import hybrid.HybridPackage;
+import hybrid.LeftPattern;
+import hybrid.RightPattern;
+import hybrid.Source;
+import hybrid.Target;
 import hybrid.TraceBinding;
 import hybrid.TraceRule;
 
@@ -109,7 +113,7 @@ public class TraceBindingImpl extends TraceLinkImpl implements TraceBinding {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NOT generated
 	 */
 	public Binding getBinding() {
 		if (binding != null && binding.eIsProxy()) {
@@ -119,6 +123,28 @@ public class TraceBindingImpl extends TraceLinkImpl implements TraceBinding {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HybridPackage.TRACE_BINDING__BINDING, oldBinding, binding));
 			}
+		}
+		if(binding!=null){
+			//Update Source
+			RightPattern right = binding.getRight();
+			if(right!=null){
+				Source source = right.getSource();
+				if((source!=null)&&(!this.getSource().contains(source))){
+					this.getSource().add(source);
+				}
+			}
+			
+			//Update Target
+			LeftPattern left = binding.getLeft();
+			if(left!=null){
+				Target target = left.getTarget();
+				if((target!=null)&&(!this.getTarget().contains(target))){
+					this.getTarget().add(target);
+				}
+			}
+		}else{
+			this.getSource().clear();
+			this.getTarget().clear();
 		}
 		return binding;
 	}

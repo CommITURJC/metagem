@@ -10,6 +10,7 @@ import hybrid.Binding;
 import hybrid.HybridPackage;
 import hybrid.LeftPattern;
 import hybrid.RightPattern;
+import hybrid.Source;
 import hybrid.Target;
 import hybrid.TraceBinding;
 import hybrid.TypeElement;
@@ -17,13 +18,10 @@ import hybrid.TypeRelation;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -122,6 +120,22 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	 */
 	protected BindingImpl() {
 		super();
+			
+//		Target target_owned = this.getOwned();
+//		if (target_owned != null) {
+//			EObject rule_eo = target_owned.eContainer();
+//			if ((rule_eo != null) && (rule_eo instanceof RuleImpl)) {
+//				RuleImpl rule = (RuleImpl) rule_eo;
+//				TraceRule traceRule = rule.getTrace();
+//				if (traceRule != null) {
+//					HybridFactoryImpl factory = new HybridFactoryImpl();
+//					TraceBinding traceBinding = factory.createTraceBinding();
+//					traceBinding.setParent(traceRule);
+//					traceBinding.setBinding(this);
+//				}
+//			}
+//		}
+
 	}
 
 	/**
@@ -178,9 +192,17 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NOT generated
 	 */
 	public RightPattern getRight() {
+		//Update TraceBinding Sources
+		TraceBinding traceBinding = this.getTrace();
+		if(traceBinding!=null){
+			Source source = right.getSource();
+			if((source!=null)&&(!traceBinding.getSource().contains(source))){
+				traceBinding.getSource().add(source);
+			}
+		}	
 		return right;
 	}
 
@@ -221,9 +243,17 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NOT generated
 	 */
 	public LeftPattern getLeft() {
+		//Update TraceBinding Sources
+		TraceBinding traceBinding = this.getTrace();
+		if(traceBinding!=null){
+			Target target = left.getTarget();
+			if((target!=null)&&(!traceBinding.getTarget().contains(target))){
+				traceBinding.getTarget().add(target);
+			}
+		}	
 		return left;
 	}
 
