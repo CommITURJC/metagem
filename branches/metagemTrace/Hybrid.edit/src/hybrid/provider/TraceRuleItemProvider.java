@@ -115,7 +115,10 @@ public class TraceRuleItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_TraceRule_type");
+		String label = ((TraceRule)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_TraceRule_type") :
+			getString("_UI_TraceRule_type") + " " + label;
 	}
 
 	/**

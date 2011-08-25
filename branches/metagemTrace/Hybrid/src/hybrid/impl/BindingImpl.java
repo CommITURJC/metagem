@@ -42,7 +42,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class BindingImpl extends EObjectImpl implements Binding {
+public class BindingImpl extends HybridElementImpl implements Binding {
 	/**
 	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -120,22 +120,6 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	 */
 	protected BindingImpl() {
 		super();
-			
-//		Target target_owned = this.getOwned();
-//		if (target_owned != null) {
-//			EObject rule_eo = target_owned.eContainer();
-//			if ((rule_eo != null) && (rule_eo instanceof RuleImpl)) {
-//				RuleImpl rule = (RuleImpl) rule_eo;
-//				TraceRule traceRule = rule.getTrace();
-//				if (traceRule != null) {
-//					HybridFactoryImpl factory = new HybridFactoryImpl();
-//					TraceBinding traceBinding = factory.createTraceBinding();
-//					traceBinding.setParent(traceRule);
-//					traceBinding.setBinding(this);
-//				}
-//			}
-//		}
-
 	}
 
 	/**
