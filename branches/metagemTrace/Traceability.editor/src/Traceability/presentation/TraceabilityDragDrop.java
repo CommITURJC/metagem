@@ -289,7 +289,7 @@ public class TraceabilityDragDrop extends EditingDomainViewerDropAdapter {
 		private Element createElement(Model model, String id,	EObject eModelElement){
 			Element ownedElement=null;
 			Element element=traceabilityFactory.createElement();
-			//Looking for ownedElement of the feature
+			//Looking for ownedElement of the element
 			EObject ownedEObject = eModelElement.eContainer();
 			if (ownedEObject!=null){
 				//Get the ID of the ownedElement
