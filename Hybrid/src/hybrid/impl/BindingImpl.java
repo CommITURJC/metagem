@@ -21,7 +21,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -181,7 +180,7 @@ public class BindingImpl extends HybridElementImpl implements Binding {
 	public RightPattern getRight() {
 		//Update TraceBinding Sources
 		TraceBinding traceBinding = this.getTrace();
-		if(traceBinding!=null){
+		if((traceBinding!=null)&&(right!=null)){
 			Source source = right.getSource();
 			if((source!=null)&&(!traceBinding.getSource().contains(source))){
 				traceBinding.getSource().add(source);
@@ -232,7 +231,7 @@ public class BindingImpl extends HybridElementImpl implements Binding {
 	public LeftPattern getLeft() {
 		//Update TraceBinding Sources
 		TraceBinding traceBinding = this.getTrace();
-		if(traceBinding!=null){
+		if((traceBinding!=null)&&(left!=null)){
 			Target target = left.getTarget();
 			if((target!=null)&&(!traceBinding.getTarget().contains(target))){
 				traceBinding.getTarget().add(target);
