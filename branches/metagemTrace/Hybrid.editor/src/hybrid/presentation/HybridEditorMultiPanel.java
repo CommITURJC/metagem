@@ -75,7 +75,6 @@ import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
-import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
@@ -837,7 +836,7 @@ public class HybridEditorMultiPanel
 	 * This creates a context menu for the viewer and adds a listener as well registering the menu for extension.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NOT generated
 	 */
 	protected void createContextMenuFor(StructuredViewer viewer) {
 		MenuManager contextMenu = new MenuManager("#PopUp");
@@ -847,11 +846,6 @@ public class HybridEditorMultiPanel
 		Menu menu= contextMenu.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
 		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
-
-		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
-		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
-		//viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
-		//viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
 	}
 
 	/**
@@ -1062,8 +1056,8 @@ public class HybridEditorMultiPanel
 					
 			new AdapterFactoryTreeEditor(targetViewer.getTree(), adapterFactory);
 			
-			//HybridDragDrop dragdrop=new HybridDragDrop(getEditingDomain(),hybridViewer, this.sourceRs, this.targetRs);
-			//hybridViewer.addDropSupport(DND.DROP_COPY | DND.DROP_LINK, transfers, dragdrop);
+			HybridDragDrop dragdrop=new HybridDragDrop(getEditingDomain(),hybridViewer, this.sourceRs, this.targetRs);
+			hybridViewer.addDropSupport(DND.DROP_COPY | DND.DROP_LINK, transfers, dragdrop);
 			
 			int pageIndex = addPage(topSashForm);
 			setPageText(pageIndex, getString("_UI_SelectionPage_label"));	
