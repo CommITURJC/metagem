@@ -1,6 +1,7 @@
 package hybrid.presentation;
 
 import hybrid.HybridPackage;
+import hybrid.LeftPattern;
 import hybrid.Model;
 import hybrid.ModelComponent;
 import hybrid.ModelElement;
@@ -206,7 +207,45 @@ public class HybridDragDrop extends EditingDomainViewerDropAdapter {
 	 * @param id
 	 */
 	private void handleSetTargetElement(BindingImpl binding, EObject oElement, String id){
+		ModelComponent component = null;
+		Module module = binding.getOwned().getRule().getModule();
+		EList<TargetModel> target_models = module.getTargetModels();
 		
+		TargetModel targetModel = null;
+		for(int c1=0; c1<target_models.size();c1++){
+			TreeIterator<EObject> elements = target_models.get(c1).eAllContents();
+			while(elements.hasNext()){
+				EObject next = elements.next();
+				if(next instanceof ModelComponent){
+					ModelComponent targetElement = (ModelComponent) next;
+					if(id!=null&&
+							targetElement.getRef()!=null&&
+							targetElement.getRef().equals(id)){
+							component = targetElement;
+						}
+				}
+			}
+			String uriModel = new String ("platform:/resource"+target_models.get(c1).getPath());
+			if(uriModel.equals(elementModel)){
+				targetModel = target_models.get(c1);
+			}
+		}
+		if (component == null) { // element hasn't been created before
+			component=createComponent(targetModel,id,oElement);
+		}
+		Target bindingElement = hybridFactory.createTarget();
+		bindingElement.setComponent(component);
+		bindingElement.setName(component.getName());
+		
+		LeftPattern leftPattern = binding.getLeft();
+		if(leftPattern==null){
+			leftPattern = hybridFactory.createLeftPattern();
+			CreateChildCommand cmdSet_element_left = new CreateChildCommand(domain, (EObject)binding, HybridPackage.eINSTANCE.getBinding_Left(), leftPattern, null);
+			domain.getCommandStack().execute(cmdSet_element_left);
+		}
+		
+		CreateChildCommand cmdSet_element = new CreateChildCommand(domain, (EObject)leftPattern, HybridPackage.eINSTANCE.getLeftPattern_Target(), bindingElement, null);
+		domain.getCommandStack().execute(cmdSet_element);
 	}
 	
 	/**
