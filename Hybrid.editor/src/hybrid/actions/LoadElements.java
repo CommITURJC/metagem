@@ -11,15 +11,13 @@ import hybrid.presentation.Actions;
 import hybrid.presentation.HybridEditorPlugin;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -30,6 +28,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
@@ -48,32 +48,43 @@ public class LoadElements implements IObjectActionDelegate{
 		super();
 	}
 	
-	private String getTitle() {
-		return "MeTAGeM: Generating elements from models";
-	}
+//	private String getTitle() {
+//		return "MeTAGeM: Generating elements from models";
+//	}
 	
 	public void run(final IAction action) {
-		Job job = new Job(getTitle()) {
-			protected IStatus run(IProgressMonitor monitor) {
-				try {
+		ProgressMonitorDialog dialog = new ProgressMonitorDialog(shell); 
+		try {
+			dialog.run(true, true, new IRunnableWithProgress(){ 
+			    public void run(IProgressMonitor monitor) { 
+			    	monitor.beginTask("MeTAGeM: Loading elements from models ...", 100);
 					runLoad(action,monitor);
-				} catch (final Exception ex) {
-					HybridEditorPlugin.INSTANCE.log(ex);
-					PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
-						
-						public void run() {
-							MessageDialog.openError(shell, "Error",
-							"An error has occured. Please see the Error Log.");
-						}
-						
-					});
-					ex.printStackTrace();
+					monitor.done(); 
+			    } 
+			});
+		} catch (InvocationTargetException ex) {
+			HybridEditorPlugin.INSTANCE.log(ex);
+			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
+				
+				public void run() {
+					MessageDialog.openError(shell, "Error",
+					"An error has occured. Please see the Error Log.");
 				}
-				return Status.OK_STATUS;
-			}
-		};
-		job.setPriority(Job.SHORT);
-		job.schedule(); // start as soon as possible
+				
+			});
+			ex.printStackTrace();
+		} catch (InterruptedException ex) {
+			HybridEditorPlugin.INSTANCE.log(ex);
+			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
+				
+				public void run() {
+					MessageDialog.openError(shell, "Error",
+					"An error has occured. Please see the Error Log.");
+				}
+				
+			});
+			ex.printStackTrace();
+		}
 	}
 	private IFile getSelectedFile() {
 		IStructuredSelection selection = (IStructuredSelection) this.selection;
@@ -87,7 +98,7 @@ public class LoadElements implements IObjectActionDelegate{
 		ResourceSet rs_model = Actions.createResourceSet(fileSelected.getFullPath().toString());
 		ArrayList<SourceModelImpl> sources = Actions.getSourceModels(rs_model);
 		ArrayList<TargetModelImpl> targets = Actions.getTargetModels(rs_model);
-		
+		monitor.worked(10);
 		ArrayList<String> paths_source=new ArrayList<String>();
 		for(int i=0;i<sources.size();i++){
 			paths_source.add(sources.get(i).getPath());
@@ -109,18 +120,33 @@ public class LoadElements implements IObjectActionDelegate{
 			ModelImpl model = (ModelImpl) targets.get(c1);
 			targets_.add(model);
 		}
-		
-		createsElementsModel(sourceRs, sources_);
-		createsElementsModel(targetRs, targets_);
-		
+		int n_models=sources.size()+targets.size();
+		monitor.worked(20);
+		float sources_percentage=(float)sources.size()/(float)n_models;
+		float monitor_value = 20+(sources_percentage*80);
+		monitor.subTask("Loading elements from source models...");
+		createsElementsModel(sourceRs, sources_,monitor,20,monitor_value);
+		monitor.worked((int) monitor_value);
+		monitor.subTask("Loading elements from target models...");
+		createsElementsModel(targetRs, targets_,monitor,monitor_value,100);
+		monitor.worked(100);
+		monitor.subTask("Finishing...");
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public static void createsElementsModel(ResourceSet resourceSet, ArrayList<ModelImpl> models) {
+	public static void createsElementsModel(ResourceSet resourceSet, ArrayList<ModelImpl> models, IProgressMonitor monitor, 
+			float monitor_value, float max_monitor) {
 		
 		EList<Resource> resources = resourceSet.getResources();
 		//each resource must be a model
+		float step = (max_monitor - monitor_value)/resources.size();
 		for (int cont1 = 0; cont1 < resources.size(); cont1++) {
 			EList<EObject> contents = resources.get(cont1).getContents();
+			float step_content = step / contents.size();
 			for (int cont2 = 0;cont2<contents.size();cont2++) {
 				EObject eContent = contents.get(cont2);
 				// Get the ID of the element
@@ -130,8 +156,11 @@ public class LoadElements implements IObjectActionDelegate{
 				if (id_element == null)
 					id_element = resourceXMI.getURIFragment(eContent);
 				createElement(models.get(cont1), id_element, eContent,null);
-
+				
+				monitor_value+=step_content;
+				monitor.worked((int) monitor_value);
 			}
+			
 		}
 	}
 	
@@ -189,8 +218,8 @@ public class LoadElements implements IObjectActionDelegate{
 			ModelElement ownedElement){
 		ModelElement element = null;
 		if (!exists(id, model)) {
-			HybridFactoryImpl metagemFactory = new HybridFactoryImpl();
-			element = metagemFactory.createModelElement();
+			HybridFactoryImpl hybridFactory = new HybridFactoryImpl();
+			element = hybridFactory.createModelElement();
 			if (ownedElement == null) {
 				element.setOwnedModel(model);
 			} else {
