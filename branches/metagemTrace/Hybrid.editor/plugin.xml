@@ -42,5 +42,20 @@
             name="%_UI_HybridEditor_label">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="kybele.es.Hybrid.loadElements"
+            nameFilter="*.hybrid"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="hybrid.actions.LoadElements"
+               enablesFor="1"
+               id="kybele.es.Hybrid.loadElements.action"
+               label="Load Elements from Models">
+         </action>
+      </objectContribution>
+   </extension>
 
 </plugin>
