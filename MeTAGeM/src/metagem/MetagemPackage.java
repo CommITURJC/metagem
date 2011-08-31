@@ -71,22 +71,13 @@ public interface MetagemPackage extends EPackage {
 	int MODEL_ROOT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ROOT__NAME = 0;
-
-	/**
 	 * The feature id for the '<em><b>Source Models</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ROOT__SOURCE_MODELS = 1;
+	int MODEL_ROOT__SOURCE_MODELS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Target Models</b></em>' containment reference list.
@@ -95,7 +86,7 @@ public interface MetagemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ROOT__TARGET_MODELS = 2;
+	int MODEL_ROOT__TARGET_MODELS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Relations</b></em>' containment reference list.
@@ -104,7 +95,16 @@ public interface MetagemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ROOT__RELATIONS = 3;
+	int MODEL_ROOT__RELATIONS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ROOT__NAME = 3;
 
 	/**
 	 * The number of structural features of the '<em>Model Root</em>' class.
@@ -419,13 +419,31 @@ public interface MetagemPackage extends EPackage {
 	int RELATIONS__IS_EXTENDED = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Guard Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATIONS__GUARD_CONDITION = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Is Invoked</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATIONS__IS_INVOKED = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Relations</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONS_FEATURE_COUNT = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 6;
+	int RELATIONS_FEATURE_COUNT = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link metagem.impl.OneToOneImpl <em>One To One</em>}' class.
@@ -499,6 +517,24 @@ public interface MetagemPackage extends EPackage {
 	 * @ordered
 	 */
 	int ONE_TO_ONE__IS_EXTENDED = RELATIONS__IS_EXTENDED;
+
+	/**
+	 * The feature id for the '<em><b>Guard Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_ONE__GUARD_CONDITION = RELATIONS__GUARD_CONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Is Invoked</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_ONE__IS_INVOKED = RELATIONS__IS_INVOKED;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' containment reference.
@@ -610,6 +646,24 @@ public interface MetagemPackage extends EPackage {
 	int ONE_TO_ZERO__IS_EXTENDED = RELATIONS__IS_EXTENDED;
 
 	/**
+	 * The feature id for the '<em><b>Guard Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_ZERO__GUARD_CONDITION = RELATIONS__GUARD_CONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Is Invoked</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_ZERO__IS_INVOKED = RELATIONS__IS_INVOKED;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -699,6 +753,24 @@ public interface MetagemPackage extends EPackage {
 	 * @ordered
 	 */
 	int ZERO_TO_ONE__IS_EXTENDED = RELATIONS__IS_EXTENDED;
+
+	/**
+	 * The feature id for the '<em><b>Guard Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZERO_TO_ONE__GUARD_CONDITION = RELATIONS__GUARD_CONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Is Invoked</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZERO_TO_ONE__IS_INVOKED = RELATIONS__IS_INVOKED;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' containment reference.
@@ -801,6 +873,24 @@ public interface MetagemPackage extends EPackage {
 	int ONE_TO_MANY__IS_EXTENDED = RELATIONS__IS_EXTENDED;
 
 	/**
+	 * The feature id for the '<em><b>Guard Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_MANY__GUARD_CONDITION = RELATIONS__GUARD_CONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Is Invoked</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_MANY__IS_INVOKED = RELATIONS__IS_INVOKED;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -899,6 +989,24 @@ public interface MetagemPackage extends EPackage {
 	 * @ordered
 	 */
 	int MANY_TO_ONE__IS_EXTENDED = RELATIONS__IS_EXTENDED;
+
+	/**
+	 * The feature id for the '<em><b>Guard Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_ONE__GUARD_CONDITION = RELATIONS__GUARD_CONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Is Invoked</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_ONE__IS_INVOKED = RELATIONS__IS_INVOKED;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' containment reference.
@@ -1010,6 +1118,24 @@ public interface MetagemPackage extends EPackage {
 	int MANY_TO_MANY__IS_EXTENDED = RELATIONS__IS_EXTENDED;
 
 	/**
+	 * The feature id for the '<em><b>Guard Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_MANY__GUARD_CONDITION = RELATIONS__GUARD_CONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Is Invoked</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_MANY__IS_INVOKED = RELATIONS__IS_INVOKED;
+
+	/**
 	 * The feature id for the '<em><b>Target</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1102,13 +1228,22 @@ public interface MetagemPackage extends EPackage {
 	int SOURCE_ELEMENT__MODEL_COMPONENT = RELATION_ELEMENT__MODEL_COMPONENT;
 
 	/**
+	 * The feature id for the '<em><b>Invokes</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_ELEMENT__INVOKES = RELATION_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Source Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_ELEMENT_FEATURE_COUNT = RELATION_ELEMENT_FEATURE_COUNT + 0;
+	int SOURCE_ELEMENT_FEATURE_COUNT = RELATION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link metagem.impl.TargetElementImpl <em>Target Element</em>}' class.
@@ -1600,6 +1735,28 @@ public interface MetagemPackage extends EPackage {
 	EReference getRelations_IsExtended();
 
 	/**
+	 * Returns the meta object for the attribute '{@link metagem.Relations#getGuardCondition <em>Guard Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Guard Condition</em>'.
+	 * @see metagem.Relations#getGuardCondition()
+	 * @see #getRelations()
+	 * @generated
+	 */
+	EAttribute getRelations_GuardCondition();
+
+	/**
+	 * Returns the meta object for the reference list '{@link metagem.Relations#getIsInvoked <em>Is Invoked</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Is Invoked</em>'.
+	 * @see metagem.Relations#getIsInvoked()
+	 * @see #getRelations()
+	 * @generated
+	 */
+	EReference getRelations_IsInvoked();
+
+	/**
 	 * Returns the meta object for class '{@link metagem.OneToOne <em>One To One</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1832,6 +1989,17 @@ public interface MetagemPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSourceElement();
+
+	/**
+	 * Returns the meta object for the reference '{@link metagem.SourceElement#getInvokes <em>Invokes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Invokes</em>'.
+	 * @see metagem.SourceElement#getInvokes()
+	 * @see #getSourceElement()
+	 * @generated
+	 */
+	EReference getSourceElement_Invokes();
 
 	/**
 	 * Returns the meta object for class '{@link metagem.TargetElement <em>Target Element</em>}'.
@@ -2210,6 +2378,22 @@ public interface MetagemPackage extends EPackage {
 		EReference RELATIONS__IS_EXTENDED = eINSTANCE.getRelations_IsExtended();
 
 		/**
+		 * The meta object literal for the '<em><b>Guard Condition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RELATIONS__GUARD_CONDITION = eINSTANCE.getRelations_GuardCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Invoked</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATIONS__IS_INVOKED = eINSTANCE.getRelations_IsInvoked();
+
+		/**
 		 * The meta object literal for the '{@link metagem.impl.OneToOneImpl <em>One To One</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2400,6 +2584,14 @@ public interface MetagemPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SOURCE_ELEMENT = eINSTANCE.getSourceElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Invokes</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOURCE_ELEMENT__INVOKES = eINSTANCE.getSourceElement_Invokes();
 
 		/**
 		 * The meta object literal for the '{@link metagem.impl.TargetElementImpl <em>Target Element</em>}' class.

@@ -66,6 +66,8 @@ public class RelationsItemProvider
 			addRolePropertyDescriptor(object);
 			addExtendsPropertyDescriptor(object);
 			addIsExtendedPropertyDescriptor(object);
+			addGuardConditionPropertyDescriptor(object);
+			addIsInvokedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -181,6 +183,50 @@ public class RelationsItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Guard Condition feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGuardConditionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Relations_guardCondition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relations_guardCondition_feature", "_UI_Relations_type"),
+				 MetagemPackage.Literals.RELATIONS__GUARD_CONDITION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Invoked feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsInvokedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Relations_isInvoked_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relations_isInvoked_feature", "_UI_Relations_type"),
+				 MetagemPackage.Literals.RELATIONS__IS_INVOKED,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,6 +255,7 @@ public class RelationsItemProvider
 			case MetagemPackage.RELATIONS__TYPE_RELATION:
 			case MetagemPackage.RELATIONS__TYPE_ELEMENT:
 			case MetagemPackage.RELATIONS__ROLE:
+			case MetagemPackage.RELATIONS__GUARD_CONDITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
