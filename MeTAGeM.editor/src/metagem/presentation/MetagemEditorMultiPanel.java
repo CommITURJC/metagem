@@ -1314,8 +1314,10 @@ public class MetagemEditorMultiPanel
 						EObject element = (EObject) metagemContents.next();
 						if (element instanceof SourceElementImpl) {
 							SourceElementImpl source = (SourceElementImpl) element;
-							if (source.getModelComponent().getRef() != null && id != null
-									&& source.getModelComponent().getRef().equals(id)) {
+							if (source.getModelComponent()!=null &&
+									source.getModelComponent().getRef() != null && 
+									id != null && 
+									source.getModelComponent().getRef().equals(id)) {
 								ArrayList<Relations> relations = new ArrayList<Relations>();
 								relations.add((RelationsImpl)source.eContainer()); 
 								for (int cont2 = 0; cont2 < relations.size(); cont2++) {
@@ -1365,8 +1367,10 @@ public class MetagemEditorMultiPanel
 						EObject element = (EObject) traceContents.next();
 						if (element instanceof TargetElementImpl) {
 							TargetElementImpl target = (TargetElementImpl) element;
-							if (target.getModelComponent().getRef() != null && id != null
-									&& target.getModelComponent().getRef().equals(id)) {
+							if (target.getModelComponent()!=null &&
+									target.getModelComponent().getRef() != null && 
+									id != null &&
+									target.getModelComponent().getRef().equals(id)) {
 								ArrayList<Relations> relations = new ArrayList<Relations>();
 								relations.add((RelationsImpl)target.eContainer()); 
 								for (int cont2 = 0; cont2 < relations.size(); cont2++) {
