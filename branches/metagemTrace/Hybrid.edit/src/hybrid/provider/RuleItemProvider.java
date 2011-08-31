@@ -69,6 +69,8 @@ public class RuleItemProvider
 			addTypeRelationPropertyDescriptor(object);
 			addTypeElementPropertyDescriptor(object);
 			addCommentPropertyDescriptor(object);
+			addExtendsPropertyDescriptor(object);
+			addIsExtendedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -179,6 +181,50 @@ public class RuleItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Extends feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExtendsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Rule_extends_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Rule_extends_feature", "_UI_Rule_type"),
+				 HybridPackage.Literals.RULE__EXTENDS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Extended feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsExtendedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Rule_isExtended_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Rule_isExtended_feature", "_UI_Rule_type"),
+				 HybridPackage.Literals.RULE__IS_EXTENDED,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

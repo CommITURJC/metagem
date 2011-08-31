@@ -77,6 +77,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Rule/targets"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Rule/guard"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Rule/trace"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Rule/extends"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Rule/isExtended"/>
     </genClasses>
     <genClasses image="false" ecoreClass="Hybrid.ecore#//RuleElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//RuleElement/isRefered"/>

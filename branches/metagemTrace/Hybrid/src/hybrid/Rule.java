@@ -26,6 +26,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link hybrid.Rule#getTargets <em>Targets</em>}</li>
  *   <li>{@link hybrid.Rule#getGuard <em>Guard</em>}</li>
  *   <li>{@link hybrid.Rule#getTrace <em>Trace</em>}</li>
+ *   <li>{@link hybrid.Rule#getExtends <em>Extends</em>}</li>
+ *   <li>{@link hybrid.Rule#getIsExtended <em>Is Extended</em>}</li>
  * </ul>
  * </p>
  *
@@ -288,5 +290,51 @@ public interface Rule extends HybridElement {
 	 * @generated
 	 */
 	void setTrace(TraceRule value);
+
+	/**
+	 * Returns the value of the '<em><b>Extends</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link hybrid.Rule#getIsExtended <em>Is Extended</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Extends</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Extends</em>' reference.
+	 * @see #setExtends(Rule)
+	 * @see hybrid.HybridPackage#getRule_Extends()
+	 * @see hybrid.Rule#getIsExtended
+	 * @model opposite="isExtended"
+	 * @generated
+	 */
+	Rule getExtends();
+
+	/**
+	 * Sets the value of the '{@link hybrid.Rule#getExtends <em>Extends</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Extends</em>' reference.
+	 * @see #getExtends()
+	 * @generated
+	 */
+	void setExtends(Rule value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Extended</b></em>' reference list.
+	 * The list contents are of type {@link hybrid.Rule}.
+	 * It is bidirectional and its opposite is '{@link hybrid.Rule#getExtends <em>Extends</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Extended</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Extended</em>' reference list.
+	 * @see hybrid.HybridPackage#getRule_IsExtended()
+	 * @see hybrid.Rule#getExtends
+	 * @model opposite="extends"
+	 * @generated
+	 */
+	EList<Rule> getIsExtended();
 
 } // Rule
