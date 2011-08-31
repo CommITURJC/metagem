@@ -70,6 +70,7 @@ public class RightPatternItemProvider
 			addOperationPropertyDescriptor(object);
 			addConcreteValuePropertyDescriptor(object);
 			addReferencePropertyDescriptor(object);
+			addRulePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -132,6 +133,28 @@ public class RightPatternItemProvider
 				 getString("_UI_RightPattern_reference_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RightPattern_reference_feature", "_UI_RightPattern_type"),
 				 HybridPackage.Literals.RIGHT_PATTERN__REFERENCE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rule feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRulePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RightPattern_rule_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RightPattern_rule_feature", "_UI_RightPattern_type"),
+				 HybridPackage.Literals.RIGHT_PATTERN__RULE,
 				 true,
 				 false,
 				 true,

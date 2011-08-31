@@ -705,6 +705,15 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRule_RightPattern() {
+		return (EReference)ruleEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRuleElement() {
 		return ruleElementEClass;
 	}
@@ -957,6 +966,15 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRightPattern_Rule() {
+		return (EReference)rightPatternEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLeftPattern() {
 		return leftPatternEClass;
 	}
@@ -1163,6 +1181,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		createEReference(ruleEClass, RULE__TRACE);
 		createEReference(ruleEClass, RULE__EXTENDS);
 		createEReference(ruleEClass, RULE__IS_EXTENDED);
+		createEReference(ruleEClass, RULE__RIGHT_PATTERN);
 
 		ruleElementEClass = createEClass(RULE_ELEMENT);
 		createEReference(ruleElementEClass, RULE_ELEMENT__IS_REFERED);
@@ -1197,6 +1216,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		createEReference(rightPatternEClass, RIGHT_PATTERN__OPERATION);
 		createEAttribute(rightPatternEClass, RIGHT_PATTERN__CONCRETE_VALUE);
 		createEReference(rightPatternEClass, RIGHT_PATTERN__REFERENCE);
+		createEReference(rightPatternEClass, RIGHT_PATTERN__RULE);
 
 		leftPatternEClass = createEClass(LEFT_PATTERN);
 		createEReference(leftPatternEClass, LEFT_PATTERN__BINDING);
@@ -1323,6 +1343,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEReference(getRule_Trace(), this.getTraceRule(), null, "trace", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRule_Extends(), this.getRule(), this.getRule_IsExtended(), "extends", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRule_IsExtended(), this.getRule(), this.getRule_Extends(), "isExtended", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRule_RightPattern(), this.getRightPattern(), this.getRightPattern_Rule(), "rightPattern", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleElementEClass, RuleElement.class, "RuleElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRuleElement_IsRefered(), this.getRightPattern(), this.getRightPattern_Reference(), "isRefered", null, 0, -1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1357,6 +1378,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEReference(getRightPattern_Operation(), this.getOperation(), this.getOperation_RightPattern(), "operation", null, 0, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRightPattern_ConcreteValue(), ecorePackage.getEString(), "concreteValue", null, 0, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRightPattern_Reference(), this.getRuleElement(), this.getRuleElement_IsRefered(), "reference", null, 0, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRightPattern_Rule(), this.getRule(), this.getRule_RightPattern(), "rule", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(leftPatternEClass, LeftPattern.class, "LeftPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLeftPattern_Binding(), this.getBinding(), this.getBinding_Left(), "binding", null, 1, 1, LeftPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

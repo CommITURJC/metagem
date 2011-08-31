@@ -104,6 +104,8 @@
         eOpposite="#//Rule/isExtended"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="isExtended" upperBound="-1"
         eType="#//Rule" eOpposite="#//Rule/extends"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightPattern" upperBound="-1"
+        eType="#//RightPattern" eOpposite="#//RightPattern/rule"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RuleElement" abstract="true" eSuperTypes="#//HybridElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="isRefered" upperBound="-1"
@@ -156,6 +158,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="concreteValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//RuleElement"
         eOpposite="#//RuleElement/isRefered"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" upperBound="-1" eType="#//Rule"
+        eOpposite="#//Rule/rightPattern"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LeftPattern">
     <eStructuralFeatures xsi:type="ecore:EReference" name="binding" lowerBound="1"
