@@ -25,7 +25,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="__Wci8cP6EeCYHMDXaGNbbQ" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EEnum" href="Hybrid.ecore#//TypeRelation"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Wci8sP6EeCYHMDXaGNbbQ" x="615" y="-140"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Wci8sP6EeCYHMDXaGNbbQ" x="780" y="405"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="__WcjAMP6EeCYHMDXaGNbbQ" type="1005">
     <children xmi:type="notation:Node" xmi:id="__WcjA8P6EeCYHMDXaGNbbQ" type="4010"/>
@@ -48,7 +48,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="__WcjAcP6EeCYHMDXaGNbbQ" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EEnum" href="Hybrid.ecore#//TypeElement"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__WcjAsP6EeCYHMDXaGNbbQ" x="789" y="-135"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__WcjAsP6EeCYHMDXaGNbbQ" x="780" y="520"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="__WmT8MP6EeCYHMDXaGNbbQ" type="1005">
     <children xmi:type="notation:Node" xmi:id="__WmT88P6EeCYHMDXaGNbbQ" type="4010"/>
@@ -75,7 +75,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="__WmT8cP6EeCYHMDXaGNbbQ" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EEnum" href="Hybrid.ecore#//Datatype"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__WmT8sP6EeCYHMDXaGNbbQ" x="990" y="-145"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__WmT8sP6EeCYHMDXaGNbbQ" x="780" y="640"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="__WmUAMP6EeCYHMDXaGNbbQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="__WmUA8P6EeCYHMDXaGNbbQ" type="4001"/>
@@ -1227,5 +1227,19 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_KShQos8MEeC_bMXRR4PRFw"/>
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KShQo88MEeC_bMXRR4PRFw" points="[50, 1, 245, 374]$[110, 1, 305, 374]$[110, -360, 305, 13]$[-137, -360, 58, 13]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_OGLPoNPGEeCZIbDpiiDYcg" type="3002" source="_ErriQMP7EeCYHMDXaGNbbQ" target="_ezWccMQAEeCYHMDXaGNbbQ">
+    <children xmi:type="notation:Node" xmi:id="_OGLPpNPGEeCZIbDpiiDYcg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_OGLPpdPGEeCZIbDpiiDYcg" x="-462" y="238"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_OGLPptPGEeCZIbDpiiDYcg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_OGLPp9PGEeCZIbDpiiDYcg" x="-437" y="223"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_OGLPodPGEeCZIbDpiiDYcg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_OGLPotPGEeCZIbDpiiDYcg" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="Hybrid.ecore#//Operation/context"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_OGLPo9PGEeCZIbDpiiDYcg" points="[-3, 0, -539, 188]$[-43, 0, -579, 188]$[-43, -246, -579, -58]$[536, -246, 0, -58]$[536, -206, 0, -18]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OGLPqNPGEeCZIbDpiiDYcg" id="(0.035398230088495575,0.14285714285714285)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OGLPqdPGEeCZIbDpiiDYcg" id="(0.24193548387096775,0.3877551020408163)"/>
   </edges>
 </notation:Diagram>

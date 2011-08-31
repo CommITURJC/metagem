@@ -1290,8 +1290,10 @@ public class HybridEditorMultiPanel
 						EObject element = (EObject) hybridContents.next();
 						if (element instanceof TargetImpl) {
 							TargetImpl target = (TargetImpl) element;
-							if (target.getComponent().getRef() != null && id != null
-									&& target.getComponent().getRef().equals(id)) {
+							if (target.getComponent()!=null&&
+									target.getComponent().getRef() != null && 
+									id != null && 
+									target.getComponent().getRef().equals(id)) {
 								EList<TraceLink> traces = target.getTraceLink();
 								for(int cont=0;cont<traces.size();cont++){
 									selections.add(traces.get(cont));
@@ -1335,8 +1337,10 @@ public class HybridEditorMultiPanel
 						EObject element = (EObject) hybridContents.next();
 						if (element instanceof SourceImpl) {
 							SourceImpl source = (SourceImpl) element;
-							if (source.getComponent().getRef() != null && id != null
-									&& source.getComponent().getRef().equals(id)) {
+							if (source.getComponent()!=null &&
+									source.getComponent().getRef() != null && 
+									id != null	&& 
+									source.getComponent().getRef().equals(id)) {
 								EList<TraceLink> traces = source.getTraceLink();
 								for(int cont=0;cont<traces.size();cont++){
 									selections.add(traces.get(cont));
