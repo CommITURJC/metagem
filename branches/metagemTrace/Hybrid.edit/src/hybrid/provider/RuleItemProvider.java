@@ -72,6 +72,7 @@ public class RuleItemProvider
 			addCommentPropertyDescriptor(object);
 			addExtendsPropertyDescriptor(object);
 			addIsExtendedPropertyDescriptor(object);
+			addRightPatternPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -244,6 +245,28 @@ public class RuleItemProvider
 				 getString("_UI_Rule_isExtended_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Rule_isExtended_feature", "_UI_Rule_type"),
 				 HybridPackage.Literals.RULE__IS_EXTENDED,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Right Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRightPatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Rule_rightPattern_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Rule_rightPattern_feature", "_UI_Rule_type"),
+				 HybridPackage.Literals.RULE__RIGHT_PATTERN,
 				 true,
 				 false,
 				 true,

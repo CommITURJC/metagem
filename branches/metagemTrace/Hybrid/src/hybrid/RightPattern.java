@@ -6,6 +6,7 @@
  */
 package hybrid;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link hybrid.RightPattern#getOperation <em>Operation</em>}</li>
  *   <li>{@link hybrid.RightPattern#getConcreteValue <em>Concrete Value</em>}</li>
  *   <li>{@link hybrid.RightPattern#getReference <em>Reference</em>}</li>
+ *   <li>{@link hybrid.RightPattern#getRule <em>Rule</em>}</li>
  * </ul>
  * </p>
  *
@@ -166,5 +168,23 @@ public interface RightPattern extends EObject {
 	 * @generated
 	 */
 	void setReference(RuleElement value);
+
+	/**
+	 * Returns the value of the '<em><b>Rule</b></em>' reference list.
+	 * The list contents are of type {@link hybrid.Rule}.
+	 * It is bidirectional and its opposite is '{@link hybrid.Rule#getRightPattern <em>Right Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rule</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rule</em>' reference list.
+	 * @see hybrid.HybridPackage#getRightPattern_Rule()
+	 * @see hybrid.Rule#getRightPattern
+	 * @model opposite="rightPattern"
+	 * @generated
+	 */
+	EList<Rule> getRule();
 
 } // RightPattern

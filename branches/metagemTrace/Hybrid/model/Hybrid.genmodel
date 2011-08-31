@@ -79,6 +79,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Rule/trace"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Rule/extends"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Rule/isExtended"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Rule/rightPattern"/>
     </genClasses>
     <genClasses image="false" ecoreClass="Hybrid.ecore#//RuleElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//RuleElement/isRefered"/>
@@ -113,6 +114,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//RightPattern/operation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//RightPattern/concreteValue"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//RightPattern/reference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//RightPattern/rule"/>
     </genClasses>
     <genClasses ecoreClass="Hybrid.ecore#//LeftPattern">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Hybrid.ecore#//LeftPattern/binding"/>

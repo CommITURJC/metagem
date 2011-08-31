@@ -738,13 +738,22 @@ public interface HybridPackage extends EPackage {
 	int RULE__IS_EXTENDED = HYBRID_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
+	 * The feature id for the '<em><b>Right Pattern</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__RIGHT_PATTERN = HYBRID_ELEMENT_FEATURE_COUNT + 13;
+
+	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 13;
+	int RULE_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.RuleElementImpl <em>Rule Element</em>}' class.
@@ -1122,13 +1131,22 @@ public interface HybridPackage extends EPackage {
 	int RIGHT_PATTERN__REFERENCE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Rule</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RIGHT_PATTERN__RULE = 5;
+
+	/**
 	 * The number of structural features of the '<em>Right Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RIGHT_PATTERN_FEATURE_COUNT = 5;
+	int RIGHT_PATTERN_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.LeftPatternImpl <em>Left Pattern</em>}' class.
@@ -1870,6 +1888,17 @@ public interface HybridPackage extends EPackage {
 	EReference getRule_IsExtended();
 
 	/**
+	 * Returns the meta object for the reference list '{@link hybrid.Rule#getRightPattern <em>Right Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Right Pattern</em>'.
+	 * @see hybrid.Rule#getRightPattern()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EReference getRule_RightPattern();
+
+	/**
 	 * Returns the meta object for class '{@link hybrid.RuleElement <em>Rule Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2170,6 +2199,17 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRightPattern_Reference();
+
+	/**
+	 * Returns the meta object for the reference list '{@link hybrid.RightPattern#getRule <em>Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Rule</em>'.
+	 * @see hybrid.RightPattern#getRule()
+	 * @see #getRightPattern()
+	 * @generated
+	 */
+	EReference getRightPattern_Rule();
 
 	/**
 	 * Returns the meta object for class '{@link hybrid.LeftPattern <em>Left Pattern</em>}'.
@@ -2739,6 +2779,14 @@ public interface HybridPackage extends EPackage {
 		EReference RULE__IS_EXTENDED = eINSTANCE.getRule_IsExtended();
 
 		/**
+		 * The meta object literal for the '<em><b>Right Pattern</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RULE__RIGHT_PATTERN = eINSTANCE.getRule_RightPattern();
+
+		/**
 		 * The meta object literal for the '{@link hybrid.impl.RuleElementImpl <em>Rule Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2973,6 +3021,14 @@ public interface HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RIGHT_PATTERN__REFERENCE = eINSTANCE.getRightPattern_Reference();
+
+		/**
+		 * The meta object literal for the '<em><b>Rule</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RIGHT_PATTERN__RULE = eINSTANCE.getRightPattern_Rule();
 
 		/**
 		 * The meta object literal for the '{@link hybrid.impl.LeftPatternImpl <em>Left Pattern</em>}' class.

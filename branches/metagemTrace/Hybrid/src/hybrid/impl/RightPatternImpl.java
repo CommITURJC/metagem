@@ -10,19 +10,24 @@ import hybrid.Binding;
 import hybrid.HybridPackage;
 import hybrid.Operation;
 import hybrid.RightPattern;
+import hybrid.Rule;
 import hybrid.RuleElement;
 import hybrid.Source;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +41,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link hybrid.impl.RightPatternImpl#getOperation <em>Operation</em>}</li>
  *   <li>{@link hybrid.impl.RightPatternImpl#getConcreteValue <em>Concrete Value</em>}</li>
  *   <li>{@link hybrid.impl.RightPatternImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link hybrid.impl.RightPatternImpl#getRule <em>Rule</em>}</li>
  * </ul>
  * </p>
  *
@@ -91,6 +97,16 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * @ordered
 	 */
 	protected RuleElement reference;
+
+	/**
+	 * The cached value of the '{@link #getRule() <em>Rule</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRule()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Rule> rule;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -341,6 +357,19 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Rule> getRule() {
+		if (rule == null) {
+			rule = new EObjectWithInverseResolvingEList.ManyInverse<Rule>(Rule.class, this, HybridPackage.RIGHT_PATTERN__RULE, HybridPackage.RULE__RIGHT_PATTERN);
+		}
+		return rule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -360,6 +389,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 				if (reference != null)
 					msgs = ((InternalEObject)reference).eInverseRemove(this, HybridPackage.RULE_ELEMENT__IS_REFERED, RuleElement.class, msgs);
 				return basicSetReference((RuleElement)otherEnd, msgs);
+			case HybridPackage.RIGHT_PATTERN__RULE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRule()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -380,6 +411,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 				return basicSetOperation(null, msgs);
 			case HybridPackage.RIGHT_PATTERN__REFERENCE:
 				return basicSetReference(null, msgs);
+			case HybridPackage.RIGHT_PATTERN__RULE:
+				return ((InternalEList<?>)getRule()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -418,6 +451,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			case HybridPackage.RIGHT_PATTERN__REFERENCE:
 				if (resolve) return getReference();
 				return basicGetReference();
+			case HybridPackage.RIGHT_PATTERN__RULE:
+				return getRule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -427,6 +462,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -444,6 +480,10 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 				return;
 			case HybridPackage.RIGHT_PATTERN__REFERENCE:
 				setReference((RuleElement)newValue);
+				return;
+			case HybridPackage.RIGHT_PATTERN__RULE:
+				getRule().clear();
+				getRule().addAll((Collection<? extends Rule>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -472,6 +512,9 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			case HybridPackage.RIGHT_PATTERN__REFERENCE:
 				setReference((RuleElement)null);
 				return;
+			case HybridPackage.RIGHT_PATTERN__RULE:
+				getRule().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -494,6 +537,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 				return CONCRETE_VALUE_EDEFAULT == null ? concreteValue != null : !CONCRETE_VALUE_EDEFAULT.equals(concreteValue);
 			case HybridPackage.RIGHT_PATTERN__REFERENCE:
 				return reference != null;
+			case HybridPackage.RIGHT_PATTERN__RULE:
+				return rule != null && !rule.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -29,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link hybrid.Rule#getTrace <em>Trace</em>}</li>
  *   <li>{@link hybrid.Rule#getExtends <em>Extends</em>}</li>
  *   <li>{@link hybrid.Rule#getIsExtended <em>Is Extended</em>}</li>
+ *   <li>{@link hybrid.Rule#getRightPattern <em>Right Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -364,5 +365,23 @@ public interface Rule extends HybridElement {
 	 * @generated
 	 */
 	EList<Rule> getIsExtended();
+
+	/**
+	 * Returns the value of the '<em><b>Right Pattern</b></em>' reference list.
+	 * The list contents are of type {@link hybrid.RightPattern}.
+	 * It is bidirectional and its opposite is '{@link hybrid.RightPattern#getRule <em>Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Right Pattern</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Right Pattern</em>' reference list.
+	 * @see hybrid.HybridPackage#getRule_RightPattern()
+	 * @see hybrid.RightPattern#getRule
+	 * @model opposite="rule"
+	 * @generated
+	 */
+	EList<RightPattern> getRightPattern();
 
 } // Rule
