@@ -41,6 +41,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightPattern" eType="#//RightPattern"
         eOpposite="#//RightPattern/operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="#//ModelComponent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Return">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="datatype" eType="#//Datatype"/>

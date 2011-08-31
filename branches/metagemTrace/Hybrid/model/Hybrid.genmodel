@@ -37,6 +37,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//Operation/body"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Operation/return"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Operation/rightPattern"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Operation/context"/>
     </genClasses>
     <genClasses ecoreClass="Hybrid.ecore#//Return">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//Return/datatype"/>

@@ -19,6 +19,7 @@ package hybrid;
  *   <li>{@link hybrid.Operation#getBody <em>Body</em>}</li>
  *   <li>{@link hybrid.Operation#getReturn <em>Return</em>}</li>
  *   <li>{@link hybrid.Operation#getRightPattern <em>Right Pattern</em>}</li>
+ *   <li>{@link hybrid.Operation#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -134,5 +135,31 @@ public interface Operation extends HybridElement {
 	 * @generated
 	 */
 	void setRightPattern(RightPattern value);
+
+	/**
+	 * Returns the value of the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Context</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Context</em>' reference.
+	 * @see #setContext(ModelComponent)
+	 * @see hybrid.HybridPackage#getOperation_Context()
+	 * @model
+	 * @generated
+	 */
+	ModelComponent getContext();
+
+	/**
+	 * Sets the value of the '{@link hybrid.Operation#getContext <em>Context</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Context</em>' reference.
+	 * @see #getContext()
+	 * @generated
+	 */
+	void setContext(ModelComponent value);
 
 } // Operation

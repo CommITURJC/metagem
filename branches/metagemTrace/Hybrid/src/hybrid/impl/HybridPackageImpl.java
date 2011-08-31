@@ -390,6 +390,15 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getOperation_Context() {
+		return (EReference)operationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getReturn() {
 		return returnEClass;
 	}
@@ -1084,6 +1093,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		createEAttribute(operationEClass, OPERATION__BODY);
 		createEReference(operationEClass, OPERATION__RETURN);
 		createEReference(operationEClass, OPERATION__RIGHT_PATTERN);
+		createEReference(operationEClass, OPERATION__CONTEXT);
 
 		returnEClass = createEClass(RETURN);
 		createEAttribute(returnEClass, RETURN__DATATYPE);
@@ -1240,6 +1250,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEAttribute(getOperation_Body(), ecorePackage.getEString(), "body", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_Return(), this.getReturn(), null, "return", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_RightPattern(), this.getRightPattern(), this.getRightPattern_Operation(), "rightPattern", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Context(), this.getModelComponent(), null, "context", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(returnEClass, Return.class, "Return", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReturn_Datatype(), this.getDatatype(), "datatype", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

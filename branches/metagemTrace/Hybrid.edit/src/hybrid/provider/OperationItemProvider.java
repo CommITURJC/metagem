@@ -66,6 +66,7 @@ public class OperationItemProvider
 
 			addBodyPropertyDescriptor(object);
 			addRightPatternPropertyDescriptor(object);
+			addContextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -106,6 +107,28 @@ public class OperationItemProvider
 				 getString("_UI_Operation_rightPattern_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_rightPattern_feature", "_UI_Operation_type"),
 				 HybridPackage.Literals.OPERATION__RIGHT_PATTERN,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Context feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContextPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Operation_context_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_context_feature", "_UI_Operation_type"),
+				 HybridPackage.Literals.OPERATION__CONTEXT,
 				 true,
 				 false,
 				 true,
