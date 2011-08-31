@@ -4,13 +4,13 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="metagem"
     nsURI="org.eclipse.kybele.metagem" nsPrefix="metagem">
   <eClassifiers xsi:type="ecore:EClass" name="ModelRoot">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceModels" lowerBound="1"
         upperBound="-1" eType="#//SourceModelTransf" containment="true" eOpposite="#//SourceModelTransf/ownedElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetModels" lowerBound="1"
         upperBound="-1" eType="#//TargetModelTransf" containment="true" eOpposite="#//TargetModelTransf/ownedElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relations" lowerBound="1"
         upperBound="-1" eType="#//Relations" containment="true" eOpposite="#//Relations/ownedModel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TransformationElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -43,6 +43,9 @@
         eOpposite="#//Relations/isExtended"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="isExtended" upperBound="-1"
         eType="#//Relations" eOpposite="#//Relations/extends"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="guardCondition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isInvoked" upperBound="-1"
+        eType="#//SourceElement" eOpposite="#//SourceElement/invokes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OneToOne" eSuperTypes="#//Relations">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
@@ -86,7 +89,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelComponent" lowerBound="1"
         eType="#//ModelComponent" eOpposite="#//ModelComponent/relationElement"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SourceElement" eSuperTypes="#//RelationElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceElement" eSuperTypes="#//RelationElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="invokes" eType="#//Relations"
+        eOpposite="#//Relations/isInvoked"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TargetElement" eSuperTypes="#//RelationElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="zeroToOne" upperBound="-1"
         eType="#//ZeroToOne" containment="true" eOpposite="#//ZeroToOne/ownedElement"/>

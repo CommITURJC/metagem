@@ -35,36 +35,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link metagem.impl.ModelRootImpl#getName <em>Name</em>}</li>
  *   <li>{@link metagem.impl.ModelRootImpl#getSourceModels <em>Source Models</em>}</li>
  *   <li>{@link metagem.impl.ModelRootImpl#getTargetModels <em>Target Models</em>}</li>
  *   <li>{@link metagem.impl.ModelRootImpl#getRelations <em>Relations</em>}</li>
+ *   <li>{@link metagem.impl.ModelRootImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class ModelRootImpl extends EObjectImpl implements ModelRoot {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getSourceModels() <em>Source Models</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -94,6 +74,26 @@ public class ModelRootImpl extends EObjectImpl implements ModelRoot {
 	 * @ordered
 	 */
 	protected EList<Relations> relations;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,14 +216,14 @@ public class ModelRootImpl extends EObjectImpl implements ModelRoot {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MetagemPackage.MODEL_ROOT__NAME:
-				return getName();
 			case MetagemPackage.MODEL_ROOT__SOURCE_MODELS:
 				return getSourceModels();
 			case MetagemPackage.MODEL_ROOT__TARGET_MODELS:
 				return getTargetModels();
 			case MetagemPackage.MODEL_ROOT__RELATIONS:
 				return getRelations();
+			case MetagemPackage.MODEL_ROOT__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -237,9 +237,6 @@ public class ModelRootImpl extends EObjectImpl implements ModelRoot {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MetagemPackage.MODEL_ROOT__NAME:
-				setName((String)newValue);
-				return;
 			case MetagemPackage.MODEL_ROOT__SOURCE_MODELS:
 				getSourceModels().clear();
 				getSourceModels().addAll((Collection<? extends SourceModelTransf>)newValue);
@@ -251,6 +248,9 @@ public class ModelRootImpl extends EObjectImpl implements ModelRoot {
 			case MetagemPackage.MODEL_ROOT__RELATIONS:
 				getRelations().clear();
 				getRelations().addAll((Collection<? extends Relations>)newValue);
+				return;
+			case MetagemPackage.MODEL_ROOT__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -264,9 +264,6 @@ public class ModelRootImpl extends EObjectImpl implements ModelRoot {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MetagemPackage.MODEL_ROOT__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case MetagemPackage.MODEL_ROOT__SOURCE_MODELS:
 				getSourceModels().clear();
 				return;
@@ -275,6 +272,9 @@ public class ModelRootImpl extends EObjectImpl implements ModelRoot {
 				return;
 			case MetagemPackage.MODEL_ROOT__RELATIONS:
 				getRelations().clear();
+				return;
+			case MetagemPackage.MODEL_ROOT__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -288,14 +288,14 @@ public class ModelRootImpl extends EObjectImpl implements ModelRoot {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MetagemPackage.MODEL_ROOT__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case MetagemPackage.MODEL_ROOT__SOURCE_MODELS:
 				return sourceModels != null && !sourceModels.isEmpty();
 			case MetagemPackage.MODEL_ROOT__TARGET_MODELS:
 				return targetModels != null && !targetModels.isEmpty();
 			case MetagemPackage.MODEL_ROOT__RELATIONS:
 				return relations != null && !relations.isEmpty();
+			case MetagemPackage.MODEL_ROOT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}

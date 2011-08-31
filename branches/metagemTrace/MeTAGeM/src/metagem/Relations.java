@@ -22,6 +22,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link metagem.Relations#getRole <em>Role</em>}</li>
  *   <li>{@link metagem.Relations#getExtends <em>Extends</em>}</li>
  *   <li>{@link metagem.Relations#getIsExtended <em>Is Extended</em>}</li>
+ *   <li>{@link metagem.Relations#getGuardCondition <em>Guard Condition</em>}</li>
+ *   <li>{@link metagem.Relations#getIsInvoked <em>Is Invoked</em>}</li>
  * </ul>
  * </p>
  *
@@ -190,5 +192,49 @@ public interface Relations extends TransformationElement {
 	 * @generated
 	 */
 	EList<Relations> getIsExtended();
+
+	/**
+	 * Returns the value of the '<em><b>Guard Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Guard Condition</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Guard Condition</em>' attribute.
+	 * @see #setGuardCondition(String)
+	 * @see metagem.MetagemPackage#getRelations_GuardCondition()
+	 * @model
+	 * @generated
+	 */
+	String getGuardCondition();
+
+	/**
+	 * Sets the value of the '{@link metagem.Relations#getGuardCondition <em>Guard Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Guard Condition</em>' attribute.
+	 * @see #getGuardCondition()
+	 * @generated
+	 */
+	void setGuardCondition(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Invoked</b></em>' reference list.
+	 * The list contents are of type {@link metagem.SourceElement}.
+	 * It is bidirectional and its opposite is '{@link metagem.SourceElement#getInvokes <em>Invokes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Invoked</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Invoked</em>' reference list.
+	 * @see metagem.MetagemPackage#getRelations_IsInvoked()
+	 * @see metagem.SourceElement#getInvokes
+	 * @model opposite="invokes"
+	 * @generated
+	 */
+	EList<SourceElement> getIsInvoked();
 
 } // Relations

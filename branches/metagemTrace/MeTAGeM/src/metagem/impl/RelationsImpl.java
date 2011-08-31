@@ -11,6 +11,7 @@ import java.util.Collection;
 import metagem.MetagemPackage;
 import metagem.ModelRoot;
 import metagem.Relations;
+import metagem.SourceElement;
 import metagem.TElement;
 import metagem.TRelation;
 import metagem.TRole;
@@ -42,6 +43,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link metagem.impl.RelationsImpl#getRole <em>Role</em>}</li>
  *   <li>{@link metagem.impl.RelationsImpl#getExtends <em>Extends</em>}</li>
  *   <li>{@link metagem.impl.RelationsImpl#getIsExtended <em>Is Extended</em>}</li>
+ *   <li>{@link metagem.impl.RelationsImpl#getGuardCondition <em>Guard Condition</em>}</li>
+ *   <li>{@link metagem.impl.RelationsImpl#getIsInvoked <em>Is Invoked</em>}</li>
  * </ul>
  * </p>
  *
@@ -127,6 +130,36 @@ public abstract class RelationsImpl extends TransformationElementImpl implements
 	 * @ordered
 	 */
 	protected EList<Relations> isExtended;
+
+	/**
+	 * The default value of the '{@link #getGuardCondition() <em>Guard Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGuardCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String GUARD_CONDITION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getGuardCondition() <em>Guard Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGuardCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected String guardCondition = GUARD_CONDITION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getIsInvoked() <em>Is Invoked</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsInvoked()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SourceElement> isInvoked;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -328,6 +361,39 @@ public abstract class RelationsImpl extends TransformationElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getGuardCondition() {
+		return guardCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGuardCondition(String newGuardCondition) {
+		String oldGuardCondition = guardCondition;
+		guardCondition = newGuardCondition;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetagemPackage.RELATIONS__GUARD_CONDITION, oldGuardCondition, guardCondition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SourceElement> getIsInvoked() {
+		if (isInvoked == null) {
+			isInvoked = new EObjectWithInverseResolvingEList<SourceElement>(SourceElement.class, this, MetagemPackage.RELATIONS__IS_INVOKED, MetagemPackage.SOURCE_ELEMENT__INVOKES);
+		}
+		return isInvoked;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -342,6 +408,8 @@ public abstract class RelationsImpl extends TransformationElementImpl implements
 				return basicSetExtends((Relations)otherEnd, msgs);
 			case MetagemPackage.RELATIONS__IS_EXTENDED:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsExtended()).basicAdd(otherEnd, msgs);
+			case MetagemPackage.RELATIONS__IS_INVOKED:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsInvoked()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -360,6 +428,8 @@ public abstract class RelationsImpl extends TransformationElementImpl implements
 				return basicSetExtends(null, msgs);
 			case MetagemPackage.RELATIONS__IS_EXTENDED:
 				return ((InternalEList<?>)getIsExtended()).basicRemove(otherEnd, msgs);
+			case MetagemPackage.RELATIONS__IS_INVOKED:
+				return ((InternalEList<?>)getIsInvoked()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -399,6 +469,10 @@ public abstract class RelationsImpl extends TransformationElementImpl implements
 				return basicGetExtends();
 			case MetagemPackage.RELATIONS__IS_EXTENDED:
 				return getIsExtended();
+			case MetagemPackage.RELATIONS__GUARD_CONDITION:
+				return getGuardCondition();
+			case MetagemPackage.RELATIONS__IS_INVOKED:
+				return getIsInvoked();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -431,6 +505,13 @@ public abstract class RelationsImpl extends TransformationElementImpl implements
 				getIsExtended().clear();
 				getIsExtended().addAll((Collection<? extends Relations>)newValue);
 				return;
+			case MetagemPackage.RELATIONS__GUARD_CONDITION:
+				setGuardCondition((String)newValue);
+				return;
+			case MetagemPackage.RELATIONS__IS_INVOKED:
+				getIsInvoked().clear();
+				getIsInvoked().addAll((Collection<? extends SourceElement>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -461,6 +542,12 @@ public abstract class RelationsImpl extends TransformationElementImpl implements
 			case MetagemPackage.RELATIONS__IS_EXTENDED:
 				getIsExtended().clear();
 				return;
+			case MetagemPackage.RELATIONS__GUARD_CONDITION:
+				setGuardCondition(GUARD_CONDITION_EDEFAULT);
+				return;
+			case MetagemPackage.RELATIONS__IS_INVOKED:
+				getIsInvoked().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -485,6 +572,10 @@ public abstract class RelationsImpl extends TransformationElementImpl implements
 				return extends_ != null;
 			case MetagemPackage.RELATIONS__IS_EXTENDED:
 				return isExtended != null && !isExtended.isEmpty();
+			case MetagemPackage.RELATIONS__GUARD_CONDITION:
+				return GUARD_CONDITION_EDEFAULT == null ? guardCondition != null : !GUARD_CONDITION_EDEFAULT.equals(guardCondition);
+			case MetagemPackage.RELATIONS__IS_INVOKED:
+				return isInvoked != null && !isInvoked.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -505,6 +596,8 @@ public abstract class RelationsImpl extends TransformationElementImpl implements
 		result.append(typeElement);
 		result.append(", role: ");
 		result.append(role);
+		result.append(", guardCondition: ");
+		result.append(guardCondition);
 		result.append(')');
 		return result.toString();
 	}

@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link metagem.ModelRoot#getName <em>Name</em>}</li>
  *   <li>{@link metagem.ModelRoot#getSourceModels <em>Source Models</em>}</li>
  *   <li>{@link metagem.ModelRoot#getTargetModels <em>Target Models</em>}</li>
  *   <li>{@link metagem.ModelRoot#getRelations <em>Relations</em>}</li>
+ *   <li>{@link metagem.ModelRoot#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
