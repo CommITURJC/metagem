@@ -7,10 +7,9 @@
   <foreignModel>Hybrid.ecore</foreignModel>
   <genPackages prefix="Hybrid" disposableProviderFactory="true" ecorePackage="Hybrid.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Hybrid.ecore#//TypeRelation">
-      <genEnumLiterals ecoreEnumLiteral="Hybrid.ecore#//TypeRelation/copy"/>
-      <genEnumLiterals ecoreEnumLiteral="Hybrid.ecore#//TypeRelation/concatenation"/>
-      <genEnumLiterals ecoreEnumLiteral="Hybrid.ecore#//TypeRelation/unique"/>
-      <genEnumLiterals ecoreEnumLiteral="Hybrid.ecore#//TypeRelation/various"/>
+      <genEnumLiterals ecoreEnumLiteral="Hybrid.ecore#//TypeRelation/Copy"/>
+      <genEnumLiterals ecoreEnumLiteral="Hybrid.ecore#//TypeRelation/Concatenation"/>
+      <genEnumLiterals ecoreEnumLiteral="Hybrid.ecore#//TypeRelation/Other"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Hybrid.ecore#//TypeElement">
       <genEnumLiterals ecoreEnumLiteral="Hybrid.ecore#//TypeElement/EClassifier"/>
@@ -70,6 +69,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//Rule/isAbstract"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Hybrid.ecore#//Rule/module"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//Rule/isMain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//Rule/isUnique"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//Rule/typeRelation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//Rule/typeElement"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//Rule/comment"/>

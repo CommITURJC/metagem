@@ -648,13 +648,22 @@ public interface HybridPackage extends EPackage {
 	int RULE__IS_MAIN = HYBRID_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Is Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__IS_UNIQUE = HYBRID_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Type Relation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__TYPE_RELATION = HYBRID_ELEMENT_FEATURE_COUNT + 3;
+	int RULE__TYPE_RELATION = HYBRID_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Type Element</b></em>' attribute.
@@ -663,7 +672,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__TYPE_ELEMENT = HYBRID_ELEMENT_FEATURE_COUNT + 4;
+	int RULE__TYPE_ELEMENT = HYBRID_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -672,7 +681,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__COMMENT = HYBRID_ELEMENT_FEATURE_COUNT + 5;
+	int RULE__COMMENT = HYBRID_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Sources</b></em>' containment reference list.
@@ -681,7 +690,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__SOURCES = HYBRID_ELEMENT_FEATURE_COUNT + 6;
+	int RULE__SOURCES = HYBRID_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Targets</b></em>' containment reference list.
@@ -690,7 +699,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__TARGETS = HYBRID_ELEMENT_FEATURE_COUNT + 7;
+	int RULE__TARGETS = HYBRID_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
@@ -699,7 +708,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__GUARD = HYBRID_ELEMENT_FEATURE_COUNT + 8;
+	int RULE__GUARD = HYBRID_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Trace</b></em>' containment reference.
@@ -708,7 +717,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__TRACE = HYBRID_ELEMENT_FEATURE_COUNT + 9;
+	int RULE__TRACE = HYBRID_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference.
@@ -717,7 +726,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__EXTENDS = HYBRID_ELEMENT_FEATURE_COUNT + 10;
+	int RULE__EXTENDS = HYBRID_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Is Extended</b></em>' reference list.
@@ -726,7 +735,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__IS_EXTENDED = HYBRID_ELEMENT_FEATURE_COUNT + 11;
+	int RULE__IS_EXTENDED = HYBRID_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
@@ -735,7 +744,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 12;
+	int RULE_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 13;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.RuleElementImpl <em>Rule Element</em>}' class.
@@ -1751,6 +1760,17 @@ public interface HybridPackage extends EPackage {
 	EAttribute getRule_IsMain();
 
 	/**
+	 * Returns the meta object for the attribute '{@link hybrid.Rule#isIsUnique <em>Is Unique</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Unique</em>'.
+	 * @see hybrid.Rule#isIsUnique()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EAttribute getRule_IsUnique();
+
+	/**
 	 * Returns the meta object for the attribute '{@link hybrid.Rule#getTypeRelation <em>Type Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2637,6 +2657,14 @@ public interface HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RULE__IS_MAIN = eINSTANCE.getRule_IsMain();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Unique</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE__IS_UNIQUE = eINSTANCE.getRule_IsUnique();
 
 		/**
 		 * The meta object literal for the '<em><b>Type Relation</b></em>' attribute feature.

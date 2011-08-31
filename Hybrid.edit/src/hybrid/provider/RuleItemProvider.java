@@ -66,6 +66,7 @@ public class RuleItemProvider
 
 			addIsAbstractPropertyDescriptor(object);
 			addIsMainPropertyDescriptor(object);
+			addIsUniquePropertyDescriptor(object);
 			addTypeRelationPropertyDescriptor(object);
 			addTypeElementPropertyDescriptor(object);
 			addCommentPropertyDescriptor(object);
@@ -111,6 +112,28 @@ public class RuleItemProvider
 				 getString("_UI_Rule_isMain_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Rule_isMain_feature", "_UI_Rule_type"),
 				 HybridPackage.Literals.RULE__IS_MAIN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Unique feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsUniquePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Rule_isUnique_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Rule_isUnique_feature", "_UI_Rule_type"),
+				 HybridPackage.Literals.RULE__IS_UNIQUE,
 				 true,
 				 false,
 				 false,
@@ -301,6 +324,7 @@ public class RuleItemProvider
 		switch (notification.getFeatureID(Rule.class)) {
 			case HybridPackage.RULE__IS_ABSTRACT:
 			case HybridPackage.RULE__IS_MAIN:
+			case HybridPackage.RULE__IS_UNIQUE:
 			case HybridPackage.RULE__TYPE_RELATION:
 			case HybridPackage.RULE__TYPE_ELEMENT:
 			case HybridPackage.RULE__COMMENT:

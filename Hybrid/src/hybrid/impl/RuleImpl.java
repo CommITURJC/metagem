@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link hybrid.impl.RuleImpl#isIsAbstract <em>Is Abstract</em>}</li>
  *   <li>{@link hybrid.impl.RuleImpl#getModule <em>Module</em>}</li>
  *   <li>{@link hybrid.impl.RuleImpl#isIsMain <em>Is Main</em>}</li>
+ *   <li>{@link hybrid.impl.RuleImpl#isIsUnique <em>Is Unique</em>}</li>
  *   <li>{@link hybrid.impl.RuleImpl#getTypeRelation <em>Type Relation</em>}</li>
  *   <li>{@link hybrid.impl.RuleImpl#getTypeElement <em>Type Element</em>}</li>
  *   <li>{@link hybrid.impl.RuleImpl#getComment <em>Comment</em>}</li>
@@ -93,6 +94,26 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 	 * @ordered
 	 */
 	protected boolean isMain = IS_MAIN_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isIsUnique() <em>Is Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsUnique()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_UNIQUE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isIsUnique() <em>Is Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsUnique()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isUnique = IS_UNIQUE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTypeRelation() <em>Type Relation</em>}' attribute.
@@ -321,6 +342,27 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 		isMain = newIsMain;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.RULE__IS_MAIN, oldIsMain, isMain));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isIsUnique() {
+		return isUnique;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsUnique(boolean newIsUnique) {
+		boolean oldIsUnique = isUnique;
+		isUnique = newIsUnique;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.RULE__IS_UNIQUE, oldIsUnique, isUnique));
 	}
 
 	/**
@@ -673,6 +715,8 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 				return getModule();
 			case HybridPackage.RULE__IS_MAIN:
 				return isIsMain();
+			case HybridPackage.RULE__IS_UNIQUE:
+				return isIsUnique();
 			case HybridPackage.RULE__TYPE_RELATION:
 				return getTypeRelation();
 			case HybridPackage.RULE__TYPE_ELEMENT:
@@ -713,6 +757,9 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 				return;
 			case HybridPackage.RULE__IS_MAIN:
 				setIsMain((Boolean)newValue);
+				return;
+			case HybridPackage.RULE__IS_UNIQUE:
+				setIsUnique((Boolean)newValue);
 				return;
 			case HybridPackage.RULE__TYPE_RELATION:
 				setTypeRelation((TypeRelation)newValue);
@@ -765,6 +812,9 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 			case HybridPackage.RULE__IS_MAIN:
 				setIsMain(IS_MAIN_EDEFAULT);
 				return;
+			case HybridPackage.RULE__IS_UNIQUE:
+				setIsUnique(IS_UNIQUE_EDEFAULT);
+				return;
 			case HybridPackage.RULE__TYPE_RELATION:
 				setTypeRelation(TYPE_RELATION_EDEFAULT);
 				return;
@@ -810,6 +860,8 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 				return getModule() != null;
 			case HybridPackage.RULE__IS_MAIN:
 				return isMain != IS_MAIN_EDEFAULT;
+			case HybridPackage.RULE__IS_UNIQUE:
+				return isUnique != IS_UNIQUE_EDEFAULT;
 			case HybridPackage.RULE__TYPE_RELATION:
 				return typeRelation != TYPE_RELATION_EDEFAULT;
 			case HybridPackage.RULE__TYPE_ELEMENT:
@@ -846,6 +898,8 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 		result.append(isAbstract);
 		result.append(", isMain: ");
 		result.append(isMain);
+		result.append(", isUnique: ");
+		result.append(isUnique);
 		result.append(", typeRelation: ");
 		result.append(typeRelation);
 		result.append(", typeElement: ");

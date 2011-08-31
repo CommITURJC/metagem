@@ -4,10 +4,9 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hybrid"
     nsURI="org.eclipse.kybele.hybrid" nsPrefix="hybrid">
   <eClassifiers xsi:type="ecore:EEnum" name="TypeRelation">
-    <eLiterals name="copy" value="1"/>
-    <eLiterals name="concatenation" value="2"/>
-    <eLiterals name="unique" value="3"/>
-    <eLiterals name="various" value="4"/>
+    <eLiterals name="Copy" value="1" literal="Copy"/>
+    <eLiterals name="Concatenation" value="2" literal="Concatenation"/>
+    <eLiterals name="Other" value="3" literal="Other"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TypeElement">
     <eLiterals name="EClassifier" value="1" literal="EClassifier"/>
@@ -86,6 +85,8 @@
         eType="#//Module" eOpposite="#//Module/rules"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMain" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isUnique" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeRelation" lowerBound="1"
         eType="#//TypeRelation"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeElement" lowerBound="1"
