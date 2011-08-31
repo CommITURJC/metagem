@@ -84,7 +84,7 @@ public class TopRuleItemProvider extends RuleItemProvider implements
 			if(from.getMetamodel()!=null){
 				metamodel=from.getMetamodel().getName();
 			}
-			if(from.getClassname().length()>0)
+			if((from.getClassname()!=null)&&(from.getClassname().length()>0))
 				inElement=from.getClassname()+"::"+metamodel;
 		}
 		
@@ -97,7 +97,7 @@ public class TopRuleItemProvider extends RuleItemProvider implements
 			if(to.getMetamodel()!=null){
 				metamodel=to.getMetamodel().getName();
 			}
-			if(to.getClassname().length()>0){
+			if((to.getClassname()!=null)&&(to.getClassname().length()>0)){
 				outElements+=to.getClassname()+"::"+metamodel;
 				if(count!=((TopRule) object).getTo().size()){
 					outElements+=", ";

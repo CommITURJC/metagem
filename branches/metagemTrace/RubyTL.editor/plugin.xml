@@ -11,14 +11,11 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
       <wizard
             id="RubyTL.presentation.RubyTLModelWizardID"
             name="%_UI_RubyTLModelWizard_label"
             class="RubyTL.presentation.RubyTLModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="org.eclipse.kybele.metagem.Wizard.category.ID"
             icon="icons/full/obj16/RubyTLModelFile.gif">
          <description>%_UI_RubyTLModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
