@@ -711,13 +711,31 @@ public interface HybridPackage extends EPackage {
 	int RULE__TRACE = HYBRID_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Extends</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__EXTENDS = HYBRID_ELEMENT_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Is Extended</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__IS_EXTENDED = HYBRID_ELEMENT_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 10;
+	int RULE_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.RuleElementImpl <em>Rule Element</em>}' class.
@@ -1810,6 +1828,28 @@ public interface HybridPackage extends EPackage {
 	EReference getRule_Trace();
 
 	/**
+	 * Returns the meta object for the reference '{@link hybrid.Rule#getExtends <em>Extends</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Extends</em>'.
+	 * @see hybrid.Rule#getExtends()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EReference getRule_Extends();
+
+	/**
+	 * Returns the meta object for the reference list '{@link hybrid.Rule#getIsExtended <em>Is Extended</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Is Extended</em>'.
+	 * @see hybrid.Rule#getIsExtended()
+	 * @see #getRule()
+	 * @generated
+	 */
+	EReference getRule_IsExtended();
+
+	/**
 	 * Returns the meta object for class '{@link hybrid.RuleElement <em>Rule Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2653,6 +2693,22 @@ public interface HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RULE__TRACE = eINSTANCE.getRule_Trace();
+
+		/**
+		 * The meta object literal for the '<em><b>Extends</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RULE__EXTENDS = eINSTANCE.getRule_Extends();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Extended</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RULE__IS_EXTENDED = eINSTANCE.getRule_IsExtended();
 
 		/**
 		 * The meta object literal for the '{@link hybrid.impl.RuleElementImpl <em>Rule Element</em>}' class.

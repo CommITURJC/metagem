@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -45,6 +46,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link hybrid.impl.RuleImpl#getTargets <em>Targets</em>}</li>
  *   <li>{@link hybrid.impl.RuleImpl#getGuard <em>Guard</em>}</li>
  *   <li>{@link hybrid.impl.RuleImpl#getTrace <em>Trace</em>}</li>
+ *   <li>{@link hybrid.impl.RuleImpl#getExtends <em>Extends</em>}</li>
+ *   <li>{@link hybrid.impl.RuleImpl#getIsExtended <em>Is Extended</em>}</li>
  * </ul>
  * </p>
  *
@@ -190,6 +193,26 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 	 * @ordered
 	 */
 	protected TraceRule trace;
+
+	/**
+	 * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExtends()
+	 * @generated
+	 * @ordered
+	 */
+	protected Rule extends_;
+
+	/**
+	 * The cached value of the '{@link #getIsExtended() <em>Is Extended</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsExtended()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Rule> isExtended;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -498,6 +521,78 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Rule getExtends() {
+		if (extends_ != null && extends_.eIsProxy()) {
+			InternalEObject oldExtends = (InternalEObject)extends_;
+			extends_ = (Rule)eResolveProxy(oldExtends);
+			if (extends_ != oldExtends) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HybridPackage.RULE__EXTENDS, oldExtends, extends_));
+			}
+		}
+		return extends_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Rule basicGetExtends() {
+		return extends_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExtends(Rule newExtends, NotificationChain msgs) {
+		Rule oldExtends = extends_;
+		extends_ = newExtends;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HybridPackage.RULE__EXTENDS, oldExtends, newExtends);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExtends(Rule newExtends) {
+		if (newExtends != extends_) {
+			NotificationChain msgs = null;
+			if (extends_ != null)
+				msgs = ((InternalEObject)extends_).eInverseRemove(this, HybridPackage.RULE__IS_EXTENDED, Rule.class, msgs);
+			if (newExtends != null)
+				msgs = ((InternalEObject)newExtends).eInverseAdd(this, HybridPackage.RULE__IS_EXTENDED, Rule.class, msgs);
+			msgs = basicSetExtends(newExtends, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.RULE__EXTENDS, newExtends, newExtends));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Rule> getIsExtended() {
+		if (isExtended == null) {
+			isExtended = new EObjectWithInverseResolvingEList<Rule>(Rule.class, this, HybridPackage.RULE__IS_EXTENDED, HybridPackage.RULE__EXTENDS);
+		}
+		return isExtended;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -514,6 +609,12 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 				if (guard != null)
 					msgs = ((InternalEObject)guard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HybridPackage.RULE__GUARD, null, msgs);
 				return basicSetGuard((Guard)otherEnd, msgs);
+			case HybridPackage.RULE__EXTENDS:
+				if (extends_ != null)
+					msgs = ((InternalEObject)extends_).eInverseRemove(this, HybridPackage.RULE__IS_EXTENDED, Rule.class, msgs);
+				return basicSetExtends((Rule)otherEnd, msgs);
+			case HybridPackage.RULE__IS_EXTENDED:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsExtended()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -536,6 +637,10 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 				return basicSetGuard(null, msgs);
 			case HybridPackage.RULE__TRACE:
 				return basicSetTrace(null, msgs);
+			case HybridPackage.RULE__EXTENDS:
+				return basicSetExtends(null, msgs);
+			case HybridPackage.RULE__IS_EXTENDED:
+				return ((InternalEList<?>)getIsExtended()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -582,6 +687,11 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 				return getGuard();
 			case HybridPackage.RULE__TRACE:
 				return getTrace();
+			case HybridPackage.RULE__EXTENDS:
+				if (resolve) return getExtends();
+				return basicGetExtends();
+			case HybridPackage.RULE__IS_EXTENDED:
+				return getIsExtended();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -627,6 +737,13 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 			case HybridPackage.RULE__TRACE:
 				setTrace((TraceRule)newValue);
 				return;
+			case HybridPackage.RULE__EXTENDS:
+				setExtends((Rule)newValue);
+				return;
+			case HybridPackage.RULE__IS_EXTENDED:
+				getIsExtended().clear();
+				getIsExtended().addAll((Collection<? extends Rule>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -669,6 +786,12 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 			case HybridPackage.RULE__TRACE:
 				setTrace((TraceRule)null);
 				return;
+			case HybridPackage.RULE__EXTENDS:
+				setExtends((Rule)null);
+				return;
+			case HybridPackage.RULE__IS_EXTENDED:
+				getIsExtended().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -701,6 +824,10 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 				return guard != null;
 			case HybridPackage.RULE__TRACE:
 				return trace != null;
+			case HybridPackage.RULE__EXTENDS:
+				return extends_ != null;
+			case HybridPackage.RULE__IS_EXTENDED:
+				return isExtended != null && !isExtended.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

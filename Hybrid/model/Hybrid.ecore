@@ -99,6 +99,10 @@
         containment="true" eOpposite="#//Guard/rule"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="trace" eType="#//TraceRule"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//Rule"
+        eOpposite="#//Rule/isExtended"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isExtended" upperBound="-1"
+        eType="#//Rule" eOpposite="#//Rule/extends"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RuleElement" abstract="true" eSuperTypes="#//HybridElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="isRefered" upperBound="-1"
