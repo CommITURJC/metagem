@@ -9,12 +9,12 @@ context Module{
 
 	-- Module name cannot be empty
 	constraint notEmptyModuleName {
-		check : self.name_module.isDefined()
+		check : self.name.isDefined()
 		message : getMessageNotEmptyName(self.type().name.asString())
 		fix {
      		title : getTitleNotEmptyName("Module")
      		do {
-    			self.name_module := getInputNotEmptyName(self.type().name.asString()); 
+    			self.name := getInputNotEmptyName(self.type().name.asString()); 
      		}
     	}
     }
@@ -23,7 +23,7 @@ context Module{
 	-- following letters, numbers, dashes and underscores 
 	constraint validModuleName {
 		guard : self.satisfies('notEmptyModuleName')
-		check : self.name_module.isValidName()
+		check : self.name.isValidName()
 		message : getMessageValidName(self.type().name.asString())
 		fix {
      		title : getTitleValidName("Module", self.name_module)
@@ -113,12 +113,12 @@ context Rule{
 
 		-- Rule name cannot be empty
 		constraint notEmptyRuleName{
-		check : self.name_rule.isDefined()
+		check : self.name.isDefined()
 			message : getMessageNotEmptyName(self.type().name.asString())
 			fix {
 	     		title : getTitleNotEmptyName("Rule")
 	     		do {
-	    			self.name_rule := getInputNotEmptyName(self.type().name.asString()); 
+	    			self.name := getInputNotEmptyName(self.type().name.asString()); 
 	     		}
 	    	}
 		}
@@ -158,12 +158,12 @@ context Operation{
 
 	-- Operation name cannot be empty
 	constraint notEmptyOperationName{
-		check : self.name_operation.isDefined()
+		check : self.name.isDefined()
 			message : getMessageNotEmptyName(self.type().name.asString())
 			fix {
 	     		title : getTitleNotEmptyName("Operation")
 	     		do {
-	    			self.name_operation := getInputNotEmptyName(self.type().name.asString()); 
+	    			self.name := getInputNotEmptyName(self.type().name.asString()); 
 	     		}
 	    	}
 		}
@@ -202,54 +202,51 @@ context Return {
  	
  }
  
- context Element{
- 
- 	-- Element name cannot be empty
-		constraint notEmptyElementName{
-		check : self.name_element.isDefined()
-			message : getMessageNotEmptyName(self.type().name.asString())
-			fix {
-	     		title : getTitleNotEmptyName("Element")
-	     		do {
-	    			self.name_element := getInputNotEmptyName(self.type().name.asString()); 
-	     		}
-	    	}
-		}
- 
- } 
  
 context RuleElement{
  
- 	--'metamodel' must be set
- 	constraint target_mm{
- 		check: self.metamodel.isDefined()
- 		message: 'The required feature \'metamodel\' of \''+ self.type().name.asString() + '\' must be set' 
+	-- RuleElement name cannot be empty
+		constraint notEmptyElementName{
+		check : self.name.isDefined()
+			message : getMessageNotEmptyName(self.type().name.asString())
+			fix {
+	     		title : getTitleNotEmptyName("RuleElement")
+	     		do {
+	    			self.name := getInputNotEmptyName(self.type().name.asString()); 
+	     		}
+	    	}
+		}
+	
+ 	--'component' must be set
+ 	constraint component{
+ 		check: self.component.isDefined()
+ 		message: 'The required feature \'component\' of \''+ self.type().name.asString() + '\' must be set' 
  	}
  
  }
  
- context ElementIncluded{
+ context Binding{
  
-	-- ElementIncluded 'typeAttribute' must be set
-		constraint elementIncluded_typeAttribute{
-			check: self.typeAttribute.isDefined()
-			message: 'The required feature \'typeAttribute\' of \''+ self.type().name.asString() + '\' must be set' 
+	-- Binding 'typeRelation' must be set
+		constraint binding_typeRelation{
+			check: self.typeRelation.isDefined()
+			message: 'The required feature \'typeRelation\' of \''+ self.type().name.asString() + '\' must be set' 
 		}
 		
 		-- ElementIncluded 'typeElement' must be set
-		constraint elementIncluded_typeElement{
+		constraint binding_typeElement{
 			check: self.typeElement.isDefined()
 			message: 'The required feature \'typeElement\' of \''+ self.type().name.asString() + '\' must be set' 
 		} 
  
  	--'right' must be set
- 	constraint elementIncluded_right{
+ 	constraint binding_right{
  		check: self.right.isDefined()
  		message: 'The required feature \'right\' of \''+ self.type().name.asString() + '\' must be set' 
  	}
  	
  	--'left' must be set
- 	constraint elementIncluded_left{
+ 	constraint binding_left{
  		check: self.left.isDefined()
  		message: 'The required feature \'left\' of \''+ self.type().name.asString() + '\' must be set' 
  	}
@@ -258,18 +255,7 @@ context RuleElement{
   
  context RightPattern{
  
- 	-- RightPattern name cannot be empty
-	constraint notEmptyElementName{
-		check : self.name_pattern.isDefined()
-			message : getMessageNotEmptyName(self.type().name.asString())
-			fix {
-		     	title : getTitleNotEmptyName("RightPattern")
-		     	do {
-		    		self.name_pattern := getInputNotEmptyName(self.type().name.asString()); 
-		     	}
-		    }
-		}
- 	
+ 	 	
 	--RightPattern must have a reference, a rule, a operation, a SourceElementRule or a concreteValue
 	constraint hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue{
 		check: self.sourceElement->size()>0 or self.reference->size()>0 or self.rule->size()>0 or self.`operation`->size()>0 or self.concreteValue.isDefined()
@@ -314,19 +300,7 @@ context RuleElement{
  }	
  
  context LeftPattern{
- 
-	 -- LeftPattern name cannot be empty
-	constraint notEmptyElementName{
-		check : self.name_pattern.isDefined()
-			message : getMessageNotEmptyName(self.type().name.asString())
-			fix {
-		     	title : getTitleNotEmptyName("LeftPattern")
-		     	do {
-		    		self.name_pattern := getInputNotEmptyName(self.type().name.asString()); 
-		     	}
-		    }
-		}
- 	
+  	
  	--'targetElement' must be set
  	constraint leftPattern_targetElement{
  		check: self.targetElement.isDefined()
