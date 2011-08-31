@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link hybrid.Rule#isIsAbstract <em>Is Abstract</em>}</li>
  *   <li>{@link hybrid.Rule#getModule <em>Module</em>}</li>
  *   <li>{@link hybrid.Rule#isIsMain <em>Is Main</em>}</li>
+ *   <li>{@link hybrid.Rule#isIsUnique <em>Is Unique</em>}</li>
  *   <li>{@link hybrid.Rule#getTypeRelation <em>Type Relation</em>}</li>
  *   <li>{@link hybrid.Rule#getTypeElement <em>Type Element</em>}</li>
  *   <li>{@link hybrid.Rule#getComment <em>Comment</em>}</li>
@@ -116,6 +117,33 @@ public interface Rule extends HybridElement {
 	 * @generated
 	 */
 	void setIsMain(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Unique</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Unique</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Unique</em>' attribute.
+	 * @see #setIsUnique(boolean)
+	 * @see hybrid.HybridPackage#getRule_IsUnique()
+	 * @model default="false" required="true"
+	 * @generated
+	 */
+	boolean isIsUnique();
+
+	/**
+	 * Sets the value of the '{@link hybrid.Rule#isIsUnique <em>Is Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Unique</em>' attribute.
+	 * @see #isIsUnique()
+	 * @generated
+	 */
+	void setIsUnique(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Type Relation</b></em>' attribute.

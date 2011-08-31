@@ -615,7 +615,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRule_TypeRelation() {
+	public EAttribute getRule_IsUnique() {
 		return (EAttribute)ruleEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -624,7 +624,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRule_TypeElement() {
+	public EAttribute getRule_TypeRelation() {
 		return (EAttribute)ruleEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -633,7 +633,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRule_Comment() {
+	public EAttribute getRule_TypeElement() {
 		return (EAttribute)ruleEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -642,8 +642,8 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRule_Sources() {
-		return (EReference)ruleEClass.getEStructuralFeatures().get(6);
+	public EAttribute getRule_Comment() {
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -651,7 +651,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRule_Targets() {
+	public EReference getRule_Sources() {
 		return (EReference)ruleEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -660,7 +660,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRule_Guard() {
+	public EReference getRule_Targets() {
 		return (EReference)ruleEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -669,7 +669,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRule_Trace() {
+	public EReference getRule_Guard() {
 		return (EReference)ruleEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -678,7 +678,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRule_Extends() {
+	public EReference getRule_Trace() {
 		return (EReference)ruleEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -687,8 +687,17 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRule_IsExtended() {
+	public EReference getRule_Extends() {
 		return (EReference)ruleEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRule_IsExtended() {
+		return (EReference)ruleEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1144,6 +1153,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		createEAttribute(ruleEClass, RULE__IS_ABSTRACT);
 		createEReference(ruleEClass, RULE__MODULE);
 		createEAttribute(ruleEClass, RULE__IS_MAIN);
+		createEAttribute(ruleEClass, RULE__IS_UNIQUE);
 		createEAttribute(ruleEClass, RULE__TYPE_RELATION);
 		createEAttribute(ruleEClass, RULE__TYPE_ELEMENT);
 		createEAttribute(ruleEClass, RULE__COMMENT);
@@ -1303,6 +1313,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEAttribute(getRule_IsAbstract(), ecorePackage.getEBoolean(), "isAbstract", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRule_Module(), this.getModule(), this.getModule_Rules(), "module", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRule_IsMain(), ecorePackage.getEBoolean(), "isMain", "true", 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRule_IsUnique(), ecorePackage.getEBoolean(), "isUnique", "false", 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRule_TypeRelation(), this.getTypeRelation(), "typeRelation", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRule_TypeElement(), this.getTypeElement(), "typeElement", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRule_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1366,8 +1377,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEEnum(typeRelationEEnum, TypeRelation.class, "TypeRelation");
 		addEEnumLiteral(typeRelationEEnum, TypeRelation.COPY);
 		addEEnumLiteral(typeRelationEEnum, TypeRelation.CONCATENATION);
-		addEEnumLiteral(typeRelationEEnum, TypeRelation.UNIQUE);
-		addEEnumLiteral(typeRelationEEnum, TypeRelation.VARIOUS);
+		addEEnumLiteral(typeRelationEEnum, TypeRelation.OTHER);
 
 		initEEnum(typeElementEEnum, TypeElement.class, "TypeElement");
 		addEEnumLiteral(typeElementEEnum, TypeElement.ECLASSIFIER);

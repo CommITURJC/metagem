@@ -30,7 +30,7 @@ public enum TypeRelation implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COPY(1, "copy", "copy"),
+	COPY(1, "Copy", "Copy"),
 
 	/**
 	 * The '<em><b>Concatenation</b></em>' literal object.
@@ -40,27 +40,17 @@ public enum TypeRelation implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONCATENATION(2, "concatenation", "concatenation"),
+	CONCATENATION(2, "Concatenation", "Concatenation"),
 
 	/**
-	 * The '<em><b>Unique</b></em>' literal object.
+	 * The '<em><b>Other</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #UNIQUE_VALUE
+	 * @see #OTHER_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	UNIQUE(3, "unique", "unique"),
-
-	/**
-	 * The '<em><b>Various</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #VARIOUS_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	VARIOUS(4, "various", "various");
+	OTHER(3, "Other", "Other");
 
 	/**
 	 * The '<em><b>Copy</b></em>' literal value.
@@ -71,7 +61,7 @@ public enum TypeRelation implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #COPY
-	 * @model name="copy"
+	 * @model name="Copy"
 	 * @generated
 	 * @ordered
 	 */
@@ -86,41 +76,26 @@ public enum TypeRelation implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #CONCATENATION
-	 * @model name="concatenation"
+	 * @model name="Concatenation"
 	 * @generated
 	 * @ordered
 	 */
 	public static final int CONCATENATION_VALUE = 2;
 
 	/**
-	 * The '<em><b>Unique</b></em>' literal value.
+	 * The '<em><b>Other</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Unique</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Other</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #UNIQUE
-	 * @model name="unique"
+	 * @see #OTHER
+	 * @model name="Other"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UNIQUE_VALUE = 3;
-
-	/**
-	 * The '<em><b>Various</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Various</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #VARIOUS
-	 * @model name="various"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int VARIOUS_VALUE = 4;
+	public static final int OTHER_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Type Relation</b></em>' enumerators.
@@ -132,8 +107,7 @@ public enum TypeRelation implements Enumerator {
 		new TypeRelation[] {
 			COPY,
 			CONCATENATION,
-			UNIQUE,
-			VARIOUS,
+			OTHER,
 		};
 
 	/**
@@ -186,8 +160,7 @@ public enum TypeRelation implements Enumerator {
 		switch (value) {
 			case COPY_VALUE: return COPY;
 			case CONCATENATION_VALUE: return CONCATENATION;
-			case UNIQUE_VALUE: return UNIQUE;
-			case VARIOUS_VALUE: return VARIOUS;
+			case OTHER_VALUE: return OTHER;
 		}
 		return null;
 	}
