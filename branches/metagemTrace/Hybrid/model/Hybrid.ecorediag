@@ -3,22 +3,6 @@
   <children xmi:type="notation:Node" xmi:id="__Wci8MP6EeCYHMDXaGNbbQ" type="1005">
     <children xmi:type="notation:Node" xmi:id="__Wci88P6EeCYHMDXaGNbbQ" type="4010"/>
     <children xmi:type="notation:Node" xmi:id="__Wci9MP6EeCYHMDXaGNbbQ" type="5008">
-      <children xmi:type="notation:Node" xmi:id="__Wci-MP6EeCYHMDXaGNbbQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="Hybrid.ecore#//TypeRelation/copy"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="__Wci-cP6EeCYHMDXaGNbbQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="__Wci-sP6EeCYHMDXaGNbbQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="Hybrid.ecore#//TypeRelation/concatenation"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="__Wci-8P6EeCYHMDXaGNbbQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="__Wci_MP6EeCYHMDXaGNbbQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="Hybrid.ecore#//TypeRelation/unique"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="__Wci_cP6EeCYHMDXaGNbbQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="__Wci_sP6EeCYHMDXaGNbbQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="Hybrid.ecore#//TypeRelation/various"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="__Wci_8P6EeCYHMDXaGNbbQ"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="__Wci9cP6EeCYHMDXaGNbbQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="__Wci9sP6EeCYHMDXaGNbbQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="__Wci98P6EeCYHMDXaGNbbQ"/>
