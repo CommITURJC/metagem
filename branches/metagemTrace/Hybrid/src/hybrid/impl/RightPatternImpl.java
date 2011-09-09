@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -49,14 +50,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	/**
-	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSource()
 	 * @generated
 	 * @ordered
 	 */
-	protected Source source;
+	protected EList<Source> source;
 
 	/**
 	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' reference.
@@ -173,42 +174,11 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Source getSource() {
+	public EList<Source> getSource() {
+		if (source == null) {
+			source = new EObjectContainmentWithInverseEList<Source>(Source.class, this, HybridPackage.RIGHT_PATTERN__SOURCE, HybridPackage.SOURCE__RIGHT_PATTERN_OWNED);
+		}
 		return source;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSource(Source newSource, NotificationChain msgs) {
-		Source oldSource = source;
-		source = newSource;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HybridPackage.RIGHT_PATTERN__SOURCE, oldSource, newSource);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSource(Source newSource) {
-		if (newSource != source) {
-			NotificationChain msgs = null;
-			if (source != null)
-				msgs = ((InternalEObject)source).eInverseRemove(this, HybridPackage.SOURCE__RIGHT_PATTERN_OWNED, Source.class, msgs);
-			if (newSource != null)
-				msgs = ((InternalEObject)newSource).eInverseAdd(this, HybridPackage.SOURCE__RIGHT_PATTERN_OWNED, Source.class, msgs);
-			msgs = basicSetSource(newSource, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.RIGHT_PATTERN__SOURCE, newSource, newSource));
 	}
 
 	/**
@@ -378,9 +348,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetBinding((Binding)otherEnd, msgs);
 			case HybridPackage.RIGHT_PATTERN__SOURCE:
-				if (source != null)
-					msgs = ((InternalEObject)source).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HybridPackage.RIGHT_PATTERN__SOURCE, null, msgs);
-				return basicSetSource((Source)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSource()).basicAdd(otherEnd, msgs);
 			case HybridPackage.RIGHT_PATTERN__OPERATION:
 				if (operation != null)
 					msgs = ((InternalEObject)operation).eInverseRemove(this, HybridPackage.OPERATION__RIGHT_PATTERN, Operation.class, msgs);
@@ -406,7 +374,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			case HybridPackage.RIGHT_PATTERN__BINDING:
 				return basicSetBinding(null, msgs);
 			case HybridPackage.RIGHT_PATTERN__SOURCE:
-				return basicSetSource(null, msgs);
+				return ((InternalEList<?>)getSource()).basicRemove(otherEnd, msgs);
 			case HybridPackage.RIGHT_PATTERN__OPERATION:
 				return basicSetOperation(null, msgs);
 			case HybridPackage.RIGHT_PATTERN__REFERENCE:
@@ -470,7 +438,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 				setBinding((Binding)newValue);
 				return;
 			case HybridPackage.RIGHT_PATTERN__SOURCE:
-				setSource((Source)newValue);
+				getSource().clear();
+				getSource().addAll((Collection<? extends Source>)newValue);
 				return;
 			case HybridPackage.RIGHT_PATTERN__OPERATION:
 				setOperation((Operation)newValue);
@@ -501,7 +470,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 				setBinding((Binding)null);
 				return;
 			case HybridPackage.RIGHT_PATTERN__SOURCE:
-				setSource((Source)null);
+				getSource().clear();
 				return;
 			case HybridPackage.RIGHT_PATTERN__OPERATION:
 				setOperation((Operation)null);
@@ -530,7 +499,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			case HybridPackage.RIGHT_PATTERN__BINDING:
 				return getBinding() != null;
 			case HybridPackage.RIGHT_PATTERN__SOURCE:
-				return source != null;
+				return source != null && !source.isEmpty();
 			case HybridPackage.RIGHT_PATTERN__OPERATION:
 				return operation != null;
 			case HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
