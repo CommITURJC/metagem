@@ -1095,7 +1095,7 @@ public interface HybridPackage extends EPackage {
 	int RIGHT_PATTERN__BINDING = 0;
 
 	/**
-	 * The feature id for the '<em><b>Source</b></em>' containment reference.
+	 * The feature id for the '<em><b>Source</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2157,10 +2157,10 @@ public interface HybridPackage extends EPackage {
 	EReference getRightPattern_Binding();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link hybrid.RightPattern#getSource <em>Source</em>}'.
+	 * Returns the meta object for the containment reference list '{@link hybrid.RightPattern#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Source</em>'.
+	 * @return the meta object for the containment reference list '<em>Source</em>'.
 	 * @see hybrid.RightPattern#getSource()
 	 * @see #getRightPattern()
 	 * @generated
@@ -2991,7 +2991,7 @@ public interface HybridPackage extends EPackage {
 		EReference RIGHT_PATTERN__BINDING = eINSTANCE.getRightPattern_Binding();
 
 		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Source</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

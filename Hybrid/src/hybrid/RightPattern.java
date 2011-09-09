@@ -60,7 +60,8 @@ public interface RightPattern extends EObject {
 	void setBinding(Binding value);
 
 	/**
-	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Source</b></em>' containment reference list.
+	 * The list contents are of type {@link hybrid.Source}.
 	 * It is bidirectional and its opposite is '{@link hybrid.Source#getRightPatternOwned <em>Right Pattern Owned</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -68,24 +69,13 @@ public interface RightPattern extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Source</em>' containment reference.
-	 * @see #setSource(Source)
+	 * @return the value of the '<em>Source</em>' containment reference list.
 	 * @see hybrid.HybridPackage#getRightPattern_Source()
 	 * @see hybrid.Source#getRightPatternOwned
 	 * @model opposite="rightPatternOwned" containment="true"
 	 * @generated
 	 */
-	Source getSource();
-
-	/**
-	 * Sets the value of the '{@link hybrid.RightPattern#getSource <em>Source</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source</em>' containment reference.
-	 * @see #getSource()
-	 * @generated
-	 */
-	void setSource(Source value);
+	EList<Source> getSource();
 
 	/**
 	 * Returns the value of the '<em><b>Operation</b></em>' reference.

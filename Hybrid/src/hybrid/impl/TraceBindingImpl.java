@@ -17,6 +17,7 @@ import hybrid.TraceRule;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -128,9 +129,12 @@ public class TraceBindingImpl extends TraceLinkImpl implements TraceBinding {
 			//Update Source
 			RightPattern right = binding.getRight();
 			if(right!=null){
-				Source source = right.getSource();
-				if((source!=null)&&(!this.getSource().contains(source))){
-					this.getSource().add(source);
+				EList<Source> sources = right.getSource();
+				for(int i=0;i<sources.size();i++){
+					Source source = sources.get(i);
+					if((source!=null)&&(!this.getSource().contains(source))){
+						this.getSource().add(source);
+					}
 				}
 			}
 			

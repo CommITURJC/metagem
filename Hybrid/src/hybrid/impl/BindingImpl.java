@@ -18,6 +18,7 @@ import hybrid.TypeRelation;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -181,9 +182,12 @@ public class BindingImpl extends HybridElementImpl implements Binding {
 		//Update TraceBinding Sources
 		TraceBinding traceBinding = this.getTrace();
 		if((traceBinding!=null)&&(right!=null)){
-			Source source = right.getSource();
-			if((source!=null)&&(!traceBinding.getSource().contains(source))){
-				traceBinding.getSource().add(source);
+			EList<Source> sources = right.getSource();
+			for(int i=0;i<sources.size();i++){
+				Source source = sources.get(i);
+				if((source!=null)&&(!traceBinding.getSource().contains(source))){
+					traceBinding.getSource().add(source);
+				}
 			}
 		}	
 		return right;
