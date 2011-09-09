@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:hybrid="org.eclipse.kybele.hybrid" xmi:id="_t_T1INr9EeC0yIoN25kl5w" name="test">
+  <sourceModels xmi:id="_t_T1Idr9EeC0yIoN25kl5w" name="IN" path="/Traceability_Project/Metamodels/ATL.ecore" type_mm="ATL">
+    <elements xmi:id="_t_T1Itr9EeC0yIoN25kl5w" name="ATL" ref="/0">
+      <childElements xmi:id="_t_T1I9r9EeC0yIoN25kl5w" name="Module" ref="/0/Module"/>
+    </elements>
+  </sourceModels>
+  <targetModels xmi:id="_t_T1JNr9EeC0yIoN25kl5w" name="OUT" path="/zz_test/Metamodels/MM_Hybrid.ecore" type_mm="HYBRID">
+    <elements xmi:id="_t_T1Jdr9EeC0yIoN25kl5w" name="mm_hybrid" ref="/">
+      <childElements xmi:id="_t_T1Jtr9EeC0yIoN25kl5w" name="EAnnotation" ref="//%gmf%">
+        <childElements xmi:id="_t_T1J9r9EeC0yIoN25kl5w" name="foo" ref="//%gmf%/@details.0"/>
+      </childElements>
+      <childElements xmi:id="_t_T1KNr9EeC0yIoN25kl5w" name="TypeAtribute" ref="//TypeAtribute">
+        <childElements xmi:id="_t_T1Kdr9EeC0yIoN25kl5w" name="copy" ref="//TypeAtribute/copy"/>
+        <childElements xmi:id="_t_T1Ktr9EeC0yIoN25kl5w" name="concatenation" ref="//TypeAtribute/concatenation"/>
+        <childElements xmi:id="_t_T1K9r9EeC0yIoN25kl5w" name="unique" ref="//TypeAtribute/unique"/>
+        <childElements xmi:id="_t_T1LNr9EeC0yIoN25kl5w" name="various" ref="//TypeAtribute/various"/>
+      </childElements>
+      <childElements xmi:id="_t_T1Ldr9EeC0yIoN25kl5w" name="TypeElem" ref="//TypeElem">
+        <childElements xmi:id="_t_T1Ltr9EeC0yIoN25kl5w" name="MyEclassifier" ref="//TypeElem/MyEclassifier"/>
+        <childElements xmi:id="_t_T1L9r9EeC0yIoN25kl5w" name="MyEattribute" ref="//TypeElem/MyEattribute"/>
+        <childElements xmi:id="_t_T1MNr9EeC0yIoN25kl5w" name="MyEreference" ref="//TypeElem/MyEreference"/>
+      </childElements>
+      <childElements xmi:id="_t_T1Mdr9EeC0yIoN25kl5w" name="Module" ref="//Module">
+        <childElements xmi:id="_t_T1Mtr9EeC0yIoN25kl5w" name="EAnnotation" ref="//Module/%gmf.diagram%">
+          <childElements xmi:id="_t_T1M9r9EeC0yIoN25kl5w" name="foo" ref="//Module/%gmf.diagram%/@details.0"/>
+        </childElements>
+        <features xmi:id="_t_T1NNr9EeC0yIoN25kl5w" name="name_module" ref="//Module/name_module"/>
+        <features xmi:id="_t_T1Ndr9EeC0yIoN25kl5w" name="rule" ref="//Module/rule"/>
+        <features xmi:id="_t_T1Ntr9EeC0yIoN25kl5w" name="inMM" ref="//Module/inMM"/>
+        <features xmi:id="_t_T1N9r9EeC0yIoN25kl5w" name="outMM" ref="//Module/outMM"/>
+        <features xmi:id="_t_T1ONr9EeC0yIoN25kl5w" name="operations" ref="//Module/operations"/>
+      </childElements>
+      <childElements xmi:id="_t_T1Odr9EeC0yIoN25kl5w" name="InMetaModel" ref="//InMetaModel">
+        <childElements xmi:id="_t_T1Otr9EeC0yIoN25kl5w" name="EAnnotation" ref="//InMetaModel/%gmf.node%">
+          <childElements xmi:id="_t_T1O9r9EeC0yIoN25kl5w" name="label" ref="//InMetaModel/%gmf.node%/@details.0"/>
+          <childElements xmi:id="_t_T1PNr9EeC0yIoN25kl5w" name="label.icon" ref="//InMetaModel/%gmf.node%/@details.1"/>
+          <childElements xmi:id="_t_T1Pdr9EeC0yIoN25kl5w" name="border.color" ref="//InMetaModel/%gmf.node%/@details.2"/>
+          <childElements xmi:id="_t_T1Ptr9EeC0yIoN25kl5w" name="color" ref="//InMetaModel/%gmf.node%/@details.3"/>
+        </childElements>
+        <features xmi:id="_t_T1P9r9EeC0yIoN25kl5w" name="name_mm" ref="//InMetaModel/name_mm"/>
+        <features xmi:id="_t_T1QNr9EeC0yIoN25kl5w" name="type_mm" ref="//InMetaModel/type_mm"/>
+        <features xmi:id="_t_T1Qdr9EeC0yIoN25kl5w" name="elements" ref="//InMetaModel/elements"/>
+        <features xmi:id="_t_T1Qtr9EeC0yIoN25kl5w" name="module" ref="//InMetaModel/module"/>
+      </childElements>
+      <childElements xmi:id="_t_T1Q9r9EeC0yIoN25kl5w" name="OutMetaModel" ref="//OutMetaModel">
+        <childElements xmi:id="_t_T1RNr9EeC0yIoN25kl5w" name="EAnnotation" ref="//OutMetaModel/%gmf.node%">
+          <childElements xmi:id="_t_T1Rdr9EeC0yIoN25kl5w" name="label" ref="//OutMetaModel/%gmf.node%/@details.0"/>
+          <childElements xmi:id="_t_T1Rtr9EeC0yIoN25kl5w" name="label.icon" ref="//OutMetaModel/%gmf.node%/@details.1"/>
+          <childElements xmi:id="_t_T1R9r9EeC0yIoN25kl5w" name="border.color" ref="//OutMetaModel/%gmf.node%/@details.2"/>
+          <childElements xmi:id="_t_T1SNr9EeC0yIoN25kl5w" name="color" ref="//OutMetaModel/%gmf.node%/@details.3"/>
+        </childElements>
+        <features xmi:id="_t_T1Sdr9EeC0yIoN25kl5w" name="name_mm" ref="//OutMetaModel/name_mm"/>
+        <features xmi:id="_t_T1Str9EeC0yIoN25kl5w" name="type_mm" ref="//OutMetaModel/type_mm"/>
+        <features xmi:id="_t_T1S9r9EeC0yIoN25kl5w" name="elements" ref="//OutMetaModel/elements"/>
+        <features xmi:id="_t_T1TNr9EeC0yIoN25kl5w" name="module" ref="//OutMetaModel/module"/>
+      </childElements>
+      <childElements xmi:id="_t_T1Tdr9EeC0yIoN25kl5w" name="Rule" ref="//Rule">
+        <childElements xmi:id="_t_T1Ttr9EeC0yIoN25kl5w" name="EAnnotation" ref="//Rule/%gmf.node%">
+          <childElements xmi:id="_t_T1T9r9EeC0yIoN25kl5w" name="label" ref="//Rule/%gmf.node%/@details.0"/>
+          <childElements xmi:id="_t_T1UNr9EeC0yIoN25kl5w" name="label.icon" ref="//Rule/%gmf.node%/@details.1"/>
+          <childElements xmi:id="_t_T1Udr9EeC0yIoN25kl5w" name="border.color" ref="//Rule/%gmf.node%/@details.2"/>
+          <childElements xmi:id="_t_T1Utr9EeC0yIoN25kl5w" name="color" ref="//Rule/%gmf.node%/@details.3"/>
+        </childElements>
+        <features xmi:id="_t_T1U9r9EeC0yIoN25kl5w" name="name_rule" ref="//Rule/name_rule"/>
+        <features xmi:id="_t_T1VNr9EeC0yIoN25kl5w" name="isAbstract" ref="//Rule/isAbstract"/>
+        <features xmi:id="_t_T1Vdr9EeC0yIoN25kl5w" name="isMain" ref="//Rule/isMain"/>
+        <features xmi:id="_t_T1Vtr9EeC0yIoN25kl5w" name="in" ref="//Rule/in"/>
+        <features xmi:id="_t_T1V9r9EeC0yIoN25kl5w" name="out" ref="//Rule/out"/>
+        <features xmi:id="_t_T1WNr9EeC0yIoN25kl5w" name="typeAttribute" ref="//Rule/typeAttribute"/>
+        <features xmi:id="_t_T1Wdr9EeC0yIoN25kl5w" name="typeElement" ref="//Rule/typeElement"/>
+        <features xmi:id="_t_T1Wtr9EeC0yIoN25kl5w" name="extends" ref="//Rule/extends"/>
+        <features xmi:id="_t_T1W9r9EeC0yIoN25kl5w" name="isExtended" ref="//Rule/isExtended"/>
+        <features xmi:id="_t_T1XNr9EeC0yIoN25kl5w" name="rightPattern" ref="//Rule/rightPattern"/>
+        <features xmi:id="_t_T1Xdr9EeC0yIoN25kl5w" name="comment" ref="//Rule/comment"/>
+        <features xmi:id="_t_T1Xtr9EeC0yIoN25kl5w" name="module" ref="//Rule/module"/>
+      </childElements>
+      <childElements xmi:id="_t_T1X9r9EeC0yIoN25kl5w" name="Element" ref="//Element">
+        <features xmi:id="_t_T1YNr9EeC0yIoN25kl5w" name="name_element" ref="//Element/name_element"/>
+        <features xmi:id="_t_T1Ydr9EeC0yIoN25kl5w" name="operation" ref="//Element/operation"/>
+        <features xmi:id="_t_T1Ytr9EeC0yIoN25kl5w" name="isRefered" ref="//Element/isRefered"/>
+      </childElements>
+      <childElements xmi:id="_t_T1Y9r9EeC0yIoN25kl5w" name="SourceElementRule" ref="//SourceElementRule">
+        <childElements xmi:id="_t_T1ZNr9EeC0yIoN25kl5w" name="EAnnotation" ref="//SourceElementRule/%gmf.node%">
+          <childElements xmi:id="_t_T1Zdr9EeC0yIoN25kl5w" name="label" ref="//SourceElementRule/%gmf.node%/@details.0"/>
+          <childElements xmi:id="_t_T1Ztr9EeC0yIoN25kl5w" name="label.icon" ref="//SourceElementRule/%gmf.node%/@details.1"/>
+          <childElements xmi:id="_t_T1Z9r9EeC0yIoN25kl5w" name="border.color" ref="//SourceElementRule/%gmf.node%/@details.2"/>
+          <childElements xmi:id="_t_T1aNr9EeC0yIoN25kl5w" name="color" ref="//SourceElementRule/%gmf.node%/@details.3"/>
+        </childElements>
+        <childElements xmi:id="_t_T1adr9EeC0yIoN25kl5w" name="EGenericType" ref="//SourceElementRule/@eGenericSuperTypes.0"/>
+        <features xmi:id="_t_T1atr9EeC0yIoN25kl5w" name="guard" ref="//SourceElementRule/guard"/>
+        <features xmi:id="_t_T1a9r9EeC0yIoN25kl5w" name="metamodel" ref="//SourceElementRule/metamodel"/>
+        <features xmi:id="_t_T1bNr9EeC0yIoN25kl5w" name="rightPattern" ref="//SourceElementRule/rightPattern"/>
+        <features xmi:id="_t_T1bdr9EeC0yIoN25kl5w" name="rule" ref="//SourceElementRule/rule"/>
+      </childElements>
+      <childElements xmi:id="_t_T1btr9EeC0yIoN25kl5w" name="TargetElementRule" ref="//TargetElementRule">
+        <childElements xmi:id="_t_T1b9r9EeC0yIoN25kl5w" name="EAnnotation" ref="//TargetElementRule/%gmf.node%">
+          <childElements xmi:id="_t_T1cNr9EeC0yIoN25kl5w" name="label" ref="//TargetElementRule/%gmf.node%/@details.0"/>
+          <childElements xmi:id="_t_T1cdr9EeC0yIoN25kl5w" name="label.icon" ref="//TargetElementRule/%gmf.node%/@details.1"/>
+          <childElements xmi:id="_t_T1ctr9EeC0yIoN25kl5w" name="border.color" ref="//TargetElementRule/%gmf.node%/@details.2"/>
+          <childElements xmi:id="_t_T1c9r9EeC0yIoN25kl5w" name="color" ref="//TargetElementRule/%gmf.node%/@details.3"/>
+        </childElements>
+        <childElements xmi:id="_t_T1dNr9EeC0yIoN25kl5w" name="EGenericType" ref="//TargetElementRule/@eGenericSuperTypes.0"/>
+        <features xmi:id="_t_T1ddr9EeC0yIoN25kl5w" name="included" ref="//TargetElementRule/included"/>
+        <features xmi:id="_t_T1dtr9EeC0yIoN25kl5w" name="metamodel" ref="//TargetElementRule/metamodel"/>
+        <features xmi:id="_t_T1d9r9EeC0yIoN25kl5w" name="leftPattern" ref="//TargetElementRule/leftPattern"/>
+        <features xmi:id="_t_T1eNr9EeC0yIoN25kl5w" name="rule" ref="//TargetElementRule/rule"/>
+      </childElements>
+      <childElements xmi:id="_t_T1edr9EeC0yIoN25kl5w" name="ElementIncluded" ref="//ElementIncluded">
+        <features xmi:id="_t_T1etr9EeC0yIoN25kl5w" name="typeAttribute" ref="//ElementIncluded/typeAttribute"/>
+        <features xmi:id="_t_T1e9r9EeC0yIoN25kl5w" name="typeElement" ref="//ElementIncluded/typeElement"/>
+        <features xmi:id="_t_T1fNr9EeC0yIoN25kl5w" name="right" ref="//ElementIncluded/right"/>
+        <features xmi:id="_t_T1fdr9EeC0yIoN25kl5w" name="left" ref="//ElementIncluded/left"/>
+        <features xmi:id="_t_T1ftr9EeC0yIoN25kl5w" name="targetElement" ref="//ElementIncluded/targetElement"/>
+      </childElements>
+      <childElements xmi:id="_t_T1f9r9EeC0yIoN25kl5w" name="Guard" ref="//Guard">
+        <features xmi:id="_t_T1gNr9EeC0yIoN25kl5w" name="value" ref="//Guard/value"/>
+        <features xmi:id="_t_T1gdr9EeC0yIoN25kl5w" name="sourceElement" ref="//Guard/sourceElement"/>
+      </childElements>
+      <childElements xmi:id="_t_T1gtr9EeC0yIoN25kl5w" name="RightPattern" ref="//RightPattern">
+        <features xmi:id="_t_T1g9r9EeC0yIoN25kl5w" name="sourceElement" ref="//RightPattern/sourceElement"/>
+        <features xmi:id="_t_T1hNr9EeC0yIoN25kl5w" name="rule" ref="//RightPattern/rule"/>
+        <features xmi:id="_t_T1hdr9EeC0yIoN25kl5w" name="operation" ref="//RightPattern/operation"/>
+        <features xmi:id="_t_T1htr9EeC0yIoN25kl5w" name="name_pattern" ref="//RightPattern/name_pattern"/>
+        <features xmi:id="_t_T1h9r9EeC0yIoN25kl5w" name="reference" ref="//RightPattern/reference"/>
+        <features xmi:id="_t_T1iNr9EeC0yIoN25kl5w" name="concreteValue" ref="//RightPattern/concreteValue"/>
+        <features xmi:id="_t_T1idr9EeC0yIoN25kl5w" name="elementIncluded" ref="//RightPattern/elementIncluded"/>
+      </childElements>
+      <childElements xmi:id="_t_T1itr9EeC0yIoN25kl5w" name="LeftPattern" ref="//LeftPattern">
+        <features xmi:id="_t_T1i9r9EeC0yIoN25kl5w" name="targetElement" ref="//LeftPattern/targetElement"/>
+        <features xmi:id="_t_T1jNr9EeC0yIoN25kl5w" name="name_pattern" ref="//LeftPattern/name_pattern"/>
+        <features xmi:id="_t_T1jdr9EeC0yIoN25kl5w" name="elementIncluded" ref="//LeftPattern/elementIncluded"/>
+      </childElements>
+      <childElements xmi:id="_t_T1jtr9EeC0yIoN25kl5w" name="Operation" ref="//Operation">
+        <features xmi:id="_t_T1j9r9EeC0yIoN25kl5w" name="name_operation" ref="//Operation/name_operation"/>
+        <features xmi:id="_t_T1kNr9EeC0yIoN25kl5w" name="body" ref="//Operation/body"/>
+        <features xmi:id="_t_T1kdr9EeC0yIoN25kl5w" name="context" ref="//Operation/context"/>
+        <features xmi:id="_t_T1ktr9EeC0yIoN25kl5w" name="returnType" ref="//Operation/returnType"/>
+        <features xmi:id="_t_T1k9r9EeC0yIoN25kl5w" name="rightPattern" ref="//Operation/rightPattern"/>
+        <features xmi:id="_t_T1lNr9EeC0yIoN25kl5w" name="module" ref="//Operation/module"/>
+      </childElements>
+      <childElements xmi:id="_t_T1ldr9EeC0yIoN25kl5w" name="Return" ref="//Return">
+        <features xmi:id="_t_T1ltr9EeC0yIoN25kl5w" name="element" ref="//Return/element"/>
+        <features xmi:id="_t_T1l9r9EeC0yIoN25kl5w" name="datatype" ref="//Return/datatype"/>
+      </childElements>
+      <childElements xmi:id="_t_T1mNr9EeC0yIoN25kl5w" name="Datatype" ref="//Datatype">
+        <childElements xmi:id="_t_T1mdr9EeC0yIoN25kl5w" name="null" ref="//Datatype/null"/>
+        <childElements xmi:id="_t_T1mtr9EeC0yIoN25kl5w" name="Boolean" ref="//Datatype/Boolean"/>
+        <childElements xmi:id="_t_T1m9r9EeC0yIoN25kl5w" name="Integer" ref="//Datatype/Integer"/>
+        <childElements xmi:id="_t_T1nNr9EeC0yIoN25kl5w" name="String" ref="//Datatype/String"/>
+      </childElements>
+    </elements>
+  </targetModels>
+  <rules xmi:id="_t_T1ndr9EeC0yIoN25kl5w" name="r1">
+    <sources xmi:id="_t_T1ntr9EeC0yIoN25kl5w" name="Module" component="_t_T1I9r9EeC0yIoN25kl5w"/>
+    <sources xmi:id="_tNm5INsCEeC0yIoN25kl5w" name="Module2" component="_t_T1I9r9EeC0yIoN25kl5w"/>
+    <targets xmi:id="_t_T1n9r9EeC0yIoN25kl5w" name="Module" component="_t_T1Mdr9EeC0yIoN25kl5w"/>
+  </rules>
+</hybrid:Module>

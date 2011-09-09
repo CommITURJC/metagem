@@ -1,0 +1,238 @@
+-- @path ATL=/Hybrid2ATL/ATL.ecore
+-- @path Hybrid=/Hybrid2ATL/Hybrid.ecore
+
+module Hybrid2ATL;
+create OUT : ATL from IN : Hybrid;
+
+-- Create module header
+rule Module {
+	from 
+		hybrid : Hybrid!Module
+	to
+		atl : ATL!Module (
+			isRefining <- false,
+			name <- hybrid.name.debug('Module'),
+		    inModels <- hybrid.sourceModels,
+			outModels <- hybrid.targetModels.append(traceModel),
+			elements <- hybrid.rules,
+			commentsBefore <- Set {'-- @atlcompiler atl2006'}
+		),
+		traceModel: ATL!OclModel(
+			name <- 'in2out_trace',
+			metamodel <- ametamodelTrace
+		),
+		ametamodelTrace : ATL!OclModel (
+			name <- 'TRACE'
+		)
+}
+
+rule inMM{
+	from
+		source_hybrid : Hybrid!SourceModel
+	to
+		inMM_ATL : ATL!OclModel(
+			name <- source_hybrid.name,
+			metamodel <- ametamodelinMM
+		),
+		ametamodelinMM : ATL!OclModel (
+			name <- source_hybrid.type_mm
+		)
+}
+
+rule outMM{
+	from
+		target_hybrid : Hybrid!TargetModel
+	to
+		outMM_ATL : ATL!OclModel(
+			name <- target_hybrid.name,
+			metamodel <- ametamodeloutMM
+		),
+		ametamodeloutMM : ATL!OclModel (
+			name <- target_hybrid.type_mm
+		)
+}
+
+-- Create MatchedRule 
+rule createRule2MatchedRule{
+	from 
+		hybrid_rule : Hybrid!Rule 
+		(hybrid_rule.isMain=true and hybrid_rule.getSizeIP()>0)
+	to
+		atl : ATL!MatchedRule (
+			name <- hybrid_rule.name.debug('MatchedRule'),
+			isAbstract <- hybrid_rule.isAbstract,
+			isRefining <- false,
+			isNoDefault <- false,
+			superRule <- hybrid_rule."extends",
+			inPattern <- inPattern, 
+			outPattern <- outPattern,
+			actionBlock <- anAction,
+			commentsBefore <- Set {'-- Comments -> This is a MatchedRule: ' + hybrid_rule.name + ' -> ' + hybrid_rule.getComment()}
+		),
+		inPattern : ATL!InPattern (
+			elements <- hybrid_rule.sources.asSequence(),
+			filter <- hybrid_rule.getGuard()
+		),
+		outPattern : ATL!OutPattern(
+			elements <- hybrid_rule.targets.asSequence()	
+		),
+		anAction : ATL!ActionBlock(
+			commentsBefore <- Set {'-- ActionBlock: '}	
+		)
+}
+
+rule createRule2LazyRule{ 
+	from 
+		hybrid_rule : Hybrid!Rule 
+		(hybrid_rule.isMain=false and hybrid_rule.isUnique=false and hybrid_rule.getSizeIP()>0)
+	to
+		atl : ATL!LazyMatchedRule (
+			name <- hybrid_rule.name.debug('LazyRule'),
+			isAbstract <- hybrid_rule.isAbstract,
+			isRefining <- false,
+			isNoDefault <- false,
+			isUnique <- false,
+			inPattern <- inPattern,
+			outPattern <- outPattern,
+			actionBlock <- anAction,
+			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + hybrid_rule.name + ' -> ' + hybrid_rule.getComment()}
+		),
+		inPattern : ATL!InPattern (
+			elements <- hybrid_rule.sources.asSequence(),
+			filter <- hybrid_rule.getGuard()
+		),
+		outPattern : ATL!OutPattern(
+			elements <- hybrid_rule.targets.asSequence()	
+		),
+		anAction : ATL!ActionBlock(
+			commentsBefore <- Set {'-- ActionBlock: '}	
+		)
+}
+
+-- Create UniqueLazyRule
+rule createRule2UniqueLazyRule{
+	from 
+		hybrid_rule : Hybrid!Rule 
+		(hybrid_rule.isMain=false and hybrid_rule.isUnique=true and hybrid_rule.getSizeIP()>0)
+	to
+		atl : ATL!LazyMatchedRule (
+			name <- hybrid_rule.name.debug('Unique LazyRule'),
+			isAbstract <- hybrid_rule.isAbstract,
+			isRefining <- false,
+			isNoDefault <- false,
+			isUnique <- true,
+			inPattern <- inPattern,
+			outPattern <- outPattern,
+			actionBlock <- anAction,
+			commentsBefore <- Set {'-- Comments -> This is a LazyRule: ' + hybrid_rule.name + ' -> ' + hybrid_rule.getComment()}
+		),
+		inPattern : ATL!InPattern (
+			elements <- hybrid_rule.sources.asSequence(),
+			filter <- hybrid_rule.getGuard()
+		),
+		outPattern : ATL!OutPattern(
+			elements <- hybrid_rule.targets.asSequence()	
+		),
+		anAction : ATL!ActionBlock(
+			commentsBefore <- Set {'-- ActionBlock: '}	
+		)
+}
+
+-- Create CalledRule [0..1] - [0..N] 
+rule createRule2CalledRule{
+	from 
+		hybrid_rule : Hybrid!Rule (hybrid_rule.getSizeIP()=0)
+	to
+		atl : ATL!CalledRule (
+			name <- hybrid_rule.name.debug('CalledRule'),
+			outPattern <- outPattern,
+			actionBlock <- anAction,
+			commentsBefore <- Set {'-- Comments -> This is a CalledRule: ' + hybrid_rule.name + ' -> ' + hybrid_rule.getComment()}
+		),
+		outPattern : ATL!OutPattern(
+			elements <- hybrid_rule.out.asSequence()	
+		),
+		anAction : ATL!ActionBlock(
+			commentsBefore <- Set {'-- ActionBlock: '}	
+		)
+}
+
+--InputPattern (from part)
+rule InPatternElement {
+	from 
+		inPattern : Hybrid!Source (inPattern.refImmediateComposite().oclIsTypeOf(Hybrid!Rule))
+	to
+		atl : ATL!SimpleInPatternElement (
+			varName <- inPattern.name.toLower()+'_in',
+			type <- aType
+		),
+		aType : ATL!OclModelElement(
+			name <- inPattern.name,
+			model <- thisModule.resolveTemp(inPattern.component.getModel(),'ametamodelinMM')
+		)
+}
+
+--OutputPattern (to part)
+rule OutPatternElement { 
+	from
+		outPattern : Hybrid!Target (outPattern.refImmediateComposite().oclIsTypeOf(Hybrid!Rule))
+	to
+		atl : ATL!SimpleOutPatternElement (
+			varName <- outPattern.name.toLower()+'_out',
+			type <- aType
+			--bindings <- outPattern.included
+		),
+		aType : ATL!OclModelElement(
+			name <- outPattern.name,
+			model <- thisModule.resolveTemp(outPattern.component.getModel(),'ametamodeloutMM') 
+		)
+}
+
+--Helper -> Return the model of the component
+helper context Hybrid!ModelComponent def : getModel(): Hybrid!Model =
+	if self.oclIsTypeOf(Hybrid!ModelFeature) then
+		self.ownedElement.getModel()
+	else
+		if self.ownedModel.oclIsUndefined() then
+			self.parentElement.getModel()
+		else
+			self.ownedModel
+		endif
+	endif
+	;
+
+--Helper -> Return the number of inputsPatterns 
+helper context Hybrid!Rule def : getSizeIP() : Integer = 
+	self.sources.size();
+
+--Helper -> Return the comment of the rule 
+helper context Hybrid!Rule def : getComment() : String = 
+	if self.comment.oclIsUndefined() then
+		''
+	else
+		self.comment
+	endif
+	;
+
+--Helper -> Return the guard value of the rule 
+helper context Hybrid!Rule def : getGuard() : ATL!OclExpression = 
+	if self.guard.oclIsUndefined() then
+		OclUndefined
+	else
+		thisModule.getFilterExp(self)
+	endif
+	;
+
+lazy rule getFilterExp {
+	from
+		hybrid_rule : Hybrid!Rule
+	to 
+		filter : ATL!VariableExp(
+			commentsAfter <- hybrid_rule.getCommentFilter() 
+	)
+}
+
+-- Helper -> Return the filter expression
+helper context Hybrid!Rule def : getCommentFilter () : String = 
+	self.guard.value
+	;
