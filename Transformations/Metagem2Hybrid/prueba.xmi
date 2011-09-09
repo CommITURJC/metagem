@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metagem:ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metagem="org.eclipse.kybele.metagem" name="mr">
+  <sourceModels name="Families" path="/prueba/Families.ecore">
+    <elements name="Father" relationElement="//@relations.0/@source" ref="/1/Father">
+      <features name="aa" ref="/1/saaa"/>
+      <elements name=""/>
+    </elements>
+    <elements name="Daughter" ref="/1/Daughter"/>
+    <elements name="Family" relationElement="//@relations.1/@source" ref="/1/Family"/>
+  </sourceModels>
+  <targetModels name="Person" path="/prueba/Persons.ecore">
+    <elements name="Male" relationElement="//@relations.0/@target //@relations.2/@target" ref="/1/Male"/>
+  </targetModels>
+  <relations xsi:type="metagem:OneToOne" name="" extends="//@relations.1" isExtended="//@relations.2" guardCondition="aaa">
+    <source name="o2o" modelComponent="//@sourceModels.0/@elements.0"/>
+    <target name="to2o" modelComponent="//@targetModels.0/@elements.0">
+      <zeroToOne>
+        <target name="dddd"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="55"/>
+        <target name="66"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToZero" isExtended="//@relations.0">
+    <source name="Family" modelComponent="//@sourceModels.0/@elements.2"/>
+  </relations>
+  <relations xsi:type="metagem:ZeroToOne" extends="//@relations.0">
+    <target name="Male" modelComponent="//@targetModels.0/@elements.0"/>
+  </relations>
+</metagem:ModelRoot>

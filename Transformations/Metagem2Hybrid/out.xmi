@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:hybrid="org.eclipse.kybele.hybrid" name="mr">
+  <sourceModels name="Families_model" path="/prueba/Families.ecore" type_mm="Families">
+    <elements name="Father" ref="/1/Father">
+      <childElements name=""/>
+      <features name="aa" ref="/1/saaa"/>
+    </elements>
+    <elements name="Daughter" ref="/1/Daughter"/>
+    <elements name="Family" ref="/1/Family"/>
+  </sourceModels>
+  <targetModels name="Person_model" path="/prueba/Persons.ecore" type_mm="Person">
+    <elements name="Male" ref="/1/Male"/>
+  </targetModels>
+  <rules name="o2o_2_to2o" extends="//@rules.1" isExtended="//@rules.2">
+    <sources name="o2o" component="//@sourceModels.0/@elements.0" traceLink="//@rules.0/@trace"/>
+    <targets name="to2o" component="//@targetModels.0/@elements.0" traceLink="//@rules.0/@trace">
+      <bindings name="55_2_66" trace="//@rules.0/@trace/@traceBindings.0">
+        <right>
+          <source name="55" traceLink="//@rules.0/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="66" traceLink="//@rules.0/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R5" trace="//@rules.0/@trace/@traceBindings.1">
+        <right/>
+        <left>
+          <target name="dddd" traceLink="//@rules.0/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+    </targets>
+    <guard value="aaa"/>
+    <trace name="o2o_2_to2o" source="//@rules.0/@sources.0" target="//@rules.0/@targets.0">
+      <traceBindings name="55_2_66" source="//@rules.0/@targets.0/@bindings.0/@right/@source" target="//@rules.0/@targets.0/@bindings.0/@left/@target" binding="//@rules.0/@targets.0/@bindings.0"/>
+      <traceBindings name="R5" target="//@rules.0/@targets.0/@bindings.1/@left/@target" binding="//@rules.0/@targets.0/@bindings.1"/>
+    </trace>
+  </rules>
+  <rules name="R2" isExtended="//@rules.0">
+    <sources name="Family" component="//@sourceModels.0/@elements.2" traceLink="//@rules.1/@trace"/>
+    <trace name="R2" source="//@rules.1/@sources.0"/>
+  </rules>
+  <rules name="R3" extends="//@rules.0">
+    <targets name="Male" component="//@targetModels.0/@elements.0" traceLink="//@rules.2/@trace"/>
+    <trace name="R3" target="//@rules.2/@targets.0"/>
+  </rules>
+</hybrid:Module>
