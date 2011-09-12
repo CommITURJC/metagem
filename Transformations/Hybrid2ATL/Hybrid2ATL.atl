@@ -36,7 +36,7 @@ rule inMM{
 		),
 		ametamodelinMM : ATL!OclModel (
 			name <- source_hybrid.type_mm
-		)		
+		)
 }
 
 rule outMM{
@@ -185,6 +185,23 @@ rule OutPatternElement {
 		aType : ATL!OclModelElement(
 			name <- outPattern.name,
 			model <- thisModule.resolveTemp(outPattern.component.getModel(),'ametamodeloutMM') 
+		)
+}
+
+--TraceLink_Rule
+rule TraceRule{
+	from 
+		traceRule: Hybrid!TraceRule
+	to
+		atl : ATL!SimpleOutPatternElement (
+			varName <- traceRule.source.asSequence().first().name.toLower()+'2'+
+						traceRule.target.asSequence().first().name.toLower(),
+			type <- aType
+			--bindings <- outPattern.bindings
+		),
+		aType : ATL!OclModelElement(
+			name <- 'TraceLink',
+			model <- thisModule.resolveTemp(traceRule.refImmediateComposite().refImmediateComposite(),'ametamodelTrace') 
 		)
 }
 
