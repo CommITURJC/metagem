@@ -153,8 +153,8 @@
         eType="#//Binding" eOpposite="#//Binding/right"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" upperBound="-1"
         eType="#//Source" containment="true" eOpposite="#//Source/rightPatternOwned"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="#//Operation"
-        eOpposite="#//Operation/rightPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
+        eType="#//Operation" eOpposite="#//Operation/rightPattern"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="concreteValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//RuleElement"
         eOpposite="#//RuleElement/isRefered"/>

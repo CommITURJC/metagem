@@ -1104,7 +1104,7 @@ public interface HybridPackage extends EPackage {
 	int RIGHT_PATTERN__SOURCE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Operation</b></em>' reference.
+	 * The feature id for the '<em><b>Operation</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2168,10 +2168,10 @@ public interface HybridPackage extends EPackage {
 	EReference getRightPattern_Source();
 
 	/**
-	 * Returns the meta object for the reference '{@link hybrid.RightPattern#getOperation <em>Operation</em>}'.
+	 * Returns the meta object for the reference list '{@link hybrid.RightPattern#getOperation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Operation</em>'.
+	 * @return the meta object for the reference list '<em>Operation</em>'.
 	 * @see hybrid.RightPattern#getOperation()
 	 * @see #getRightPattern()
 	 * @generated
@@ -2999,7 +2999,7 @@ public interface HybridPackage extends EPackage {
 		EReference RIGHT_PATTERN__SOURCE = eINSTANCE.getRightPattern_Source();
 
 		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Operation</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
