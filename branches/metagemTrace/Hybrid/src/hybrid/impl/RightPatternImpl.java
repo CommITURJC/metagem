@@ -60,14 +60,14 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	protected EList<Source> source;
 
 	/**
-	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' reference.
+	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOperation()
 	 * @generated
 	 * @ordered
 	 */
-	protected Operation operation;
+	protected EList<Operation> operation;
 
 	/**
 	 * The default value of the '{@link #getConcreteValue() <em>Concrete Value</em>}' attribute.
@@ -186,59 +186,11 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Operation getOperation() {
-		if (operation != null && operation.eIsProxy()) {
-			InternalEObject oldOperation = (InternalEObject)operation;
-			operation = (Operation)eResolveProxy(oldOperation);
-			if (operation != oldOperation) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HybridPackage.RIGHT_PATTERN__OPERATION, oldOperation, operation));
-			}
+	public EList<Operation> getOperation() {
+		if (operation == null) {
+			operation = new EObjectWithInverseResolvingEList<Operation>(Operation.class, this, HybridPackage.RIGHT_PATTERN__OPERATION, HybridPackage.OPERATION__RIGHT_PATTERN);
 		}
 		return operation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Operation basicGetOperation() {
-		return operation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOperation(Operation newOperation, NotificationChain msgs) {
-		Operation oldOperation = operation;
-		operation = newOperation;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HybridPackage.RIGHT_PATTERN__OPERATION, oldOperation, newOperation);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOperation(Operation newOperation) {
-		if (newOperation != operation) {
-			NotificationChain msgs = null;
-			if (operation != null)
-				msgs = ((InternalEObject)operation).eInverseRemove(this, HybridPackage.OPERATION__RIGHT_PATTERN, Operation.class, msgs);
-			if (newOperation != null)
-				msgs = ((InternalEObject)newOperation).eInverseAdd(this, HybridPackage.OPERATION__RIGHT_PATTERN, Operation.class, msgs);
-			msgs = basicSetOperation(newOperation, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.RIGHT_PATTERN__OPERATION, newOperation, newOperation));
 	}
 
 	/**
@@ -350,9 +302,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			case HybridPackage.RIGHT_PATTERN__SOURCE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSource()).basicAdd(otherEnd, msgs);
 			case HybridPackage.RIGHT_PATTERN__OPERATION:
-				if (operation != null)
-					msgs = ((InternalEObject)operation).eInverseRemove(this, HybridPackage.OPERATION__RIGHT_PATTERN, Operation.class, msgs);
-				return basicSetOperation((Operation)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOperation()).basicAdd(otherEnd, msgs);
 			case HybridPackage.RIGHT_PATTERN__REFERENCE:
 				if (reference != null)
 					msgs = ((InternalEObject)reference).eInverseRemove(this, HybridPackage.RULE_ELEMENT__IS_REFERED, RuleElement.class, msgs);
@@ -376,7 +326,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			case HybridPackage.RIGHT_PATTERN__SOURCE:
 				return ((InternalEList<?>)getSource()).basicRemove(otherEnd, msgs);
 			case HybridPackage.RIGHT_PATTERN__OPERATION:
-				return basicSetOperation(null, msgs);
+				return ((InternalEList<?>)getOperation()).basicRemove(otherEnd, msgs);
 			case HybridPackage.RIGHT_PATTERN__REFERENCE:
 				return basicSetReference(null, msgs);
 			case HybridPackage.RIGHT_PATTERN__RULE:
@@ -412,8 +362,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			case HybridPackage.RIGHT_PATTERN__SOURCE:
 				return getSource();
 			case HybridPackage.RIGHT_PATTERN__OPERATION:
-				if (resolve) return getOperation();
-				return basicGetOperation();
+				return getOperation();
 			case HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
 				return getConcreteValue();
 			case HybridPackage.RIGHT_PATTERN__REFERENCE:
@@ -442,7 +391,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 				getSource().addAll((Collection<? extends Source>)newValue);
 				return;
 			case HybridPackage.RIGHT_PATTERN__OPERATION:
-				setOperation((Operation)newValue);
+				getOperation().clear();
+				getOperation().addAll((Collection<? extends Operation>)newValue);
 				return;
 			case HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
 				setConcreteValue((String)newValue);
@@ -473,7 +423,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 				getSource().clear();
 				return;
 			case HybridPackage.RIGHT_PATTERN__OPERATION:
-				setOperation((Operation)null);
+				getOperation().clear();
 				return;
 			case HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
 				setConcreteValue(CONCRETE_VALUE_EDEFAULT);
@@ -501,7 +451,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 			case HybridPackage.RIGHT_PATTERN__SOURCE:
 				return source != null && !source.isEmpty();
 			case HybridPackage.RIGHT_PATTERN__OPERATION:
-				return operation != null;
+				return operation != null && !operation.isEmpty();
 			case HybridPackage.RIGHT_PATTERN__CONCRETE_VALUE:
 				return CONCRETE_VALUE_EDEFAULT == null ? concreteValue != null : !CONCRETE_VALUE_EDEFAULT.equals(concreteValue);
 			case HybridPackage.RIGHT_PATTERN__REFERENCE:
