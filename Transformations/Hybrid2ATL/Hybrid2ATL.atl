@@ -14,7 +14,7 @@ rule Module {
 			name <- hybrid.name.debug('Module'),
 		    inModels <- hybrid.sourceModels,
 			outModels <- hybrid.targetModels.append(traceModel),
-			elements <- hybrid.rules.append(createTraceModelRoot),
+			elements <- hybrid.rules,
 			commentsBefore <- Set {'-- @atlcompiler atl2006'}
 		),
 		traceModel: ATL!OclModel(
@@ -27,6 +27,7 @@ rule Module {
 		createTraceModelRoot : ATL!CalledRule (
 			name <- 'CreateTraceModelRoot'.debug('CalledRule'),
 			outPattern <- outPattern,
+			"module" <- hybrid,
 			actionBlock <- anAction,
 			isEntrypoint <- true, --To create first the trace model root
 			commentsBefore <- Set {'-- Comments -> This is a CalledRule to create the root of Trace Model'}
@@ -37,15 +38,17 @@ rule Module {
 		root_simpleOutPattern : ATL!SimpleOutPatternElement (
 			varName <- 'root',
 			type <- aType
-			--bindings <- hybrid.getTraceModelInitials()
+			--bindings <- hybrid.sourceModels.append(hybrid.targetModels)
 		),
 		aType : ATL!OclModelElement(
 			name <- 'TraceModel',
 			model <- ametamodelTrace 
 		),
+		
 		anAction : ATL!ActionBlock(
 			commentsBefore <- Set {'-- ActionBlock: '},
-			statements <- bindingStat
+			statements <- Sequence{bindingStat,hybrid.sourceModels->collect(e|thisModule.resolveTemp(e,'createModelRule_expStat')),
+						hybrid.targetModels->collect(e|thisModule.resolveTemp(e,'createModelRule_expStat'))}
 		),
 		bindingStat: ATL!BindingStat(
 			source <- navigation,
@@ -79,18 +82,14 @@ rule Module {
 		afeature : ATL!Operation (
 			name <- 'getTraceModelRoot',
 			returnType <- aType2,
-			body <- opCallBody
+			body <- undefined
 		),
 		aType2 : ATL!OclModelElement(
 			name <- 'TraceModel',
 			model <- ametamodelTrace 
 		),
-		opCallBody : ATL!OperationCallExp(
-			operationName <- 'first',
-			source <- variableSeq
-		),
-		variableSeq : ATL!SequenceExp(
-		)
+		undefined : ATL!OclUndefinedExp
+		
 }
 
 rule inMM{
@@ -103,6 +102,61 @@ rule inMM{
 		),
 		ametamodelinMM : ATL!OclModel (
 			name <- source_hybrid.type_mm
+		),
+		
+		createSourceModel_trace: ATL!CalledRule (
+			name <- 'createSourceModel_c2_'.concat(source_hybrid.type_mm).debug('CalledRule'),
+			outPattern <- outPattern,
+			module <- source_hybrid."module",
+			commentsBefore <- Set {'-- Comments -> This is a CalledRule to create a source model c2 '+source_hybrid.type_mm+' metamodel'}
+		),
+		outPattern : ATL!OutPattern(
+			elements <- sourceModelpattern	
+		),
+		sourceModelpattern : ATL!SimpleOutPatternElement (
+			varName <- 'sourceM',
+			type <- aTypeTrace,
+			bindings <- Sequence{metamodel,traceM}
+		),
+		aTypeTrace : ATL!OclModelElement(
+			name <- 'SourceModel',
+			model <- thisModule.resolveTemp(source_hybrid.refImmediateComposite(),'ametamodelTrace') 
+		),
+		metamodel: ATL!Binding(
+			propertyName <- 'metamodel',
+			value <- metamodelPath
+		),
+		metamodelPath: ATL!StringExp (
+			stringSymbol <- source_hybrid.path
+		),
+		
+		traceM : ATL!Binding(
+			propertyName <- 'traceModel',
+			value <- navCall
+		),
+		navCall: ATL!NavigationOrAttributeCallExp(
+			name <- 'getTraceModelRoot',
+			source <- varNavCall
+		),
+		varNavCall:ATL!VariableExp(
+			appliedProperty <- navCall,
+			referredVariable <- varDeclNavCall
+		),
+		varDeclNavCall:ATL!VariableDeclaration(
+			varName<-'thisModule'
+		),	
+		
+		
+		createModelRule_expStat: ATL!ExpressionStat(
+			expression <- expOp
+		),
+		expOp : ATL!OperationCallExp(
+			operationName <- 'createSourceModel_c2_'.concat(source_hybrid.type_mm),
+			arguments <- varOpCall
+		),
+		varOpCall:ATL!VariableExp(
+			appliedProperty <- expOp,
+			referredVariable <- varDeclNavCall
 		)
 }
 
@@ -116,6 +170,60 @@ rule outMM{
 		),
 		ametamodeloutMM : ATL!OclModel (
 			name <- target_hybrid.type_mm
+		),
+		
+		createTargetModel_trace: ATL!CalledRule (
+			name <- 'createTargetModel_c2_'.concat(target_hybrid.type_mm).debug('CalledRule'),
+			outPattern <- outPattern,
+			module <- target_hybrid."module",
+			commentsBefore <- Set {'-- Comments -> This is a CalledRule to create a target model c2 '+target_hybrid.type_mm+' metamodel'}
+		),
+		outPattern : ATL!OutPattern(
+			elements <- targetModelpattern	
+		),
+		targetModelpattern : ATL!SimpleOutPatternElement (
+			varName <- 'targetM',
+			type <- aTypeTrace,
+			bindings <- Sequence{metamodel,traceM}
+		),
+		aTypeTrace : ATL!OclModelElement(
+			name <- 'TargetModel',
+			model <- thisModule.resolveTemp(target_hybrid.refImmediateComposite(),'ametamodelTrace') 
+		),
+		metamodel: ATL!Binding(
+			propertyName <- 'metamodel',
+			value <- metamodelPath
+		),
+		metamodelPath: ATL!StringExp (
+			stringSymbol <- target_hybrid.path
+		),
+		
+		traceM : ATL!Binding(
+			propertyName <- 'traceModel',
+			value <- navCall
+		),
+		navCall: ATL!NavigationOrAttributeCallExp(
+			name <- 'getTraceModelRoot',
+			source <- varNavCall
+		),
+		varNavCall:ATL!VariableExp(
+			appliedProperty <- navCall,
+			referredVariable <- varDeclNavCall
+		),
+		varDeclNavCall:ATL!VariableDeclaration(
+			varName<-'thisModule'
+		),
+		
+		createModelRule_expStat: ATL!ExpressionStat(
+			expression <- expOp
+		),
+		expOp : ATL!OperationCallExp(
+			operationName <- 'createTargetModel_c2_'.concat(target_hybrid.type_mm),
+			arguments <- varOpCall
+		),
+		varOpCall:ATL!VariableExp(
+			appliedProperty <- expOp,
+			referredVariable <- varDeclNavCall
 		)
 }
 
