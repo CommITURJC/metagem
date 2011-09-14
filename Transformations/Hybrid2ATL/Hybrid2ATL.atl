@@ -14,7 +14,7 @@ rule Module {
 			name <- hybrid.name.debug('Module'),
 		    inModels <- hybrid.sourceModels,
 			outModels <- hybrid.targetModels.append(traceModel),
-			elements <- hybrid.rules,
+			elements <- hybrid.rules.append(createTraceModelRoot),
 			commentsBefore <- Set {'-- @atlcompiler atl2006'}
 		),
 		traceModel: ATL!OclModel(
@@ -23,6 +23,73 @@ rule Module {
 		),
 		ametamodelTrace : ATL!OclModel (
 			name <- 'TRACE'
+		),
+		createTraceModelRoot : ATL!CalledRule (
+			name <- 'CreateTraceModelRoot'.debug('CalledRule'),
+			outPattern <- outPattern,
+			actionBlock <- anAction,
+			isEntrypoint <- true, --To create first the trace model root
+			commentsBefore <- Set {'-- Comments -> This is a CalledRule to create the root of Trace Model'}
+		),
+		outPattern : ATL!OutPattern(
+			elements <- root_simpleOutPattern
+		),
+		root_simpleOutPattern : ATL!SimpleOutPatternElement (
+			varName <- 'root',
+			type <- aType
+			--bindings <- hybrid.getTraceModelInitials()
+		),
+		aType : ATL!OclModelElement(
+			name <- 'TraceModel',
+			model <- ametamodelTrace 
+		),
+		anAction : ATL!ActionBlock(
+			commentsBefore <- Set {'-- ActionBlock: '},
+			statements <- bindingStat
+		),
+		bindingStat: ATL!BindingStat(
+			source <- navigation,
+			value <- variableExp1
+		),
+		variableExp1: ATL!VariableExp(
+			referredVariable <- variableDeclaration1
+		),
+		navigation: ATL!NavigationOrAttributeCallExp(
+			name <- 'getTraceModelRoot',
+			source<-variableExp2
+		),
+		variableDeclaration1: ATL!VariableDeclaration (
+			varName <- 'root'
+		),
+		variableExp2: ATL!VariableExp(
+			referredVariable <- variableDeclaration2
+		),
+		variableDeclaration2: ATL!VariableDeclaration (
+			varName <- 'thisModule'
+		),
+		modelRoot_var : ATL!Helper (
+			"module" <- hybrid,
+			definition <- adefinition,
+			commentsBefore <- Set {'-- Comments -> This is a Helper: '},
+			commentsAfter <- Set {'-- Body: '}
+		),
+		adefinition : ATL!OclFeatureDefinition (
+			feature <- afeature
+		),
+		afeature : ATL!Operation (
+			name <- 'getTraceModelRoot',
+			returnType <- aType2,
+			body <- opCallBody
+		),
+		aType2 : ATL!OclModelElement(
+			name <- 'TraceModel',
+			model <- ametamodelTrace 
+		),
+		opCallBody : ATL!OperationCallExp(
+			operationName <- 'first',
+			source <- variableSeq
+		),
+		variableSeq : ATL!SequenceExp(
 		)
 }
 
@@ -74,7 +141,7 @@ rule createRule2MatchedRule{
 			filter <- hybrid_rule.getGuard()
 		),
 		outPattern : ATL!OutPattern(
-			elements <- hybrid_rule.targets.asSequence()	
+			elements <- hybrid_rule.targets.asSequence().append(hybrid_rule.trace)	
 		),
 		anAction : ATL!ActionBlock(
 			commentsBefore <- Set {'-- ActionBlock: '}	
@@ -102,7 +169,7 @@ rule createRule2LazyRule{
 			filter <- hybrid_rule.getGuard()
 		),
 		outPattern : ATL!OutPattern(
-			elements <- hybrid_rule.targets.asSequence()	
+			elements <- hybrid_rule.targets.asSequence().append(hybrid_rule.trace)		
 		),
 		anAction : ATL!ActionBlock(
 			commentsBefore <- Set {'-- ActionBlock: '}	
@@ -131,7 +198,7 @@ rule createRule2UniqueLazyRule{
 			filter <- hybrid_rule.getGuard()
 		),
 		outPattern : ATL!OutPattern(
-			elements <- hybrid_rule.targets.asSequence()	
+			elements <- hybrid_rule.targets.asSequence().append(hybrid_rule.trace)		
 		),
 		anAction : ATL!ActionBlock(
 			commentsBefore <- Set {'-- ActionBlock: '}	
@@ -150,7 +217,7 @@ rule createRule2CalledRule{
 			commentsBefore <- Set {'-- Comments -> This is a CalledRule: ' + hybrid_rule.name + ' -> ' + hybrid_rule.getComment()}
 		),
 		outPattern : ATL!OutPattern(
-			elements <- hybrid_rule.out.asSequence()	
+			elements <- hybrid_rule.out.asSequence().append(hybrid_rule.trace)	
 		),
 		anAction : ATL!ActionBlock(
 			commentsBefore <- Set {'-- ActionBlock: '}	
@@ -196,12 +263,56 @@ rule TraceRule{
 		atl : ATL!SimpleOutPatternElement (
 			varName <- traceRule.source.asSequence().first().name.toLower()+'2'+
 						traceRule.target.asSequence().first().name.toLower(),
-			type <- aType
-			--bindings <- outPattern.bindings
+			type <- aType,
+			bindings <- Sequence {name, traceM, sourceElement, targetElement}
 		),
 		aType : ATL!OclModelElement(
 			name <- 'TraceLink',
 			model <- thisModule.resolveTemp(traceRule.refImmediateComposite().refImmediateComposite(),'ametamodelTrace') 
+		),
+		name: ATL!Binding (
+			propertyName <- 'name',
+			value <- nameTraceLink
+		),
+		nameTraceLink: ATL!NavigationOrAttributeCallExp(
+			name <- '__xmiID__',
+			source<-variableExp
+		),
+		variableExp: ATL!VariableExp(
+			referredVariable <- traceRule.source.asSequence().first()
+		),
+		--nameTraceLink: ATL!StringExp (
+			--stringSymbol <- traceRule.source.asSequence().first().name+'2'+
+							--traceRule.target.asSequence().first().name
+		--),
+		traceM : ATL!Binding(
+			propertyName <- 'traceModel',
+			value <- navCall
+		),
+		navCall: ATL!NavigationOrAttributeCallExp(
+			name <- 'getTraceModelRoot',
+			source <- varNavCall
+		),
+		varNavCall:ATL!VariableExp(
+			appliedProperty <- navCall,
+			referredVariable <- varDeclNavCall
+		),
+		varDeclNavCall:ATL!VariableDeclaration(
+			varName<-'thisModule'
+		),
+		sourceElement: ATL!Binding (
+			propertyName <- 'source',
+			value <- nameSource
+		),
+		nameSource: ATL!StringExp (
+			stringSymbol <- traceRule.source.asSequence().first().name
+		),
+		targetElement: ATL!Binding (
+			propertyName <- 'target',
+			value <- nameTarget
+		),
+		nameTarget: ATL!StringExp (
+			stringSymbol <- traceRule.target.asSequence().first().name
 		)
 }
 
@@ -391,6 +502,7 @@ lazy rule getFilterExp {
 
 -- HELPERS
 -- ==================================================================
+
 
 -- To call the ReturnType lazy rule
 helper context Hybrid!Operation def : getReturnType () : ATL!OclExpression =
