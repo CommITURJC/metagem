@@ -659,8 +659,8 @@ rule InPatternElement {
 			propertyName <- 'name',
 			value <- nameTraceElement
 		),
-		nameTraceElement: ATL!NavigationOrAttributeCallExp (
-			name <- 'hola',
+		nameTraceElement: ATL!OperationCallExp (
+			operationName <- 'getName',
 			source<-variableExp
 		),
 		variableExp: ATL!VariableExp(
@@ -711,8 +711,8 @@ rule OutPatternElement {
 			propertyName <- 'name',
 			value <- nameTraceElement
 		),
-		nameTraceElement: ATL!NavigationOrAttributeCallExp (
-			name <- 'adios',
+		nameTraceElement: ATL!OperationCallExp (
+			operationName <- 'getName',
 			source<-variableExp
 		),
 		variableExp: ATL!VariableExp(
