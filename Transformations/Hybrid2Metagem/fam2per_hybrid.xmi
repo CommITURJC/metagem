@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:hybrid="org.eclipse.kybele.hybrid" name="families2persons">
+  <sourceModels name="families_model" path="/Families2Person_Metagem/Families.ecore" type_mm="families">
+    <elements name="Families" ref="/">
+      <childElements name="Family" ref="//Family">
+        <features name="lastName" ref="//Family/lastName"/>
+        <features name="father" ref="//Family/father"/>
+        <features name="mother" ref="//Family/mother"/>
+        <features name="sons" ref="//Family/sons"/>
+        <features name="daughters" ref="//Family/daughters"/>
+      </childElements>
+      <childElements name="Member" ref="//Member">
+        <features name="firstName" ref="//Member/firstName"/>
+      </childElements>
+      <childElements name="Father" ref="//Father">
+        <childElements name="EGenericType" ref="//Father/@eGenericSuperTypes.0"/>
+        <features name="familyFather" ref="//Father/familyFather"/>
+      </childElements>
+      <childElements name="Mother" ref="//Mother">
+        <childElements name="EGenericType" ref="//Mother/@eGenericSuperTypes.0"/>
+        <features name="familyMother" ref="//Mother/familyMother"/>
+      </childElements>
+      <childElements name="Son" ref="//Son">
+        <childElements name="EGenericType" ref="//Son/@eGenericSuperTypes.0"/>
+        <features name="familySon" ref="//Son/familySon"/>
+      </childElements>
+      <childElements name="Daughter" ref="//Daughter">
+        <childElements name="EGenericType" ref="//Daughter/@eGenericSuperTypes.0"/>
+        <features name="familyDaughter" ref="//Daughter/familyDaughter"/>
+      </childElements>
+    </elements>
+  </sourceModels>
+  <targetModels name="persons_model" path="/Families2Person_Metagem/Persons.ecore" type_mm="persons">
+    <elements name="Persons" ref="/">
+      <childElements name="Person" ref="//Person">
+        <features name="fullName" ref="//Person/fullName"/>
+      </childElements>
+      <childElements name="Male" ref="//Male">
+        <childElements name="EGenericType" ref="//Male/@eGenericSuperTypes.0"/>
+      </childElements>
+      <childElements name="Female" ref="//Female">
+        <childElements name="EGenericType" ref="//Female/@eGenericSuperTypes.0"/>
+      </childElements>
+    </elements>
+  </targetModels>
+  <rules name="father2male">
+    <sources name="Father" component="//@sourceModels.0/@elements.0/@childElements.2" traceLink="//@rules.0/@trace"/>
+    <targets name="Male" component="//@targetModels.0/@elements.0/@childElements.1" traceLink="//@rules.0/@trace">
+      <bindings name="R8" trace="//@rules.0/@trace/@traceBindings.0">
+        <right/>
+        <left>
+          <target name="fullName" component="//@targetModels.0/@elements.0/@childElements.0/@features.0" traceLink="//@rules.0/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="father2male" source="//@rules.0/@sources.0" target="//@rules.0/@targets.0">
+      <traceBindings name="R8" target="//@rules.0/@targets.0/@bindings.0/@left/@target" binding="//@rules.0/@targets.0/@bindings.0"/>
+    </trace>
+  </rules>
+  <rules name="mother2female">
+    <sources name="Mother" component="//@sourceModels.0/@elements.0/@childElements.3" traceLink="//@rules.1/@trace"/>
+    <targets name="Female" component="//@targetModels.0/@elements.0/@childElements.2" traceLink="//@rules.1/@trace">
+      <bindings name="firstName_2_fullName" trace="//@rules.1/@trace/@traceBindings.0">
+        <right rule="//@rules.2">
+          <source name="firstName" component="//@sourceModels.0/@elements.0/@childElements.1/@features.0" traceLink="//@rules.1/@trace/@traceBindings.0"/>
+          <source name="familyMother" component="//@sourceModels.0/@elements.0/@childElements.3/@features.0" traceLink="//@rules.1/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="fullName" component="//@targetModels.0/@elements.0/@childElements.0/@features.0" traceLink="//@rules.1/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="mother2female" source="//@rules.1/@sources.0" target="//@rules.1/@targets.0">
+      <traceBindings name="firstName_2_fullName" source="//@rules.1/@targets.0/@bindings.0/@right/@source.0 //@rules.1/@targets.0/@bindings.0/@right/@source.1" target="//@rules.1/@targets.0/@bindings.0/@left/@target" binding="//@rules.1/@targets.0/@bindings.0"/>
+    </trace>
+  </rules>
+  <rules name="son2male" rightPattern="//@rules.1/@targets.0/@bindings.0/@right">
+    <sources name="Son" component="//@sourceModels.0/@elements.0/@childElements.4" traceLink="//@rules.2/@trace"/>
+    <targets name="Male" component="//@targetModels.0/@elements.0/@childElements.1" traceLink="//@rules.2/@trace">
+      <bindings name="firstName_2_fullName" trace="//@rules.2/@trace/@traceBindings.0">
+        <right>
+          <source name="firstName" component="//@sourceModels.0/@elements.0/@childElements.1/@features.0" traceLink="//@rules.2/@trace/@traceBindings.0"/>
+          <source name="familySon" component="//@sourceModels.0/@elements.0/@childElements.4/@features.0" traceLink="//@rules.2/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="fullName" component="//@targetModels.0/@elements.0/@childElements.0/@features.0" traceLink="//@rules.2/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="son2male" source="//@rules.2/@sources.0" target="//@rules.2/@targets.0">
+      <traceBindings name="firstName_2_fullName" source="//@rules.2/@targets.0/@bindings.0/@right/@source.0 //@rules.2/@targets.0/@bindings.0/@right/@source.1" target="//@rules.2/@targets.0/@bindings.0/@left/@target" binding="//@rules.2/@targets.0/@bindings.0"/>
+    </trace>
+  </rules>
+  <rules name="daughter2female">
+    <sources name="Daughter" component="//@sourceModels.0/@elements.0/@childElements.5" traceLink="//@rules.3/@trace"/>
+    <targets name="Female" component="//@targetModels.0/@elements.0/@childElements.2" traceLink="//@rules.3/@trace">
+      <bindings name="firstName_2_fullName" trace="//@rules.3/@trace/@traceBindings.0">
+        <right>
+          <source name="firstName" component="//@sourceModels.0/@elements.0/@childElements.1/@features.0" traceLink="//@rules.3/@trace/@traceBindings.0"/>
+          <source name="familyDaughter" component="//@sourceModels.0/@elements.0/@childElements.5/@features.0" traceLink="//@rules.3/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="fullName" component="//@targetModels.0/@elements.0/@childElements.0/@features.0" traceLink="//@rules.3/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="daughter2female" source="//@rules.3/@sources.0" target="//@rules.3/@targets.0">
+      <traceBindings name="firstName_2_fullName" source="//@rules.3/@targets.0/@bindings.0/@right/@source.0 //@rules.3/@targets.0/@bindings.0/@right/@source.1" target="//@rules.3/@targets.0/@bindings.0/@left/@target" binding="//@rules.3/@targets.0/@bindings.0"/>
+    </trace>
+  </rules>
+</hybrid:Module>
