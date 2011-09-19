@@ -61,7 +61,7 @@
     <sources name="Mother" component="//@sourceModels.0/@elements.0/@childElements.3" traceLink="//@rules.1/@trace"/>
     <targets name="Female" component="//@targetModels.0/@elements.0/@childElements.2" traceLink="//@rules.1/@trace">
       <bindings name="firstName_2_fullName" trace="//@rules.1/@trace/@traceBindings.0">
-        <right rule="//@rules.2">
+        <right>
           <source name="firstName" component="//@sourceModels.0/@elements.0/@childElements.1/@features.0" traceLink="//@rules.1/@trace/@traceBindings.0"/>
           <source name="familyMother" component="//@sourceModels.0/@elements.0/@childElements.3/@features.0" traceLink="//@rules.1/@trace/@traceBindings.0"/>
         </right>
@@ -74,7 +74,7 @@
       <traceBindings name="firstName_2_fullName" source="//@rules.1/@targets.0/@bindings.0/@right/@source.0 //@rules.1/@targets.0/@bindings.0/@right/@source.1" target="//@rules.1/@targets.0/@bindings.0/@left/@target" binding="//@rules.1/@targets.0/@bindings.0"/>
     </trace>
   </rules>
-  <rules name="son2male" rightPattern="//@rules.1/@targets.0/@bindings.0/@right">
+  <rules name="son2male">
     <sources name="Son" component="//@sourceModels.0/@elements.0/@childElements.4" traceLink="//@rules.2/@trace"/>
     <targets name="Male" component="//@targetModels.0/@elements.0/@childElements.1" traceLink="//@rules.2/@trace">
       <bindings name="firstName_2_fullName" trace="//@rules.2/@trace/@traceBindings.0">
