@@ -1,0 +1,218 @@
+module Hybrid2Metagem;
+create OUT : MeTAGeM from IN : Hybrid;
+
+rule Module2ModelRoot {
+	from 
+		m: Hybrid!Module
+	to
+		mr: MeTAGeM!ModelRoot (
+			name <- m.name,
+		    sourceModels <- m.sourceModels,
+			targetModels <- m.targetModels,
+			relations <- m.rules		
+		)
+}
+
+rule SourceModel2SourceModelTransf{
+	from
+		sm: Hybrid!SourceModel
+	to
+		smt: MeTAGeM!SourceModelTransf(
+			name <- sm.type_mm, 
+			path <- sm.path,
+			elements <- sm.elements
+		
+		)
+}
+
+rule TargetModel2TargetModelTransf{
+	from
+		tm: Hybrid!TargetModel
+	to
+		tmt: MeTAGeM!TargetModelTransf(
+			name <- tm.type_mm,
+			path <- tm.path,
+			elements <- tm.elements
+		)
+}
+
+rule ModelElement2ModelElement{
+	from 
+		me_hybrid: Hybrid!ModelElement
+	to
+		me_metagem: MeTAGeM!ModelElement(
+			name <- me_hybrid.name,
+			ref <- me_hybrid.ref,
+			elements <- me_hybrid.childElements,
+			features <- me_hybrid.features
+		)
+}
+
+rule ModelFeature2ModelFeature{
+	from 
+		mf_hybrid: Hybrid!ModelFeature
+	to
+		mf_metagem: MeTAGeM!ModelFeature(
+			name <- mf_hybrid.name,
+			ref <- mf_hybrid.ref
+		)
+}
+
+rule rule2OneToOne extends Rule2Relations{
+	from
+		r_hybrid: Hybrid!Rule
+	to
+		relation: MeTAGeM!OneToOne(
+			source <- r_hybrid.sources.first(),
+			target <- r_hybrid.targets.first()
+		)
+} 
+
+rule rule2OneToZero extends Rule2Relations{
+	from
+		r_hybrid: Hybrid!Rule
+	to
+		relation: MeTAGeM!OneToZero(
+			source <- r_hybrid.sources.first()
+		)
+}
+
+rule rule2ZeroToOne extends Rule2Relations{
+	from
+		r_hybrid: Hybrid!Rule
+	to
+		relation: MeTAGeM!ZeroToOne(
+			target <- r_hybrid.targets.fisrt()
+		)
+}
+
+rule rule2OneToMany extends Rule2Relations{
+	from
+		r_hybrid: Hybrid!Rule
+	to
+		relation: MeTAGeM!OneToMany(
+			source <- r_hybrid.sources.first(),
+			target <- r_hybrid.targets
+		)
+}
+
+rule rule2ManyToOne extends Rule2Relations{
+	from
+		r_hybrid: Hybrid!Rule
+	to
+		relation: MeTAGeM!ManyToOne(
+			source <- r_hybrid.sources,
+			target <- r_hybrid.targets.fisrt()
+		)
+}
+
+rule rule2ManyToMany extends Rule2Relations{
+	from
+		r_hybrid: Hybrid!Rule
+	to
+		relation: MeTAGeM!ManyToMany(
+			source <- r_hybrid.sources,
+			target <- r_hybrid.targets
+		)
+}
+
+rule Source2SourceElement{
+	from
+		source: Hybrid!Source
+	to
+		sourceElem: MeTAGeM!SourceElement(
+			name <- source.name,
+			modelComponent <- source.component
+		)
+}
+
+rule Target2TargetElement{
+	from
+		target: Hybrid!Target
+	to
+		targetElem: MeTAGeM!TargetElement(
+			name <- target.name,
+			modelComponent <- target.component
+		)
+}
+
+rule Binding2OneToOne extends Binding2Relations{ 
+	from
+		binding: Hybrid!Binding (binding.right.source->size()=1 and not binding.left.target.oclIsUndefined())
+	to
+		relation:MeTAGeM!OneToOne(
+			source <- binding.right.source.first(),
+			target <- binding.left.target
+	)
+}
+
+rule Binding2ZeroToOne extends Binding2Relations{
+	from
+		binding: Hybrid!Binding(binding.right.source->size()=0 and not binding.left.target.oclIsUndefined())
+	to
+		relation:MeTAGeM!ZeroToOne(
+			target <- binding.left.target
+	)
+}
+
+rule Binding2ManyToOne extends Binding2Relations{
+	from
+		binding: Hybrid!Binding(binding.right.source->size()>=1 and not binding.left.target.oclIsUndefined())
+	to
+		relation:MeTAGeM!ManyToOne(
+			source <- binding.right.source,
+			target <- binding.left.target
+	)
+}
+
+-----------------------------------------------------------
+---------------------- ABSTRACTS RULES --------------------
+-----------------------------------------------------------
+
+abstract rule Rule2Relations{
+	from
+		r_hybrid:Hybrid!Rule
+	to
+		relation:MeTAGeM!Relations(
+			name <- r_hybrid.name,
+			role <- r_hybrid.getRole(),
+			"extends" <- r_hybrid.extends,
+			isExtended <- r_hybrid.isExtended, 
+			typeRelation <- r_hybrid.typeRelation,
+			typeElement <- r_hybrid.typeElement,
+			guardCondition <- if r_hybrid.guard.oclIsUndefined() then OclUndefined else
+				r_hybrid.guard.value endif,
+			isInvoked <- if r_hybrid.rightPattern.oclIsUndefined() then
+							 OclUndefined
+						else r_hybrid.rightPattern->collect(e|e.source) endif
+		)
+}
+
+abstract rule Binding2Relations{
+	from
+		binding:Hybrid!Binding
+	to
+		relation:MeTAGeM!Relations(
+			name <- binding.name,
+			typeRelation <- binding.typeRelation,
+			typeElement <- binding.typeElement, 
+			ownedElement <- binding.refImmediateComposite()
+		)
+}
+
+-----------------------------------------------------------
+--------------------------- HELPERS -----------------------
+-----------------------------------------------------------
+
+helper context Hybrid!Rule def : getRole() : String = 
+	if self.isMain then 
+		#IsMain
+	else 
+		if self.isAbstract then
+			#IsAbstract
+		else
+			#IsSecondary
+		endif
+	endif;
+
+
