@@ -13,19 +13,15 @@
         <features xmi:id="_J1ZnG-A0EeCzHLZ3F2dA0w" name="firstName" ref="//Member/firstName"/>
       </childElements>
       <childElements xmi:id="_J1ZnHOA0EeCzHLZ3F2dA0w" name="Father" ref="//Father">
-        <childElements xmi:id="_J1ZnHeA0EeCzHLZ3F2dA0w" name="EGenericType" ref="//Father/@eGenericSuperTypes.0"/>
         <features xmi:id="_J1ZnHuA0EeCzHLZ3F2dA0w" name="familyFather" ref="//Father/familyFather"/>
       </childElements>
       <childElements xmi:id="_J1ZnH-A0EeCzHLZ3F2dA0w" name="Mother" ref="//Mother">
-        <childElements xmi:id="_J1ZnIOA0EeCzHLZ3F2dA0w" name="EGenericType" ref="//Mother/@eGenericSuperTypes.0"/>
         <features xmi:id="_J1ZnIeA0EeCzHLZ3F2dA0w" name="familyMother" ref="//Mother/familyMother"/>
       </childElements>
       <childElements xmi:id="_J1ZnIuA0EeCzHLZ3F2dA0w" name="Son" ref="//Son">
-        <childElements xmi:id="_J1ZnI-A0EeCzHLZ3F2dA0w" name="EGenericType" ref="//Son/@eGenericSuperTypes.0"/>
         <features xmi:id="_J1ZnJOA0EeCzHLZ3F2dA0w" name="familySon" ref="//Son/familySon"/>
       </childElements>
       <childElements xmi:id="_J1ZnJeA0EeCzHLZ3F2dA0w" name="Daughter" ref="//Daughter">
-        <childElements xmi:id="_J1ZnJuA0EeCzHLZ3F2dA0w" name="EGenericType" ref="//Daughter/@eGenericSuperTypes.0"/>
         <features xmi:id="_J1ZnJ-A0EeCzHLZ3F2dA0w" name="familyDaughter" ref="//Daughter/familyDaughter"/>
       </childElements>
     </elements>
@@ -35,12 +31,8 @@
       <childElements xmi:id="_J1ZnKuA0EeCzHLZ3F2dA0w" name="Person" ref="//Person">
         <features xmi:id="_J1ZnK-A0EeCzHLZ3F2dA0w" name="fullName" ref="//Person/fullName"/>
       </childElements>
-      <childElements xmi:id="_J1ZnLOA0EeCzHLZ3F2dA0w" name="Male" ref="//Male">
-        <childElements xmi:id="_J1ZnLeA0EeCzHLZ3F2dA0w" name="EGenericType" ref="//Male/@eGenericSuperTypes.0"/>
-      </childElements>
-      <childElements xmi:id="_J1ZnLuA0EeCzHLZ3F2dA0w" name="Female" ref="//Female">
-        <childElements xmi:id="_J1ZnL-A0EeCzHLZ3F2dA0w" name="EGenericType" ref="//Female/@eGenericSuperTypes.0"/>
-      </childElements>
+      <childElements xmi:id="_J1ZnLOA0EeCzHLZ3F2dA0w" name="Male" ref="//Male"/>
+      <childElements xmi:id="_J1ZnLuA0EeCzHLZ3F2dA0w" name="Female" ref="//Female"/>
     </elements>
   </targetModels>
   <rules xmi:id="_J1ZnMOA0EeCzHLZ3F2dA0w" name="father2male">
