@@ -17,6 +17,7 @@ rule Module {
 			elements <- hybrid.rules,
 			commentsBefore <- Set {'-- @atlcompiler atl2006'}
 		),
+		
 		traceModel: ATL!OclModel(
 			name <- 'in2out_trace',
 			metamodel <- ametamodelTrace
@@ -24,6 +25,8 @@ rule Module {
 		ametamodelTrace : ATL!OclModel (
 			name <- 'TRACE'
 		),
+		
+		-- this called rule creates the root of the trace model
 		createTraceModelRoot : ATL!CalledRule (
 			name <- 'CreateTraceModelRoot'.debug('CalledRule'),
 			outPattern <- outPattern,
@@ -38,7 +41,6 @@ rule Module {
 		root_simpleOutPattern : ATL!SimpleOutPatternElement (
 			varName <- 'root',
 			type <- aType
-			--bindings <- hybrid.sourceModels.append(hybrid.targetModels)
 		),
 		aType : ATL!OclModelElement(
 			name <- 'TraceModel',
@@ -70,6 +72,8 @@ rule Module {
 		variableDeclaration2: ATL!VariableDeclaration (
 			varName <- 'thisModule'
 		),
+		
+		--creates a helper to get the root of the model trace
 		modelRoot_var : ATL!Helper (
 			"module" <- hybrid,
 			definition <- adefinition,
@@ -89,6 +93,7 @@ rule Module {
 		),
 		undefined : ATL!OclUndefinedExp,
 		
+		--this helper returns the element name
 		elementNameGen_var : ATL!Helper (
 			"module" <- hybrid,
 			definition <- adefinition_name,
@@ -340,9 +345,9 @@ rule inMM{
 	to
 		inMM_ATL : ATL!OclModel(
 			name <- source_hybrid.name,
-			metamodel <- ametamodelinMM
+			metamodel <- ametamodelMM
 		),
-		ametamodelinMM : ATL!OclModel (
+		ametamodelMM : ATL!OclModel (
 			name <- source_hybrid.type_mm
 		),
 		
@@ -418,7 +423,7 @@ rule inMM{
 		packageElement: ATL! OclModelElement(
 			name <- 'EPackage',
 			appliedProperty <- opCall_path,
-			model <- ametamodelinMM
+			model <- ametamodelMM
 		),
 		
 		-- We assign the path of the model to the name of the model
@@ -437,9 +442,9 @@ rule outMM{
 	to
 		outMM_ATL : ATL!OclModel(
 			name <- target_hybrid.name,
-			metamodel <- ametamodeloutMM
+			metamodel <- ametamodelMM
 		),
-		ametamodeloutMM : ATL!OclModel (
+		ametamodelMM : ATL!OclModel (
 			name <- target_hybrid.type_mm
 		),
 		
@@ -514,7 +519,7 @@ rule outMM{
 		packageElement: ATL! OclModelElement(
 			name <- 'EPackage',
 			appliedProperty <- opCall_path,
-			model <- ametamodeloutMM
+			model <- ametamodelMM
 		),
 		
 		-- We assign the path of the model to the name of the model
@@ -549,7 +554,7 @@ rule createRule2MatchedRule{
 			filter <- hybrid_rule.getGuard()
 		),
 		outPattern : ATL!OutPattern(
-			elements <- hybrid_rule.targets.asSequence().append(hybrid_rule.trace)
+			elements <- hybrid_rule.targets.asSequence().append(hybrid_rule.trace).append(hybrid_rule.trace.traceBindings)
 		),
 		anAction : ATL!ActionBlock(
 			commentsBefore <- Set {'-- ActionBlock: '}	
@@ -577,7 +582,7 @@ rule createRule2LazyRule{
 			filter <- hybrid_rule.getGuard()
 		),
 		outPattern : ATL!OutPattern(
-			elements <- hybrid_rule.targets.asSequence().append(hybrid_rule.trace)		
+			elements <- hybrid_rule.targets.asSequence().append(hybrid_rule.trace).append(hybrid_rule.trace.traceBindings)		
 		),
 		anAction : ATL!ActionBlock(
 			commentsBefore <- Set {'-- ActionBlock: '}	
@@ -606,7 +611,7 @@ rule createRule2UniqueLazyRule{
 			filter <- hybrid_rule.getGuard()
 		),
 		outPattern : ATL!OutPattern(
-			elements <- hybrid_rule.targets.asSequence().append(hybrid_rule.trace)		
+			elements <- hybrid_rule.targets.asSequence().append(hybrid_rule.trace).append(hybrid_rule.trace.traceBindings)		
 		),
 		anAction : ATL!ActionBlock(
 			commentsBefore <- Set {'-- ActionBlock: '}	
@@ -625,7 +630,7 @@ rule createRule2CalledRule{
 			commentsBefore <- Set {'-- Comments -> This is a CalledRule: ' + hybrid_rule.name + ' -> ' + hybrid_rule.getComment()}
 		),
 		outPattern : ATL!OutPattern(
-			elements <- hybrid_rule.out.asSequence().append(hybrid_rule.trace)	
+			elements <- hybrid_rule.out.asSequence().append(hybrid_rule.trace).append(hybrid_rule.trace.traceBindings)	
 		),
 		anAction : ATL!ActionBlock(
 			commentsBefore <- Set {'-- ActionBlock: '}	
@@ -643,13 +648,13 @@ rule InPatternElement {
 		),
 		aType : ATL!OclModelElement(
 			name <- inPattern.name,
-			model <- thisModule.resolveTemp(inPattern.component.getModel(),'ametamodelinMM')
+			model <- thisModule.resolveTemp(inPattern.component.getModel(),'ametamodelMM')
 		),
 		trace_element: ATL!SimpleOutPatternElement (
 			varName <- inPattern.name.toLower()+'_in_Trace',
 			outPattern <- thisModule.resolveTemp(inPattern."rule",'outPattern'),
 			type <- aType_trace,
-			bindings <- Sequence{nameBinding, refBinding}
+			bindings <- Sequence{nameBinding, refBinding, sourceElementLink}
 		),
 		aType_trace : ATL!OclModelElement(
 			name <- 'SourceElement',
@@ -680,7 +685,25 @@ rule InPatternElement {
 		trace_elVar: ATL!VariableExp(
 			collection <- thisModule.resolveTemp(inPattern.rule.trace,'sourceSeq'),
 			referredVariable <- trace_element
-		)
+		),
+		sourceElementLink: ATL!Binding(
+			propertyName <- 'elementModel',
+			value <- elementTrace
+		),
+		elementTrace: ATL!OperationCallExp (
+			operationName <- 'create_'+inPattern.component.name+'_element',
+			source<-variableExp3,
+			arguments <-variableExp4
+		),
+		variableExp3: ATL!VariableExp(
+			referredVariable <- variableDeclaration
+		),
+		variableDeclaration: ATL!VariableDeclaration (
+			varName <- 'thisModule'
+		),
+		variableExp4: ATL!VariableExp(
+			referredVariable <- atl
+		)		
 }
 
 --OutputPattern (to part)
@@ -695,13 +718,13 @@ rule OutPatternElement {
 		),
 		aType : ATL!OclModelElement(
 			name <- outPattern.name,
-			model <- thisModule.resolveTemp(outPattern.component.getModel(),'ametamodeloutMM') 
+			model <- thisModule.resolveTemp(outPattern.component.getModel(),'ametamodelMM') 
 		),
 		trace_element: ATL!SimpleOutPatternElement (
-			varName <- outPattern.name.toLower()+'_out_Trace',
+			varName <- outPattern.name.toLower()+'_in_Trace',
 			outPattern <- thisModule.resolveTemp(outPattern."rule",'outPattern'),
 			type <- aType_trace,
-			bindings <- Sequence{nameBinding, refBinding}
+			bindings <- Sequence{nameBinding, refBinding, targetElementLink}
 		),
 		aType_trace : ATL!OclModelElement(
 			name <- 'TargetElement',
@@ -730,75 +753,27 @@ rule OutPatternElement {
 			referredVariable <- outPattern
 		),
 		trace_elVar: ATL!VariableExp(
-			collection <- thisModule.resolveTemp(outPattern.rule.trace,'sourceSeq'),
+			collection <- thisModule.resolveTemp(outPattern.rule.trace,'targetSeq'),
 			referredVariable <- trace_element
+		),
+		targetElementLink: ATL!Binding(
+			propertyName <- 'elementModel',
+			value <- elementTrace
+		),
+		elementTrace: ATL!OperationCallExp (
+			operationName <- 'create_'+outPattern.component.name+'_element',
+			source<-variableExp3,
+			arguments <-variableExp4
+		),
+		variableExp3: ATL!VariableExp(
+			referredVariable <- variableDeclaration
+		),
+		variableDeclaration: ATL!VariableDeclaration (
+			varName <- 'thisModule'
+		),
+		variableExp4: ATL!VariableExp(
+			referredVariable <- atl
 		)
-}
-
---TraceLink_Rule
-rule TraceRule2CreateTraceLink{
-	from 
-		traceRule: Hybrid!TraceRule
-	to
-		atl : ATL!SimpleOutPatternElement (
-			varName <- traceRule.source.asSequence().first().name.toLower()+'2'+
-						traceRule.target.asSequence().first().name.toLower(),
-			type <- aType,
-			bindings <- Sequence {name, traceM, operation, source, target}
-		),
-		aType : ATL!OclModelElement(
-			name <- 'TraceLink',
-			model <- thisModule.resolveTemp(traceRule.refImmediateComposite().refImmediateComposite(),'ametamodelTrace') 
-		),
-		name: ATL!Binding (
-			propertyName <- 'name',
-			value <- nameTraceLink
-		),
-		nameTraceLink: ATL!StringExp (
-			stringSymbol <- traceRule.source.asSequence().first().name+'2'+
-							traceRule.target.asSequence().first().name
-		),
-		
-		traceM : ATL!Binding(
-			propertyName <- 'traceModel',
-			value <- navCall
-		),
-		navCall: ATL!NavigationOrAttributeCallExp(
-			name <- 'getTraceModelRoot',
-			source <- varNavCall
-		),
-		varNavCall:ATL!VariableExp(
-			appliedProperty <- navCall,
-			referredVariable <- varDeclNavCall
-		),
-		varDeclNavCall:ATL!VariableDeclaration(
-			varName<-'thisModule'
-		),
-		
-		operation: ATL!Binding (
-			propertyName <- 'operation',
-			value <- enum
-		),
-		enum : ATL!EnumLiteralExp(
-			name <- 'Transform'
-		),		
-		
-		source: ATL!Binding (
-			propertyName <- 'source',
-			value <- sourceSeq
-		),
-		sourceSeq: ATL!SequenceExp(
-			elements <- traceRule.refImmediateComposite().sources->collect(e|thisModule.resolveTemp(e,'trace_elVar'))
-		),
-		
-		target: ATL!Binding (
-			propertyName <- 'target',
-			value <- targetSeq
-		),
-		targetSeq: ATL!SequenceExp(
-			elements <- traceRule.refImmediateComposite().targets->collect(e|thisModule.resolveTemp(e,'trace_elVar'))
-		)
-		
 }
 
 -- Bindigs: (TargetElements <- SourceElements)
@@ -983,6 +958,203 @@ lazy rule getFilterExp {
 		filter : ATL!VariableExp(
 			commentsAfter <- hybrid_rule.getCommentFilter() 
 	)
+}
+
+-- TRACE
+-- =======================================
+
+--TraceLink_Rule
+rule TraceRule2CreateTraceLink{
+	from 
+		traceRule: Hybrid!TraceRule
+	to
+		atl : ATL!SimpleOutPatternElement (
+			varName <- traceRule.name,
+			type <- aType,
+			bindings <- Sequence {name, traceM, operation, source, target, childLinks}
+		),
+		aType : ATL!OclModelElement(
+			name <- 'TraceLink',
+			model <- thisModule.resolveTemp(traceRule.refImmediateComposite().refImmediateComposite(),'ametamodelTrace') 
+		),
+		name: ATL!Binding (
+			propertyName <- 'name',
+			value <- nameTraceLink
+		),
+		nameTraceLink: ATL!StringExp (
+			stringSymbol <- traceRule.name
+		),
+		
+		traceM : ATL!Binding(
+			propertyName <- 'traceModel',
+			value <- navCall
+		),
+		navCall: ATL!NavigationOrAttributeCallExp(
+			name <- 'getTraceModelRoot',
+			source <- varNavCall
+		),
+		varNavCall:ATL!VariableExp(
+			appliedProperty <- navCall,
+			referredVariable <- varDeclNavCall
+		),
+		varDeclNavCall:ATL!VariableDeclaration(
+			varName<-'thisModule'
+		),
+		
+		operation: ATL!Binding (
+			propertyName <- 'operation',
+			value <- enum
+		),
+		enum : ATL!EnumLiteralExp(
+			name <- 'Transform'
+		),
+		source: ATL!Binding (
+			propertyName <- 'source',
+			value <- sourceSeq
+		),
+		
+		sourceSeq: ATL!SequenceExp(
+			elements <- traceRule.source->collect(e|thisModule.resolveTemp(e,'trace_elVar'))
+		),
+		
+		target: ATL!Binding (
+			propertyName <- 'target',
+			value <- targetSeq
+		),
+		targetSeq: ATL!SequenceExp(
+			elements <- traceRule.target->collect(e|thisModule.resolveTemp(e,'trace_elVar'))
+		),
+		
+		childLinks: ATL!Binding(
+			propertyName <- 'childLinks',
+			value <- childSeq
+		),
+		childSeq: ATL!SequenceExp(
+			elements <- traceRule.traceBindings->collect(e|thisModule.resolveTemp(e,'traceBinding_var'))
+		)
+
+}
+
+--TraceLink_Binding
+rule TraceBinding2CreateTraceLink{
+	from 
+		traceBinding: Hybrid!TraceBinding
+	to
+		patternTrace : ATL!SimpleOutPatternElement (
+			varName <- traceBinding.name,
+			type <- aType,
+			bindings <- Sequence {name, operation}
+		),
+		aType : ATL!OclModelElement(
+			name <- 'TraceLink',
+			model <- thisModule.resolveTemp(traceBinding.refImmediateComposite().refImmediateComposite().refImmediateComposite(),'ametamodelTrace') 
+		),
+		name: ATL!Binding (
+			propertyName <- 'name',
+			value <- nameTraceLink
+		),
+		nameTraceLink: ATL!StringExp (
+			stringSymbol <- traceBinding.name
+		),
+			
+		operation: ATL!Binding (
+			propertyName <- 'operation',
+			value <- enum
+		),
+		enum : ATL!EnumLiteralExp(
+			name <- 'Transform'
+		),
+		traceBinding_var: ATL!VariableExp(
+			collection <- thisModule.resolveTemp(traceBinding.parent,'childSeq'),
+			referredVariable <- patternTrace
+		)
+}
+
+-- Creates a unique lazy rule to create a Model Element 
+rule ModelElement_Trace{
+	from 
+		m_element : Hybrid!ModelElement
+	to
+		createElement: ATL!LazyMatchedRule (
+			name <- ('create_'+m_element.name+'_element').debug('Unique LazyRule'),
+			isAbstract <- false,
+			isRefining <- false,
+			isNoDefault <- false,
+			isUnique <- true,
+			inPattern <- inPattern,
+			outPattern <- outPattern,
+			"module" <- m_element.getModel().refImmediateComposite(),
+			commentsBefore <- Set {'-- Comments -> This is a LazyRule to generate the '+m_element.name+' element in the trace model'}
+		),
+		inPattern : ATL!InPattern (
+			elements <- mElement
+		),
+		outPattern : ATL!OutPattern(
+			elements <- trace_element
+		),
+		
+		mElement : ATL!SimpleInPatternElement (
+			varName <- m_element.name.toLower()+'_in',
+			type <- aTypeIN
+		),
+		aTypeIN : ATL!OclModelElement(
+			name <- m_element.name,
+			model <- thisModule.resolveTemp(m_element.getModel(),'ametamodelMM')
+		),
+		
+		trace_element : ATL!SimpleOutPatternElement (
+			varName <- m_element.name.toLower()+'_out',
+			type <- aTypeOUT,
+			bindings <- Sequence{name, ref}--, model, super_element, features}
+		),
+		aTypeOUT : ATL!OclModelElement(
+			name <- 'Element',
+			model <- thisModule.resolveTemp(m_element.getModel().refImmediateComposite(),'ametamodelTrace') 
+		),
+		name: ATL!Binding (
+			propertyName <- 'name',
+			value <- nameTraceElement
+		),
+		nameTraceElement: ATL!OperationCallExp (
+			operationName <- 'getName',
+			source<-variableExp
+		),
+		variableExp: ATL!VariableExp(
+			referredVariable <- mElement
+		),
+		ref: ATL!Binding (
+			propertyName <- 'ref',
+			value <- refTraceElement
+		),
+		refTraceElement: ATL!NavigationOrAttributeCallExp(
+			name <- '__xmiID__',
+			source<-variableExp2
+		),
+		variableExp2: ATL!VariableExp(
+			referredVariable <- mElement
+		),
+		model: ATL!Binding (
+			propertyName <- 'model',
+			value <- modelAtt
+		),
+		modelAtt: ATL!NavigationOrAttributeCallExp (
+			name <- 'ownedModel',
+			source<-variableExp3
+		),
+		variableExp3: ATL!VariableExp(
+			referredVariable <- mElement
+		),
+		super_element: ATL!Binding (
+			propertyName <- 'super_element',
+			value <- superElement
+		),
+		superElement: ATL!NavigationOrAttributeCallExp (
+			name <- 'parentElement',
+			source<-variableExp4
+		),
+		variableExp4: ATL!VariableExp(
+			referredVariable <- mElement
+		)
 }
 
 -- HELPERS
