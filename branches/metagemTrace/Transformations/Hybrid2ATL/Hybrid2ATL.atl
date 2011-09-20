@@ -343,7 +343,7 @@ rule inMM{
 	from
 		source_hybrid : Hybrid!SourceModel
 	to
-		inMM_ATL : ATL!OclModel(
+		MM : ATL!OclModel(
 			name <- source_hybrid.name,
 			metamodel <- ametamodelMM
 		),
@@ -351,10 +351,31 @@ rule inMM{
 			name <- source_hybrid.type_mm
 		),
 		
+		--creates a helper to get the model 
+		model_helper : ATL!Helper (
+			"module" <- source_hybrid.refImmediateComposite(),
+			definition <- adefinition,
+			commentsBefore <- Set {'-- Comments -> This is a Helper to get the model '+source_hybrid.name}
+		),
+		adefinition : ATL!OclFeatureDefinition (
+			feature <- afeature
+		),
+		afeature : ATL!Operation (
+			name <- 'getModel_'+source_hybrid.name,
+			returnType <- aType2,
+			body <- undefined
+		),
+		aType2 : ATL!OclModelElement(
+			name <- 'TraceModel',
+			model <- thisModule.resolveTemp(source_hybrid.refImmediateComposite(),'ametamodelTrace') 
+		),
+		undefined : ATL!OclUndefinedExp,
+		
 		createSourceModel_trace: ATL!CalledRule (
 			name <- 'createSourceModel_c2_'.concat(source_hybrid.type_mm).debug('CalledRule'),
 			outPattern <- outPattern,
 			module <- source_hybrid."module",
+			actionBlock <- anAction,
 			commentsBefore <- Set {'-- Comments -> This is a CalledRule to create a source model c2 '+source_hybrid.type_mm+' metamodel'}
 		),
 		outPattern : ATL!OutPattern(
@@ -391,7 +412,31 @@ rule inMM{
 		),
 		varDeclNavCall:ATL!VariableDeclaration(
 			varName<-'thisModule'
-		),	
+		),
+		anAction : ATL!ActionBlock(
+			commentsBefore <- Set {'-- ActionBlock: '},
+			statements <- bindingStat
+		),
+		bindingStat: ATL!BindingStat(
+			source <- navigation,
+			value <- variableExp1
+		),
+		variableExp1: ATL!VariableExp(
+			referredVariable <- variableDeclaration1
+		),
+		navigation: ATL!NavigationOrAttributeCallExp(
+			name <- 'getModel_'+source_hybrid.name,
+			source<-variableExp2
+		),
+		variableDeclaration1: ATL!VariableDeclaration (
+			varName <- 'sourceM'
+		),
+		variableExp2: ATL!VariableExp(
+			referredVariable <- variableDeclaration2
+		),
+		variableDeclaration2: ATL!VariableDeclaration (
+			varName <- 'thisModule'
+		),
 		
 		--To call the creation rule from the 'do' part of the trace root creation rule
 		createModelRule_expStat: ATL!ExpressionStat(
@@ -440,7 +485,7 @@ rule outMM{
 	from
 		target_hybrid : Hybrid!TargetModel
 	to
-		outMM_ATL : ATL!OclModel(
+		MM : ATL!OclModel(
 			name <- target_hybrid.name,
 			metamodel <- ametamodelMM
 		),
@@ -448,10 +493,31 @@ rule outMM{
 			name <- target_hybrid.type_mm
 		),
 		
+		--creates a helper to get the model 
+		model_helper : ATL!Helper (
+			"module" <- target_hybrid.refImmediateComposite(),
+			definition <- adefinition,
+			commentsBefore <- Set {'-- Comments -> This is a Helper to get the model '+target_hybrid.name}
+		),
+		adefinition : ATL!OclFeatureDefinition (
+			feature <- afeature
+		),
+		afeature : ATL!Operation (
+			name <- 'getModel_'+target_hybrid.name,
+			returnType <- aType2,
+			body <- undefined
+		),
+		aType2 : ATL!OclModelElement(
+			name <- 'TraceModel',
+			model <- thisModule.resolveTemp(target_hybrid.refImmediateComposite(),'ametamodelTrace') 
+		),
+		undefined : ATL!OclUndefinedExp,
+		
 		createTargetModel_trace: ATL!CalledRule (
 			name <- 'createTargetModel_c2_'.concat(target_hybrid.type_mm).debug('CalledRule'),
 			outPattern <- outPattern,
 			module <- target_hybrid."module",
+			actionBlock <- anAction,
 			commentsBefore <- Set {'-- Comments -> This is a CalledRule to create a target model c2 '+target_hybrid.type_mm+' metamodel'}
 		),
 		outPattern : ATL!OutPattern(
@@ -488,6 +554,30 @@ rule outMM{
 		),
 		varDeclNavCall:ATL!VariableDeclaration(
 			varName<-'thisModule'
+		),
+		anAction : ATL!ActionBlock(
+			commentsBefore <- Set {'-- ActionBlock: '},
+			statements <- bindingStat
+		),
+		bindingStat: ATL!BindingStat(
+			source <- navigation,
+			value <- variableExp1
+		),
+		variableExp1: ATL!VariableExp(
+			referredVariable <- variableDeclaration1
+		),
+		navigation: ATL!NavigationOrAttributeCallExp(
+			name <- 'getModel_'+target_hybrid.name,
+			source<-variableExp2
+		),
+		variableDeclaration1: ATL!VariableDeclaration (
+			varName <- 'targetM'
+		),
+		variableExp2: ATL!VariableExp(
+			referredVariable <- variableDeclaration2
+		),
+		variableDeclaration2: ATL!VariableDeclaration (
+			varName <- 'thisModule'
 		),
 		
 		createModelRule_expStat: ATL!ExpressionStat(
@@ -1105,7 +1195,7 @@ rule ModelElement_Trace{
 		trace_element : ATL!SimpleOutPatternElement (
 			varName <- m_element.name.toLower()+'_out',
 			type <- aTypeOUT,
-			bindings <- Sequence{name, ref}--, model, super_element, features}
+			bindings <- Sequence{name, ref, model}--, super_element, features}
 		),
 		aTypeOUT : ATL!OclModelElement(
 			name <- 'Element',
@@ -1135,26 +1225,30 @@ rule ModelElement_Trace{
 		),
 		model: ATL!Binding (
 			propertyName <- 'model',
-			value <- modelAtt
+			value <- navCall
 		),
-		modelAtt: ATL!NavigationOrAttributeCallExp (
-			name <- 'ownedModel',
-			source<-variableExp3
+		navCall: ATL!NavigationOrAttributeCallExp(
+			name <- 'getModel_'+thisModule.resolveTemp(m_element.getModel(),'MM').name,
+			source <- varNavCall
 		),
-		variableExp3: ATL!VariableExp(
-			referredVariable <- mElement
+		varNavCall:ATL!VariableExp(
+			appliedProperty <- navCall,
+			referredVariable <- varDeclNavCall
 		),
-		super_element: ATL!Binding (
-			propertyName <- 'super_element',
-			value <- superElement
-		),
-		superElement: ATL!NavigationOrAttributeCallExp (
-			name <- 'parentElement',
-			source<-variableExp4
-		),
-		variableExp4: ATL!VariableExp(
-			referredVariable <- mElement
+		varDeclNavCall:ATL!VariableDeclaration(
+			varName<-'thisModule'
 		)
+		--super_element: ATL!Binding (
+		--	propertyName <- 'super_element',
+		--	value <- superElement
+		--),
+		--superElement: ATL!NavigationOrAttributeCallExp (
+		--	name <- 'parentElement',
+		--	source<-variableExp4
+		--),
+		--variableExp4: ATL!VariableExp(
+		--	referredVariable <- mElement
+		--)
 }
 
 -- HELPERS
