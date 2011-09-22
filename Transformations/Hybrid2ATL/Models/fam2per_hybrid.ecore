@@ -41,7 +41,7 @@
       <bindings xmi:id="_J1ZnM-A0EeCzHLZ3F2dA0w" name="R8" trace="_J1ZnOOA0EeCzHLZ3F2dA0w">
         <right xmi:id="_J1ZnNOA0EeCzHLZ3F2dA0w">
           <source xmi:id="_3p_6seUiEeC8ZfglP7Y6xw" name="firstName" component="_J1ZnG-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnOOA0EeCzHLZ3F2dA0w"/>
-          <source xmi:id="_3-HJgOUiEeC8ZfglP7Y6xw" name="familyFather.lastName()" component="_J1ZnHuA0EeCzHLZ3F2dA0w" traceLink="_J1ZnOOA0EeCzHLZ3F2dA0w"/>
+          <source xmi:id="_3-HJgOUiEeC8ZfglP7Y6xw" name="familyFather.lastName" component="_J1ZnHuA0EeCzHLZ3F2dA0w" traceLink="_J1ZnOOA0EeCzHLZ3F2dA0w"/>
         </right>
         <left xmi:id="_J1ZnNeA0EeCzHLZ3F2dA0w">
           <target xmi:id="_J1ZnNuA0EeCzHLZ3F2dA0w" name="fullName" component="_J1ZnK-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnOOA0EeCzHLZ3F2dA0w"/>
@@ -58,7 +58,7 @@
       <bindings xmi:id="_J1ZnPOA0EeCzHLZ3F2dA0w" name="firstName_2_fullName" trace="_J1ZnQ-A0EeCzHLZ3F2dA0w">
         <right xmi:id="_J1ZnPeA0EeCzHLZ3F2dA0w">
           <source xmi:id="_J1ZnPuA0EeCzHLZ3F2dA0w" name="firstName" component="_J1ZnG-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnQ-A0EeCzHLZ3F2dA0w"/>
-          <source xmi:id="_J1ZnP-A0EeCzHLZ3F2dA0w" name="familyMother.lastName()" component="_J1ZnIeA0EeCzHLZ3F2dA0w" traceLink="_J1ZnQ-A0EeCzHLZ3F2dA0w"/>
+          <source xmi:id="_J1ZnP-A0EeCzHLZ3F2dA0w" name="familyMother.lastName" component="_J1ZnIeA0EeCzHLZ3F2dA0w" traceLink="_J1ZnQ-A0EeCzHLZ3F2dA0w"/>
         </right>
         <left xmi:id="_J1ZnQOA0EeCzHLZ3F2dA0w">
           <target xmi:id="_J1ZnQeA0EeCzHLZ3F2dA0w" name="fullName" component="_J1ZnK-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnQ-A0EeCzHLZ3F2dA0w"/>
@@ -75,7 +75,7 @@
       <bindings xmi:id="_J1ZnR-A0EeCzHLZ3F2dA0w" name="firstName_2_fullName" trace="_J1ZnTuA0EeCzHLZ3F2dA0w">
         <right xmi:id="_J1ZnSOA0EeCzHLZ3F2dA0w">
           <source xmi:id="_J1ZnSeA0EeCzHLZ3F2dA0w" name="firstName" component="_J1ZnG-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnTuA0EeCzHLZ3F2dA0w"/>
-          <source xmi:id="_J1ZnSuA0EeCzHLZ3F2dA0w" name="familySon.lastName()" component="_J1ZnJOA0EeCzHLZ3F2dA0w" traceLink="_J1ZnTuA0EeCzHLZ3F2dA0w"/>
+          <source xmi:id="_J1ZnSuA0EeCzHLZ3F2dA0w" name="familySon.lastName" component="_J1ZnJOA0EeCzHLZ3F2dA0w" traceLink="_J1ZnTuA0EeCzHLZ3F2dA0w"/>
         </right>
         <left xmi:id="_J1ZnS-A0EeCzHLZ3F2dA0w">
           <target xmi:id="_J1ZnTOA0EeCzHLZ3F2dA0w" name="fullName" component="_J1ZnK-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnTuA0EeCzHLZ3F2dA0w"/>
@@ -92,7 +92,7 @@
       <bindings xmi:id="_J1ZnUuA0EeCzHLZ3F2dA0w" name="firstName_2_fullName" trace="_J1ZnWeA0EeCzHLZ3F2dA0w">
         <right xmi:id="_J1ZnU-A0EeCzHLZ3F2dA0w">
           <source xmi:id="_J1ZnVOA0EeCzHLZ3F2dA0w" name="firstName" component="_J1ZnG-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnWeA0EeCzHLZ3F2dA0w"/>
-          <source xmi:id="_J1ZnVeA0EeCzHLZ3F2dA0w" name="familyDaughter.lastName()" component="_J1ZnJ-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnWeA0EeCzHLZ3F2dA0w"/>
+          <source xmi:id="_J1ZnVeA0EeCzHLZ3F2dA0w" name="familyDaughter.lastName" component="_J1ZnJ-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnWeA0EeCzHLZ3F2dA0w"/>
         </right>
         <left xmi:id="_J1ZnVuA0EeCzHLZ3F2dA0w">
           <target xmi:id="_J1ZnV-A0EeCzHLZ3F2dA0w" name="fullName" component="_J1ZnK-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnWeA0EeCzHLZ3F2dA0w"/>
