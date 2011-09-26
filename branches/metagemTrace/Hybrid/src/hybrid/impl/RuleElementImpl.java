@@ -124,11 +124,33 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setComponent(ModelComponent newComponent) {
+	public NotificationChain basicSetComponent(ModelComponent newComponent, NotificationChain msgs) {
 		ModelComponent oldComponent = component;
 		component = newComponent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.RULE_ELEMENT__COMPONENT, oldComponent, component));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HybridPackage.RULE_ELEMENT__COMPONENT, oldComponent, newComponent);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComponent(ModelComponent newComponent) {
+		if (newComponent != component) {
+			NotificationChain msgs = null;
+			if (component != null)
+				msgs = ((InternalEObject)component).eInverseRemove(this, HybridPackage.MODEL_COMPONENT__RULE_ELEMENT, ModelComponent.class, msgs);
+			if (newComponent != null)
+				msgs = ((InternalEObject)newComponent).eInverseAdd(this, HybridPackage.MODEL_COMPONENT__RULE_ELEMENT, ModelComponent.class, msgs);
+			msgs = basicSetComponent(newComponent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.RULE_ELEMENT__COMPONENT, newComponent, newComponent));
 	}
 
 	/**
@@ -142,6 +164,10 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 		switch (featureID) {
 			case HybridPackage.RULE_ELEMENT__IS_REFERED:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsRefered()).basicAdd(otherEnd, msgs);
+			case HybridPackage.RULE_ELEMENT__COMPONENT:
+				if (component != null)
+					msgs = ((InternalEObject)component).eInverseRemove(this, HybridPackage.MODEL_COMPONENT__RULE_ELEMENT, ModelComponent.class, msgs);
+				return basicSetComponent((ModelComponent)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -156,6 +182,8 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 		switch (featureID) {
 			case HybridPackage.RULE_ELEMENT__IS_REFERED:
 				return ((InternalEList<?>)getIsRefered()).basicRemove(otherEnd, msgs);
+			case HybridPackage.RULE_ELEMENT__COMPONENT:
+				return basicSetComponent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

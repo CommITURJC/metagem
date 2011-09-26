@@ -12,6 +12,7 @@ import hybrid.ModelComponent;
 import hybrid.ModelElement;
 import hybrid.ModelFeature;
 
+import hybrid.RuleElement;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link hybrid.impl.ModelElementImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link hybrid.impl.ModelElementImpl#getRuleElement <em>Rule Element</em>}</li>
  *   <li>{@link hybrid.impl.ModelElementImpl#getOwnedModel <em>Owned Model</em>}</li>
  *   <li>{@link hybrid.impl.ModelElementImpl#getChildElements <em>Child Elements</em>}</li>
  *   <li>{@link hybrid.impl.ModelElementImpl#getParentElement <em>Parent Element</em>}</li>
@@ -65,6 +67,16 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 	 * @ordered
 	 */
 	protected String ref = REF_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRuleElement() <em>Rule Element</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRuleElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected RuleElement ruleElement;
 
 	/**
 	 * The cached value of the '{@link #getChildElements() <em>Child Elements</em>}' containment reference list.
@@ -124,6 +136,66 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 		ref = newRef;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.MODEL_ELEMENT__REF, oldRef, ref));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RuleElement getRuleElement() {
+		if (ruleElement != null && ruleElement.eIsProxy()) {
+			InternalEObject oldRuleElement = (InternalEObject)ruleElement;
+			ruleElement = (RuleElement)eResolveProxy(oldRuleElement);
+			if (ruleElement != oldRuleElement) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HybridPackage.MODEL_ELEMENT__RULE_ELEMENT, oldRuleElement, ruleElement));
+			}
+		}
+		return ruleElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RuleElement basicGetRuleElement() {
+		return ruleElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRuleElement(RuleElement newRuleElement, NotificationChain msgs) {
+		RuleElement oldRuleElement = ruleElement;
+		ruleElement = newRuleElement;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HybridPackage.MODEL_ELEMENT__RULE_ELEMENT, oldRuleElement, newRuleElement);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRuleElement(RuleElement newRuleElement) {
+		if (newRuleElement != ruleElement) {
+			NotificationChain msgs = null;
+			if (ruleElement != null)
+				msgs = ((InternalEObject)ruleElement).eInverseRemove(this, HybridPackage.RULE_ELEMENT__COMPONENT, RuleElement.class, msgs);
+			if (newRuleElement != null)
+				msgs = ((InternalEObject)newRuleElement).eInverseAdd(this, HybridPackage.RULE_ELEMENT__COMPONENT, RuleElement.class, msgs);
+			msgs = basicSetRuleElement(newRuleElement, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.MODEL_ELEMENT__RULE_ELEMENT, newRuleElement, newRuleElement));
 	}
 
 	/**
@@ -241,6 +313,10 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case HybridPackage.MODEL_ELEMENT__RULE_ELEMENT:
+				if (ruleElement != null)
+					msgs = ((InternalEObject)ruleElement).eInverseRemove(this, HybridPackage.RULE_ELEMENT__COMPONENT, RuleElement.class, msgs);
+				return basicSetRuleElement((RuleElement)otherEnd, msgs);
 			case HybridPackage.MODEL_ELEMENT__OWNED_MODEL:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -265,6 +341,8 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case HybridPackage.MODEL_ELEMENT__RULE_ELEMENT:
+				return basicSetRuleElement(null, msgs);
 			case HybridPackage.MODEL_ELEMENT__OWNED_MODEL:
 				return basicSetOwnedModel(null, msgs);
 			case HybridPackage.MODEL_ELEMENT__CHILD_ELEMENTS:
@@ -303,6 +381,9 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 		switch (featureID) {
 			case HybridPackage.MODEL_ELEMENT__REF:
 				return getRef();
+			case HybridPackage.MODEL_ELEMENT__RULE_ELEMENT:
+				if (resolve) return getRuleElement();
+				return basicGetRuleElement();
 			case HybridPackage.MODEL_ELEMENT__OWNED_MODEL:
 				return getOwnedModel();
 			case HybridPackage.MODEL_ELEMENT__CHILD_ELEMENTS:
@@ -326,6 +407,9 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 		switch (featureID) {
 			case HybridPackage.MODEL_ELEMENT__REF:
 				setRef((String)newValue);
+				return;
+			case HybridPackage.MODEL_ELEMENT__RULE_ELEMENT:
+				setRuleElement((RuleElement)newValue);
 				return;
 			case HybridPackage.MODEL_ELEMENT__OWNED_MODEL:
 				setOwnedModel((Model)newValue);
@@ -356,6 +440,9 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 			case HybridPackage.MODEL_ELEMENT__REF:
 				setRef(REF_EDEFAULT);
 				return;
+			case HybridPackage.MODEL_ELEMENT__RULE_ELEMENT:
+				setRuleElement((RuleElement)null);
+				return;
 			case HybridPackage.MODEL_ELEMENT__OWNED_MODEL:
 				setOwnedModel((Model)null);
 				return;
@@ -382,6 +469,8 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 		switch (featureID) {
 			case HybridPackage.MODEL_ELEMENT__REF:
 				return REF_EDEFAULT == null ? ref != null : !REF_EDEFAULT.equals(ref);
+			case HybridPackage.MODEL_ELEMENT__RULE_ELEMENT:
+				return ruleElement != null;
 			case HybridPackage.MODEL_ELEMENT__OWNED_MODEL:
 				return getOwnedModel() != null;
 			case HybridPackage.MODEL_ELEMENT__CHILD_ELEMENTS:
@@ -404,6 +493,7 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 		if (baseClass == ModelComponent.class) {
 			switch (derivedFeatureID) {
 				case HybridPackage.MODEL_ELEMENT__REF: return HybridPackage.MODEL_COMPONENT__REF;
+				case HybridPackage.MODEL_ELEMENT__RULE_ELEMENT: return HybridPackage.MODEL_COMPONENT__RULE_ELEMENT;
 				default: return -1;
 			}
 		}
@@ -420,6 +510,7 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 		if (baseClass == ModelComponent.class) {
 			switch (baseFeatureID) {
 				case HybridPackage.MODEL_COMPONENT__REF: return HybridPackage.MODEL_ELEMENT__REF;
+				case HybridPackage.MODEL_COMPONENT__RULE_ELEMENT: return HybridPackage.MODEL_ELEMENT__RULE_ELEMENT;
 				default: return -1;
 			}
 		}

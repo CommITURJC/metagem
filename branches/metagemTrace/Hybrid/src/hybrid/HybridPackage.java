@@ -474,13 +474,22 @@ public interface HybridPackage extends EPackage {
 	int MODEL_ELEMENT__REF = HYBRID_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Rule Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ELEMENT__RULE_ELEMENT = HYBRID_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Owned Model</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__OWNED_MODEL = HYBRID_ELEMENT_FEATURE_COUNT + 1;
+	int MODEL_ELEMENT__OWNED_MODEL = HYBRID_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Child Elements</b></em>' containment reference list.
@@ -489,7 +498,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__CHILD_ELEMENTS = HYBRID_ELEMENT_FEATURE_COUNT + 2;
+	int MODEL_ELEMENT__CHILD_ELEMENTS = HYBRID_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Parent Element</b></em>' container reference.
@@ -498,7 +507,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__PARENT_ELEMENT = HYBRID_ELEMENT_FEATURE_COUNT + 3;
+	int MODEL_ELEMENT__PARENT_ELEMENT = HYBRID_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -507,7 +516,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__FEATURES = HYBRID_ELEMENT_FEATURE_COUNT + 4;
+	int MODEL_ELEMENT__FEATURES = HYBRID_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Model Element</em>' class.
@@ -516,7 +525,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 5;
+	int MODEL_ELEMENT_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.ModelComponentImpl <em>Model Component</em>}' class.
@@ -547,13 +556,22 @@ public interface HybridPackage extends EPackage {
 	int MODEL_COMPONENT__REF = HYBRID_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Rule Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_COMPONENT__RULE_ELEMENT = HYBRID_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Model Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_COMPONENT_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 1;
+	int MODEL_COMPONENT_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.ModelFeatureImpl <em>Model Feature</em>}' class.
@@ -582,6 +600,15 @@ public interface HybridPackage extends EPackage {
 	 * @ordered
 	 */
 	int MODEL_FEATURE__REF = MODEL_COMPONENT__REF;
+
+	/**
+	 * The feature id for the '<em><b>Rule Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_FEATURE__RULE_ELEMENT = MODEL_COMPONENT__RULE_ELEMENT;
 
 	/**
 	 * The feature id for the '<em><b>Owned Element</b></em>' container reference.
@@ -1735,6 +1762,17 @@ public interface HybridPackage extends EPackage {
 	EAttribute getModelComponent_Ref();
 
 	/**
+	 * Returns the meta object for the reference '{@link hybrid.ModelComponent#getRuleElement <em>Rule Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Rule Element</em>'.
+	 * @see hybrid.ModelComponent#getRuleElement()
+	 * @see #getModelComponent()
+	 * @generated
+	 */
+	EReference getModelComponent_RuleElement();
+
+	/**
 	 * Returns the meta object for class '{@link hybrid.Rule <em>Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2663,6 +2701,14 @@ public interface HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MODEL_COMPONENT__REF = eINSTANCE.getModelComponent_Ref();
+
+		/**
+		 * The meta object literal for the '<em><b>Rule Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL_COMPONENT__RULE_ELEMENT = eINSTANCE.getModelComponent_RuleElement();
 
 		/**
 		 * The meta object literal for the '{@link hybrid.impl.RuleImpl <em>Rule</em>}' class.

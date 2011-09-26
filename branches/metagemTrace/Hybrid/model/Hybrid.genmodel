@@ -64,6 +64,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="Hybrid.ecore#//ModelComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//ModelComponent/ref"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//ModelComponent/ruleElement"/>
     </genClasses>
     <genClasses ecoreClass="Hybrid.ecore#//Rule">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//Rule/isAbstract"/>

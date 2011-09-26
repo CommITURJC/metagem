@@ -48,6 +48,7 @@ public interface RuleElement extends HybridElement {
 
 	/**
 	 * Returns the value of the '<em><b>Component</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link hybrid.ModelComponent#getRuleElement <em>Rule Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Component</em>' reference isn't clear,
@@ -57,7 +58,8 @@ public interface RuleElement extends HybridElement {
 	 * @return the value of the '<em>Component</em>' reference.
 	 * @see #setComponent(ModelComponent)
 	 * @see hybrid.HybridPackage#getRuleElement_Component()
-	 * @model required="true"
+	 * @see hybrid.ModelComponent#getRuleElement
+	 * @model opposite="ruleElement" required="true"
 	 * @generated
 	 */
 	ModelComponent getComponent();
