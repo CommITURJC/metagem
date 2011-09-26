@@ -65,6 +65,7 @@ public class ModelElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addRefPropertyDescriptor(object);
+			addRuleElementPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,6 +88,28 @@ public class ModelElementItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rule Element feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRuleElementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ModelComponent_ruleElement_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModelComponent_ruleElement_feature", "_UI_ModelComponent_type"),
+				 HybridPackage.Literals.MODEL_COMPONENT__RULE_ELEMENT,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

@@ -579,6 +579,15 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getModelComponent_RuleElement() {
+		return (EReference)modelComponentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRule() {
 		return ruleEClass;
 	}
@@ -1166,6 +1175,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 
 		modelComponentEClass = createEClass(MODEL_COMPONENT);
 		createEAttribute(modelComponentEClass, MODEL_COMPONENT__REF);
+		createEReference(modelComponentEClass, MODEL_COMPONENT__RULE_ELEMENT);
 
 		ruleEClass = createEClass(RULE);
 		createEAttribute(ruleEClass, RULE__IS_ABSTRACT);
@@ -1328,6 +1338,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 
 		initEClass(modelComponentEClass, ModelComponent.class, "ModelComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelComponent_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, ModelComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModelComponent_RuleElement(), this.getRuleElement(), this.getRuleElement_Component(), "ruleElement", null, 0, 1, ModelComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRule_IsAbstract(), ecorePackage.getEBoolean(), "isAbstract", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1347,7 +1358,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 
 		initEClass(ruleElementEClass, RuleElement.class, "RuleElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRuleElement_IsRefered(), this.getRightPattern(), this.getRightPattern_Reference(), "isRefered", null, 0, -1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRuleElement_Component(), this.getModelComponent(), null, "component", null, 1, 1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRuleElement_Component(), this.getModelComponent(), this.getModelComponent_RuleElement(), "component", null, 1, 1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSource_Rule(), this.getRule(), this.getRule_Sources(), "rule", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

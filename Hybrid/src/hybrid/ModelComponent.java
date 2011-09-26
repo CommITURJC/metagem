@@ -16,6 +16,7 @@ package hybrid;
  * The following features are supported:
  * <ul>
  *   <li>{@link hybrid.ModelComponent#getRef <em>Ref</em>}</li>
+ *   <li>{@link hybrid.ModelComponent#getRuleElement <em>Rule Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,5 +50,33 @@ public interface ModelComponent extends HybridElement {
 	 * @generated
 	 */
 	void setRef(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Rule Element</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link hybrid.RuleElement#getComponent <em>Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rule Element</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rule Element</em>' reference.
+	 * @see #setRuleElement(RuleElement)
+	 * @see hybrid.HybridPackage#getModelComponent_RuleElement()
+	 * @see hybrid.RuleElement#getComponent
+	 * @model opposite="component"
+	 * @generated
+	 */
+	RuleElement getRuleElement();
+
+	/**
+	 * Sets the value of the '{@link hybrid.ModelComponent#getRuleElement <em>Rule Element</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rule Element</em>' reference.
+	 * @see #getRuleElement()
+	 * @generated
+	 */
+	void setRuleElement(RuleElement value);
 
 } // ModelComponent
