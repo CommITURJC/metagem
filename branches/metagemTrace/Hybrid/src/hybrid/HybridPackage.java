@@ -474,7 +474,7 @@ public interface HybridPackage extends EPackage {
 	int MODEL_ELEMENT__REF = HYBRID_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Rule Element</b></em>' reference.
+	 * The feature id for the '<em><b>Rule Element</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -556,7 +556,7 @@ public interface HybridPackage extends EPackage {
 	int MODEL_COMPONENT__REF = HYBRID_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Rule Element</b></em>' reference.
+	 * The feature id for the '<em><b>Rule Element</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -602,7 +602,7 @@ public interface HybridPackage extends EPackage {
 	int MODEL_FEATURE__REF = MODEL_COMPONENT__REF;
 
 	/**
-	 * The feature id for the '<em><b>Rule Element</b></em>' reference.
+	 * The feature id for the '<em><b>Rule Element</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1762,10 +1762,10 @@ public interface HybridPackage extends EPackage {
 	EAttribute getModelComponent_Ref();
 
 	/**
-	 * Returns the meta object for the reference '{@link hybrid.ModelComponent#getRuleElement <em>Rule Element</em>}'.
+	 * Returns the meta object for the reference list '{@link hybrid.ModelComponent#getRuleElement <em>Rule Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Rule Element</em>'.
+	 * @return the meta object for the reference list '<em>Rule Element</em>'.
 	 * @see hybrid.ModelComponent#getRuleElement()
 	 * @see #getModelComponent()
 	 * @generated
@@ -2703,7 +2703,7 @@ public interface HybridPackage extends EPackage {
 		EAttribute MODEL_COMPONENT__REF = eINSTANCE.getModelComponent_Ref();
 
 		/**
-		 * The meta object literal for the '<em><b>Rule Element</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Rule Element</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

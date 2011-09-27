@@ -10,13 +10,17 @@ import hybrid.HybridPackage;
 import hybrid.ModelComponent;
 
 import hybrid.RuleElement;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,14 +58,14 @@ public abstract class ModelComponentImpl extends HybridElementImpl implements Mo
 	protected String ref = REF_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRuleElement() <em>Rule Element</em>}' reference.
+	 * The cached value of the '{@link #getRuleElement() <em>Rule Element</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRuleElement()
 	 * @generated
 	 * @ordered
 	 */
-	protected RuleElement ruleElement;
+	protected EList<RuleElement> ruleElement;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,14 +112,9 @@ public abstract class ModelComponentImpl extends HybridElementImpl implements Mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleElement getRuleElement() {
-		if (ruleElement != null && ruleElement.eIsProxy()) {
-			InternalEObject oldRuleElement = (InternalEObject)ruleElement;
-			ruleElement = (RuleElement)eResolveProxy(oldRuleElement);
-			if (ruleElement != oldRuleElement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HybridPackage.MODEL_COMPONENT__RULE_ELEMENT, oldRuleElement, ruleElement));
-			}
+	public EList<RuleElement> getRuleElement() {
+		if (ruleElement == null) {
+			ruleElement = new EObjectWithInverseResolvingEList<RuleElement>(RuleElement.class, this, HybridPackage.MODEL_COMPONENT__RULE_ELEMENT, HybridPackage.RULE_ELEMENT__COMPONENT);
 		}
 		return ruleElement;
 	}
@@ -125,56 +124,12 @@ public abstract class ModelComponentImpl extends HybridElementImpl implements Mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleElement basicGetRuleElement() {
-		return ruleElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRuleElement(RuleElement newRuleElement, NotificationChain msgs) {
-		RuleElement oldRuleElement = ruleElement;
-		ruleElement = newRuleElement;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HybridPackage.MODEL_COMPONENT__RULE_ELEMENT, oldRuleElement, newRuleElement);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRuleElement(RuleElement newRuleElement) {
-		if (newRuleElement != ruleElement) {
-			NotificationChain msgs = null;
-			if (ruleElement != null)
-				msgs = ((InternalEObject)ruleElement).eInverseRemove(this, HybridPackage.RULE_ELEMENT__COMPONENT, RuleElement.class, msgs);
-			if (newRuleElement != null)
-				msgs = ((InternalEObject)newRuleElement).eInverseAdd(this, HybridPackage.RULE_ELEMENT__COMPONENT, RuleElement.class, msgs);
-			msgs = basicSetRuleElement(newRuleElement, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.MODEL_COMPONENT__RULE_ELEMENT, newRuleElement, newRuleElement));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case HybridPackage.MODEL_COMPONENT__RULE_ELEMENT:
-				if (ruleElement != null)
-					msgs = ((InternalEObject)ruleElement).eInverseRemove(this, HybridPackage.RULE_ELEMENT__COMPONENT, RuleElement.class, msgs);
-				return basicSetRuleElement((RuleElement)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRuleElement()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -188,7 +143,7 @@ public abstract class ModelComponentImpl extends HybridElementImpl implements Mo
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case HybridPackage.MODEL_COMPONENT__RULE_ELEMENT:
-				return basicSetRuleElement(null, msgs);
+				return ((InternalEList<?>)getRuleElement()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -204,8 +159,7 @@ public abstract class ModelComponentImpl extends HybridElementImpl implements Mo
 			case HybridPackage.MODEL_COMPONENT__REF:
 				return getRef();
 			case HybridPackage.MODEL_COMPONENT__RULE_ELEMENT:
-				if (resolve) return getRuleElement();
-				return basicGetRuleElement();
+				return getRuleElement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -215,6 +169,7 @@ public abstract class ModelComponentImpl extends HybridElementImpl implements Mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -222,7 +177,8 @@ public abstract class ModelComponentImpl extends HybridElementImpl implements Mo
 				setRef((String)newValue);
 				return;
 			case HybridPackage.MODEL_COMPONENT__RULE_ELEMENT:
-				setRuleElement((RuleElement)newValue);
+				getRuleElement().clear();
+				getRuleElement().addAll((Collection<? extends RuleElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -240,7 +196,7 @@ public abstract class ModelComponentImpl extends HybridElementImpl implements Mo
 				setRef(REF_EDEFAULT);
 				return;
 			case HybridPackage.MODEL_COMPONENT__RULE_ELEMENT:
-				setRuleElement((RuleElement)null);
+				getRuleElement().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -257,7 +213,7 @@ public abstract class ModelComponentImpl extends HybridElementImpl implements Mo
 			case HybridPackage.MODEL_COMPONENT__REF:
 				return REF_EDEFAULT == null ? ref != null : !REF_EDEFAULT.equals(ref);
 			case HybridPackage.MODEL_COMPONENT__RULE_ELEMENT:
-				return ruleElement != null;
+				return ruleElement != null && !ruleElement.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
