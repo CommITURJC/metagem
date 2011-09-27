@@ -6,6 +6,8 @@
  */
 package hybrid;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -52,7 +54,8 @@ public interface ModelComponent extends HybridElement {
 	void setRef(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Rule Element</b></em>' reference.
+	 * Returns the value of the '<em><b>Rule Element</b></em>' reference list.
+	 * The list contents are of type {@link hybrid.RuleElement}.
 	 * It is bidirectional and its opposite is '{@link hybrid.RuleElement#getComponent <em>Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -60,23 +63,12 @@ public interface ModelComponent extends HybridElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rule Element</em>' reference.
-	 * @see #setRuleElement(RuleElement)
+	 * @return the value of the '<em>Rule Element</em>' reference list.
 	 * @see hybrid.HybridPackage#getModelComponent_RuleElement()
 	 * @see hybrid.RuleElement#getComponent
 	 * @model opposite="component"
 	 * @generated
 	 */
-	RuleElement getRuleElement();
-
-	/**
-	 * Sets the value of the '{@link hybrid.ModelComponent#getRuleElement <em>Rule Element</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rule Element</em>' reference.
-	 * @see #getRuleElement()
-	 * @generated
-	 */
-	void setRuleElement(RuleElement value);
+	EList<RuleElement> getRuleElement();
 
 } // ModelComponent
