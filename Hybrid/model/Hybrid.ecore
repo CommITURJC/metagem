@@ -77,8 +77,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelComponent" abstract="true" eSuperTypes="#//HybridElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ruleElement" eType="#//RuleElement"
-        eOpposite="#//RuleElement/component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ruleElement" upperBound="-1"
+        eType="#//RuleElement" eOpposite="#//RuleElement/component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rule" eSuperTypes="#//HybridElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" lowerBound="1"
