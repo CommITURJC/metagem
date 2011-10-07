@@ -543,6 +543,24 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getModelElement_Contains() {
+		return (EReference)modelElementEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModelElement_IsContained() {
+		return (EReference)modelElementEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getModelFeature() {
 		return modelFeatureEClass;
 	}
@@ -1169,6 +1187,8 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		createEReference(modelElementEClass, MODEL_ELEMENT__CHILD_ELEMENTS);
 		createEReference(modelElementEClass, MODEL_ELEMENT__PARENT_ELEMENT);
 		createEReference(modelElementEClass, MODEL_ELEMENT__FEATURES);
+		createEReference(modelElementEClass, MODEL_ELEMENT__CONTAINS);
+		createEReference(modelElementEClass, MODEL_ELEMENT__IS_CONTAINED);
 
 		modelFeatureEClass = createEClass(MODEL_FEATURE);
 		createEReference(modelFeatureEClass, MODEL_FEATURE__OWNED_ELEMENT);
@@ -1332,6 +1352,8 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEReference(getModelElement_ChildElements(), this.getModelElement(), this.getModelElement_ParentElement(), "childElements", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModelElement_ParentElement(), this.getModelElement(), this.getModelElement_ChildElements(), "parentElement", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModelElement_Features(), this.getModelFeature(), this.getModelFeature_OwnedElement(), "features", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModelElement_Contains(), this.getModelElement(), this.getModelElement_IsContained(), "contains", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModelElement_IsContained(), this.getModelElement(), this.getModelElement_Contains(), "isContained", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelFeatureEClass, ModelFeature.class, "ModelFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModelFeature_OwnedElement(), this.getModelElement(), this.getModelElement_Features(), "ownedElement", null, 1, 1, ModelFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

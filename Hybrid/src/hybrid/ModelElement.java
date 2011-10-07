@@ -20,6 +20,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link hybrid.ModelElement#getChildElements <em>Child Elements</em>}</li>
  *   <li>{@link hybrid.ModelElement#getParentElement <em>Parent Element</em>}</li>
  *   <li>{@link hybrid.ModelElement#getFeatures <em>Features</em>}</li>
+ *   <li>{@link hybrid.ModelElement#getContains <em>Contains</em>}</li>
+ *   <li>{@link hybrid.ModelElement#getIsContained <em>Is Contained</em>}</li>
  * </ul>
  * </p>
  *
@@ -119,5 +121,51 @@ public interface ModelElement extends HybridElement, ModelComponent {
 	 * @generated
 	 */
 	EList<ModelFeature> getFeatures();
+
+	/**
+	 * Returns the value of the '<em><b>Contains</b></em>' reference list.
+	 * The list contents are of type {@link hybrid.ModelElement}.
+	 * It is bidirectional and its opposite is '{@link hybrid.ModelElement#getIsContained <em>Is Contained</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Contains</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contains</em>' reference list.
+	 * @see hybrid.HybridPackage#getModelElement_Contains()
+	 * @see hybrid.ModelElement#getIsContained
+	 * @model opposite="isContained"
+	 * @generated
+	 */
+	EList<ModelElement> getContains();
+
+	/**
+	 * Returns the value of the '<em><b>Is Contained</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link hybrid.ModelElement#getContains <em>Contains</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Contained</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Contained</em>' reference.
+	 * @see #setIsContained(ModelElement)
+	 * @see hybrid.HybridPackage#getModelElement_IsContained()
+	 * @see hybrid.ModelElement#getContains
+	 * @model opposite="contains"
+	 * @generated
+	 */
+	ModelElement getIsContained();
+
+	/**
+	 * Sets the value of the '{@link hybrid.ModelElement#getIsContained <em>Is Contained</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Contained</em>' reference.
+	 * @see #getIsContained()
+	 * @generated
+	 */
+	void setIsContained(ModelElement value);
 
 } // ModelElement

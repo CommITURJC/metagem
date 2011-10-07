@@ -20,6 +20,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link metagem.ModelElement#getElements <em>Elements</em>}</li>
  *   <li>{@link metagem.ModelElement#getSuperElement <em>Super Element</em>}</li>
  *   <li>{@link metagem.ModelElement#getOwnedElement <em>Owned Element</em>}</li>
+ *   <li>{@link metagem.ModelElement#getContains <em>Contains</em>}</li>
+ *   <li>{@link metagem.ModelElement#getIsContained <em>Is Contained</em>}</li>
  * </ul>
  * </p>
  *
@@ -119,5 +121,51 @@ public interface ModelElement extends ModelComponent {
 	 * @generated
 	 */
 	void setOwnedElement(ModelTransf value);
+
+	/**
+	 * Returns the value of the '<em><b>Contains</b></em>' reference list.
+	 * The list contents are of type {@link metagem.ModelElement}.
+	 * It is bidirectional and its opposite is '{@link metagem.ModelElement#getIsContained <em>Is Contained</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Contains</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contains</em>' reference list.
+	 * @see metagem.MetagemPackage#getModelElement_Contains()
+	 * @see metagem.ModelElement#getIsContained
+	 * @model opposite="isContained"
+	 * @generated
+	 */
+	EList<ModelElement> getContains();
+
+	/**
+	 * Returns the value of the '<em><b>Is Contained</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link metagem.ModelElement#getContains <em>Contains</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Contained</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Contained</em>' reference.
+	 * @see #setIsContained(ModelElement)
+	 * @see metagem.MetagemPackage#getModelElement_IsContained()
+	 * @see metagem.ModelElement#getContains
+	 * @model opposite="contains"
+	 * @generated
+	 */
+	ModelElement getIsContained();
+
+	/**
+	 * Sets the value of the '{@link metagem.ModelElement#getIsContained <em>Is Contained</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Contained</em>' reference.
+	 * @see #getIsContained()
+	 * @generated
+	 */
+	void setIsContained(ModelElement value);
 
 } // ModelElement

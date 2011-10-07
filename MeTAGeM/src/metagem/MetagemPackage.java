@@ -1383,13 +1383,31 @@ public interface MetagemPackage extends EPackage {
 	int MODEL_ELEMENT__OWNED_ELEMENT = MODEL_COMPONENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Contains</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ELEMENT__CONTAINS = MODEL_COMPONENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Is Contained</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ELEMENT__IS_CONTAINED = MODEL_COMPONENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Model Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_FEATURE_COUNT = MODEL_COMPONENT_FEATURE_COUNT + 4;
+	int MODEL_ELEMENT_FEATURE_COUNT = MODEL_COMPONENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link metagem.impl.ModelFeatureImpl <em>Model Feature</em>}' class.
@@ -2099,6 +2117,28 @@ public interface MetagemPackage extends EPackage {
 	EReference getModelElement_OwnedElement();
 
 	/**
+	 * Returns the meta object for the reference list '{@link metagem.ModelElement#getContains <em>Contains</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Contains</em>'.
+	 * @see metagem.ModelElement#getContains()
+	 * @see #getModelElement()
+	 * @generated
+	 */
+	EReference getModelElement_Contains();
+
+	/**
+	 * Returns the meta object for the reference '{@link metagem.ModelElement#getIsContained <em>Is Contained</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Is Contained</em>'.
+	 * @see metagem.ModelElement#getIsContained()
+	 * @see #getModelElement()
+	 * @generated
+	 */
+	EReference getModelElement_IsContained();
+
+	/**
 	 * Returns the meta object for class '{@link metagem.ModelFeature <em>Model Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2668,6 +2708,22 @@ public interface MetagemPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODEL_ELEMENT__OWNED_ELEMENT = eINSTANCE.getModelElement_OwnedElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Contains</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL_ELEMENT__CONTAINS = eINSTANCE.getModelElement_Contains();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Contained</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL_ELEMENT__IS_CONTAINED = eINSTANCE.getModelElement_IsContained();
 
 		/**
 		 * The meta object literal for the '{@link metagem.impl.ModelFeatureImpl <em>Model Feature</em>}' class.
