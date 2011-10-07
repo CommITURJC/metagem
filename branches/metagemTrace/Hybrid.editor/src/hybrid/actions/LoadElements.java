@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 
 
 import org.eclipse.core.resources.IFile;
@@ -21,6 +22,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.impl.EStructuralFeatureImpl;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -43,9 +45,11 @@ public class LoadElements implements IObjectActionDelegate{
 
 	private Shell shell;
 	protected ISelection selection;
+	private static Hashtable<String, String> containers; 
 
 	public LoadElements() {
 		super();
+		containers = new Hashtable<String, String>();
 	}
 	
 //	private String getTitle() {
@@ -192,6 +196,24 @@ public class LoadElements implements IObjectActionDelegate{
 						}
 					}
 				}
+				if(feature instanceof EReference){
+					EReference ref = (EReference) feature;
+					if (ref.isContainment()){
+						// Get the ID of the element
+						XMIResource resourceXMI = (XMIResource) ref.getEType().eResource();
+						String id_type = resourceXMI.getID(ref.getEType());
+						if (id_type == null)
+							id_type = resourceXMI.getURIFragment(ref.getEType());
+						ModelElement element_contained = getElementFromModel(id_type,model);
+						if(element_contained==null){
+							containers.put(id_type, ownedElement.getRef());
+						}else{
+							ownedElement.getContains().add(element_contained);
+						}
+						
+					}
+				}
+				
 				if (name==null)
 					name=feature.eClass().getName();
 				feature_.setName(name);
@@ -218,15 +240,6 @@ public class LoadElements implements IObjectActionDelegate{
 			ModelElement ownedElement){
 		ModelElement element = null;
 		if (!exists(id, model)) {
-			HybridFactoryImpl hybridFactory = new HybridFactoryImpl();
-			element = hybridFactory.createModelElement();
-			if (ownedElement == null) {
-				element.setOwnedModel(model);
-			} else {
-				element.setParentElement(ownedElement);
-			}
-			element.setRef(id);
-
 			String name = null;
 			EList<EStructuralFeature> allESF = eModelElement.eClass()
 					.getEAllStructuralFeatures();
@@ -242,7 +255,23 @@ public class LoadElements implements IObjectActionDelegate{
 			}
 			if (name == null)
 				name = eModelElement.eClass().getName();
+			if (name.equals("EGenericType"))
+				return null;
+			
+			HybridFactoryImpl hybridFactory = new HybridFactoryImpl();
+			element = hybridFactory.createModelElement();
 			element.setName(name);
+			if (ownedElement == null) {
+				element.setOwnedModel(model);
+			} else {
+				element.setParentElement(ownedElement);
+			}
+			element.setRef(id);
+
+			String id_container = containers.get(id);
+			ModelElement container = getElementFromModel (id_container,model);
+			if(container!=null)
+				element.setIsContained(container);
 
 			// Creates the element in the model
 			try {

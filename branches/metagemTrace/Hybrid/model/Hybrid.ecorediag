@@ -598,10 +598,10 @@
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_t_HjYMP9EeCYHMDXaGNbbQ" type="3002" source="_XmhwwMP9EeCYHMDXaGNbbQ" target="_sRcgoMP9EeCYHMDXaGNbbQ">
     <children xmi:type="notation:Node" xmi:id="_t_HjZMP9EeCYHMDXaGNbbQ" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_t_HjZcP9EeCYHMDXaGNbbQ" x="1" y="-27"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_t_HjZcP9EeCYHMDXaGNbbQ" x="1" y="-12"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_t_HjZsP9EeCYHMDXaGNbbQ" type="4012">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_t_HjZ8P9EeCYHMDXaGNbbQ" x="-14" y="-32"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_t_HjZ8P9EeCYHMDXaGNbbQ" x="-14" y="-22"/>
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_t_HjYcP9EeCYHMDXaGNbbQ" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_t_HjYsP9EeCYHMDXaGNbbQ" fontColor="4210752" fontHeight="10"/>
@@ -1281,5 +1281,33 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KvhH89PpEeC2m75Z9n3mDA" points="[0, 0, 312, -315]$[-312, 0, 0, -315]$[-312, 315, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KvhH-NPpEeC2m75Z9n3mDA" id="(0.005291005291005291,0.5193798449612403)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MSA1cNPpEeC2m75Z9n3mDA" id="(0.17365269461077845,0.02040816326530612)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_9ia9wfAyEeCuMo2sM0TTlA" type="3002" source="_sRcgoMP9EeCYHMDXaGNbbQ" target="_sRcgoMP9EeCYHMDXaGNbbQ">
+    <children xmi:type="notation:Node" xmi:id="_9ia9xfAyEeCuMo2sM0TTlA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_9ia9xvAyEeCuMo2sM0TTlA" x="-21" y="-7"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9ia9x_AyEeCuMo2sM0TTlA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_9ia9yPAyEeCuMo2sM0TTlA" x="-63" y="-2"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_9ia9wvAyEeCuMo2sM0TTlA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_9ia9w_AyEeCuMo2sM0TTlA" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="Hybrid.ecore#//ModelElement/contains"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9ia9xPAyEeCuMo2sM0TTlA" points="[-1, 0, 0, -4]$[-58, 0, -57, -4]$[-58, 31, -57, 27]$[-1, 31, 0, 27]$[-1, 15, 0, 11]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Of2vQvAzEeCuMo2sM0TTlA" id="(0.0196078431372549,0.6428571428571429)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Of2vQ_AzEeCuMo2sM0TTlA" id="(0.0,0.7380952380952381)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="__fvmEPAyEeCuMo2sM0TTlA" type="3002" source="_sRcgoMP9EeCYHMDXaGNbbQ" target="_sRcgoMP9EeCYHMDXaGNbbQ">
+    <children xmi:type="notation:Node" xmi:id="__fvmFPAyEeCuMo2sM0TTlA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__fvmFfAyEeCuMo2sM0TTlA" x="-5" y="9"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="__fvmFvAyEeCuMo2sM0TTlA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__fvmF_AyEeCuMo2sM0TTlA" x="-52" y="9"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="__fvmEfAyEeCuMo2sM0TTlA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="__fvmEvAyEeCuMo2sM0TTlA" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="Hybrid.ecore#//ModelElement/isContained"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__fvmE_AyEeCuMo2sM0TTlA" points="[0, 11, -1, 15]$[0, 27, -1, 31]$[-57, 27, -58, 31]$[-57, -4, -58, 0]$[0, -4, -1, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__f4wAPAyEeCuMo2sM0TTlA" id="(0.0,0.7380952380952381)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__f4wAfAyEeCuMo2sM0TTlA" id="(0.0196078431372549,0.6428571428571429)"/>
   </edges>
 </notation:Diagram>

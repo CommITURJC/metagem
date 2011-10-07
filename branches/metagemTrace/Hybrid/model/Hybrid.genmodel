@@ -58,6 +58,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hybrid.ecore#//ModelElement/childElements"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Hybrid.ecore#//ModelElement/parentElement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hybrid.ecore#//ModelElement/features"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//ModelElement/contains"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//ModelElement/isContained"/>
     </genClasses>
     <genClasses ecoreClass="Hybrid.ecore#//ModelFeature">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Hybrid.ecore#//ModelFeature/ownedElement"/>

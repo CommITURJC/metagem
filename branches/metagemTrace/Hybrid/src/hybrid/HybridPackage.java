@@ -519,13 +519,31 @@ public interface HybridPackage extends EPackage {
 	int MODEL_ELEMENT__FEATURES = HYBRID_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Contains</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ELEMENT__CONTAINS = HYBRID_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Is Contained</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ELEMENT__IS_CONTAINED = HYBRID_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Model Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 6;
+	int MODEL_ELEMENT_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.ModelComponentImpl <em>Model Component</em>}' class.
@@ -1720,6 +1738,28 @@ public interface HybridPackage extends EPackage {
 	EReference getModelElement_Features();
 
 	/**
+	 * Returns the meta object for the reference list '{@link hybrid.ModelElement#getContains <em>Contains</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Contains</em>'.
+	 * @see hybrid.ModelElement#getContains()
+	 * @see #getModelElement()
+	 * @generated
+	 */
+	EReference getModelElement_Contains();
+
+	/**
+	 * Returns the meta object for the reference '{@link hybrid.ModelElement#getIsContained <em>Is Contained</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Is Contained</em>'.
+	 * @see hybrid.ModelElement#getIsContained()
+	 * @see #getModelElement()
+	 * @generated
+	 */
+	EReference getModelElement_IsContained();
+
+	/**
 	 * Returns the meta object for class '{@link hybrid.ModelFeature <em>Model Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2665,6 +2705,22 @@ public interface HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODEL_ELEMENT__FEATURES = eINSTANCE.getModelElement_Features();
+
+		/**
+		 * The meta object literal for the '<em><b>Contains</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL_ELEMENT__CONTAINS = eINSTANCE.getModelElement_Contains();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Contained</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL_ELEMENT__IS_CONTAINED = eINSTANCE.getModelElement_IsContained();
 
 		/**
 		 * The meta object literal for the '{@link hybrid.impl.ModelFeatureImpl <em>Model Feature</em>}' class.

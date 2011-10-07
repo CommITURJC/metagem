@@ -43,6 +43,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link hybrid.impl.ModelElementImpl#getChildElements <em>Child Elements</em>}</li>
  *   <li>{@link hybrid.impl.ModelElementImpl#getParentElement <em>Parent Element</em>}</li>
  *   <li>{@link hybrid.impl.ModelElementImpl#getFeatures <em>Features</em>}</li>
+ *   <li>{@link hybrid.impl.ModelElementImpl#getContains <em>Contains</em>}</li>
+ *   <li>{@link hybrid.impl.ModelElementImpl#getIsContained <em>Is Contained</em>}</li>
  * </ul>
  * </p>
  *
@@ -98,6 +100,26 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 	 * @ordered
 	 */
 	protected EList<ModelFeature> features;
+
+	/**
+	 * The cached value of the '{@link #getContains() <em>Contains</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContains()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModelElement> contains;
+
+	/**
+	 * The cached value of the '{@link #getIsContained() <em>Is Contained</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsContained()
+	 * @generated
+	 * @ordered
+	 */
+	protected ModelElement isContained;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -262,6 +284,78 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ModelElement> getContains() {
+		if (contains == null) {
+			contains = new EObjectWithInverseResolvingEList<ModelElement>(ModelElement.class, this, HybridPackage.MODEL_ELEMENT__CONTAINS, HybridPackage.MODEL_ELEMENT__IS_CONTAINED);
+		}
+		return contains;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModelElement getIsContained() {
+		if (isContained != null && isContained.eIsProxy()) {
+			InternalEObject oldIsContained = (InternalEObject)isContained;
+			isContained = (ModelElement)eResolveProxy(oldIsContained);
+			if (isContained != oldIsContained) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HybridPackage.MODEL_ELEMENT__IS_CONTAINED, oldIsContained, isContained));
+			}
+		}
+		return isContained;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModelElement basicGetIsContained() {
+		return isContained;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIsContained(ModelElement newIsContained, NotificationChain msgs) {
+		ModelElement oldIsContained = isContained;
+		isContained = newIsContained;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HybridPackage.MODEL_ELEMENT__IS_CONTAINED, oldIsContained, newIsContained);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsContained(ModelElement newIsContained) {
+		if (newIsContained != isContained) {
+			NotificationChain msgs = null;
+			if (isContained != null)
+				msgs = ((InternalEObject)isContained).eInverseRemove(this, HybridPackage.MODEL_ELEMENT__CONTAINS, ModelElement.class, msgs);
+			if (newIsContained != null)
+				msgs = ((InternalEObject)newIsContained).eInverseAdd(this, HybridPackage.MODEL_ELEMENT__CONTAINS, ModelElement.class, msgs);
+			msgs = basicSetIsContained(newIsContained, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.MODEL_ELEMENT__IS_CONTAINED, newIsContained, newIsContained));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -280,6 +374,12 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 				return basicSetParentElement((ModelElement)otherEnd, msgs);
 			case HybridPackage.MODEL_ELEMENT__FEATURES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFeatures()).basicAdd(otherEnd, msgs);
+			case HybridPackage.MODEL_ELEMENT__CONTAINS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContains()).basicAdd(otherEnd, msgs);
+			case HybridPackage.MODEL_ELEMENT__IS_CONTAINED:
+				if (isContained != null)
+					msgs = ((InternalEObject)isContained).eInverseRemove(this, HybridPackage.MODEL_ELEMENT__CONTAINS, ModelElement.class, msgs);
+				return basicSetIsContained((ModelElement)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -302,6 +402,10 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 				return basicSetParentElement(null, msgs);
 			case HybridPackage.MODEL_ELEMENT__FEATURES:
 				return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
+			case HybridPackage.MODEL_ELEMENT__CONTAINS:
+				return ((InternalEList<?>)getContains()).basicRemove(otherEnd, msgs);
+			case HybridPackage.MODEL_ELEMENT__IS_CONTAINED:
+				return basicSetIsContained(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -342,6 +446,11 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 				return getParentElement();
 			case HybridPackage.MODEL_ELEMENT__FEATURES:
 				return getFeatures();
+			case HybridPackage.MODEL_ELEMENT__CONTAINS:
+				return getContains();
+			case HybridPackage.MODEL_ELEMENT__IS_CONTAINED:
+				if (resolve) return getIsContained();
+				return basicGetIsContained();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -376,6 +485,13 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 				getFeatures().clear();
 				getFeatures().addAll((Collection<? extends ModelFeature>)newValue);
 				return;
+			case HybridPackage.MODEL_ELEMENT__CONTAINS:
+				getContains().clear();
+				getContains().addAll((Collection<? extends ModelElement>)newValue);
+				return;
+			case HybridPackage.MODEL_ELEMENT__IS_CONTAINED:
+				setIsContained((ModelElement)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -406,6 +522,12 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 			case HybridPackage.MODEL_ELEMENT__FEATURES:
 				getFeatures().clear();
 				return;
+			case HybridPackage.MODEL_ELEMENT__CONTAINS:
+				getContains().clear();
+				return;
+			case HybridPackage.MODEL_ELEMENT__IS_CONTAINED:
+				setIsContained((ModelElement)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -430,6 +552,10 @@ public class ModelElementImpl extends HybridElementImpl implements ModelElement 
 				return getParentElement() != null;
 			case HybridPackage.MODEL_ELEMENT__FEATURES:
 				return features != null && !features.isEmpty();
+			case HybridPackage.MODEL_ELEMENT__CONTAINS:
+				return contains != null && !contains.isEmpty();
+			case HybridPackage.MODEL_ELEMENT__IS_CONTAINED:
+				return isContained != null;
 		}
 		return super.eIsSet(featureID);
 	}

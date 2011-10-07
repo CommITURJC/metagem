@@ -45,6 +45,8 @@ rule ModelElement2ModelElement{
 		me_hybrid: Hybrid!ModelElement(
 			name <- me_metagem.name,
 			ref <- me_metagem.ref,
+			contains <- me_metagem.contains,
+			isContained <- me_metagem.isContained,
 			childElements <- me_metagem.elements,
 			features <- me_metagem.features
 		)

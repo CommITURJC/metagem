@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="ASCII"?>
-<metagem:ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metagem="org.eclipse.kybele.metagem" name="families2persons">
-  <sourceModels name="families" path="/Families2Person_Metagem/Families.ecore">
-    <elements name="Families" ref="/">
-      <elements name="Family" ref="//Family">
-        <features name="lastName" ref="//Family/lastName"/>
-        <features name="father" ref="//Family/father"/>
-        <features name="mother" ref="//Family/mother"/>
-        <features name="sons" ref="//Family/sons"/>
-        <features name="daughters" ref="//Family/daughters"/>
+<metagem:ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metagem="org.eclipse.kybele.metagem" xmi:id="_qFim8PA1EeCuMo2sM0TTlA" name="families2persons">
+  <sourceModels xmi:id="_qFim8fA1EeCuMo2sM0TTlA" name="families" path="/Families2Person_Metagem/Families.ecore">
+    <elements xmi:id="_qFim8vA1EeCuMo2sM0TTlA" name="Families" ref="/">
+      <elements xmi:id="_qFim8_A1EeCuMo2sM0TTlA" name="Family" ref="//Family" contains="_qFim-_A1EeCuMo2sM0TTlA _qFim_vA1EeCuMo2sM0TTlA _qFinAfA1EeCuMo2sM0TTlA _qFinBPA1EeCuMo2sM0TTlA">
+        <features xmi:id="_qFim9PA1EeCuMo2sM0TTlA" name="lastName" ref="//Family/lastName"/>
+        <features xmi:id="_qFim9fA1EeCuMo2sM0TTlA" name="father" ref="//Family/father"/>
+        <features xmi:id="_qFim9vA1EeCuMo2sM0TTlA" name="mother" ref="//Family/mother"/>
+        <features xmi:id="_qFim9_A1EeCuMo2sM0TTlA" name="sons" ref="//Family/sons"/>
+        <features xmi:id="_qFim-PA1EeCuMo2sM0TTlA" name="daughters" ref="//Family/daughters"/>
       </elements>
-      <elements name="Member" ref="//Member">
-        <features name="firstName" relationElement="//@relations.1/@target/@ManyToOne.0/@source.0 //@relations.2/@target/@ManyToOne.0/@source.0 //@relations.3/@target/@ManyToOne.0/@source.0" ref="//Member/firstName"/>
+      <elements xmi:id="_qFim-fA1EeCuMo2sM0TTlA" name="Member" ref="//Member">
+        <features xmi:id="_qFim-vA1EeCuMo2sM0TTlA" name="firstName" relationElement="_qFinGfA1EeCuMo2sM0TTlA _qFinIPA1EeCuMo2sM0TTlA _qFinJ_A1EeCuMo2sM0TTlA" ref="//Member/firstName"/>
       </elements>
-      <elements name="Father" relationElement="//@relations.0/@source" ref="//Father">
-        <features name="familyFather" ref="//Father/familyFather"/>
-        <elements name="EGenericType" ref="//Father/@eGenericSuperTypes.0"/>
+      <elements xmi:id="_qFim-_A1EeCuMo2sM0TTlA" name="Father" relationElement="_qFinEPA1EeCuMo2sM0TTlA" ref="//Father" isContained="_qFim8_A1EeCuMo2sM0TTlA">
+        <features xmi:id="_qFim_PA1EeCuMo2sM0TTlA" name="familyFather" ref="//Father/familyFather"/>
+        <elements xmi:id="_qFim_fA1EeCuMo2sM0TTlA" name="EGenericType" ref="//Father/@eGenericSuperTypes.0"/>
       </elements>
-      <elements name="Mother" relationElement="//@relations.1/@source" ref="//Mother">
-        <features name="familyMother" relationElement="//@relations.1/@target/@ManyToOne.0/@source.1" ref="//Mother/familyMother"/>
-        <elements name="EGenericType" ref="//Mother/@eGenericSuperTypes.0"/>
+      <elements xmi:id="_qFim_vA1EeCuMo2sM0TTlA" name="Mother" relationElement="_qFinFfA1EeCuMo2sM0TTlA" ref="//Mother" isContained="_qFim8_A1EeCuMo2sM0TTlA">
+        <features xmi:id="_qFim__A1EeCuMo2sM0TTlA" name="familyMother" relationElement="_qFinGvA1EeCuMo2sM0TTlA" ref="//Mother/familyMother"/>
+        <elements xmi:id="_qFinAPA1EeCuMo2sM0TTlA" name="EGenericType" ref="//Mother/@eGenericSuperTypes.0"/>
       </elements>
-      <elements name="Son" relationElement="//@relations.2/@source" ref="//Son">
-        <features name="familySon" relationElement="//@relations.2/@target/@ManyToOne.0/@source.1" ref="//Son/familySon"/>
-        <elements name="EGenericType" ref="//Son/@eGenericSuperTypes.0"/>
+      <elements xmi:id="_qFinAfA1EeCuMo2sM0TTlA" name="Son" relationElement="_qFinHPA1EeCuMo2sM0TTlA" ref="//Son" isContained="_qFim8_A1EeCuMo2sM0TTlA">
+        <features xmi:id="_qFinAvA1EeCuMo2sM0TTlA" name="familySon" relationElement="_qFinIfA1EeCuMo2sM0TTlA" ref="//Son/familySon"/>
+        <elements xmi:id="_qFinA_A1EeCuMo2sM0TTlA" name="EGenericType" ref="//Son/@eGenericSuperTypes.0"/>
       </elements>
-      <elements name="Daughter" relationElement="//@relations.3/@source" ref="//Daughter">
-        <features name="familyDaughter" relationElement="//@relations.3/@target/@ManyToOne.0/@source.1" ref="//Daughter/familyDaughter"/>
-        <elements name="EGenericType" ref="//Daughter/@eGenericSuperTypes.0"/>
+      <elements xmi:id="_qFinBPA1EeCuMo2sM0TTlA" name="Daughter" relationElement="_qFinI_A1EeCuMo2sM0TTlA" ref="//Daughter" isContained="_qFim8_A1EeCuMo2sM0TTlA">
+        <features xmi:id="_qFinBfA1EeCuMo2sM0TTlA" name="familyDaughter" relationElement="_qFinKPA1EeCuMo2sM0TTlA" ref="//Daughter/familyDaughter"/>
+        <elements xmi:id="_qFinBvA1EeCuMo2sM0TTlA" name="EGenericType" ref="//Daughter/@eGenericSuperTypes.0"/>
       </elements>
     </elements>
   </sourceModels>
-  <targetModels name="persons" path="/Families2Person_Metagem/Persons.ecore">
-    <elements name="Persons" ref="/">
-      <elements name="Person" ref="//Person">
-        <features name="fullName" relationElement="//@relations.0/@target/@zeroToOne.0/@target //@relations.1/@target/@ManyToOne.0/@target //@relations.2/@target/@ManyToOne.0/@target //@relations.3/@target/@ManyToOne.0/@target" ref="//Person/fullName"/>
+  <targetModels xmi:id="_qFinB_A1EeCuMo2sM0TTlA" name="persons" path="/Families2Person_Metagem/Persons.ecore">
+    <elements xmi:id="_qFinCPA1EeCuMo2sM0TTlA" name="Persons" ref="/">
+      <elements xmi:id="_qFinCfA1EeCuMo2sM0TTlA" name="Person" ref="//Person">
+        <features xmi:id="_qFinCvA1EeCuMo2sM0TTlA" name="fullName" relationElement="_qFinE_A1EeCuMo2sM0TTlA _qFinGPA1EeCuMo2sM0TTlA _qFinH_A1EeCuMo2sM0TTlA _qFinJvA1EeCuMo2sM0TTlA" ref="//Person/fullName"/>
       </elements>
-      <elements name="Male" relationElement="//@relations.0/@target //@relations.2/@target" ref="//Male">
-        <elements name="EGenericType" ref="//Male/@eGenericSuperTypes.0"/>
+      <elements xmi:id="_qFinC_A1EeCuMo2sM0TTlA" name="Male" relationElement="_qFinEfA1EeCuMo2sM0TTlA _qFinHfA1EeCuMo2sM0TTlA" ref="//Male">
+        <elements xmi:id="_qFinDPA1EeCuMo2sM0TTlA" name="EGenericType" ref="//Male/@eGenericSuperTypes.0"/>
       </elements>
-      <elements name="Female" relationElement="//@relations.1/@target //@relations.3/@target" ref="//Female">
-        <elements name="EGenericType" ref="//Female/@eGenericSuperTypes.0"/>
+      <elements xmi:id="_qFinDfA1EeCuMo2sM0TTlA" name="Female" relationElement="_qFinFvA1EeCuMo2sM0TTlA _qFinJPA1EeCuMo2sM0TTlA" ref="//Female">
+        <elements xmi:id="_qFinDvA1EeCuMo2sM0TTlA" name="EGenericType" ref="//Female/@eGenericSuperTypes.0"/>
       </elements>
     </elements>
   </targetModels>
-  <relations xsi:type="metagem:OneToOne" name="father2male">
-    <source name="Father" modelComponent="//@sourceModels.0/@elements.0/@elements.2"/>
-    <target name="Male" modelComponent="//@targetModels.0/@elements.0/@elements.1">
-      <zeroToOne>
-        <target name="fullName" modelComponent="//@targetModels.0/@elements.0/@elements.0/@features.0"/>
+  <relations xsi:type="metagem:OneToOne" xmi:id="_qFinD_A1EeCuMo2sM0TTlA" name="father2male">
+    <source xmi:id="_qFinEPA1EeCuMo2sM0TTlA" name="Father" modelComponent="_qFim-_A1EeCuMo2sM0TTlA"/>
+    <target xmi:id="_qFinEfA1EeCuMo2sM0TTlA" name="Male" modelComponent="_qFinC_A1EeCuMo2sM0TTlA">
+      <zeroToOne xmi:id="_qFinEvA1EeCuMo2sM0TTlA">
+        <target xmi:id="_qFinE_A1EeCuMo2sM0TTlA" name="fullName" modelComponent="_qFinCvA1EeCuMo2sM0TTlA"/>
       </zeroToOne>
     </target>
   </relations>
-  <relations xsi:type="metagem:OneToOne" name="mother2female">
-    <source name="Mother" modelComponent="//@sourceModels.0/@elements.0/@elements.3"/>
-    <target name="Female" modelComponent="//@targetModels.0/@elements.0/@elements.2">
-      <ManyToOne>
-        <target name="fullName" modelComponent="//@targetModels.0/@elements.0/@elements.0/@features.0"/>
-        <source name="firstName" modelComponent="//@sourceModels.0/@elements.0/@elements.1/@features.0"/>
-        <source name="familyMother" modelComponent="//@sourceModels.0/@elements.0/@elements.3/@features.0"/>
+  <relations xsi:type="metagem:OneToOne" xmi:id="_qFinFPA1EeCuMo2sM0TTlA" name="mother2female">
+    <source xmi:id="_qFinFfA1EeCuMo2sM0TTlA" name="Mother" modelComponent="_qFim_vA1EeCuMo2sM0TTlA"/>
+    <target xmi:id="_qFinFvA1EeCuMo2sM0TTlA" name="Female" modelComponent="_qFinDfA1EeCuMo2sM0TTlA">
+      <ManyToOne xmi:id="_qFinF_A1EeCuMo2sM0TTlA">
+        <target xmi:id="_qFinGPA1EeCuMo2sM0TTlA" name="fullName" modelComponent="_qFinCvA1EeCuMo2sM0TTlA"/>
+        <source xmi:id="_qFinGfA1EeCuMo2sM0TTlA" name="firstName" modelComponent="_qFim-vA1EeCuMo2sM0TTlA"/>
+        <source xmi:id="_qFinGvA1EeCuMo2sM0TTlA" name="familyMother" modelComponent="_qFim__A1EeCuMo2sM0TTlA"/>
       </ManyToOne>
     </target>
   </relations>
-  <relations xsi:type="metagem:OneToOne" name="son2male">
-    <source name="Son" modelComponent="//@sourceModels.0/@elements.0/@elements.4"/>
-    <target name="Male" modelComponent="//@targetModels.0/@elements.0/@elements.1">
-      <ManyToOne>
-        <target name="fullName" modelComponent="//@targetModels.0/@elements.0/@elements.0/@features.0"/>
-        <source name="firstName" modelComponent="//@sourceModels.0/@elements.0/@elements.1/@features.0"/>
-        <source name="familySon" modelComponent="//@sourceModels.0/@elements.0/@elements.4/@features.0"/>
+  <relations xsi:type="metagem:OneToOne" xmi:id="_qFinG_A1EeCuMo2sM0TTlA" name="son2male">
+    <source xmi:id="_qFinHPA1EeCuMo2sM0TTlA" name="Son" modelComponent="_qFinAfA1EeCuMo2sM0TTlA"/>
+    <target xmi:id="_qFinHfA1EeCuMo2sM0TTlA" name="Male" modelComponent="_qFinC_A1EeCuMo2sM0TTlA">
+      <ManyToOne xmi:id="_qFinHvA1EeCuMo2sM0TTlA">
+        <target xmi:id="_qFinH_A1EeCuMo2sM0TTlA" name="fullName" modelComponent="_qFinCvA1EeCuMo2sM0TTlA"/>
+        <source xmi:id="_qFinIPA1EeCuMo2sM0TTlA" name="firstName" modelComponent="_qFim-vA1EeCuMo2sM0TTlA"/>
+        <source xmi:id="_qFinIfA1EeCuMo2sM0TTlA" name="familySon" modelComponent="_qFinAvA1EeCuMo2sM0TTlA"/>
       </ManyToOne>
     </target>
   </relations>
-  <relations xsi:type="metagem:OneToOne" name="daughter2female">
-    <source name="Daughter" modelComponent="//@sourceModels.0/@elements.0/@elements.5"/>
-    <target name="Female" modelComponent="//@targetModels.0/@elements.0/@elements.2">
-      <ManyToOne>
-        <target name="fullName" modelComponent="//@targetModels.0/@elements.0/@elements.0/@features.0"/>
-        <source name="firstName" modelComponent="//@sourceModels.0/@elements.0/@elements.1/@features.0"/>
-        <source name="familyDaughter" modelComponent="//@sourceModels.0/@elements.0/@elements.5/@features.0"/>
+  <relations xsi:type="metagem:OneToOne" xmi:id="_qFinIvA1EeCuMo2sM0TTlA" name="daughter2female">
+    <source xmi:id="_qFinI_A1EeCuMo2sM0TTlA" name="Daughter" modelComponent="_qFinBPA1EeCuMo2sM0TTlA"/>
+    <target xmi:id="_qFinJPA1EeCuMo2sM0TTlA" name="Female" modelComponent="_qFinDfA1EeCuMo2sM0TTlA">
+      <ManyToOne xmi:id="_qFinJfA1EeCuMo2sM0TTlA">
+        <target xmi:id="_qFinJvA1EeCuMo2sM0TTlA" name="fullName" modelComponent="_qFinCvA1EeCuMo2sM0TTlA"/>
+        <source xmi:id="_qFinJ_A1EeCuMo2sM0TTlA" name="firstName" modelComponent="_qFim-vA1EeCuMo2sM0TTlA"/>
+        <source xmi:id="_qFinKPA1EeCuMo2sM0TTlA" name="familyDaughter" modelComponent="_qFinBfA1EeCuMo2sM0TTlA"/>
       </ManyToOne>
     </target>
   </relations>
