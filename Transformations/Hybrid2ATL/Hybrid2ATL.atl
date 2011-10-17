@@ -115,14 +115,136 @@ rule Module {
 			thenExpression<-thenPart,
 			elseExpression<- elsePart
 		),
-		
-		conditionPart: ATL!OperatorCallExp(
+		conditionPart: ATL!OperationCallExp(
 			ifExp1 <- bodyHelperName,
+			operationName <- 'oclIsUndefined',
+			source <- selfVariable
+		),
+		selfVariable: ATL!VariableExp(
+			appliedProperty <-conditionPart,
+			referredVariable <-	var_self
+		),
+		var_self: ATL!VariableDeclaration (
+			varName <- 'self'
+		),
+		thenPart : ATL!StringExp(
+			ifExp2 <- bodyHelperName,
+			stringSymbol <-''
+		),		
+		elsePart: ATL!IfExp(
+			ifExp3 <- bodyHelperName,
+			condition <- conditionPart_else,
+			thenExpression<-thenPart_else,
+			elseExpression<- elsePart_else
+		),
+		conditionPart_else:ATL!OperationCallExp(
+			ifExp1 <- elsePart,
+			operationName <- 'oclIsKindOf',
+			arguments <- sequenceType,
+			source <- selfVariable2
+		),
+		sequenceType:ATL!SequenceType(
+			parentOperation <- conditionPart_else,
+			elementType <- oclAnyType_
+		),
+		oclAnyType_:ATL!OclAnyType(
+			collectionTypes <- sequenceType 	
+		),
+		selfVariable2: ATL!VariableExp(
+			appliedProperty <-conditionPart_else,
+			referredVariable <-	var_self2
+		),
+		var_self2: ATL!VariableDeclaration (
+			varName <- 'self'
+		),
+		thenPart_else: ATL!OperatorCallExp(
+			ifExp2 <- elsePart,
+			operationName <- '+',
+			source <- nameSeq,
+			arguments <- rPar
+		),
+		nameSeq: ATL!OperatorCallExp(
+			appliedProperty <- thenPart_else,
+			operationName <- '+',
+			source <-seqString,
+			arguments <- itCollect
+		),
+		itCollect: ATL!IteratorExp(
+			parentOperation <- nameSeq,
+			name <- 'collect',
+			source <- selfVariable3,
+			body<- opCall_getName,
+			iterators<- iterator_e
+		),
+		selfVariable3: ATL!VariableExp(
+			appliedProperty <-itCollect,
+			referredVariable <-	var_self3
+		),
+		var_self3: ATL!VariableDeclaration (
+			varName <- 'self'
+		),
+		opCall_getName : ATL!OperationCallExp(
+			loopExp <- itCollect,
+			operationName <- 'getName',
+			source <- varExp_att_getName
+		),
+		varExp_att_getName: ATL!VariableExp(
+			appliedProperty <-opCall_getName,
+			referredVariable <-	iterator_e
+		),
+		iterator_e: ATL!Iterator(
+			varName <-'e',
+			loopExpr <- itCollect,
+			variableExp <- varExp_att_getName
+		),
+		seqString: ATL!StringExp(
+			appliedProperty <-nameSeq,
+			stringSymbol <- 'Sequence('	
+		),
+		rPar: ATL!StringExp(
+			parentOperation <- thenPart_else,
+			stringSymbol <- ')'	
+		),
+		elsePart_else : ATL!IfExp(
+			condition <- conditionPart_else_else,
+			thenExpression<-thenPart_else_else,
+			elseExpression<- elsePart_else_else
+		),
+		conditionPart_else_else: ATL!OperationCallExp(
+			ifExp1 <-elsePart_else,
+			operationName <- 'oclIsTypeOf',
+			source <- selfVariable4,
+			arguments <- stringType
+		),
+		selfVariable4: ATL!VariableExp(
+			appliedProperty <-conditionPart_else_else,
+			referredVariable <-	var_self4
+		),
+		var_self4: ATL!VariableDeclaration (
+			varName <- 'self'
+		),
+		stringType: ATL!StringType(
+			parentOperation <- conditionPart_else_else
+		),
+		thenPart_else_else: ATL!VariableExp(
+			ifExp2 <-elsePart_else,
+			referredVariable <-	var_self5
+		),
+		var_self5: ATL!VariableDeclaration (
+			varName <- 'self'
+		),
+		elsePart_else_else: ATL!IfExp(
+			condition <- conditionPart_simple,
+			thenExpression<-thenPart_simple,
+			elseExpression<- elsePart_simple
+		),
+		conditionPart_simple: ATL!OperatorCallExp(
+			ifExp1 <- elsePart_else_else,
 			operationName <- 'not',
 			source <-op1
 		),
 		op1: ATL!OperationCallExp(
-			appliedProperty <-conditionPart,
+			appliedProperty <-conditionPart_simple,
 			operationName <- 'oclIsUndefined',
 			source <- iterator
 		),
@@ -157,13 +279,13 @@ rule Module {
 		opCall_eClass: ATL!OperationCallExp(
 			appliedProperty <-op_getEAllStructuralFeatures,
 			operationName <- 'eClass',
-			source <- variableExp_self
+			source <- selfVariable6
 		),
-		variableExp_self: ATL!VariableExp(
+		selfVariable6: ATL!VariableExp(
 			appliedProperty <- opCall_eClass,
-			referredVariable <- var_self
+			referredVariable <- var_self6
 		),
-		var_self: ATL!VariableDeclaration (
+		var_self6: ATL!VariableDeclaration (
 			varName <- 'self'
 		),
 		iterator_n: ATL!Iterator(
@@ -211,21 +333,21 @@ rule Module {
 			variableExp <-varExp_it
 		),
 		
-		thenPart: ATL!OperationCallExp (
+		thenPart_simple: ATL!OperationCallExp (
 			operationName <- 'refGetValue',
-			ifExp2 <- bodyHelperName,
-			source <- variableExp_self1,
+			ifExp2 <- elsePart_else_else,
+			source <- selfVariable7,
 			arguments <- opCall_first
 		),
-		variableExp_self1: ATL!VariableExp(
-			appliedProperty <- thenPart,
-			referredVariable <- var_self1
+		selfVariable7: ATL!VariableExp(
+			appliedProperty <- thenPart_simple,
+			referredVariable <- var_self7
 		),
-		var_self1: ATL!VariableDeclaration (
+		var_self7: ATL!VariableDeclaration (
 			varName <- 'self'
 		),
 		opCall_first: ATL!OperationCallExp (
-			parentOperation <-thenPart,
+			parentOperation <-thenPart_simple,
 			operationName <- 'first',
 			source <- iterator_then
 		),
@@ -236,7 +358,6 @@ rule Module {
 			body<-operatorCall_body2,
 			iterators<-iterator3
 		),
-		
 		iter_exp_collect2: ATL!IteratorExp (
 			name <- 'collect',
 			appliedProperty <-iterator_then,
@@ -261,22 +382,20 @@ rule Module {
 		opCall_eClass2: ATL!OperationCallExp(
 			appliedProperty <-op_getEAllStructuralFeatures2,
 			operationName <- 'eClass',
-			source <- variableExp_self2
+			source <- selfVariable8
 		),
-		variableExp_self2: ATL!VariableExp(
+		selfVariable8: ATL!VariableExp(
 			appliedProperty <- opCall_eClass2,
-			referredVariable <- var_self2
+			referredVariable <- var_self8
 		),
-		var_self2: ATL!VariableDeclaration (
+		var_self8: ATL!VariableDeclaration (
 			varName <- 'self'
 		),
 		iterator_n2: ATL!Iterator(
 			varName <-'n',
 			loopExpr <- iter_exp_collect2,
 			variableExp <- varExp_att_name2
-		),
-		
-		
+		),	
 		operatorCall_body2: ATL!OperatorCallExp(
 			operationName <- '>',
 			loopExp <- iterator_then,
@@ -317,15 +436,15 @@ rule Module {
 			variableExp <-varExp_it2
 		),
 		
-		elsePart: ATL!NavigationOrAttributeCallExp(
+		elsePart_simple: ATL!NavigationOrAttributeCallExp(
 			name <- '__xmiID__',
-			source<-variableExp_self3
+			source<-selfVariable9
 		),
-		variableExp_self3: ATL!VariableExp(
-			appliedProperty <- elsePart,
-			referredVariable <- var_self3
+		selfVariable9: ATL!VariableExp(
+			appliedProperty <- elsePart_simple,
+			referredVariable <- var_self9
 		),
-		var_self3: ATL!VariableDeclaration (
+		var_self9: ATL!VariableDeclaration (
 			varName <- 'self'
 		),
 		string: ATL!StringType(
