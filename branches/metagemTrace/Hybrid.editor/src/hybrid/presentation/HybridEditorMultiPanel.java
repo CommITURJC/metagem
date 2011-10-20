@@ -1405,9 +1405,10 @@ public class HybridEditorMultiPanel
 	
 	private void handleSelectedRightPattern(RightPatternImpl rightPattern,
 			ArrayList<Object> sourceElements) {
-		SourceImpl source = (SourceImpl) rightPattern.getSource();
-		if(source!=null)
-			handleSelectedSource(source, sourceElements);
+			EList<Source> sources = rightPattern.getSource();
+			for(int i=0;i<sources.size();i++){
+				handleSelectedSource((SourceImpl)sources.get(i), sourceElements);
+			}
 	}
 
 	private void handleSelectedSource(SourceImpl source,
