@@ -14,6 +14,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -37,12 +40,17 @@ import org.w3c.dom.Element;
 
 import Traceability.SourceModel;
 import Traceability.TargetModel;
+import Traceability.impl.ModelImpl;
 import Traceability.impl.SourceModelImpl;
 import Traceability.impl.TargetModelImpl;
 import Traceability.impl.TraceModelImpl;
 
-public class Actions {
 
+public class Actions {
+	public static final int T_METAMODEL = 0;
+	public static final int T_MODEL = 1;
+	
+	
 	/**
 	 * This method returns the name of the TraceModel (resource)
 	 */
@@ -93,35 +101,36 @@ public class Actions {
 		return rs;
 	}
 	
-	public static ResourceSet createResourceSet(ArrayList<String> paths) {
-		ResourceSet rs = new ResourceSetImpl();
-		rs.setPackageRegistry(EPackage.Registry.INSTANCE);
-		rs.getResourceFactoryRegistry().getExtensionToFactoryMap()
-				.put("xmi", new XMIResourceFactoryImpl(){
-					protected boolean useIDs() {
-						return true;
-					}
-				});
-		for(int cont=0;cont<paths.size();cont++){
-			Resource res = rs.createResource(URI.createURI("platform:/resource"
-					+ paths.get(cont)));
-			IWorkspace workspace = ResourcesPlugin.getWorkspace();
-			File f = new File(workspace.getRoot().getLocation().toString() + paths.get(cont));
-
-			FileInputStream is = null;
-			try {
-				is = new FileInputStream(f);
-				HashMap<String, Boolean> options = new HashMap<String, Boolean>();
-				options.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
-				res.load(is, options);
-				is.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-				return null;
-			}	
-		}
-		return rs;
-	}
+//	public static ResourceSet createResourceSet(ArrayList<String> paths) {
+//		ResourceSet rs = new ResourceSetImpl();
+//		rs.setPackageRegistry(EPackage.Registry.INSTANCE);
+//		rs.getResourceFactoryRegistry().getExtensionToFactoryMap()
+//				.put("xmi", new XMIResourceFactoryImpl(){
+//					protected boolean useIDs() {
+//						return true;
+//					}
+//				});
+//		for(int cont=0;cont<paths.size();cont++){
+//			Resource res = rs.createResource(URI.createURI("platform:/resource"
+//					+ paths.get(cont)));
+//			IWorkspace workspace = ResourcesPlugin.getWorkspace();
+//			File f = new File(workspace.getRoot().getLocation().toString() + paths.get(cont));
+//
+//			FileInputStream is = null;
+//			try {
+//				is = new FileInputStream(f);
+//				
+//				HashMap<String, Boolean> options = new HashMap<String, Boolean>();
+//				options.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
+//				res.load(is, options);
+//				is.close();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//				return null;
+//			}	
+//		}
+//		return rs;
+//	}
 	
 	
 
@@ -150,6 +159,54 @@ public class Actions {
 			}
 		}
 		return smodels;
+	}
+	
+	public static void setSourceModels(ResourceSet rs, ArrayList<SourceModelImpl> models){
+		for (Iterator<?> selectedElements = rs.getResources().iterator(); selectedElements.hasNext();) {
+			Object selectedElement = selectedElements.next();
+			Resource selectedElementR = (Resource) selectedElement;
+			for (Iterator<?> contents = selectedElementR.getAllContents(); contents
+					.hasNext();) {
+				Object content = contents.next();
+				if (content instanceof TraceModelImpl) {
+					EObject eoContent = (EObject) content;
+					TraceModelImpl traceModel = (TraceModelImpl) eoContent;
+					traceModel.getSourceModels().clear();
+					for (int i=0;i<models.size();i++){
+						traceModel.getSourceModels().add(models.get(i));
+					}
+					try {
+						traceModel.eResource().save(new HashMap<Object, Object>());
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+	}
+	
+	public static void setTargetModels(ResourceSet rs, ArrayList<TargetModelImpl> models){
+		for (Iterator<?> selectedElements = rs.getResources().iterator(); selectedElements.hasNext();) {
+			Object selectedElement = selectedElements.next();
+			Resource selectedElementR = (Resource) selectedElement;
+			for (Iterator<?> contents = selectedElementR.getAllContents(); contents
+					.hasNext();) {
+				Object content = contents.next();
+				if (content instanceof TraceModelImpl) {
+					EObject eoContent = (EObject) content;
+					TraceModelImpl traceModel = (TraceModelImpl) eoContent;
+					traceModel.getTargetModels().clear();
+					for (int i=0;i<models.size();i++){
+						traceModel.getTargetModels().add(models.get(i));
+					}
+					try {
+						traceModel.eResource().save(new HashMap<Object, Object>());
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
 	}
 
 	/**
@@ -184,7 +241,7 @@ public class Actions {
 	 * Register a metamodel whose path is 'path'
 	 * @param path: Metamodel path ("/" is the execution workspace)
 	 */
-	public static void registerMetamodel(String path) {
+	public static String registerMetamodel(String path, String name) {
 		String uri="";
 		FileInputStream is = null;
 		
@@ -201,21 +258,57 @@ public class Actions {
 			}
 		}catch (Exception e){
 			e.printStackTrace();
-			return;
+			return path;
 		}
-		
-		try {
-			is = new FileInputStream(file_);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		
+		Object[] result = getFileInputStream(file_,workspace,path,name,T_METAMODEL);
+		is = (FileInputStream) result[0];
+		path = (String) result[1];
 		registerMetamodel(uri,is);
 		try {
 			is.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return path;
+	}
+
+	private static Object[] getFileInputStream(File file_, IWorkspace workspace, String path, String name, int type){
+		Object[] returnData = new Object[2];
+		FileInputStream is = null;
+		String newpath = path;
+		try {
+			is = new FileInputStream(file_);
+		} catch (FileNotFoundException e) {
+			try {
+				UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+			
+			String message ="Please enter the correct path of ";
+			if (type==0){
+				message = "Please enter a correct metamodel for ";
+			}
+			Object response =  JOptionPane.showInputDialog(
+			        null,
+			        message+name,
+			        "MeTAGeM-Trace: Set correct path", JOptionPane.INFORMATION_MESSAGE,
+			        null, null, path);
+			if (response != null){
+				newpath = (String)response;
+			}else
+				return null;
+			
+			file_ = new File(workspace.getRoot().getLocation().toString() + newpath);
+			//recursive
+			Object[] result  = getFileInputStream(file_,workspace,newpath,name, type);
+			is = (FileInputStream) result[0];
+			newpath = (String) result[1];
+		}
+		path=newpath;
+		returnData[0]=is;
+		returnData[1]=path;
+		return returnData;
 	}
 
 	//This method allows register a Metamodel
@@ -299,8 +392,60 @@ public class Actions {
 	}
 
 	
+	public static ResourceSet createResourceSet_Sources(ArrayList<SourceModelImpl> sources) {
+		final ArrayList<ModelImpl> sources_= new ArrayList<ModelImpl>();
+		for(int c1=0;c1<sources.size();c1++){
+			ModelImpl model = (ModelImpl) sources.get(c1);
+			sources_.add(model);
+		}
+		
+		return createResourceSet(sources_);
+	}
 	
+	public static ResourceSet createResourceSet_Targets(ArrayList<TargetModelImpl> targets) {
+		final ArrayList<ModelImpl> targets_= new ArrayList<ModelImpl>();
+		for(int c1=0;c1<targets.size();c1++){
+			ModelImpl model = (ModelImpl) targets.get(c1);
+			targets_.add(model);
+		}
+		
+		return createResourceSet(targets_);
+	}
 	
+	private static ResourceSet createResourceSet(ArrayList<ModelImpl> models) {
+		ResourceSet rs = new ResourceSetImpl();
+		rs.setPackageRegistry(EPackage.Registry.INSTANCE);
+		rs.getResourceFactoryRegistry().getExtensionToFactoryMap()
+				.put("xmi", new XMIResourceFactoryImpl(){
+					protected boolean useIDs() {
+						return true;
+					}
+				});
+		for(int cont=0;cont<models.size();cont++){
+			String path = models.get(cont).getPath();
+			String name = models.get(cont).getName();
+			Resource res = rs.createResource(URI.createURI("platform:/resource"
+					+ path));
+			IWorkspace workspace = ResourcesPlugin.getWorkspace();
+			File f = new File(workspace.getRoot().getLocation().toString() + path);
+
+			FileInputStream is = null;
+			try {
+				Object[] result = getFileInputStream(f,workspace,path,name,T_MODEL);
+				is = (FileInputStream) result[0];
+				path = (String) result[1];
+				models.get(cont).setPath(path);
+				HashMap<String, Boolean> options = new HashMap<String, Boolean>();
+				options.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
+				res.load(is, options);
+				is.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}	
+		}
+		return rs;
+	}
 
 	
 		
