@@ -1,0 +1,359 @@
+module MeTAGeM2Hybrid;
+create OUT : Hybrid from IN : MeTAGeM;
+
+rule ModelRoot2Module {
+	from 
+		mr: MeTAGeM!ModelRoot
+	to
+		m: Hybrid!Module (
+			name <- mr.name,
+		    sourceModels <- mr.sourceModels,
+			targetModels <- mr.targetModels,
+			rules <- mr.relations		
+		)
+}
+
+rule SourceModelTransf2SourceModel{
+	from
+		smt: MeTAGeM!SourceModelTransf
+	to
+		sm: Hybrid!SourceModel(
+			name <- smt.name+'_model', 
+			path <- smt.path,
+			type_mm <- smt.name,
+			elements <- smt.elements
+		
+		)
+}
+
+rule TargetModelTransf2TargetModel{
+	from
+		tmt: MeTAGeM!TargetModelTransf
+	to
+		tm: Hybrid!TargetModel(
+			name <- tmt.name+'_model',
+			path <- tmt.path,
+			type_mm <- tmt.name,
+			elements <- tmt.elements
+		)
+}
+
+rule ModelElement2ModelElement{
+	from 
+		me_metagem: MeTAGeM!ModelElement
+	to
+		me_hybrid: Hybrid!ModelElement(
+			name <- me_metagem.name,
+			ref <- me_metagem.ref,
+			contains <- me_metagem.contains,
+			isContained <- me_metagem.isContained,
+			childElements <- me_metagem.elements,
+			features <- me_metagem.features
+		)
+}
+
+rule ModelFeature2ModelFeature{
+	from 
+		mf_metagem: MeTAGeM!ModelFeature
+	to
+		mf_hybrid: Hybrid!ModelFeature(
+			name <- mf_metagem.name,
+			ref <- mf_metagem.ref
+		)
+}
+
+rule OneToOne2rule extends Relations2Rule{
+	from
+		relation: MeTAGeM!OneToOne
+	to
+		r_hybrid: Hybrid!Rule(
+			sources <- relation.source,
+			targets <- relation.target
+		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1; 
+	}
+}
+
+rule OneToZero2rule extends Relations2Rule{
+	from
+		relation: MeTAGeM!OneToZero
+	to
+		r_hybrid: Hybrid!Rule(
+			sources <- relation.source
+		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1; 
+	}
+}
+
+rule ZeroToOne2rule extends Relations2Rule{
+	from
+		relation: MeTAGeM!ZeroToOne
+	to
+		r_hybrid: Hybrid!Rule(
+			targets <- relation.target
+		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1; 
+	}
+}
+
+rule OneToMany2rule extends Relations2Rule{
+	from
+		relation: MeTAGeM!OneToMany
+	to
+		r_hybrid: Hybrid!Rule(
+			sources <- relation.source,
+			targets <- relation.target.asSequence()
+		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1; 
+	}
+}
+
+rule ManyToOne2rule extends Relations2Rule{
+	from
+		relation: MeTAGeM!ManyToOne
+	to
+		r_hybrid: Hybrid!Rule(
+			sources <- relation.source.asSequence(),
+			targets <- relation.target
+		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1; 
+	}
+}
+
+rule ManyToMany2rule extends Relations2Rule{
+	from
+		relation: MeTAGeM!ManyToMany
+	to
+		r_hybrid: Hybrid!Rule(
+			sources <- relation.source.asSequence(),
+			targets <- relation.target.asSequence()
+		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1; 
+	}
+}
+
+rule SourceElement2Source{
+	from
+		sourceElem: MeTAGeM!SourceElement
+	to
+		source: Hybrid!Source(
+			name <- sourceElem.name,
+			component <- sourceElem.modelComponent
+		)
+}
+
+rule TargetElement2Target{
+	from
+		targetElem: MeTAGeM!TargetElement
+	to
+		source: Hybrid!Target(
+			name <- targetElem.name,
+			component <- targetElem.modelComponent
+		)
+}
+
+rule OneToOne2Binding extends Relations2Binding{
+	from
+		relation:MeTAGeM!OneToOne
+	to
+		binding: Hybrid!Binding (
+			right <- rightPattern,
+			left <- leftPattern
+		),
+		rightPattern:Hybrid!RightPattern(
+			source <- relation.source,
+			"rule" <- relation.source->collect(e|e.invokes)
+			
+		),
+		leftPattern:Hybrid!LeftPattern(
+			target <- relation.target
+		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1;
+	}
+}
+
+rule ManyToOne2Binding extends Relations2Binding{
+	from
+		relation:MeTAGeM!ManyToOne
+	to
+		binding: Hybrid!Binding (
+			right <- rightPattern,
+			left <- leftPattern
+		),
+		rightPattern:Hybrid!RightPattern(
+			source <- relation.source.asSequence(),
+			"rule" <- relation.source->collect(e|e.invokes)
+		),
+		leftPattern:Hybrid!LeftPattern(
+			target <- relation.target
+		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1;
+	}
+}
+
+rule ZeroToOne2Binding extends Relations2Binding{
+	from
+		relation:MeTAGeM!ZeroToOne
+	to
+		binding: Hybrid!Binding (
+			right <- rightPattern,
+			left <- leftPattern
+		),
+		rightPattern:Hybrid!RightPattern(
+		),
+		leftPattern:Hybrid!LeftPattern(
+			target <- relation.target
+		)
+	do {
+		thisModule.countRules <- thisModule.countRules + 1;
+	}
+}
+
+-----------------------------------------------------------
+---------------------- ABSTRACTS RULES --------------------
+-----------------------------------------------------------
+
+abstract rule Relations2Rule{
+	from
+		relation:MeTAGeM!Relations(relation.isNotIncluded())
+	to
+		r_hybrid:Hybrid!Rule(
+			name <- relation.getRuleName(),
+			isAbstract <- relation.role=#IsAbstract,
+			isMain <- relation.role=#IsMain,
+			isUnique <- false,-- is the default value
+			"extends" <- relation.extends,
+			isExtended <- relation.isExtended, 
+			typeRelation <- relation.typeRelation,
+			typeElement <- relation.typeElement,
+			guard <- if relation.guardCondition.oclIsUndefined() then OclUndefined else
+				thisModule.getGuard(relation) endif,
+			trace <- trace_rule
+		),
+		trace_rule: Hybrid!TraceRule(
+			name <- relation.getRuleName(),
+			source <- if relation.haveSource() then relation.source else OclUndefined endif,
+			target <- if relation.haveTarget() then relation.target else OclUndefined endif
+		)
+}
+
+abstract rule Relations2Binding{
+	from
+		relation:MeTAGeM!Relations(relation.isIncluded())
+	to
+		binding:Hybrid!Binding(
+			name <- relation.getRuleName(),
+			typeRelation <- relation.typeRelation,
+			typeElement <- relation.typeElement, 
+			owned <- relation.refImmediateComposite(),
+			trace <- trace_binding
+		),
+		trace_binding: Hybrid!TraceBinding(
+			name <- relation.getRuleName(),
+			source <- if relation.haveSource()then relation.source else OclUndefined endif,
+			target <- relation.target,
+			parent <- thisModule.resolveTemp(relation.refImmediateComposite().refImmediateComposite(),'trace_rule')
+		)
+}
+
+-----------------------------------------------------------
+--------------------------- HELPERS -----------------------
+-----------------------------------------------------------
+
+helper def : countRules : Integer = 1;
+
+helper context MeTAGeM!Relations def: isNotIncluded() : Boolean =
+	not self.isIncluded();
+
+helper context MeTAGeM!Relations def: isIncluded() : Boolean =
+	if ((self.oclIsTypeOf(MeTAGeM!OneToOne))  or  (self.oclIsTypeOf(MeTAGeM!ManyToOne)) or (self.oclIsTypeOf(MeTAGeM!ZeroToOne))) then
+		not self.ownedElement.oclIsUndefined()
+		-- self.ownedModel.oclIsUndefined()
+	else
+		false
+	endif;
+
+helper context MeTAGeM!Relations def : getRuleName () : String = 
+	if self.name.oclIsUndefined() then
+		self.getInOutPatternName()
+	else
+		if self.name = '' then
+			self.getInOutPatternName()
+		else
+			self.name
+		endif
+	endif;
+
+helper context MeTAGeM!Relations def : getInOutPatternName () : String =
+	if ((self.oclIsTypeOf(MeTAGeM!ZeroToOne))  or  (self.oclIsTypeOf(MeTAGeM!OneToZero))) then
+		'R' + thisModule.countRules.toString()
+	else
+		if (self.oclIsTypeOf(MeTAGeM!OneToOne)) then
+			if not self.source.name.oclIsUndefined() and not self.target.name.oclIsUndefined() then
+				self.source.name + '_2_'+ self.target.name
+			else
+				'R' + thisModule.countRules.toString()
+			endif
+		else
+			if (self.oclIsTypeOf(MeTAGeM!OneToMany)) then
+				if not self.source.name.oclIsUndefined() and not self.target.asSequence()->first().name.oclIsUndefined() then
+					self.source.name + '_2_'+ self.target.asSequence()->first().name
+				else
+					'R' + thisModule.countRules.toString()
+				endif
+			else
+				if (self.oclIsTypeOf(MeTAGeM!ManyToOne)) then
+					if not self.source.asSequence()->first().name.oclIsUndefined() and not self.target.name.oclIsUndefined() then
+						self.source.asSequence()->first().name + '_2_'+ self.target.name
+					else
+						'R' + thisModule.countRules.toString()
+					endif
+				else
+					if (self.oclIsTypeOf(MeTAGeM!ManyToMany)) then
+						if not self.source.asSequence()->first().oclIsUndefined() and not self.target.asSequence()->first().oclIsUndefined() then
+							self.source.asSequence()->first().name + '_2_'+ self.target.asSequence()->first().name
+						else
+							'R' + thisModule.countRules.toString()
+						endif
+					else
+						'R' + thisModule.countRules.toString()
+			    	endif
+			    endif
+			endif	
+		endif
+	endif;
+ 
+helper context MeTAGeM!Relations def: haveSource(): Boolean =
+	if (self.oclIsTypeOf(MeTAGeM!ZeroToOne)) then
+		false
+	else
+		true
+	endif;
+	
+helper context MeTAGeM!Relations def: haveTarget(): Boolean =
+	if (self.oclIsTypeOf(MeTAGeM!OneToZero)) then
+		false
+	else
+		true
+	endif;
+
+-----------------------------------------------------------
+------------------------- LAZY RULES ----------------------
+-----------------------------------------------------------
+
+lazy rule getGuard {
+	from 
+		relation : MeTAGeM!Relations 
+	to
+		guard: Hybrid!Guard (
+			value <- relation.guardCondition
+		)
+}

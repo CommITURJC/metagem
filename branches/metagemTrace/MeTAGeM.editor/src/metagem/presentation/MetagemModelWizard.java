@@ -14,16 +14,16 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
+
 import metagem.MetagemFactory;
 import metagem.MetagemPackage;
-import metagem.provider.MeTAGeMEditPlugin;
 import metagem.SourceModelTransf;
 import metagem.TargetModelTransf;
 import metagem.impl.MetagemFactoryImpl;
 import metagem.impl.ModelRootImpl;
+import metagem.provider.MeTAGeMEditPlugin;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -38,7 +38,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -50,14 +49,14 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
@@ -674,7 +673,7 @@ public class MetagemModelWizard extends Wizard implements INewWizard {
 			addSourceModel.setText(MeTAGeMEditorPlugin.INSTANCE.getString("_UI_AddModel"));
 			addSourceModel.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
-					MetagemWizardHandleModel dialogModel=new MetagemWizardHandleModel(getShell(),sourceModels,getCreationPage(),getModelFile().getParent().getName());
+					MetagemWizardHandleModel dialogModel=new MetagemWizardHandleModel(getShell(),sourceModels,getCreationPage(),getModelFile().getProject().getName());
 					dialogModel.open();
 					setPageComplete(validatePage());
 				}
@@ -686,7 +685,7 @@ public class MetagemModelWizard extends Wizard implements INewWizard {
 				public void widgetSelected(SelectionEvent e) {
 					int index = modelSourceTable.getSelectionIndex();
 					if(index>-1){
-						MetagemWizardHandleModel dialogModel=new MetagemWizardHandleModel(getShell(),sourceModels,getCreationPage(),index, getModelFile().getParent().getName());
+						MetagemWizardHandleModel dialogModel=new MetagemWizardHandleModel(getShell(),sourceModels,getCreationPage(),index, getModelFile().getProject().getName());
 						dialogModel.open();
 					}
 					setPageComplete(validatePage());
@@ -772,7 +771,7 @@ public class MetagemModelWizard extends Wizard implements INewWizard {
 			addTargetModel.setText(MeTAGeMEditorPlugin.INSTANCE.getString("_UI_AddModel"));
 			addTargetModel.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
-					MetagemWizardHandleModel dialogModel=new MetagemWizardHandleModel(getShell(),targetModels,getCreationPage(),getModelFile().getParent().getName());
+					MetagemWizardHandleModel dialogModel=new MetagemWizardHandleModel(getShell(),targetModels,getCreationPage(),getModelFile().getProject().getName());
 					dialogModel.open();
 					setPageComplete(validatePage());
 				}
@@ -784,7 +783,7 @@ public class MetagemModelWizard extends Wizard implements INewWizard {
 				public void widgetSelected(SelectionEvent e) {
 					int index = modelTargetTable.getSelectionIndex();
 					if(index>-1){
-						MetagemWizardHandleModel dialogModel=new MetagemWizardHandleModel(getShell(),targetModels,getCreationPage(),index, getModelFile().getParent().getName());
+						MetagemWizardHandleModel dialogModel=new MetagemWizardHandleModel(getShell(),targetModels,getCreationPage(),index, getModelFile().getProject().getName());
 						dialogModel.open();
 					}
 					setPageComplete(validatePage());
