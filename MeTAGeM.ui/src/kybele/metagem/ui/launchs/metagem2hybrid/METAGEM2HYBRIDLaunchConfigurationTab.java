@@ -91,7 +91,7 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 		protected void updateLaunchConfigurationDialog() {
 
 			 IPath orLoc = getMetagemLocation();
-			   if (orLoc == null || !orLoc.toFile().exists() || !orLoc.getFileExtension().equals("amw")) {
+			   if (orLoc == null || !orLoc.toFile().exists() || !orLoc.getFileExtension().equals("metagem")) {
 			      setMessage(null);
 			      setErrorMessage("Select a valid MeTAGeM file");
 			      super.updateLaunchConfigurationDialog();

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="metagem"
+    nsURI="org.eclipse.kybele.metagem" nsPrefix="metagem">
+  <eClassifiers xsi:type="ecore:EClass" name="ModelRoot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceModels" lowerBound="1"
+        upperBound="-1" eType="#//SourceModelTransf" containment="true" eOpposite="#//SourceModelTransf/ownedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetModels" lowerBound="1"
+        upperBound="-1" eType="#//TargetModelTransf" containment="true" eOpposite="#//TargetModelTransf/ownedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relations" lowerBound="1"
+        upperBound="-1" eType="#//Relations" containment="true" eOpposite="#//Relations/ownedModel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransformationElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelTransf" abstract="true" eSuperTypes="#//TransformationElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//ModelElement" containment="true" eOpposite="#//ModelElement/ownedElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceModelTransf" eSuperTypes="#//ModelTransf">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElement" lowerBound="1"
+        eType="#//ModelRoot" eOpposite="#//ModelRoot/sourceModels"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TargetModelTransf" eSuperTypes="#//ModelTransf">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElement" lowerBound="1"
+        eType="#//ModelRoot" eOpposite="#//ModelRoot/targetModels"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelComponent" abstract="true" eSuperTypes="#//TransformationElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationElement" upperBound="-1"
+        eType="#//RelationElement" eOpposite="#//RelationElement/modelComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Relations" abstract="true" eSuperTypes="#//TransformationElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedModel" eType="#//ModelRoot"
+        eOpposite="#//ModelRoot/relations"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeRelation" eType="#//TRelation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeElement" eType="#//TElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="#//TRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//Relations"
+        eOpposite="#//Relations/isExtended"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isExtended" upperBound="-1"
+        eType="#//Relations" eOpposite="#//Relations/extends"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="guardCondition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isInvoked" upperBound="-1"
+        eType="#//SourceElement" eOpposite="#//SourceElement/invokes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OneToOne" eSuperTypes="#//Relations">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//SourceElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//TargetElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElement" eType="#//TargetElement"
+        eOpposite="#//TargetElement/oneToOne"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OneToZero" eSuperTypes="#//Relations">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//SourceElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ZeroToOne" eSuperTypes="#//Relations">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//TargetElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElement" eType="#//TargetElement"
+        eOpposite="#//TargetElement/zeroToOne"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OneToMany" eSuperTypes="#//Relations">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//SourceElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        upperBound="-1" eType="#//TargetElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ManyToOne" eSuperTypes="#//Relations">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//TargetElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        upperBound="-1" eType="#//SourceElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElement" eType="#//TargetElement"
+        eOpposite="#//TargetElement/ManyToOne"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ManyToMany" eSuperTypes="#//Relations">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        upperBound="-1" eType="#//TargetElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        upperBound="-1" eType="#//SourceElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationElement" abstract="true" eSuperTypes="#//TransformationElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modelComponent" lowerBound="1"
+        eType="#//ModelComponent" eOpposite="#//ModelComponent/relationElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceElement" eSuperTypes="#//RelationElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="invokes" eType="#//Relations"
+        eOpposite="#//Relations/isInvoked"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TargetElement" eSuperTypes="#//RelationElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zeroToOne" upperBound="-1"
+        eType="#//ZeroToOne" containment="true" eOpposite="#//ZeroToOne/ownedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="oneToOne" upperBound="-1"
+        eType="#//OneToOne" containment="true" eOpposite="#//OneToOne/ownedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ManyToOne" upperBound="-1"
+        eType="#//ManyToOne" containment="true" eOpposite="#//ManyToOne/ownedElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TRelation">
+    <eLiterals name="Copy"/>
+    <eLiterals name="Concatenation" value="1"/>
+    <eLiterals name="Other" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TElement">
+    <eLiterals name="EClassifier"/>
+    <eLiterals name="EAttribute" value="1"/>
+    <eLiterals name="EReference" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TRole">
+    <eLiterals name="IsMain"/>
+    <eLiterals name="IsSecondary" value="1"/>
+    <eLiterals name="IsAbstract" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelElement" eSuperTypes="#//ModelComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+        eType="#//ModelFeature" containment="true" eOpposite="#//ModelFeature/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//ModelElement" containment="true" eOpposite="#//ModelElement/superElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superElement" eType="#//ModelElement"
+        eOpposite="#//ModelElement/elements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElement" eType="#//ModelTransf"
+        eOpposite="#//ModelTransf/elements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
+        eType="#//ModelElement" eOpposite="#//ModelElement/isContained"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isContained" eType="#//ModelElement"
+        eOpposite="#//ModelElement/contains"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelFeature" eSuperTypes="#//ModelComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//ModelElement" eOpposite="#//ModelElement/features"/>
+  </eClassifiers>
+</ecore:EPackage>

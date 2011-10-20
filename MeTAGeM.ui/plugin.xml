@@ -71,7 +71,7 @@
                      </instanceof>
                      <test
                            property="org.eclipse.debug.ui.matchesPattern"
-                           value="*.amw">
+                           value="*.metagem">
                      </test>
                   </iterate>
                </with>
@@ -104,7 +104,7 @@
                      </instanceof>
                      <test
                            property="org.eclipse.debug.ui.matchesPattern"
-                           value="*.mm_hybrid">
+                           value="*.hybrid">
                      </test>
                   </iterate>
                </with>
@@ -137,7 +137,7 @@
                      </instanceof>
                      <test
                            property="org.eclipse.debug.ui.matchesPattern"
-                           value="*.mm_hybrid">
+                           value="*.hybrid">
                      </test>
                   </iterate>
                </with>

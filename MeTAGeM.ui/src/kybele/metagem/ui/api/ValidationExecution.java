@@ -41,9 +41,9 @@ public abstract class ValidationExecution {
 			if(sourceMM.equals(Constants.METAGEMURI))
 				return "resources/MeTAGeM.evl";
 			if(sourceMM.equals(Constants.HYBRIDURI) && targetMM.equals(Constants.ATLURI))
-				return "resources/mm_Hybrid_to_ATL.evl";
+				return "resources/Hybrid_to_ATL.evl";
 			if(sourceMM.equals(Constants.HYBRIDURI) && targetMM.equals(Constants.RubyTLURI))
-				return "resources/mm_Hybrid_to_RubyTL.evl";
+				return "resources/Hybrid_to_RubyTL.evl";
 		}
 		return "";
 	}
@@ -106,12 +106,12 @@ public abstract class ValidationExecution {
 	public static boolean isValid(String name, String modelName, String sourceMM,String targetMM, int type) throws Exception {
 		
 		//Registra el metamodelo de MeTAGeM
-		if(sourceMM.equals(Constants.METAGEMURI)){
-			Bundle b=Activator.getDefault().getBundle();
-			InputStream input= FileLocator.openStream(b,new Path("/src/kybele/metagem/ui/api/resources/mw_metagem.ecore"),false);
-			Utils.registerMetamodel(Constants.METAGEMURI,input);
-			input.close();
-		}		
+//		if(sourceMM.equals(Constants.METAGEMURI)){
+//			Bundle b=Activator.getDefault().getBundle();
+//			InputStream input= FileLocator.openStream(b,new Path("/src/kybele/metagem/ui/api/resources/MeTAGeM.ecore"),false);
+//			Utils.registerMetamodel(Constants.METAGEMURI,input);
+//			input.close();
+//		}		
 		
 		List<IModel> models = new ArrayList<IModel>();
 		models.add(createEmfModelByURI(name, modelName, sourceMM, true, true));

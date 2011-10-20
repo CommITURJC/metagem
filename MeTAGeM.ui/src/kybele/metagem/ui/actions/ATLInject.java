@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import kybele.metagem.ui.Activator;
-import kybele.metagem.ui.api.Transformations;
 import kybele.metagem.ui.api.Utils;
 import kybele.metagem.ui.utils.Constants;
 

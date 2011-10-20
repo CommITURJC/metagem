@@ -7,7 +7,6 @@ import java.io.PipedOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import kybele.metagem.ui.api.Transformations;
 import kybele.metagem.ui.api.Utils;
 
 import org.eclipse.core.resources.IFile;
