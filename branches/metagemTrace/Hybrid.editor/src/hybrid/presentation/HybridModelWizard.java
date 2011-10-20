@@ -9,11 +9,11 @@ package hybrid.presentation;
 
 import hybrid.HybridFactory;
 import hybrid.HybridPackage;
-import hybrid.provider.HybridEditPlugin;
 import hybrid.SourceModel;
 import hybrid.TargetModel;
 import hybrid.impl.HybridFactoryImpl;
 import hybrid.impl.ModuleImpl;
+import hybrid.provider.HybridEditPlugin;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,9 +22,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
+
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -38,7 +38,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -50,14 +49,14 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
@@ -683,7 +682,7 @@ public class HybridModelWizard extends Wizard implements INewWizard {
 			addSourceModel.setText(HybridEditorPlugin.INSTANCE.getString("_UI_AddModel"));
 			addSourceModel.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
-					HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),sourceModels,getCreationPage(),getModelFile().getParent().getName());
+					HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),sourceModels,getCreationPage(),getModelFile().getProject().getName());
 					dialogModel.open();
 					setPageComplete(validatePage());
 				}
@@ -695,7 +694,7 @@ public class HybridModelWizard extends Wizard implements INewWizard {
 				public void widgetSelected(SelectionEvent e) {
 					int index = modelSourceTable.getSelectionIndex();
 					if(index>-1){
-						HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),sourceModels,getCreationPage(),index, getModelFile().getParent().getName());
+						HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),sourceModels,getCreationPage(),index, getModelFile().getProject().getName());
 						dialogModel.open();
 					}
 					setPageComplete(validatePage());
@@ -787,7 +786,7 @@ public class HybridModelWizard extends Wizard implements INewWizard {
 			addTargetModel.setText(HybridEditorPlugin.INSTANCE.getString("_UI_AddModel"));
 			addTargetModel.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
-					HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),targetModels,getCreationPage(),getModelFile().getParent().getName());
+					HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),targetModels,getCreationPage(),getModelFile().getProject().getName());
 					dialogModel.open();
 					setPageComplete(validatePage());
 				}
@@ -799,7 +798,7 @@ public class HybridModelWizard extends Wizard implements INewWizard {
 				public void widgetSelected(SelectionEvent e) {
 					int index = modelTargetTable.getSelectionIndex();
 					if(index>-1){
-						HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),targetModels,getCreationPage(),index, getModelFile().getParent().getName());
+						HybridWizardHandleModel dialogModel=new HybridWizardHandleModel(getShell(),targetModels,getCreationPage(),index, getModelFile().getProject().getName());
 						dialogModel.open();
 					}
 					setPageComplete(validatePage());
@@ -872,7 +871,7 @@ public class HybridModelWizard extends Wizard implements INewWizard {
 	 * The framework calls this to create the contents of the wizard.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 		@Override
 	public void addPages() {
@@ -917,10 +916,15 @@ public class HybridModelWizard extends Wizard implements INewWizard {
 				}
 			}
 		}
-		initialObjectCreationPage = new HybridModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(HybridEditorPlugin.INSTANCE.getString("_UI_HybridModelWizard_label"));
-		initialObjectCreationPage.setDescription(HybridEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
-		addPage(initialObjectCreationPage);
+//		initialObjectCreationPage = new HybridModelWizardInitialObjectCreationPage("Whatever2");
+//		initialObjectCreationPage.setTitle(HybridEditorPlugin.INSTANCE.getString("_UI_HybridModelWizard_label"));
+//		initialObjectCreationPage.setDescription(HybridEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+//		addPage(initialObjectCreationPage);
+		
+		modelsCreationPage = new HybridModelWizardModelsCreationPage("Models",sourceModels,targetModels);
+		modelsCreationPage.setTitle(HybridEditorPlugin.INSTANCE.getString("_UI_HybridModelWizard_label"));
+		modelsCreationPage.setDescription(HybridEditorPlugin.INSTANCE.getString("_UI_HybridModelWizard_description"));
+		addPage(modelsCreationPage);
 	}
 
 	/**

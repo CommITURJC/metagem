@@ -254,8 +254,6 @@ context RuleElement{
  }
   
  context RightPattern{
- 
- 	 	
 	--RightPattern must have a reference, a rule, a operation, a SourceElementRule or a concreteValue
 	constraint hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue{
 		check: self.sourceElement->size()>0 or self.reference->size()>0 or self.rule->size()>0 or self.`operation`->size()>0 or self.concreteValue.isDefined()
