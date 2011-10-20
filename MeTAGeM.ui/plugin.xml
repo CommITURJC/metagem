@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="kybele.metagem.ui.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchConfigurationDelegate"
+            id="MeTAGeM_UI.METAGEM2HYBRIDLCT"
+            modes="run, debug"
+            name="MeTAGeM -&gt; Hybrid"
+            public="true">
+      </launchConfigurationType>
+      <launchConfigurationType
+            delegate="kybele.metagem.ui.launchs.hybrid2atl.HYBRID2ATLLaunchConfigurationDelegate"
+            id="MeTAGeM_UI.HYBRID2ATLLCT"
+            modes="run, debug"
+            name="Hybrid -&gt; ATL"
+            public="true">
+      </launchConfigurationType>
+      <launchConfigurationType
+            delegate="kybele.metagem.ui.launchs.hybrid2rubytl.HYBRID2RubyTLLaunchConfigurationDelegate"
+            id="MeTAGeM_UI.HYBRID2RubyTLLCT"
+            modes="run, debug"
+            name="Hybrid -&gt; RubyTL"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="kybele.metagem.ui.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchConfigurationTabGroup"
+            id="MeTAGeM.launchConfigurationTabGroup_Metagem2Hybrid"
+            type="MeTAGeM_UI.METAGEM2HYBRIDLCT">
+      </launchConfigurationTabGroup>
+      <launchConfigurationTabGroup
+            class="kybele.metagem.ui.launchs.hybrid2atl.HYBRID2ATLLaunchConfigurationTabGroup"
+            id="MeTAGeM.launchConfigurationTabGroup_Hybrid2ATL"
+            type="MeTAGeM_UI.HYBRID2ATLLCT">
+      </launchConfigurationTabGroup>
+      <launchConfigurationTabGroup
+            class="kybele.metagem.ui.launchs.hybrid2rubytl.HYBRID2RubyTLLaunchConfigurationTabGroup"
+            id="MeTAGeM.launchConfigurationTabGroup_Hybrid2RubyTL"
+            type="MeTAGeM_UI.HYBRID2RubyTLLCT">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="kybele.metagem.ui.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchShortcut"
+            icon="icons/metagem2hybrid.gif"
+            id="MeTAGeM_UI.shortcut4"
+            label="MeTAGeM -&gt; Hybrid"
+            modes="run, debug">
+         <configurationType
+               id="MeTAGeM_UI.METAGEM2HYBRIDLCT">
+         </configurationType>
+         <contextualLaunch>
+            <contextLabel
+                  label="MeTAGeM -&gt; Hybrid"
+                  mode="run">
+            </contextLabel>
+            <enablement>
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <instanceof
+                           value="org.eclipse.core.resources.IFile">
+                     </instanceof>
+                     <test
+                           property="org.eclipse.debug.ui.matchesPattern"
+                           value="*.amw">
+                     </test>
+                  </iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+      </shortcut>
+      <shortcut
+            class="kybele.metagem.ui.launchs.hybrid2atl.HYBRID2ATLLaunchShortcut"
+            icon="icons/hybrid2ATL.gif"
+            id="MeTAGeM_UI.shortcut5"
+            label="Hybrid -&gt; ATL"
+            modes="run, debug">
+         <configurationType
+               id="MeTAGeM_UI.HYBRID2ATLLCT">
+         </configurationType>
+         <contextualLaunch>
+            <contextLabel
+                  label="HYBRID -&gt; ATL"
+                  mode="run">
+            </contextLabel>
+            <enablement>
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <instanceof
+                           value="org.eclipse.core.resources.IFile">
+                     </instanceof>
+                     <test
+                           property="org.eclipse.debug.ui.matchesPattern"
+                           value="*.mm_hybrid">
+                     </test>
+                  </iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+      </shortcut>
+      <shortcut
+            class="kybele.metagem.ui.launchs.hybrid2rubytl.HYBRID2RubyTLLaunchShortcut"
+            icon="icons/hybrid2rubyTL.gif"
+            id="MeTAGeM.ui.shortcut1"
+            label="Hybrid -&gt; RubyTL"
+            modes="run,debug">
+         <configurationType
+               id="MeTAGeM_UI.HYBRID2RubyTLLCT">
+         </configurationType>
+         <contextualLaunch>
+            <contextLabel
+                  label="HYBRID -&gt; RubyTL"
+                  mode="run">
+            </contextLabel>
+            <enablement>
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <instanceof
+                           value="org.eclipse.core.resources.IFile">
+                     </instanceof>
+                     <test
+                           property="org.eclipse.debug.ui.matchesPattern"
+                           value="*.mm_hybrid">
+                     </test>
+                  </iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+      </shortcut>
+   </extension>
+<extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="ExtractRubyTL"
+            nameFilter="*.rubytl"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="kybele.metagem.ui.actions.RubyTLExtract"
+               enablesFor="1"
+               id="ExtractRubyTL"
+               label="Extract RubyTL model to RubyTL file (MeTAGeM)">
+         </action>
+      </objectContribution>
+      <objectContribution
+            id="InjectRubyTL"
+            nameFilter="*.rb"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="kybele.metagem.ui.actions.RubyTLInject"
+               enablesFor="1"
+               id="InjectRubyTL"
+               label="Inject RubyTL file to RubyTL model (MeTAGeM)">
+         </action>
+      </objectContribution>
+      <objectContribution
+            id="ExtractATL"
+            nameFilter="*atl.ecore"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="kybele.metagem.ui.actions.ATLExtract"
+               enablesFor="1"
+               id="ExtractATL"
+               label="Extract ATL model to ATL file (MeTAGeM)">
+         </action>
+      </objectContribution>
+      <objectContribution
+            adaptable="false"
+            id="InjectATL"
+            nameFilter="*.atl"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="kybele.metagem.ui.actions.ATLInject"
+               enablesFor="1"
+               id="InjectATL"
+               label="Inject ATL file to ATL model (MeTAGeM)">
+         </action>
+      </objectContribution>
+   </extension>
+</plugin>
