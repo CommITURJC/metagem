@@ -30,7 +30,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -703,7 +702,7 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 			addSourceModel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_AddModel"));
 			addSourceModel.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
-					TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),sourceModels,getCreationPage(),getModelFile().getParent().getName());
+					TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),sourceModels,getCreationPage(),getModelFile().getProject().getName());
 					dialogModel.open();
 					setPageComplete(validatePage());
 				}
@@ -715,7 +714,7 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 				public void widgetSelected(SelectionEvent e) {
 					int index = modelSourceTable.getSelectionIndex();
 					if(index>-1){
-						TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),sourceModels,getCreationPage(),index, getModelFile().getParent().getName());
+						TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),sourceModels,getCreationPage(),index, getModelFile().getProject().getName());
 						dialogModel.open();
 					}
 					setPageComplete(validatePage());
@@ -806,7 +805,7 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 			addTargetModel.setText(TraceabilityEditorPlugin.INSTANCE.getString("_UI_AddModel"));
 			addTargetModel.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
-					TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),targetModels,getCreationPage(),getModelFile().getParent().getName());
+					TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),targetModels,getCreationPage(),getModelFile().getProject().getName());
 					dialogModel.open();
 					setPageComplete(validatePage());
 				}
@@ -818,7 +817,7 @@ public class TraceabilityModelWizard extends Wizard implements INewWizard {
 				public void widgetSelected(SelectionEvent e) {
 					int index = modelTargetTable.getSelectionIndex();
 					if(index>-1){
-						TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),targetModels,getCreationPage(),index, getModelFile().getParent().getName());
+						TraceabilityWizardHandleModel dialogModel=new TraceabilityWizardHandleModel(getShell(),targetModels,getCreationPage(),index, getModelFile().getProject().getName());
 						dialogModel.open();
 					}
 					setPageComplete(validatePage());
