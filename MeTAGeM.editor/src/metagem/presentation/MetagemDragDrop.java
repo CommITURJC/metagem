@@ -251,6 +251,13 @@ public class MetagemDragDrop extends EditingDomainViewerDropAdapter {
 								sourceElement.getRef().equals(id)){
 								element = sourceElement;
 							}
+					}else if(next instanceof ModelFeature){
+						ModelFeature sourceElement = (ModelFeature) next;
+						if(id!=null&&
+								sourceElement.getRef()!=null&&
+								sourceElement.getRef().equals(id)){
+								element = sourceElement;
+							}
 					}
 				}
 				
@@ -307,6 +314,13 @@ public class MetagemDragDrop extends EditingDomainViewerDropAdapter {
 					EObject next = elements.next();
 					if(next instanceof ModelElement){
 						ModelElement targetElement = (ModelElement) next;
+						if(id!=null&&
+								targetElement.getRef()!=null&&
+								targetElement.getRef().equals(id)){
+								element = targetElement;
+							}
+					}else if(next instanceof ModelFeature){
+						ModelFeature targetElement = (ModelFeature) next;
 						if(id!=null&&
 								targetElement.getRef()!=null&&
 								targetElement.getRef().equals(id)){
