@@ -96,32 +96,32 @@ public class LoadElements implements IObjectActionDelegate{
 		ArrayList<SourceModelImpl> sources = Actions.getSourceModels(rs_model);
 		ArrayList<TargetModelImpl> targets = Actions.getTargetModels(rs_model);
 		monitor.worked(10);
-		ArrayList<String> paths_source=new ArrayList<String>();
+		//ArrayList<String> paths_source=new ArrayList<String>();
 		for(int i=0;i<sources.size();i++){
 			if (sources.get(i).getMetamodel() != null) { //If metamodel attribute is not null
 				if (!sources.get(i).getMetamodel().equals("")) { //If metamodel is not empty 
-					Actions.registerMetamodel(sources.get(i).getMetamodel()); 
+					Actions.registerMetamodel(sources.get(i).getMetamodel(),sources.get(i).getName()); 
 				}
 			}
-			paths_source.add(sources.get(i).getPath());
+			//paths_source.add(sources.get(i).getPath());
 		}
-		ResourceSet sourceRs = Actions.createResourceSet(paths_source);
+		ResourceSet sourceRs = Actions.createResourceSet_Sources(sources);
 		final ArrayList<ModelImpl> sources_= new ArrayList<ModelImpl>();
 		for(int c1=0;c1<sources.size();c1++){
 			ModelImpl model = (ModelImpl) sources.get(c1);
 			sources_.add(model);
 		}
 		
-		ArrayList<String> paths_targets=new ArrayList<String>();
+		//ArrayList<String> paths_targets=new ArrayList<String>();
 		for(int i=0;i<targets.size();i++){
 			if (targets.get(i).getMetamodel() != null) { //If metamodel attribute is not null
 				if (!targets.get(i).getMetamodel().equals("")) { //If metamodel is not empty 
-					Actions.registerMetamodel(targets.get(i).getMetamodel()); 
+					Actions.registerMetamodel(targets.get(i).getMetamodel(), targets.get(i).getName()); 
 				}
 			}
-			paths_targets.add(targets.get(i).getPath());
+			//paths_targets.add(targets.get(i).getPath());
 		}
-		ResourceSet targetRs = Actions.createResourceSet(paths_targets);
+		ResourceSet targetRs = Actions.createResourceSet_Targets(targets);
 		final ArrayList<ModelImpl> targets_= new ArrayList<ModelImpl>();
 		for(int c1=0;c1<targets.size();c1++){
 			ModelImpl model = (ModelImpl) targets.get(c1);

@@ -118,7 +118,6 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 
 import Traceability.TraceElement;
 import Traceability.TraceLink;
-import Traceability.impl.ModelImpl;
 import Traceability.impl.SourceElementImpl;
 import Traceability.impl.SourceModelImpl;
 import Traceability.impl.TargetElementImpl;
@@ -959,26 +958,23 @@ public class TraceabilityEditorTrace
 			sourceViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 			Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };	
 			sourceViewer.addDragSupport(DND.DROP_LINK , transfers, new ViewerDragAdapter(sourceViewer));
-			ArrayList<String> paths_source=new ArrayList<String>();
+			//ArrayList<String> paths_source=new ArrayList<String>();
 			for(int i=0;i<sources.size();i++){
 				if (sources.get(i).getMetamodel() != null) { //If metamodel attribute is not null
 					if (!sources.get(i).getMetamodel().equals("")) { //If metamodel is not empty 
-						Actions.registerMetamodel(sources.get(i).getMetamodel()); 
+						String metamodelRegistered=Actions.registerMetamodel(sources.get(i).getMetamodel(), sources.get(i).getName());
+						sources.get(i).setMetamodel(metamodelRegistered);
 					}
 				}
-				paths_source.add(sources.get(i).getPath());
+				//paths_source.add(sources.get(i).getPath());
 			}
-			sourceRs= Actions.createResourceSet(paths_source);
+			
+			sourceRs = Actions.createResourceSet_Sources(sources);
+			Actions.setSourceModels(getEditingDomain().getResourceSet(),sources);
+			
 			sourceViewer.setInput(sourceRs);
 			sourceViewer.setSelection(new StructuredSelection(sourceRs.getResources().get(0)), true);
 			
-			final ArrayList<ModelImpl> sources_= new ArrayList<ModelImpl>();
-			for(int c1=0;c1<sources.size();c1++){
-				ModelImpl model = (ModelImpl) sources.get(c1);
-				sources_.add(model);
-			}
-			
-			//Actions.createsElementsModel(sourceRs, sources_);
 			
 			viewerPane.setTitle("Source Models");
 			sourceViewer.addSelectionChangedListener
@@ -1063,54 +1059,53 @@ public class TraceabilityEditorTrace
 			targetViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 			targetViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 			targetViewer.addDragSupport(DND.DROP_LINK , transfers, new ViewerDragAdapter(targetViewer));
-			ArrayList<String> paths_target=new ArrayList<String>();
+			//ArrayList<String> paths_target=new ArrayList<String>();
 			for(int i=0;i<targets.size();i++){
 				if (targets.get(i).getMetamodel() != null) { //If metamodel attribute is not null
 					if (!targets.get(i).getMetamodel().equals("")) { //If metamodel is not empty 
-						Actions.registerMetamodel(targets.get(i).getMetamodel());
+						String metamodelRegistered = Actions.registerMetamodel(targets.get(i).getMetamodel(), targets.get(i).getName());
+						targets.get(i).setMetamodel(metamodelRegistered);
 					}
 				}
-				paths_target.add(targets.get(i).getPath());
+				//paths_target.add(targets.get(i).getPath());
 			}
-				targetRs = Actions.createResourceSet(paths_target);
-				targetViewer.setInput(targetRs);
-				targetViewer.setSelection(new StructuredSelection(targetRs.getResources().get(0)), true);
-				
-				final ArrayList<ModelImpl> targets_= new ArrayList<ModelImpl>();
-				for(int c1=0;c1<targets.size();c1++){
-					ModelImpl model = (ModelImpl) targets.get(c1);
-					targets_.add(model);
-				}
-				
-				//Actions.createsElementsModel(targetRs, targets_);
-				
-				viewerPane3.setTitle("Target Models");
-				
-				targetViewer.addSelectionChangedListener
-				(new ISelectionChangedListener() {
-					 // This ensures that we handle selections correctly.
-					 //
-					 public void selectionChanged(SelectionChangedEvent event) {
-						 handleContentTargetSelection(event.getSelection());
-					 }
-				 });
-				
-				new AdapterFactoryTreeEditor(targetViewer.getTree(), adapterFactory);
-				
-				//To show the contextual menu (disabled for input and output models)
-				//createContextMenuFor(outputViewer.get(i));
-				
-			TraceabilityDragDrop dragdrop=new TraceabilityDragDrop(getEditingDomain(),traceabilityViewer, this.sourceRs, this.targetRs);
-			traceabilityViewer.addDropSupport(DND.DROP_COPY | DND.DROP_LINK, transfers, dragdrop);
+					
+			targetRs = Actions.createResourceSet_Targets(targets);
+			Actions.setTargetModels(getEditingDomain().getResourceSet(),targets);
 			
+			targetViewer.setInput(targetRs);
+			targetViewer.setSelection(new StructuredSelection(targetRs.getResources().get(0)), true);
+			
+			viewerPane3.setTitle("Target Models");
+
+			targetViewer
+					.addSelectionChangedListener(new ISelectionChangedListener() {
+						// This ensures that we handle selections correctly.
+						//
+						public void selectionChanged(SelectionChangedEvent event) {
+							handleContentTargetSelection(event.getSelection());
+						}
+					});
+
+			new AdapterFactoryTreeEditor(targetViewer.getTree(), adapterFactory);
+
+			// To show the contextual menu (disabled for input and output
+			// models)
+			// createContextMenuFor(outputViewer.get(i));
+
+			TraceabilityDragDrop dragdrop = new TraceabilityDragDrop(
+					getEditingDomain(), traceabilityViewer, this.sourceRs,
+					this.targetRs);
+			traceabilityViewer.addDropSupport(DND.DROP_COPY | DND.DROP_LINK,
+					transfers, dragdrop);
+
 			int pageIndex = addPage(topSashForm);
-			setPageText(pageIndex, getString("_UI_SelectionPage_label"));			
-			getSite().getShell().getDisplay().asyncExec
-				(new Runnable() {
-					 public void run() {
-						 setActivePage(0);
-					 }
-				 });
+			setPageText(pageIndex, getString("_UI_SelectionPage_label"));
+			getSite().getShell().getDisplay().asyncExec(new Runnable() {
+				public void run() {
+					setActivePage(0);
+				}
+			});
 		}
 		// Ensures that this editor will only display the page's tab
 		// area if there are more than one page
