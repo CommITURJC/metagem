@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rubytl:Transformation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rubytl="http://org.eclipse.kybele.metagem.rubytl" xmi:id="_LVelgMGZEd-Pz9A9ooRRAg" name="class2table">
+  <sourceMetamodels xmi:id="_LVelgcGZEd-Pz9A9ooRRAg" name="ClassM" uri="http://classM.es"/>
+  <targetMetamodels xmi:id="_LVelgsGZEd-Pz9A9ooRRAg" name="TableM" uri="http://tableM.es"/>
+  <rules xsi:type="rubytl:TopRule" xmi:id="_LVelg8GZEd-Pz9A9ooRRAg" name="r1">
+    <from xmi:id="_LVelhMGZEd-Pz9A9ooRRAg" name="classA_name" classname="classA" metamodel="_LVelgcGZEd-Pz9A9ooRRAg"/>
+    <to xmi:id="_LVelhcGZEd-Pz9A9ooRRAg" name="classB_Name" classname="classB" metamodel="_LVelgsGZEd-Pz9A9ooRRAg"/>
+    <mapping>
+      <bindings>
+        <target xsi:type="rubytl:ExpGet" property="name">
+          <source variable="_LVelhcGZEd-Pz9A9ooRRAg"/>
+        </target>
+        <source xsi:type="rubytl:ExpGet" property="name">
+          <source variable="_LVelhMGZEd-Pz9A9ooRRAg"/>
+        </source>
+      </bindings>
+    </mapping>
+    <filter xmi:id="_LVelh8GZEd-Pz9A9ooRRAg" expression="hola"/>
+  </rules>
+  <rules xsi:type="rubytl:NormalRule" name="r2">
+    <from name="in" classname="table" metamodel="_LVelgcGZEd-Pz9A9ooRRAg"/>
+    <to name="out" classname="table" metamodel="_LVelgsGZEd-Pz9A9ooRRAg"/>
+    <mapping>
+      <bindings>
+        <target xsi:type="rubytl:ExpVariable" variable="//@rules.1/@to.0"/>
+        <source xsi:type="rubytl:ExpGet" property="reference">
+          <source variable="//@rules.1/@from"/>
+        </source>
+      </bindings>
+    </mapping>
+  </rules>
+  <rules xsi:type="rubytl:TopRule" name="rDecorator">
+    <from name="d" classname="datatype" metamodel="_LVelgcGZEd-Pz9A9ooRRAg"/>
+    <to name="ele" classname="element" metamodel="_LVelgsGZEd-Pz9A9ooRRAg"/>
+    <mapping>
+      <bindings>
+        <target xsi:type="rubytl:ExpVariable" variable="//@rules.2/@to.0"/>
+        <source xsi:type="rubytl:ExpGet" property="Calldecorator"/>
+      </bindings>
+    </mapping>
+  </rules>
+</rubytl:Transformation>
