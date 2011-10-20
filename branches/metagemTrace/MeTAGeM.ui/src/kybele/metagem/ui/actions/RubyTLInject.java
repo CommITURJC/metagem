@@ -1,23 +1,15 @@
 package kybele.metagem.ui.actions;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import java.net.URL;
-import java.net.URLClassLoader;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JOptionPane;
 
-import kybele.metagem.ui.Activator;
 import kybele.metagem.ui.api.Utils;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtensionPoint;
-import org.eclipse.core.runtime.IExtensionRegistry;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -34,7 +26,6 @@ import org.eclipse.m2m.atl.dsls.core.EMFTCSInjector;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
-import org.osgi.framework.Bundle;
 
 
 public class RubyTLInject  implements IObjectActionDelegate {

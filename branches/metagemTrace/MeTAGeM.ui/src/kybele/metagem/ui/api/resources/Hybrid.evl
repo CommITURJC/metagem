@@ -1,20 +1,20 @@
--- @name 			Hybrid (MeTAGeM)
--- @version		2.0
+-- @name 		Hybrid (MeTAGeM)
+-- @version		2.1
 -- @domains		meta-transformation, metamodel, model
--- @authors		Verónica Bollati, Juan M. Vara, David Granada, Álvaro Jiménez  (Universidad Rey Juan Carlos)
--- @date       		29-11-2010
+-- @authors		Álvaro Jiménez  (Universidad Rey Juan Carlos)
+-- @date       	30-08-2011
 -- @description	Constraints applied to Hybrid metamodel.
 
 context Module{
 
 	-- Module name cannot be empty
 	constraint notEmptyModuleName {
-		check : self.name_module.isDefined()
+		check : self.name.isDefined()
 		message : getMessageNotEmptyName(self.type().name.asString())
 		fix {
      		title : getTitleNotEmptyName("Module")
      		do {
-    			self.name_module := getInputNotEmptyName(self.type().name.asString()); 
+    			self.name := getInputNotEmptyName(self.type().name.asString()); 
      		}
     	}
     }
@@ -23,7 +23,7 @@ context Module{
 	-- following letters, numbers, dashes and underscores 
 	constraint validModuleName {
 		guard : self.satisfies('notEmptyModuleName')
-		check : self.name_module.isValidName()
+		check : self.name.isValidName()
 		message : getMessageValidName(self.type().name.asString())
 		fix {
      		title : getTitleValidName("Module", self.name_module)
@@ -33,15 +33,15 @@ context Module{
     	}
     }
     
-      --Module should contain one or more input meta-models
-    constraint minimumInMetaModel{
-    	check: self.inMM->size()>0
-    	message: 'The feature \'inMM\' of \''+self.type().name.asString() +'\' with 0 values must have at least 1 value'
+      --Module should contain one or more source models
+    constraint minimumSourceModel{
+    	check: self.sourceModels->size()>0
+    	message: 'The feature \'sourceModels\' of \''+self.type().name.asString() +'\' with 0 values must have at least 1 value'
     }
     
-     --Module should contain one or more output meta-models
-    constraint minimumOutMetaModel{
-    	check: self.outMM->size()>0
+     --Module should contain one or more target models
+    constraint minimumTargetModel{
+    	check: self.targetModels->size()>0
     	message:  'The feature \'outMM\' of \''+self.type().name.asString() +'\' with 0 values must have at least 1 value'
     }
     
@@ -53,94 +53,72 @@ context Module{
     
 }
 
-context InMetaModel{
+context Model{
 
-	-- InMetaModel name cannot be empty
-	constraint notEmptyInMMName{
-	check : self.name_mm.isDefined()
+	-- Model name cannot be empty
+	constraint notEmptyModelName{
+	check : self.name.isDefined()
 		message : getMessageNotEmptyName(self.type().name.asString())
 		fix {
-     		title : getTitleNotEmptyName("InMetaModel")
+     		title : getTitleNotEmptyName("Model")
      		do {
-    			self.name_mm := getInputNotEmptyName(self.type().name.asString()); 
+    			self.name := getInputNotEmptyName(self.type().name.asString()); 
      		}
     	}
 	}
 
-	-- InMetaModel name cannot be empty and should start with a letter
+	-- Model name cannot be empty and should start with a letter
 	-- following letters, numbers, dashes and underscores 
-	constraint validInMMName {
-		guard : self.satisfies('notEmptyInMMName')
-		check : self.name_mm.isValidName()
+	constraint validModelName {
+		guard : self.satisfies('notEmptyModelName')
+		check : self.name.isValidName()
 		message : getMessageValidName(self.type().name.asString())
     }
 	
-	 -- InMetaModel type cannot be empty
-    constraint notEmptyInMMType{
+	 -- Model type cannot be empty
+    constraint notEmptyModelType{
 	    check : self.type_mm.isDefined()
 		message : getMessageNotEmptyType(self.type().name.asString())
 		fix {
-	     	title : getTitleNotEmptyType("InMetaModel")
+	     	title : getTitleNotEmptyType("Model")
 	     	do {
-	    		self.name_type := getInputNotEmptyType(self.type().name.asString()); 
-	     }
-    	}
-    }
-}
-
-context OutMetaModel{
-
-	-- OutMetaModel name cannot be empty
-	constraint notEmptyOutMMName{
-	check : self.name_mm.isDefined()
-		message : getMessageNotEmptyName(self.type().name.asString())
-		fix {
-     		title : getTitleNotEmptyName("OutMetaModel")
-     		do {
-    			self.name_mm := getInputNotEmptyName(self.type().name.asString()); 
-     		}
-    	}
-	}
-
-	-- OutMetaModel name cannot be empty and should start with a letter
-	-- following letters, numbers, dashes and underscores 
-	constraint validOutMMName {
-		guard : self.satisfies('notEmptyOutMMName')
-		check : self.name_mm.isValidName()
-		message : getMessageValidName(self.type().name.asString())
-		fix {
-     		title : getTitleValidName("OutMetaModel", self.name_mm)
-     		do {
-    			self.name_mm := getInputValidName(self.type().name.asString(), self.name_mm); 
-     		}
-    	}
-    }
-    
-     -- OutMetaModel type cannot be empty
-    constraint notEmptyOutMMType{
-	    check : self.type_mm.isDefined()
-		message : getMessageNotEmptyType(self.type().name.asString())
-		fix {
-	     	title : getTitleNotEmptyType("OutMetaModel")
-	     	do {
-	    		self.name_type := getInputNotEmptyType(self.type().name.asString()); 
+	    		self.type_mm := getInputNotEmptyType(self.type().name.asString()); 
 	     }
     	}
     }
     
+    -- Model path cannot be empty
+    constraint notEmptyModelPath{
+    	check: self.path.isDefined()
+    	message: getMessageNotEmptyPath(self.type().name.asString())
+		fix {
+	     	title : getTitleNotEmptyPath("Model")
+	     	do {
+	    		self.path := getInputNotEmptyPath(self.type().name.asString()); 
+	     }
+    	}
+    }
+    
+    -- Model should have at least one ModelElement
+    constraint model_minimumElements{
+    	check: self.elements->size()>0
+    	message: 'The feature \'elements\' of \''+self.type().name.asString() +'\' with 0 values must have at least 1 value'
+    } 
 }
+
+
 
 
 context Rule{	
 
 		-- Rule name cannot be empty
 		constraint notEmptyRuleName{
-		check : self.name_rule.isDefined()
+		check : self.name.isDefined()
 			message : getMessageNotEmptyName(self.type().name.asString())
 			fix {
 	     		title : getTitleNotEmptyName("Rule")
 	     		do {
-	    			self.name_rule := getInputNotEmptyName(self.type().name.asString()); 
+	    			self.name := getInputNotEmptyName(self.type().name.asString()); 
 	     		}
 	    	}
 		}
@@ -157,10 +135,10 @@ context Rule{
 			message: 'The required feature \'isMain\' of \''+ self.type().name.asString() + '\' must be set' 
 		}
 		
-		-- Rule 'typeAttribute' must be set
-		constraint rule_typeAttribute{
-			check: self.typeAttribute.isDefined()
-			message: 'The required feature \'typeAttribute\' of \''+ self.type().name.asString() + '\' must be set' 
+		-- Rule 'typeRelation' must be set
+		constraint rule_typeRelation{
+			check: self.typeRelation.isDefined()
+			message: 'The required feature \'typeRelation\' of \''+ self.type().name.asString() + '\' must be set' 
 		}
 		
 		-- Rule 'typeElement' must be set
@@ -180,12 +158,12 @@ context Operation{
 
 	-- Operation name cannot be empty
 	constraint notEmptyOperationName{
-		check : self.name_operation.isDefined()
+		check : self.name.isDefined()
 			message : getMessageNotEmptyName(self.type().name.asString())
 			fix {
 	     		title : getTitleNotEmptyName("Operation")
 	     		do {
-	    			self.name_operation := getInputNotEmptyName(self.type().name.asString()); 
+	    			self.name := getInputNotEmptyName(self.type().name.asString()); 
 	     		}
 	    	}
 		}
@@ -224,64 +202,51 @@ context Return {
  	
  }
  
- context Element{
  
- 	-- Element name cannot be empty
+context RuleElement{
+ 
+	-- RuleElement name cannot be empty
 		constraint notEmptyElementName{
-		check : self.name_element.isDefined()
+		check : self.name.isDefined()
 			message : getMessageNotEmptyName(self.type().name.asString())
 			fix {
-	     		title : getTitleNotEmptyName("Element")
+	     		title : getTitleNotEmptyName("RuleElement")
 	     		do {
-	    			self.name_element := getInputNotEmptyName(self.type().name.asString()); 
+	    			self.name := getInputNotEmptyName(self.type().name.asString()); 
 	     		}
 	    	}
 		}
- 
- } 
- 
- context SourceElementRule{
- 
- 	--'metamodel' must be set
- 	constraint source_mm{
- 		check: self.metamodel.isDefined()
- 		message: 'The required feature \'metamodel\' of \''+ self.type().name.asString() + '\' must be set' 
+	
+ 	--'component' must be set
+ 	constraint component{
+ 		check: self.component.isDefined()
+ 		message: 'The required feature \'component\' of \''+ self.type().name.asString() + '\' must be set' 
  	}
  
  }
  
-  context TargetElementRule{
+ context Binding{
  
- 	--'metamodel' must be set
- 	constraint target_mm{
- 		check: self.metamodel.isDefined()
- 		message: 'The required feature \'metamodel\' of \''+ self.type().name.asString() + '\' must be set' 
- 	}
- 
- }
- 
- context ElementIncluded{
- 
-	-- ElementIncluded 'typeAttribute' must be set
-		constraint elementIncluded_typeAttribute{
-			check: self.typeAttribute.isDefined()
-			message: 'The required feature \'typeAttribute\' of \''+ self.type().name.asString() + '\' must be set' 
+	-- Binding 'typeRelation' must be set
+		constraint binding_typeRelation{
+			check: self.typeRelation.isDefined()
+			message: 'The required feature \'typeRelation\' of \''+ self.type().name.asString() + '\' must be set' 
 		}
 		
 		-- ElementIncluded 'typeElement' must be set
-		constraint elementIncluded_typeElement{
+		constraint binding_typeElement{
 			check: self.typeElement.isDefined()
 			message: 'The required feature \'typeElement\' of \''+ self.type().name.asString() + '\' must be set' 
 		} 
  
  	--'right' must be set
- 	constraint elementIncluded_right{
+ 	constraint binding_right{
  		check: self.right.isDefined()
  		message: 'The required feature \'right\' of \''+ self.type().name.asString() + '\' must be set' 
  	}
  	
  	--'left' must be set
- 	constraint elementIncluded_left{
+ 	constraint binding_left{
  		check: self.left.isDefined()
  		message: 'The required feature \'left\' of \''+ self.type().name.asString() + '\' must be set' 
  	}
@@ -290,18 +255,7 @@ context Return {
   
  context RightPattern{
  
- 	-- RightPattern name cannot be empty
-	constraint notEmptyElementName{
-		check : self.name_pattern.isDefined()
-			message : getMessageNotEmptyName(self.type().name.asString())
-			fix {
-		     	title : getTitleNotEmptyName("RightPattern")
-		     	do {
-		    		self.name_pattern := getInputNotEmptyName(self.type().name.asString()); 
-		     	}
-		    }
-		}
- 	
+ 	 	
 	--RightPattern must have a reference, a rule, a operation, a SourceElementRule or a concreteValue
 	constraint hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue{
 		check: self.sourceElement->size()>0 or self.reference->size()>0 or self.rule->size()>0 or self.`operation`->size()>0 or self.concreteValue.isDefined()
@@ -346,19 +300,7 @@ context Return {
  }	
  
  context LeftPattern{
- 
-	 -- LeftPattern name cannot be empty
-	constraint notEmptyElementName{
-		check : self.name_pattern.isDefined()
-			message : getMessageNotEmptyName(self.type().name.asString())
-			fix {
-		     	title : getTitleNotEmptyName("LeftPattern")
-		     	do {
-		    		self.name_pattern := getInputNotEmptyName(self.type().name.asString()); 
-		     	}
-		    }
-		}
- 	
+  	
  	--'targetElement' must be set
  	constraint leftPattern_targetElement{
  		check: self.targetElement.isDefined()
@@ -396,12 +338,28 @@ operation getInputNotEmptyType(objectClass : String) {
 	return UserInput.prompt('Type of \'' + objectClass+'\'');
 }
 
+operation getMessageNotEmptyPath(objectClass : String) {
+	return 'The path of \'' + objectClass + '\' should be filled';
+}
+
+operation getInputNotEmptyPath(objectClass : String) {
+	return UserInput.prompt('Path of \'' + objectClass+'\'');
+}
+
 operation getInputValidType(objectClass : String, objectName : String) {
 	return UserInput.prompt('Type of \'' + objectClass+'\'', objectName);
 }
 
 operation getTitleNotEmptyName(objectClass : String) {
 	return 'Fill the name of ' + objectClass;
+}
+
+operation getTitleNotEmptyType(objectClass : String) {
+	return 'Fill the type of ' + objectClass;
+}
+
+operation getTitleNotEmptyPath(objectClass : String) {
+	return 'Fill the path of ' + objectClass;
 }
 
 -- A valid name should start with a letter and only contain

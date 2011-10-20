@@ -67,10 +67,10 @@ public class Transformations {
 		ILauncher launcher = new EMFVMLauncher();
 		Map<String, Object> launcherOptions = getOptions(_METAGEM2HYBRID);
 		launcher.initialize(launcherOptions);
-		launcher.addInModel(((IModel)models.get("IN")), "IN", "AMW");
+		launcher.addInModel(((IModel)models.get("IN")), "IN", "MeTAGeM");
 		launcher.addInModel(((IModel)models.get("left")), "left", "MOF");
 		launcher.addInModel(((IModel)models.get("right")), "right", "MOF");
-		launcher.addOutModel(((IModel)models.get("OUT")), "OUT", "MM_Hybrid");
+		launcher.addOutModel(((IModel)models.get("OUT")), "OUT", "Hybrid");
 		launcher.launch("run", nullProgressMonitor, launcherOptions, (Object[]) getModulesList(_METAGEM2HYBRID));
 	}
 
@@ -78,10 +78,10 @@ public class Transformations {
 		Map<String, Object> models = new HashMap<String, Object>();
 		ModelFactory factory = new EMFModelFactory();
 		IInjector injector = new EMFInjector();
-	 	IReferenceModel mm_hybridMetamodel = factory.newReferenceModel();
-		injector.inject(mm_hybridMetamodel, Utils.getFileURL("resources/MM_Hybrid.ecore").toString());
+	 	IReferenceModel hybridMetamodel = factory.newReferenceModel();
+		injector.inject(hybridMetamodel, Utils.getFileURL("resources/Hybrid.ecore").toString());
 		IReferenceModel metagemMetamodel = factory.newReferenceModel();
-		injector.inject(metagemMetamodel, Utils.getFileURL("resources/mw_metagem.ecore").toString());
+		injector.inject(metagemMetamodel, Utils.getFileURL("resources/MeTAGeM.ecore").toString());
 		IReferenceModel mofMetamodel = factory.getMetametamodel();
 		IModel metagemInputModel = factory.newModel(metagemMetamodel);
 		injector.inject(metagemInputModel, inFilePath);
@@ -95,7 +95,7 @@ public class Transformations {
 		injector.inject(rightInputModel, rightFilePath);
 		models.put("right", rightInputModel);
 		
-		IModel hybridOutputModel = factory.newModel(mm_hybridMetamodel);
+		IModel hybridOutputModel = factory.newModel(hybridMetamodel);
 		models.put("OUT", hybridOutputModel);
 		return models;
 	}
@@ -123,7 +123,7 @@ public class Transformations {
 		ILauncher launcher = new EMFVMLauncher();
 		Map<String, Object> launcherOptions = getOptions(_HYBRID2ATL);
 		launcher.initialize(launcherOptions);
-		launcher.addInModel(((IModel)models.get("IN")), "IN", "MM_Hybrid");
+		launcher.addInModel(((IModel)models.get("IN")), "IN", "Hybrid");
 		launcher.addOutModel(((IModel)models.get("OUT")), "OUT", "ATL");
 		launcher.launch("run", nullProgressMonitor, launcherOptions, (Object[]) getModulesList(_HYBRID2ATL));
 	}
@@ -132,13 +132,13 @@ public class Transformations {
 		Map<String, Object> models = new HashMap<String, Object>();
 		ModelFactory factory = new EMFModelFactory();
 		IInjector injector = new EMFInjector();
-	 	IReferenceModel mm_hybridMetamodel = factory.newReferenceModel();
-		injector.inject(mm_hybridMetamodel, HYBRID2ATL_properties.getProperty("Hybrid2ATL.metamodels.MM_Hybrid"));
+	 	IReferenceModel hybridMetamodel = factory.newReferenceModel();
+		injector.inject(hybridMetamodel, HYBRID2ATL_properties.getProperty("Hybrid2ATL.metamodels.Hybrid"));
 		IReferenceModel ATLMetamodel = factory.newReferenceModel();
 		injector.inject(ATLMetamodel, Utils.getFileURL("resources/ATL.ecore").toString());
 
 		
-		IModel hybridInputModel = factory.newModel(mm_hybridMetamodel);
+		IModel hybridInputModel = factory.newModel(hybridMetamodel);
 		injector.inject(hybridInputModel, inFilePath);
 		models.put("IN", hybridInputModel);
 		
@@ -163,7 +163,7 @@ public class Transformations {
 		ILauncher launcher = new EMFVMLauncher();
 		Map<String, Object> launcherOptions = getOptions(_HYBRID2RUBYTL);
 		launcher.initialize(launcherOptions);
-		launcher.addInModel(((IModel)models.get("IN")), "IN", "MM_Hybrid");
+		launcher.addInModel(((IModel)models.get("IN")), "IN", "Hybrid");
 		launcher.addOutModel(((IModel)models.get("OUT")), "OUT", "RubyTL");
 		launcher.launch("run", nullProgressMonitor, launcherOptions, (Object[]) getModulesList(_HYBRID2RUBYTL));
 	}
@@ -172,13 +172,13 @@ public class Transformations {
 		Map<String, Object> models = new HashMap<String, Object>();
 		ModelFactory factory = new EMFModelFactory();
 		IInjector injector = new EMFInjector();
-	 	IReferenceModel mm_hybridMetamodel = factory.newReferenceModel();
-		injector.inject(mm_hybridMetamodel, HYBRID2RUBYTL_properties.getProperty("Hybrid2RubyTL.metamodels.MM_Hybrid"));
+	 	IReferenceModel hybridMetamodel = factory.newReferenceModel();
+		injector.inject(hybridMetamodel, HYBRID2RUBYTL_properties.getProperty("Hybrid2RubyTL.metamodels.Hybrid"));
 		IReferenceModel RubyTLMetamodel = factory.newReferenceModel();
 		injector.inject(RubyTLMetamodel, HYBRID2RUBYTL_properties.getProperty("Hybrid2RubyTL.metamodels.RubyTL"));
 
 		
-		IModel hybridInputModel = factory.newModel(mm_hybridMetamodel);
+		IModel hybridInputModel = factory.newModel(hybridMetamodel);
 		injector.inject(hybridInputModel, inFilePath);
 		models.put("IN", hybridInputModel);
 		

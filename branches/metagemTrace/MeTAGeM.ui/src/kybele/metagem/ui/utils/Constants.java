@@ -16,8 +16,8 @@ public class Constants {
 //	public static String XMLSCHEMAURI = "http:///schemaXML.ecore";
 //	public static String XMLSCHEMAEcore = "schemaXML.ecore";
 	
-	public static String METAGEMURI = "mmw_metagem";
-	public static String HYBRIDURI = "http:///MM_Hybrid.ecore";
+	public static String METAGEMURI = "org.eclipse.kybele.metagem";
+	public static String HYBRIDURI = "org.eclipse.kybele.hybrid";
 	public static String ATLURI = "http://www.eclipse.org/gmt/2005/ATL";
 	public static String RubyTLURI = "http://org.eclipse.kybele.metagem.rubytl";
 	

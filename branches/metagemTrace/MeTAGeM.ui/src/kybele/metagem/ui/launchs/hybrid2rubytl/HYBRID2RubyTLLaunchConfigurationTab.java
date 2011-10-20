@@ -87,7 +87,7 @@ public class HYBRID2RubyTLLaunchConfigurationTab extends AbstractExtendedLaunchC
 	protected void updateLaunchConfigurationDialog() {
 
 		 IPath orLoc = getHybridLocation();
-		   if (orLoc == null || !orLoc.toFile().exists() || !orLoc.getFileExtension().equals("mm_hybrid")) {
+		   if (orLoc == null || !orLoc.toFile().exists() || !orLoc.getFileExtension().equals("hybrid")) {
 		      setMessage(null);
 		      setErrorMessage("Select a valid Hybrid file");
 		      super.updateLaunchConfigurationDialog();
