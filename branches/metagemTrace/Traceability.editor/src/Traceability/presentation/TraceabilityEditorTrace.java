@@ -974,8 +974,7 @@ public class TraceabilityEditorTrace
 			
 			sourceViewer.setInput(sourceRs);
 			sourceViewer.setSelection(new StructuredSelection(sourceRs.getResources().get(0)), true);
-			
-			
+						
 			viewerPane.setTitle("Source Models");
 			sourceViewer.addSelectionChangedListener
 			(new ISelectionChangedListener() {

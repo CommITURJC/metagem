@@ -16,7 +16,6 @@ import java.util.Set;
 
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -424,8 +423,7 @@ public class Actions {
 		for(int cont=0;cont<models.size();cont++){
 			String path = models.get(cont).getPath();
 			String name = models.get(cont).getName();
-			Resource res = rs.createResource(URI.createURI("platform:/resource"
-					+ path));
+			
 			IWorkspace workspace = ResourcesPlugin.getWorkspace();
 			File f = new File(workspace.getRoot().getLocation().toString() + path);
 
@@ -435,6 +433,8 @@ public class Actions {
 				is = (FileInputStream) result[0];
 				path = (String) result[1];
 				models.get(cont).setPath(path);
+				Resource res = rs.createResource(URI.createURI("platform:/resource"
+						+ path));
 				HashMap<String, Boolean> options = new HashMap<String, Boolean>();
 				options.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
 				res.load(is, options);
