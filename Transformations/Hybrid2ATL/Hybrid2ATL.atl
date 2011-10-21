@@ -1193,7 +1193,7 @@ lazy rule getSimpleContext {
 			model <- amodelin	
 		),
 		amodelin : ATL!OclModel(
-			name <- oper."context".getModel().name
+			name <- oper."context".getModel().type_mm
 		) 
 }
 
