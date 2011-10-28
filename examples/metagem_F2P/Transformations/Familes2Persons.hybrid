@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:hybrid="org.eclipse.kybele.hybrid" name="familes2persons">
+  <operations name="getFatherName" body="self.firstName + ' ' + self.familyFather.lastName" rightPattern="//@rules.0/@targets.0/@bindings.0/@right" context="//@sourceModels.0/@elements.0/@childElements.2">
+    <return datatype="String"/>
+  </operations>
+  <sourceModels name="Families_model" path="/metagem_F2P/Metamodels/Families.ecore" type_mm="Families">
+    <elements name="Families" ref="/">
+      <childElements name="Family" ref="//Family" contains="//@sourceModels.0/@elements.0/@childElements.2 //@sourceModels.0/@elements.0/@childElements.3 //@sourceModels.0/@elements.0/@childElements.4 //@sourceModels.0/@elements.0/@childElements.5">
+        <features name="lastName" ref="//Family/lastName"/>
+        <features name="father" ref="//Family/father"/>
+        <features name="mother" ref="//Family/mother"/>
+        <features name="sons" ref="//Family/sons"/>
+        <features name="daughters" ref="//Family/daughters"/>
+      </childElements>
+      <childElements name="Member" ref="//Member">
+        <features name="firstName" ref="//Member/firstName" ruleElement="//@rules.1/@targets.0/@bindings.0/@right/@source.0 //@rules.2/@targets.0/@bindings.0/@right/@source.0 //@rules.3/@targets.0/@bindings.0/@right/@source.0"/>
+      </childElements>
+      <childElements name="Father" ref="//Father" ruleElement="//@rules.0/@sources.0" isContained="//@sourceModels.0/@elements.0/@childElements.0">
+        <features name="familyFather" ref="//Father/familyFather"/>
+      </childElements>
+      <childElements name="Mother" ref="//Mother" ruleElement="//@rules.1/@sources.0" isContained="//@sourceModels.0/@elements.0/@childElements.0">
+        <features name="familyMother" ref="//Mother/familyMother" ruleElement="//@rules.1/@targets.0/@bindings.0/@right/@source.1"/>
+      </childElements>
+      <childElements name="Son" ref="//Son" ruleElement="//@rules.2/@sources.0" isContained="//@sourceModels.0/@elements.0/@childElements.0">
+        <features name="familySon" ref="//Son/familySon" ruleElement="//@rules.2/@targets.0/@bindings.0/@right/@source.1"/>
+      </childElements>
+      <childElements name="Daughter" ref="//Daughter" ruleElement="//@rules.3/@sources.0" isContained="//@sourceModels.0/@elements.0/@childElements.0">
+        <features name="familyDaughter" ref="//Daughter/familyDaughter" ruleElement="//@rules.3/@targets.0/@bindings.0/@right/@source.1"/>
+      </childElements>
+    </elements>
+  </sourceModels>
+  <targetModels name="Persons_model" path="/metagem_F2P/Metamodels/Persons.ecore" type_mm="Persons">
+    <elements name="Persons" ref="/">
+      <childElements name="Person" ref="//Person">
+        <features name="fullName" ref="//Person/fullName" ruleElement="//@rules.0/@targets.0/@bindings.0/@left/@target //@rules.1/@targets.0/@bindings.0/@left/@target //@rules.2/@targets.0/@bindings.0/@left/@target //@rules.3/@targets.0/@bindings.0/@left/@target"/>
+      </childElements>
+      <childElements name="Male" ref="//Male" ruleElement="//@rules.0/@targets.0 //@rules.2/@targets.0"/>
+      <childElements name="Female" ref="//Female" ruleElement="//@rules.1/@targets.0 //@rules.3/@targets.0"/>
+    </elements>
+  </targetModels>
+  <rules name="Father_2_Male">
+    <sources name="Father" component="//@sourceModels.0/@elements.0/@childElements.2" traceLink="//@rules.0/@trace"/>
+    <targets name="Male" component="//@targetModels.0/@elements.0/@childElements.1" traceLink="//@rules.0/@trace">
+      <bindings name="R8" typeElement="EAttribute" trace="//@rules.0/@trace/@traceBindings.0">
+        <right operation="//@operations.0"/>
+        <left>
+          <target name="fullName" component="//@targetModels.0/@elements.0/@childElements.0/@features.0" traceLink="//@rules.0/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="Father_2_Male" source="//@rules.0/@sources.0" target="//@rules.0/@targets.0">
+      <traceBindings name="R8" target="//@rules.0/@targets.0/@bindings.0/@left/@target" binding="//@rules.0/@targets.0/@bindings.0"/>
+    </trace>
+  </rules>
+  <rules name="Mother_2_Female">
+    <sources name="Mother" component="//@sourceModels.0/@elements.0/@childElements.3" traceLink="//@rules.1/@trace"/>
+    <targets name="Female" component="//@targetModels.0/@elements.0/@childElements.2" traceLink="//@rules.1/@trace">
+      <bindings name="firstName_2_fullName" typeRelation="Concatenation" typeElement="EAttribute" trace="//@rules.1/@trace/@traceBindings.0">
+        <right>
+          <source name="firstName" component="//@sourceModels.0/@elements.0/@childElements.1/@features.0" traceLink="//@rules.1/@trace/@traceBindings.0"/>
+          <source name="familyMother.lastName" component="//@sourceModels.0/@elements.0/@childElements.3/@features.0" traceLink="//@rules.1/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="fullName" component="//@targetModels.0/@elements.0/@childElements.0/@features.0" traceLink="//@rules.1/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="Mother_2_Female" source="//@rules.1/@sources.0" target="//@rules.1/@targets.0">
+      <traceBindings name="firstName_2_fullName" source="//@rules.1/@targets.0/@bindings.0/@right/@source.0 //@rules.1/@targets.0/@bindings.0/@right/@source.1" target="//@rules.1/@targets.0/@bindings.0/@left/@target" binding="//@rules.1/@targets.0/@bindings.0"/>
+    </trace>
+  </rules>
+  <rules name="Son_2_Male">
+    <sources name="Son" component="//@sourceModels.0/@elements.0/@childElements.4" traceLink="//@rules.2/@trace"/>
+    <targets name="Male" component="//@targetModels.0/@elements.0/@childElements.1" traceLink="//@rules.2/@trace">
+      <bindings name="firstName_2_fullName" typeRelation="Concatenation" typeElement="EAttribute" trace="//@rules.2/@trace/@traceBindings.0">
+        <right>
+          <source name="firstName" component="//@sourceModels.0/@elements.0/@childElements.1/@features.0" traceLink="//@rules.2/@trace/@traceBindings.0"/>
+          <source name="familySon.lastName" component="//@sourceModels.0/@elements.0/@childElements.4/@features.0" traceLink="//@rules.2/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="fullName" component="//@targetModels.0/@elements.0/@childElements.0/@features.0" traceLink="//@rules.2/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="Son_2_Male" source="//@rules.2/@sources.0" target="//@rules.2/@targets.0">
+      <traceBindings name="firstName_2_fullName" source="//@rules.2/@targets.0/@bindings.0/@right/@source.0 //@rules.2/@targets.0/@bindings.0/@right/@source.1" target="//@rules.2/@targets.0/@bindings.0/@left/@target" binding="//@rules.2/@targets.0/@bindings.0"/>
+    </trace>
+  </rules>
+  <rules name="Daughter_2_Female">
+    <sources name="Daughter" component="//@sourceModels.0/@elements.0/@childElements.5" traceLink="//@rules.3/@trace"/>
+    <targets name="Female" component="//@targetModels.0/@elements.0/@childElements.2" traceLink="//@rules.3/@trace">
+      <bindings name="firstName_2_fullName" typeRelation="Concatenation" typeElement="EAttribute" trace="//@rules.3/@trace/@traceBindings.0">
+        <right>
+          <source name="firstName" component="//@sourceModels.0/@elements.0/@childElements.1/@features.0" traceLink="//@rules.3/@trace/@traceBindings.0"/>
+          <source name="familyDaughter.lastName" component="//@sourceModels.0/@elements.0/@childElements.5/@features.0" traceLink="//@rules.3/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="fullName" component="//@targetModels.0/@elements.0/@childElements.0/@features.0" traceLink="//@rules.3/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="Daughter_2_Female" source="//@rules.3/@sources.0" target="//@rules.3/@targets.0">
+      <traceBindings name="firstName_2_fullName" source="//@rules.3/@targets.0/@bindings.0/@right/@source.0 //@rules.3/@targets.0/@bindings.0/@right/@source.1" target="//@rules.3/@targets.0/@bindings.0/@left/@target" binding="//@rules.3/@targets.0/@bindings.0"/>
+    </trace>
+  </rules>
+</hybrid:Module>

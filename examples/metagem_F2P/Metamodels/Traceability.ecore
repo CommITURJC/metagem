@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmi:id="_3FKmwXcuEeC2IKVRQNr-xA"
+    name="Traceability" nsURI="org.eclipse.kybele.Traceability" nsPrefix="Traceability">
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="_-9IokHcuEeC2IKVRQNr-xA" name="TraceModel"
+      eSuperTypes="#//TraceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traceLinks" lowerBound="1"
+        upperBound="-1" eType="#//TraceLink" containment="true" eOpposite="#//TraceLink/traceModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceModels" lowerBound="1"
+        upperBound="-1" eType="#//SourceModel" containment="true" eOpposite="#//SourceModel/traceModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetModels" lowerBound="1"
+        upperBound="-1" eType="#//TargetModel" containment="true" eOpposite="#//TargetModel/traceModel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TraceElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Model" abstract="true" eSuperTypes="#//TraceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
+        upperBound="-1" eType="#//Element" containment="true" eOpposite="#//Element/model"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metamodel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TraceLink" eSuperTypes="#//TraceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traceModel" eType="#_-9IokHcuEeC2IKVRQNr-xA"
+        eOpposite="#//TraceModel/traceLinks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        upperBound="-1" eType="#//SourceElement" containment="true" eOpposite="#//SourceElement/source_traceLinks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        upperBound="-1" eType="#//TargetElement" containment="true" eOpposite="#//TargetElement/target_traceLinks"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" lowerBound="1"
+        eType="#//Operations" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childLinks" upperBound="-1"
+        eType="#//TraceLink" containment="true" eOpposite="#//TraceLink/parentLink"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentLink" eType="#//TraceLink"
+        eOpposite="#//TraceLink/childLinks"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceModel" eSuperTypes="#//Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traceModel" lowerBound="1"
+        eType="#_-9IokHcuEeC2IKVRQNr-xA" eOpposite="#//TraceModel/sourceModels"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TargetModel" eSuperTypes="#//Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traceModel" lowerBound="1"
+        eType="#_-9IokHcuEeC2IKVRQNr-xA" eOpposite="#//TraceModel/targetModels"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true" eSuperTypes="#//TraceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceElementLink" upperBound="-1"
+        eType="#//SourceElement" eOpposite="#//SourceElement/elementModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetElementLink" upperBound="-1"
+        eType="#//TargetElement" eOpposite="#//TargetElement/elementModel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Element" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+        eType="#//Feature" containment="true" eOpposite="#//Feature/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//Model"
+        eOpposite="#//Model/elements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="child_element" upperBound="-1"
+        eType="#//Element" containment="true" eOpposite="#//Element/super_element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="super_element" eType="#//Element"
+        eOpposite="#//Element/child_element"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Feature" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//Element" eOpposite="#//Element/features"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Operations">
+    <eLiterals name="Transform" value="2"/>
+    <eLiterals name="Create"/>
+    <eLiterals name="Delete" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceElement" eSuperTypes="#//TraceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source_traceLinks" lowerBound="1"
+        eType="#//TraceLink" eOpposite="#//TraceLink/source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementModel" lowerBound="1"
+        eType="#//ModelElement" eOpposite="#//ModelElement/sourceElementLink"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TargetElement" eSuperTypes="#//TraceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target_traceLinks" lowerBound="1"
+        eType="#//TraceLink" eOpposite="#//TraceLink/target"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementModel" lowerBound="1"
+        eType="#//ModelElement" eOpposite="#//ModelElement/targetElementLink"/>
+  </eClassifiers>
+</ecore:EPackage>

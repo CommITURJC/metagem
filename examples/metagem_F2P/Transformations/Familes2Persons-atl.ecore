@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:atl="http://www.eclipse.org/gmt/2005/ATL" xmlns:ocl="http://www.eclipse.org/gmt/2005/OCL">
+  <atl:Module name="familes2persons">
+    <commentsBefore>-- @atlcompiler atl2006</commentsBefore>
+    <inModels name="Families_model" metamodel="/13"/>
+    <outModels name="Persons_model" metamodel="/17"/>
+    <outModels name="in2out_trace" metamodel="/1"/>
+    <elements xsi:type="atl:MatchedRule" name="Father_2_Male">
+      <commentsBefore>-- Comments -> This is a MatchedRule: Father_2_Male -> </commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="male_out" variableExp="/0/@elements.0/@outPattern/@elements.4/@bindings.0/@value/@source /0/@elements.0/@outPattern/@elements.4/@bindings.1/@value/@source /0/@elements.0/@outPattern/@elements.4/@bindings.2/@value/@arguments.0 /0/@elements.0/@outPattern/@elements.5/@bindings.0/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Male" model="/17"/>
+          <bindings propertyName="fullName">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getFatherName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/73"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="Father_2_Male">
+          <type xsi:type="ocl:OclModelElement" name="TraceLink" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:StringExp" stringSymbol="Father_2_Male"/>
+          </bindings>
+          <bindings propertyName="traceModel">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getTraceModelRoot">
+              <source xsi:type="ocl:VariableExp" referredVariable="/47"/>
+            </value>
+          </bindings>
+          <bindings propertyName="operation">
+            <value xsi:type="ocl:EnumLiteralExp" name="Transform"/>
+          </bindings>
+          <bindings propertyName="source">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.0/@outPattern/@elements.3"/>
+            </value>
+          </bindings>
+          <bindings propertyName="target">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.0/@outPattern/@elements.4"/>
+            </value>
+          </bindings>
+          <bindings propertyName="childLinks">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.0/@outPattern/@elements.2"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="R8" variableExp="/0/@elements.0/@outPattern/@elements.1/@bindings.5/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="TraceLink" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:StringExp" stringSymbol="R8"/>
+          </bindings>
+          <bindings propertyName="operation">
+            <value xsi:type="ocl:EnumLiteralExp" name="Create"/>
+          </bindings>
+          <bindings propertyName="source">
+            <value xsi:type="ocl:SequenceExp"/>
+          </bindings>
+          <bindings propertyName="target">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.0/@outPattern/@elements.5"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="father_in_Trace"
+            variableExp="/0/@elements.0/@outPattern/@elements.1/@bindings.3/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="SourceElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.0/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.0/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="elementModel">
+            <value xsi:type="ocl:OperationCallExp" operationName="create_Father_component">
+              <source xsi:type="ocl:VariableExp" referredVariable="/21"/>
+              <arguments xsi:type="ocl:VariableExp" referredVariable="/0/@elements.0/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="male_out_Trace"
+            variableExp="/0/@elements.0/@outPattern/@elements.1/@bindings.4/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="TargetElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.0/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.0/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="elementModel">
+            <value xsi:type="ocl:OperationCallExp" operationName="create_Male_component">
+              <source xsi:type="ocl:VariableExp" referredVariable="/43"/>
+              <arguments xsi:type="ocl:VariableExp" referredVariable="/0/@elements.0/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="fullname_out_Trace"
+            variableExp="/0/@elements.0/@outPattern/@elements.2/@bindings.3/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="TargetElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="fullName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.0/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+        </elements>
+      </outPattern>
+      <actionBlock>
+        <commentsBefore>-- ActionBlock: </commentsBefore>
+      </actionBlock>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="father_in" variableExp="/0/@elements.0/@outPattern/@elements.3/@bindings.0/@value/@source /0/@elements.0/@outPattern/@elements.3/@bindings.1/@value/@source /0/@elements.0/@outPattern/@elements.3/@bindings.2/@value/@arguments.0">
+          <type xsi:type="ocl:OclModelElement" name="Father" model="/13"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:MatchedRule" name="Mother_2_Female">
+      <commentsBefore>-- Comments -> This is a MatchedRule: Mother_2_Female -> </commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="female_out" variableExp="/0/@elements.1/@outPattern/@elements.6/@bindings.0/@value/@source /0/@elements.1/@outPattern/@elements.6/@bindings.1/@value/@source /0/@elements.1/@outPattern/@elements.6/@bindings.2/@value/@arguments.0 /0/@elements.1/@outPattern/@elements.7/@bindings.0/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Female" model="/17"/>
+          <bindings propertyName="fullName">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="firstName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/74"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="Mother_2_Female">
+          <type xsi:type="ocl:OclModelElement" name="TraceLink" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:StringExp" stringSymbol="Mother_2_Female"/>
+          </bindings>
+          <bindings propertyName="traceModel">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getTraceModelRoot">
+              <source xsi:type="ocl:VariableExp" referredVariable="/48"/>
+            </value>
+          </bindings>
+          <bindings propertyName="operation">
+            <value xsi:type="ocl:EnumLiteralExp" name="Transform"/>
+          </bindings>
+          <bindings propertyName="source">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@outPattern/@elements.3"/>
+            </value>
+          </bindings>
+          <bindings propertyName="target">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@outPattern/@elements.6"/>
+            </value>
+          </bindings>
+          <bindings propertyName="childLinks">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@outPattern/@elements.2"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="firstName_2_fullName"
+            variableExp="/0/@elements.1/@outPattern/@elements.1/@bindings.5/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="TraceLink" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:StringExp" stringSymbol="firstName_2_fullName"/>
+          </bindings>
+          <bindings propertyName="operation">
+            <value xsi:type="ocl:EnumLiteralExp" name="Transform"/>
+          </bindings>
+          <bindings propertyName="source">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@outPattern/@elements.4"/>
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@outPattern/@elements.5"/>
+            </value>
+          </bindings>
+          <bindings propertyName="target">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@outPattern/@elements.7"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="mother_in_Trace"
+            variableExp="/0/@elements.1/@outPattern/@elements.1/@bindings.3/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="SourceElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="elementModel">
+            <value xsi:type="ocl:OperationCallExp" operationName="create_Mother_component">
+              <source xsi:type="ocl:VariableExp" referredVariable="/22"/>
+              <arguments xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="firstname_in_Trace"
+            variableExp="/0/@elements.1/@outPattern/@elements.2/@bindings.2/@value/@elements.0 /26/@value/@arguments.0">
+          <type xsi:type="ocl:OclModelElement" name="SourceElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="firstName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/25"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="familymother.lastname_in_Trace"
+            variableExp="/0/@elements.1/@outPattern/@elements.2/@bindings.2/@value/@elements.1 /29/@value/@arguments.0">
+          <type xsi:type="ocl:OclModelElement" name="SourceElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="familyMother.lastName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/28"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="female_out_Trace"
+            variableExp="/0/@elements.1/@outPattern/@elements.1/@bindings.4/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="TargetElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="elementModel">
+            <value xsi:type="ocl:OperationCallExp" operationName="create_Female_component">
+              <source xsi:type="ocl:VariableExp" referredVariable="/44"/>
+              <arguments xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="fullname_out_Trace"
+            variableExp="/0/@elements.1/@outPattern/@elements.2/@bindings.3/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="TargetElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="fullName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+        </elements>
+      </outPattern>
+      <actionBlock>
+        <commentsBefore>-- ActionBlock: </commentsBefore>
+      </actionBlock>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="mother_in" variableExp="/0/@elements.1/@outPattern/@elements.3/@bindings.0/@value/@source /0/@elements.1/@outPattern/@elements.3/@bindings.1/@value/@source /0/@elements.1/@outPattern/@elements.3/@bindings.2/@value/@arguments.0">
+          <type xsi:type="ocl:OclModelElement" name="Mother" model="/13"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:MatchedRule" name="Son_2_Male">
+      <commentsBefore>-- Comments -> This is a MatchedRule: Son_2_Male -> </commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="male_out" variableExp="/0/@elements.2/@outPattern/@elements.6/@bindings.0/@value/@source /0/@elements.2/@outPattern/@elements.6/@bindings.1/@value/@source /0/@elements.2/@outPattern/@elements.6/@bindings.2/@value/@arguments.0 /0/@elements.2/@outPattern/@elements.7/@bindings.0/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Male" model="/17"/>
+          <bindings propertyName="fullName">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="firstName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/75"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="Son_2_Male">
+          <type xsi:type="ocl:OclModelElement" name="TraceLink" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:StringExp" stringSymbol="Son_2_Male"/>
+          </bindings>
+          <bindings propertyName="traceModel">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getTraceModelRoot">
+              <source xsi:type="ocl:VariableExp" referredVariable="/49"/>
+            </value>
+          </bindings>
+          <bindings propertyName="operation">
+            <value xsi:type="ocl:EnumLiteralExp" name="Transform"/>
+          </bindings>
+          <bindings propertyName="source">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@outPattern/@elements.3"/>
+            </value>
+          </bindings>
+          <bindings propertyName="target">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@outPattern/@elements.6"/>
+            </value>
+          </bindings>
+          <bindings propertyName="childLinks">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@outPattern/@elements.2"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="firstName_2_fullName"
+            variableExp="/0/@elements.2/@outPattern/@elements.1/@bindings.5/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="TraceLink" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:StringExp" stringSymbol="firstName_2_fullName"/>
+          </bindings>
+          <bindings propertyName="operation">
+            <value xsi:type="ocl:EnumLiteralExp" name="Transform"/>
+          </bindings>
+          <bindings propertyName="source">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@outPattern/@elements.4"/>
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@outPattern/@elements.5"/>
+            </value>
+          </bindings>
+          <bindings propertyName="target">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@outPattern/@elements.7"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="son_in_Trace" variableExp="/0/@elements.2/@outPattern/@elements.1/@bindings.3/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="SourceElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="elementModel">
+            <value xsi:type="ocl:OperationCallExp" operationName="create_Son_component">
+              <source xsi:type="ocl:VariableExp" referredVariable="/23"/>
+              <arguments xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="firstname_in_Trace"
+            variableExp="/0/@elements.2/@outPattern/@elements.2/@bindings.2/@value/@elements.0 /32/@value/@arguments.0">
+          <type xsi:type="ocl:OclModelElement" name="SourceElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="firstName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/31"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="familyson.lastname_in_Trace"
+            variableExp="/0/@elements.2/@outPattern/@elements.2/@bindings.2/@value/@elements.1 /35/@value/@arguments.0">
+          <type xsi:type="ocl:OclModelElement" name="SourceElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="familySon.lastName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/34"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="male_out_Trace"
+            variableExp="/0/@elements.2/@outPattern/@elements.1/@bindings.4/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="TargetElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="elementModel">
+            <value xsi:type="ocl:OperationCallExp" operationName="create_Male_component">
+              <source xsi:type="ocl:VariableExp" referredVariable="/45"/>
+              <arguments xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="fullname_out_Trace"
+            variableExp="/0/@elements.2/@outPattern/@elements.2/@bindings.3/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="TargetElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="fullName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+        </elements>
+      </outPattern>
+      <actionBlock>
+        <commentsBefore>-- ActionBlock: </commentsBefore>
+      </actionBlock>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="son_in" variableExp="/0/@elements.2/@outPattern/@elements.3/@bindings.0/@value/@source /0/@elements.2/@outPattern/@elements.3/@bindings.1/@value/@source /0/@elements.2/@outPattern/@elements.3/@bindings.2/@value/@arguments.0">
+          <type xsi:type="ocl:OclModelElement" name="Son" model="/13"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:MatchedRule" name="Daughter_2_Female">
+      <commentsBefore>-- Comments -> This is a MatchedRule: Daughter_2_Female -> </commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="female_out" variableExp="/0/@elements.3/@outPattern/@elements.6/@bindings.0/@value/@source /0/@elements.3/@outPattern/@elements.6/@bindings.1/@value/@source /0/@elements.3/@outPattern/@elements.6/@bindings.2/@value/@arguments.0 /0/@elements.3/@outPattern/@elements.7/@bindings.0/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Female" model="/17"/>
+          <bindings propertyName="fullName">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="firstName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/76"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="Daughter_2_Female">
+          <type xsi:type="ocl:OclModelElement" name="TraceLink" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:StringExp" stringSymbol="Daughter_2_Female"/>
+          </bindings>
+          <bindings propertyName="traceModel">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getTraceModelRoot">
+              <source xsi:type="ocl:VariableExp" referredVariable="/50"/>
+            </value>
+          </bindings>
+          <bindings propertyName="operation">
+            <value xsi:type="ocl:EnumLiteralExp" name="Transform"/>
+          </bindings>
+          <bindings propertyName="source">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@outPattern/@elements.3"/>
+            </value>
+          </bindings>
+          <bindings propertyName="target">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@outPattern/@elements.6"/>
+            </value>
+          </bindings>
+          <bindings propertyName="childLinks">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@outPattern/@elements.2"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="firstName_2_fullName"
+            variableExp="/0/@elements.3/@outPattern/@elements.1/@bindings.5/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="TraceLink" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:StringExp" stringSymbol="firstName_2_fullName"/>
+          </bindings>
+          <bindings propertyName="operation">
+            <value xsi:type="ocl:EnumLiteralExp" name="Transform"/>
+          </bindings>
+          <bindings propertyName="source">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@outPattern/@elements.4"/>
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@outPattern/@elements.5"/>
+            </value>
+          </bindings>
+          <bindings propertyName="target">
+            <value xsi:type="ocl:SequenceExp">
+              <elements xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@outPattern/@elements.7"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="daughter_in_Trace"
+            variableExp="/0/@elements.3/@outPattern/@elements.1/@bindings.3/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="SourceElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="elementModel">
+            <value xsi:type="ocl:OperationCallExp" operationName="create_Daughter_component">
+              <source xsi:type="ocl:VariableExp" referredVariable="/24"/>
+              <arguments xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="firstname_in_Trace"
+            variableExp="/0/@elements.3/@outPattern/@elements.2/@bindings.2/@value/@elements.0 /38/@value/@arguments.0">
+          <type xsi:type="ocl:OclModelElement" name="SourceElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="firstName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/37"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="familydaughter.lastname_in_Trace"
+            variableExp="/0/@elements.3/@outPattern/@elements.2/@bindings.2/@value/@elements.1 /41/@value/@arguments.0">
+          <type xsi:type="ocl:OclModelElement" name="SourceElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="familyDaughter.lastName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/40"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="female_out_Trace"
+            variableExp="/0/@elements.3/@outPattern/@elements.1/@bindings.4/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="TargetElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="elementModel">
+            <value xsi:type="ocl:OperationCallExp" operationName="create_Female_component">
+              <source xsi:type="ocl:VariableExp" referredVariable="/46"/>
+              <arguments xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="fullname_out_Trace"
+            variableExp="/0/@elements.3/@outPattern/@elements.2/@bindings.3/@value/@elements.0">
+          <type xsi:type="ocl:OclModelElement" name="TargetElement" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="fullName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+        </elements>
+      </outPattern>
+      <actionBlock>
+        <commentsBefore>-- ActionBlock: </commentsBefore>
+      </actionBlock>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="daughter_in" variableExp="/0/@elements.3/@outPattern/@elements.3/@bindings.0/@value/@source /0/@elements.3/@outPattern/@elements.3/@bindings.1/@value/@source /0/@elements.3/@outPattern/@elements.3/@bindings.2/@value/@arguments.0">
+          <type xsi:type="ocl:OclModelElement" name="Daughter" model="/13"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:CalledRule" name="CreateTraceModelRoot" isEntrypoint="true">
+      <commentsBefore>-- Comments -> This is a CalledRule to create the root of Trace Model</commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="root">
+          <type xsi:type="ocl:OclModelElement" name="TraceModel" model="/1"/>
+        </elements>
+      </outPattern>
+      <actionBlock>
+        <commentsBefore>-- ActionBlock: </commentsBefore>
+        <statements xsi:type="atl:BindingStat">
+          <source xsi:type="ocl:NavigationOrAttributeCallExp" name="getTraceModelRoot">
+            <source xsi:type="ocl:VariableExp" referredVariable="/3"/>
+          </source>
+          <value xsi:type="ocl:VariableExp" referredVariable="/2"/>
+        </statements>
+        <statements xsi:type="atl:ExpressionStat">
+          <expression xsi:type="ocl:OperationCallExp" operationName="createSourceModel_c2_Families">
+            <source xsi:type="ocl:VariableExp" referredVariable="/14"/>
+          </expression>
+        </statements>
+        <statements xsi:type="atl:ExpressionStat">
+          <expression xsi:type="ocl:OperationCallExp" operationName="createTargetModel_c2_Persons">
+            <source xsi:type="ocl:VariableExp" referredVariable="/18"/>
+          </expression>
+        </statements>
+      </actionBlock>
+    </elements>
+    <elements xsi:type="atl:Helper">
+      <commentsBefore>-- Comments -> This is a Helper to get the root of model trace </commentsBefore>
+      <definition>
+        <feature xsi:type="ocl:Operation" name="getTraceModelRoot">
+          <returnType xsi:type="ocl:OclModelElement" name="TraceModel" model="/1"/>
+          <body xsi:type="ocl:OclUndefinedExp"/>
+        </feature>
+      </definition>
+    </elements>
+    <elements xsi:type="atl:Helper">
+      <commentsBefore>-- Comments -> This is a Helper to get the element name </commentsBefore>
+      <definition>
+        <feature xsi:type="ocl:Operation" name="getName">
+          <returnType xsi:type="ocl:StringType"/>
+          <body xsi:type="ocl:IfExp">
+            <thenExpression xsi:type="ocl:StringExp" stringSymbol=""/>
+            <condition xsi:type="ocl:OperationCallExp" operationName="oclIsUndefined">
+              <source xsi:type="ocl:VariableExp" referredVariable="/4"/>
+            </condition>
+            <elseExpression xsi:type="ocl:IfExp">
+              <thenExpression xsi:type="ocl:OperatorCallExp" operationName="+">
+                <source xsi:type="ocl:OperatorCallExp" operationName="+">
+                  <source xsi:type="ocl:StringExp" stringSymbol="Sequence("/>
+                  <arguments xsi:type="ocl:IteratorExp" name="collect">
+                    <source xsi:type="ocl:VariableExp" referredVariable="/6"/>
+                    <body xsi:type="ocl:OperationCallExp" operationName="getName">
+                      <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.6/@definition/@feature/@body/@elseExpression/@thenExpression/@source/@arguments.0/@iterators.0"/>
+                    </body>
+                    <iterators varName="e" variableExp="/0/@elements.6/@definition/@feature/@body/@elseExpression/@thenExpression/@source/@arguments.0/@body/@source"/>
+                  </arguments>
+                </source>
+                <arguments xsi:type="ocl:StringExp" stringSymbol=")"/>
+              </thenExpression>
+              <condition xsi:type="ocl:OperationCallExp" operationName="oclIsKindOf">
+                <source xsi:type="ocl:VariableExp" referredVariable="/5"/>
+                <arguments xsi:type="ocl:SequenceType">
+                  <elementType xsi:type="ocl:OclAnyType"/>
+                </arguments>
+              </condition>
+              <elseExpression xsi:type="ocl:IfExp">
+                <thenExpression xsi:type="ocl:VariableExp" referredVariable="/8"/>
+                <condition xsi:type="ocl:OperationCallExp" operationName="oclIsTypeOf">
+                  <source xsi:type="ocl:VariableExp" referredVariable="/7"/>
+                  <arguments xsi:type="ocl:StringType"/>
+                </condition>
+                <elseExpression xsi:type="ocl:IfExp">
+                  <thenExpression xsi:type="ocl:OperationCallExp" operationName="refGetValue">
+                    <source xsi:type="ocl:VariableExp" referredVariable="/10"/>
+                    <arguments xsi:type="ocl:OperationCallExp" operationName="first">
+                      <source xsi:type="ocl:IteratorExp" name="select">
+                        <source xsi:type="ocl:IteratorExp" name="collect">
+                          <source xsi:type="ocl:OperationCallExp" operationName="getEAllStructuralFeatures">
+                            <source xsi:type="ocl:OperationCallExp" operationName="eClass">
+                              <source xsi:type="ocl:VariableExp" referredVariable="/11"/>
+                            </source>
+                          </source>
+                          <body xsi:type="ocl:NavigationOrAttributeCallExp" name="name">
+                            <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.6/@definition/@feature/@body/@elseExpression/@elseExpression/@elseExpression/@thenExpression/@arguments.0/@source/@source/@iterators.0"/>
+                          </body>
+                          <iterators varName="n" variableExp="/0/@elements.6/@definition/@feature/@body/@elseExpression/@elseExpression/@elseExpression/@thenExpression/@arguments.0/@source/@source/@body/@source"/>
+                        </source>
+                        <body xsi:type="ocl:OperatorCallExp" operationName=">">
+                          <source xsi:type="ocl:OperationCallExp" operationName="indexOf">
+                            <source xsi:type="ocl:OperationCallExp" operationName="toLower">
+                              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.6/@definition/@feature/@body/@elseExpression/@elseExpression/@elseExpression/@thenExpression/@arguments.0/@source/@iterators.0"/>
+                            </source>
+                            <arguments xsi:type="ocl:StringExp" stringSymbol="name"/>
+                          </source>
+                          <arguments xsi:type="ocl:OperatorCallExp" operationName="-">
+                            <source xsi:type="ocl:IntegerExp" integerSymbol="1"/>
+                          </arguments>
+                        </body>
+                        <iterators varName="f" variableExp="/0/@elements.6/@definition/@feature/@body/@elseExpression/@elseExpression/@elseExpression/@thenExpression/@arguments.0/@source/@body/@source/@source/@source"/>
+                      </source>
+                    </arguments>
+                  </thenExpression>
+                  <condition xsi:type="ocl:OperatorCallExp" operationName="not">
+                    <source xsi:type="ocl:OperationCallExp" operationName="oclIsUndefined">
+                      <source xsi:type="ocl:IteratorExp" name="select">
+                        <source xsi:type="ocl:IteratorExp" name="collect">
+                          <source xsi:type="ocl:OperationCallExp" operationName="getEAllStructuralFeatures">
+                            <source xsi:type="ocl:OperationCallExp" operationName="eClass">
+                              <source xsi:type="ocl:VariableExp" referredVariable="/9"/>
+                            </source>
+                          </source>
+                          <body xsi:type="ocl:NavigationOrAttributeCallExp" name="name">
+                            <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.6/@definition/@feature/@body/@elseExpression/@elseExpression/@elseExpression/@condition/@source/@source/@source/@iterators.0"/>
+                          </body>
+                          <iterators varName="n" variableExp="/0/@elements.6/@definition/@feature/@body/@elseExpression/@elseExpression/@elseExpression/@condition/@source/@source/@source/@body/@source"/>
+                        </source>
+                        <body xsi:type="ocl:OperatorCallExp" operationName=">">
+                          <source xsi:type="ocl:OperationCallExp" operationName="indexOf">
+                            <source xsi:type="ocl:OperationCallExp" operationName="toLower">
+                              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.6/@definition/@feature/@body/@elseExpression/@elseExpression/@elseExpression/@condition/@source/@source/@iterators.0"/>
+                            </source>
+                            <arguments xsi:type="ocl:StringExp" stringSymbol="name"/>
+                          </source>
+                          <arguments xsi:type="ocl:OperatorCallExp" operationName="-">
+                            <source xsi:type="ocl:IntegerExp" integerSymbol="1"/>
+                          </arguments>
+                        </body>
+                        <iterators varName="f" variableExp="/0/@elements.6/@definition/@feature/@body/@elseExpression/@elseExpression/@elseExpression/@condition/@source/@source/@body/@source/@source/@source"/>
+                      </source>
+                    </source>
+                  </condition>
+                  <elseExpression xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+                    <source xsi:type="ocl:VariableExp" referredVariable="/12"/>
+                  </elseExpression>
+                </elseExpression>
+              </elseExpression>
+            </elseExpression>
+          </body>
+        </feature>
+        <context_>
+          <context_ xsi:type="ocl:OclAnyType"/>
+        </context_>
+      </definition>
+    </elements>
+    <elements xsi:type="atl:Helper">
+      <commentsBefore>-- Comments -> This is a Helper to get the model Families_model</commentsBefore>
+      <definition>
+        <feature xsi:type="ocl:Operation" name="getModel_Families_model">
+          <returnType xsi:type="ocl:OclModelElement" name="TraceModel" model="/1"/>
+          <body xsi:type="ocl:OclUndefinedExp"/>
+        </feature>
+      </definition>
+    </elements>
+    <elements xsi:type="atl:CalledRule" name="createSourceModel_c2_Families">
+      <commentsBefore>-- Comments -> This is a CalledRule to create a source model c2 Families metamodel</commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="sourceM">
+          <type xsi:type="ocl:OclModelElement" name="SourceModel" model="/1"/>
+          <bindings propertyName="metamodel">
+            <value xsi:type="ocl:StringExp" stringSymbol="/metagem_F2P/Metamodels/Families.ecore"/>
+          </bindings>
+          <bindings propertyName="traceModel">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getTraceModelRoot">
+              <source xsi:type="ocl:VariableExp" referredVariable="/14"/>
+            </value>
+          </bindings>
+          <bindings propertyName="path">
+            <value xsi:type="ocl:OperationCallExp" operationName="generateModelRef">
+              <source xsi:type="ocl:OclModelElement" name="EPackage" model="/13"/>
+              <arguments xsi:type="ocl:StringExp" stringSymbol="Families_model"/>
+            </value>
+          </bindings>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:StringExp" stringSymbol="Families_model"/>
+          </bindings>
+        </elements>
+      </outPattern>
+      <actionBlock>
+        <commentsBefore>-- ActionBlock: </commentsBefore>
+        <statements xsi:type="atl:BindingStat">
+          <source xsi:type="ocl:NavigationOrAttributeCallExp" name="getModel_Families_model">
+            <source xsi:type="ocl:VariableExp" referredVariable="/16"/>
+          </source>
+          <value xsi:type="ocl:VariableExp" referredVariable="/15"/>
+        </statements>
+      </actionBlock>
+    </elements>
+    <elements xsi:type="atl:Helper">
+      <commentsBefore>-- Comments -> This is a Helper to get the model Persons_model</commentsBefore>
+      <definition>
+        <feature xsi:type="ocl:Operation" name="getModel_Persons_model">
+          <returnType xsi:type="ocl:OclModelElement" name="TraceModel" model="/1"/>
+          <body xsi:type="ocl:OclUndefinedExp"/>
+        </feature>
+      </definition>
+    </elements>
+    <elements xsi:type="atl:CalledRule" name="createTargetModel_c2_Persons">
+      <commentsBefore>-- Comments -> This is a CalledRule to create a target model c2 Persons metamodel. You must fill some information manually</commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="targetM">
+          <type xsi:type="ocl:OclModelElement" name="TargetModel" model="/1"/>
+          <bindings propertyName="metamodel">
+            <value xsi:type="ocl:StringExp" stringSymbol="/metagem_F2P/Metamodels/Persons.ecore"/>
+          </bindings>
+          <bindings propertyName="traceModel">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getTraceModelRoot">
+              <source xsi:type="ocl:VariableExp" referredVariable="/18"/>
+            </value>
+          </bindings>
+          <bindings propertyName="path">
+            <value xsi:type="ocl:StringExp" stringSymbol="USER: Fill this field manually"/>
+          </bindings>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:StringExp" stringSymbol="Persons_model"/>
+          </bindings>
+        </elements>
+      </outPattern>
+      <actionBlock>
+        <commentsBefore>-- ActionBlock: </commentsBefore>
+        <statements xsi:type="atl:BindingStat">
+          <source xsi:type="ocl:NavigationOrAttributeCallExp" name="getModel_Persons_model">
+            <source xsi:type="ocl:VariableExp" referredVariable="/20"/>
+          </source>
+          <value xsi:type="ocl:VariableExp" referredVariable="/19"/>
+        </statements>
+      </actionBlock>
+    </elements>
+    <elements xsi:type="atl:Helper">
+      <commentsBefore>-- Comments -> This is a Helper: getFatherName</commentsBefore>
+      <commentsAfter>-- Body: self.firstName + ' ' + self.familyFather.lastName</commentsAfter>
+      <definition>
+        <feature xsi:type="ocl:Operation" name="getFatherName">
+          <returnType xsi:type="ocl:StringType"/>
+        </feature>
+        <context_>
+          <context_ xsi:type="ocl:OclModelElement" name="Father" model="/77"/>
+        </context_>
+      </definition>
+    </elements>
+    <elements xsi:type="atl:LazyMatchedRule" name="create_Families_component" isUnique="true">
+      <commentsBefore>-- Comments -> This is a LazyRule to generate the Families element in the trace model</commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="families_out">
+          <type xsi:type="ocl:OclModelElement" name="Element" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.12/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.12/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="model">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getModel_Families_model">
+              <source xsi:type="ocl:VariableExp" referredVariable="/51"/>
+            </value>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="families_in" variableExp="/0/@elements.12/@outPattern/@elements.0/@bindings.0/@value/@source /0/@elements.12/@outPattern/@elements.0/@bindings.1/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Families" model="/13"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:LazyMatchedRule" name="create_Family_component" isUnique="true">
+      <commentsBefore>-- Comments -> This is a LazyRule to generate the Family element in the trace model</commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="family_out" variableExp="/0/@elements.13/@outPattern/@elements.1/@bindings.1/@value/@source /0/@elements.13/@outPattern/@elements.1/@bindings.2/@value /0/@elements.13/@outPattern/@elements.2/@bindings.1/@value/@source /0/@elements.13/@outPattern/@elements.2/@bindings.2/@value /0/@elements.13/@outPattern/@elements.3/@bindings.1/@value/@source /0/@elements.13/@outPattern/@elements.3/@bindings.2/@value /0/@elements.13/@outPattern/@elements.4/@bindings.1/@value/@source /0/@elements.13/@outPattern/@elements.4/@bindings.2/@value /0/@elements.13/@outPattern/@elements.5/@bindings.1/@value/@source /0/@elements.13/@outPattern/@elements.5/@bindings.2/@value">
+          <type xsi:type="ocl:OclModelElement" name="Element" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="model">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getModel_Families_model">
+              <source xsi:type="ocl:VariableExp" referredVariable="/53"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="lastname_out">
+          <type xsi:type="ocl:OclModelElement" name="Feature" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:NavigationOrAttributeCallExp" name="lastName">
+                <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@inPattern/@elements.0"/>
+              </source>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="parent">
+            <value xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@outPattern/@elements.0"/>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="father_out">
+          <type xsi:type="ocl:OclModelElement" name="Feature" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:NavigationOrAttributeCallExp" name="father">
+                <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@inPattern/@elements.0"/>
+              </source>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="parent">
+            <value xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@outPattern/@elements.0"/>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="mother_out">
+          <type xsi:type="ocl:OclModelElement" name="Feature" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:NavigationOrAttributeCallExp" name="mother">
+                <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@inPattern/@elements.0"/>
+              </source>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="parent">
+            <value xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@outPattern/@elements.0"/>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="sons_out">
+          <type xsi:type="ocl:OclModelElement" name="Feature" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:NavigationOrAttributeCallExp" name="sons">
+                <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@inPattern/@elements.0"/>
+              </source>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="parent">
+            <value xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@outPattern/@elements.0"/>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="daughters_out">
+          <type xsi:type="ocl:OclModelElement" name="Feature" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:NavigationOrAttributeCallExp" name="daughters">
+                <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@inPattern/@elements.0"/>
+              </source>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="parent">
+            <value xsi:type="ocl:VariableExp" referredVariable="/0/@elements.13/@outPattern/@elements.0"/>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="family_in" variableExp="/0/@elements.13/@outPattern/@elements.1/@bindings.0/@value/@source/@source /0/@elements.13/@outPattern/@elements.2/@bindings.0/@value/@source/@source /0/@elements.13/@outPattern/@elements.3/@bindings.0/@value/@source/@source /0/@elements.13/@outPattern/@elements.4/@bindings.0/@value/@source/@source /0/@elements.13/@outPattern/@elements.5/@bindings.0/@value/@source/@source /0/@elements.13/@outPattern/@elements.0/@bindings.0/@value/@source /0/@elements.13/@outPattern/@elements.0/@bindings.1/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Family" model="/13"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:LazyMatchedRule" name="create_Member_component" isUnique="true">
+      <commentsBefore>-- Comments -> This is a LazyRule to generate the Member element in the trace model</commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="member_out" variableExp="/0/@elements.14/@outPattern/@elements.1/@bindings.1/@value/@source /0/@elements.14/@outPattern/@elements.1/@bindings.2/@value">
+          <type xsi:type="ocl:OclModelElement" name="Element" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.14/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.14/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="model">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getModel_Families_model">
+              <source xsi:type="ocl:VariableExp" referredVariable="/55"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="firstname_out">
+          <type xsi:type="ocl:OclModelElement" name="Feature" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:NavigationOrAttributeCallExp" name="firstName">
+                <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.14/@inPattern/@elements.0"/>
+              </source>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.14/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="parent">
+            <value xsi:type="ocl:VariableExp" referredVariable="/0/@elements.14/@outPattern/@elements.0"/>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="member_in" variableExp="/0/@elements.14/@outPattern/@elements.1/@bindings.0/@value/@source/@source /0/@elements.14/@outPattern/@elements.0/@bindings.0/@value/@source /0/@elements.14/@outPattern/@elements.0/@bindings.1/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Member" model="/13"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:LazyMatchedRule" name="create_Father_component" isUnique="true">
+      <commentsBefore>-- Comments -> This is a LazyRule to generate the Father element in the trace model</commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="father_out" variableExp="/0/@elements.15/@outPattern/@elements.1/@bindings.1/@value/@source /0/@elements.15/@outPattern/@elements.1/@bindings.2/@value">
+          <type xsi:type="ocl:OclModelElement" name="Element" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.15/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.15/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="model">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getModel_Families_model">
+              <source xsi:type="ocl:VariableExp" referredVariable="/57"/>
+            </value>
+          </bindings>
+          <bindings propertyName="super_element">
+            <value xsi:type="ocl:OperationCallExp" operationName="create_Family_component">
+              <source xsi:type="ocl:VariableExp" referredVariable="/90"/>
+              <arguments xsi:type="ocl:OperationCallExp" operationName="refImmediateComposite">
+                <source xsi:type="ocl:VariableExp" referredVariable="/91"/>
+              </arguments>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="familyfather_out">
+          <type xsi:type="ocl:OclModelElement" name="Feature" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:NavigationOrAttributeCallExp" name="familyFather">
+                <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.15/@inPattern/@elements.0"/>
+              </source>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.15/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="parent">
+            <value xsi:type="ocl:VariableExp" referredVariable="/0/@elements.15/@outPattern/@elements.0"/>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="father_in" variableExp="/0/@elements.15/@outPattern/@elements.1/@bindings.0/@value/@source/@source /0/@elements.15/@outPattern/@elements.0/@bindings.0/@value/@source /0/@elements.15/@outPattern/@elements.0/@bindings.1/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Father" model="/13"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:LazyMatchedRule" name="create_Mother_component" isUnique="true">
+      <commentsBefore>-- Comments -> This is a LazyRule to generate the Mother element in the trace model</commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="mother_out" variableExp="/0/@elements.16/@outPattern/@elements.1/@bindings.1/@value/@source /0/@elements.16/@outPattern/@elements.1/@bindings.2/@value">
+          <type xsi:type="ocl:OclModelElement" name="Element" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.16/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.16/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="model">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getModel_Families_model">
+              <source xsi:type="ocl:VariableExp" referredVariable="/59"/>
+            </value>
+          </bindings>
+          <bindings propertyName="super_element">
+            <value xsi:type="ocl:OperationCallExp" operationName="create_Family_component">
+              <source xsi:type="ocl:VariableExp" referredVariable="/92"/>
+              <arguments xsi:type="ocl:OperationCallExp" operationName="refImmediateComposite">
+                <source xsi:type="ocl:VariableExp" referredVariable="/93"/>
+              </arguments>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="familymother_out">
+          <type xsi:type="ocl:OclModelElement" name="Feature" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:NavigationOrAttributeCallExp" name="familyMother">
+                <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.16/@inPattern/@elements.0"/>
+              </source>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.16/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="parent">
+            <value xsi:type="ocl:VariableExp" referredVariable="/0/@elements.16/@outPattern/@elements.0"/>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="mother_in" variableExp="/0/@elements.16/@outPattern/@elements.1/@bindings.0/@value/@source/@source /0/@elements.16/@outPattern/@elements.0/@bindings.0/@value/@source /0/@elements.16/@outPattern/@elements.0/@bindings.1/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Mother" model="/13"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:LazyMatchedRule" name="create_Son_component" isUnique="true">
+      <commentsBefore>-- Comments -> This is a LazyRule to generate the Son element in the trace model</commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="son_out" variableExp="/0/@elements.17/@outPattern/@elements.1/@bindings.1/@value/@source /0/@elements.17/@outPattern/@elements.1/@bindings.2/@value">
+          <type xsi:type="ocl:OclModelElement" name="Element" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.17/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.17/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="model">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getModel_Families_model">
+              <source xsi:type="ocl:VariableExp" referredVariable="/61"/>
+            </value>
+          </bindings>
+          <bindings propertyName="super_element">
+            <value xsi:type="ocl:OperationCallExp" operationName="create_Family_component">
+              <source xsi:type="ocl:VariableExp" referredVariable="/94"/>
+              <arguments xsi:type="ocl:OperationCallExp" operationName="refImmediateComposite">
+                <source xsi:type="ocl:VariableExp" referredVariable="/95"/>
+              </arguments>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="familyson_out">
+          <type xsi:type="ocl:OclModelElement" name="Feature" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:NavigationOrAttributeCallExp" name="familySon">
+                <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.17/@inPattern/@elements.0"/>
+              </source>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.17/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="parent">
+            <value xsi:type="ocl:VariableExp" referredVariable="/0/@elements.17/@outPattern/@elements.0"/>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="son_in" variableExp="/0/@elements.17/@outPattern/@elements.1/@bindings.0/@value/@source/@source /0/@elements.17/@outPattern/@elements.0/@bindings.0/@value/@source /0/@elements.17/@outPattern/@elements.0/@bindings.1/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Son" model="/13"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:LazyMatchedRule" name="create_Daughter_component" isUnique="true">
+      <commentsBefore>-- Comments -> This is a LazyRule to generate the Daughter element in the trace model</commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="daughter_out" variableExp="/0/@elements.18/@outPattern/@elements.1/@bindings.1/@value/@source /0/@elements.18/@outPattern/@elements.1/@bindings.2/@value">
+          <type xsi:type="ocl:OclModelElement" name="Element" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.18/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.18/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="model">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getModel_Families_model">
+              <source xsi:type="ocl:VariableExp" referredVariable="/63"/>
+            </value>
+          </bindings>
+          <bindings propertyName="super_element">
+            <value xsi:type="ocl:OperationCallExp" operationName="create_Family_component">
+              <source xsi:type="ocl:VariableExp" referredVariable="/96"/>
+              <arguments xsi:type="ocl:OperationCallExp" operationName="refImmediateComposite">
+                <source xsi:type="ocl:VariableExp" referredVariable="/97"/>
+              </arguments>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="familydaughter_out">
+          <type xsi:type="ocl:OclModelElement" name="Feature" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:NavigationOrAttributeCallExp" name="familyDaughter">
+                <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.18/@inPattern/@elements.0"/>
+              </source>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.18/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="parent">
+            <value xsi:type="ocl:VariableExp" referredVariable="/0/@elements.18/@outPattern/@elements.0"/>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="daughter_in" variableExp="/0/@elements.18/@outPattern/@elements.1/@bindings.0/@value/@source/@source /0/@elements.18/@outPattern/@elements.0/@bindings.0/@value/@source /0/@elements.18/@outPattern/@elements.0/@bindings.1/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Daughter" model="/13"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:LazyMatchedRule" name="create_Persons_component" isUnique="true">
+      <commentsBefore>-- Comments -> This is a LazyRule to generate the Persons element in the trace model</commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="persons_out">
+          <type xsi:type="ocl:OclModelElement" name="Element" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.19/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.19/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="model">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getModel_Persons_model">
+              <source xsi:type="ocl:VariableExp" referredVariable="/65"/>
+            </value>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="persons_in" variableExp="/0/@elements.19/@outPattern/@elements.0/@bindings.0/@value/@source /0/@elements.19/@outPattern/@elements.0/@bindings.1/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Persons" model="/17"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:LazyMatchedRule" name="create_Person_component" isUnique="true">
+      <commentsBefore>-- Comments -> This is a LazyRule to generate the Person element in the trace model</commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="person_out" variableExp="/0/@elements.20/@outPattern/@elements.1/@bindings.1/@value/@source /0/@elements.20/@outPattern/@elements.1/@bindings.2/@value">
+          <type xsi:type="ocl:OclModelElement" name="Element" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.20/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.20/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="model">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getModel_Persons_model">
+              <source xsi:type="ocl:VariableExp" referredVariable="/67"/>
+            </value>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="fullname_out">
+          <type xsi:type="ocl:OclModelElement" name="Feature" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:NavigationOrAttributeCallExp" name="fullName">
+                <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.20/@inPattern/@elements.0"/>
+              </source>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.20/@outPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="parent">
+            <value xsi:type="ocl:VariableExp" referredVariable="/0/@elements.20/@outPattern/@elements.0"/>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="person_in" variableExp="/0/@elements.20/@outPattern/@elements.1/@bindings.0/@value/@source/@source /0/@elements.20/@outPattern/@elements.0/@bindings.0/@value/@source /0/@elements.20/@outPattern/@elements.0/@bindings.1/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Person" model="/17"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:LazyMatchedRule" name="create_Male_component" isUnique="true">
+      <commentsBefore>-- Comments -> This is a LazyRule to generate the Male element in the trace model</commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="male_out">
+          <type xsi:type="ocl:OclModelElement" name="Element" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.21/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.21/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="model">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getModel_Persons_model">
+              <source xsi:type="ocl:VariableExp" referredVariable="/69"/>
+            </value>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="male_in" variableExp="/0/@elements.21/@outPattern/@elements.0/@bindings.0/@value/@source /0/@elements.21/@outPattern/@elements.0/@bindings.1/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Male" model="/17"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:LazyMatchedRule" name="create_Female_component" isUnique="true">
+      <commentsBefore>-- Comments -> This is a LazyRule to generate the Female element in the trace model</commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="female_out">
+          <type xsi:type="ocl:OclModelElement" name="Element" model="/1"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:OperationCallExp" operationName="getName">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.22/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="ref">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="__xmiID__">
+              <source xsi:type="ocl:VariableExp" referredVariable="/0/@elements.22/@inPattern/@elements.0"/>
+            </value>
+          </bindings>
+          <bindings propertyName="model">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="getModel_Persons_model">
+              <source xsi:type="ocl:VariableExp" referredVariable="/71"/>
+            </value>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="female_in" variableExp="/0/@elements.22/@outPattern/@elements.0/@bindings.0/@value/@source /0/@elements.22/@outPattern/@elements.0/@bindings.1/@value/@source">
+          <type xsi:type="ocl:OclModelElement" name="Female" model="/17"/>
+        </elements>
+      </inPattern>
+    </elements>
+  </atl:Module>
+  <ocl:OclModel name="TRACE" elements="/0/@elements.4/@outPattern/@elements.0/@type /0/@elements.5/@definition/@feature/@returnType /0/@elements.7/@definition/@feature/@returnType /0/@elements.8/@outPattern/@elements.0/@type /0/@elements.9/@definition/@feature/@returnType /0/@elements.10/@outPattern/@elements.0/@type /0/@elements.0/@outPattern/@elements.3/@type /0/@elements.1/@outPattern/@elements.3/@type /0/@elements.2/@outPattern/@elements.3/@type /0/@elements.3/@outPattern/@elements.3/@type /0/@elements.1/@outPattern/@elements.4/@type /0/@elements.1/@outPattern/@elements.5/@type /0/@elements.2/@outPattern/@elements.4/@type /0/@elements.2/@outPattern/@elements.5/@type /0/@elements.3/@outPattern/@elements.4/@type /0/@elements.3/@outPattern/@elements.5/@type /0/@elements.0/@outPattern/@elements.4/@type /0/@elements.1/@outPattern/@elements.6/@type /0/@elements.2/@outPattern/@elements.6/@type /0/@elements.3/@outPattern/@elements.6/@type /0/@elements.0/@outPattern/@elements.5/@type /0/@elements.1/@outPattern/@elements.7/@type /0/@elements.2/@outPattern/@elements.7/@type /0/@elements.3/@outPattern/@elements.7/@type /0/@elements.0/@outPattern/@elements.1/@type /0/@elements.1/@outPattern/@elements.1/@type /0/@elements.2/@outPattern/@elements.1/@type /0/@elements.3/@outPattern/@elements.1/@type /0/@elements.0/@outPattern/@elements.2/@type /0/@elements.1/@outPattern/@elements.2/@type /0/@elements.2/@outPattern/@elements.2/@type /0/@elements.3/@outPattern/@elements.2/@type /0/@elements.12/@outPattern/@elements.0/@type /0/@elements.13/@outPattern/@elements.1/@type /0/@elements.13/@outPattern/@elements.2/@type /0/@elements.13/@outPattern/@elements.3/@type /0/@elements.13/@outPattern/@elements.4/@type /0/@elements.13/@outPattern/@elements.5/@type /0/@elements.13/@outPattern/@elements.0/@type /0/@elements.14/@outPattern/@elements.1/@type /0/@elements.14/@outPattern/@elements.0/@type /0/@elements.15/@outPattern/@elements.1/@type /0/@elements.15/@outPattern/@elements.0/@type /0/@elements.16/@outPattern/@elements.1/@type /0/@elements.16/@outPattern/@elements.0/@type /0/@elements.17/@outPattern/@elements.1/@type /0/@elements.17/@outPattern/@elements.0/@type /0/@elements.18/@outPattern/@elements.1/@type /0/@elements.18/@outPattern/@elements.0/@type /0/@elements.19/@outPattern/@elements.0/@type /0/@elements.20/@outPattern/@elements.1/@type /0/@elements.20/@outPattern/@elements.0/@type /0/@elements.21/@outPattern/@elements.0/@type /0/@elements.22/@outPattern/@elements.0/@type"
+      model="/0/@outModels.1"/>
+  <ocl:VariableDeclaration varName="root" variableExp="/0/@elements.4/@actionBlock/@statements.0/@value"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.4/@actionBlock/@statements.0/@source/@source"/>
+  <ocl:VariableDeclaration varName="self" variableExp="/0/@elements.6/@definition/@feature/@body/@condition/@source"/>
+  <ocl:VariableDeclaration varName="self" variableExp="/0/@elements.6/@definition/@feature/@body/@elseExpression/@condition/@source"/>
+  <ocl:VariableDeclaration varName="self" variableExp="/0/@elements.6/@definition/@feature/@body/@elseExpression/@thenExpression/@source/@arguments.0/@source"/>
+  <ocl:VariableDeclaration varName="self" variableExp="/0/@elements.6/@definition/@feature/@body/@elseExpression/@elseExpression/@condition/@source"/>
+  <ocl:VariableDeclaration varName="self" variableExp="/0/@elements.6/@definition/@feature/@body/@elseExpression/@elseExpression/@thenExpression"/>
+  <ocl:VariableDeclaration varName="self" variableExp="/0/@elements.6/@definition/@feature/@body/@elseExpression/@elseExpression/@elseExpression/@condition/@source/@source/@source/@source/@source/@source"/>
+  <ocl:VariableDeclaration varName="self" variableExp="/0/@elements.6/@definition/@feature/@body/@elseExpression/@elseExpression/@elseExpression/@thenExpression/@source"/>
+  <ocl:VariableDeclaration varName="self" variableExp="/0/@elements.6/@definition/@feature/@body/@elseExpression/@elseExpression/@elseExpression/@thenExpression/@arguments.0/@source/@source/@source/@source/@source"/>
+  <ocl:VariableDeclaration varName="self" variableExp="/0/@elements.6/@definition/@feature/@body/@elseExpression/@elseExpression/@elseExpression/@elseExpression/@source"/>
+  <ocl:OclModel name="Families" elements="/0/@elements.8/@outPattern/@elements.0/@bindings.2/@value/@source /0/@elements.0/@inPattern/@elements.0/@type /0/@elements.1/@inPattern/@elements.0/@type /0/@elements.2/@inPattern/@elements.0/@type /0/@elements.3/@inPattern/@elements.0/@type /0/@elements.12/@inPattern/@elements.0/@type /0/@elements.13/@inPattern/@elements.0/@type /0/@elements.14/@inPattern/@elements.0/@type /0/@elements.15/@inPattern/@elements.0/@type /0/@elements.16/@inPattern/@elements.0/@type /0/@elements.17/@inPattern/@elements.0/@type /0/@elements.18/@inPattern/@elements.0/@type"
+      model="/0/@inModels.0"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.8/@outPattern/@elements.0/@bindings.1/@value/@source /0/@elements.4/@actionBlock/@statements.1/@expression/@source"/>
+  <ocl:VariableDeclaration varName="sourceM" variableExp="/0/@elements.8/@actionBlock/@statements.0/@value"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.8/@actionBlock/@statements.0/@source/@source"/>
+  <ocl:OclModel name="Persons" elements="/0/@elements.0/@outPattern/@elements.0/@type /0/@elements.1/@outPattern/@elements.0/@type /0/@elements.2/@outPattern/@elements.0/@type /0/@elements.3/@outPattern/@elements.0/@type /0/@elements.19/@inPattern/@elements.0/@type /0/@elements.20/@inPattern/@elements.0/@type /0/@elements.21/@inPattern/@elements.0/@type /0/@elements.22/@inPattern/@elements.0/@type"
+      model="/0/@outModels.0"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.10/@outPattern/@elements.0/@bindings.1/@value/@source /0/@elements.4/@actionBlock/@statements.2/@expression/@source"/>
+  <ocl:VariableDeclaration varName="targetM" variableExp="/0/@elements.10/@actionBlock/@statements.0/@value"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.10/@actionBlock/@statements.0/@source/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.0/@outPattern/@elements.3/@bindings.2/@value/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.1/@outPattern/@elements.3/@bindings.2/@value/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.2/@outPattern/@elements.3/@bindings.2/@value/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.3/@outPattern/@elements.3/@bindings.2/@value/@source"/>
+  <ocl:VariableDeclaration varName="mother_in" variableExp="/0/@elements.1/@outPattern/@elements.4/@bindings.0/@value/@source"/>
+  <atl:Binding propertyName="elementModel">
+    <value xsi:type="ocl:OperationCallExp" operationName="create_firstName_Member">
+      <source xsi:type="ocl:VariableExp" referredVariable="/27"/>
+      <arguments xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@outPattern/@elements.4"/>
+    </value>
+  </atl:Binding>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/26/@value/@source"/>
+  <ocl:VariableDeclaration varName="mother_in" variableExp="/0/@elements.1/@outPattern/@elements.5/@bindings.0/@value/@source"/>
+  <atl:Binding propertyName="elementModel">
+    <value xsi:type="ocl:OperationCallExp" operationName="create_familyMother_Mother">
+      <source xsi:type="ocl:VariableExp" referredVariable="/30"/>
+      <arguments xsi:type="ocl:VariableExp" referredVariable="/0/@elements.1/@outPattern/@elements.5"/>
+    </value>
+  </atl:Binding>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/29/@value/@source"/>
+  <ocl:VariableDeclaration varName="son_in" variableExp="/0/@elements.2/@outPattern/@elements.4/@bindings.0/@value/@source"/>
+  <atl:Binding propertyName="elementModel">
+    <value xsi:type="ocl:OperationCallExp" operationName="create_firstName_Member">
+      <source xsi:type="ocl:VariableExp" referredVariable="/33"/>
+      <arguments xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@outPattern/@elements.4"/>
+    </value>
+  </atl:Binding>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/32/@value/@source"/>
+  <ocl:VariableDeclaration varName="son_in" variableExp="/0/@elements.2/@outPattern/@elements.5/@bindings.0/@value/@source"/>
+  <atl:Binding propertyName="elementModel">
+    <value xsi:type="ocl:OperationCallExp" operationName="create_familySon_Son">
+      <source xsi:type="ocl:VariableExp" referredVariable="/36"/>
+      <arguments xsi:type="ocl:VariableExp" referredVariable="/0/@elements.2/@outPattern/@elements.5"/>
+    </value>
+  </atl:Binding>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/35/@value/@source"/>
+  <ocl:VariableDeclaration varName="daughter_in" variableExp="/0/@elements.3/@outPattern/@elements.4/@bindings.0/@value/@source"/>
+  <atl:Binding propertyName="elementModel">
+    <value xsi:type="ocl:OperationCallExp" operationName="create_firstName_Member">
+      <source xsi:type="ocl:VariableExp" referredVariable="/39"/>
+      <arguments xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@outPattern/@elements.4"/>
+    </value>
+  </atl:Binding>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/38/@value/@source"/>
+  <ocl:VariableDeclaration varName="daughter_in" variableExp="/0/@elements.3/@outPattern/@elements.5/@bindings.0/@value/@source"/>
+  <atl:Binding propertyName="elementModel">
+    <value xsi:type="ocl:OperationCallExp" operationName="create_familyDaughter_Daughter">
+      <source xsi:type="ocl:VariableExp" referredVariable="/42"/>
+      <arguments xsi:type="ocl:VariableExp" referredVariable="/0/@elements.3/@outPattern/@elements.5"/>
+    </value>
+  </atl:Binding>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/41/@value/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.0/@outPattern/@elements.4/@bindings.2/@value/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.1/@outPattern/@elements.6/@bindings.2/@value/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.2/@outPattern/@elements.6/@bindings.2/@value/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.3/@outPattern/@elements.6/@bindings.2/@value/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.0/@outPattern/@elements.1/@bindings.1/@value/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.1/@outPattern/@elements.1/@bindings.1/@value/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.2/@outPattern/@elements.1/@bindings.1/@value/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.3/@outPattern/@elements.1/@bindings.1/@value/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.12/@outPattern/@elements.0/@bindings.2/@value/@source"/>
+  <ocl:SequenceExp>
+    <elements xsi:type="ocl:OperationCallExp" operationName="create_Family_component">
+      <source xsi:type="ocl:VariableExp" referredVariable="/78"/>
+      <arguments xsi:type="ocl:OperationCallExp" operationName="refImmediateComposite">
+        <source xsi:type="ocl:VariableExp" referredVariable="/79"/>
+      </arguments>
+    </elements>
+    <elements xsi:type="ocl:OperationCallExp" operationName="create_Member_component">
+      <source xsi:type="ocl:VariableExp" referredVariable="/80"/>
+      <arguments xsi:type="ocl:OperationCallExp" operationName="refImmediateComposite">
+        <source xsi:type="ocl:VariableExp" referredVariable="/81"/>
+      </arguments>
+    </elements>
+    <elements xsi:type="ocl:OperationCallExp" operationName="create_Father_component">
+      <source xsi:type="ocl:VariableExp" referredVariable="/82"/>
+      <arguments xsi:type="ocl:OperationCallExp" operationName="refImmediateComposite">
+        <source xsi:type="ocl:VariableExp" referredVariable="/83"/>
+      </arguments>
+    </elements>
+    <elements xsi:type="ocl:OperationCallExp" operationName="create_Mother_component">
+      <source xsi:type="ocl:VariableExp" referredVariable="/84"/>
+      <arguments xsi:type="ocl:OperationCallExp" operationName="refImmediateComposite">
+        <source xsi:type="ocl:VariableExp" referredVariable="/85"/>
+      </arguments>
+    </elements>
+    <elements xsi:type="ocl:OperationCallExp" operationName="create_Son_component">
+      <source xsi:type="ocl:VariableExp" referredVariable="/86"/>
+      <arguments xsi:type="ocl:OperationCallExp" operationName="refImmediateComposite">
+        <source xsi:type="ocl:VariableExp" referredVariable="/87"/>
+      </arguments>
+    </elements>
+    <elements xsi:type="ocl:OperationCallExp" operationName="create_Daughter_component">
+      <source xsi:type="ocl:VariableExp" referredVariable="/88"/>
+      <arguments xsi:type="ocl:OperationCallExp" operationName="refImmediateComposite">
+        <source xsi:type="ocl:VariableExp" referredVariable="/89"/>
+      </arguments>
+    </elements>
+  </ocl:SequenceExp>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.13/@outPattern/@elements.0/@bindings.2/@value/@source"/>
+  <ocl:SequenceExp/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.14/@outPattern/@elements.0/@bindings.2/@value/@source"/>
+  <ocl:SequenceExp/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.15/@outPattern/@elements.0/@bindings.2/@value/@source"/>
+  <ocl:SequenceExp/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.16/@outPattern/@elements.0/@bindings.2/@value/@source"/>
+  <ocl:SequenceExp/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.17/@outPattern/@elements.0/@bindings.2/@value/@source"/>
+  <ocl:SequenceExp/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.18/@outPattern/@elements.0/@bindings.2/@value/@source"/>
+  <ocl:SequenceExp/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.19/@outPattern/@elements.0/@bindings.2/@value/@source"/>
+  <ocl:SequenceExp>
+    <elements xsi:type="ocl:OperationCallExp" operationName="create_Person_component">
+      <source xsi:type="ocl:VariableExp" referredVariable="/98"/>
+      <arguments xsi:type="ocl:OperationCallExp" operationName="refImmediateComposite">
+        <source xsi:type="ocl:VariableExp" referredVariable="/99"/>
+      </arguments>
+    </elements>
+    <elements xsi:type="ocl:OperationCallExp" operationName="create_Male_component">
+      <source xsi:type="ocl:VariableExp" referredVariable="/100"/>
+      <arguments xsi:type="ocl:OperationCallExp" operationName="refImmediateComposite">
+        <source xsi:type="ocl:VariableExp" referredVariable="/101"/>
+      </arguments>
+    </elements>
+    <elements xsi:type="ocl:OperationCallExp" operationName="create_Female_component">
+      <source xsi:type="ocl:VariableExp" referredVariable="/102"/>
+      <arguments xsi:type="ocl:OperationCallExp" operationName="refImmediateComposite">
+        <source xsi:type="ocl:VariableExp" referredVariable="/103"/>
+      </arguments>
+    </elements>
+  </ocl:SequenceExp>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.20/@outPattern/@elements.0/@bindings.2/@value/@source"/>
+  <ocl:SequenceExp/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.21/@outPattern/@elements.0/@bindings.2/@value/@source"/>
+  <ocl:SequenceExp/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.22/@outPattern/@elements.0/@bindings.2/@value/@source"/>
+  <ocl:SequenceExp/>
+  <ocl:VariableDeclaration varName="father_in" variableExp="/0/@elements.0/@outPattern/@elements.0/@bindings.0/@value/@source"/>
+  <ocl:VariableDeclaration varName="mother_in" variableExp="/0/@elements.1/@outPattern/@elements.0/@bindings.0/@value/@source"/>
+  <ocl:VariableDeclaration varName="son_in" variableExp="/0/@elements.2/@outPattern/@elements.0/@bindings.0/@value/@source"/>
+  <ocl:VariableDeclaration varName="daughter_in" variableExp="/0/@elements.3/@outPattern/@elements.0/@bindings.0/@value/@source"/>
+  <ocl:OclModel name="Families" elements="/0/@elements.11/@definition/@context_/@context_"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/52/@elements.0/@source"/>
+  <ocl:VariableDeclaration varName="family_in" variableExp="/52/@elements.0/@arguments.0/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/52/@elements.1/@source"/>
+  <ocl:VariableDeclaration varName="member_in" variableExp="/52/@elements.1/@arguments.0/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/52/@elements.2/@source"/>
+  <ocl:VariableDeclaration varName="father_in" variableExp="/52/@elements.2/@arguments.0/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/52/@elements.3/@source"/>
+  <ocl:VariableDeclaration varName="mother_in" variableExp="/52/@elements.3/@arguments.0/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/52/@elements.4/@source"/>
+  <ocl:VariableDeclaration varName="son_in" variableExp="/52/@elements.4/@arguments.0/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/52/@elements.5/@source"/>
+  <ocl:VariableDeclaration varName="daughter_in" variableExp="/52/@elements.5/@arguments.0/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.15/@outPattern/@elements.0/@bindings.3/@value/@source"/>
+  <ocl:VariableDeclaration varName="father_in" variableExp="/0/@elements.15/@outPattern/@elements.0/@bindings.3/@value/@arguments.0/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.16/@outPattern/@elements.0/@bindings.3/@value/@source"/>
+  <ocl:VariableDeclaration varName="mother_in" variableExp="/0/@elements.16/@outPattern/@elements.0/@bindings.3/@value/@arguments.0/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.17/@outPattern/@elements.0/@bindings.3/@value/@source"/>
+  <ocl:VariableDeclaration varName="son_in" variableExp="/0/@elements.17/@outPattern/@elements.0/@bindings.3/@value/@arguments.0/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/0/@elements.18/@outPattern/@elements.0/@bindings.3/@value/@source"/>
+  <ocl:VariableDeclaration varName="daughter_in" variableExp="/0/@elements.18/@outPattern/@elements.0/@bindings.3/@value/@arguments.0/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/66/@elements.0/@source"/>
+  <ocl:VariableDeclaration varName="person_in" variableExp="/66/@elements.0/@arguments.0/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/66/@elements.1/@source"/>
+  <ocl:VariableDeclaration varName="male_in" variableExp="/66/@elements.1/@arguments.0/@source"/>
+  <ocl:VariableDeclaration varName="thisModule" variableExp="/66/@elements.2/@source"/>
+  <ocl:VariableDeclaration varName="female_in" variableExp="/66/@elements.2/@arguments.0/@source"/>
+</xmi:XMI>
