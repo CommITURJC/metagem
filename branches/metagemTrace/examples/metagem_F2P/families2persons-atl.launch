@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.adt.launching.atlTransformation">
+<stringAttribute key="ATL File Name" value="/metagem_F2P/Transformations/Familes2Persons-atl.atl"/>
+<stringAttribute key="ATL VM" value="EMF-specific VM"/>
+<stringAttribute key="ATL_COMPILER" value="atl2006"/>
+<booleanAttribute key="IS_REFINING" value="false"/>
+<mapAttribute key="Input">
+<mapEntry key="Families_model" value="Families"/>
+</mapAttribute>
+<mapAttribute key="Libs"/>
+<mapAttribute key="Model Handler">
+<mapEntry key="Families" value="EMF"/>
+<mapEntry key="Persons" value="EMF"/>
+<mapEntry key="TRACE" value="EMF"/>
+</mapAttribute>
+<mapAttribute key="ModelType">
+<mapEntry key="Families" value="METAMODELINPUT"/>
+<mapEntry key="Families_model" value="MODELINPUT"/>
+<mapEntry key="Persons" value="METAMODELOUTPUT"/>
+<mapEntry key="Persons_model" value="MODELOUTPUT"/>
+<mapEntry key="TRACE" value="METAMODELOUTPUT"/>
+<mapEntry key="in2out_trace" value="MODELOUTPUT"/>
+</mapAttribute>
+<mapAttribute key="Options">
+<mapEntry key="OPTION_CLEAR" value="false"/>
+<mapEntry key="OPTION_CONTENT_TYPE" value="false"/>
+<mapEntry key="OPTION_DERIVED" value="true"/>
+<mapEntry key="allowInterModelReferences" value="false"/>
+<mapEntry key="printExecutionTime" value="false"/>
+<mapEntry key="step" value="false"/>
+<mapEntry key="supportUML2Stereotypes" value="false"/>
+</mapAttribute>
+<listAttribute key="OrderedInput">
+<listEntry value="Families_model"/>
+</listAttribute>
+<listAttribute key="OrderedOutput">
+<listEntry value="Persons_model"/>
+<listEntry value="in2out_trace"/>
+</listAttribute>
+<mapAttribute key="Output">
+<mapEntry key="Persons_model" value="Persons"/>
+<mapEntry key="in2out_trace" value="TRACE"/>
+</mapAttribute>
+<mapAttribute key="Path">
+<mapEntry key="Families" value="/metagem_F2P/Metamodels/Families.ecore"/>
+<mapEntry key="Families_model" value="/metagem_F2P/Models/sample-Families.ecore"/>
+<mapEntry key="Persons" value="/metagem_F2P/Metamodels/Persons.ecore"/>
+<mapEntry key="Persons_model" value="/metagem_F2P/Models/sample-Persons.ecore"/>
+<mapEntry key="TRACE" value="uri:http://www.kybele.es/Traceability"/>
+<mapEntry key="in2out_trace" value="/metagem_F2P/Models/sample-F2P.mtrace"/>
+</mapAttribute>
+<listAttribute key="Superimpose"/>
+</launchConfiguration>
