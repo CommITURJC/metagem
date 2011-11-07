@@ -168,7 +168,7 @@ rule OneToOne2Binding extends Relations2Binding{
 		),
 		rightPattern:Hybrid!RightPattern(
 			source <- relation.source,
-			"rule" <- relation.source->collect(e|e.invokes)
+			"rule" <- relation.source.invokes
 			
 		),
 		leftPattern:Hybrid!LeftPattern(
