@@ -9,9 +9,12 @@ rule Module {
 		rubytl : RubyTL!Transformation (
 			name <- hybrid.name.debug('Module'),
 		    sourceMetamodels <- hybrid.sourceModels,
-			targetMetamodels <- hybrid.targetModels,
+			targetMetamodels <- hybrid.targetModels.append(traceModel),
 			rules <- hybrid.rules,
 			decorators <- hybrid.operations
+		),
+		traceModel : RubyTL!Metamodel(
+			name <- 'TRACE_model'.debug('TraceModel')			
 		)
 }
 
@@ -22,7 +25,7 @@ rule sourceModel{
 		source_hybrid : Hybrid!SourceModel
 	to
 		source_rubytl : RubyTL!Metamodel(
-			name <- source_hybrid.name.debug('SourceMetamodel')
+			name <- source_hybrid.name.debug('SourceModel')
 		)
 }
 
@@ -33,7 +36,7 @@ rule targetModel{
 		target_hybrid : Hybrid!TargetModel
 	to
 		target_rubytl : RubyTL!Metamodel(
-			name <- target_hybrid.name.debug('TargetMetamodel')			
+			name <- target_hybrid.name.debug('TargetModel')			
 		)
 }
 
@@ -97,13 +100,13 @@ rule createRule2CopyRule{
 	to
 		rubytl : RubyTL!CopyRule (
 			name <- mm_hybrid_rule.name.debug('Name CopyRule'),
-			"from" <- mm_hybrid_rule.source.asSequence().first(),  
-			"to" <- mm_hybrid_rule.target.asSequence(),
+			"from" <- mm_hybrid_rule.sources.asSequence().first(),  
+			"to" <- mm_hybrid_rule.targets.asSequence(),
 			comment <- mm_hybrid_rule.getComment(),
 			mapping <- amapping
 		),
 		amapping : RubyTL!Mapping (
-			bindings <- mm_hybrid_rule.target.asSequence()->collect(i | i.bindings)
+			bindings <- mm_hybrid_rule.targets.asSequence()->collect(i | i.bindings)
 		)
 }
 
@@ -191,12 +194,12 @@ rule createRule2NormalRuleMulti{
 -- Generation FromElements
 rule source2from{
 	from 
-		inPattern : Hybrid!SourceElementRule (inPattern.refImmediateComposite().oclIsTypeOf(Hybrid!Rule))
+		inPattern : Hybrid!Source (inPattern.refImmediateComposite().oclIsTypeOf(Hybrid!Rule))
 	to
 		fromElement : RubyTL!FromElement (
 			name <-  inPattern.name.toLower()+'_in',
 			classname <- inPattern.name,
-			metamodel <- thisModule.resolveTemp(inPattern.metamodel,'source_rubytl')  
+			metamodel <- thisModule.resolveTemp(inPattern.component.getModel(),'source_rubytl')  
 		)
 }
 
@@ -204,12 +207,12 @@ rule source2from{
 -- Generation ToElements
 rule target2to{
 	from 
-		outPattern : Hybrid!TargetElementRule (outPattern.refImmediateComposite().oclIsTypeOf(Hybrid!Rule))
+		outPattern : Hybrid!Target (outPattern.refImmediateComposite().oclIsTypeOf(Hybrid!Rule))
 	to
 		toElement : RubyTL!ToElement (
 			name <-  outPattern.name.toLower()+'_out',
 			classname <- outPattern.name,
-			metamodel <- thisModule.resolveTemp(outPattern.metamodel,'target_rubytl')  
+			metamodel <- thisModule.resolveTemp(outPattern.component.getModel(),'target_rubytl')  
 		)
 }
 
@@ -440,4 +443,17 @@ helper context Hybrid!Rule def : getFilterMultiIN () : String =
 	'# Inputs -> ' + self.sources.asSequence()->collect
 	(i | i.metamodel.name + '::' + i.name + '.all_objects.map').toString().substring(
 		sizeInitial, sizeSequence - 1);
+			
+--Helper -> Return the model of the component
+helper context Hybrid!ModelComponent def : getModel(): Hybrid!Model =
+	if self.oclIsTypeOf(Hybrid!ModelFeature) then
+		self.ownedElement.getModel()
+	else
+		if self.ownedModel.oclIsUndefined() then
+			self.parentElement.getModel()
+		else
+			self.ownedModel
+		endif
+	endif
+;
 
