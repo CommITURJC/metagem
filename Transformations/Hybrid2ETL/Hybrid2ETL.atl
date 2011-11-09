@@ -1,0 +1,143 @@
+-- @path ETL=/Hybrid2ETL/ETL.ecore
+-- @path Hybrid=/Hybrid2ETL/Hybrid.ecore
+
+module Hybrid2ETL;
+create OUT : ETL from IN : Hybrid;
+
+-- Create module header
+rule Module {
+	from 
+		hybrid : Hybrid!Module
+	to
+		etl : ETL!EtlModule (
+			name <- hybrid.name.debug('Module'),
+			rules <- hybrid.rules,
+			operations <- hybrid.operations
+		)
+}
+
+abstract rule createRule{
+	from 
+		r: Hybrid!Rule(r.sources.size()=1 and r.targets.size()>0)
+	to
+		etl_r: ETL!TransformationRule(
+			name <- r.name,
+			isAbstract <- r.isAbstract,
+			"extends" <- r."extends",
+			guard <- r.guard,
+			source <- r.sources.first(),
+			targets <- r.targets,
+			bindings <- r.targets->collect(t|t.bindings).asSequence()
+		)
+}
+
+rule createRule_main extends createRule{
+	from
+		r: Hybrid!Rule (r.isMain=true)
+	to 
+		etl_r: ETL!TransformationRule(
+			"lazy" <- false
+		)
+}
+
+rule createRule_lazy extends createRule{
+	from
+		r: Hybrid!Rule (r.isMain=false)
+	to 
+		etl_r: ETL!TransformationRule(
+			"lazy" <- true
+		)
+}
+
+rule Binding {
+	from
+		b: Hybrid!Binding
+	to
+		etl_b: ETL!Binding(
+			--source<- b.right,
+			target<- b.left
+		)
+}
+
+rule LeftPattern2SimpleStatement{
+	from
+		leftP: Hybrid!LeftPattern
+	to
+		simpleS: ETL!SimpleStatement(
+			element <- leftP.refImmediateComposite().refImmediateComposite(),
+			property <- leftP.target.component.name
+		)
+}
+
+--rule RightPattern2
+
+rule Source2Element{
+	from 
+		s: Hybrid!Source(s.refImmediateComposite().oclIsTypeOf(Hybrid!Rule))
+	to
+		e:ETL!Element(
+			name <- s.component.name.toLower(),
+			className <- s.component.name,
+			metamodel <- s.component.getModel()
+		)
+}
+
+rule Target2Element{
+	from 
+		t: Hybrid!Target (t.refImmediateComposite().oclIsTypeOf(Hybrid!Rule))
+	to
+		e:ETL!Element(
+			name <- t.component.name.toLower(),
+			className <- t.component.name,
+			metamodel <- t.component.getModel()
+		)
+}
+
+rule Guard{
+	from
+		g: Hybrid!Guard
+	to
+		etl_g: ETL!Guard(
+			body <- g.value	
+		)
+}
+
+rule Operation{
+	from 
+		h_op: Hybrid!Operation
+	to
+		etl_op:ETL!Operation(
+			name <- h_op.name,
+			body <- h_op.body,
+			context <- h_op.context.ruleElement,
+			return <- h_op.return
+		)
+}
+
+rule Return2SimpleStatement{
+	from 
+		ret:Hybrid!Return
+	to
+		simpleS: ETL!SimpleStatement(
+			element <- ret.component.ruleElement,
+			property <- ret.datatype.toString()
+		)
+}
+
+
+-----------------------------------------------------------
+--------------------------- HELPERS -----------------------
+-----------------------------------------------------------
+
+--Helper -> Return the name of the metamodel
+helper context Hybrid!ModelComponent def : getModel(): String =
+	if self.oclIsTypeOf(Hybrid!ModelFeature) then
+		self.ownedElement.getModel()
+	else
+		if self.ownedModel.oclIsUndefined() then
+			self.parentElement.getModel()
+		else
+			self.ownedModel.type_mm
+		endif
+	endif
+	;

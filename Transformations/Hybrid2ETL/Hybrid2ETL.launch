@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.adt.launching.atlTransformation">
+<stringAttribute key="ATL File Name" value="/Hybrid2ETL/Hybrid2ETL.atl"/>
+<stringAttribute key="ATL VM" value="EMF-specific VM"/>
+<stringAttribute key="ATL_COMPILER" value="atl2006"/>
+<booleanAttribute key="IS_REFINING" value="false"/>
+<mapAttribute key="Input">
+<mapEntry key="IN" value="Hybrid"/>
+</mapAttribute>
+<mapAttribute key="Libs"/>
+<mapAttribute key="Model Handler">
+<mapEntry key="ETL" value="EMF"/>
+<mapEntry key="Hybrid" value="EMF"/>
+</mapAttribute>
+<mapAttribute key="ModelType">
+<mapEntry key="ETL" value="METAMODELOUTPUT"/>
+<mapEntry key="Hybrid" value="METAMODELINPUT"/>
+<mapEntry key="IN" value="MODELINPUT"/>
+<mapEntry key="OUT" value="MODELOUTPUT"/>
+</mapAttribute>
+<mapAttribute key="Options">
+<mapEntry key="OPTION_CLEAR" value="false"/>
+<mapEntry key="OPTION_CONTENT_TYPE" value="false"/>
+<mapEntry key="OPTION_DERIVED" value="true"/>
+<mapEntry key="allowInterModelReferences" value="false"/>
+<mapEntry key="printExecutionTime" value="false"/>
+<mapEntry key="step" value="false"/>
+<mapEntry key="supportUML2Stereotypes" value="false"/>
+</mapAttribute>
+<listAttribute key="OrderedInput">
+<listEntry value="IN"/>
+</listAttribute>
+<listAttribute key="OrderedOutput">
+<listEntry value="OUT"/>
+</listAttribute>
+<mapAttribute key="Output">
+<mapEntry key="OUT" value="ETL"/>
+</mapAttribute>
+<mapAttribute key="Path">
+<mapEntry key="ETL" value="/Hybrid2ETL/ETL.ecore"/>
+<mapEntry key="Hybrid" value="/Hybrid2ETL/Hybrid.ecore"/>
+<mapEntry key="IN" value="/Hybrid2ETL/models/fam2per_hybrid.ecore"/>
+<mapEntry key="OUT" value="/Hybrid2ETL/models/fam2per_etl.ecore"/>
+</mapAttribute>
+<listAttribute key="Superimpose"/>
+</launchConfiguration>
