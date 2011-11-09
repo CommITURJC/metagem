@@ -192,5 +192,17 @@
                label="Inject ATL file to ATL model (MeTAGeM)">
          </action>
       </objectContribution>
+      <objectContribution
+            adaptable="false"
+            id="Extract ETL code"
+            nameFilter="*.etl_model"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="kybele.metagem.ui.actions.ETLExtract"
+               enablesFor="1"
+               id="ExtractETL"
+               label="Extract ETL model to ETL file (MeTAGeM)">
+         </action>
+      </objectContribution>
    </extension>
 </plugin>

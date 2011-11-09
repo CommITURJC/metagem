@@ -1,0 +1,114 @@
+/**
+ * transformation ETLGenerator
+ * date: 9/10/2011
+ * author: Alvaro Jimenez Rielo (Kybele, URJC)
+ * description: 
+ */
+
+texttransformation ETLGenerator (in eco:"http://org.eclipse.kybele.metagem.ETL") {
+
+  eco.EtlModule::main () {
+     var name:String
+     
+     if (self.name.size()=0)
+     	name="generated.etl"
+     else
+     	name=self.name + ".etl"
+     file (name)
+     
+     println("pre "+self.pre.name+" {")
+     	if (self.name.size()!=0)
+     		println("'Running ETL: "+self.name+" Transformation'.println();")
+     	self.pre.body
+     	println("")
+     println("}")
+     println("")
+     
+     println("post "+self.post.name+" {")
+     	self.post.body
+     	println("")
+     println("}")
+     println("")
+     
+     self.rules->forEach(r:eco.TransformationRule){
+        r.generateRule()
+     	println("")
+     }
+     
+     self.operations->forEach(o:eco.Operation){
+        o.generateOperation()
+     	println("")
+     } 
+  }
+  
+  eco.TransformationRule::generateRule(){
+    if(self.greedy)
+    	println("@greedy")
+    if(self.isAbstract)
+    	println("@abstract")
+    if(self.lazy)
+    	println("@lazy")
+    if(self.primary)
+    	println("@primary")
+    println("rule "+ self.name)
+    print(" transform ") self.source.generateElementRule()
+    println("")
+    print(" to ") self.targets->forEach(e:eco.Element){e.generateElementRule() print(",")}
+    println("")
+    
+    if(self._getFeature("extends").size()>0)
+    	println("extends") self._getFeature("extends")->forEach(ex:eco.TransformationRule){ex.name print(",")}
+    
+    println("{")
+    
+    if(self._getFeature("guard").size()>0)
+    	println("guard : " + self._getFeature("guard").body)
+    	
+    self.bindings->forEach(b:eco.Binding){b.generateBinding()}
+    
+    println("}")
+  }
+  
+  eco.Binding::generateBinding(){
+  	print("\t") self.target.generateStatement() print(" := ") self.source.generateStatement() println(";")
+  }
+  
+  abstract eco.Statement::generateStatement()
+  
+  eco.SimpleStatement::generateStatement(){
+  	if(self.element!=null)
+  		print(self.element.name+".")
+  	print(self._getFeature("property"))
+  }
+  
+  eco.SimpleStatement::generateOPstatement(){
+    if(self.element!=null){
+  		self.element.metamodel print("!") self.element.className
+  		if(self._getFeature("property")!=null)
+  			print(".")
+  	}
+  	print(self._getFeature("property"))
+  }
+  
+  eco.OperationStatement::generateStatement(){
+  	if(self.parameter1!=null)
+  		print(self.parameter1.generateStatement())
+  	print(self.operator)
+  	if(self.parameter2!=null)
+  		print(self.parameter2.generateStatement())
+  	
+  }
+  
+  eco.Element::generateElementRule(){
+  	self.name print(" : ") self.metamodel print("!") self.className
+  }
+  
+  eco.Operation::generateOperation(){
+    print("operation ") self.context.generateOPstatement() print(" "+self.name+"() : ") self._getFeature("return").generateOPstatement() println(" {")
+    println("\t"+self.body)
+    println("}")
+  }
+  
+  
+  
+}
