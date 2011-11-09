@@ -8,7 +8,14 @@ Bundle-Vendor: Kybele
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.debug.core,
- org.eclipse.debug.ui
+ org.eclipse.debug.ui,
+ org.eclipse.mofscript.editor;bundle-version="1.4.0",
+ org.eclipse.mofscript.fileresourcemodel;bundle-version="1.4.0",
+ org.eclipse.mofscript.help;bundle-version="1.4.0",
+ org.eclipse.mofscript.model;bundle-version="1.4.0",
+ org.eclipse.mofscript.parser;bundle-version="1.4.0",
+ org.eclipse.mofscript.runtime;bundle-version="1.4.0",
+ org.eclipse.mofscript.traceabilitymodel;bundle-version="1.4.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.emf.common.ui.dialogs,
