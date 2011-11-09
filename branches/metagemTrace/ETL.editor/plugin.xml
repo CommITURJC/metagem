@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            id="ETL.presentation.ETLModelWizardID"
+            name="%_UI_ETLModelWizard_label"
+            class="ETL.presentation.ETLModelWizard"
+            category="org.eclipse.kybele.metagem.Wizard.category.ID"
+            icon="icons/full/obj16/ETLModelFile.gif">
+         <description>%_UI_ETLModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="ETL.presentation.ETLEditorID"
+            name="%_UI_ETLEditor_label"
+            icon="icons/full/obj16/ETLModelFile.gif"
+            extensions="etl_model"
+            class="ETL.presentation.ETLEditor"
+            contributorClass="ETL.presentation.ETLActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
