@@ -1638,7 +1638,7 @@ helper context Hybrid!Operation def : getContext () : ATL!OclExpression =
 
 -- Helper -> To call the correct lazy rule to define the Binding
 helper context Hybrid!Binding def : getBindingSource() : ATL!OclExpression =
-		if self.typeRelation = #"concatenation" then
+		if self.typeRelation = #"Concatenation" then
 			thisModule.CreateConcatBinding(self, self.right.source.asSequence()->collect(i | i.name))
 		else
 			if (self.right."rule".asSequence().first().oclIsUndefined() and 
@@ -1680,17 +1680,17 @@ helper context Hybrid!Binding def : getValueBinding () : ATL!OclExpression =
 					self.right.operation.asSequence().first().name
 				-- rule undefined, operation defined and srcElement defined 
 				else 
-					self.right.sourceElement.asSequence().first().name + '.' + self.right.operation.asSequence().first().name 
+					self.right.source.name + '.' + self.right.operation.asSequence().first().name 
 				endif
 			endif
 		--rule defined (operation undefined by validation)		
 		else
 			--rule defined and srcElement undefined
-			if self.right.sourceElement.asSequence().first().oclIsUndefined() then
+			if self.right.source.oclIsUndefined() then
 				self.right."rule".asSequence().first().name
 			--rule defined and source defined
 			else  
-				self.right.source.asSequence().first().name + '.' + self.right."rule".asSequence().first().name 
+				self.right.source.name + '.' + self.right."rule".asSequence().first().name 
 			endif
 		endif
 	endif;

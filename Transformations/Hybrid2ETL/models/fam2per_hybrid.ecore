@@ -38,8 +38,8 @@
   <rules xmi:id="_J1ZnMOA0EeCzHLZ3F2dA0w" name="father2male">
     <sources xmi:id="_J1ZnMeA0EeCzHLZ3F2dA0w" name="Father" component="_J1ZnHOA0EeCzHLZ3F2dA0w" traceLink="_J1ZnN-A0EeCzHLZ3F2dA0w"/>
     <targets xmi:id="_J1ZnMuA0EeCzHLZ3F2dA0w" name="Male" component="_J1ZnLOA0EeCzHLZ3F2dA0w" traceLink="_J1ZnN-A0EeCzHLZ3F2dA0w">
-      <bindings xmi:id="_J1ZnM-A0EeCzHLZ3F2dA0w" name="R8" trace="_J1ZnOOA0EeCzHLZ3F2dA0w">
-        <right xmi:id="_J1ZnNOA0EeCzHLZ3F2dA0w">
+      <bindings xmi:id="_J1ZnM-A0EeCzHLZ3F2dA0w" name="R8" typeRelation="Concatenation" trace="_J1ZnOOA0EeCzHLZ3F2dA0w">
+        <right xmi:id="_J1ZnNOA0EeCzHLZ3F2dA0w" concreteValue="">
           <source xmi:id="_3p_6seUiEeC8ZfglP7Y6xw" name="firstName" component="_J1ZnG-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnOOA0EeCzHLZ3F2dA0w"/>
           <source xmi:id="_3-HJgOUiEeC8ZfglP7Y6xw" name="familyFather.lastName" component="_J1ZnHuA0EeCzHLZ3F2dA0w" traceLink="_J1ZnOOA0EeCzHLZ3F2dA0w"/>
         </right>
@@ -55,7 +55,7 @@
   <rules xmi:id="_J1ZnOeA0EeCzHLZ3F2dA0w" name="mother2female">
     <sources xmi:id="_J1ZnOuA0EeCzHLZ3F2dA0w" name="Mother" component="_J1ZnH-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnQuA0EeCzHLZ3F2dA0w"/>
     <targets xmi:id="_J1ZnO-A0EeCzHLZ3F2dA0w" name="Female" component="_J1ZnLuA0EeCzHLZ3F2dA0w" traceLink="_J1ZnQuA0EeCzHLZ3F2dA0w">
-      <bindings xmi:id="_J1ZnPOA0EeCzHLZ3F2dA0w" name="firstName_2_fullName" trace="_J1ZnQ-A0EeCzHLZ3F2dA0w">
+      <bindings xmi:id="_J1ZnPOA0EeCzHLZ3F2dA0w" name="firstName_2_fullName" typeRelation="Concatenation" trace="_J1ZnQ-A0EeCzHLZ3F2dA0w">
         <right xmi:id="_J1ZnPeA0EeCzHLZ3F2dA0w">
           <source xmi:id="_J1ZnPuA0EeCzHLZ3F2dA0w" name="firstName" component="_J1ZnG-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnQ-A0EeCzHLZ3F2dA0w"/>
           <source xmi:id="_J1ZnP-A0EeCzHLZ3F2dA0w" name="familyMother.lastName" component="_J1ZnIeA0EeCzHLZ3F2dA0w" traceLink="_J1ZnQ-A0EeCzHLZ3F2dA0w"/>
@@ -72,7 +72,7 @@
   <rules xmi:id="_J1ZnROA0EeCzHLZ3F2dA0w" name="son2male">
     <sources xmi:id="_J1ZnReA0EeCzHLZ3F2dA0w" name="Son" component="_J1ZnIuA0EeCzHLZ3F2dA0w" traceLink="_J1ZnTeA0EeCzHLZ3F2dA0w"/>
     <targets xmi:id="_J1ZnRuA0EeCzHLZ3F2dA0w" name="Male" component="_J1ZnLOA0EeCzHLZ3F2dA0w" traceLink="_J1ZnTeA0EeCzHLZ3F2dA0w">
-      <bindings xmi:id="_J1ZnR-A0EeCzHLZ3F2dA0w" name="firstName_2_fullName" trace="_J1ZnTuA0EeCzHLZ3F2dA0w">
+      <bindings xmi:id="_J1ZnR-A0EeCzHLZ3F2dA0w" name="firstName_2_fullName" typeRelation="Concatenation" trace="_J1ZnTuA0EeCzHLZ3F2dA0w">
         <right xmi:id="_J1ZnSOA0EeCzHLZ3F2dA0w">
           <source xmi:id="_J1ZnSeA0EeCzHLZ3F2dA0w" name="firstName" component="_J1ZnG-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnTuA0EeCzHLZ3F2dA0w"/>
           <source xmi:id="_J1ZnSuA0EeCzHLZ3F2dA0w" name="familySon.lastName" component="_J1ZnJOA0EeCzHLZ3F2dA0w" traceLink="_J1ZnTuA0EeCzHLZ3F2dA0w"/>
