@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:hybrid="org.eclipse.kybele.hybrid" xmi:id="_J1ZnEeA0EeCzHLZ3F2dA0w" name="families2persons">
+  <operations xmi:id="_FK8ugAxEEeGOLaZAQBVgZQ" name="getFatherName" body="return self.firstName + ' ' + self.familyFather.lastName;" rightPattern="_XV_ioAxEEeGOLaZAQBVgZQ" context="_J1ZnHOA0EeCzHLZ3F2dA0w">
+    <return xmi:id="_TExlEAxEEeGOLaZAQBVgZQ" datatype="String"/>
+  </operations>
+  <sourceModels xmi:id="_J1ZnEuA0EeCzHLZ3F2dA0w" name="families_model" path="/Families2Person_Metagem/Families.ecore" type_mm="families">
+    <elements xmi:id="_J1ZnE-A0EeCzHLZ3F2dA0w" name="Families" ref="/">
+      <childElements xmi:id="_J1ZnFOA0EeCzHLZ3F2dA0w" name="Family" ref="//Family" contains="_J1ZnHOA0EeCzHLZ3F2dA0w _J1ZnH-A0EeCzHLZ3F2dA0w _J1ZnIuA0EeCzHLZ3F2dA0w _J1ZnJeA0EeCzHLZ3F2dA0w">
+        <features xmi:id="_J1ZnFeA0EeCzHLZ3F2dA0w" name="lastName" ref="//Family/lastName"/>
+        <features xmi:id="_J1ZnFuA0EeCzHLZ3F2dA0w" name="father" ref="//Family/father"/>
+        <features xmi:id="_J1ZnF-A0EeCzHLZ3F2dA0w" name="mother" ref="//Family/mother"/>
+        <features xmi:id="_J1ZnGOA0EeCzHLZ3F2dA0w" name="sons" ref="//Family/sons"/>
+        <features xmi:id="_J1ZnGeA0EeCzHLZ3F2dA0w" name="daughters" ref="//Family/daughters"/>
+      </childElements>
+      <childElements xmi:id="_J1ZnGuA0EeCzHLZ3F2dA0w" name="Member" ref="//Member">
+        <features xmi:id="_J1ZnG-A0EeCzHLZ3F2dA0w" name="firstName" ref="//Member/firstName" ruleElement="_J1ZnVOA0EeCzHLZ3F2dA0w _J1ZnPuA0EeCzHLZ3F2dA0w _J1ZnSeA0EeCzHLZ3F2dA0w"/>
+      </childElements>
+      <childElements xmi:id="_J1ZnHOA0EeCzHLZ3F2dA0w" name="Father" ref="//Father" ruleElement="_J1ZnMeA0EeCzHLZ3F2dA0w" isContained="_J1ZnFOA0EeCzHLZ3F2dA0w">
+        <features xmi:id="_J1ZnHuA0EeCzHLZ3F2dA0w" name="familyFather" ref="//Father/familyFather"/>
+      </childElements>
+      <childElements xmi:id="_J1ZnH-A0EeCzHLZ3F2dA0w" name="Mother" ref="//Mother" ruleElement="_J1ZnOuA0EeCzHLZ3F2dA0w" isContained="_J1ZnFOA0EeCzHLZ3F2dA0w">
+        <features xmi:id="_J1ZnIeA0EeCzHLZ3F2dA0w" name="familyMother" ref="//Mother/familyMother" ruleElement="_J1ZnP-A0EeCzHLZ3F2dA0w"/>
+      </childElements>
+      <childElements xmi:id="_J1ZnIuA0EeCzHLZ3F2dA0w" name="Son" ref="//Son" ruleElement="_J1ZnReA0EeCzHLZ3F2dA0w" isContained="_J1ZnFOA0EeCzHLZ3F2dA0w">
+        <features xmi:id="_J1ZnJOA0EeCzHLZ3F2dA0w" name="familySon" ref="//Son/familySon" ruleElement="_J1ZnSuA0EeCzHLZ3F2dA0w"/>
+      </childElements>
+      <childElements xmi:id="_J1ZnJeA0EeCzHLZ3F2dA0w" name="Daughter" ref="//Daughter" ruleElement="_J1ZnUOA0EeCzHLZ3F2dA0w" isContained="_J1ZnFOA0EeCzHLZ3F2dA0w">
+        <features xmi:id="_J1ZnJ-A0EeCzHLZ3F2dA0w" name="familyDaughter" ref="//Daughter/familyDaughter" ruleElement="_J1ZnVeA0EeCzHLZ3F2dA0w"/>
+      </childElements>
+    </elements>
+  </sourceModels>
+  <targetModels xmi:id="_J1ZnKOA0EeCzHLZ3F2dA0w" name="persons_model" path="/Families2Person_Metagem/Persons.ecore" type_mm="persons">
+    <elements xmi:id="_J1ZnKeA0EeCzHLZ3F2dA0w" name="Persons" ref="/">
+      <childElements xmi:id="_J1ZnKuA0EeCzHLZ3F2dA0w" name="Person" ref="//Person">
+        <features xmi:id="_J1ZnK-A0EeCzHLZ3F2dA0w" name="fullName" ref="//Person/fullName" ruleElement="_J1ZnV-A0EeCzHLZ3F2dA0w _J1ZnNuA0EeCzHLZ3F2dA0w _J1ZnQeA0EeCzHLZ3F2dA0w _J1ZnTOA0EeCzHLZ3F2dA0w"/>
+      </childElements>
+      <childElements xmi:id="_J1ZnLOA0EeCzHLZ3F2dA0w" name="Male" ref="//Male" ruleElement="_J1ZnRuA0EeCzHLZ3F2dA0w _J1ZnMuA0EeCzHLZ3F2dA0w"/>
+      <childElements xmi:id="_J1ZnLuA0EeCzHLZ3F2dA0w" name="Female" ref="//Female" ruleElement="_J1ZnUeA0EeCzHLZ3F2dA0w _J1ZnO-A0EeCzHLZ3F2dA0w"/>
+    </elements>
+  </targetModels>
+  <rules xmi:id="_J1ZnMOA0EeCzHLZ3F2dA0w" name="father2male">
+    <sources xmi:id="_J1ZnMeA0EeCzHLZ3F2dA0w" name="Father" component="_J1ZnHOA0EeCzHLZ3F2dA0w" traceLink="_J1ZnN-A0EeCzHLZ3F2dA0w"/>
+    <targets xmi:id="_J1ZnMuA0EeCzHLZ3F2dA0w" name="Male" component="_J1ZnLOA0EeCzHLZ3F2dA0w" traceLink="_J1ZnN-A0EeCzHLZ3F2dA0w">
+      <bindings xmi:id="_J1ZnM-A0EeCzHLZ3F2dA0w" name="R8" trace="_J1ZnOOA0EeCzHLZ3F2dA0w">
+        <right xmi:id="_XV_ioAxEEeGOLaZAQBVgZQ" operation="_FK8ugAxEEeGOLaZAQBVgZQ"/>
+        <left xmi:id="_J1ZnNeA0EeCzHLZ3F2dA0w">
+          <target xmi:id="_J1ZnNuA0EeCzHLZ3F2dA0w" name="fullName" component="_J1ZnK-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnOOA0EeCzHLZ3F2dA0w"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace xmi:id="_J1ZnN-A0EeCzHLZ3F2dA0w" name="father2male" source="_J1ZnMeA0EeCzHLZ3F2dA0w" target="_J1ZnMuA0EeCzHLZ3F2dA0w">
+      <traceBindings xmi:id="_J1ZnOOA0EeCzHLZ3F2dA0w" name="R8" target="_J1ZnNuA0EeCzHLZ3F2dA0w" binding="_J1ZnM-A0EeCzHLZ3F2dA0w"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_J1ZnOeA0EeCzHLZ3F2dA0w" name="mother2female">
+    <sources xmi:id="_J1ZnOuA0EeCzHLZ3F2dA0w" name="Mother" component="_J1ZnH-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnQuA0EeCzHLZ3F2dA0w"/>
+    <targets xmi:id="_J1ZnO-A0EeCzHLZ3F2dA0w" name="Female" component="_J1ZnLuA0EeCzHLZ3F2dA0w" traceLink="_J1ZnQuA0EeCzHLZ3F2dA0w">
+      <bindings xmi:id="_J1ZnPOA0EeCzHLZ3F2dA0w" name="firstName_2_fullName" typeRelation="Concatenation" trace="_J1ZnQ-A0EeCzHLZ3F2dA0w">
+        <right xmi:id="_J1ZnPeA0EeCzHLZ3F2dA0w">
+          <source xmi:id="_J1ZnPuA0EeCzHLZ3F2dA0w" name="firstName" component="_J1ZnG-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnQ-A0EeCzHLZ3F2dA0w"/>
+          <source xmi:id="_J1ZnP-A0EeCzHLZ3F2dA0w" name="familyMother.lastName" component="_J1ZnIeA0EeCzHLZ3F2dA0w" traceLink="_J1ZnQ-A0EeCzHLZ3F2dA0w"/>
+        </right>
+        <left xmi:id="_J1ZnQOA0EeCzHLZ3F2dA0w">
+          <target xmi:id="_J1ZnQeA0EeCzHLZ3F2dA0w" name="fullName" component="_J1ZnK-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnQ-A0EeCzHLZ3F2dA0w"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace xmi:id="_J1ZnQuA0EeCzHLZ3F2dA0w" name="mother2female" source="_J1ZnOuA0EeCzHLZ3F2dA0w" target="_J1ZnO-A0EeCzHLZ3F2dA0w">
+      <traceBindings xmi:id="_J1ZnQ-A0EeCzHLZ3F2dA0w" name="firstName_2_fullName" source="_J1ZnPuA0EeCzHLZ3F2dA0w _J1ZnP-A0EeCzHLZ3F2dA0w" target="_J1ZnQeA0EeCzHLZ3F2dA0w" binding="_J1ZnPOA0EeCzHLZ3F2dA0w"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_J1ZnROA0EeCzHLZ3F2dA0w" name="son2male">
+    <sources xmi:id="_J1ZnReA0EeCzHLZ3F2dA0w" name="Son" component="_J1ZnIuA0EeCzHLZ3F2dA0w" traceLink="_J1ZnTeA0EeCzHLZ3F2dA0w"/>
+    <targets xmi:id="_J1ZnRuA0EeCzHLZ3F2dA0w" name="Male" component="_J1ZnLOA0EeCzHLZ3F2dA0w" traceLink="_J1ZnTeA0EeCzHLZ3F2dA0w">
+      <bindings xmi:id="_J1ZnR-A0EeCzHLZ3F2dA0w" name="firstName_2_fullName" typeRelation="Concatenation" trace="_J1ZnTuA0EeCzHLZ3F2dA0w">
+        <right xmi:id="_J1ZnSOA0EeCzHLZ3F2dA0w">
+          <source xmi:id="_J1ZnSeA0EeCzHLZ3F2dA0w" name="firstName" component="_J1ZnG-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnTuA0EeCzHLZ3F2dA0w"/>
+          <source xmi:id="_J1ZnSuA0EeCzHLZ3F2dA0w" name="familySon.lastName" component="_J1ZnJOA0EeCzHLZ3F2dA0w" traceLink="_J1ZnTuA0EeCzHLZ3F2dA0w"/>
+        </right>
+        <left xmi:id="_J1ZnS-A0EeCzHLZ3F2dA0w">
+          <target xmi:id="_J1ZnTOA0EeCzHLZ3F2dA0w" name="fullName" component="_J1ZnK-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnTuA0EeCzHLZ3F2dA0w"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace xmi:id="_J1ZnTeA0EeCzHLZ3F2dA0w" name="son2male" source="_J1ZnReA0EeCzHLZ3F2dA0w" target="_J1ZnRuA0EeCzHLZ3F2dA0w">
+      <traceBindings xmi:id="_J1ZnTuA0EeCzHLZ3F2dA0w" name="firstName_2_fullName" source="_J1ZnSeA0EeCzHLZ3F2dA0w _J1ZnSuA0EeCzHLZ3F2dA0w" target="_J1ZnTOA0EeCzHLZ3F2dA0w" binding="_J1ZnR-A0EeCzHLZ3F2dA0w"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_J1ZnT-A0EeCzHLZ3F2dA0w" name="daughter2female">
+    <sources xmi:id="_J1ZnUOA0EeCzHLZ3F2dA0w" name="Daughter" component="_J1ZnJeA0EeCzHLZ3F2dA0w" traceLink="_J1ZnWOA0EeCzHLZ3F2dA0w"/>
+    <targets xmi:id="_J1ZnUeA0EeCzHLZ3F2dA0w" name="Female" component="_J1ZnLuA0EeCzHLZ3F2dA0w" traceLink="_J1ZnWOA0EeCzHLZ3F2dA0w">
+      <bindings xmi:id="_J1ZnUuA0EeCzHLZ3F2dA0w" name="firstName_2_fullName" typeRelation="Concatenation" trace="_J1ZnWeA0EeCzHLZ3F2dA0w">
+        <right xmi:id="_J1ZnU-A0EeCzHLZ3F2dA0w">
+          <source xmi:id="_J1ZnVOA0EeCzHLZ3F2dA0w" name="firstName" component="_J1ZnG-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnWeA0EeCzHLZ3F2dA0w"/>
+          <source xmi:id="_J1ZnVeA0EeCzHLZ3F2dA0w" name="familyDaughter.lastName" component="_J1ZnJ-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnWeA0EeCzHLZ3F2dA0w"/>
+        </right>
+        <left xmi:id="_J1ZnVuA0EeCzHLZ3F2dA0w">
+          <target xmi:id="_J1ZnV-A0EeCzHLZ3F2dA0w" name="fullName" component="_J1ZnK-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnWeA0EeCzHLZ3F2dA0w"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace xmi:id="_J1ZnWOA0EeCzHLZ3F2dA0w" name="daughter2female" source="_J1ZnUOA0EeCzHLZ3F2dA0w" target="_J1ZnUeA0EeCzHLZ3F2dA0w">
+      <traceBindings xmi:id="_J1ZnWeA0EeCzHLZ3F2dA0w" name="firstName_2_fullName" source="_J1ZnVOA0EeCzHLZ3F2dA0w _J1ZnVeA0EeCzHLZ3F2dA0w" target="_J1ZnV-A0EeCzHLZ3F2dA0w" binding="_J1ZnUuA0EeCzHLZ3F2dA0w"/>
+    </trace>
+  </rules>
+</hybrid:Module>

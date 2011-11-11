@@ -14,6 +14,36 @@ rule Module {
 			rules <- hybrid.rules,
 			operations <- hybrid.operations
 		)
+	do{
+		thisModule.getETLmodule <- etl;
+		thisModule.getPre <- thisModule.getPre + '
+	traceModel.name = \''+hybrid.name+'_traces\';
+		';
+	}
+}
+
+rule createSourceModel{
+	from
+		s: Hybrid!SourceModel
+	do{
+		thisModule.getPre <- thisModule.getPre + 'var '+s.name+'_var: new Traceability!SourceModel;
+  '+s.name+'_var.name = \''+s.name+'\';
+  '+s.name+'_var.metamodel = \''+s.path+'\';
+  traceModel.sourceModels.add('+s.name+'_var);
+  ';	
+	}
+}
+
+rule createTargetModel{
+	from
+		t: Hybrid!TargetModel
+	do{
+		thisModule.getPre <- thisModule.getPre + 'var '+t.name+'_var: new Traceability!TargetModel;
+  '+t.name+'_var.name = \''+t.name+'\';
+  '+t.name+'_var.metamodel = \''+t.path+'\';
+  traceModel.targetModels.add('+t.name+'_var);
+  ';	
+	}
 }
 
 abstract rule createRule{
@@ -230,7 +260,6 @@ rule createConcatPattern(binding : Hybrid!Binding, attrRefs : Sequence(String)){
 		}
 }
 
-helper def: getStatement(): ETL!Statement =  OclUndefined;
 
 rule CreateConcatElement(binding : Hybrid!Binding, attrRef : String) {	
 	to
@@ -242,11 +271,62 @@ rule CreateConcatElement(binding : Hybrid!Binding, attrRef : String) {
 		}
 }
 
+endpoint rule createPre(){
+	to
+		preBlock:ETL!EolBlock(
+			preModule <- thisModule.getETLmodule,
+			body <- thisModule.getPre
+		)
+		do{
+			thisModule.createPost();	
+		}
+}
 
+rule createPost(){
+	to
+		postBlock:ETL!EolBlock(
+			postModule <- thisModule.getETLmodule,
+			body <- thisModule.getPost
+		)
+}
 
 -----------------------------------------------------------
 --------------------------- HELPERS -----------------------
 -----------------------------------------------------------
+helper def: getETLmodule: ETL!EtlModule =  OclUndefined;
+
+--Helper -> Pre text
+helper def:getPre:String='	var traceModel: new Traceability!TraceModel;';
+
+--Helper -> Post text
+helper def:getPost:String=
+	'  for (t in transTrace.transformations) {
+    var link : new Traceability!TraceLink;
+    var s = t.source;
+    var source: new Traceability!SourceElement;
+    source.name = s.firstName;
+    source.ref = s.eResource().getURIFragment(s);
+    link.source.add(source);
+   
+    for (tar in t.targets){
+    	var target: new Traceability!TargetElement;
+    	target.name = tar.fullName;
+    	target.ref = tar.eResource().getURIFragment(tar);
+    	
+    	var elementModel: new Traceability!Element;
+    	elementModel.name = tar.fullName;
+    	elementModel.ref = tar.eResource().getURIFragment(tar);
+    	elementModel.`model`= targetModel;
+    	target.elementModel=elementModel;
+    	
+    	link.target.add(target);
+    }
+    link.name := t.getRule().name;
+    traceModel.traceLinks.add(link);
+  }
+    ';
+
+helper def: getStatement: ETL!Statement =  OclUndefined;
 
 --Helper -> Create a Statement from a RightPattern
 helper context Hybrid!RightPattern def: createStatement(): ETL!Statement =
