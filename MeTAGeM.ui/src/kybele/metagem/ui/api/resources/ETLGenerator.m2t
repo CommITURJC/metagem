@@ -19,7 +19,7 @@ texttransformation ETLGenerator (in eco:"http://org.eclipse.kybele.metagem.ETL")
      println("pre "+self.pre.name+" {")
      	if (self.name.size()!=0)
      		println("'Running ETL: "+self.name+" Transformation'.println();")
-     	self.pre.body
+     	self.pre.body print(";")
      	println("")
      println("}")
      println("")
