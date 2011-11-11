@@ -53,7 +53,10 @@ texttransformation ETLGenerator (in eco:"http://org.eclipse.kybele.metagem.ETL")
     println("rule "+ self.name)
     print(" transform ") self.source.generateElementRule()
     println("")
-    print(" to ") self.targets->forEach(e:eco.Element){e.generateElementRule() print(",")}
+    print(" to ") self.targets->forEach(e:eco.Element){e.generateElementRule() 
+      if(self.targets.indexOf(e)!=self.targets.size()-1)
+      	print(", ")
+     }
     println("")
     
     if(self._getFeature("extends").size()>0)
