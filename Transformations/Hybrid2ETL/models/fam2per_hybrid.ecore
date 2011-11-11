@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:hybrid="org.eclipse.kybele.hybrid" xmi:id="_J1ZnEeA0EeCzHLZ3F2dA0w" name="families2persons">
+  <operations xmi:id="_FK8ugAxEEeGOLaZAQBVgZQ" name="getFatherName" body="return self.firstName + ' ' + self.familyFather.lastName;" rightPattern="_XV_ioAxEEeGOLaZAQBVgZQ" context="_J1ZnHOA0EeCzHLZ3F2dA0w">
+    <return xmi:id="_TExlEAxEEeGOLaZAQBVgZQ" datatype="String"/>
+  </operations>
   <sourceModels xmi:id="_J1ZnEuA0EeCzHLZ3F2dA0w" name="families_model" path="/Families2Person_Metagem/Families.ecore" type_mm="families">
     <elements xmi:id="_J1ZnE-A0EeCzHLZ3F2dA0w" name="Families" ref="/">
       <childElements xmi:id="_J1ZnFOA0EeCzHLZ3F2dA0w" name="Family" ref="//Family" contains="_J1ZnHOA0EeCzHLZ3F2dA0w _J1ZnH-A0EeCzHLZ3F2dA0w _J1ZnIuA0EeCzHLZ3F2dA0w _J1ZnJeA0EeCzHLZ3F2dA0w">
@@ -10,10 +13,10 @@
         <features xmi:id="_J1ZnGeA0EeCzHLZ3F2dA0w" name="daughters" ref="//Family/daughters"/>
       </childElements>
       <childElements xmi:id="_J1ZnGuA0EeCzHLZ3F2dA0w" name="Member" ref="//Member">
-        <features xmi:id="_J1ZnG-A0EeCzHLZ3F2dA0w" name="firstName" ref="//Member/firstName" ruleElement="_J1ZnVOA0EeCzHLZ3F2dA0w _3p_6seUiEeC8ZfglP7Y6xw _J1ZnPuA0EeCzHLZ3F2dA0w _J1ZnSeA0EeCzHLZ3F2dA0w"/>
+        <features xmi:id="_J1ZnG-A0EeCzHLZ3F2dA0w" name="firstName" ref="//Member/firstName" ruleElement="_J1ZnVOA0EeCzHLZ3F2dA0w _J1ZnPuA0EeCzHLZ3F2dA0w _J1ZnSeA0EeCzHLZ3F2dA0w"/>
       </childElements>
       <childElements xmi:id="_J1ZnHOA0EeCzHLZ3F2dA0w" name="Father" ref="//Father" ruleElement="_J1ZnMeA0EeCzHLZ3F2dA0w" isContained="_J1ZnFOA0EeCzHLZ3F2dA0w">
-        <features xmi:id="_J1ZnHuA0EeCzHLZ3F2dA0w" name="familyFather" ref="//Father/familyFather" ruleElement="_3-HJgOUiEeC8ZfglP7Y6xw"/>
+        <features xmi:id="_J1ZnHuA0EeCzHLZ3F2dA0w" name="familyFather" ref="//Father/familyFather"/>
       </childElements>
       <childElements xmi:id="_J1ZnH-A0EeCzHLZ3F2dA0w" name="Mother" ref="//Mother" ruleElement="_J1ZnOuA0EeCzHLZ3F2dA0w" isContained="_J1ZnFOA0EeCzHLZ3F2dA0w">
         <features xmi:id="_J1ZnIeA0EeCzHLZ3F2dA0w" name="familyMother" ref="//Mother/familyMother" ruleElement="_J1ZnP-A0EeCzHLZ3F2dA0w"/>
@@ -38,18 +41,15 @@
   <rules xmi:id="_J1ZnMOA0EeCzHLZ3F2dA0w" name="father2male">
     <sources xmi:id="_J1ZnMeA0EeCzHLZ3F2dA0w" name="Father" component="_J1ZnHOA0EeCzHLZ3F2dA0w" traceLink="_J1ZnN-A0EeCzHLZ3F2dA0w"/>
     <targets xmi:id="_J1ZnMuA0EeCzHLZ3F2dA0w" name="Male" component="_J1ZnLOA0EeCzHLZ3F2dA0w" traceLink="_J1ZnN-A0EeCzHLZ3F2dA0w">
-      <bindings xmi:id="_J1ZnM-A0EeCzHLZ3F2dA0w" name="R8" typeRelation="Concatenation" trace="_J1ZnOOA0EeCzHLZ3F2dA0w">
-        <right xmi:id="_J1ZnNOA0EeCzHLZ3F2dA0w" concreteValue="">
-          <source xmi:id="_3p_6seUiEeC8ZfglP7Y6xw" name="firstName" component="_J1ZnG-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnOOA0EeCzHLZ3F2dA0w"/>
-          <source xmi:id="_3-HJgOUiEeC8ZfglP7Y6xw" name="familyFather.lastName" component="_J1ZnHuA0EeCzHLZ3F2dA0w" traceLink="_J1ZnOOA0EeCzHLZ3F2dA0w"/>
-        </right>
+      <bindings xmi:id="_J1ZnM-A0EeCzHLZ3F2dA0w" name="R8" trace="_J1ZnOOA0EeCzHLZ3F2dA0w">
+        <right xmi:id="_XV_ioAxEEeGOLaZAQBVgZQ" operation="_FK8ugAxEEeGOLaZAQBVgZQ"/>
         <left xmi:id="_J1ZnNeA0EeCzHLZ3F2dA0w">
           <target xmi:id="_J1ZnNuA0EeCzHLZ3F2dA0w" name="fullName" component="_J1ZnK-A0EeCzHLZ3F2dA0w" traceLink="_J1ZnOOA0EeCzHLZ3F2dA0w"/>
         </left>
       </bindings>
     </targets>
     <trace xmi:id="_J1ZnN-A0EeCzHLZ3F2dA0w" name="father2male" source="_J1ZnMeA0EeCzHLZ3F2dA0w" target="_J1ZnMuA0EeCzHLZ3F2dA0w">
-      <traceBindings xmi:id="_J1ZnOOA0EeCzHLZ3F2dA0w" name="R8" source="_3p_6seUiEeC8ZfglP7Y6xw _3-HJgOUiEeC8ZfglP7Y6xw" target="_J1ZnNuA0EeCzHLZ3F2dA0w" binding="_J1ZnM-A0EeCzHLZ3F2dA0w"/>
+      <traceBindings xmi:id="_J1ZnOOA0EeCzHLZ3F2dA0w" name="R8" target="_J1ZnNuA0EeCzHLZ3F2dA0w" binding="_J1ZnM-A0EeCzHLZ3F2dA0w"/>
     </trace>
   </rules>
   <rules xmi:id="_J1ZnOeA0EeCzHLZ3F2dA0w" name="mother2female">
