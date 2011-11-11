@@ -110,8 +110,11 @@ rule Operation{
 		etl_op:ETL!Operation(
 			name <- h_op.name,
 			body <- h_op.body,
-			context <- h_op.context.ruleElement,
+			context <- context_var,
 			return <- h_op.return
+		),
+		context_var: ETL!SimpleStatement(
+			element <- h_op.context.ruleElement->first()
 		)
 }
 
@@ -119,10 +122,16 @@ rule Return2SimpleStatement{
 	from 
 		ret:Hybrid!Return
 	to
-		simpleS: ETL!SimpleStatement(
-			element <- ret.component.ruleElement,
-			property <- ret.datatype.toString()
-		)
+		simpleS: ETL!SimpleStatement()
+		do{
+			if(not ret.component.oclIsUndefined()){
+				simpleS.element <- ret.component.ruleElement;
+			}
+			if(not ret.datatype.oclIsUndefined()){
+				simpleS.property <- ret.datatype.toString();
+			}
+			simpleS;
+		}
 }
 
 
@@ -280,20 +289,20 @@ helper context Hybrid!RightPattern def: getComplexPattern(): ETL!Statement =
 			else
 				--rule undefined, operation defined and source undefined
 				if self.source.asSequence().first().oclIsUndefined() then
-					self.getSimplePatternOperation()
+					thisModule.getSimplePatternOperation(self)
 				-- rule undefined, operation defined and srcElement defined 
 				else 
-					self.getComplexPattern_SourceOperation()
+					thisModule.getComplexPattern_SourceOperation(self)
 				endif
 			endif
 		--rule defined (operation undefined by validation)		
 		else
 			--rule defined and srcElement undefined
 			if self.source.oclIsUndefined() then
-				self.getSimplePatternRule()
+				thisModule.getSimplePatternRule(self)
 			--rule defined and source defined
 			else  
-				self.getComplexPattern_SourceRule()
+				thisModule.getComplexPattern_SourceRule(self)
 			endif
 		endif
 	endif;
