@@ -209,7 +209,7 @@ public class EtlModuleImpl extends EtlElementImpl implements EtlModule {
 	 */
 	public EList<Operation> getOperations() {
 		if (operations == null) {
-			operations = new EObjectContainmentEList<Operation>(Operation.class, this, ETLPackage.ETL_MODULE__OPERATIONS);
+			operations = new EObjectContainmentWithInverseEList<Operation>(Operation.class, this, ETLPackage.ETL_MODULE__OPERATIONS, ETLPackage.OPERATION__MODULE);
 		}
 		return operations;
 	}
@@ -233,6 +233,8 @@ public class EtlModuleImpl extends EtlElementImpl implements EtlModule {
 				return basicSetPost((EolBlock)otherEnd, msgs);
 			case ETLPackage.ETL_MODULE__RULES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRules()).basicAdd(otherEnd, msgs);
+			case ETLPackage.ETL_MODULE__OPERATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOperations()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}

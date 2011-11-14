@@ -17,6 +17,8 @@ package ETL;
  * <ul>
  *   <li>{@link ETL.Operation#getContext <em>Context</em>}</li>
  *   <li>{@link ETL.Operation#getReturn <em>Return</em>}</li>
+ *   <li>{@link ETL.Operation#getAnnotation <em>Annotation</em>}</li>
+ *   <li>{@link ETL.Operation#getModule <em>Module</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,5 +78,59 @@ public interface Operation extends Block {
 	 * @generated
 	 */
 	void setReturn(SimpleStatement value);
+
+	/**
+	 * Returns the value of the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Annotation</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Annotation</em>' attribute.
+	 * @see #setAnnotation(String)
+	 * @see ETL.ETLPackage#getOperation_Annotation()
+	 * @model
+	 * @generated
+	 */
+	String getAnnotation();
+
+	/**
+	 * Sets the value of the '{@link ETL.Operation#getAnnotation <em>Annotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Annotation</em>' attribute.
+	 * @see #getAnnotation()
+	 * @generated
+	 */
+	void setAnnotation(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Module</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link ETL.EtlModule#getOperations <em>Operations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Module</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Module</em>' container reference.
+	 * @see #setModule(EtlModule)
+	 * @see ETL.ETLPackage#getOperation_Module()
+	 * @see ETL.EtlModule#getOperations
+	 * @model opposite="operations" required="true" transient="false"
+	 * @generated
+	 */
+	EtlModule getModule();
+
+	/**
+	 * Sets the value of the '{@link ETL.Operation#getModule <em>Module</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Module</em>' container reference.
+	 * @see #getModule()
+	 * @generated
+	 */
+	void setModule(EtlModule value);
 
 } // Operation
