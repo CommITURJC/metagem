@@ -105,6 +105,7 @@ public interface EtlModule extends EtlElement {
 	/**
 	 * Returns the value of the '<em><b>Operations</b></em>' containment reference list.
 	 * The list contents are of type {@link ETL.Operation}.
+	 * It is bidirectional and its opposite is '{@link ETL.Operation#getModule <em>Module</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Operations</em>' containment reference list isn't clear,
@@ -113,7 +114,8 @@ public interface EtlModule extends EtlElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operations</em>' containment reference list.
 	 * @see ETL.ETLPackage#getEtlModule_Operations()
-	 * @model containment="true"
+	 * @see ETL.Operation#getModule
+	 * @model opposite="module" containment="true"
 	 * @generated
 	 */
 	EList<Operation> getOperations();

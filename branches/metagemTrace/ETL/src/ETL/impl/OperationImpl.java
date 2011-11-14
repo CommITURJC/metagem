@@ -7,6 +7,7 @@
 package ETL.impl;
 
 import ETL.ETLPackage;
+import ETL.EtlModule;
 import ETL.Operation;
 import ETL.SimpleStatement;
 import ETL.Statement;
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +30,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link ETL.impl.OperationImpl#getContext <em>Context</em>}</li>
  *   <li>{@link ETL.impl.OperationImpl#getReturn <em>Return</em>}</li>
+ *   <li>{@link ETL.impl.OperationImpl#getAnnotation <em>Annotation</em>}</li>
+ *   <li>{@link ETL.impl.OperationImpl#getModule <em>Module</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,6 +57,26 @@ public class OperationImpl extends BlockImpl implements Operation {
 	 * @ordered
 	 */
 	protected SimpleStatement return_;
+
+	/**
+	 * The default value of the '{@link #getAnnotation() <em>Annotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ANNOTATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAnnotation() <em>Annotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String annotation = ANNOTATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -164,6 +188,84 @@ public class OperationImpl extends BlockImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getAnnotation() {
+		return annotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAnnotation(String newAnnotation) {
+		String oldAnnotation = annotation;
+		annotation = newAnnotation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ETLPackage.OPERATION__ANNOTATION, oldAnnotation, annotation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EtlModule getModule() {
+		if (eContainerFeatureID() != ETLPackage.OPERATION__MODULE) return null;
+		return (EtlModule)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetModule(EtlModule newModule, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newModule, ETLPackage.OPERATION__MODULE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModule(EtlModule newModule) {
+		if (newModule != eInternalContainer() || (eContainerFeatureID() != ETLPackage.OPERATION__MODULE && newModule != null)) {
+			if (EcoreUtil.isAncestor(this, newModule))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newModule != null)
+				msgs = ((InternalEObject)newModule).eInverseAdd(this, ETLPackage.ETL_MODULE__OPERATIONS, EtlModule.class, msgs);
+			msgs = basicSetModule(newModule, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ETLPackage.OPERATION__MODULE, newModule, newModule));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ETLPackage.OPERATION__MODULE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetModule((EtlModule)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -171,8 +273,24 @@ public class OperationImpl extends BlockImpl implements Operation {
 				return basicSetContext(null, msgs);
 			case ETLPackage.OPERATION__RETURN:
 				return basicSetReturn(null, msgs);
+			case ETLPackage.OPERATION__MODULE:
+				return basicSetModule(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case ETLPackage.OPERATION__MODULE:
+				return eInternalContainer().eInverseRemove(this, ETLPackage.ETL_MODULE__OPERATIONS, EtlModule.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -187,6 +305,10 @@ public class OperationImpl extends BlockImpl implements Operation {
 				return getContext();
 			case ETLPackage.OPERATION__RETURN:
 				return getReturn();
+			case ETLPackage.OPERATION__ANNOTATION:
+				return getAnnotation();
+			case ETLPackage.OPERATION__MODULE:
+				return getModule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -204,6 +326,12 @@ public class OperationImpl extends BlockImpl implements Operation {
 				return;
 			case ETLPackage.OPERATION__RETURN:
 				setReturn((SimpleStatement)newValue);
+				return;
+			case ETLPackage.OPERATION__ANNOTATION:
+				setAnnotation((String)newValue);
+				return;
+			case ETLPackage.OPERATION__MODULE:
+				setModule((EtlModule)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,6 +351,12 @@ public class OperationImpl extends BlockImpl implements Operation {
 			case ETLPackage.OPERATION__RETURN:
 				setReturn((SimpleStatement)null);
 				return;
+			case ETLPackage.OPERATION__ANNOTATION:
+				setAnnotation(ANNOTATION_EDEFAULT);
+				return;
+			case ETLPackage.OPERATION__MODULE:
+				setModule((EtlModule)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -239,8 +373,28 @@ public class OperationImpl extends BlockImpl implements Operation {
 				return context != null;
 			case ETLPackage.OPERATION__RETURN:
 				return return_ != null;
+			case ETLPackage.OPERATION__ANNOTATION:
+				return ANNOTATION_EDEFAULT == null ? annotation != null : !ANNOTATION_EDEFAULT.equals(annotation);
+			case ETLPackage.OPERATION__MODULE:
+				return getModule() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (annotation: ");
+		result.append(annotation);
+		result.append(')');
+		return result.toString();
 	}
 
 } //OperationImpl

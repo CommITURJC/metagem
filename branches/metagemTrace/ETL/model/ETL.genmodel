@@ -45,6 +45,8 @@
     <genClasses ecoreClass="ETL.ecore#_1-ggUQokEeGjlMWvMgMrMw">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ETL.ecore#_1-ggVAokEeGjlMWvMgMrMw"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ETL.ecore#_1-ggVQokEeGjlMWvMgMrMw"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ETL.ecore#//Operation/annotation"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ETL.ecore#//Operation/module"/>
     </genClasses>
     <genClasses ecoreClass="ETL.ecore#_1-ggVgokEeGjlMWvMgMrMw">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ETL.ecore#_1-pqMAokEeGjlMWvMgMrMw"/>
