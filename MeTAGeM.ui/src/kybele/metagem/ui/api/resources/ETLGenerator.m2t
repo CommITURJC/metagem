@@ -110,7 +110,7 @@ texttransformation ETLGenerator (in eco:"http://org.eclipse.kybele.metagem.ETL")
     if(self.annotation!=null and self.annotation.size()>0)
     	println("@"+self.annotation)
     print("operation ") self.context.generateOPstatement() print(" "+self.name+"() : ") self._getFeature("return").generateOPstatement() println(" {")
-    println("\t"+self.body+";")
+    println("\t"+self.body)
     println("}")
   }
   
