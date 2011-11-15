@@ -1472,11 +1472,11 @@ rule ModelElement_Trace{
 		),
 		varDeclNavCall:ATL!VariableDeclaration(
 			varName<-'thisModule'
-		),
+		)--,
 		
-		childElements: ATL!SequenceExp(
-			elements <-	m_element.childElements->collect(e|thisModule.createChildBinding(e, m_element))
-		)
+--		childElements: ATL!SequenceExp(
+--			elements <-	m_element.childElements->collect(e|thisModule.createChildBinding(e, m_element))
+--		)
 }
 
 unique lazy rule createParentBinding {
@@ -1511,34 +1511,34 @@ unique lazy rule createParentBinding {
 		
 }
 
-unique lazy rule createChildBinding{
-	from 
-		child_element : Hybrid!ModelElement,
-		element:  Hybrid!ModelElement
-	to
-		childElement: ATL!OperationCallExp (
-			operationName <- 'create_'+child_element.name+'_component',
-			source<-variableExp,
-			arguments <-opCallImmediate
-		),
-		variableExp: ATL!VariableExp(
-			referredVariable <- variableDeclaration
-		),
-		variableDeclaration: ATL!VariableDeclaration (
-			varName <- 'thisModule'
-		),
-		opCallImmediate: ATL!OperationCallExp(
-			operationName <- 'refImmediateComposite',
-			source<-variableExp4
-		),
-		variableExp4: ATL!VariableExp(
-			referredVariable <- variableDeclaration2
-		),
-		variableDeclaration2: ATL!VariableDeclaration (
-			varName <- child_element.name.toLower()+'_in'
-		)
-	
-}
+--unique lazy rule createChildBinding{
+--	from 
+--		child_element : Hybrid!ModelElement,
+--		element:  Hybrid!ModelElement
+--	to
+--		childElement: ATL!OperationCallExp (
+--			operationName <- 'create_'+child_element.name+'_component',
+--			source<-variableExp,
+--			arguments <-opCallImmediate
+--		),
+--		variableExp: ATL!VariableExp(
+--			referredVariable <- variableDeclaration
+--		),
+--		variableDeclaration: ATL!VariableDeclaration (
+--			varName <- 'thisModule'
+--		),
+--		opCallImmediate: ATL!OperationCallExp(
+--			operationName <- 'refImmediateComposite',
+--			source<-variableExp4
+--		),
+--		variableExp4: ATL!VariableExp(
+--			referredVariable <- variableDeclaration2
+--		),
+--		variableDeclaration2: ATL!VariableDeclaration (
+--			varName <- child_element.name.toLower()+'_in'
+--		)
+--	
+--}
 
 unique lazy rule createFeature{
 	from 
