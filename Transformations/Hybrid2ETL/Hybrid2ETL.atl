@@ -56,7 +56,7 @@ abstract rule createRule{
 			"extends" <- r."extends",
 			guard <- r.guard,
 			source <- r.sources.first(),
-			targets <- r.targets,
+			targets <- r.targets.append(thisModule.resolveTemp(r.trace,'trace_as_element')),
 			bindings <- r.targets->collect(t|t.bindings).asSequence()
 		)
 }
@@ -100,7 +100,6 @@ rule LeftPattern2SimpleStatement{
 		)
 }
 
---rule RightPattern2
 
 rule Source2Element{
 	from 
@@ -109,7 +108,7 @@ rule Source2Element{
 		e:ETL!Element(
 			name <- s.component.name.toLower(),
 			className <- s.component.name,
-			metamodel <- s.component.getModel()
+			metamodel <- s.component.getModel().type_mm
 		)
 }
 
@@ -120,7 +119,7 @@ rule Target2Element{
 		e:ETL!Element(
 			name <- t.component.name.toLower(),
 			className <- t.component.name,
-			metamodel <- t.component.getModel()
+			metamodel <- t.component.getModel().type_mm
 		)
 }
 
@@ -247,6 +246,7 @@ rule createConcatPattern(binding : Hybrid!Binding, attrRefs : Sequence(String)){
 			--parameter2 <- binding.generateParameter(attrRefs)
 		),
 		p1: ETL!SimpleStatement(
+			element<- binding.refImmediateComposite().refImmediateComposite().sources.first(),
 			property <- attrRefs->first()
 		)		
 		do {
@@ -264,6 +264,7 @@ rule createConcatPattern(binding : Hybrid!Binding, attrRefs : Sequence(String)){
 rule CreateConcatElement(binding : Hybrid!Binding, attrRef : String) {	
 	to
 		sStatement: ETL!SimpleStatement(
+			element<-binding.refImmediateComposite().refImmediateComposite().sources.first(),
 			property <- attrRef
 		)
 		do{
@@ -278,7 +279,8 @@ endpoint rule createPre(){
 			body <- thisModule.getPre
 		)
 		do{
-			thisModule.createPost();	
+			thisModule.createPost();
+			thisModule.createGetNameOperation();
 		}
 }
 
@@ -290,6 +292,174 @@ rule createPost(){
 		)
 }
 
+rule createGetNameOperation(){
+	to
+		getNameOperation: ETL!Operation(
+			name <- 'getName',
+			"module" <- thisModule.getETLmodule,
+			"context" <- _context,
+			"return" <- _return,
+			body <- 'if (not self.IsDefined()){ 
+  return \'\';
+ }else{
+ 	if (self.IsKindOf(Sequence(Any))){
+ 		return \'Sequence(\' + self->collect(e |e.getName()) + \')\';
+ 	}else{
+ 		if (self.IsTypeOf(String)){return self;}
+ 		else{
+ 			if (self.eClass().getEAllStructuralFeatures()->collect(n |
+    		 n.name)->select(f |f.toLowerCase().indexOf(\'name\') > - 1).isDefined()){
+    		 	var feature:EStructuralFeature;
+    		 	feature = self.eClass().getEAllStructuralFeatures()->select(f | f.name.toLowerCase().indexOf(\'name\') > - 1).first();
+    		 	return self.eGet(feature);
+    		 }else{
+    		 	return self.eResource().getURIFragment(self).toString();
+    		 }
+ 		}
+ 	}
+ }'
+		),
+		_context: ETL!SimpleStatement(
+			property<- 'Any'
+		),
+		_return: ETL!SimpleStatement(
+			property<-'String'
+		)
+}
+
+---------------------- TRACES ----------------------
+rule ModelElement_Trace{
+	from 
+		m_element : Hybrid!ModelElement 
+	to 
+		createElement: ETL!Operation(
+			name <- 'create_'+m_element.name+'_component',
+			annotation <- 'cached',
+			"module" <- thisModule.getETLmodule,
+			"context" <- _context,
+			"return" <- _return,
+			body <- '
+	var element = new Traceability!Element;
+	element.name = self.getName();
+	element.ref = self.eResource().getURIFragment(self);
+	element.`model`= '+m_element.getModel().type_mm+'_model_var;
+	return element;'
+		),
+		_context: ETL!SimpleStatement(
+			property<- m_element.getModel().type_mm+'!'+m_element.name
+		),
+		_return: ETL!SimpleStatement(
+			property<-'Traceability!Element'
+		)
+}
+
+--TraceLink_Rule
+rule TraceRule2CreateTraceLink{
+	from 
+		traceRule: Hybrid!TraceRule
+	to
+		trace_as_element: ETL!Element(
+			name <- traceRule.name,
+			className <- 'TraceLink',
+			metamodel <- 'Traceability'
+		)
+	do{
+		traceRule.source->collect(s|thisModule.createSourceElementTrace(s,thisModule.resolveTemp(traceRule.refImmediateComposite(),'etl_r')));
+		traceRule.target->collect(t|thisModule.createTargetElementTrace(t,thisModule.resolveTemp(traceRule.refImmediateComposite(),'etl_r')));
+		thisModule.generateBindings(traceRule, thisModule.resolveTemp(traceRule.refImmediateComposite(),'etl_r'));
+	}
+}
+
+--trace.name := 'father2male';
+--	trace.`operation`:= Traceability!Operations#Transform;
+--	trace.source:= Sequence{sourceE};
+--	trace.target:= Sequence{targetE};
+--	
+lazy rule generateBindings{
+	from 
+		trace: Hybrid!TraceRule,
+		r:ETL!TransformationRule
+	to
+		name_b:ETL!Binding(
+			source <- name_b_source,
+			target <- name_b_target,
+			"rule" <- r
+		),
+		name_b_source: ETL!SimpleStatement(
+			property <- trace.name
+		),
+		name_b_target: ETL!SimpleStatement(
+			element<- trace,
+			property <-'name'
+		),
+		
+		operation_b:ETL!Binding(
+			source <- operation_b_source,
+			target <- operation_b_target,
+			"rule" <- r
+		),
+		operation_b_source: ETL!SimpleStatement(
+			property <- 'Traceability!Operations#Transform'
+		),
+		operation_b_target: ETL!SimpleStatement(
+			element<- trace,
+			property <-'`operation`'
+		),
+		
+		source_b:ETL!Binding(
+			source <- source_b_source,
+			target <- source_b_target,
+			"rule" <- r
+		),
+		source_b_source: ETL!SimpleStatement(
+			property <- 'Sequence{'+trace.getSourceVarName()+'}'
+		),
+		source_b_target: ETL!SimpleStatement(
+			element<- trace,
+			property <-'source'
+		),
+		
+		target_b:ETL!Binding(
+			source <- target_b_source,
+			target <- target_b_target,
+			"rule" <- r
+		),
+		target_b_source: ETL!SimpleStatement(
+			property <- 'Sequence{'+trace.getTargetVarName()+'}'
+		),
+		target_b_target: ETL!SimpleStatement(
+			element<- trace,
+			property <-'target'
+		)		
+}	
+
+lazy rule createSourceElementTrace{
+	from
+		s: Hybrid!Source,
+		r:ETL!TransformationRule
+	to
+		e: ETL!Element(
+			name <- s.name+'_trace',
+			className <- 'SourceElement',
+			metamodel <- 'Traceability',
+			targets_rule <- r
+		)
+}
+
+lazy rule createTargetElementTrace{
+	from
+		t: Hybrid!Target,
+		r:ETL!TransformationRule
+	to
+		e: ETL!Element(
+			name <- t.name+'_trace',
+			className <- 'TargetElement',
+			metamodel <- 'Traceability',
+			targets_rule <- r
+		)
+}
+
+
 -----------------------------------------------------------
 --------------------------- HELPERS -----------------------
 -----------------------------------------------------------
@@ -299,34 +469,29 @@ helper def: getETLmodule: ETL!EtlModule =  OclUndefined;
 helper def:getPre:String='	var traceModel: new Traceability!TraceModel;';
 
 --Helper -> Post text
-helper def:getPost:String=
-	'  for (t in transTrace.transformations) {
-    var link : new Traceability!TraceLink;
-    var s = t.source;
-    var source: new Traceability!SourceElement;
-    source.name = s.firstName;
-    source.ref = s.eResource().getURIFragment(s);
-    link.source.add(source);
-   
-    for (tar in t.targets){
-    	var target: new Traceability!TargetElement;
-    	target.name = tar.fullName;
-    	target.ref = tar.eResource().getURIFragment(tar);
-    	
-    	var elementModel: new Traceability!Element;
-    	elementModel.name = tar.fullName;
-    	elementModel.ref = tar.eResource().getURIFragment(tar);
-    	elementModel.`model`= targetModel;
-    	target.elementModel=elementModel;
-    	
-    	link.target.add(target);
-    }
-    link.name := t.getRule().name;
-    traceModel.traceLinks.add(link);
-  }
-    ';
+helper def:getPost:String='';
 
 helper def: getStatement: ETL!Statement =  OclUndefined;
+
+helper context Hybrid!TraceRule def: getSourceVarName(): String =
+	self.source->collect(s|
+		if self.source.indexOf(s)=self.source.size() then
+			s.name+'_trace'
+		else
+			s.name+'_trace, '
+		endif		
+	).sum()
+;
+
+helper context Hybrid!TraceRule def: getTargetVarName(): String =
+	self.target->collect(s|
+		if self.target.indexOf(s)=self.target.size() then
+			s.name+'_trace'
+		else
+			s.name+'_trace, '
+		endif		
+	).sum()
+;
 
 --Helper -> Create a Statement from a RightPattern
 helper context Hybrid!RightPattern def: createStatement(): ETL!Statement =
@@ -400,14 +565,14 @@ helper context Hybrid!RightPattern def : getReferredVariable () : ETL!Element =
 	endif;
 
 --Helper -> Return the name of the metamodel
-helper context Hybrid!ModelComponent def : getModel(): String =
+helper context Hybrid!ModelComponent def : getModel(): Hybrid!Model =
 	if self.oclIsTypeOf(Hybrid!ModelFeature) then
 		self.ownedElement.getModel()
 	else
 		if self.ownedModel.oclIsUndefined() then
 			self.parentElement.getModel()
 		else
-			self.ownedModel.type_mm
+			self.ownedModel
 		endif
 	endif
 	;

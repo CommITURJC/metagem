@@ -13,7 +13,8 @@
         name="rules" lowerBound="1" upperBound="-1" eType="#_1-WvRAokEeGjlMWvMgMrMw"
         containment="true" eOpposite="#_1-WvRwokEeGjlMWvMgMrMw"/>
     <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="_1-M-RAokEeGjlMWvMgMrMw"
-        name="operations" upperBound="-1" eType="#_1-ggUQokEeGjlMWvMgMrMw" containment="true"/>
+        name="operations" upperBound="-1" eType="#_1-ggUQokEeGjlMWvMgMrMw" containment="true"
+        eOpposite="#//Operation/module"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" xmi:id="_1-M-RQokEeGjlMWvMgMrMw" name="EolBlock"
       eSuperTypes="#//Block">
@@ -81,6 +82,9 @@
         name="context" eType="#_1-pqNAokEeGjlMWvMgMrMw" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="_1-ggVQokEeGjlMWvMgMrMw"
         name="return" eType="#_1-pqNAokEeGjlMWvMgMrMw" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
+        eType="#_1-M-QAokEeGjlMWvMgMrMw" eOpposite="#_1-M-RAokEeGjlMWvMgMrMw"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" xmi:id="_1-ggVgokEeGjlMWvMgMrMw" name="Binding">
     <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="_1-pqMAokEeGjlMWvMgMrMw"
