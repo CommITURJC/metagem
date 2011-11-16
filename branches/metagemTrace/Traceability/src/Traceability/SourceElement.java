@@ -67,7 +67,7 @@ public interface SourceElement extends TraceElement {
 	 * @see #setElementModel(ModelElement)
 	 * @see Traceability.TraceabilityPackage#getSourceElement_ElementModel()
 	 * @see Traceability.ModelElement#getSourceElementLink
-	 * @model opposite="sourceElementLink" required="true"
+	 * @model opposite="sourceElementLink"
 	 * @generated
 	 */
 	ModelElement getElementModel();
