@@ -71,7 +71,7 @@ public interface TraceLink extends TraceElement {
 	 * @return the value of the '<em>Source</em>' containment reference list.
 	 * @see Traceability.TraceabilityPackage#getTraceLink_Source()
 	 * @see Traceability.SourceElement#getSource_traceLinks
-	 * @model opposite="source_traceLinks" containment="true" required="true"
+	 * @model opposite="source_traceLinks" containment="true"
 	 * @generated
 	 */
 	EList<SourceElement> getSource();
@@ -89,7 +89,7 @@ public interface TraceLink extends TraceElement {
 	 * @return the value of the '<em>Target</em>' containment reference list.
 	 * @see Traceability.TraceabilityPackage#getTraceLink_Target()
 	 * @see Traceability.TargetElement#getTarget_traceLinks
-	 * @model opposite="target_traceLinks" containment="true" required="true"
+	 * @model opposite="target_traceLinks" containment="true"
 	 * @generated
 	 */
 	EList<TargetElement> getTarget();
