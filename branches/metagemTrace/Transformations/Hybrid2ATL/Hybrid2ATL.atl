@@ -850,9 +850,26 @@ rule createRule2CalledRule{
 }
 
 --InputPattern (from part)
-rule InPatternElement {
+rule InPatternElement_withoutTrace {
 	from 
-		inPattern : Hybrid!Source (inPattern.refImmediateComposite().oclIsTypeOf(Hybrid!Rule))
+		inPattern : Hybrid!Source (inPattern.refImmediateComposite().oclIsTypeOf(Hybrid!Rule)
+			and inPattern.traceLink.size()=0)
+	to
+		atl : ATL!SimpleInPatternElement (
+			varName <- inPattern.name.toLower()+'_in',
+			type <- aType
+		),
+		aType : ATL!OclModelElement(
+			name <- inPattern.name,
+			model <- thisModule.resolveTemp(inPattern.component.getModel(),'ametamodelMM')
+		)
+}
+
+--InputPattern (from part)
+rule InPatternElement_withTrace {
+	from 
+		inPattern : Hybrid!Source (inPattern.refImmediateComposite().oclIsTypeOf(Hybrid!Rule)
+			and inPattern.traceLink.size()>0)
 	to
 		atl : ATL!SimpleInPatternElement (
 			varName <- inPattern.name.toLower()+'_in',
@@ -919,9 +936,10 @@ rule InPatternElement {
 }
 
 --InputPattern (from part)
-rule InPatternFeature {
+rule InPatternFeature_withTrace {
 	from 
-		inPattern : Hybrid!Source (inPattern.refImmediateComposite().oclIsTypeOf(Hybrid!RightPattern))
+		inPattern : Hybrid!Source (inPattern.refImmediateComposite().oclIsTypeOf(Hybrid!RightPattern)
+			and inPattern.traceLink.size()>0)
 	to
 		trace_element: ATL!SimpleOutPatternElement (
 			varName <- inPattern.name.toLower()+'_in_Trace',
@@ -937,7 +955,12 @@ rule InPatternFeature {
 		),
 		nameBinding: ATL!Binding (
 			propertyName <- 'name',
-			value <- attCall
+			value <- opCallExp
+		),
+		opCallExp:ATL!OperatorCallExp(
+			operationName <- '+',
+			source <- attCall,
+			arguments <- stringExpFeature			
 		),
 		attCall: ATL!NavigationOrAttributeCallExp(
 			name <- inPattern.name,
@@ -953,30 +976,51 @@ rule InPatternFeature {
 			collection <- thisModule.resolveTemp(inPattern.traceLink,'sourceSeq'),
 			referredVariable <- trace_element
 		),
-		sourceElementLink: ATL!Binding(
-			propertyName <- 'elementModel',
-			value <- elementTrace
-		),
-		elementTrace: ATL!OperationCallExp (
-			operationName <- 'create_'+inPattern.component.name+'_'+inPattern.component.ownedElement.name,
-			source<-variableExp3,
-			arguments <-variableExp4
-		),
-		variableExp3: ATL!VariableExp(
-			referredVariable <- variableDeclaration
-		),
-		variableDeclaration: ATL!VariableDeclaration (
-			varName <- 'thisModule'
-		),
-		variableExp4: ATL!VariableExp(
-			referredVariable <- trace_element
-		)		
+		stringExpFeature: ATL!StringExp(
+			stringSymbol <- '(Feature: '+inPattern.name.toLower()+')',
+			parentOperation <- opCallExp
+		)--,
+--		sourceElementLink: ATL!Binding(
+--			propertyName <- 'elementModel',
+--			value <- elementTrace
+--		),
+--		elementTrace: ATL!OperationCallExp (
+--			operationName <- 'create_'+inPattern.component.name+'_'+inPattern.component.ownedElement.name,
+--			source<-variableExp3,
+--			arguments <-variableExp4
+--		),
+--		variableExp3: ATL!VariableExp(
+--			referredVariable <- variableDeclaration
+--		),
+--		variableDeclaration: ATL!VariableDeclaration (
+--			varName <- 'thisModule'
+--		),
+--		variableExp4: ATL!VariableExp(
+--			referredVariable <- trace_element
+--		)		
 }
 
---OutputPattern (to part)
-rule OutPatternElement { 
+rule OutPatternElement_withoutTrace { 
 	from
-		outPattern : Hybrid!Target (outPattern.refImmediateComposite().oclIsTypeOf(Hybrid!Rule))
+		outPattern : Hybrid!Target (outPattern.refImmediateComposite().oclIsTypeOf(Hybrid!Rule)
+			and outPattern.traceLink.size()=0)
+	to
+		atl : ATL!SimpleOutPatternElement (
+			varName <- outPattern.name.toLower()+'_out',
+			type <- aType,
+			bindings <- outPattern.bindings
+		),
+		aType : ATL!OclModelElement(
+			name <- outPattern.name,
+			model <- thisModule.resolveTemp(outPattern.component.getModel(),'ametamodelMM') 
+		)
+}		
+		
+--OutputPattern (to part)
+rule OutPatternElement_withTrace { 
+	from
+		outPattern : Hybrid!Target (outPattern.refImmediateComposite().oclIsTypeOf(Hybrid!Rule)
+			and outPattern.traceLink.size()>0)
 	to
 		atl : ATL!SimpleOutPatternElement (
 			varName <- outPattern.name.toLower()+'_out',
@@ -1044,9 +1088,10 @@ rule OutPatternElement {
 }
 
 --OutputPattern (to part)
-rule OutPatternFeature { 
+rule OutPatternFeature_withTrace { 
 	from
-		outPattern : Hybrid!Target (outPattern.refImmediateComposite().oclIsTypeOf(Hybrid!LeftPattern))
+		outPattern : Hybrid!Target (outPattern.refImmediateComposite().oclIsTypeOf(Hybrid!LeftPattern)
+			and outPattern.traceLink.size()>0)
 	to
 		
 		trace_element: ATL!SimpleOutPatternElement (
