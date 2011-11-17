@@ -203,7 +203,7 @@ rule Source2Feature_withTrace{
 		name_b_source: ETL!SimpleStatement(
 			element <- s.refImmediateComposite().refImmediateComposite()
 						.refImmediateComposite().refImmediateComposite().sources.first(),
-			property <- s.name
+			property <- s.name + '+\'(Feature: '+s.name+')\''
 		),
 		name_b_target: ETL!SimpleStatement(
 			element<- e_trace,
@@ -310,7 +310,7 @@ rule Target2Feature_withTrace{
 		),
 		name_b_source: ETL!SimpleStatement(
 			element <- t.refImmediateComposite().refImmediateComposite().refImmediateComposite(),
-			property <- t.name
+			property <- t.name + '+\'(Feature: '+t.name+')\''
 		),
 		name_b_target: ETL!SimpleStatement(
 			element<- e_trace,
