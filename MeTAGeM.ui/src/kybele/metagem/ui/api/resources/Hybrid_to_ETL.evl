@@ -1,8 +1,8 @@
--- @name 			Hybrid (MeTAGeM)
--- @version		2.0
+-- @name 		Hybrid_To_ETL (MeTAGeM)
+-- @version		1.0
 -- @domains		meta-transformation, metamodel, model
--- @authors		Verónica Bollati, Juan M. Vara, David Granada, Álvaro Jiménez  (Universidad Rey Juan Carlos)
--- @date       		29-11-2010
+-- @authors		Álvaro Jiménez  (Universidad Rey Juan Carlos)
+-- @date       	17-11-2011
 -- @description	Constraints applied to Hybrid metamodel.
 
 context Module{
@@ -107,8 +107,9 @@ context Model{
 }
 
 
-context Rule{	
 
+
+context Rule{	
 		-- Rule name cannot be empty
 		constraint notEmptyRuleName{
 		check : self.name.isDefined()
@@ -149,17 +150,18 @@ context Rule{
 			check: self.`extends`->select(r|r.isKindOf(Rule))->forAll(r2|r2.isAbstract=true)
 			message: '\''+self.type().name.asString() +'\' only can extends abstract rules'
 		}
-	
-		-- Validation to transform to ATL:
-		-- A rule with more than one source, must be 'concatenation'
-		constraint manySources_concatenation{
-			check: (self.sources.size()<2 and not(self.typeRelation==TypeRelation#Concatenation)) or
-			(self.sources.size()>1 and self.typeRelation==TypeRelation#Concatenation)
-			message: 'Due to current ATL version implemented: '+self.type().name+' with two or more sources must set \'typeRelation=Concatenation\''
+		
+		-- Validation to transform to ETL:
+		-- A rule cannot have more than one source
+		constraint manySources{
+			check: (self.sources.size()<2)
+			message: 'Due to current ETL version implemented: '+self.type().name+' only must have one source'
 		}
+
 }
 
 context Operation{
+
 	-- Operation name cannot be empty
 	constraint notEmptyOperationName{
 		check : self.name.isDefined()
@@ -177,14 +179,6 @@ context Operation{
 	 	check: self.body.isDefined()
 	 	message: 'The required feature \'body\' of \''+ self.type().name.asString() + '\' must be set' 
 	 }
-	 
-	-- Validation to transform to ATL:
-	-- In ATL, an operation must have a return 
-	constraint operation_mustHave_return{
-		check: (self.`return`.size()>0)
-		message: 'Due to current ATL version implemented: '+self.type().name+' must have a return'
-	}
-	 
 		
 }
 
@@ -204,7 +198,6 @@ context Return {
  	
  }
  
- 
  context Guard{
  
  	-- 'value' must be set
@@ -215,7 +208,8 @@ context Return {
  	
  }
  
- context RuleElement{
+ 
+context RuleElement{
  
 	-- RuleElement name cannot be empty
 		constraint notEmptyElementName{
@@ -237,7 +231,6 @@ context Return {
  
  }
  
- 
  context Binding{
  
 	-- Binding 'typeRelation' must be set
@@ -246,7 +239,7 @@ context Return {
 			message: 'The required feature \'typeRelation\' of \''+ self.type().name.asString() + '\' must be set' 
 		}
 		
-		-- ElementIncluded 'typeElement' must be set
+		-- binding 'typeElement' must be set
 		constraint binding_typeElement{
 			check: self.typeElement.isDefined()
 			message: 'The required feature \'typeElement\' of \''+ self.type().name.asString() + '\' must be set' 
@@ -264,12 +257,12 @@ context Return {
  		message: 'The required feature \'left\' of \''+ self.type().name.asString() + '\' must be set' 
  	}
  	
- 	-- Validation to transform to ATL:
+ 	-- Validation to transform to ETL:
 	-- A Binding with more than one source, must be 'concatenation'
 	constraint manySources_concatenation{
 		check: (self.right.source.size()<2 and not(self.typeRelation==TypeRelation#Concatenation)) or
 					(self.right.source.size()>1 and self.typeRelation==TypeRelation#Concatenation)
-		message: 'Due to current ATL version implemented: '+self.type().name+' with two or more sources in the \'RightPattern\' must set \'typeRelation=Concatenation\''
+		message: 'Due to current ETL version implemented: '+self.type().name+' with two or more sources in the \'RightPattern\' must set \'typeRelation=Concatenation\''
 	}
  
  }
@@ -314,13 +307,6 @@ context Return {
 		guard: self.satisfies('hasSourceElementRule_Reference_Rule_Operation_or_ConcreteValue')
 		check: not(self.concreteValue.isDefined() and (self.source->size()>0 or (self.reference->size()>0 and self.reference.isTypeOf(Target)) or self.rule->size()>0 or self.`operation`->size()>0)) 
 		message: 'If \''+self.type().name.asString()+'\' has defined a \'Concrete Value\', cannot define \'Source\', \'Reference\', \'Rule\' or \'Operation\' '
-	}
-	
-	-- Validation to transform to ATL:
-	-- In ATL, if rule hasn't source, rightPattern can only have a concrete value
-	constraint ruleWithoutSource{
-		check: self.binding.owned.rule.sources.size()>0 or (self.concreteValue.isDefined() and self.satisfies('hasONLYconcreteValue')) or (self.reference->size()>0 and self.reference.isTypeOf(Target))
-		message: 'Due to current ATL version implemented: '+self.type().name.asString()+' belongs to a Rule without Source elements, so you must only define a Concrete Value or a Reference to a Target element'
 	}
 		
  }	

@@ -20,6 +20,7 @@ public class Constants {
 	public static String HYBRIDURI = "org.eclipse.kybele.hybrid";
 	public static String ATLURI = "http://www.eclipse.org/gmt/2005/ATL";
 	public static String RubyTLURI = "http://org.eclipse.kybele.metagem.rubytl";
+	public static String ETLURI = "http://org.eclipse.kybele.metagem.ETL";
 	
 	public static int SHOW_DIALOG = 0;
 	public static int NOT_SHOW_DIALOG = 1;
