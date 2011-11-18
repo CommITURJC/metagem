@@ -7,12 +7,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import kybele.metagem.ui.Activator;
 import kybele.metagem.ui.dialogs.ErrorValidationDialog;
 import kybele.metagem.ui.dialogs.WarningTransformationDialog;
 import kybele.metagem.ui.utils.Constants;
 
-import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.epsilon.commons.parse.problem.ParseProblem;
 import org.eclipse.epsilon.commons.util.StringProperties;
@@ -23,7 +21,6 @@ import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.evl.EvlModule;
 import org.eclipse.epsilon.evl.EvlUnsatisfiedConstraint;
 import org.eclipse.swt.widgets.Display;
-import org.osgi.framework.Bundle;
 
 public abstract class ValidationExecution {
 	
@@ -44,6 +41,8 @@ public abstract class ValidationExecution {
 				return "resources/Hybrid_to_ATL.evl";
 			if(sourceMM.equals(Constants.HYBRIDURI) && targetMM.equals(Constants.RubyTLURI))
 				return "resources/Hybrid_to_RubyTL.evl";
+			if(sourceMM.equals(Constants.HYBRIDURI) && targetMM.equals(Constants.ETLURI))
+				return "resources/Hybrid_to_ETL.evl";
 		}
 		return "";
 	}

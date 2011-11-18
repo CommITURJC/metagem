@@ -33,11 +33,12 @@ public class Transformations {
 	private Properties METAGEM2HYBRID_properties;
 	private Properties HYBRID2ATL_properties;
 	private Properties HYBRID2RUBYTL_properties;
-
+	private Properties HYBRID2ETL_properties;
 	
 	final static int _METAGEM2HYBRID=1;
 	final static int _HYBRID2ATL=2;
 	final static int _HYBRID2RUBYTL=3;
+	final static int _HYBRID2ETL=4; 
 		
 	private Transformations() throws IOException {
 		
@@ -49,6 +50,9 @@ public class Transformations {
 		
 		HYBRID2RUBYTL_properties = new Properties();
 		HYBRID2RUBYTL_properties.load(Utils.getFileURL("Hybrid2RubyTL.properties").openStream());
+		
+		HYBRID2ETL_properties = new Properties();
+		HYBRID2ETL_properties.load(Utils.getFileURL("Hybrid2ETL.properties").openStream());
 		
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
 	}
@@ -187,7 +191,46 @@ public class Transformations {
 		models.put("OUT", RubyTLOutputModel);
 		return models;
 	}
+
 	
+	public void hybrid2etl(String inFilePath, String outFilePath) throws Exception {		
+		try{
+		Map<String, Object> models=loadModelsHybrid2ETL(inFilePath);
+		doHybrid2ETL(models,new NullProgressMonitor());
+		saveModels(((IModel)models.get("OUT")),outFilePath);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	private void doHybrid2ETL(Map<String, Object> models, NullProgressMonitor nullProgressMonitor) throws Exception {
+		ILauncher launcher = new EMFVMLauncher();
+		Map<String, Object> launcherOptions = getOptions(_HYBRID2RUBYTL);
+		launcher.initialize(launcherOptions);
+		launcher.addInModel(((IModel)models.get("IN")), "IN", "Hybrid");
+		launcher.addOutModel(((IModel)models.get("OUT")), "OUT", "ETL");
+		launcher.launch("run", nullProgressMonitor, launcherOptions, (Object[]) getModulesList(_HYBRID2ETL));
+	}
+	
+	private Map<String, Object> loadModelsHybrid2ETL(String inFilePath) throws Exception {
+		Map<String, Object> models = new HashMap<String, Object>();
+		ModelFactory factory = new EMFModelFactory();
+		IInjector injector = new EMFInjector();
+	 	IReferenceModel hybridMetamodel = factory.newReferenceModel();
+		injector.inject(hybridMetamodel, HYBRID2ETL_properties.getProperty("Hybrid2ETL.metamodels.Hybrid"));
+		IReferenceModel ETLMetamodel = factory.newReferenceModel();
+		injector.inject(ETLMetamodel, HYBRID2ETL_properties.getProperty("Hybrid2ETL.metamodels.ETL"));
+
+		
+		IModel hybridInputModel = factory.newModel(hybridMetamodel);
+		injector.inject(hybridInputModel, inFilePath);
+		models.put("IN", hybridInputModel);
+		
+		
+		IModel ETLOutputModel = factory.newModel(ETLMetamodel);
+		models.put("OUT", ETLOutputModel);
+		return models;
+	}
 	
 	
 	
@@ -211,6 +254,8 @@ public class Transformations {
 				break;
 		case 3:modulesList = HYBRID2RUBYTL_properties.getProperty("Hybrid2RubyTL.modules");
 				break;
+		case 4:modulesList = HYBRID2ETL_properties.getProperty("Hybrid2ETL.modules");
+			break;
 		}
 		if (modulesList != null) {
 			String[] moduleNames = modulesList.split(",");
@@ -245,6 +290,9 @@ public class Transformations {
 			  		break;
 			case 3: property=HYBRID2RUBYTL_properties;
 	  				text="Hybrid2RubyTL.options.";
+	  				break;
+			case 4: property=HYBRID2ATL_properties;
+	  				text="Hybrid2ETL.options.";
 	  				break;
 				
 		}
