@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:atl="http://www.eclipse.org/gmt/2005/ATL" xmlns:ocl="http://www.eclipse.org/gmt/2005/OCL">
+  <atl:Module name="test">
+    <commentsBefore>-- @atlcompiler atl2006</commentsBefore>
+    <inModels name="IN" metamodel="/2"/>
+    <outModels name="OUT" metamodel="/3"/>
+    <outModels name="in2out_trace" metamodel="/1"/>
+    <elements xsi:type="atl:MatchedRule" name="r1">
+      <commentsBefore>-- Comments -> This is a MatchedRule: r1 -> </commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="module_out">
+          <type xsi:type="ocl:OclModelElement" name="Module" model="/3"/>
+        </elements>
+      </outPattern>
+      <actionBlock>
+        <commentsBefore>-- ActionBlock: </commentsBefore>
+      </actionBlock>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="module_in">
+          <type xsi:type="ocl:OclModelElement" name="Module" model="/2"/>
+        </elements>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="module2_in">
+          <type xsi:type="ocl:OclModelElement" name="Module2" model="/2"/>
+        </elements>
+      </inPattern>
+    </elements>
+  </atl:Module>
+  <ocl:OclModel name="TRACE" model="/0/@outModels.1"/>
+  <ocl:OclModel name="ATL" elements="/0/@elements.0/@inPattern/@elements.0/@type /0/@elements.0/@inPattern/@elements.1/@type"
+      model="/0/@inModels.0"/>
+  <ocl:OclModel name="HYBRID" elements="/0/@elements.0/@outPattern/@elements.0/@type"
+      model="/0/@outModels.0"/>
+</xmi:XMI>

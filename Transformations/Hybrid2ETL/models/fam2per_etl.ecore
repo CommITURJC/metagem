@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<etl:EtlModule xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:etl="http://org.eclipse.kybele.metagem.ETL" name="familes2persons">
+  <pre body="&#x9;var traceModel: new Traceability!TraceModel;&#xA;&#x9;traceModel.name = 'familes2persons_traces';&#xA;&#x9;&#x9;var Families_model_var: new Traceability!SourceModel;&#xA;  Families_model_var.name = 'Families_model';&#xA;  Families_model_var.metamodel = '/metagem_F2P/Metamodels/Families.ecore';&#xA;  traceModel.sourceModels.add(Families_model_var);&#xA;  var Persons_model_var: new Traceability!TargetModel;&#xA;  Persons_model_var.name = 'Persons_model';&#xA;  Persons_model_var.metamodel = '/metagem_F2P/Metamodels/Persons.ecore';&#xA;  traceModel.targetModels.add(Persons_model_var);&#xA;  "/>
+  <post body=""/>
+  <rules name="Father_2_Male">
+    <source name="father" className="Father" metamodel="Families"/>
+    <targets name="male" className="Male" metamodel="Persons"/>
+    <targets name="Father_2_Male" className="TraceLink" metamodel="Traceability"/>
+    <targets name="R8" className="TraceLink" metamodel="Traceability"/>
+    <targets name="Father_trace" className="SourceElement" metamodel="Traceability"/>
+    <targets name="Male_trace" className="TargetElement" metamodel="Traceability"/>
+    <targets name="fullName_trace" className="TargetElement" metamodel="Traceability"/>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" element="//@rules.0/@source" property="getFatherName()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.0" property="fullName"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="father.getName()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.3" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="father.eResource().getURIFragment(father)"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.3" property="ref"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="father.create_Father_component()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.3" property="elementModel"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="male.getName()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.4" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="male.eResource().getURIFragment(male)"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.4" property="ref"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="male.create_Male_component()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.4" property="elementModel"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.0" property="fullName+'(Feature: fullName)'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.5" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="'Father_2_Male'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.1" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Traceability!Operations#Transform"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.1" property="`operation`"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{Father_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.1" property="source"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{Male_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.1" property="target"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="traceModel"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.1" property="traceModel"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="'R8'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.2" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Traceability!Operations#Create"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.2" property="`operation`"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="null"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.2" property="source"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{fullName_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.2" property="target"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Father_2_Male"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.0/@targets.2" property="parentLink"/>
+    </bindings>
+  </rules>
+  <rules name="Mother_2_Female">
+    <source name="mother" className="Mother" metamodel="Families"/>
+    <targets name="female" className="Female" metamodel="Persons"/>
+    <targets name="Mother_2_Female" className="TraceLink" metamodel="Traceability"/>
+    <targets name="firstName_2_fullName" className="TraceLink" metamodel="Traceability"/>
+    <targets name="Mother_trace" className="SourceElement" metamodel="Traceability"/>
+    <targets name="firstName_trace" className="SourceElement" metamodel="Traceability"/>
+    <targets name="familyMother_lastName_trace" className="SourceElement" metamodel="Traceability"/>
+    <targets name="Female_trace" className="TargetElement" metamodel="Traceability"/>
+    <targets name="fullName_trace" className="TargetElement" metamodel="Traceability"/>
+    <bindings>
+      <source xsi:type="etl:OperationStatement" operator="+">
+        <parameter1 xsi:type="etl:SimpleStatement" element="//@rules.1/@source" property="firstName"/>
+        <parameter2 xsi:type="etl:SimpleStatement" element="//@rules.1/@source" property="familyMother.lastName"/>
+      </source>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.0" property="fullName"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="mother.getName()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.3" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="mother.eResource().getURIFragment(mother)"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.3" property="ref"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="mother.create_Mother_component()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.3" property="elementModel"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" element="//@rules.1/@source" property="firstName+'(Feature: firstName)'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.4" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" element="//@rules.1/@source" property="familyMother.lastName+'(Feature: familyMother.lastName)'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.5" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="female.getName()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.6" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="female.eResource().getURIFragment(female)"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.6" property="ref"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="female.create_Female_component()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.6" property="elementModel"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.0" property="fullName+'(Feature: fullName)'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.7" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="'Mother_2_Female'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.1" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Traceability!Operations#Transform"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.1" property="`operation`"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{Mother_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.1" property="source"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{Female_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.1" property="target"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="traceModel"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.1" property="traceModel"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="'firstName_2_fullName'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.2" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Traceability!Operations#Transform"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.2" property="`operation`"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{firstName_trace, familyMother_lastName_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.2" property="source"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{fullName_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.2" property="target"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Mother_2_Female"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.1/@targets.2" property="parentLink"/>
+    </bindings>
+  </rules>
+  <rules name="Son_2_Male">
+    <source name="son" className="Son" metamodel="Families"/>
+    <targets name="male" className="Male" metamodel="Persons"/>
+    <targets name="Son_2_Male" className="TraceLink" metamodel="Traceability"/>
+    <targets name="firstName_2_fullName" className="TraceLink" metamodel="Traceability"/>
+    <targets name="Son_trace" className="SourceElement" metamodel="Traceability"/>
+    <targets name="firstName_trace" className="SourceElement" metamodel="Traceability"/>
+    <targets name="familySon_lastName_trace" className="SourceElement" metamodel="Traceability"/>
+    <targets name="Male_trace" className="TargetElement" metamodel="Traceability"/>
+    <targets name="fullName_trace" className="TargetElement" metamodel="Traceability"/>
+    <bindings>
+      <source xsi:type="etl:OperationStatement" operator="+">
+        <parameter1 xsi:type="etl:SimpleStatement" element="//@rules.2/@source" property="firstName"/>
+        <parameter2 xsi:type="etl:SimpleStatement" element="//@rules.2/@source" property="familySon.lastName"/>
+      </source>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.0" property="fullName"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="son.getName()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.3" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="son.eResource().getURIFragment(son)"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.3" property="ref"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="son.create_Son_component()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.3" property="elementModel"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" element="//@rules.2/@source" property="firstName+'(Feature: firstName)'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.4" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" element="//@rules.2/@source" property="familySon.lastName+'(Feature: familySon.lastName)'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.5" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="male.getName()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.6" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="male.eResource().getURIFragment(male)"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.6" property="ref"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="male.create_Male_component()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.6" property="elementModel"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.0" property="fullName+'(Feature: fullName)'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.7" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="'Son_2_Male'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.1" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Traceability!Operations#Transform"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.1" property="`operation`"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{Son_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.1" property="source"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{Male_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.1" property="target"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="traceModel"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.1" property="traceModel"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="'firstName_2_fullName'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.2" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Traceability!Operations#Transform"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.2" property="`operation`"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{firstName_trace, familySon_lastName_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.2" property="source"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{fullName_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.2" property="target"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Son_2_Male"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.2/@targets.2" property="parentLink"/>
+    </bindings>
+  </rules>
+  <rules name="Daughter_2_Female">
+    <source name="daughter" className="Daughter" metamodel="Families"/>
+    <targets name="female" className="Female" metamodel="Persons"/>
+    <targets name="Daughter_2_Female" className="TraceLink" metamodel="Traceability"/>
+    <targets name="firstName_2_fullName" className="TraceLink" metamodel="Traceability"/>
+    <targets name="Daughter_trace" className="SourceElement" metamodel="Traceability"/>
+    <targets name="firstName_trace" className="SourceElement" metamodel="Traceability"/>
+    <targets name="familyDaughter_lastName_trace" className="SourceElement" metamodel="Traceability"/>
+    <targets name="Female_trace" className="TargetElement" metamodel="Traceability"/>
+    <targets name="fullName_trace" className="TargetElement" metamodel="Traceability"/>
+    <bindings>
+      <source xsi:type="etl:OperationStatement" operator="+">
+        <parameter1 xsi:type="etl:SimpleStatement" element="//@rules.3/@source" property="firstName"/>
+        <parameter2 xsi:type="etl:SimpleStatement" element="//@rules.3/@source" property="familyDaughter.lastName"/>
+      </source>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.0" property="fullName"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="daughter.getName()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.3" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="daughter.eResource().getURIFragment(daughter)"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.3" property="ref"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="daughter.create_Daughter_component()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.3" property="elementModel"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" element="//@rules.3/@source" property="firstName+'(Feature: firstName)'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.4" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" element="//@rules.3/@source" property="familyDaughter.lastName+'(Feature: familyDaughter.lastName)'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.5" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="female.getName()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.6" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="female.eResource().getURIFragment(female)"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.6" property="ref"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="female.create_Female_component()"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.6" property="elementModel"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.0" property="fullName+'(Feature: fullName)'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.7" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="'Daughter_2_Female'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.1" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Traceability!Operations#Transform"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.1" property="`operation`"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{Daughter_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.1" property="source"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{Female_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.1" property="target"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="traceModel"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.1" property="traceModel"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="'firstName_2_fullName'"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.2" property="name"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Traceability!Operations#Transform"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.2" property="`operation`"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{firstName_trace, familyDaughter_lastName_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.2" property="source"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Sequence{fullName_trace}"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.2" property="target"/>
+    </bindings>
+    <bindings>
+      <source xsi:type="etl:SimpleStatement" property="Daughter_2_Female"/>
+      <target xsi:type="etl:SimpleStatement" element="//@rules.3/@targets.2" property="parentLink"/>
+    </bindings>
+  </rules>
+  <operations name="getFatherName" body="return self.firstName + ' ' + self.familyFather.lastName;">
+    <context element="//@rules.0/@source"/>
+    <return property="String"/>
+  </operations>
+  <operations name="create_Families_component" body="&#xA;&#x9;var element = new Traceability!Element;&#xA;&#x9;element.name = self.getName();&#xA;&#x9;element.ref = self.eResource().getURIFragment(self);&#xA;&#x9;element.`model`= Families_model_var;&#xA;&#x9;Families_model_var.path = self.eResource().getURI().toString().replace('platform:/resource','');&#xA;&#x9;&#xA;&#x9;return element;"
+      annotation="cached">
+    <context property="Families!Families"/>
+    <return property="Traceability!Element"/>
+  </operations>
+  <operations name="create_Family_component" body="&#xA;&#x9;var element = new Traceability!Element;&#xA;&#x9;element.name = self.getName();&#xA;&#x9;element.ref = self.eResource().getURIFragment(self);&#xA;&#x9;element.`model`= Families_model_var;&#xA;&#x9;Families_model_var.path = self.eResource().getURI().toString().replace('platform:/resource','');&#xA;&#x9;&#xA;&#x9;var lastName = new Traceability!Feature;&#xA;&#x9;&#x9;lastName.name = self.lastName.getName();&#xA;&#x9;&#x9;lastName.ref = element.eResource().getURIFragment(element);&#xA;&#x9;&#x9;lastName.parent = element;&#xA;&#x9;&#x9;var father = new Traceability!Feature;&#xA;&#x9;&#x9;father.name = self.father.getName();&#xA;&#x9;&#x9;father.ref = element.eResource().getURIFragment(element);&#xA;&#x9;&#x9;father.parent = element;&#xA;&#x9;&#x9;var mother = new Traceability!Feature;&#xA;&#x9;&#x9;mother.name = self.mother.getName();&#xA;&#x9;&#x9;mother.ref = element.eResource().getURIFragment(element);&#xA;&#x9;&#x9;mother.parent = element;&#xA;&#x9;&#x9;var sons = new Traceability!Feature;&#xA;&#x9;&#x9;sons.name = self.sons.getName();&#xA;&#x9;&#x9;sons.ref = element.eResource().getURIFragment(element);&#xA;&#x9;&#x9;sons.parent = element;&#xA;&#x9;&#x9;var daughters = new Traceability!Feature;&#xA;&#x9;&#x9;daughters.name = self.daughters.getName();&#xA;&#x9;&#x9;daughters.ref = element.eResource().getURIFragment(element);&#xA;&#x9;&#x9;daughters.parent = element;&#xA;&#x9;&#x9;return element;"
+      annotation="cached">
+    <context property="Families!Family"/>
+    <return property="Traceability!Element"/>
+  </operations>
+  <operations name="create_Member_component" body="&#xA;&#x9;var element = new Traceability!Element;&#xA;&#x9;element.name = self.getName();&#xA;&#x9;element.ref = self.eResource().getURIFragment(self);&#xA;&#x9;element.`model`= Families_model_var;&#xA;&#x9;Families_model_var.path = self.eResource().getURI().toString().replace('platform:/resource','');&#xA;&#x9;&#xA;&#x9;var firstName = new Traceability!Feature;&#xA;&#x9;&#x9;firstName.name = self.firstName.getName();&#xA;&#x9;&#x9;firstName.ref = element.eResource().getURIFragment(element);&#xA;&#x9;&#x9;firstName.parent = element;&#xA;&#x9;&#x9;return element;"
+      annotation="cached">
+    <context property="Families!Member"/>
+    <return property="Traceability!Element"/>
+  </operations>
+  <operations name="create_Father_component" body="&#xA;&#x9;var element = new Traceability!Element;&#xA;&#x9;element.name = self.getName();&#xA;&#x9;element.ref = self.eResource().getURIFragment(self);&#xA;&#x9;element.`model`= Families_model_var;&#xA;&#x9;Families_model_var.path = self.eResource().getURI().toString().replace('platform:/resource','');&#xA;&#x9;element.super_element = self.eContainer().create_Family_component();&#xA;&#x9;&#x9;&#xA;&#x9;var familyFather = new Traceability!Feature;&#xA;&#x9;&#x9;familyFather.name = self.familyFather.getName();&#xA;&#x9;&#x9;familyFather.ref = element.eResource().getURIFragment(element);&#xA;&#x9;&#x9;familyFather.parent = element;&#xA;&#x9;&#x9;return element;"
+      annotation="cached">
+    <context property="Families!Father"/>
+    <return property="Traceability!Element"/>
+  </operations>
+  <operations name="create_Mother_component" body="&#xA;&#x9;var element = new Traceability!Element;&#xA;&#x9;element.name = self.getName();&#xA;&#x9;element.ref = self.eResource().getURIFragment(self);&#xA;&#x9;element.`model`= Families_model_var;&#xA;&#x9;Families_model_var.path = self.eResource().getURI().toString().replace('platform:/resource','');&#xA;&#x9;element.super_element = self.eContainer().create_Family_component();&#xA;&#x9;&#x9;&#xA;&#x9;var familyMother = new Traceability!Feature;&#xA;&#x9;&#x9;familyMother.name = self.familyMother.getName();&#xA;&#x9;&#x9;familyMother.ref = element.eResource().getURIFragment(element);&#xA;&#x9;&#x9;familyMother.parent = element;&#xA;&#x9;&#x9;return element;"
+      annotation="cached">
+    <context property="Families!Mother"/>
+    <return property="Traceability!Element"/>
+  </operations>
+  <operations name="create_Son_component" body="&#xA;&#x9;var element = new Traceability!Element;&#xA;&#x9;element.name = self.getName();&#xA;&#x9;element.ref = self.eResource().getURIFragment(self);&#xA;&#x9;element.`model`= Families_model_var;&#xA;&#x9;Families_model_var.path = self.eResource().getURI().toString().replace('platform:/resource','');&#xA;&#x9;element.super_element = self.eContainer().create_Family_component();&#xA;&#x9;&#x9;&#xA;&#x9;var familySon = new Traceability!Feature;&#xA;&#x9;&#x9;familySon.name = self.familySon.getName();&#xA;&#x9;&#x9;familySon.ref = element.eResource().getURIFragment(element);&#xA;&#x9;&#x9;familySon.parent = element;&#xA;&#x9;&#x9;return element;"
+      annotation="cached">
+    <context property="Families!Son"/>
+    <return property="Traceability!Element"/>
+  </operations>
+  <operations name="create_Daughter_component" body="&#xA;&#x9;var element = new Traceability!Element;&#xA;&#x9;element.name = self.getName();&#xA;&#x9;element.ref = self.eResource().getURIFragment(self);&#xA;&#x9;element.`model`= Families_model_var;&#xA;&#x9;Families_model_var.path = self.eResource().getURI().toString().replace('platform:/resource','');&#xA;&#x9;element.super_element = self.eContainer().create_Family_component();&#xA;&#x9;&#x9;&#xA;&#x9;var familyDaughter = new Traceability!Feature;&#xA;&#x9;&#x9;familyDaughter.name = self.familyDaughter.getName();&#xA;&#x9;&#x9;familyDaughter.ref = element.eResource().getURIFragment(element);&#xA;&#x9;&#x9;familyDaughter.parent = element;&#xA;&#x9;&#x9;return element;"
+      annotation="cached">
+    <context property="Families!Daughter"/>
+    <return property="Traceability!Element"/>
+  </operations>
+  <operations name="create_Persons_component" body="&#xA;&#x9;var element = new Traceability!Element;&#xA;&#x9;element.name = self.getName();&#xA;&#x9;element.ref = self.eResource().getURIFragment(self);&#xA;&#x9;element.`model`= Persons_model_var;&#xA;&#x9;Persons_model_var.path = self.eResource().getURI().toString().replace('platform:/resource','');&#xA;&#x9;&#xA;&#x9;return element;"
+      annotation="cached">
+    <context property="Persons!Persons"/>
+    <return property="Traceability!Element"/>
+  </operations>
+  <operations name="create_Person_component" body="&#xA;&#x9;var element = new Traceability!Element;&#xA;&#x9;element.name = self.getName();&#xA;&#x9;element.ref = self.eResource().getURIFragment(self);&#xA;&#x9;element.`model`= Persons_model_var;&#xA;&#x9;Persons_model_var.path = self.eResource().getURI().toString().replace('platform:/resource','');&#xA;&#x9;&#xA;&#x9;var fullName = new Traceability!Feature;&#xA;&#x9;&#x9;fullName.name = self.fullName.getName();&#xA;&#x9;&#x9;fullName.ref = element.eResource().getURIFragment(element);&#xA;&#x9;&#x9;fullName.parent = element;&#xA;&#x9;&#x9;return element;"
+      annotation="cached">
+    <context property="Persons!Person"/>
+    <return property="Traceability!Element"/>
+  </operations>
+  <operations name="create_Male_component" body="&#xA;&#x9;var element = new Traceability!Element;&#xA;&#x9;element.name = self.getName();&#xA;&#x9;element.ref = self.eResource().getURIFragment(self);&#xA;&#x9;element.`model`= Persons_model_var;&#xA;&#x9;Persons_model_var.path = self.eResource().getURI().toString().replace('platform:/resource','');&#xA;&#x9;&#xA;&#x9;return element;"
+      annotation="cached">
+    <context property="Persons!Male"/>
+    <return property="Traceability!Element"/>
+  </operations>
+  <operations name="create_Female_component" body="&#xA;&#x9;var element = new Traceability!Element;&#xA;&#x9;element.name = self.getName();&#xA;&#x9;element.ref = self.eResource().getURIFragment(self);&#xA;&#x9;element.`model`= Persons_model_var;&#xA;&#x9;Persons_model_var.path = self.eResource().getURI().toString().replace('platform:/resource','');&#xA;&#x9;&#xA;&#x9;return element;"
+      annotation="cached">
+    <context property="Persons!Female"/>
+    <return property="Traceability!Element"/>
+  </operations>
+  <operations name="getName" body="if (not self.IsDefined()){ &#xA;  return '';&#xA; }else{&#xA; &#x9;if (self.IsKindOf(Set(Any))){&#xA; &#x9;&#x9;return '' + self->collect(e |e.getName()) + '';&#xA; &#x9;}else{&#xA; &#x9;&#x9;if (self.IsTypeOf(String)){return self;}&#xA; &#x9;&#x9;else{&#xA; &#x9;&#x9;&#x9;if (self.eClass().getEAllStructuralFeatures()->collect(n |&#xA;    &#x9;&#x9; n.name)->select(f |f.toLowerCase().indexOf('name') > - 1).isDefined()){&#xA;    &#x9;&#x9; &#x9;var feature:EStructuralFeature;&#xA;    &#x9;&#x9; &#x9;feature = self.eClass().getEAllStructuralFeatures()->select(f | f.name.toLowerCase().indexOf('name') > - 1).first();&#xA;    &#x9;&#x9; &#x9;return self.eGet(feature);&#xA;    &#x9;&#x9; }else{&#xA;    &#x9;&#x9; &#x9;return self.eResource().getURIFragment(self).toString();&#xA;    &#x9;&#x9; }&#xA; &#x9;&#x9;}&#xA; &#x9;}&#xA; }">
+    <context property="Any"/>
+    <return property="String"/>
+  </operations>
+</etl:EtlModule>
