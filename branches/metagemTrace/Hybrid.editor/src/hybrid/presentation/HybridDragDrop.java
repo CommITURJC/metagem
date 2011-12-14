@@ -2,10 +2,6 @@ package hybrid.presentation;
 
 import hybrid.HybridPackage;
 import hybrid.LeftPattern;
-import hybrid.Model;
-import hybrid.ModelComponent;
-import hybrid.ModelElement;
-import hybrid.ModelFeature;
 import hybrid.Module;
 import hybrid.RightPattern;
 import hybrid.Source;
@@ -17,7 +13,6 @@ import hybrid.impl.HybridFactoryImpl;
 import hybrid.impl.RuleImpl;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -159,35 +154,19 @@ public class HybridDragDrop extends EditingDomainViewerDropAdapter {
 	 * @param id
 	 */
 	private void handleSetSourceElement(BindingImpl binding, EObject oElement, String id) {
-		ModelComponent component = null;
+		Source bindingElement = hybridFactory.createSource();
+		bindingElement.setRef(id);
+		bindingElement.setName(this.getName(oElement));
+		
 		Module module = binding.getOwned().getRule().getModule();
 		EList<SourceModel> source_models = module.getSourceModels();
 		
-		SourceModel sourceModel = null;
 		for(int c1=0; c1<source_models.size();c1++){
-			TreeIterator<EObject> elements = source_models.get(c1).eAllContents();
-			while(elements.hasNext()){
-				EObject next = elements.next();
-				if(next instanceof ModelComponent){
-					ModelComponent sourceElement = (ModelComponent) next;
-					if(id!=null&&
-							sourceElement.getRef()!=null&&
-							sourceElement.getRef().equals(id)){
-							component = sourceElement;
-						}
-				}
+			if(("platform:/resource"+source_models.get(c1).getPath()).equals(elementModel)){
+				bindingElement.setModel(source_models.get(c1));
 			}
-			String uriModel = new String ("platform:/resource"+source_models.get(c1).getPath());
-			if(uriModel.equals(elementModel)){
-				sourceModel = source_models.get(c1);
-			}
+			
 		}
-		if (component == null) { // element hasn't been created before
-			component=createComponent(sourceModel,id,oElement);
-		}
-		Source bindingElement = hybridFactory.createSource();
-		bindingElement.setComponent(component);
-		bindingElement.setName(component.getName());
 		
 		RightPattern rightPattern = binding.getRight();
 		if(rightPattern==null){
@@ -207,35 +186,20 @@ public class HybridDragDrop extends EditingDomainViewerDropAdapter {
 	 * @param id
 	 */
 	private void handleSetTargetElement(BindingImpl binding, EObject oElement, String id){
-		ModelComponent component = null;
+		
+		Target bindingElement = hybridFactory.createTarget();
+		bindingElement.setRef(id);
+		bindingElement.setName(this.getName(oElement));
+		
 		Module module = binding.getOwned().getRule().getModule();
 		EList<TargetModel> target_models = module.getTargetModels();
 		
-		TargetModel targetModel = null;
 		for(int c1=0; c1<target_models.size();c1++){
-			TreeIterator<EObject> elements = target_models.get(c1).eAllContents();
-			while(elements.hasNext()){
-				EObject next = elements.next();
-				if(next instanceof ModelComponent){
-					ModelComponent targetElement = (ModelComponent) next;
-					if(id!=null&&
-							targetElement.getRef()!=null&&
-							targetElement.getRef().equals(id)){
-							component = targetElement;
-						}
-				}
+			if(("platform:/resource"+target_models.get(c1).getPath()).equals(elementModel)){
+				bindingElement.setModel(target_models.get(c1));
 			}
-			String uriModel = new String ("platform:/resource"+target_models.get(c1).getPath());
-			if(uriModel.equals(elementModel)){
-				targetModel = target_models.get(c1);
-			}
+			
 		}
-		if (component == null) { // element hasn't been created before
-			component=createComponent(targetModel,id,oElement);
-		}
-		Target bindingElement = hybridFactory.createTarget();
-		bindingElement.setComponent(component);
-		bindingElement.setName(component.getName());
 		
 		LeftPattern leftPattern = binding.getLeft();
 		if(leftPattern==null){
@@ -255,35 +219,20 @@ public class HybridDragDrop extends EditingDomainViewerDropAdapter {
 	 * @param id
 	 */
 	private void handleSetSourceElement(RuleImpl rule, EObject oElement, String id) {
-		ModelComponent component = null;
+
+		Source ruleElement = hybridFactory.createSource();
+		ruleElement.setRef(id);
+		ruleElement.setName(this.getName(oElement));
+		
 		Module module = rule.getModule();
 		EList<SourceModel> source_models = module.getSourceModels();
 		
-		SourceModel sourceModel = null;
 		for(int c1=0; c1<source_models.size();c1++){
-			TreeIterator<EObject> elements = source_models.get(c1).eAllContents();
-			while(elements.hasNext()){
-				EObject next = elements.next();
-				if(next instanceof ModelComponent){
-					ModelComponent sourceElement = (ModelComponent) next;
-					if(id!=null&&
-							sourceElement.getRef()!=null&&
-							sourceElement.getRef().equals(id)){
-							component = sourceElement;
-						}
-				}
+			if(("platform:/resource"+source_models.get(c1).getPath()).equals(elementModel)){
+				ruleElement.setModel(source_models.get(c1));
 			}
-			String uriModel = new String ("platform:/resource"+source_models.get(c1).getPath());
-			if(uriModel.equals(elementModel)){
-				sourceModel = source_models.get(c1);
-			}
+			
 		}
-		if (component == null) { // element hasn't been created before
-			component=createComponent(sourceModel,id,oElement);
-		}
-		Source ruleElement = hybridFactory.createSource();
-		ruleElement.setComponent(component);
-		ruleElement.setName(component.getName());
 		
 		CreateChildCommand cmdSet_element = new CreateChildCommand(domain, (EObject)rule, HybridPackage.eINSTANCE.getRule_Sources(), ruleElement, null);
 		domain.getCommandStack().execute(cmdSet_element);
@@ -296,192 +245,184 @@ public class HybridDragDrop extends EditingDomainViewerDropAdapter {
 	 * @param id
 	 */
 	private void handleSetTargetElement(RuleImpl rule, EObject oElement, String id){
-		ModelComponent component = null;
+		Target ruleElement = hybridFactory.createTarget();
+		ruleElement.setRef(id);
+		ruleElement.setName(this.getName(oElement));
+		
 		Module module = rule.getModule();
 		EList<TargetModel> target_models = module.getTargetModels();
 		
-		TargetModel targetModel = null;
 		for(int c1=0; c1<target_models.size();c1++){
-			TreeIterator<EObject> elements = target_models.get(c1).eAllContents();
-			while(elements.hasNext()){
-				EObject next = elements.next();
-				if(next instanceof ModelComponent){
-					ModelComponent targetElement = (ModelComponent) next;
-					if(id!=null&&
-							targetElement.getRef()!=null&&
-							targetElement.getRef().equals(id)){
-							component = targetElement;
-						}
-				}
+			if(("platform:/resource"+target_models.get(c1).getPath()).equals(elementModel)){
+				ruleElement.setModel(target_models.get(c1));
 			}
-			String uriModel = new String ("platform:/resource"+target_models.get(c1).getPath());
-			if(uriModel.equals(elementModel)){
-				targetModel = target_models.get(c1);
-			}
+			
 		}
-		if (component == null) { // element hasn't been created before
-			component=createComponent(targetModel,id,oElement);
-		}
-		Target ruleElement = hybridFactory.createTarget();
-		ruleElement.setComponent(component);
-		ruleElement.setName(component.getName());
 		
 		CreateChildCommand cmdSet_element = new CreateChildCommand(domain, (EObject)rule, HybridPackage.eINSTANCE.getRule_Targets(), ruleElement, null);
 		domain.getCommandStack().execute(cmdSet_element);	
 	}
 	
-	private ModelComponent createComponent(Model model, String id,
-			EObject oElement) {
-		if (oElement instanceof EStructuralFeature){
-			return createFeature(model, id, oElement);
-		}else{
-			return createElement(model, id, oElement);
-		}
-	}
-	
-	/**
-	 * Creates a ModelElement in a model 
-	 * @param model
-	 * @param id
-	 * @param eModelElement
-	 * @return
-	 */
-	private ModelElement createElement(Model model, String id,	EObject eModelElement){
-		ModelElement ownedElement = null;
-		ModelElement element = hybridFactory.createModelElement();
-		//Looking for ownedElement of the element
-		EObject ownedEObject = eModelElement.eContainer();
-		if (ownedEObject!=null){
-			//Get the ID of the ownedElement
-			XMIResource resource = (XMIResource) ownedEObject.eResource();
-			String id_ownedElement = resource.getID(ownedEObject); // Get element id
-			if(id_ownedElement==null)
-				id_ownedElement=resource.getURIFragment(ownedEObject);
-			
-			TreeIterator<EObject> elements_model = model.eAllContents();
-			while (elements_model.hasNext()){
-				EObject next = elements_model.next();
-				if(next instanceof ModelElement){
-					ModelElement element_model = (ModelElement) next;
-					if(id_ownedElement!=null&&
-							element_model.getRef()!=null&&
-							element_model.getRef().equals(id_ownedElement)){
-							ownedElement = element_model;
-						}
-				}
-				
-			}
-			//if ownedElement doesn't exist in the model, we creates it.
-			if (ownedElement==null){
-				 ModelElement ownedCreated = createElement(model,id_ownedElement,ownedEObject);
-				 if(ownedCreated instanceof ModelElement){
-					 ownedElement = (ModelElement)ownedCreated;
-				 }
-			}
-			element.setParentElement(ownedElement);
-			element.setRef(id);
-			String name = null;
-			EList<EStructuralFeature> allESF = eModelElement.eClass().getEAllStructuralFeatures();
-			for(int c1=0;c1<allESF.size();c1++){
-				EStructuralFeature feature = allESF.get(c1);
-				if(eModelElement.eGet(feature) instanceof String){
-					if((c1==0)|| (feature.getName().toUpperCase().contains("NAME"))){
-						name = eModelElement.eGet(feature).toString();
-					}
-				}
-			}
-			if (name==null)
-				name=eModelElement.eClass().getName();
-			
-			element.setName(name);
-			//Creates the element in the model
-			CreateChildCommand cmdCreate = new CreateChildCommand(domain, ownedElement, HybridPackage.eINSTANCE.getModel_Elements(), element, null);
-			domain.getCommandStack().execute(cmdCreate);
-			
-		}else{
-			element.setOwnedModel(model);
-			element.setRef(id);
-			String name = null;
-			EList<EStructuralFeature> allESF = eModelElement.eClass().getEAllStructuralFeatures();
-			for(int c1=0;c1<allESF.size();c1++){
-				EStructuralFeature feature = allESF.get(c1);
-				if(eModelElement.eGet(feature) instanceof String){
-					if((c1==0)|| (feature.getName().toUpperCase().contains("NAME"))){
-						name = eModelElement.eGet(feature).toString();
-					}
-				}
-			}
-			if (name==null)
-				name=eModelElement.eClass().getName();
-			element.setName(name);
-			//Creates the element in the model
-			CreateChildCommand cmdCreate = new CreateChildCommand(domain, model, HybridPackage.eINSTANCE.getModel_Elements(), element, null);
-			domain.getCommandStack().execute(cmdCreate);
-		}
-		
-		
-		return element;
-	}
-
-	/**
-	 * Creates a feature in a model.
-	 * @param model
-	 * @param id
-	 * @param eModelElement
-	 * @return
-	 */
-	private ModelFeature createFeature(Model model, String id,	EObject eModelElement){
-		ModelElement ownedElement=null;
-		ModelFeature feature = hybridFactory.createModelFeature();
-		
-		//Looking for ownedElement of the feature
-		EObject ownedEObject = eModelElement.eContainer();
-		//Get the ID of the ownedElement
-		XMIResource resource = (XMIResource) ownedEObject.eResource();
-		String id_ownedElement = resource.getID(ownedEObject); // Get element id
-		if(id_ownedElement==null)
-			id_ownedElement=resource.getURIFragment(ownedEObject);
-		
-		TreeIterator<EObject> elements_model = model.eAllContents();
-		while (elements_model.hasNext()){
-			EObject next = elements_model.next();
-			if(next instanceof ModelElement){
-				ModelElement element_model = (ModelElement) next;
-				if(id_ownedElement!=null&&
-					element_model.getRef()!=null&&
-					element_model.getRef().equals(id_ownedElement)){
-					ownedElement = element_model;
-				}
-			}
-		}
-		//if ownedElement doesn't exist in the model, we creates it.
-		if (ownedElement==null){
-			 ModelElement ownedCreated= createElement(model,id_ownedElement,ownedEObject);
-			 if(ownedCreated instanceof ModelElement){
-				 ownedElement = (ModelElement)ownedCreated;
-			 }
-		}
-		feature.setOwnedElement(ownedElement);
-		feature.setRef(id);
-		
+	private String getName (EObject eModelElement){
 		String name = null;
 		EList<EStructuralFeature> allESF = eModelElement.eClass().getEAllStructuralFeatures();
 		for(int c1=0;c1<allESF.size();c1++){
-			EStructuralFeature feature_var = allESF.get(c1);
-			if(eModelElement.eGet(feature_var) instanceof String){
-				if((c1==0)|| (feature_var.getName().toUpperCase().contains("NAME"))){
-					name = eModelElement.eGet(feature_var).toString();
+			EStructuralFeature feature = allESF.get(c1);
+			if(eModelElement.eGet(feature) instanceof String){
+				if((c1==0)|| (feature.getName().toUpperCase().contains("NAME"))){
+					name = eModelElement.eGet(feature).toString();
 				}
 			}
 		}
 		if (name==null)
 			name=eModelElement.eClass().getName();
-		feature.setName(name);
-		//Creates the feature in the model
-		CreateChildCommand cmdCreate = new CreateChildCommand(domain, ownedElement, HybridPackage.eINSTANCE.getModelElement_Features(), feature, null);
-		domain.getCommandStack().execute(cmdCreate);
-		return feature;
 		
+		return name;
 	}
+	
+//	/**
+//	 * Creates a ModelElement in a model 
+//	 * @param model
+//	 * @param id
+//	 * @param eModelElement
+//	 * @return
+//	 */
+//	private ModelElement createElement(Model model, String id,	EObject eModelElement){
+//		ModelElement ownedElement = null;
+//		ModelElement element = hybridFactory.createModelElement();
+//		//Looking for ownedElement of the element
+//		EObject ownedEObject = eModelElement.eContainer();
+//		if (ownedEObject!=null){
+//			//Get the ID of the ownedElement
+//			XMIResource resource = (XMIResource) ownedEObject.eResource();
+//			String id_ownedElement = resource.getID(ownedEObject); // Get element id
+//			if(id_ownedElement==null)
+//				id_ownedElement=resource.getURIFragment(ownedEObject);
+//			
+//			TreeIterator<EObject> elements_model = model.eAllContents();
+//			while (elements_model.hasNext()){
+//				EObject next = elements_model.next();
+//				if(next instanceof ModelElement){
+//					ModelElement element_model = (ModelElement) next;
+//					if(id_ownedElement!=null&&
+//							element_model.getRef()!=null&&
+//							element_model.getRef().equals(id_ownedElement)){
+//							ownedElement = element_model;
+//						}
+//				}
+//				
+//			}
+//			//if ownedElement doesn't exist in the model, we creates it.
+//			if (ownedElement==null){
+//				 ModelElement ownedCreated = createElement(model,id_ownedElement,ownedEObject);
+//				 if(ownedCreated instanceof ModelElement){
+//					 ownedElement = (ModelElement)ownedCreated;
+//				 }
+//			}
+//			element.setParentElement(ownedElement);
+//			element.setRef(id);
+//			String name = null;
+//			EList<EStructuralFeature> allESF = eModelElement.eClass().getEAllStructuralFeatures();
+//			for(int c1=0;c1<allESF.size();c1++){
+//				EStructuralFeature feature = allESF.get(c1);
+//				if(eModelElement.eGet(feature) instanceof String){
+//					if((c1==0)|| (feature.getName().toUpperCase().contains("NAME"))){
+//						name = eModelElement.eGet(feature).toString();
+//					}
+//				}
+//			}
+//			if (name==null)
+//				name=eModelElement.eClass().getName();
+//			
+//			element.setName(name);
+//			//Creates the element in the model
+//			CreateChildCommand cmdCreate = new CreateChildCommand(domain, ownedElement, HybridPackage.eINSTANCE.getModel_Elements(), element, null);
+//			domain.getCommandStack().execute(cmdCreate);
+//			
+//		}else{
+//			element.setOwnedModel(model);
+//			element.setRef(id);
+//			String name = null;
+//			EList<EStructuralFeature> allESF = eModelElement.eClass().getEAllStructuralFeatures();
+//			for(int c1=0;c1<allESF.size();c1++){
+//				EStructuralFeature feature = allESF.get(c1);
+//				if(eModelElement.eGet(feature) instanceof String){
+//					if((c1==0)|| (feature.getName().toUpperCase().contains("NAME"))){
+//						name = eModelElement.eGet(feature).toString();
+//					}
+//				}
+//			}
+//			if (name==null)
+//				name=eModelElement.eClass().getName();
+//			element.setName(name);
+//			//Creates the element in the model
+//			CreateChildCommand cmdCreate = new CreateChildCommand(domain, model, HybridPackage.eINSTANCE.getModel_Elements(), element, null);
+//			domain.getCommandStack().execute(cmdCreate);
+//		}
+//		
+//		
+//		return element;
+//	}
+
+//	/**
+//	 * Creates a feature in a model.
+//	 * @param model
+//	 * @param id
+//	 * @param eModelElement
+//	 * @return
+//	 */
+//	private ModelFeature createFeature(Model model, String id,	EObject eModelElement){
+//		ModelElement ownedElement=null;
+//		ModelFeature feature = hybridFactory.createModelFeature();
+//		
+//		//Looking for ownedElement of the feature
+//		EObject ownedEObject = eModelElement.eContainer();
+//		//Get the ID of the ownedElement
+//		XMIResource resource = (XMIResource) ownedEObject.eResource();
+//		String id_ownedElement = resource.getID(ownedEObject); // Get element id
+//		if(id_ownedElement==null)
+//			id_ownedElement=resource.getURIFragment(ownedEObject);
+//		
+//		TreeIterator<EObject> elements_model = model.eAllContents();
+//		while (elements_model.hasNext()){
+//			EObject next = elements_model.next();
+//			if(next instanceof ModelElement){
+//				ModelElement element_model = (ModelElement) next;
+//				if(id_ownedElement!=null&&
+//					element_model.getRef()!=null&&
+//					element_model.getRef().equals(id_ownedElement)){
+//					ownedElement = element_model;
+//				}
+//			}
+//		}
+//		//if ownedElement doesn't exist in the model, we creates it.
+//		if (ownedElement==null){
+//			 ModelElement ownedCreated= createElement(model,id_ownedElement,ownedEObject);
+//			 if(ownedCreated instanceof ModelElement){
+//				 ownedElement = (ModelElement)ownedCreated;
+//			 }
+//		}
+//		feature.setOwnedElement(ownedElement);
+//		feature.setRef(id);
+//		
+//		String name = null;
+//		EList<EStructuralFeature> allESF = eModelElement.eClass().getEAllStructuralFeatures();
+//		for(int c1=0;c1<allESF.size();c1++){
+//			EStructuralFeature feature_var = allESF.get(c1);
+//			if(eModelElement.eGet(feature_var) instanceof String){
+//				if((c1==0)|| (feature_var.getName().toUpperCase().contains("NAME"))){
+//					name = eModelElement.eGet(feature_var).toString();
+//				}
+//			}
+//		}
+//		if (name==null)
+//			name=eModelElement.eClass().getName();
+//		feature.setName(name);
+//		//Creates the feature in the model
+//		CreateChildCommand cmdCreate = new CreateChildCommand(domain, ownedElement, HybridPackage.eINSTANCE.getModelElement_Features(), feature, null);
+//		domain.getCommandStack().execute(cmdCreate);
+//		return feature;
+//		
+//	}
 	
 }
