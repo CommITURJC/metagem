@@ -861,7 +861,7 @@ rule InPatternElement_withoutTrace {
 		),
 		aType : ATL!OclModelElement(
 			name <- inPattern.name,
-			model <- thisModule.resolveTemp(inPattern.component.getModel(),'ametamodelMM')
+			model <- thisModule.resolveTemp(inPattern.model,'ametamodelMM')
 		)
 }
 
@@ -877,13 +877,13 @@ rule InPatternElement_withTrace {
 		),
 		aType : ATL!OclModelElement(
 			name <- inPattern.name,
-			model <- thisModule.resolveTemp(inPattern.component.getModel(),'ametamodelMM')
+			model <- thisModule.resolveTemp(inPattern.model,'ametamodelMM')
 		),
 		trace_element: ATL!SimpleOutPatternElement (
 			varName <- inPattern.name.toLower()+'_in_Trace',
 			outPattern <- thisModule.resolveTemp(inPattern."rule",'outPattern'),
 			type <- aType_trace,
-			bindings <- Sequence{nameBinding, refBinding, sourceElementLink}
+			bindings <- Sequence{nameBinding, refBinding, modelBinding}
 		),
 		aType_trace : ATL!OclModelElement(
 			name <- 'SourceElement',
@@ -911,28 +911,25 @@ rule InPatternElement_withTrace {
 		variableExp2: ATL!VariableExp(
 			referredVariable <- inPattern
 		),
+		modelBinding: ATL!Binding(
+			propertyName <- 'model',
+			value <- opCallmodel
+		),
+		opCallmodel: ATL!NavigationOrAttributeCallExp(
+			name <- 'getModel_'+inPattern.model.name,
+			source <- varNavCall
+		),
+		varNavCall:ATL!VariableExp(
+			appliedProperty <- opCallmodel,
+			referredVariable <- varDeclNavCall
+		),
+		varDeclNavCall:ATL!VariableDeclaration(
+			varName<-'thisModule'
+		),
 		trace_elVar: ATL!VariableExp(
 			collection <- thisModule.resolveTemp(inPattern.traceLink,'sourceSeq'),
 			referredVariable <- trace_element
-		),
-		sourceElementLink: ATL!Binding(
-			propertyName <- 'elementModel',
-			value <- elementTrace
-		),
-		elementTrace: ATL!OperationCallExp (
-			operationName <- 'create_'+inPattern.component.name+'_component',
-			source<-variableExp3,
-			arguments <-variableExp4
-		),
-		variableExp3: ATL!VariableExp(
-			referredVariable <- variableDeclaration
-		),
-		variableDeclaration: ATL!VariableDeclaration (
-			varName <- 'thisModule'
-		),
-		variableExp4: ATL!VariableExp(
-			referredVariable <- atl
-		)		
+		)
 }
 
 --InputPattern (from part)
@@ -946,7 +943,7 @@ rule InPatternFeature_withTrace {
 			outPattern <- thisModule.resolveTemp(inPattern.refImmediateComposite().refImmediateComposite()
 				.refImmediateComposite().refImmediateComposite(),'outPattern'),
 			type <- aType_trace,
-			bindings <- Sequence{nameBinding}--, sourceElementLink}
+			bindings <- Sequence{nameBinding, belongToBinding, modelBinding}
 		),
 		aType_trace : ATL!OclModelElement(
 			name <- 'SourceElement',
@@ -970,7 +967,7 @@ rule InPatternFeature_withTrace {
 			referredVariable <- refVar
 		),
 		refVar: ATL!VariableDeclaration(
-			varName <- inPattern.refImmediateComposite().refImmediateComposite().getReferredVariable()
+			varName <- inPattern.refImmediateComposite().refImmediateComposite().getReferredVariable(inPattern)
 		),
 		trace_elVar: ATL!VariableExp(
 			collection <- thisModule.resolveTemp(inPattern.traceLink,'sourceSeq'),
@@ -979,25 +976,29 @@ rule InPatternFeature_withTrace {
 		stringExpFeature: ATL!StringExp(
 			stringSymbol <- '(Feature: '+inPattern.name.toLower()+')',
 			parentOperation <- opCallExp
-		)--,
---		sourceElementLink: ATL!Binding(
---			propertyName <- 'elementModel',
---			value <- elementTrace
---		),
---		elementTrace: ATL!OperationCallExp (
---			operationName <- 'create_'+inPattern.component.name+'_'+inPattern.component.ownedElement.name,
---			source<-variableExp3,
---			arguments <-variableExp4
---		),
---		variableExp3: ATL!VariableExp(
---			referredVariable <- variableDeclaration
---		),
---		variableDeclaration: ATL!VariableDeclaration (
---			varName <- 'thisModule'
---		),
---		variableExp4: ATL!VariableExp(
---			referredVariable <- trace_element
---		)		
+		),
+		belongToBinding: ATL!Binding (
+			propertyName <- 'belongsTo',
+			value <- variableExp2
+		),
+		variableExp2: ATL!VariableExp(
+			referredVariable <- thisModule.resolveTemp(inPattern.belongsTo,'trace_element')
+		),
+		modelBinding: ATL!Binding(
+			propertyName <- 'model',
+			value <- opCallmodel
+		),
+		opCallmodel: ATL!NavigationOrAttributeCallExp(
+			name <- 'getModel_'+inPattern.model.name,
+			source <- varNavCall
+		),
+		varNavCall:ATL!VariableExp(
+			appliedProperty <- opCallmodel,
+			referredVariable <- varDeclNavCall
+		),
+		varDeclNavCall:ATL!VariableDeclaration(
+			varName<-'thisModule'
+		)
 }
 
 rule OutPatternElement_withoutTrace { 
@@ -1012,7 +1013,7 @@ rule OutPatternElement_withoutTrace {
 		),
 		aType : ATL!OclModelElement(
 			name <- outPattern.name,
-			model <- thisModule.resolveTemp(outPattern.component.getModel(),'ametamodelMM') 
+			model <- thisModule.resolveTemp(outPattern.model,'ametamodelMM') 
 		)
 }		
 		
@@ -1029,13 +1030,13 @@ rule OutPatternElement_withTrace {
 		),
 		aType : ATL!OclModelElement(
 			name <- outPattern.name,
-			model <- thisModule.resolveTemp(outPattern.component.getModel(),'ametamodelMM') 
+			model <- thisModule.resolveTemp(outPattern.model,'ametamodelMM') 
 		),
 		trace_element: ATL!SimpleOutPatternElement (
 			varName <- outPattern.name.toLower()+'_out_Trace',
 			outPattern <- thisModule.resolveTemp(outPattern."rule",'outPattern'),
 			type <- aType_trace,
-			bindings <- Sequence{nameBinding, refBinding, targetElementLink}
+			bindings <- Sequence{nameBinding, refBinding, modelBinding}
 		),
 		aType_trace : ATL!OclModelElement(
 			name <- 'TargetElement',
@@ -1063,27 +1064,24 @@ rule OutPatternElement_withTrace {
 		variableExp2: ATL!VariableExp(
 			referredVariable <- outPattern
 		),
+		modelBinding: ATL!Binding(
+			propertyName <- 'model',
+			value <- opCallmodel
+		),
+		opCallmodel: ATL!NavigationOrAttributeCallExp(
+			name <- 'getModel_'+outPattern.model.name,
+			source <- varNavCall
+		),
+		varNavCall:ATL!VariableExp(
+			appliedProperty <- opCallmodel,
+			referredVariable <- varDeclNavCall
+		),
+		varDeclNavCall:ATL!VariableDeclaration(
+			varName<-'thisModule'
+		),
 		trace_elVar: ATL!VariableExp(
 			collection <- thisModule.resolveTemp(outPattern.traceLink,'targetSeq'),
 			referredVariable <- trace_element
-		),
-		targetElementLink: ATL!Binding(
-			propertyName <- 'elementModel',
-			value <- elementTrace
-		),
-		elementTrace: ATL!OperationCallExp (
-			operationName <- 'create_'+outPattern.component.name+'_component',
-			source<-variableExp3,
-			arguments <-variableExp4
-		),
-		variableExp3: ATL!VariableExp(
-			referredVariable <- variableDeclaration
-		),
-		variableDeclaration: ATL!VariableDeclaration (
-			varName <- 'thisModule'
-		),
-		variableExp4: ATL!VariableExp(
-			referredVariable <- atl
 		)
 }
 
@@ -1099,7 +1097,7 @@ rule OutPatternFeature_withTrace {
 			outPattern <- thisModule.resolveTemp(outPattern.refImmediateComposite().refImmediateComposite()
 				.refImmediateComposite()."rule",'outPattern'),
 			type <- aType_trace,
-			bindings <- Sequence{nameBinding}
+			bindings <- Sequence{nameBinding, belongToBinding, modelBinding}
 		),
 		aType_trace : ATL!OclModelElement(
 			name <- 'TargetElement',
@@ -1108,19 +1106,53 @@ rule OutPatternFeature_withTrace {
 		),
 		nameBinding: ATL!Binding (
 			propertyName <- 'name',
-			value <- attCall
+			value <- opCallExp
+		),
+		opCallExp:ATL!OperatorCallExp(
+			operationName <- '+',
+			source <- attCall,
+			arguments <- stringExpFeature			
 		),
 		attCall: ATL!NavigationOrAttributeCallExp(
 			name <- outPattern.name,
 			source <- variableExp
 		),
 		variableExp: ATL!VariableExp(
-			referredVariable <- thisModule.resolveTemp(outPattern.refImmediateComposite().refImmediateComposite()
-				.refImmediateComposite(),'atl')
+			referredVariable <- refVar
+		),
+		refVar: ATL!VariableDeclaration(
+			varName <- outPattern.refImmediateComposite().refImmediateComposite()
+				.refImmediateComposite().name.toLower()+'_out'
 		),
 		trace_elVar: ATL!VariableExp(
 			collection <- thisModule.resolveTemp(outPattern.traceLink,'targetSeq'),
 			referredVariable <- trace_element
+		),
+		stringExpFeature: ATL!StringExp(
+			stringSymbol <- '(Feature: '+outPattern.name.toLower()+')',
+			parentOperation <- opCallExp
+		),
+		belongToBinding: ATL!Binding (
+			propertyName <- 'belongsTo',
+			value <- variableExp2
+		),
+		variableExp2: ATL!VariableExp(
+			referredVariable <- thisModule.resolveTemp(outPattern.belongsTo,'trace_element')
+		),
+		modelBinding: ATL!Binding(
+			propertyName <- 'model',
+			value <- opCallmodel
+		),
+		opCallmodel: ATL!NavigationOrAttributeCallExp(
+			name <- 'getModel_'+outPattern.model.name,
+			source <- varNavCall
+		),
+		varNavCall:ATL!VariableExp(
+			appliedProperty <- opCallmodel,
+			referredVariable <- varDeclNavCall
+		),
+		varDeclNavCall:ATL!VariableDeclaration(
+			varName<-'thisModule'
 		)
 }
 
@@ -1157,7 +1189,7 @@ lazy rule getSimpleBinding {
 			referredVariable <- areferred	
 		),
 		areferred : ATL!VariableDeclaration(
-			varName <- binding.getReferredVariable() 
+			varName <- binding.getReferredVariable(binding.right.source.asSequence().first()) 
 		) 		
 }
 
@@ -1173,12 +1205,12 @@ lazy rule getComplexBinding {
 			referredVariable <- areferred	
 		),
 		areferred : ATL!VariableDeclaration(
-			varName <- binding.getReferredVariable()
+			varName <- binding.getReferredVariable(binding.right.source.asSequence().first())
 		) 
 }
 
 -- Called Rule -> Create concatenation on Bindings
-rule CreateConcatBinding (binding : Hybrid!Binding, attrRefs : Sequence(String)){
+rule CreateConcatBinding (binding : Hybrid!Binding, attrRefs : Sequence(Hybrid!RuleElement)){
 	to
 		operation : ATL!OperatorCallExp (
 			operationName <- '+'
@@ -1194,7 +1226,7 @@ rule CreateConcatBinding (binding : Hybrid!Binding, attrRefs : Sequence(String))
 	}
 		}
 
-rule CreateReferredConcatElement(binding : Hybrid!Binding, attrRef : String) {	-- : ATL!NavigationOrAttributeCallExp
+rule CreateReferredConcatElement(binding : Hybrid!Binding, attrRef : Hybrid!RuleElement) {	-- : ATL!NavigationOrAttributeCallExp
 	to
 		subelement : ATL!NavigationOrAttributeCallExp (
 			--name <- attrRef, --AQUI	binding.getValueBinding(),		
@@ -1204,19 +1236,19 @@ rule CreateReferredConcatElement(binding : Hybrid!Binding, attrRef : String) {	-
 			referredVariable <- areferred	
 		),
 		areferred : ATL!VariableDeclaration(
-			varName <- binding.getReferredVariable()
+			varName <- binding.getReferredVariable(attrRef)
 		)
 	do {
 		
 		if(binding.right."rule".asSequence().first().oclIsUndefined() and 
 		binding.right.operation.asSequence().first().oclIsUndefined()) {
-			subelement.name <- attrRef;
+			subelement.name <- attrRef.name;
 		} else {
 			if (not binding.right."rule".asSequence().first().oclIsUndefined()) {
-				subelement.name <- attrRef + '.' + binding.right."rule".asSequence().first().name;
+				subelement.name <- attrRef.name + '.' + binding.right."rule".asSequence().first().name;
 			} else {
 				if (not binding.right.operation.asSequence().first().oclIsUndefined()) {
-					subelement.name <- attrRef + '.' + binding.right.operation.asSequence().first().name;
+					subelement.name <- attrRef.name + '.' + binding.right.operation.asSequence().first().name;
 				} else{
 					OclUndefined;
 				  }
@@ -1238,7 +1270,7 @@ lazy rule getSimpleContext {
 			model <- amodelin	
 		),
 		amodelin : ATL!OclModel(
-			name <- oper."context".getModel().type_mm
+			name <- oper."context".model.type_mm
 		) 
 }
 
@@ -1270,11 +1302,11 @@ lazy rule getReturnElementType {
 		oper : Hybrid!Operation
 	to
 		areturnType : ATL!OclModelElement (
-			name <- oper.return.component.name,
+			name <- oper.return.name,
 			model <- amodel
 		),
 		amodel : ATL!OclModel (
-			name <- oper.return.component.getModel().name				
+			name <- oper.return.name				
 		) 
 }
 
@@ -1434,207 +1466,6 @@ rule TraceBinding2CreateTraceLink{
 		)
 }
 
--- Creates a unique lazy rule to create a Model Element in trace model
-rule ModelElement_Trace{
-	from 
-		m_element : Hybrid!ModelElement 
-	to
-		createComponent: ATL!LazyMatchedRule (
-			name <- ('create_'+m_element.name+'_component').debug('Unique LazyRule'),
-			isAbstract <- false,
-			isRefining <- false,
-			isNoDefault <- false,
-			isUnique <- true,
-			inPattern <- inPattern,
-			outPattern <- outPattern,
-			"module" <- m_element.getModel().refImmediateComposite(),
-			commentsBefore <- Set {'-- Comments -> This is a LazyRule to generate the '+m_element.name+' element in the trace model'}
-		),
-		inPattern : ATL!InPattern (
-			elements <- mElement
-		),
-		outPattern : ATL!OutPattern(
-			elements <- (m_element.features->collect(e|thisModule.createFeature(e, m_element)).prepend(trace_element))
-		),
-		
-		mElement : ATL!SimpleInPatternElement (
-			varName <- m_element.name.toLower()+'_in',
-			type <- aTypeIN
-		),
-		aTypeIN : ATL!OclModelElement(
-			name <- m_element.name,
-			model <- thisModule.resolveTemp(m_element.getModel(),'ametamodelMM')
-		),
-		
-		trace_element : ATL!SimpleOutPatternElement (
-			varName <- m_element.name.toLower()+'_out',
-			type <- aTypeOUT,
-			bindings <- Sequence{name, ref, model, 
-				if (not m_element.isContained.oclIsUndefined()) then
-					thisModule.createParentBinding(m_element)
-				else
-					OclUndefined
-				endif
-				}
-		),
-		aTypeOUT : ATL!OclModelElement(
-			name <- 'Element',
-			model <- thisModule.resolveTemp(m_element.getModel().refImmediateComposite(),'ametamodelTrace') 
-		),
-		name: ATL!Binding (
-			propertyName <- 'name',
-			value <- nameTraceElement
-		),
-		nameTraceElement: ATL!OperationCallExp (
-			operationName <- 'getName',
-			source<-variableExp
-		),
-		variableExp: ATL!VariableExp(
-			referredVariable <- mElement
-		),
-		ref: ATL!Binding (
-			propertyName <- 'ref',
-			value <- refTraceElement
-		),
-		refTraceElement: ATL!NavigationOrAttributeCallExp(
-			name <- '__xmiID__',
-			source<-variableExp2
-		),
-		variableExp2: ATL!VariableExp(
-			referredVariable <- mElement
-		),
-		model: ATL!Binding (
-			propertyName <- 'model',
-			value <- navCall
-		),
-		navCall: ATL!NavigationOrAttributeCallExp(
-			name <- 'getModel_'+thisModule.resolveTemp(m_element.getModel(),'MM').name,
-			source <- varNavCall
-		),
-		varNavCall:ATL!VariableExp(
-			appliedProperty <- navCall,
-			referredVariable <- varDeclNavCall
-		),
-		varDeclNavCall:ATL!VariableDeclaration(
-			varName<-'thisModule'
-		)--,
-		
---		childElements: ATL!SequenceExp(
---			elements <-	m_element.childElements->collect(e|thisModule.createChildBinding(e, m_element))
---		)
-}
-
-unique lazy rule createParentBinding {
-	from 
-		m_element : Hybrid!ModelElement
-	to	
-		super_element: ATL!Binding (
-			propertyName <- 'super_element',
-			value <- superElement
-		),
-		superElement: ATL!OperationCallExp (
-			operationName <- 'create_'+m_element.isContained.name+'_component',
-			source<-variableExp3,
-			arguments <-opCallImmediate
-		),
-		variableExp3: ATL!VariableExp(
-			referredVariable <- variableDeclaration
-		),
-		variableDeclaration: ATL!VariableDeclaration (
-			varName <- 'thisModule'
-		),
-		opCallImmediate: ATL!OperationCallExp(
-			operationName <- 'refImmediateComposite',
-			source<-variableExp4
-		),
-		variableExp4: ATL!VariableExp(
-			referredVariable <- variableDeclaration2
-		),
-		variableDeclaration2: ATL!VariableDeclaration (
-			varName <- m_element.name.toLower()+'_in'
-		)
-		
-}
-
---unique lazy rule createChildBinding{
---	from 
---		child_element : Hybrid!ModelElement,
---		element:  Hybrid!ModelElement
---	to
---		childElement: ATL!OperationCallExp (
---			operationName <- 'create_'+child_element.name+'_component',
---			source<-variableExp,
---			arguments <-opCallImmediate
---		),
---		variableExp: ATL!VariableExp(
---			referredVariable <- variableDeclaration
---		),
---		variableDeclaration: ATL!VariableDeclaration (
---			varName <- 'thisModule'
---		),
---		opCallImmediate: ATL!OperationCallExp(
---			operationName <- 'refImmediateComposite',
---			source<-variableExp4
---		),
---		variableExp4: ATL!VariableExp(
---			referredVariable <- variableDeclaration2
---		),
---		variableDeclaration2: ATL!VariableDeclaration (
---			varName <- child_element.name.toLower()+'_in'
---		)
---	
---}
-
-unique lazy rule createFeature{
-	from 
-		m_feature : Hybrid!ModelFeature,
-		parent:  Hybrid!ModelElement
-	to
-		trace_feature : ATL!SimpleOutPatternElement (
-			varName <- m_feature.name.toLower()+'_out',
-			type <- aTypeOUT,
-			bindings <- Sequence{name, ref, parent_binding}
-		),
-		aTypeOUT : ATL!OclModelElement(
-			name <- 'Feature',
-			model <- thisModule.resolveTemp(m_feature.getModel().refImmediateComposite(),'ametamodelTrace') 
-		),
-		name: ATL!Binding (
-			propertyName <- 'name',
-			value <- nameTraceFeature
-		),
-		nameTraceFeature: ATL!OperationCallExp (
-			operationName <- 'getName',
-			source<-attCall
-		),
-		attCall: ATL!NavigationOrAttributeCallExp(
-			name <- m_feature.name,
-			source <- variableExp
-		),
-		variableExp: ATL!VariableExp(
-			referredVariable <- thisModule.resolveTemp(parent,'mElement')
-		),
-		ref: ATL!Binding (
-			propertyName <- 'ref',
-			value <- refTraceFeature
-		),
-		refTraceFeature: ATL!NavigationOrAttributeCallExp(
-			name <- '__xmiID__',
-			source<-variableExp2
-		),
-		variableExp2: ATL!VariableExp(
-			referredVariable <- thisModule.resolveTemp(parent,'trace_element')
-		),
-		parent_binding: ATL!Binding(
-			propertyName <- 'parent',
-			value <- parent_var
-		),
-		parent_var: ATL!VariableExp(
-			referredVariable <- thisModule.resolveTemp(parent,'trace_element')
-		)
-}
-
-
 
 
 -- HELPERS
@@ -1684,7 +1515,7 @@ helper context Hybrid!Operation def : getContext () : ATL!OclExpression =
 -- Helper -> To call the correct lazy rule to define the Binding
 helper context Hybrid!Binding def : getBindingSource() : ATL!OclExpression =
 		if self.typeRelation = #"Concatenation" then
-			thisModule.CreateConcatBinding(self, self.right.source.asSequence()->collect(i | i.name))
+			thisModule.CreateConcatBinding(self, self.right.source.asSequence()->collect(i | i))
 		else
 			if (self.right."rule".asSequence().first().oclIsUndefined() and 
 				self.right.operation.asSequence().first().oclIsUndefined() and
@@ -1693,11 +1524,11 @@ helper context Hybrid!Binding def : getBindingSource() : ATL!OclExpression =
 					thisModule.getConcreteBinding(self)
 			else
 				if (not self.right.reference.oclIsUndefined()) then
-					if self.right.reference.oclIsTypeOf(Hybrid!Source) then
-						thisModule.getComplexBinding(self)
-					else
+--					if self.right.reference.oclIsTypeOf(Hybrid!Source) then
+--						thisModule.getComplexBinding(self)
+--					else
 						thisModule.getSimpleBinding(self)
-					endif
+--					endif
 				else
 					thisModule.getComplexBinding(self)
 			endif
@@ -1741,33 +1572,25 @@ helper context Hybrid!Binding def : getValueBinding () : ATL!OclExpression =
 	endif;
 
 -- Helper -> Return the variable used on source binding
-helper context Hybrid!Binding def : getReferredVariable () : ATL!OclExpression = --String =
+helper context Hybrid!Binding def : getReferredVariable (element: Hybrid!RuleElement) : ATL!OclExpression = --String =
 	if self.refImmediateComposite().refImmediateComposite().sources.asSequence().first().oclIsUndefined()  then
 		OclUndefined --'???' 
 	else
-		if self.right.reference.oclIsUndefined() then
+		if self.right.source.size()=0 then
 			self.refImmediateComposite().refImmediateComposite().sources.asSequence().first().name.toLower()+'_in'
 		else
-			if self.right.reference.oclIsTypeOf(Hybrid!Source) then
-				self.right.reference.name.toLower()+'_in'
+			if element.belongsTo.oclIsUndefined() then
+				self.refImmediateComposite().refImmediateComposite().sources.asSequence().first().name.toLower()+'_in'
 			else
-				self.right.reference.name.toLower()+'_out'
+				if element.belongsTo.oclIsTypeOf(Hybrid!Source) then
+					element.belongsTo.name.toLower()+'_in'
+				else
+					element.belongsTo.name.toLower()+'_out'
+				endif
 			endif
 		endif
 	endif;
 
---Helper -> Return the model of the component
-helper context Hybrid!ModelComponent def : getModel(): Hybrid!Model =
-	if self.oclIsTypeOf(Hybrid!ModelFeature) then
-		self.ownedElement.getModel()
-	else
-		if self.ownedModel.oclIsUndefined() then
-			self.parentElement.getModel()
-		else
-			self.ownedModel
-		endif
-	endif
-	;
 
 --Helper -> Return the number of inputsPatterns 
 helper context Hybrid!Rule def : getSizeIP() : Integer = 

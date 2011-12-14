@@ -39,7 +39,7 @@
 <mapAttribute key="Path">
 <mapEntry key="ATL" value="/Hybrid2ATL/ATL.ecore"/>
 <mapEntry key="Hybrid" value="/Hybrid2ATL/Hybrid.ecore"/>
-<mapEntry key="IN" value="/Hybrid2ATL/Models/fam2per_hybrid.ecore"/>
+<mapEntry key="IN" value="/Hybrid2ATL/Models/Familes2Persons_hybrid.ecore"/>
 <mapEntry key="OUT" value="/Hybrid2ATL/Models/fam2per_atl.ecore"/>
 </mapAttribute>
 <listAttribute key="Superimpose"/>
