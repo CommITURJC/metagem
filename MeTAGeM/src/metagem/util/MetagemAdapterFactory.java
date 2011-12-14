@@ -92,10 +92,6 @@ public class MetagemAdapterFactory extends AdapterFactoryImpl {
 				return createTargetModelTransfAdapter();
 			}
 			@Override
-			public Adapter caseModelComponent(ModelComponent object) {
-				return createModelComponentAdapter();
-			}
-			@Override
 			public Adapter caseRelations(Relations object) {
 				return createRelationsAdapter();
 			}
@@ -134,14 +130,6 @@ public class MetagemAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTargetElement(TargetElement object) {
 				return createTargetElementAdapter();
-			}
-			@Override
-			public Adapter caseModelElement(ModelElement object) {
-				return createModelElementAdapter();
-			}
-			@Override
-			public Adapter caseModelFeature(ModelFeature object) {
-				return createModelFeatureAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -230,20 +218,6 @@ public class MetagemAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTargetModelTransfAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link metagem.ModelComponent <em>Model Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see metagem.ModelComponent
-	 * @generated
-	 */
-	public Adapter createModelComponentAdapter() {
 		return null;
 	}
 
@@ -384,34 +358,6 @@ public class MetagemAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTargetElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link metagem.ModelElement <em>Model Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see metagem.ModelElement
-	 * @generated
-	 */
-	public Adapter createModelElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link metagem.ModelFeature <em>Model Feature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see metagem.ModelFeature
-	 * @generated
-	 */
-	public Adapter createModelFeatureAdapter() {
 		return null;
 	}
 

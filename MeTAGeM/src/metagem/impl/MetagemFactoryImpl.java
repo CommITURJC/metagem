@@ -72,8 +72,6 @@ public class MetagemFactoryImpl extends EFactoryImpl implements MetagemFactory {
 			case MetagemPackage.MANY_TO_MANY: return createManyToMany();
 			case MetagemPackage.SOURCE_ELEMENT: return createSourceElement();
 			case MetagemPackage.TARGET_ELEMENT: return createTargetElement();
-			case MetagemPackage.MODEL_ELEMENT: return createModelElement();
-			case MetagemPackage.MODEL_FEATURE: return createModelFeature();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -225,26 +223,6 @@ public class MetagemFactoryImpl extends EFactoryImpl implements MetagemFactory {
 	public TargetElement createTargetElement() {
 		TargetElementImpl targetElement = new TargetElementImpl();
 		return targetElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModelElement createModelElement() {
-		ModelElementImpl modelElement = new ModelElementImpl();
-		return modelElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModelFeature createModelFeature() {
-		ModelFeatureImpl modelFeature = new ModelFeatureImpl();
-		return modelFeature;
 	}
 
 	/**

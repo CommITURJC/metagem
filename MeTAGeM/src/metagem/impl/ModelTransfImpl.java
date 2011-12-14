@@ -6,25 +6,12 @@
  */
 package metagem.impl;
 
-import java.util.Collection;
-
 import metagem.MetagemPackage;
-import metagem.ModelElement;
 import metagem.ModelTransf;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +21,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link metagem.impl.ModelTransfImpl#getPath <em>Path</em>}</li>
- *   <li>{@link metagem.impl.ModelTransfImpl#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,16 +46,6 @@ public abstract class ModelTransfImpl extends TransformationElementImpl implemen
 	 * @ordered
 	 */
 	protected String path = PATH_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ModelElement> elements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,54 +92,11 @@ public abstract class ModelTransfImpl extends TransformationElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ModelElement> getElements() {
-		if (elements == null) {
-			elements = new EObjectContainmentWithInverseEList<ModelElement>(ModelElement.class, this, MetagemPackage.MODEL_TRANSF__ELEMENTS, MetagemPackage.MODEL_ELEMENT__OWNED_ELEMENT);
-		}
-		return elements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case MetagemPackage.MODEL_TRANSF__ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case MetagemPackage.MODEL_TRANSF__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case MetagemPackage.MODEL_TRANSF__PATH:
 				return getPath();
-			case MetagemPackage.MODEL_TRANSF__ELEMENTS:
-				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,10 +113,6 @@ public abstract class ModelTransfImpl extends TransformationElementImpl implemen
 			case MetagemPackage.MODEL_TRANSF__PATH:
 				setPath((String)newValue);
 				return;
-			case MetagemPackage.MODEL_TRANSF__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends ModelElement>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -199,9 +128,6 @@ public abstract class ModelTransfImpl extends TransformationElementImpl implemen
 			case MetagemPackage.MODEL_TRANSF__PATH:
 				setPath(PATH_EDEFAULT);
 				return;
-			case MetagemPackage.MODEL_TRANSF__ELEMENTS:
-				getElements().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -216,8 +142,6 @@ public abstract class ModelTransfImpl extends TransformationElementImpl implemen
 		switch (featureID) {
 			case MetagemPackage.MODEL_TRANSF__PATH:
 				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
-			case MetagemPackage.MODEL_TRANSF__ELEMENTS:
-				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

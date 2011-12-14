@@ -81,11 +81,6 @@ context ModelTransf{
     	}
     }
     
-    -- Model should have at least one ModelElement
-    constraint model_transf_minimumElements{
-    	check: self.elements->size()>0
-    	message: 'The feature \'elements\' of \''+self.type().name.asString() +'\' with 0 values must have at least 1 value'
-    } 
 	
 }
 
@@ -111,7 +106,7 @@ context Relations{
 	
 	--Relations only can extends abstract relations
 	constraint superRelations{
-		check: self.extend->select(r|r.isKindOf(Relations))->forAll(r2|r2.typeRelation=TRole#IsAbstract)
+		check: self.`extends`->select(r|r.isKindOf(Relations))->forAll(r2|r2.typeRelation=TRole#IsAbstract)
 		message: 'Relation \''+self.type().name.asString() +'\' only can extends abstract relations'
 	}
 	

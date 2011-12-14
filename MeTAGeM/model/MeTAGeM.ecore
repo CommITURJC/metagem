@@ -17,8 +17,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelTransf" abstract="true" eSuperTypes="#//TransformationElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//ModelElement" containment="true" eOpposite="#//ModelElement/ownedElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourceModelTransf" eSuperTypes="#//ModelTransf">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElement" lowerBound="1"
@@ -27,11 +25,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="TargetModelTransf" eSuperTypes="#//ModelTransf">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElement" lowerBound="1"
         eType="#//ModelRoot" eOpposite="#//ModelRoot/targetModels"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModelComponent" abstract="true" eSuperTypes="#//TransformationElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relationElement" upperBound="-1"
-        eType="#//RelationElement" eOpposite="#//RelationElement/modelComponent"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Relations" abstract="true" eSuperTypes="#//TransformationElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedModel" eType="#//ModelRoot"
@@ -86,8 +79,12 @@
         upperBound="-1" eType="#//SourceElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RelationElement" abstract="true" eSuperTypes="#//TransformationElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modelComponent" lowerBound="1"
-        eType="#//ModelComponent" eOpposite="#//ModelComponent/relationElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="belongsTo" eType="#//RelationElement"
+        eOpposite="#//RelationElement/owns"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owns" upperBound="-1" eType="#//RelationElement"
+        eOpposite="#//RelationElement/belongsTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" eType="#//ModelTransf"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourceElement" eSuperTypes="#//RelationElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="invokes" eType="#//Relations"
@@ -115,23 +112,5 @@
     <eLiterals name="IsMain"/>
     <eLiterals name="IsSecondary" value="1"/>
     <eLiterals name="IsAbstract" value="2"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModelElement" eSuperTypes="#//ModelComponent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
-        eType="#//ModelFeature" containment="true" eOpposite="#//ModelFeature/parent"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//ModelElement" containment="true" eOpposite="#//ModelElement/superElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="superElement" eType="#//ModelElement"
-        eOpposite="#//ModelElement/elements"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElement" eType="#//ModelTransf"
-        eOpposite="#//ModelTransf/elements"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
-        eType="#//ModelElement" eOpposite="#//ModelElement/isContained"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="isContained" eType="#//ModelElement"
-        eOpposite="#//ModelElement/contains"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModelFeature" eSuperTypes="#//ModelComponent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
-        eType="#//ModelElement" eOpposite="#//ModelElement/features"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -144,52 +144,7 @@ public class MetagemItemProviderAdapterFactory4MultiPanelEditor extends MetagemA
 		return targetModelTransfItemProvider;
 	}
 
-	/**
-	 * This keeps track of the one adapter used for all {@link metagem.ModelElement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @NOT generated
-	 */
-	protected ModelElementItemProvider modelElementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link metagem.ModelElement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @NOT generated
-	 */
-	@Override
-	public Adapter createModelElementAdapter() {
-		if (modelElementItemProvider == null) {
-			modelElementItemProvider = new ModelElementItemProvider(this);
-		}
-
-		return modelElementItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link metagem.ModelFeature} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @NOT generated
-	 */
-	protected ModelFeatureItemProvider modelFeatureItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link metagem.ModelFeature}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @NOT generated
-	 */
-	@Override
-	public Adapter createModelFeatureAdapter() {
-		if (modelFeatureItemProvider == null) {
-			modelFeatureItemProvider = new ModelFeatureItemProvider(this);
-		}
-
-		return modelFeatureItemProvider;
-	}
-
+	
 	/**
 	 * This keeps track of the one adapter used for all {@link metagem.OneToOne} instances.
 	 * <!-- begin-user-doc -->
@@ -484,8 +439,6 @@ public class MetagemItemProviderAdapterFactory4MultiPanelEditor extends MetagemA
 		if (manyToManyItemProvider != null) manyToManyItemProvider.dispose();
 		if (sourceElementItemProvider != null) sourceElementItemProvider.dispose();
 		if (targetElementItemProvider != null) targetElementItemProvider.dispose();
-		if (modelElementItemProvider != null) modelElementItemProvider.dispose();
-		if (modelFeatureItemProvider != null) modelFeatureItemProvider.dispose();
 	}
 
 }
