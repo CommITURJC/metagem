@@ -1,106 +1,73 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:hybrid="org.eclipse.kybele.hybrid" xmi:id="_W_utwQ9wEeGqrtzUmHivfg" name="familes2persons">
-  <operations xmi:id="_W_utwg9wEeGqrtzUmHivfg" name="getFatherName" body="return self.firstName + ' ' + self.familyFather.lastName;" rightPattern="_W_ut4A9wEeGqrtzUmHivfg" context="_W_utzg9wEeGqrtzUmHivfg">
-    <return xmi:id="_W_utww9wEeGqrtzUmHivfg" datatype="String"/>
+<hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:hybrid="org.eclipse.kybele.hybrid" name="familes2persons">
+  <operations name="getFatherName" body="self.firstName + ' ' + self.familyFather.lastName" rightPattern="//@rules.0/@targets.0/@bindings.0/@right" context="//@rules.0/@sources.0">
+    <return datatype="String"/>
   </operations>
-  <sourceModels xmi:id="_W_utxA9wEeGqrtzUmHivfg" name="Families_model" path="/metagem_F2P/Metamodels/Families.ecore" type_mm="Families">
-    <elements xmi:id="_W_utxQ9wEeGqrtzUmHivfg" name="Families" ref="/">
-      <childElements xmi:id="_W_utxg9wEeGqrtzUmHivfg" name="Family" ref="//Family" contains="_W_utzg9wEeGqrtzUmHivfg _W_ut0A9wEeGqrtzUmHivfg _W_ut0g9wEeGqrtzUmHivfg _W_ut1A9wEeGqrtzUmHivfg">
-        <features xmi:id="_W_utxw9wEeGqrtzUmHivfg" name="lastName" ref="//Family/lastName"/>
-        <features xmi:id="_W_utyA9wEeGqrtzUmHivfg" name="father" ref="//Family/father"/>
-        <features xmi:id="_W_utyQ9wEeGqrtzUmHivfg" name="mother" ref="//Family/mother"/>
-        <features xmi:id="_W_utyg9wEeGqrtzUmHivfg" name="sons" ref="//Family/sons"/>
-        <features xmi:id="_W_utyw9wEeGqrtzUmHivfg" name="daughters" ref="//Family/daughters"/>
-      </childElements>
-      <childElements xmi:id="_W_utzA9wEeGqrtzUmHivfg" name="Member" ref="//Member">
-        <features xmi:id="_W_utzQ9wEeGqrtzUmHivfg" name="firstName" ref="//Member/firstName" ruleElement="_W_ut6g9wEeGqrtzUmHivfg _W_ut9Q9wEeGqrtzUmHivfg _W_uuAA9wEeGqrtzUmHivfg"/>
-      </childElements>
-      <childElements xmi:id="_W_utzg9wEeGqrtzUmHivfg" name="Father" ref="//Father" ruleElement="_W_ut3Q9wEeGqrtzUmHivfg" isContained="_W_utxg9wEeGqrtzUmHivfg">
-        <features xmi:id="_W_utzw9wEeGqrtzUmHivfg" name="familyFather" ref="//Father/familyFather"/>
-      </childElements>
-      <childElements xmi:id="_W_ut0A9wEeGqrtzUmHivfg" name="Mother" ref="//Mother" ruleElement="_W_ut5g9wEeGqrtzUmHivfg" isContained="_W_utxg9wEeGqrtzUmHivfg">
-        <features xmi:id="_W_ut0Q9wEeGqrtzUmHivfg" name="familyMother" ref="//Mother/familyMother" ruleElement="_W_ut6w9wEeGqrtzUmHivfg"/>
-      </childElements>
-      <childElements xmi:id="_W_ut0g9wEeGqrtzUmHivfg" name="Son" ref="//Son" ruleElement="_W_ut8Q9wEeGqrtzUmHivfg" isContained="_W_utxg9wEeGqrtzUmHivfg">
-        <features xmi:id="_W_ut0w9wEeGqrtzUmHivfg" name="familySon" ref="//Son/familySon" ruleElement="_W_ut9g9wEeGqrtzUmHivfg"/>
-      </childElements>
-      <childElements xmi:id="_W_ut1A9wEeGqrtzUmHivfg" name="Daughter" ref="//Daughter" ruleElement="_W_ut_A9wEeGqrtzUmHivfg" isContained="_W_utxg9wEeGqrtzUmHivfg">
-        <features xmi:id="_W_ut1Q9wEeGqrtzUmHivfg" name="familyDaughter" ref="//Daughter/familyDaughter" ruleElement="_W_uuAQ9wEeGqrtzUmHivfg"/>
-      </childElements>
-    </elements>
-  </sourceModels>
-  <targetModels xmi:id="_W_ut1g9wEeGqrtzUmHivfg" name="Persons_model" path="/metagem_F2P/Metamodels/Persons.ecore" type_mm="Persons">
-    <elements xmi:id="_W_ut1w9wEeGqrtzUmHivfg" name="Persons" ref="/">
-      <childElements xmi:id="_W_ut2A9wEeGqrtzUmHivfg" name="Person" ref="//Person">
-        <features xmi:id="_W_ut2Q9wEeGqrtzUmHivfg" name="fullName" ref="//Person/fullName" ruleElement="_W_ut4g9wEeGqrtzUmHivfg _W_ut7Q9wEeGqrtzUmHivfg _W_ut-A9wEeGqrtzUmHivfg _W_uuAw9wEeGqrtzUmHivfg"/>
-      </childElements>
-      <childElements xmi:id="_W_ut2g9wEeGqrtzUmHivfg" name="Male" ref="//Male" ruleElement="_W_ut3g9wEeGqrtzUmHivfg _W_ut8g9wEeGqrtzUmHivfg"/>
-      <childElements xmi:id="_W_ut2w9wEeGqrtzUmHivfg" name="Female" ref="//Female" ruleElement="_W_ut5w9wEeGqrtzUmHivfg _W_ut_Q9wEeGqrtzUmHivfg"/>
-    </elements>
-  </targetModels>
-  <rules xmi:id="_W_ut3A9wEeGqrtzUmHivfg" name="Father_2_Male">
-    <sources xmi:id="_W_ut3Q9wEeGqrtzUmHivfg" name="Father" component="_W_utzg9wEeGqrtzUmHivfg" traceLink="_W_ut4w9wEeGqrtzUmHivfg"/>
-    <targets xmi:id="_W_ut3g9wEeGqrtzUmHivfg" name="Male" component="_W_ut2g9wEeGqrtzUmHivfg" traceLink="_W_ut4w9wEeGqrtzUmHivfg">
-      <bindings xmi:id="_W_ut3w9wEeGqrtzUmHivfg" name="R8" typeElement="EAttribute" trace="_W_ut5A9wEeGqrtzUmHivfg">
-        <right xmi:id="_W_ut4A9wEeGqrtzUmHivfg" operation="_W_utwg9wEeGqrtzUmHivfg"/>
-        <left xmi:id="_W_ut4Q9wEeGqrtzUmHivfg">
-          <target xmi:id="_W_ut4g9wEeGqrtzUmHivfg" name="fullName" component="_W_ut2Q9wEeGqrtzUmHivfg" traceLink="_W_ut5A9wEeGqrtzUmHivfg"/>
+  <sourceModels name="Families_model" path="/metagem_F2P/Metamodels/Families.ecore" type_mm="Families"/>
+  <targetModels name="Persons_model" path="/metagem_F2P/Metamodels/Persons.ecore" type_mm="Persons"/>
+  <rules name="Father_2_Male">
+    <sources name="Father" ref="//Father" model="//@sourceModels.0" traceLink="//@rules.0/@trace"/>
+    <targets name="Male" ref="//Male" owns="//@rules.0/@targets.0/@bindings.0/@left/@target" model="//@targetModels.0" traceLink="//@rules.0/@trace">
+      <bindings name="R8" typeElement="EAttribute" trace="//@rules.0/@trace/@traceBindings.0">
+        <right operation="//@operations.0"/>
+        <left>
+          <target name="fullName" ref="//Person/fullName" belongsTo="//@rules.0/@targets.0" model="//@targetModels.0" traceLink="//@rules.0/@trace/@traceBindings.0"/>
         </left>
       </bindings>
     </targets>
-    <trace xmi:id="_W_ut4w9wEeGqrtzUmHivfg" name="Father_2_Male" source="_W_ut3Q9wEeGqrtzUmHivfg" target="_W_ut3g9wEeGqrtzUmHivfg">
-      <traceBindings xmi:id="_W_ut5A9wEeGqrtzUmHivfg" name="R8" target="_W_ut4g9wEeGqrtzUmHivfg" binding="_W_ut3w9wEeGqrtzUmHivfg"/>
+    <trace name="Father_2_Male" source="//@rules.0/@sources.0" target="//@rules.0/@targets.0">
+      <traceBindings name="R8" target="//@rules.0/@targets.0/@bindings.0/@left/@target" binding="//@rules.0/@targets.0/@bindings.0"/>
     </trace>
   </rules>
-  <rules xmi:id="_W_ut5Q9wEeGqrtzUmHivfg" name="Mother_2_Female">
-    <sources xmi:id="_W_ut5g9wEeGqrtzUmHivfg" name="Mother" component="_W_ut0A9wEeGqrtzUmHivfg" traceLink="_W_ut7g9wEeGqrtzUmHivfg"/>
-    <targets xmi:id="_W_ut5w9wEeGqrtzUmHivfg" name="Female" component="_W_ut2w9wEeGqrtzUmHivfg" traceLink="_W_ut7g9wEeGqrtzUmHivfg">
-      <bindings xmi:id="_W_ut6A9wEeGqrtzUmHivfg" name="firstName_2_fullName" typeRelation="Concatenation" typeElement="EAttribute" trace="_W_ut7w9wEeGqrtzUmHivfg">
-        <right xmi:id="_W_ut6Q9wEeGqrtzUmHivfg">
-          <source xmi:id="_W_ut6g9wEeGqrtzUmHivfg" name="firstName" component="_W_utzQ9wEeGqrtzUmHivfg" traceLink="_W_ut7w9wEeGqrtzUmHivfg"/>
-          <source xmi:id="_W_ut6w9wEeGqrtzUmHivfg" name="familyMother.lastName" component="_W_ut0Q9wEeGqrtzUmHivfg" traceLink="_W_ut7w9wEeGqrtzUmHivfg"/>
+  <rules name="Mother_2_Female">
+    <sources name="Mother" ref="//Mother" owns="//@rules.1/@targets.0/@bindings.0/@right/@source.0 //@rules.1/@targets.0/@bindings.0/@right/@source.1" model="//@sourceModels.0" traceLink="//@rules.1/@trace"/>
+    <targets name="Female" ref="//Female" owns="//@rules.1/@targets.0/@bindings.0/@left/@target" model="//@targetModels.0" traceLink="//@rules.1/@trace">
+      <bindings name="firstName_2_fullName" typeRelation="Concatenation" typeElement="EAttribute" trace="//@rules.1/@trace/@traceBindings.0">
+        <right>
+          <source name="firstName" ref="//Member/firstName" belongsTo="//@rules.1/@sources.0" model="//@sourceModels.0" traceLink="//@rules.1/@trace/@traceBindings.0"/>
+          <source name="familyMother.lastName" ref="//Mother/familyMother" belongsTo="//@rules.1/@sources.0" model="//@sourceModels.0" traceLink="//@rules.1/@trace/@traceBindings.0"/>
         </right>
-        <left xmi:id="_W_ut7A9wEeGqrtzUmHivfg">
-          <target xmi:id="_W_ut7Q9wEeGqrtzUmHivfg" name="fullName" component="_W_ut2Q9wEeGqrtzUmHivfg" traceLink="_W_ut7w9wEeGqrtzUmHivfg"/>
+        <left>
+          <target name="fullName" ref="//Person/fullName" belongsTo="//@rules.1/@targets.0" model="//@targetModels.0" traceLink="//@rules.1/@trace/@traceBindings.0"/>
         </left>
       </bindings>
     </targets>
-    <trace xmi:id="_W_ut7g9wEeGqrtzUmHivfg" name="Mother_2_Female" source="_W_ut5g9wEeGqrtzUmHivfg" target="_W_ut5w9wEeGqrtzUmHivfg">
-      <traceBindings xmi:id="_W_ut7w9wEeGqrtzUmHivfg" name="firstName_2_fullName" source="_W_ut6g9wEeGqrtzUmHivfg _W_ut6w9wEeGqrtzUmHivfg" target="_W_ut7Q9wEeGqrtzUmHivfg" binding="_W_ut6A9wEeGqrtzUmHivfg"/>
+    <trace name="Mother_2_Female" source="//@rules.1/@sources.0" target="//@rules.1/@targets.0">
+      <traceBindings name="firstName_2_fullName" source="//@rules.1/@targets.0/@bindings.0/@right/@source.0 //@rules.1/@targets.0/@bindings.0/@right/@source.1" target="//@rules.1/@targets.0/@bindings.0/@left/@target" binding="//@rules.1/@targets.0/@bindings.0"/>
     </trace>
   </rules>
-  <rules xmi:id="_W_ut8A9wEeGqrtzUmHivfg" name="Son_2_Male">
-    <sources xmi:id="_W_ut8Q9wEeGqrtzUmHivfg" name="Son" component="_W_ut0g9wEeGqrtzUmHivfg" traceLink="_W_ut-Q9wEeGqrtzUmHivfg"/>
-    <targets xmi:id="_W_ut8g9wEeGqrtzUmHivfg" name="Male" component="_W_ut2g9wEeGqrtzUmHivfg" traceLink="_W_ut-Q9wEeGqrtzUmHivfg">
-      <bindings xmi:id="_W_ut8w9wEeGqrtzUmHivfg" name="firstName_2_fullName" typeRelation="Concatenation" typeElement="EAttribute" trace="_W_ut-g9wEeGqrtzUmHivfg">
-        <right xmi:id="_W_ut9A9wEeGqrtzUmHivfg">
-          <source xmi:id="_W_ut9Q9wEeGqrtzUmHivfg" name="firstName" component="_W_utzQ9wEeGqrtzUmHivfg" traceLink="_W_ut-g9wEeGqrtzUmHivfg"/>
-          <source xmi:id="_W_ut9g9wEeGqrtzUmHivfg" name="familySon.lastName" component="_W_ut0w9wEeGqrtzUmHivfg" traceLink="_W_ut-g9wEeGqrtzUmHivfg"/>
+  <rules name="Son_2_Male">
+    <sources name="Son" ref="//Son" owns="//@rules.2/@targets.0/@bindings.0/@right/@source.0 //@rules.2/@targets.0/@bindings.0/@right/@source.1" model="//@sourceModels.0" traceLink="//@rules.2/@trace"/>
+    <targets name="Male" ref="//Male" owns="//@rules.2/@targets.0/@bindings.0/@left/@target" model="//@targetModels.0" traceLink="//@rules.2/@trace">
+      <bindings name="firstName_2_fullName" typeRelation="Concatenation" typeElement="EAttribute" trace="//@rules.2/@trace/@traceBindings.0">
+        <right>
+          <source name="firstName" ref="//Member/firstName" belongsTo="//@rules.2/@sources.0" model="//@sourceModels.0" traceLink="//@rules.2/@trace/@traceBindings.0"/>
+          <source name="familySon.lastName" ref="//Son/familySon" belongsTo="//@rules.2/@sources.0" model="//@sourceModels.0" traceLink="//@rules.2/@trace/@traceBindings.0"/>
         </right>
-        <left xmi:id="_W_ut9w9wEeGqrtzUmHivfg">
-          <target xmi:id="_W_ut-A9wEeGqrtzUmHivfg" name="fullName" component="_W_ut2Q9wEeGqrtzUmHivfg" traceLink="_W_ut-g9wEeGqrtzUmHivfg"/>
+        <left>
+          <target name="fullName" ref="//Person/fullName" belongsTo="//@rules.2/@targets.0" model="//@targetModels.0" traceLink="//@rules.2/@trace/@traceBindings.0"/>
         </left>
       </bindings>
     </targets>
-    <trace xmi:id="_W_ut-Q9wEeGqrtzUmHivfg" name="Son_2_Male" source="_W_ut8Q9wEeGqrtzUmHivfg" target="_W_ut8g9wEeGqrtzUmHivfg">
-      <traceBindings xmi:id="_W_ut-g9wEeGqrtzUmHivfg" name="firstName_2_fullName" source="_W_ut9Q9wEeGqrtzUmHivfg _W_ut9g9wEeGqrtzUmHivfg" target="_W_ut-A9wEeGqrtzUmHivfg" binding="_W_ut8w9wEeGqrtzUmHivfg"/>
+    <trace name="Son_2_Male" source="//@rules.2/@sources.0" target="//@rules.2/@targets.0">
+      <traceBindings name="firstName_2_fullName" source="//@rules.2/@targets.0/@bindings.0/@right/@source.0 //@rules.2/@targets.0/@bindings.0/@right/@source.1" target="//@rules.2/@targets.0/@bindings.0/@left/@target" binding="//@rules.2/@targets.0/@bindings.0"/>
     </trace>
   </rules>
-  <rules xmi:id="_W_ut-w9wEeGqrtzUmHivfg" name="Daughter_2_Female">
-    <sources xmi:id="_W_ut_A9wEeGqrtzUmHivfg" name="Daughter" component="_W_ut1A9wEeGqrtzUmHivfg" traceLink="_W_uuBA9wEeGqrtzUmHivfg"/>
-    <targets xmi:id="_W_ut_Q9wEeGqrtzUmHivfg" name="Female" component="_W_ut2w9wEeGqrtzUmHivfg" traceLink="_W_uuBA9wEeGqrtzUmHivfg">
-      <bindings xmi:id="_W_ut_g9wEeGqrtzUmHivfg" name="firstName_2_fullName" typeRelation="Concatenation" typeElement="EAttribute" trace="_W_uuBQ9wEeGqrtzUmHivfg">
-        <right xmi:id="_W_ut_w9wEeGqrtzUmHivfg">
-          <source xmi:id="_W_uuAA9wEeGqrtzUmHivfg" name="firstName" component="_W_utzQ9wEeGqrtzUmHivfg" traceLink="_W_uuBQ9wEeGqrtzUmHivfg"/>
-          <source xmi:id="_W_uuAQ9wEeGqrtzUmHivfg" name="familyDaughter.lastName" component="_W_ut1Q9wEeGqrtzUmHivfg" traceLink="_W_uuBQ9wEeGqrtzUmHivfg"/>
+  <rules name="Daughter_2_Female">
+    <sources name="Daughter" ref="//Daughter" owns="//@rules.3/@targets.0/@bindings.0/@right/@source.0 //@rules.3/@targets.0/@bindings.0/@right/@source.1" model="//@sourceModels.0" traceLink="//@rules.3/@trace"/>
+    <targets name="Female" ref="//Female" owns="//@rules.3/@targets.0/@bindings.0/@left/@target" model="//@targetModels.0" traceLink="//@rules.3/@trace">
+      <bindings name="firstName_2_fullName" typeRelation="Concatenation" typeElement="EAttribute" trace="//@rules.3/@trace/@traceBindings.0">
+        <right>
+          <source name="firstName" ref="//Member/firstName" belongsTo="//@rules.3/@sources.0" model="//@sourceModels.0" traceLink="//@rules.3/@trace/@traceBindings.0"/>
+          <source name="familyDaughter.lastName" ref="//Daughter/familyDaughter" belongsTo="//@rules.3/@sources.0" model="//@sourceModels.0" traceLink="//@rules.3/@trace/@traceBindings.0"/>
         </right>
-        <left xmi:id="_W_uuAg9wEeGqrtzUmHivfg">
-          <target xmi:id="_W_uuAw9wEeGqrtzUmHivfg" name="fullName" component="_W_ut2Q9wEeGqrtzUmHivfg" traceLink="_W_uuBQ9wEeGqrtzUmHivfg"/>
+        <left>
+          <target name="fullName" ref="//Person/fullName" belongsTo="//@rules.3/@targets.0" model="//@targetModels.0" traceLink="//@rules.3/@trace/@traceBindings.0"/>
         </left>
       </bindings>
     </targets>
-    <trace xmi:id="_W_uuBA9wEeGqrtzUmHivfg" name="Daughter_2_Female" source="_W_ut_A9wEeGqrtzUmHivfg" target="_W_ut_Q9wEeGqrtzUmHivfg">
-      <traceBindings xmi:id="_W_uuBQ9wEeGqrtzUmHivfg" name="firstName_2_fullName" source="_W_uuAA9wEeGqrtzUmHivfg _W_uuAQ9wEeGqrtzUmHivfg" target="_W_uuAw9wEeGqrtzUmHivfg" binding="_W_ut_g9wEeGqrtzUmHivfg"/>
+    <trace name="Daughter_2_Female" source="//@rules.3/@sources.0" target="//@rules.3/@targets.0">
+      <traceBindings name="firstName_2_fullName" source="//@rules.3/@targets.0/@bindings.0/@right/@source.0 //@rules.3/@targets.0/@bindings.0/@right/@source.1" target="//@rules.3/@targets.0/@bindings.0/@left/@target" binding="//@rules.3/@targets.0/@bindings.0"/>
     </trace>
   </rules>
 </hybrid:Module>
