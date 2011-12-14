@@ -76,8 +76,8 @@ public class TraceabilityAdapterFactory extends AdapterFactoryImpl {
 				return createTraceModelAdapter();
 			}
 			@Override
-			public Adapter caseTraceElement(TraceElement object) {
-				return createTraceElementAdapter();
+			public Adapter caseElement(Element object) {
+				return createElementAdapter();
 			}
 			@Override
 			public Adapter caseModel(Model object) {
@@ -96,24 +96,16 @@ public class TraceabilityAdapterFactory extends AdapterFactoryImpl {
 				return createTargetModelAdapter();
 			}
 			@Override
-			public Adapter caseModelElement(ModelElement object) {
-				return createModelElementAdapter();
-			}
-			@Override
-			public Adapter caseElement(Element object) {
-				return createElementAdapter();
-			}
-			@Override
-			public Adapter caseFeature(Feature object) {
-				return createFeatureAdapter();
-			}
-			@Override
 			public Adapter caseSourceElement(SourceElement object) {
 				return createSourceElementAdapter();
 			}
 			@Override
 			public Adapter caseTargetElement(TargetElement object) {
 				return createTargetElementAdapter();
+			}
+			@Override
+			public Adapter caseTraceElement(TraceElement object) {
+				return createTraceElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -220,20 +212,6 @@ public class TraceabilityAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link Traceability.ModelElement <em>Model Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see Traceability.ModelElement
-	 * @generated
-	 */
-	public Adapter createModelElementAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link Traceability.Element <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -272,20 +250,6 @@ public class TraceabilityAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTargetElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link Traceability.Feature <em>Feature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see Traceability.Feature
-	 * @generated
-	 */
-	public Adapter createFeatureAdapter() {
 		return null;
 	}
 

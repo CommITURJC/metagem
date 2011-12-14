@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -39,7 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class TraceModelImpl extends TraceElementImpl implements TraceModel {
+public class TraceModelImpl extends ElementImpl implements TraceModel {
 	/**
 	 * The cached value of the '{@link #getTraceLinks() <em>Trace Links</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

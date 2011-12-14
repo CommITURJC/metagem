@@ -68,34 +68,7 @@ public interface TraceabilityPackage extends EPackage {
 	 * @see Traceability.impl.TraceabilityPackageImpl#getTraceElement()
 	 * @generated
 	 */
-	int TRACE_ELEMENT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_ELEMENT__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_ELEMENT__REF = 1;
-
-	/**
-	 * The number of structural features of the '<em>Trace Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_ELEMENT_FEATURE_COUNT = 2;
+	int TRACE_ELEMENT = 8;
 
 	/**
 	 * The meta object id for the '{@link Traceability.impl.TraceModelImpl <em>Trace Model</em>}' class.
@@ -108,60 +81,6 @@ public interface TraceabilityPackage extends EPackage {
 	int TRACE_MODEL = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_MODEL__NAME = TRACE_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_MODEL__REF = TRACE_ELEMENT__REF;
-
-	/**
-	 * The feature id for the '<em><b>Trace Links</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_MODEL__TRACE_LINKS = TRACE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Source Models</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_MODEL__SOURCE_MODELS = TRACE_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Target Models</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_MODEL__TARGET_MODELS = TRACE_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Trace Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_MODEL_FEATURE_COUNT = TRACE_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
 	 * The meta object id for the '{@link Traceability.impl.ModelImpl <em>Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,60 +89,6 @@ public interface TraceabilityPackage extends EPackage {
 	 * @generated
 	 */
 	int MODEL = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__NAME = TRACE_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__REF = TRACE_ELEMENT__REF;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__ELEMENTS = TRACE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__PATH = TRACE_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Metamodel</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__METAMODEL = TRACE_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_FEATURE_COUNT = TRACE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link Traceability.impl.TraceLinkImpl <em>Trace Link</em>}' class.
@@ -236,87 +101,6 @@ public interface TraceabilityPackage extends EPackage {
 	int TRACE_LINK = 3;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_LINK__NAME = TRACE_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_LINK__REF = TRACE_ELEMENT__REF;
-
-	/**
-	 * The feature id for the '<em><b>Trace Model</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_LINK__TRACE_MODEL = TRACE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_LINK__SOURCE = TRACE_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_LINK__TARGET = TRACE_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Operation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_LINK__OPERATION = TRACE_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Child Links</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_LINK__CHILD_LINKS = TRACE_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Parent Link</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_LINK__PARENT_LINK = TRACE_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of structural features of the '<em>Trace Link</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_LINK_FEATURE_COUNT = TRACE_ELEMENT_FEATURE_COUNT + 6;
-
-	/**
 	 * The meta object id for the '{@link Traceability.impl.SourceModelImpl <em>Source Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -327,6 +111,197 @@ public interface TraceabilityPackage extends EPackage {
 	int SOURCE_MODEL = 4;
 
 	/**
+	 * The meta object id for the '{@link Traceability.impl.TargetModelImpl <em>Target Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Traceability.impl.TargetModelImpl
+	 * @see Traceability.impl.TraceabilityPackageImpl#getTargetModel()
+	 * @generated
+	 */
+	int TARGET_MODEL = 5;
+
+	/**
+	 * The meta object id for the '{@link Traceability.impl.ElementImpl <em>Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Traceability.impl.ElementImpl
+	 * @see Traceability.impl.TraceabilityPackageImpl#getElement()
+	 * @generated
+	 */
+	int ELEMENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_MODEL__NAME = ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Trace Links</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_MODEL__TRACE_LINKS = ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source Models</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_MODEL__SOURCE_MODELS = ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Target Models</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_MODEL__TARGET_MODELS = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Trace Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_MODEL_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__NAME = ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__PATH = ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Metamodel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__METAMODEL = ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_LINK__NAME = ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Trace Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_LINK__TRACE_MODEL = ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_LINK__SOURCE = ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_LINK__TARGET = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Operation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_LINK__OPERATION = ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Child Links</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_LINK__CHILD_LINKS = ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Parent Link</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_LINK__PARENT_LINK = ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Trace Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_LINK_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -334,24 +309,6 @@ public interface TraceabilityPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOURCE_MODEL__NAME = MODEL__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE_MODEL__REF = MODEL__REF;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE_MODEL__ELEMENTS = MODEL__ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -390,16 +347,6 @@ public interface TraceabilityPackage extends EPackage {
 	int SOURCE_MODEL_FEATURE_COUNT = MODEL_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link Traceability.impl.TargetModelImpl <em>Target Model</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see Traceability.impl.TargetModelImpl
-	 * @see Traceability.impl.TraceabilityPackageImpl#getTargetModel()
-	 * @generated
-	 */
-	int TARGET_MODEL = 5;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -407,24 +354,6 @@ public interface TraceabilityPackage extends EPackage {
 	 * @ordered
 	 */
 	int TARGET_MODEL__NAME = MODEL__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TARGET_MODEL__REF = MODEL__REF;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TARGET_MODEL__ELEMENTS = MODEL__ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -463,23 +392,13 @@ public interface TraceabilityPackage extends EPackage {
 	int TARGET_MODEL_FEATURE_COUNT = MODEL_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link Traceability.impl.ModelElementImpl <em>Model Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see Traceability.impl.ModelElementImpl
-	 * @see Traceability.impl.TraceabilityPackageImpl#getModelElement()
-	 * @generated
-	 */
-	int MODEL_ELEMENT = 6;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__NAME = TRACE_ELEMENT__NAME;
+	int TRACE_ELEMENT__NAME = ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -488,125 +407,34 @@ public interface TraceabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__REF = TRACE_ELEMENT__REF;
+	int TRACE_ELEMENT__REF = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Source Element Link</b></em>' reference list.
+	 * The feature id for the '<em><b>Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__SOURCE_ELEMENT_LINK = TRACE_ELEMENT_FEATURE_COUNT + 0;
+	int TRACE_ELEMENT__MODEL = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Target Element Link</b></em>' reference list.
+	 * The feature id for the '<em><b>Belongs To</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__TARGET_ELEMENT_LINK = TRACE_ELEMENT_FEATURE_COUNT + 1;
+	int TRACE_ELEMENT__BELONGS_TO = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Model Element</em>' class.
+	 * The number of structural features of the '<em>Trace Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_FEATURE_COUNT = TRACE_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link Traceability.impl.ElementImpl <em>Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see Traceability.impl.ElementImpl
-	 * @see Traceability.impl.TraceabilityPackageImpl#getElement()
-	 * @generated
-	 */
-	int ELEMENT = 7;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__NAME = MODEL_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__REF = MODEL_ELEMENT__REF;
-
-	/**
-	 * The feature id for the '<em><b>Source Element Link</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__SOURCE_ELEMENT_LINK = MODEL_ELEMENT__SOURCE_ELEMENT_LINK;
-
-	/**
-	 * The feature id for the '<em><b>Target Element Link</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__TARGET_ELEMENT_LINK = MODEL_ELEMENT__TARGET_ELEMENT_LINK;
-
-	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__FEATURES = MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Model</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__MODEL = MODEL_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Child element</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__CHILD_ELEMENT = MODEL_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Super element</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__SUPER_ELEMENT = MODEL_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int TRACE_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link Traceability.impl.SourceElementImpl <em>Source Element</em>}' class.
@@ -616,81 +444,7 @@ public interface TraceabilityPackage extends EPackage {
 	 * @see Traceability.impl.TraceabilityPackageImpl#getSourceElement()
 	 * @generated
 	 */
-	int SOURCE_ELEMENT = 9;
-
-	/**
-	 * The meta object id for the '{@link Traceability.impl.TargetElementImpl <em>Target Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see Traceability.impl.TargetElementImpl
-	 * @see Traceability.impl.TraceabilityPackageImpl#getTargetElement()
-	 * @generated
-	 */
-	int TARGET_ELEMENT = 10;
-
-	/**
-	 * The meta object id for the '{@link Traceability.impl.FeatureImpl <em>Feature</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see Traceability.impl.FeatureImpl
-	 * @see Traceability.impl.TraceabilityPackageImpl#getFeature()
-	 * @generated
-	 */
-	int FEATURE = 8;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__NAME = MODEL_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__REF = MODEL_ELEMENT__REF;
-
-	/**
-	 * The feature id for the '<em><b>Source Element Link</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__SOURCE_ELEMENT_LINK = MODEL_ELEMENT__SOURCE_ELEMENT_LINK;
-
-	/**
-	 * The feature id for the '<em><b>Target Element Link</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__TARGET_ELEMENT_LINK = MODEL_ELEMENT__TARGET_ELEMENT_LINK;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__PARENT = MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Feature</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int SOURCE_ELEMENT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -702,6 +456,16 @@ public interface TraceabilityPackage extends EPackage {
 	int SOURCE_ELEMENT__NAME = TRACE_ELEMENT__NAME;
 
 	/**
+	 * The meta object id for the '{@link Traceability.impl.TargetElementImpl <em>Target Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Traceability.impl.TargetElementImpl
+	 * @see Traceability.impl.TraceabilityPackageImpl#getTargetElement()
+	 * @generated
+	 */
+	int TARGET_ELEMENT = 7;
+
+	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -709,6 +473,24 @@ public interface TraceabilityPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOURCE_ELEMENT__REF = TRACE_ELEMENT__REF;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_ELEMENT__MODEL = TRACE_ELEMENT__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Belongs To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_ELEMENT__BELONGS_TO = TRACE_ELEMENT__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Source trace Links</b></em>' container reference.
@@ -720,22 +502,13 @@ public interface TraceabilityPackage extends EPackage {
 	int SOURCE_ELEMENT__SOURCE_TRACE_LINKS = TRACE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Element Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE_ELEMENT__ELEMENT_MODEL = TRACE_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Source Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_ELEMENT_FEATURE_COUNT = TRACE_ELEMENT_FEATURE_COUNT + 2;
+	int SOURCE_ELEMENT_FEATURE_COUNT = TRACE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -756,6 +529,24 @@ public interface TraceabilityPackage extends EPackage {
 	int TARGET_ELEMENT__REF = TRACE_ELEMENT__REF;
 
 	/**
+	 * The feature id for the '<em><b>Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_ELEMENT__MODEL = TRACE_ELEMENT__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Belongs To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_ELEMENT__BELONGS_TO = TRACE_ELEMENT__BELONGS_TO;
+
+	/**
 	 * The feature id for the '<em><b>Target trace Links</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -765,22 +556,13 @@ public interface TraceabilityPackage extends EPackage {
 	int TARGET_ELEMENT__TARGET_TRACE_LINKS = TRACE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Element Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TARGET_ELEMENT__ELEMENT_MODEL = TRACE_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Target Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET_ELEMENT_FEATURE_COUNT = TRACE_ELEMENT_FEATURE_COUNT + 2;
+	int TARGET_ELEMENT_FEATURE_COUNT = TRACE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link Traceability.Operations <em>Operations</em>}' enum.
@@ -790,7 +572,7 @@ public interface TraceabilityPackage extends EPackage {
 	 * @see Traceability.impl.TraceabilityPackageImpl#getOperations()
 	 * @generated
 	 */
-	int OPERATIONS = 11;
+	int OPERATIONS = 9;
 
 
 	/**
@@ -847,17 +629,6 @@ public interface TraceabilityPackage extends EPackage {
 	EClass getTraceElement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link Traceability.TraceElement#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see Traceability.TraceElement#getName()
-	 * @see #getTraceElement()
-	 * @generated
-	 */
-	EAttribute getTraceElement_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link Traceability.TraceElement#getRef <em>Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -869,6 +640,28 @@ public interface TraceabilityPackage extends EPackage {
 	EAttribute getTraceElement_Ref();
 
 	/**
+	 * Returns the meta object for the reference '{@link Traceability.TraceElement#getModel <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Model</em>'.
+	 * @see Traceability.TraceElement#getModel()
+	 * @see #getTraceElement()
+	 * @generated
+	 */
+	EReference getTraceElement_Model();
+
+	/**
+	 * Returns the meta object for the reference '{@link Traceability.TraceElement#getBelongsTo <em>Belongs To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Belongs To</em>'.
+	 * @see Traceability.TraceElement#getBelongsTo()
+	 * @see #getTraceElement()
+	 * @generated
+	 */
+	EReference getTraceElement_BelongsTo();
+
+	/**
 	 * Returns the meta object for class '{@link Traceability.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -877,17 +670,6 @@ public interface TraceabilityPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getModel();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link Traceability.Model#getElements <em>Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elements</em>'.
-	 * @see Traceability.Model#getElements()
-	 * @see #getModel()
-	 * @generated
-	 */
-	EReference getModel_Elements();
 
 	/**
 	 * Returns the meta object for the attribute '{@link Traceability.Model#getPath <em>Path</em>}'.
@@ -1030,38 +812,6 @@ public interface TraceabilityPackage extends EPackage {
 	EReference getTargetModel_TraceModel();
 
 	/**
-	 * Returns the meta object for class '{@link Traceability.ModelElement <em>Model Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Model Element</em>'.
-	 * @see Traceability.ModelElement
-	 * @generated
-	 */
-	EClass getModelElement();
-
-	/**
-	 * Returns the meta object for the reference list '{@link Traceability.ModelElement#getSourceElementLink <em>Source Element Link</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Source Element Link</em>'.
-	 * @see Traceability.ModelElement#getSourceElementLink()
-	 * @see #getModelElement()
-	 * @generated
-	 */
-	EReference getModelElement_SourceElementLink();
-
-	/**
-	 * Returns the meta object for the reference list '{@link Traceability.ModelElement#getTargetElementLink <em>Target Element Link</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Target Element Link</em>'.
-	 * @see Traceability.ModelElement#getTargetElementLink()
-	 * @see #getModelElement()
-	 * @generated
-	 */
-	EReference getModelElement_TargetElementLink();
-
-	/**
 	 * Returns the meta object for class '{@link Traceability.Element <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1072,48 +822,15 @@ public interface TraceabilityPackage extends EPackage {
 	EClass getElement();
 
 	/**
-	 * Returns the meta object for the container reference '{@link Traceability.Element#getModel <em>Model</em>}'.
+	 * Returns the meta object for the attribute '{@link Traceability.Element#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Model</em>'.
-	 * @see Traceability.Element#getModel()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see Traceability.Element#getName()
 	 * @see #getElement()
 	 * @generated
 	 */
-	EReference getElement_Model();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link Traceability.Element#getChild_element <em>Child element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Child element</em>'.
-	 * @see Traceability.Element#getChild_element()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Child_element();
-
-	/**
-	 * Returns the meta object for the container reference '{@link Traceability.Element#getSuper_element <em>Super element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Super element</em>'.
-	 * @see Traceability.Element#getSuper_element()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Super_element();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link Traceability.Element#getFeatures <em>Features</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Features</em>'.
-	 * @see Traceability.Element#getFeatures()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Features();
+	EAttribute getElement_Name();
 
 	/**
 	 * Returns the meta object for class '{@link Traceability.SourceElement <em>Source Element</em>}'.
@@ -1137,17 +854,6 @@ public interface TraceabilityPackage extends EPackage {
 	EReference getSourceElement_Source_traceLinks();
 
 	/**
-	 * Returns the meta object for the reference '{@link Traceability.SourceElement#getElementModel <em>Element Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Element Model</em>'.
-	 * @see Traceability.SourceElement#getElementModel()
-	 * @see #getSourceElement()
-	 * @generated
-	 */
-	EReference getSourceElement_ElementModel();
-
-	/**
 	 * Returns the meta object for class '{@link Traceability.TargetElement <em>Target Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1167,38 +873,6 @@ public interface TraceabilityPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTargetElement_Target_traceLinks();
-
-	/**
-	 * Returns the meta object for the reference '{@link Traceability.TargetElement#getElementModel <em>Element Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Element Model</em>'.
-	 * @see Traceability.TargetElement#getElementModel()
-	 * @see #getTargetElement()
-	 * @generated
-	 */
-	EReference getTargetElement_ElementModel();
-
-	/**
-	 * Returns the meta object for class '{@link Traceability.Feature <em>Feature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Feature</em>'.
-	 * @see Traceability.Feature
-	 * @generated
-	 */
-	EClass getFeature();
-
-	/**
-	 * Returns the meta object for the container reference '{@link Traceability.Feature#getParent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parent</em>'.
-	 * @see Traceability.Feature#getParent()
-	 * @see #getFeature()
-	 * @generated
-	 */
-	EReference getFeature_Parent();
 
 	/**
 	 * Returns the meta object for enum '{@link Traceability.Operations <em>Operations</em>}'.
@@ -1277,20 +951,28 @@ public interface TraceabilityPackage extends EPackage {
 		EClass TRACE_ELEMENT = eINSTANCE.getTraceElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TRACE_ELEMENT__NAME = eINSTANCE.getTraceElement_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute TRACE_ELEMENT__REF = eINSTANCE.getTraceElement_Ref();
+
+		/**
+		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRACE_ELEMENT__MODEL = eINSTANCE.getTraceElement_Model();
+
+		/**
+		 * The meta object literal for the '<em><b>Belongs To</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRACE_ELEMENT__BELONGS_TO = eINSTANCE.getTraceElement_BelongsTo();
 
 		/**
 		 * The meta object literal for the '{@link Traceability.impl.ModelImpl <em>Model</em>}' class.
@@ -1301,14 +983,6 @@ public interface TraceabilityPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MODEL = eINSTANCE.getModel();
-
-		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL__ELEMENTS = eINSTANCE.getModel_Elements();
 
 		/**
 		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
@@ -1421,32 +1095,6 @@ public interface TraceabilityPackage extends EPackage {
 		EReference TARGET_MODEL__TRACE_MODEL = eINSTANCE.getTargetModel_TraceModel();
 
 		/**
-		 * The meta object literal for the '{@link Traceability.impl.ModelElementImpl <em>Model Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see Traceability.impl.ModelElementImpl
-		 * @see Traceability.impl.TraceabilityPackageImpl#getModelElement()
-		 * @generated
-		 */
-		EClass MODEL_ELEMENT = eINSTANCE.getModelElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Source Element Link</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_ELEMENT__SOURCE_ELEMENT_LINK = eINSTANCE.getModelElement_SourceElementLink();
-
-		/**
-		 * The meta object literal for the '<em><b>Target Element Link</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_ELEMENT__TARGET_ELEMENT_LINK = eINSTANCE.getModelElement_TargetElementLink();
-
-		/**
 		 * The meta object literal for the '{@link Traceability.impl.ElementImpl <em>Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1457,36 +1105,12 @@ public interface TraceabilityPackage extends EPackage {
 		EClass ELEMENT = eINSTANCE.getElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Model</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT__MODEL = eINSTANCE.getElement_Model();
-
-		/**
-		 * The meta object literal for the '<em><b>Child element</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__CHILD_ELEMENT = eINSTANCE.getElement_Child_element();
-
-		/**
-		 * The meta object literal for the '<em><b>Super element</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__SUPER_ELEMENT = eINSTANCE.getElement_Super_element();
-
-		/**
-		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__FEATURES = eINSTANCE.getElement_Features();
+		EAttribute ELEMENT__NAME = eINSTANCE.getElement_Name();
 
 		/**
 		 * The meta object literal for the '{@link Traceability.impl.SourceElementImpl <em>Source Element</em>}' class.
@@ -1507,14 +1131,6 @@ public interface TraceabilityPackage extends EPackage {
 		EReference SOURCE_ELEMENT__SOURCE_TRACE_LINKS = eINSTANCE.getSourceElement_Source_traceLinks();
 
 		/**
-		 * The meta object literal for the '<em><b>Element Model</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SOURCE_ELEMENT__ELEMENT_MODEL = eINSTANCE.getSourceElement_ElementModel();
-
-		/**
 		 * The meta object literal for the '{@link Traceability.impl.TargetElementImpl <em>Target Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1531,32 +1147,6 @@ public interface TraceabilityPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TARGET_ELEMENT__TARGET_TRACE_LINKS = eINSTANCE.getTargetElement_Target_traceLinks();
-
-		/**
-		 * The meta object literal for the '<em><b>Element Model</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TARGET_ELEMENT__ELEMENT_MODEL = eINSTANCE.getTargetElement_ElementModel();
-
-		/**
-		 * The meta object literal for the '{@link Traceability.impl.FeatureImpl <em>Feature</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see Traceability.impl.FeatureImpl
-		 * @see Traceability.impl.TraceabilityPackageImpl#getFeature()
-		 * @generated
-		 */
-		EClass FEATURE = eINSTANCE.getFeature();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FEATURE__PARENT = eINSTANCE.getFeature_Parent();
 
 		/**
 		 * The meta object literal for the '{@link Traceability.Operations <em>Operations</em>}' enum.

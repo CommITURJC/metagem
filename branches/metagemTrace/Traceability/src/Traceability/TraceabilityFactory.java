@@ -62,15 +62,6 @@ public interface TraceabilityFactory extends EFactory {
 	TargetModel createTargetModel();
 
 	/**
-	 * Returns a new object of class '<em>Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Element</em>'.
-	 * @generated
-	 */
-	Element createElement();
-
-	/**
 	 * Returns a new object of class '<em>Source Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -87,15 +78,6 @@ public interface TraceabilityFactory extends EFactory {
 	 * @generated
 	 */
 	TargetElement createTargetElement();
-
-	/**
-	 * Returns a new object of class '<em>Feature</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Feature</em>'.
-	 * @generated
-	 */
-	Feature createFeature();
 
 	/**
 	 * Returns the package supported by this factory.

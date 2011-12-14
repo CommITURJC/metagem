@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link Traceability.TargetElement#getTarget_traceLinks <em>Target trace Links</em>}</li>
- *   <li>{@link Traceability.TargetElement#getElementModel <em>Element Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,33 +52,5 @@ public interface TargetElement extends TraceElement {
 	 * @generated
 	 */
 	void setTarget_traceLinks(TraceLink value);
-
-	/**
-	 * Returns the value of the '<em><b>Element Model</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link Traceability.ModelElement#getTargetElementLink <em>Target Element Link</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Element Model</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element Model</em>' reference.
-	 * @see #setElementModel(ModelElement)
-	 * @see Traceability.TraceabilityPackage#getTargetElement_ElementModel()
-	 * @see Traceability.ModelElement#getTargetElementLink
-	 * @model opposite="targetElementLink"
-	 * @generated
-	 */
-	ModelElement getElementModel();
-
-	/**
-	 * Sets the value of the '{@link Traceability.TargetElement#getElementModel <em>Element Model</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element Model</em>' reference.
-	 * @see #getElementModel()
-	 * @generated
-	 */
-	void setElementModel(ModelElement value);
 
 } // TargetElement

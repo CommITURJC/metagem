@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class TraceLinkItemProvider
-	extends TraceElementItemProvider
+	extends ElementItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,

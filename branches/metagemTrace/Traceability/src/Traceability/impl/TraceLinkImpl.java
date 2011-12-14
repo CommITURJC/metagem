@@ -51,7 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class TraceLinkImpl extends TraceElementImpl implements TraceLink {
+public class TraceLinkImpl extends ElementImpl implements TraceLink {
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
