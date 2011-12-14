@@ -42,20 +42,5 @@
             name="%_UI_TraceabilityEditorEMF_label">
       </editor>
    </extension>
-   <extension
-         point="org.eclipse.ui.popupMenus">
-      <objectContribution
-            adaptable="false"
-            id="kybele.es.Traceability.loadElements"
-            nameFilter="*.mtrace"
-            objectClass="org.eclipse.core.resources.IFile">
-         <action
-               class="Traceability.actions.LoadElements"
-               enablesFor="1"
-               id="kybele.es.Traceability.loadElements.action"
-               label="Load Elements from Models">
-         </action>
-      </objectContribution>
-   </extension>
 
 </plugin>

@@ -1,7 +1,6 @@
 package Traceability.presentation;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -15,10 +14,6 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTargetEvent;
 
-import Traceability.Element;
-import Traceability.Feature;
-import Traceability.Model;
-import Traceability.ModelElement;
 import Traceability.SourceElement;
 import Traceability.SourceModel;
 import Traceability.TargetElement;
@@ -144,283 +139,93 @@ public class TraceabilityDragDrop extends EditingDomainViewerDropAdapter {
 			}
 		}	
 		
-		/**
-		 * Creates a Source element (oElement) in a Trace Link (traceLink)
-		 * @param traceLink
-		 * @param oElement
-		 * @param id
-		 */
-		private void handleSetSourceElement(TraceLinkImpl traceLink, EObject oElement, String id) {
-			ModelElement element=null;
-			TraceModel traceModel = traceLink.getTraceModel();
-			TraceLink tl=traceLink;
-			while(traceModel==null){
-				tl=tl.getParentLink();
-				traceModel=tl.getTraceModel();
-			}
-			EList<SourceModel> source_models = traceModel.getSourceModels();
-			
-			SourceModel sourceModel = null;
-			for(int c1=0; c1<source_models.size();c1++){
-				TreeIterator<EObject> elements = source_models.get(c1).eAllContents();
-				while(elements.hasNext()){
-					EObject next = elements.next();
-					if(next instanceof Element){
-						Element sourceElement = (Element) next;
-						if(id!=null&&
-								sourceElement.getRef()!=null&&
-								sourceElement.getRef().equals(id)){
-								element = sourceElement;
-							}
-					}
-				}
-				
-				String uriModel = new String ("platform:/resource"+source_models.get(c1).getPath());
-				if(uriModel.equals(elementModel)){
-					sourceModel = source_models.get(c1);
-				}
-			}						
-		if (element == null) { // element hasn't been created before
-			element=createComponent(sourceModel,id,oElement);
+	/**
+	 * Creates a Source element (oElement) in a Trace Link (traceLink)
+	 * 
+	 * @param traceLink
+	 * @param oElement
+	 * @param id
+	 */
+	private void handleSetSourceElement(TraceLinkImpl traceLink,
+			EObject oElement, String id) {
+
+		TraceModel traceModel = traceLink.getTraceModel();
+		TraceLink tl = traceLink;
+		while (traceModel == null) {
+			tl = tl.getParentLink();
+			traceModel = tl.getTraceModel();
 		}
-		SourceElement traceLinkElement = traceabilityFactory.createSourceElement();
-		traceLinkElement.setElementModel(element);
-		traceLinkElement.setName(element.getName());
-		traceLinkElement.setRef(element.getRef());
-		
-		CreateChildCommand cmdSet_element = new CreateChildCommand(domain, (EObject)traceLink, TraceabilityPackage.eINSTANCE.getTraceLink_Source(), traceLinkElement, null);
-		domain.getCommandStack().execute(cmdSet_element);		
-			
+		SourceElement traceLinkElement = traceabilityFactory
+				.createSourceElement();
+		EList<SourceModel> source_models = traceModel.getSourceModels();
+		for (int c1 = 0; c1 < source_models.size(); c1++) {
+			if (("platform:/resource" + source_models.get(c1).getPath())
+					.equals(elementModel)) {
+				traceLinkElement.setModel(source_models.get(c1));
+			}
+		}
+		traceLinkElement.setName(this.getName(oElement));
+		traceLinkElement.setRef(id);
+
+		CreateChildCommand cmdSet_element = new CreateChildCommand(domain,
+				(EObject) traceLink,
+				TraceabilityPackage.eINSTANCE.getTraceLink_Source(),
+				traceLinkElement, null);
+		domain.getCommandStack().execute(cmdSet_element);
+
 		}
 		
-		/**
-		 * Creates a Target element (oElement) in a Trace Link (traceLink)
-		 * @param traceLink
-		 * @param oElement
-		 * @param id
-		 */
-		private void handleSetTargetElement(TraceLinkImpl traceLink, EObject oElement, String id){
-			ModelElement element=null;	
-			TraceModel traceModel = traceLink.getTraceModel();
-			TraceLink tl=traceLink;
-			while(traceModel==null){
-				tl=tl.getParentLink();
-				traceModel=tl.getTraceModel();
-			}
-			EList<TargetModel> target_models = traceModel.getTargetModels();
-			
-			 //target element
-			
-			TargetModel targetModel = null;
-			for(int c1=0; c1<target_models.size();c1++){
-				TreeIterator<EObject> elements = target_models.get(c1).eAllContents();
-				while(elements.hasNext()){
-					EObject next = elements.next();
-					if(next instanceof Element){
-						Element targetElement = (Element) next;
-						if(id!=null&&
-								targetElement.getRef()!=null&&
-								targetElement.getRef().equals(id)){
-								element = targetElement;
-							}
-					}
-				}
-				String uriModel = new String ("platform:/resource"+target_models.get(c1).getPath());
-				if(uriModel.equals(elementModel)){
-					targetModel = target_models.get(c1);
-				}
-			}
-			
-			if (element == null) { // element hasn't been created before in the input model
-				element=createComponent(targetModel,id,oElement);
-			}
-			
-			TargetElement traceLinkElement = traceabilityFactory.createTargetElement();
-			traceLinkElement.setElementModel(element);
-			traceLinkElement.setName(element.getName());
-			traceLinkElement.setRef(element.getRef());
-			
-			CreateChildCommand cmdSet_element = new CreateChildCommand(domain, (EObject)traceLink, TraceabilityPackage.eINSTANCE.getTraceLink_Target(), traceLinkElement, null);
-			domain.getCommandStack().execute(cmdSet_element);
+	/**
+	 * Creates a Target element (oElement) in a Trace Link (traceLink)
+	 * 
+	 * @param traceLink
+	 * @param oElement
+	 * @param id
+	 */
+	private void handleSetTargetElement(TraceLinkImpl traceLink,
+			EObject oElement, String id) {
+		TraceModel traceModel = traceLink.getTraceModel();
+		TraceLink tl = traceLink;
+		while (traceModel == null) {
+			tl = tl.getParentLink();
+			traceModel = tl.getTraceModel();
 		}
+
+		TargetElement traceLinkElement = traceabilityFactory
+				.createTargetElement();
+
+		EList<TargetModel> target_models = traceModel.getTargetModels();
+		for (int c1 = 0; c1 < target_models.size(); c1++) {
+			if (("platform:/resource" + target_models.get(c1).getPath())
+					.equals(elementModel)) {
+				traceLinkElement.setModel(target_models.get(c1));
+			}
+		}
+		traceLinkElement.setName(this.getName(oElement));
+		traceLinkElement.setRef(id);
+
+		CreateChildCommand cmdSet_element = new CreateChildCommand(domain,
+				(EObject) traceLink,
+				TraceabilityPackage.eINSTANCE.getTraceLink_Target(),
+				traceLinkElement, null);
+		domain.getCommandStack().execute(cmdSet_element);
+	}
+
+	private String getName(EObject eModelElement){
+		String name = null;
+		EList<EStructuralFeature> allESF = eModelElement.eClass().getEAllStructuralFeatures();
+		for(int c1=0;c1<allESF.size();c1++){
+			EStructuralFeature feature = allESF.get(c1);
+			if(eModelElement.eGet(feature) instanceof String){
+				if((c1==0)|| (feature.getName().toUpperCase().contains("NAME"))){
+					name = eModelElement.eGet(feature).toString();
+				}
+			}
+		}
+		if (name==null)
+			name=eModelElement.eClass().getName();
 		
-		/**
-		 * Creates a ModelComponent (from a ecore model component) in a model or metamodel
-		 * 
-		 * @param model: Model or Metamodel which will contain the new component
-		 * @param id: Id of the new element (it is gotten from its source ecore model)
-		 * @param eModelElement element in the source ecore model
-		 * @return the ModelElement which has been created
-		 */
-		private ModelElement createComponent(Model model, String id, EObject eModelElement) {
-			
-			if(model.getMetamodel()==null){
-				//is a metamodel
-				return createComponentInMetamodel(model, id, eModelElement);
-			}else{
-				//is a model --> all new components are elements
-				return createElement(model, id, eModelElement);
-			}
-		}
-		
-		/**
-		 * Creates a ModelComponent (from a ecore model component) in a model
-		 * @param model
-		 * @param id
-		 * @param eModelElement
-		 * @return
-		 */
-		private ModelElement createComponentInMetamodel(Model model, String id,	EObject eModelElement) {
-			if (eModelElement instanceof EStructuralFeature){
-				return createFeature(model, id, eModelElement);
-			}else{
-				return createElement(model, id, eModelElement);
-			}
-			
-		}
-		
-		/**
-		 * Creates a Element in a model or metamodel
-		 * @param model
-		 * @param id
-		 * @param eModelElement
-		 * @return
-		 */
-		private Element createElement(Model model, String id,	EObject eModelElement){
-			Element ownedElement=null;
-			Element element=traceabilityFactory.createElement();
-			//Looking for ownedElement of the element
-			EObject ownedEObject = eModelElement.eContainer();
-			if (ownedEObject!=null){
-				//Get the ID of the ownedElement
-				XMIResource resource = (XMIResource) ownedEObject.eResource();
-				String id_ownedElement = resource.getID(ownedEObject); // Get element id
-				if(id_ownedElement==null)
-					id_ownedElement=resource.getURIFragment(ownedEObject);
-				
-				TreeIterator<EObject> elements_model = model.eAllContents();
-				while (elements_model.hasNext()){
-					EObject next = elements_model.next();
-					if(next instanceof Element){
-						Element element_model = (Element) next;
-						if(id_ownedElement!=null&&
-								element_model.getRef()!=null&&
-								element_model.getRef().equals(id_ownedElement)){
-								ownedElement = element_model;
-							}
-					}
-					
-				}
-				//if ownedElement doesn't exist in the trace model, we creates it.
-				if (ownedElement==null){
-					 ModelElement ownedCreated = createComponent(model,id_ownedElement,ownedEObject);
-					 if(ownedCreated instanceof Element){
-						 ownedElement = (Element)ownedCreated;
-					 }
-				}
-				element.setSuper_element(ownedElement);
-				element.setRef(id);
-				String name = null;
-				EList<EStructuralFeature> allESF = eModelElement.eClass().getEAllStructuralFeatures();
-				for(int c1=0;c1<allESF.size();c1++){
-					EStructuralFeature feature = allESF.get(c1);
-					if(eModelElement.eGet(feature) instanceof String){
-						if((c1==0)|| (feature.getName().toUpperCase().contains("NAME"))){
-							name = eModelElement.eGet(feature).toString();
-						}
-					}
-				}
-				if (name==null)
-					name=eModelElement.eClass().getName();
-				
-				element.setName(name);
-				//Creates the element in the model
-				CreateChildCommand cmdCreate = new CreateChildCommand(domain, ownedElement, TraceabilityPackage.eINSTANCE.getModel_Elements(), element, null);
-				domain.getCommandStack().execute(cmdCreate);
-				
-			}else{
-				element.setModel(model);
-				element.setRef(id);
-				String name = null;
-				EList<EStructuralFeature> allESF = eModelElement.eClass().getEAllStructuralFeatures();
-				for(int c1=0;c1<allESF.size();c1++){
-					EStructuralFeature feature = allESF.get(c1);
-					if(eModelElement.eGet(feature) instanceof String){
-						if((c1==0)|| (feature.getName().toUpperCase().contains("NAME"))){
-							name = eModelElement.eGet(feature).toString();
-						}
-					}
-				}
-				if (name==null)
-					name=eModelElement.eClass().getName();
-				element.setName(name);
-				//Creates the element in the model
-				CreateChildCommand cmdCreate = new CreateChildCommand(domain, model, TraceabilityPackage.eINSTANCE.getModel_Elements(), element, null);
-				domain.getCommandStack().execute(cmdCreate);
-			}
-			
-			return element;	
-		}
-		
-		/**
-		 * Creates a feature in a metamodel.
-		 * @param model
-		 * @param id
-		 * @param eModelElement
-		 * @return
-		 */
-		private Feature createFeature(Model model, String id,	EObject eModelElement){
-			Element ownedElement=null;
-			Feature feature = traceabilityFactory.createFeature();
-			
-			//Looking for ownedElement of the feature
-			EObject ownedEObject = eModelElement.eContainer();
-			//Get the ID of the ownedElement
-			XMIResource resource = (XMIResource) ownedEObject.eResource();
-			String id_ownedElement = resource.getID(ownedEObject); // Get element id
-			if(id_ownedElement==null)
-				id_ownedElement=resource.getURIFragment(ownedEObject);
-			
-			TreeIterator<EObject> elements_model = model.eAllContents();
-			while (elements_model.hasNext()){
-				EObject next = elements_model.next();
-				if(next instanceof Element){
-					Element element_model = (Element) next;
-					if(id_ownedElement!=null&&
-						element_model.getRef()!=null&&
-						element_model.getRef().equals(id_ownedElement)){
-						ownedElement = element_model;
-					}
-				}
-			}
-			//if ownedElement doesn't exist in the trace model, we creates it.
-			if (ownedElement==null){
-				 ModelElement ownedCreated= createComponent(model,id_ownedElement,ownedEObject);
-				 if(ownedCreated instanceof Element){
-					 ownedElement = (Element)ownedCreated;
-				 }
-			}
-			feature.setParent(ownedElement);
-			feature.setRef(id);
-			String name = null;
-			EList<EStructuralFeature> allESF = eModelElement.eClass().getEAllStructuralFeatures();
-			for(int c1=0;c1<allESF.size();c1++){
-				EStructuralFeature feature_var = allESF.get(c1);
-				if(eModelElement.eGet(feature_var) instanceof String){
-					if((c1==0)|| (feature_var.getName().toUpperCase().contains("NAME"))){
-						name = eModelElement.eGet(feature_var).toString();
-					}
-				}
-			}
-			if (name==null)
-				name=eModelElement.eClass().getName();
-			feature.setName(name);
-			//Creates the feature in the model
-			CreateChildCommand cmdCreate = new CreateChildCommand(domain, ownedElement, TraceabilityPackage.eINSTANCE.getModel_Elements(), feature, null);
-			domain.getCommandStack().execute(cmdCreate);
-			return feature;
-		}
-			
-			
+		return name;
+	}		
 			
 }

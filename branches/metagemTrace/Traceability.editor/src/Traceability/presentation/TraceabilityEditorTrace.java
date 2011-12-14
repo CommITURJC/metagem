@@ -116,7 +116,7 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
-import Traceability.TraceElement;
+import Traceability.Element;
 import Traceability.TraceLink;
 import Traceability.impl.SourceElementImpl;
 import Traceability.impl.SourceModelImpl;
@@ -1461,7 +1461,7 @@ public class TraceabilityEditorTrace
 	 * @NOT generated
 	 */
 	public void handleContentSourceSelection(ISelection selection) {
-		ArrayList<TraceElement> traceElements = new ArrayList<TraceElement>();
+		ArrayList<Element> traceElements = new ArrayList<Element>();
 		String id = null;
 		
 		if(currentViewerPane != null
@@ -1582,7 +1582,7 @@ public class TraceabilityEditorTrace
 	 * @NOT generated
 	 */
 	public void handleContentTargetSelection(ISelection selection) {
-		ArrayList<TraceElement> traceElements = new ArrayList<TraceElement>();
+		ArrayList<Element> traceElements = new ArrayList<Element>();
 		String id = null;
 		
 		if(currentViewerPane != null
