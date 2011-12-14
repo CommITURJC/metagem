@@ -60,7 +60,6 @@ public class TargetElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addTarget_traceLinksPropertyDescriptor(object);
-			addElementModelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -79,28 +78,6 @@ public class TargetElementItemProvider
 				 getString("_UI_TargetElement_target_traceLinks_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TargetElement_target_traceLinks_feature", "_UI_TargetElement_type"),
 				 TraceabilityPackage.Literals.TARGET_ELEMENT__TARGET_TRACE_LINKS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Element Model feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addElementModelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TargetElement_elementModel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TargetElement_elementModel_feature", "_UI_TargetElement_type"),
-				 TraceabilityPackage.Literals.TARGET_ELEMENT__ELEMENT_MODEL,
 				 true,
 				 false,
 				 true,

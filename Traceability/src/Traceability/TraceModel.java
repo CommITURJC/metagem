@@ -7,6 +7,7 @@
 package Traceability;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface TraceModel extends TraceElement {
+public interface TraceModel extends Element {
 	/**
 	 * Returns the value of the '<em><b>Trace Links</b></em>' containment reference list.
 	 * The list contents are of type {@link Traceability.TraceLink}.

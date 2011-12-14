@@ -6,7 +6,6 @@
  */
 package Traceability.impl;
 
-import Traceability.ModelElement;
 import Traceability.Element;
 import Traceability.SourceElement;
 import Traceability.TraceLink;
@@ -35,23 +34,12 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link Traceability.impl.SourceElementImpl#getSource_traceLinks <em>Source trace Links</em>}</li>
- *   <li>{@link Traceability.impl.SourceElementImpl#getElementModel <em>Element Model</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class SourceElementImpl extends TraceElementImpl implements SourceElement {
-	/**
-	 * The cached value of the '{@link #getElementModel() <em>Element Model</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElementModel()
-	 * @generated
-	 * @ordered
-	 */
-	protected ModelElement elementModel;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,66 +105,6 @@ public class SourceElementImpl extends TraceElementImpl implements SourceElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelElement getElementModel() {
-		if (elementModel != null && elementModel.eIsProxy()) {
-			InternalEObject oldElementModel = (InternalEObject)elementModel;
-			elementModel = (ModelElement)eResolveProxy(oldElementModel);
-			if (elementModel != oldElementModel) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TraceabilityPackage.SOURCE_ELEMENT__ELEMENT_MODEL, oldElementModel, elementModel));
-			}
-		}
-		return elementModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModelElement basicGetElementModel() {
-		return elementModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetElementModel(ModelElement newElementModel, NotificationChain msgs) {
-		ModelElement oldElementModel = elementModel;
-		elementModel = newElementModel;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TraceabilityPackage.SOURCE_ELEMENT__ELEMENT_MODEL, oldElementModel, newElementModel);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setElementModel(ModelElement newElementModel) {
-		if (newElementModel != elementModel) {
-			NotificationChain msgs = null;
-			if (elementModel != null)
-				msgs = ((InternalEObject)elementModel).eInverseRemove(this, TraceabilityPackage.MODEL_ELEMENT__SOURCE_ELEMENT_LINK, ModelElement.class, msgs);
-			if (newElementModel != null)
-				msgs = ((InternalEObject)newElementModel).eInverseAdd(this, TraceabilityPackage.MODEL_ELEMENT__SOURCE_ELEMENT_LINK, ModelElement.class, msgs);
-			msgs = basicSetElementModel(newElementModel, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TraceabilityPackage.SOURCE_ELEMENT__ELEMENT_MODEL, newElementModel, newElementModel));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -184,10 +112,6 @@ public class SourceElementImpl extends TraceElementImpl implements SourceElement
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetSource_traceLinks((TraceLink)otherEnd, msgs);
-			case TraceabilityPackage.SOURCE_ELEMENT__ELEMENT_MODEL:
-				if (elementModel != null)
-					msgs = ((InternalEObject)elementModel).eInverseRemove(this, TraceabilityPackage.MODEL_ELEMENT__SOURCE_ELEMENT_LINK, ModelElement.class, msgs);
-				return basicSetElementModel((ModelElement)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -202,8 +126,6 @@ public class SourceElementImpl extends TraceElementImpl implements SourceElement
 		switch (featureID) {
 			case TraceabilityPackage.SOURCE_ELEMENT__SOURCE_TRACE_LINKS:
 				return basicSetSource_traceLinks(null, msgs);
-			case TraceabilityPackage.SOURCE_ELEMENT__ELEMENT_MODEL:
-				return basicSetElementModel(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -232,9 +154,6 @@ public class SourceElementImpl extends TraceElementImpl implements SourceElement
 		switch (featureID) {
 			case TraceabilityPackage.SOURCE_ELEMENT__SOURCE_TRACE_LINKS:
 				return getSource_traceLinks();
-			case TraceabilityPackage.SOURCE_ELEMENT__ELEMENT_MODEL:
-				if (resolve) return getElementModel();
-				return basicGetElementModel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -251,9 +170,6 @@ public class SourceElementImpl extends TraceElementImpl implements SourceElement
 			case TraceabilityPackage.SOURCE_ELEMENT__SOURCE_TRACE_LINKS:
 				setSource_traceLinks((TraceLink)newValue);
 				return;
-			case TraceabilityPackage.SOURCE_ELEMENT__ELEMENT_MODEL:
-				setElementModel((ModelElement)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -269,9 +185,6 @@ public class SourceElementImpl extends TraceElementImpl implements SourceElement
 			case TraceabilityPackage.SOURCE_ELEMENT__SOURCE_TRACE_LINKS:
 				setSource_traceLinks((TraceLink)null);
 				return;
-			case TraceabilityPackage.SOURCE_ELEMENT__ELEMENT_MODEL:
-				setElementModel((ModelElement)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -286,8 +199,6 @@ public class SourceElementImpl extends TraceElementImpl implements SourceElement
 		switch (featureID) {
 			case TraceabilityPackage.SOURCE_ELEMENT__SOURCE_TRACE_LINKS:
 				return getSource_traceLinks() != null;
-			case TraceabilityPackage.SOURCE_ELEMENT__ELEMENT_MODEL:
-				return elementModel != null;
 		}
 		return super.eIsSet(featureID);
 	}

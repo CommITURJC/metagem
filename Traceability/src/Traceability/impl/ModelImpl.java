@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link Traceability.impl.ModelImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link Traceability.impl.ModelImpl#getPath <em>Path</em>}</li>
  *   <li>{@link Traceability.impl.ModelImpl#getMetamodel <em>Metamodel</em>}</li>
  * </ul>
@@ -40,17 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class ModelImpl extends TraceElementImpl implements Model {
-	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Element> elements;
-
+public abstract class ModelImpl extends ElementImpl implements Model {
 	/**
 	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -115,18 +104,6 @@ public abstract class ModelImpl extends TraceElementImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Element> getElements() {
-		if (elements == null) {
-			elements = new EObjectContainmentWithInverseEList<Element>(Element.class, this, TraceabilityPackage.MODEL__ELEMENTS, TraceabilityPackage.ELEMENT__MODEL);
-		}
-		return elements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getPath() {
 		return path;
 	}
@@ -169,40 +146,9 @@ public abstract class ModelImpl extends TraceElementImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case TraceabilityPackage.MODEL__ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case TraceabilityPackage.MODEL__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TraceabilityPackage.MODEL__ELEMENTS:
-				return getElements();
 			case TraceabilityPackage.MODEL__PATH:
 				return getPath();
 			case TraceabilityPackage.MODEL__METAMODEL:
@@ -220,10 +166,6 @@ public abstract class ModelImpl extends TraceElementImpl implements Model {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TraceabilityPackage.MODEL__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends Element>)newValue);
-				return;
 			case TraceabilityPackage.MODEL__PATH:
 				setPath((String)newValue);
 				return;
@@ -242,9 +184,6 @@ public abstract class ModelImpl extends TraceElementImpl implements Model {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TraceabilityPackage.MODEL__ELEMENTS:
-				getElements().clear();
-				return;
 			case TraceabilityPackage.MODEL__PATH:
 				setPath(PATH_EDEFAULT);
 				return;
@@ -263,8 +202,6 @@ public abstract class ModelImpl extends TraceElementImpl implements Model {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TraceabilityPackage.MODEL__ELEMENTS:
-				return elements != null && !elements.isEmpty();
 			case TraceabilityPackage.MODEL__PATH:
 				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
 			case TraceabilityPackage.MODEL__METAMODEL:

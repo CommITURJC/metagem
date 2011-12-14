@@ -7,17 +7,12 @@
 package Traceability.provider;
 
 
-import Traceability.TraceElement;
-import Traceability.TraceabilityPackage;
-
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -26,8 +21,13 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import Traceability.SourceElement;
+import Traceability.TargetElement;
+import Traceability.TraceElement;
+import Traceability.TraceLink;
+import Traceability.TraceabilityPackage;
 
 /**
  * This is the item provider adapter for a {@link Traceability.TraceElement} object.
@@ -36,7 +36,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class TraceElementItemProvider
-	extends ItemProviderAdapter
+	extends ElementItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -64,32 +64,11 @@ public class TraceElementItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 			addRefPropertyDescriptor(object);
+			addModelPropertyDescriptor(object);
+			addBelongsToPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TraceElement_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TraceElement_name_feature", "_UI_TraceElement_type"),
-				 TraceabilityPackage.Literals.TRACE_ELEMENT__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -113,6 +92,80 @@ public class TraceElementItemProvider
 				 null,
 				 null));
 	}
+
+	/**
+	 * This adds a property descriptor for the Model feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addModelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TraceElement_model_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TraceElement_model_feature", "_UI_TraceElement_type"),
+				 TraceabilityPackage.Literals.TRACE_ELEMENT__MODEL,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Belongs To feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @NOT generated
+	 */
+	protected void addBelongsToPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(new ItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TraceElement_belongsTo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TraceElement_belongsTo_feature", "_UI_TraceElement_type"),
+				 TraceabilityPackage.Literals.TRACE_ELEMENT__BELONGS_TO,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null)
+			{
+				 @Override
+		          public Collection<?> getChoiceOfValues(Object object)
+		          {
+					Collection<Object> result = new ArrayList<Object>();
+		        	result.add(null);
+		        	if(object instanceof SourceElement){
+		        		SourceElement element = (SourceElement) object;
+		        		TraceLink trace_owned = element.getSource_traceLinks();
+		        		while(trace_owned.getParentLink()!=null){
+		        			trace_owned = trace_owned.getParentLink();
+		        			result.addAll(trace_owned.getSource());
+		        		}
+		        	  }else if(object instanceof TargetElement){
+		        		TargetElement element = (TargetElement) object;
+		        		TraceLink trace_owned = element.getTarget_traceLinks();
+		        		while(trace_owned.getParentLink()!=null){
+		        			trace_owned = trace_owned.getParentLink();
+		        			result.addAll(trace_owned.getTarget());
+		        		}      		   
+		        	  }
+					return result;
+		          }
+		          
+		          @Override
+		          public void resetPropertyValue(Object object)
+		          {
+		            setPropertyValue(object, null);
+		          }
+				});
+			}
 
 	/**
 	 * This returns TraceElement.gif.
@@ -151,7 +204,6 @@ public class TraceElementItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TraceElement.class)) {
-			case TraceabilityPackage.TRACE_ELEMENT__NAME:
 			case TraceabilityPackage.TRACE_ELEMENT__REF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -169,17 +221,6 @@ public class TraceElementItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return TraceabilityEditPlugin.INSTANCE;
 	}
 
 }

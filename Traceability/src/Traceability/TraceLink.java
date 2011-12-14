@@ -29,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface TraceLink extends TraceElement {
+public interface TraceLink extends Element {
 	/**
 	 * Returns the value of the '<em><b>Trace Model</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link Traceability.TraceModel#getTraceLinks <em>Trace Links</em>}'.

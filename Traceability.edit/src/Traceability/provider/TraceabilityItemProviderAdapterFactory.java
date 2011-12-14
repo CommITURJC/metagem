@@ -168,29 +168,6 @@ public class TraceabilityItemProviderAdapterFactory extends TraceabilityAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link Traceability.Element} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ElementItemProvider elementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link Traceability.Element}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createElementAdapter() {
-		if (elementItemProvider == null) {
-			elementItemProvider = new ElementItemProvider(this);
-		}
-
-		return elementItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link Traceability.SourceElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -234,29 +211,6 @@ public class TraceabilityItemProviderAdapterFactory extends TraceabilityAdapterF
 		}
 
 		return targetElementItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link Traceability.Feature} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected FeatureItemProvider featureItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link Traceability.Feature}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createFeatureAdapter() {
-		if (featureItemProvider == null) {
-			featureItemProvider = new FeatureItemProvider(this);
-		}
-
-		return featureItemProvider;
 	}
 
 	/**
@@ -362,8 +316,6 @@ public class TraceabilityItemProviderAdapterFactory extends TraceabilityAdapterF
 		if (traceLinkItemProvider != null) traceLinkItemProvider.dispose();
 		if (sourceModelItemProvider != null) sourceModelItemProvider.dispose();
 		if (targetModelItemProvider != null) targetModelItemProvider.dispose();
-		if (elementItemProvider != null) elementItemProvider.dispose();
-		if (featureItemProvider != null) featureItemProvider.dispose();
 		if (sourceElementItemProvider != null) sourceElementItemProvider.dispose();
 		if (targetElementItemProvider != null) targetElementItemProvider.dispose();
 	}

@@ -65,8 +65,6 @@ public class TraceabilityFactoryImpl extends EFactoryImpl implements Traceabilit
 			case TraceabilityPackage.TRACE_LINK: return createTraceLink();
 			case TraceabilityPackage.SOURCE_MODEL: return createSourceModel();
 			case TraceabilityPackage.TARGET_MODEL: return createTargetModel();
-			case TraceabilityPackage.ELEMENT: return createElement();
-			case TraceabilityPackage.FEATURE: return createFeature();
 			case TraceabilityPackage.SOURCE_ELEMENT: return createSourceElement();
 			case TraceabilityPackage.TARGET_ELEMENT: return createTargetElement();
 			default:
@@ -149,16 +147,6 @@ public class TraceabilityFactoryImpl extends EFactoryImpl implements Traceabilit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element createElement() {
-		ElementImpl element = new ElementImpl();
-		return element;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SourceElement createSourceElement() {
 		SourceElementImpl sourceElement = new SourceElementImpl();
 		return sourceElement;
@@ -172,16 +160,6 @@ public class TraceabilityFactoryImpl extends EFactoryImpl implements Traceabilit
 	public TargetElement createTargetElement() {
 		TargetElementImpl targetElement = new TargetElementImpl();
 		return targetElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Feature createFeature() {
-		FeatureImpl feature = new FeatureImpl();
-		return feature;
 	}
 
 	/**

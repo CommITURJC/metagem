@@ -7,9 +7,7 @@
 package Traceability.impl;
 
 import Traceability.Element;
-import Traceability.Feature;
 import Traceability.Model;
-import Traceability.ModelElement;
 import Traceability.Operations;
 import Traceability.SourceElement;
 import Traceability.SourceModel;
@@ -83,13 +81,6 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass modelElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass elementEClass = null;
 
 	/**
@@ -105,13 +96,6 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 	 * @generated
 	 */
 	private EClass targetElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass featureEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -231,7 +215,7 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTraceElement_Name() {
+	public EAttribute getTraceElement_Ref() {
 		return (EAttribute)traceElementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -240,8 +224,17 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTraceElement_Ref() {
-		return (EAttribute)traceElementEClass.getEStructuralFeatures().get(1);
+	public EReference getTraceElement_Model() {
+		return (EReference)traceElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTraceElement_BelongsTo() {
+		return (EReference)traceElementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -258,17 +251,8 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Elements() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getModel_Path() {
-		return (EAttribute)modelEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -277,7 +261,7 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 	 * @generated
 	 */
 	public EAttribute getModel_Metamodel() {
-		return (EAttribute)modelEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)modelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -384,33 +368,6 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getModelElement() {
-		return modelElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElement_SourceElementLink() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElement_TargetElementLink() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getElement() {
 		return elementEClass;
 	}
@@ -420,35 +377,8 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElement_Model() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getElement_Child_element() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getElement_Super_element() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getElement_Features() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(0);
+	public EAttribute getElement_Name() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -474,15 +404,6 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSourceElement_ElementModel() {
-		return (EReference)sourceElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getTargetElement() {
 		return targetElementEClass;
 	}
@@ -494,33 +415,6 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 	 */
 	public EReference getTargetElement_Target_traceLinks() {
 		return (EReference)targetElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTargetElement_ElementModel() {
-		return (EReference)targetElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getFeature() {
-		return featureEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFeature_Parent() {
-		return (EReference)featureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -565,12 +459,10 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 		createEReference(traceModelEClass, TRACE_MODEL__SOURCE_MODELS);
 		createEReference(traceModelEClass, TRACE_MODEL__TARGET_MODELS);
 
-		traceElementEClass = createEClass(TRACE_ELEMENT);
-		createEAttribute(traceElementEClass, TRACE_ELEMENT__NAME);
-		createEAttribute(traceElementEClass, TRACE_ELEMENT__REF);
+		elementEClass = createEClass(ELEMENT);
+		createEAttribute(elementEClass, ELEMENT__NAME);
 
 		modelEClass = createEClass(MODEL);
-		createEReference(modelEClass, MODEL__ELEMENTS);
 		createEAttribute(modelEClass, MODEL__PATH);
 		createEAttribute(modelEClass, MODEL__METAMODEL);
 
@@ -588,26 +480,16 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 		targetModelEClass = createEClass(TARGET_MODEL);
 		createEReference(targetModelEClass, TARGET_MODEL__TRACE_MODEL);
 
-		modelElementEClass = createEClass(MODEL_ELEMENT);
-		createEReference(modelElementEClass, MODEL_ELEMENT__SOURCE_ELEMENT_LINK);
-		createEReference(modelElementEClass, MODEL_ELEMENT__TARGET_ELEMENT_LINK);
-
-		elementEClass = createEClass(ELEMENT);
-		createEReference(elementEClass, ELEMENT__FEATURES);
-		createEReference(elementEClass, ELEMENT__MODEL);
-		createEReference(elementEClass, ELEMENT__CHILD_ELEMENT);
-		createEReference(elementEClass, ELEMENT__SUPER_ELEMENT);
-
-		featureEClass = createEClass(FEATURE);
-		createEReference(featureEClass, FEATURE__PARENT);
-
 		sourceElementEClass = createEClass(SOURCE_ELEMENT);
 		createEReference(sourceElementEClass, SOURCE_ELEMENT__SOURCE_TRACE_LINKS);
-		createEReference(sourceElementEClass, SOURCE_ELEMENT__ELEMENT_MODEL);
 
 		targetElementEClass = createEClass(TARGET_ELEMENT);
 		createEReference(targetElementEClass, TARGET_ELEMENT__TARGET_TRACE_LINKS);
-		createEReference(targetElementEClass, TARGET_ELEMENT__ELEMENT_MODEL);
+
+		traceElementEClass = createEClass(TRACE_ELEMENT);
+		createEAttribute(traceElementEClass, TRACE_ELEMENT__REF);
+		createEReference(traceElementEClass, TRACE_ELEMENT__MODEL);
+		createEReference(traceElementEClass, TRACE_ELEMENT__BELONGS_TO);
 
 		// Create enums
 		operationsEEnum = createEEnum(OPERATIONS);
@@ -641,16 +523,14 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		traceModelEClass.getESuperTypes().add(this.getTraceElement());
-		modelEClass.getESuperTypes().add(this.getTraceElement());
-		traceLinkEClass.getESuperTypes().add(this.getTraceElement());
+		traceModelEClass.getESuperTypes().add(this.getElement());
+		modelEClass.getESuperTypes().add(this.getElement());
+		traceLinkEClass.getESuperTypes().add(this.getElement());
 		sourceModelEClass.getESuperTypes().add(this.getModel());
 		targetModelEClass.getESuperTypes().add(this.getModel());
-		modelElementEClass.getESuperTypes().add(this.getTraceElement());
-		elementEClass.getESuperTypes().add(this.getModelElement());
-		featureEClass.getESuperTypes().add(this.getModelElement());
 		sourceElementEClass.getESuperTypes().add(this.getTraceElement());
 		targetElementEClass.getESuperTypes().add(this.getTraceElement());
+		traceElementEClass.getESuperTypes().add(this.getElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(traceModelEClass, TraceModel.class, "TraceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -658,12 +538,10 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 		initEReference(getTraceModel_SourceModels(), this.getSourceModel(), this.getSourceModel_TraceModel(), "sourceModels", null, 1, -1, TraceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTraceModel_TargetModels(), this.getTargetModel(), this.getTargetModel_TraceModel(), "targetModels", null, 1, -1, TraceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(traceElementEClass, TraceElement.class, "TraceElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTraceElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, TraceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTraceElement_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, TraceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModel_Elements(), this.getElement(), this.getElement_Model(), "elements", null, 1, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModel_Path(), ecorePackage.getEString(), "path", null, 1, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModel_Metamodel(), ecorePackage.getEString(), "metamodel", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -681,26 +559,16 @@ public class TraceabilityPackageImpl extends EPackageImpl implements Traceabilit
 		initEClass(targetModelEClass, TargetModel.class, "TargetModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTargetModel_TraceModel(), this.getTraceModel(), this.getTraceModel_TargetModels(), "traceModel", null, 1, 1, TargetModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(modelElementEClass, ModelElement.class, "ModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModelElement_SourceElementLink(), this.getSourceElement(), this.getSourceElement_ElementModel(), "sourceElementLink", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElement_TargetElementLink(), this.getTargetElement(), this.getTargetElement_ElementModel(), "targetElementLink", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getElement_Features(), this.getFeature(), this.getFeature_Parent(), "features", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_Model(), this.getModel(), this.getModel_Elements(), "model", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_Child_element(), this.getElement(), this.getElement_Super_element(), "child_element", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_Super_element(), this.getElement(), this.getElement_Child_element(), "super_element", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFeature_Parent(), this.getElement(), this.getElement_Features(), "parent", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(sourceElementEClass, SourceElement.class, "SourceElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSourceElement_Source_traceLinks(), this.getTraceLink(), this.getTraceLink_Source(), "source_traceLinks", null, 1, 1, SourceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSourceElement_ElementModel(), this.getModelElement(), this.getModelElement_SourceElementLink(), "elementModel", null, 0, 1, SourceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(targetElementEClass, TargetElement.class, "TargetElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTargetElement_Target_traceLinks(), this.getTraceLink(), this.getTraceLink_Target(), "target_traceLinks", null, 1, 1, TargetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTargetElement_ElementModel(), this.getModelElement(), this.getModelElement_TargetElementLink(), "elementModel", null, 0, 1, TargetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(traceElementEClass, TraceElement.class, "TraceElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTraceElement_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, TraceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTraceElement_Model(), this.getModel(), null, "model", null, 1, 1, TraceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTraceElement_BelongsTo(), this.getTraceElement(), null, "belongsTo", null, 0, 1, TraceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(operationsEEnum, Operations.class, "Operations");

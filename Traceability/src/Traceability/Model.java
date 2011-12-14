@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link Traceability.Model#getElements <em>Elements</em>}</li>
  *   <li>{@link Traceability.Model#getPath <em>Path</em>}</li>
  *   <li>{@link Traceability.Model#getMetamodel <em>Metamodel</em>}</li>
  * </ul>
@@ -26,25 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface Model extends TraceElement {
-	/**
-	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link Traceability.Element}.
-	 * It is bidirectional and its opposite is '{@link Traceability.Element#getModel <em>Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' containment reference list.
-	 * @see Traceability.TraceabilityPackage#getModel_Elements()
-	 * @see Traceability.Element#getModel
-	 * @model opposite="model" containment="true" required="true"
-	 * @generated
-	 */
-	EList<Element> getElements();
-
+public interface Model extends Element {
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->

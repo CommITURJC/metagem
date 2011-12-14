@@ -90,27 +90,27 @@ public class TraceabilitySwitch<T> {
 			case TraceabilityPackage.TRACE_MODEL: {
 				TraceModel traceModel = (TraceModel)theEObject;
 				T result = caseTraceModel(traceModel);
-				if (result == null) result = caseTraceElement(traceModel);
+				if (result == null) result = caseElement(traceModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TraceabilityPackage.TRACE_ELEMENT: {
-				TraceElement traceElement = (TraceElement)theEObject;
-				T result = caseTraceElement(traceElement);
+			case TraceabilityPackage.ELEMENT: {
+				Element element = (Element)theEObject;
+				T result = caseElement(element);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TraceabilityPackage.MODEL: {
 				Model model = (Model)theEObject;
 				T result = caseModel(model);
-				if (result == null) result = caseTraceElement(model);
+				if (result == null) result = caseElement(model);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TraceabilityPackage.TRACE_LINK: {
 				TraceLink traceLink = (TraceLink)theEObject;
 				T result = caseTraceLink(traceLink);
-				if (result == null) result = caseTraceElement(traceLink);
+				if (result == null) result = caseElement(traceLink);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -118,7 +118,7 @@ public class TraceabilitySwitch<T> {
 				SourceModel sourceModel = (SourceModel)theEObject;
 				T result = caseSourceModel(sourceModel);
 				if (result == null) result = caseModel(sourceModel);
-				if (result == null) result = caseTraceElement(sourceModel);
+				if (result == null) result = caseElement(sourceModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -126,30 +126,7 @@ public class TraceabilitySwitch<T> {
 				TargetModel targetModel = (TargetModel)theEObject;
 				T result = caseTargetModel(targetModel);
 				if (result == null) result = caseModel(targetModel);
-				if (result == null) result = caseTraceElement(targetModel);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TraceabilityPackage.MODEL_ELEMENT: {
-				ModelElement modelElement = (ModelElement)theEObject;
-				T result = caseModelElement(modelElement);
-				if (result == null) result = caseTraceElement(modelElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TraceabilityPackage.ELEMENT: {
-				Element element = (Element)theEObject;
-				T result = caseElement(element);
-				if (result == null) result = caseModelElement(element);
-				if (result == null) result = caseTraceElement(element);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TraceabilityPackage.FEATURE: {
-				Feature feature = (Feature)theEObject;
-				T result = caseFeature(feature);
-				if (result == null) result = caseModelElement(feature);
-				if (result == null) result = caseTraceElement(feature);
+				if (result == null) result = caseElement(targetModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -157,6 +134,7 @@ public class TraceabilitySwitch<T> {
 				SourceElement sourceElement = (SourceElement)theEObject;
 				T result = caseSourceElement(sourceElement);
 				if (result == null) result = caseTraceElement(sourceElement);
+				if (result == null) result = caseElement(sourceElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -164,6 +142,14 @@ public class TraceabilitySwitch<T> {
 				TargetElement targetElement = (TargetElement)theEObject;
 				T result = caseTargetElement(targetElement);
 				if (result == null) result = caseTraceElement(targetElement);
+				if (result == null) result = caseElement(targetElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TraceabilityPackage.TRACE_ELEMENT: {
+				TraceElement traceElement = (TraceElement)theEObject;
+				T result = caseTraceElement(traceElement);
+				if (result == null) result = caseElement(traceElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -262,21 +248,6 @@ public class TraceabilitySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Model Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseModelElement(ModelElement object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -318,21 +289,6 @@ public class TraceabilitySwitch<T> {
 	 * @generated
 	 */
 	public T caseTargetElement(TargetElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Feature</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Feature</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFeature(Feature object) {
 		return null;
 	}
 
