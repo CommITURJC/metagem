@@ -1,0 +1,228 @@
+-- @name 		MeTAGeM
+-- @version		2.0
+-- @domains	meta-transformation, metamodel, model
+-- @authors		Álvaro Jiménez  (Universidad Rey Juan Carlos)
+-- @date       	31-08-2011
+-- @description	Constraints applied to MeTAGeM metamodel.
+
+context ModelRoot {
+
+	-- ModelRoot name cannot be empty
+	constraint notEmptyModelRootName {
+		check : self.name.isDefined()
+		message : getMessageNotEmptyName(self.type().name.asString())
+		fix {
+     		title : getTitleNotEmptyName(self.type().name.asString())
+     		do {
+    			self.name := getInputNotEmptyName(self.type().name.asString()); 
+     		}
+    	}
+    }
+    
+    -- ModelRoot name cannot be empty and should start with a letter
+	-- following letters, numbers, dashes and underscores 
+	constraint validModelRootName {
+		guard : self.satisfies('notEmptyModelRootName')
+		check : self.name.isValidName()
+		message : getMessageValidName(self.type().name.asString())
+		fix {
+     		title : getTitleValidName(self.type().name.asString(), self.name)
+     		do {
+    			self.name := getInputValidName(self.type().name.asString(), self.name); 
+     		}
+    	}
+    }
+    
+    --ModelRoot should contain one or more source models
+    constraint minimumSourceModel{
+    	check: self.sourceModels->size()>0
+    	message: 'The feature \'sourceModels\' of \''+self.type().name.asString() +'\' with 0 values must have at least 1 value'
+    }
+    
+     --ModelRoot should contain one or more target models
+    constraint minimumTargetModel{
+    	check: self.targetModels->size()>0
+    	message:  'The feature \'targetModels\' of \''+self.type().name.asString() +'\' with 0 values must have at least 1 value'
+    }
+    
+     --ModelRoot should contain one or more relations
+    constraint modelRoot_minimumRelations{
+    	check: self.relations->size()>0
+    	message: 'The feature \'relations\' of \''+self.type().name.asString() +'\' with 0 values must have at least 1 value'
+    }
+    
+}
+
+context ModelTransf{
+
+	-- Model name cannot be empty
+	constraint notEmptyModelName{
+	check : self.name.isDefined()
+		message : getMessageNotEmptyName(self.type().name.asString())
+		fix {
+     		title : getTitleNotEmptyName(self.type().name.asString())
+     		do {
+    			self.name := getInputNotEmptyName(self.type().name.asString()); 
+     		}
+    	}
+	}
+	
+	-- Model name cannot be empty and should start with a letter
+	-- following letters, numbers, dashes and underscores 
+	constraint validModelName {
+		guard : self.satisfies('notEmptyModelName')
+		check : self.name.isValidName()
+		message : getMessageValidName(self.type().name.asString())
+		fix {
+     		title : getTitleValidName(self.type().name.asString(), self.name)
+     		do {
+    			self.name := getInputValidName(self.type().name.asString(), self.name); 
+     		}
+    	}
+    }
+    
+	
+}
+
+context Relations{
+
+	--Relations must be set role
+	constraint roleValue{
+		check: self.role.isDefined()
+		message:'The required feature \'role\' of \''+ self.type().name.asString() +' \' must be set' 
+	}
+	
+	--Relations must be set typeE
+	constraint minimumTypeElement{
+		check: self.typeElement.isDefined()
+		message: 'The required feature \'typeElement\' of \''+ self.type().name.asString() + '\' must be set' 
+	}
+	
+	--Relations must be set typeRelation
+	constraint minimumTypeRelation{
+		check: self.typeRelation.isDefined()
+		message: 'The required feature \'typeRelation\' of \''+ self.type().name.asString() + '\' must be set' 
+	}
+	
+	--Relations only can extends abstract relations
+	constraint superRelations{
+		check: self.`extends`->select(r|r.isKindOf(Relations))->forAll(r2|r2.typeRelation=TRole#IsAbstract)
+		message: 'Relation \''+self.type().name.asString() +'\' only can extends abstract relations'
+	}
+	
+}
+
+context OneToOne{
+
+	--Relation OneToOne must be set a source element
+	constraint OneToOne_minimumSource{
+		check: self.source.isDefined()
+		message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' must be set'
+	}
+	
+	--Relation OneToOne must be set a target element
+	constraint OneToOne_minimumTarget{
+		check: self.target.isDefined()
+		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' must be set'
+	}
+}
+
+context OneToZero{
+
+	--Relation OneToZero must be set a source element
+	constraint OneToZero_minimumSource{
+		check: self.source.isDefined()
+		message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' must be set'
+	}
+	
+}
+
+context ZeroToOne{
+
+	--Relation ZeroToOne must be set a target element
+	constraint ZeroToOne_minimumTarget{
+		check: self.target.isDefined()
+		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' must be set'
+	}
+	
+}
+
+context OneToMany{
+
+	--Relation OneToMany must be set a source element
+	constraint OneToMany_minimumSource{
+		check: self.source.isDefined()
+		message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' must be set'
+	}
+	
+	--Relation OneToMany must be set a target element
+	constraint OneToMany_minimumTarget{
+		check: self.target->size()>0
+		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' with 0 values must have at least 1 value'
+	}
+	
+}
+
+context ManyToOne{
+
+	--Relation ManyToOne must be set a source element
+	constraint ManyToOne_minimumSource{
+			check: self.source->size()>0
+			message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' with 0 values must have at least 1 value'
+		}
+	
+	--Relation ManyToOne must be set a target element
+	constraint ManyToOne_minimumTarget{
+		check: self.target.isDefined()
+		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' must be set'
+	}
+	
+}
+
+context ManyToMany{
+
+	--Relation ManyToMany must be set a source element
+	constraint ManyToMany_minimumSource{
+			check: self.source->size()>0
+			message: 'The required feature \'source\' of \''+ self.type().name.asString() +'\' with 0 values must have at least 1 value'
+		}
+	
+	--Relation ManyToMany must be set a target element
+	constraint ManyToMany_minimumTarget{
+		check: self.target->size()>0
+		message: 'The required feature \'target\' of \''+ self.type().name.asString() +'\' with 0 values must have at least 1 value'
+	}
+	
+}
+
+
+operation getMessageNotEmptyName(objectClass : String) {
+	return 'The name of \'' + objectClass + '\' should be filled';
+}
+
+operation getInputNotEmptyName(objectClass : String) {
+	return UserInput.prompt('Name of \'' + objectClass+'\'');
+}
+
+operation getMessageValidName(objectClass : String) {
+	return 'The name of \'' + objectClass + '\' should start with a letter and ' +
+		   'contain letters, numbers, underscores or dashes';
+}
+
+operation getTitleValidName(objectClass : String, objectName : String) {
+	return 'Change the name of \'' + objectClass + '\' "' + objectName + '"';
+}
+
+operation getInputValidName(objectClass : String, objectName : String) {
+	return UserInput.prompt('Name of \'' + objectClass+'\'', objectName);
+}
+
+-- A valid name should start with a letter and only contain
+-- letters, numbers, '-' or '_'
+operation String isValidName() : Boolean {
+	var result : Boolean := false;
+	if (self.isDefined()) {
+		result := self.matches('[(A-Z)(a-z)][\\s\\w\\[\\]_-]*');
+	}
+	return result;
+}
