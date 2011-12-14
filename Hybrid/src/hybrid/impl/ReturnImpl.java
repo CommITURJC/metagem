@@ -8,9 +8,9 @@ package hybrid.impl;
 
 import hybrid.Datatype;
 import hybrid.HybridPackage;
-import hybrid.ModelComponent;
 import hybrid.Return;
 
+import hybrid.RuleElement;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -62,7 +62,7 @@ public class ReturnImpl extends EObjectImpl implements Return {
 	 * @generated
 	 * @ordered
 	 */
-	protected ModelComponent component;
+	protected RuleElement component;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,10 +109,10 @@ public class ReturnImpl extends EObjectImpl implements Return {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelComponent getComponent() {
+	public RuleElement getComponent() {
 		if (component != null && component.eIsProxy()) {
 			InternalEObject oldComponent = (InternalEObject)component;
-			component = (ModelComponent)eResolveProxy(oldComponent);
+			component = (RuleElement)eResolveProxy(oldComponent);
 			if (component != oldComponent) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HybridPackage.RETURN__COMPONENT, oldComponent, component));
@@ -126,7 +126,7 @@ public class ReturnImpl extends EObjectImpl implements Return {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelComponent basicGetComponent() {
+	public RuleElement basicGetComponent() {
 		return component;
 	}
 
@@ -135,8 +135,8 @@ public class ReturnImpl extends EObjectImpl implements Return {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setComponent(ModelComponent newComponent) {
-		ModelComponent oldComponent = component;
+	public void setComponent(RuleElement newComponent) {
+		RuleElement oldComponent = component;
 		component = newComponent;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.RETURN__COMPONENT, oldComponent, component));
@@ -171,7 +171,7 @@ public class ReturnImpl extends EObjectImpl implements Return {
 				setDatatype((Datatype)newValue);
 				return;
 			case HybridPackage.RETURN__COMPONENT:
-				setComponent((ModelComponent)newValue);
+				setComponent((RuleElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -189,7 +189,7 @@ public class ReturnImpl extends EObjectImpl implements Return {
 				setDatatype(DATATYPE_EDEFAULT);
 				return;
 			case HybridPackage.RETURN__COMPONENT:
-				setComponent((ModelComponent)null);
+				setComponent((RuleElement)null);
 				return;
 		}
 		super.eUnset(featureID);

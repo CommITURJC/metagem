@@ -14,6 +14,7 @@ import hybrid.Rule;
 import hybrid.RuleElement;
 import hybrid.Source;
 
+import hybrid.Target;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -97,7 +98,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * @generated
 	 * @ordered
 	 */
-	protected RuleElement reference;
+	protected Target reference;
 
 	/**
 	 * The cached value of the '{@link #getRule() <em>Rule</em>}' reference list.
@@ -219,10 +220,10 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleElement getReference() {
+	public Target getReference() {
 		if (reference != null && reference.eIsProxy()) {
 			InternalEObject oldReference = (InternalEObject)reference;
-			reference = (RuleElement)eResolveProxy(oldReference);
+			reference = (Target)eResolveProxy(oldReference);
 			if (reference != oldReference) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HybridPackage.RIGHT_PATTERN__REFERENCE, oldReference, reference));
@@ -236,7 +237,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleElement basicGetReference() {
+	public Target basicGetReference() {
 		return reference;
 	}
 
@@ -245,8 +246,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReference(RuleElement newReference, NotificationChain msgs) {
-		RuleElement oldReference = reference;
+	public NotificationChain basicSetReference(Target newReference, NotificationChain msgs) {
+		Target oldReference = reference;
 		reference = newReference;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HybridPackage.RIGHT_PATTERN__REFERENCE, oldReference, newReference);
@@ -260,13 +261,13 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReference(RuleElement newReference) {
+	public void setReference(Target newReference) {
 		if (newReference != reference) {
 			NotificationChain msgs = null;
 			if (reference != null)
-				msgs = ((InternalEObject)reference).eInverseRemove(this, HybridPackage.RULE_ELEMENT__IS_REFERED, RuleElement.class, msgs);
+				msgs = ((InternalEObject)reference).eInverseRemove(this, HybridPackage.TARGET__IS_REFERED, Target.class, msgs);
 			if (newReference != null)
-				msgs = ((InternalEObject)newReference).eInverseAdd(this, HybridPackage.RULE_ELEMENT__IS_REFERED, RuleElement.class, msgs);
+				msgs = ((InternalEObject)newReference).eInverseAdd(this, HybridPackage.TARGET__IS_REFERED, Target.class, msgs);
 			msgs = basicSetReference(newReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -305,8 +306,8 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOperation()).basicAdd(otherEnd, msgs);
 			case HybridPackage.RIGHT_PATTERN__REFERENCE:
 				if (reference != null)
-					msgs = ((InternalEObject)reference).eInverseRemove(this, HybridPackage.RULE_ELEMENT__IS_REFERED, RuleElement.class, msgs);
-				return basicSetReference((RuleElement)otherEnd, msgs);
+					msgs = ((InternalEObject)reference).eInverseRemove(this, HybridPackage.TARGET__IS_REFERED, Target.class, msgs);
+				return basicSetReference((Target)otherEnd, msgs);
 			case HybridPackage.RIGHT_PATTERN__RULE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRule()).basicAdd(otherEnd, msgs);
 		}
@@ -398,7 +399,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 				setConcreteValue((String)newValue);
 				return;
 			case HybridPackage.RIGHT_PATTERN__REFERENCE:
-				setReference((RuleElement)newValue);
+				setReference((Target)newValue);
 				return;
 			case HybridPackage.RIGHT_PATTERN__RULE:
 				getRule().clear();
@@ -429,7 +430,7 @@ public class RightPatternImpl extends EObjectImpl implements RightPattern {
 				setConcreteValue(CONCRETE_VALUE_EDEFAULT);
 				return;
 			case HybridPackage.RIGHT_PATTERN__REFERENCE:
-				setReference((RuleElement)null);
+				setReference((Target)null);
 				return;
 			case HybridPackage.RIGHT_PATTERN__RULE:
 				getRule().clear();

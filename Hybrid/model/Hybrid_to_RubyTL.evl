@@ -98,12 +98,6 @@ context Model{
 	     }
     	}
     }
-    
-    -- Model should have at least one ModelElement
-    constraint model_minimumElements{
-    	check: self.elements->size()>0
-    	message: 'The feature \'elements\' of \''+self.type().name.asString() +'\' with 0 values must have at least 1 value'
-    } 
 }
 
 
@@ -220,11 +214,6 @@ context RuleElement{
 	    	}
 		}
 	
- 	--'component' must be set
- 	constraint component{
- 		check: self.component.isDefined()
- 		message: 'The required feature \'component\' of \''+ self.type().name.asString() + '\' must be set' 
- 	}
  
  }
  

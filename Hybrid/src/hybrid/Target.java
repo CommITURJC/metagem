@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link hybrid.Target#getBindings <em>Bindings</em>}</li>
  *   <li>{@link hybrid.Target#getLeftPatternOwned <em>Left Pattern Owned</em>}</li>
  *   <li>{@link hybrid.Target#getTraceLink <em>Trace Link</em>}</li>
+ *   <li>{@link hybrid.Target#getIsRefered <em>Is Refered</em>}</li>
  * </ul>
  * </p>
  *
@@ -119,5 +120,23 @@ public interface Target extends RuleElement {
 	 * @generated
 	 */
 	EList<TraceLink> getTraceLink();
+
+	/**
+	 * Returns the value of the '<em><b>Is Refered</b></em>' reference list.
+	 * The list contents are of type {@link hybrid.RightPattern}.
+	 * It is bidirectional and its opposite is '{@link hybrid.RightPattern#getReference <em>Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Refered</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Refered</em>' reference list.
+	 * @see hybrid.HybridPackage#getTarget_IsRefered()
+	 * @see hybrid.RightPattern#getReference
+	 * @model opposite="reference"
+	 * @generated
+	 */
+	EList<RightPattern> getIsRefered();
 
 } // Target

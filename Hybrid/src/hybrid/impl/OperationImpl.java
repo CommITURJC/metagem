@@ -7,12 +7,12 @@
 package hybrid.impl;
 
 import hybrid.HybridPackage;
-import hybrid.ModelComponent;
 import hybrid.Module;
 import hybrid.Operation;
 import hybrid.Return;
 import hybrid.RightPattern;
 
+import hybrid.RuleElement;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -89,7 +89,7 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 	 * @generated
 	 * @ordered
 	 */
-	protected ModelComponent context;
+	protected RuleElement context;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -280,10 +280,10 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelComponent getContext() {
+	public RuleElement getContext() {
 		if (context != null && context.eIsProxy()) {
 			InternalEObject oldContext = (InternalEObject)context;
-			context = (ModelComponent)eResolveProxy(oldContext);
+			context = (RuleElement)eResolveProxy(oldContext);
 			if (context != oldContext) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HybridPackage.OPERATION__CONTEXT, oldContext, context));
@@ -297,7 +297,7 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelComponent basicGetContext() {
+	public RuleElement basicGetContext() {
 		return context;
 	}
 
@@ -306,8 +306,8 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(ModelComponent newContext) {
-		ModelComponent oldContext = context;
+	public void setContext(RuleElement newContext) {
+		RuleElement oldContext = context;
 		context = newContext;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.OPERATION__CONTEXT, oldContext, context));
@@ -410,7 +410,7 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 				setRightPattern((RightPattern)newValue);
 				return;
 			case HybridPackage.OPERATION__CONTEXT:
-				setContext((ModelComponent)newValue);
+				setContext((RuleElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -437,7 +437,7 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 				setRightPattern((RightPattern)null);
 				return;
 			case HybridPackage.OPERATION__CONTEXT:
-				setContext((ModelComponent)null);
+				setContext((RuleElement)null);
 				return;
 		}
 		super.eUnset(featureID);

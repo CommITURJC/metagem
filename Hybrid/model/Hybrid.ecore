@@ -40,11 +40,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightPattern" eType="#//RightPattern"
         eOpposite="#//RightPattern/operation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="#//ModelComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="#//RuleElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Return">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="datatype" eType="#//Datatype"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//ModelComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//RuleElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Operation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourceModel" eSuperTypes="#//Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
@@ -58,31 +59,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type_mm" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//ModelElement" containment="true" eOpposite="#//ModelElement/ownedModel"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModelElement" eSuperTypes="#//HybridElement #//ModelComponent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedModel" eType="#//Model"
-        eOpposite="#//Model/elements"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="childElements" upperBound="-1"
-        eType="#//ModelElement" containment="true" eOpposite="#//ModelElement/parentElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentElement" eType="#//ModelElement"
-        eOpposite="#//ModelElement/childElements"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
-        eType="#//ModelFeature" containment="true" eOpposite="#//ModelFeature/ownedElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
-        eType="#//ModelElement" eOpposite="#//ModelElement/isContained"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="isContained" eType="#//ModelElement"
-        eOpposite="#//ModelElement/contains"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModelFeature" eSuperTypes="#//ModelComponent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElement" lowerBound="1"
-        eType="#//ModelElement" eOpposite="#//ModelElement/features"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModelComponent" abstract="true" eSuperTypes="#//HybridElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ruleElement" upperBound="-1"
-        eType="#//RuleElement" eOpposite="#//RuleElement/component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rule" eSuperTypes="#//HybridElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" lowerBound="1"
@@ -114,10 +90,12 @@
         eType="#//RightPattern" eOpposite="#//RightPattern/rule"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RuleElement" abstract="true" eSuperTypes="#//HybridElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="isRefered" upperBound="-1"
-        eType="#//RightPattern" eOpposite="#//RightPattern/reference"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
-        eType="#//ModelComponent" eOpposite="#//ModelComponent/ruleElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="belongsTo" eType="#//RuleElement"
+        eOpposite="#//RuleElement/owns"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owns" upperBound="-1" eType="#//RuleElement"
+        eOpposite="#//RuleElement/belongsTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" eType="#//Model"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Source" eSuperTypes="#//RuleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="#//Rule" eOpposite="#//Rule/sources"/>
@@ -134,6 +112,8 @@
         eOpposite="#//LeftPattern/target"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="traceLink" upperBound="-1"
         eType="#//TraceLink" eOpposite="#//TraceLink/target"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isRefered" upperBound="-1"
+        eType="#//RightPattern" eOpposite="#//RightPattern/reference"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Guard">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -162,8 +142,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
         eType="#//Operation" eOpposite="#//Operation/rightPattern"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="concreteValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//RuleElement"
-        eOpposite="#//RuleElement/isRefered"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//Target"
+        eOpposite="#//Target/isRefered"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rule" upperBound="-1" eType="#//Rule"
         eOpposite="#//Rule/rightPattern"/>
   </eClassifiers>

@@ -100,18 +100,6 @@ public class HybridAdapterFactory extends AdapterFactoryImpl {
 				return createModelAdapter();
 			}
 			@Override
-			public Adapter caseModelElement(ModelElement object) {
-				return createModelElementAdapter();
-			}
-			@Override
-			public Adapter caseModelFeature(ModelFeature object) {
-				return createModelFeatureAdapter();
-			}
-			@Override
-			public Adapter caseModelComponent(ModelComponent object) {
-				return createModelComponentAdapter();
-			}
-			@Override
 			public Adapter caseRule(Rule object) {
 				return createRuleAdapter();
 			}
@@ -270,48 +258,6 @@ public class HybridAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createModelAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link hybrid.ModelElement <em>Model Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see hybrid.ModelElement
-	 * @generated
-	 */
-	public Adapter createModelElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link hybrid.ModelFeature <em>Model Feature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see hybrid.ModelFeature
-	 * @generated
-	 */
-	public Adapter createModelFeatureAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link hybrid.ModelComponent <em>Model Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see hybrid.ModelComponent
-	 * @generated
-	 */
-	public Adapter createModelComponentAdapter() {
 		return null;
 	}
 

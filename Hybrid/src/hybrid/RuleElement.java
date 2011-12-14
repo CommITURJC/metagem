@@ -18,8 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link hybrid.RuleElement#getIsRefered <em>Is Refered</em>}</li>
- *   <li>{@link hybrid.RuleElement#getComponent <em>Component</em>}</li>
+ *   <li>{@link hybrid.RuleElement#getRef <em>Ref</em>}</li>
+ *   <li>{@link hybrid.RuleElement#getBelongsTo <em>Belongs To</em>}</li>
+ *   <li>{@link hybrid.RuleElement#getOwns <em>Owns</em>}</li>
+ *   <li>{@link hybrid.RuleElement#getModel <em>Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,49 +31,101 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface RuleElement extends HybridElement {
 	/**
-	 * Returns the value of the '<em><b>Is Refered</b></em>' reference list.
-	 * The list contents are of type {@link hybrid.RightPattern}.
-	 * It is bidirectional and its opposite is '{@link hybrid.RightPattern#getReference <em>Reference</em>}'.
+	 * Returns the value of the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Is Refered</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Ref</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Refered</em>' reference list.
-	 * @see hybrid.HybridPackage#getRuleElement_IsRefered()
-	 * @see hybrid.RightPattern#getReference
-	 * @model opposite="reference"
+	 * @return the value of the '<em>Ref</em>' attribute.
+	 * @see #setRef(String)
+	 * @see hybrid.HybridPackage#getRuleElement_Ref()
+	 * @model
 	 * @generated
 	 */
-	EList<RightPattern> getIsRefered();
+	String getRef();
 
 	/**
-	 * Returns the value of the '<em><b>Component</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link hybrid.ModelComponent#getRuleElement <em>Rule Element</em>}'.
+	 * Sets the value of the '{@link hybrid.RuleElement#getRef <em>Ref</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ref</em>' attribute.
+	 * @see #getRef()
+	 * @generated
+	 */
+	void setRef(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Belongs To</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link hybrid.RuleElement#getOwns <em>Owns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Component</em>' reference isn't clear,
+	 * If the meaning of the '<em>Belongs To</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Component</em>' reference.
-	 * @see #setComponent(ModelComponent)
-	 * @see hybrid.HybridPackage#getRuleElement_Component()
-	 * @see hybrid.ModelComponent#getRuleElement
-	 * @model opposite="ruleElement" required="true"
+	 * @return the value of the '<em>Belongs To</em>' reference.
+	 * @see #setBelongsTo(RuleElement)
+	 * @see hybrid.HybridPackage#getRuleElement_BelongsTo()
+	 * @see hybrid.RuleElement#getOwns
+	 * @model opposite="owns"
 	 * @generated
 	 */
-	ModelComponent getComponent();
+	RuleElement getBelongsTo();
 
 	/**
-	 * Sets the value of the '{@link hybrid.RuleElement#getComponent <em>Component</em>}' reference.
+	 * Sets the value of the '{@link hybrid.RuleElement#getBelongsTo <em>Belongs To</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Component</em>' reference.
-	 * @see #getComponent()
+	 * @param value the new value of the '<em>Belongs To</em>' reference.
+	 * @see #getBelongsTo()
 	 * @generated
 	 */
-	void setComponent(ModelComponent value);
+	void setBelongsTo(RuleElement value);
+
+	/**
+	 * Returns the value of the '<em><b>Owns</b></em>' reference list.
+	 * The list contents are of type {@link hybrid.RuleElement}.
+	 * It is bidirectional and its opposite is '{@link hybrid.RuleElement#getBelongsTo <em>Belongs To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Owns</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Owns</em>' reference list.
+	 * @see hybrid.HybridPackage#getRuleElement_Owns()
+	 * @see hybrid.RuleElement#getBelongsTo
+	 * @model opposite="belongsTo"
+	 * @generated
+	 */
+	EList<RuleElement> getOwns();
+
+	/**
+	 * Returns the value of the '<em><b>Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Model</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Model</em>' reference.
+	 * @see #setModel(Model)
+	 * @see hybrid.HybridPackage#getRuleElement_Model()
+	 * @model required="true"
+	 * @generated
+	 */
+	Model getModel();
+
+	/**
+	 * Sets the value of the '{@link hybrid.RuleElement#getModel <em>Model</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Model</em>' reference.
+	 * @see #getModel()
+	 * @generated
+	 */
+	void setModel(Model value);
 
 } // RuleElement
