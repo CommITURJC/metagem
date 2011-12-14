@@ -8,7 +8,6 @@ package hybrid.impl;
 
 import hybrid.HybridPackage;
 import hybrid.Model;
-import hybrid.ModelElement;
 
 import java.util.Collection;
 
@@ -34,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link hybrid.impl.ModelImpl#getPath <em>Path</em>}</li>
  *   <li>{@link hybrid.impl.ModelImpl#getType_mm <em>Type mm</em>}</li>
- *   <li>{@link hybrid.impl.ModelImpl#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,16 +78,6 @@ public abstract class ModelImpl extends HybridElementImpl implements Model {
 	 * @ordered
 	 */
 	protected String type_mm = TYPE_MM_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ModelElement> elements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,47 +145,6 @@ public abstract class ModelImpl extends HybridElementImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ModelElement> getElements() {
-		if (elements == null) {
-			elements = new EObjectContainmentWithInverseEList<ModelElement>(ModelElement.class, this, HybridPackage.MODEL__ELEMENTS, HybridPackage.MODEL_ELEMENT__OWNED_MODEL);
-		}
-		return elements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case HybridPackage.MODEL__ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case HybridPackage.MODEL__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -205,8 +152,6 @@ public abstract class ModelImpl extends HybridElementImpl implements Model {
 				return getPath();
 			case HybridPackage.MODEL__TYPE_MM:
 				return getType_mm();
-			case HybridPackage.MODEL__ELEMENTS:
-				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -226,10 +171,6 @@ public abstract class ModelImpl extends HybridElementImpl implements Model {
 			case HybridPackage.MODEL__TYPE_MM:
 				setType_mm((String)newValue);
 				return;
-			case HybridPackage.MODEL__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends ModelElement>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -248,9 +189,6 @@ public abstract class ModelImpl extends HybridElementImpl implements Model {
 			case HybridPackage.MODEL__TYPE_MM:
 				setType_mm(TYPE_MM_EDEFAULT);
 				return;
-			case HybridPackage.MODEL__ELEMENTS:
-				getElements().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -267,8 +205,6 @@ public abstract class ModelImpl extends HybridElementImpl implements Model {
 				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
 			case HybridPackage.MODEL__TYPE_MM:
 				return TYPE_MM_EDEFAULT == null ? type_mm != null : !TYPE_MM_EDEFAULT.equals(type_mm);
-			case HybridPackage.MODEL__ELEMENTS:
-				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

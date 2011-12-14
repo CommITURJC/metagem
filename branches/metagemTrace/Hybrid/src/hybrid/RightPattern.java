@@ -123,7 +123,7 @@ public interface RightPattern extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Reference</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link hybrid.RuleElement#getIsRefered <em>Is Refered</em>}'.
+	 * It is bidirectional and its opposite is '{@link hybrid.Target#getIsRefered <em>Is Refered</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Reference</em>' reference isn't clear,
@@ -131,13 +131,13 @@ public interface RightPattern extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Reference</em>' reference.
-	 * @see #setReference(RuleElement)
+	 * @see #setReference(Target)
 	 * @see hybrid.HybridPackage#getRightPattern_Reference()
-	 * @see hybrid.RuleElement#getIsRefered
+	 * @see hybrid.Target#getIsRefered
 	 * @model opposite="isRefered"
 	 * @generated
 	 */
-	RuleElement getReference();
+	Target getReference();
 
 	/**
 	 * Sets the value of the '{@link hybrid.RightPattern#getReference <em>Reference</em>}' reference.
@@ -147,7 +147,7 @@ public interface RightPattern extends EObject {
 	 * @see #getReference()
 	 * @generated
 	 */
-	void setReference(RuleElement value);
+	void setReference(Target value);
 
 	/**
 	 * Returns the value of the '<em><b>Rule</b></em>' reference list.

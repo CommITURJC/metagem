@@ -64,12 +64,12 @@ public interface Return extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Component</em>' reference.
-	 * @see #setComponent(ModelComponent)
+	 * @see #setComponent(RuleElement)
 	 * @see hybrid.HybridPackage#getReturn_Component()
 	 * @model
 	 * @generated
 	 */
-	ModelComponent getComponent();
+	RuleElement getComponent();
 
 	/**
 	 * Sets the value of the '{@link hybrid.Return#getComponent <em>Component</em>}' reference.
@@ -79,6 +79,6 @@ public interface Return extends EObject {
 	 * @see #getComponent()
 	 * @generated
 	 */
-	void setComponent(ModelComponent value);
+	void setComponent(RuleElement value);
 
 } // Return

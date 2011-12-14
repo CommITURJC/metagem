@@ -64,6 +64,7 @@ public class TargetItemProvider
 			super.getPropertyDescriptors(object);
 
 			addTraceLinkPropertyDescriptor(object);
+			addIsReferedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -82,6 +83,28 @@ public class TargetItemProvider
 				 getString("_UI_Target_traceLink_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Target_traceLink_feature", "_UI_Target_type"),
 				 HybridPackage.Literals.TARGET__TRACE_LINK,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Refered feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsReferedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Target_isRefered_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Target_isRefered_feature", "_UI_Target_type"),
+				 HybridPackage.Literals.TARGET__IS_REFERED,
 				 true,
 				 false,
 				 true,

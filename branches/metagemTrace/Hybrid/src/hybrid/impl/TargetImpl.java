@@ -9,6 +9,7 @@ package hybrid.impl;
 import hybrid.Binding;
 import hybrid.HybridPackage;
 import hybrid.LeftPattern;
+import hybrid.RightPattern;
 import hybrid.Rule;
 import hybrid.Target;
 
@@ -41,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link hybrid.impl.TargetImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link hybrid.impl.TargetImpl#getLeftPatternOwned <em>Left Pattern Owned</em>}</li>
  *   <li>{@link hybrid.impl.TargetImpl#getTraceLink <em>Trace Link</em>}</li>
+ *   <li>{@link hybrid.impl.TargetImpl#getIsRefered <em>Is Refered</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +68,16 @@ public class TargetImpl extends RuleElementImpl implements Target {
 	 * @ordered
 	 */
 	protected EList<TraceLink> traceLink;
+
+	/**
+	 * The cached value of the '{@link #getIsRefered() <em>Is Refered</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsRefered()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RightPattern> isRefered;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -197,6 +209,18 @@ public class TargetImpl extends RuleElementImpl implements Target {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<RightPattern> getIsRefered() {
+		if (isRefered == null) {
+			isRefered = new EObjectWithInverseResolvingEList<RightPattern>(RightPattern.class, this, HybridPackage.TARGET__IS_REFERED, HybridPackage.RIGHT_PATTERN__REFERENCE);
+		}
+		return isRefered;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -213,6 +237,8 @@ public class TargetImpl extends RuleElementImpl implements Target {
 				return basicSetLeftPatternOwned((LeftPattern)otherEnd, msgs);
 			case HybridPackage.TARGET__TRACE_LINK:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTraceLink()).basicAdd(otherEnd, msgs);
+			case HybridPackage.TARGET__IS_REFERED:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsRefered()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -233,6 +259,8 @@ public class TargetImpl extends RuleElementImpl implements Target {
 				return basicSetLeftPatternOwned(null, msgs);
 			case HybridPackage.TARGET__TRACE_LINK:
 				return ((InternalEList<?>)getTraceLink()).basicRemove(otherEnd, msgs);
+			case HybridPackage.TARGET__IS_REFERED:
+				return ((InternalEList<?>)getIsRefered()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -269,6 +297,8 @@ public class TargetImpl extends RuleElementImpl implements Target {
 				return getLeftPatternOwned();
 			case HybridPackage.TARGET__TRACE_LINK:
 				return getTraceLink();
+			case HybridPackage.TARGET__IS_REFERED:
+				return getIsRefered();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -296,6 +326,10 @@ public class TargetImpl extends RuleElementImpl implements Target {
 				getTraceLink().clear();
 				getTraceLink().addAll((Collection<? extends TraceLink>)newValue);
 				return;
+			case HybridPackage.TARGET__IS_REFERED:
+				getIsRefered().clear();
+				getIsRefered().addAll((Collection<? extends RightPattern>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -320,6 +354,9 @@ public class TargetImpl extends RuleElementImpl implements Target {
 			case HybridPackage.TARGET__TRACE_LINK:
 				getTraceLink().clear();
 				return;
+			case HybridPackage.TARGET__IS_REFERED:
+				getIsRefered().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -340,6 +377,8 @@ public class TargetImpl extends RuleElementImpl implements Target {
 				return getLeftPatternOwned() != null;
 			case HybridPackage.TARGET__TRACE_LINK:
 				return traceLink != null && !traceLink.isEmpty();
+			case HybridPackage.TARGET__IS_REFERED:
+				return isRefered != null && !isRefered.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

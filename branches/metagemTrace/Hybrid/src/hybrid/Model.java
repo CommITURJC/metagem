@@ -18,7 +18,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link hybrid.Model#getPath <em>Path</em>}</li>
  *   <li>{@link hybrid.Model#getType_mm <em>Type mm</em>}</li>
- *   <li>{@link hybrid.Model#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,23 +77,5 @@ public interface Model extends HybridElement {
 	 * @generated
 	 */
 	void setType_mm(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link hybrid.ModelElement}.
-	 * It is bidirectional and its opposite is '{@link hybrid.ModelElement#getOwnedModel <em>Owned Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' containment reference list.
-	 * @see hybrid.HybridPackage#getModel_Elements()
-	 * @see hybrid.ModelElement#getOwnedModel
-	 * @model opposite="ownedModel" containment="true"
-	 * @generated
-	 */
-	EList<ModelElement> getElements();
 
 } // Model

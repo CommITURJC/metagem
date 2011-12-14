@@ -14,9 +14,6 @@ import hybrid.HybridFactory;
 import hybrid.HybridPackage;
 import hybrid.LeftPattern;
 import hybrid.Model;
-import hybrid.ModelComponent;
-import hybrid.ModelElement;
-import hybrid.ModelFeature;
 import hybrid.Module;
 import hybrid.Operation;
 import hybrid.Return;
@@ -96,27 +93,6 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * @generated
 	 */
 	private EClass modelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass modelElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass modelFeatureEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass modelComponentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -489,123 +465,6 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Elements() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getModelElement() {
-		return modelElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElement_OwnedModel() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElement_ChildElements() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElement_ParentElement() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElement_Features() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElement_Contains() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElement_IsContained() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getModelFeature() {
-		return modelFeatureEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelFeature_OwnedElement() {
-		return (EReference)modelFeatureEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getModelComponent() {
-		return modelComponentEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getModelComponent_Ref() {
-		return (EAttribute)modelComponentEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelComponent_RuleElement() {
-		return (EReference)modelComponentEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRule() {
 		return ruleEClass;
 	}
@@ -750,8 +609,8 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRuleElement_IsRefered() {
-		return (EReference)ruleElementEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRuleElement_Ref() {
+		return (EAttribute)ruleElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -759,8 +618,26 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRuleElement_Component() {
+	public EReference getRuleElement_BelongsTo() {
 		return (EReference)ruleElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRuleElement_Owns() {
+		return (EReference)ruleElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRuleElement_Model() {
+		return (EReference)ruleElementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -842,6 +719,15 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 */
 	public EReference getTarget_TraceLink() {
 		return (EReference)targetEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTarget_IsRefered() {
+		return (EReference)targetEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1180,22 +1066,6 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		modelEClass = createEClass(MODEL);
 		createEAttribute(modelEClass, MODEL__PATH);
 		createEAttribute(modelEClass, MODEL__TYPE_MM);
-		createEReference(modelEClass, MODEL__ELEMENTS);
-
-		modelElementEClass = createEClass(MODEL_ELEMENT);
-		createEReference(modelElementEClass, MODEL_ELEMENT__OWNED_MODEL);
-		createEReference(modelElementEClass, MODEL_ELEMENT__CHILD_ELEMENTS);
-		createEReference(modelElementEClass, MODEL_ELEMENT__PARENT_ELEMENT);
-		createEReference(modelElementEClass, MODEL_ELEMENT__FEATURES);
-		createEReference(modelElementEClass, MODEL_ELEMENT__CONTAINS);
-		createEReference(modelElementEClass, MODEL_ELEMENT__IS_CONTAINED);
-
-		modelFeatureEClass = createEClass(MODEL_FEATURE);
-		createEReference(modelFeatureEClass, MODEL_FEATURE__OWNED_ELEMENT);
-
-		modelComponentEClass = createEClass(MODEL_COMPONENT);
-		createEAttribute(modelComponentEClass, MODEL_COMPONENT__REF);
-		createEReference(modelComponentEClass, MODEL_COMPONENT__RULE_ELEMENT);
 
 		ruleEClass = createEClass(RULE);
 		createEAttribute(ruleEClass, RULE__IS_ABSTRACT);
@@ -1214,8 +1084,10 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		createEReference(ruleEClass, RULE__RIGHT_PATTERN);
 
 		ruleElementEClass = createEClass(RULE_ELEMENT);
-		createEReference(ruleElementEClass, RULE_ELEMENT__IS_REFERED);
-		createEReference(ruleElementEClass, RULE_ELEMENT__COMPONENT);
+		createEAttribute(ruleElementEClass, RULE_ELEMENT__REF);
+		createEReference(ruleElementEClass, RULE_ELEMENT__BELONGS_TO);
+		createEReference(ruleElementEClass, RULE_ELEMENT__OWNS);
+		createEReference(ruleElementEClass, RULE_ELEMENT__MODEL);
 
 		sourceEClass = createEClass(SOURCE);
 		createEReference(sourceEClass, SOURCE__RULE);
@@ -1227,6 +1099,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		createEReference(targetEClass, TARGET__BINDINGS);
 		createEReference(targetEClass, TARGET__LEFT_PATTERN_OWNED);
 		createEReference(targetEClass, TARGET__TRACE_LINK);
+		createEReference(targetEClass, TARGET__IS_REFERED);
 
 		guardEClass = createEClass(GUARD);
 		createEAttribute(guardEClass, GUARD__VALUE);
@@ -1302,10 +1175,6 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		sourceModelEClass.getESuperTypes().add(this.getModel());
 		targetModelEClass.getESuperTypes().add(this.getModel());
 		modelEClass.getESuperTypes().add(this.getHybridElement());
-		modelElementEClass.getESuperTypes().add(this.getHybridElement());
-		modelElementEClass.getESuperTypes().add(this.getModelComponent());
-		modelFeatureEClass.getESuperTypes().add(this.getModelComponent());
-		modelComponentEClass.getESuperTypes().add(this.getHybridElement());
 		ruleEClass.getESuperTypes().add(this.getHybridElement());
 		ruleElementEClass.getESuperTypes().add(this.getHybridElement());
 		sourceEClass.getESuperTypes().add(this.getRuleElement());
@@ -1330,11 +1199,11 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEAttribute(getOperation_Body(), ecorePackage.getEString(), "body", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_Return(), this.getReturn(), null, "return", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_RightPattern(), this.getRightPattern(), this.getRightPattern_Operation(), "rightPattern", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperation_Context(), this.getModelComponent(), null, "context", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Context(), this.getRuleElement(), null, "context", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(returnEClass, Return.class, "Return", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReturn_Datatype(), this.getDatatype(), "datatype", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReturn_Component(), this.getModelComponent(), null, "component", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReturn_Component(), this.getRuleElement(), null, "component", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sourceModelEClass, SourceModel.class, "SourceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSourceModel_Module(), this.getModule(), this.getModule_SourceModels(), "module", null, 1, 1, SourceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1345,22 +1214,6 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEClass(modelEClass, Model.class, "Model", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModel_Path(), ecorePackage.getEString(), "path", null, 1, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModel_Type_mm(), ecorePackage.getEString(), "type_mm", null, 1, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModel_Elements(), this.getModelElement(), this.getModelElement_OwnedModel(), "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(modelElementEClass, ModelElement.class, "ModelElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModelElement_OwnedModel(), this.getModel(), this.getModel_Elements(), "ownedModel", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElement_ChildElements(), this.getModelElement(), this.getModelElement_ParentElement(), "childElements", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElement_ParentElement(), this.getModelElement(), this.getModelElement_ChildElements(), "parentElement", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElement_Features(), this.getModelFeature(), this.getModelFeature_OwnedElement(), "features", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElement_Contains(), this.getModelElement(), this.getModelElement_IsContained(), "contains", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElement_IsContained(), this.getModelElement(), this.getModelElement_Contains(), "isContained", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(modelFeatureEClass, ModelFeature.class, "ModelFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModelFeature_OwnedElement(), this.getModelElement(), this.getModelElement_Features(), "ownedElement", null, 1, 1, ModelFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(modelComponentEClass, ModelComponent.class, "ModelComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getModelComponent_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, ModelComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelComponent_RuleElement(), this.getRuleElement(), this.getRuleElement_Component(), "ruleElement", null, 0, -1, ModelComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRule_IsAbstract(), ecorePackage.getEBoolean(), "isAbstract", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1379,8 +1232,10 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEReference(getRule_RightPattern(), this.getRightPattern(), this.getRightPattern_Rule(), "rightPattern", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleElementEClass, RuleElement.class, "RuleElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRuleElement_IsRefered(), this.getRightPattern(), this.getRightPattern_Reference(), "isRefered", null, 0, -1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRuleElement_Component(), this.getModelComponent(), this.getModelComponent_RuleElement(), "component", null, 1, 1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRuleElement_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRuleElement_BelongsTo(), this.getRuleElement(), this.getRuleElement_Owns(), "belongsTo", null, 0, 1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRuleElement_Owns(), this.getRuleElement(), this.getRuleElement_BelongsTo(), "owns", null, 0, -1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRuleElement_Model(), this.getModel(), null, "model", null, 1, 1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSource_Rule(), this.getRule(), this.getRule_Sources(), "rule", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1392,6 +1247,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEReference(getTarget_Bindings(), this.getBinding(), this.getBinding_Owned(), "bindings", null, 0, -1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTarget_LeftPatternOwned(), this.getLeftPattern(), this.getLeftPattern_Target(), "leftPatternOwned", null, 0, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTarget_TraceLink(), this.getTraceLink(), this.getTraceLink_Target(), "traceLink", null, 0, -1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTarget_IsRefered(), this.getRightPattern(), this.getRightPattern_Reference(), "isRefered", null, 0, -1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(guardEClass, Guard.class, "Guard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGuard_Value(), ecorePackage.getEString(), "value", null, 1, 1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1410,7 +1266,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEReference(getRightPattern_Source(), this.getSource(), this.getSource_RightPatternOwned(), "source", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRightPattern_Operation(), this.getOperation(), this.getOperation_RightPattern(), "operation", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRightPattern_ConcreteValue(), ecorePackage.getEString(), "concreteValue", null, 0, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRightPattern_Reference(), this.getRuleElement(), this.getRuleElement_IsRefered(), "reference", null, 0, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRightPattern_Reference(), this.getTarget(), this.getTarget_IsRefered(), "reference", null, 0, 1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRightPattern_Rule(), this.getRule(), this.getRule_RightPattern(), "rule", null, 0, -1, RightPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(leftPatternEClass, LeftPattern.class, "LeftPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

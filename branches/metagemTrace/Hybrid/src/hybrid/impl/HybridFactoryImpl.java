@@ -67,8 +67,6 @@ public class HybridFactoryImpl extends EFactoryImpl implements HybridFactory {
 			case HybridPackage.RETURN: return createReturn();
 			case HybridPackage.SOURCE_MODEL: return createSourceModel();
 			case HybridPackage.TARGET_MODEL: return createTargetModel();
-			case HybridPackage.MODEL_ELEMENT: return createModelElement();
-			case HybridPackage.MODEL_FEATURE: return createModelFeature();
 			case HybridPackage.RULE: return createRule();
 			case HybridPackage.SOURCE: return createSource();
 			case HybridPackage.TARGET: return createTarget();
@@ -169,26 +167,6 @@ public class HybridFactoryImpl extends EFactoryImpl implements HybridFactory {
 	public TargetModel createTargetModel() {
 		TargetModelImpl targetModel = new TargetModelImpl();
 		return targetModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModelElement createModelElement() {
-		ModelElementImpl modelElement = new ModelElementImpl();
-		return modelElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModelFeature createModelFeature() {
-		ModelFeatureImpl modelFeature = new ModelFeatureImpl();
-		return modelFeature;
 	}
 
 	/**

@@ -71,24 +71,6 @@ public interface HybridFactory extends EFactory {
 	TargetModel createTargetModel();
 
 	/**
-	 * Returns a new object of class '<em>Model Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Model Element</em>'.
-	 * @generated
-	 */
-	ModelElement createModelElement();
-
-	/**
-	 * Returns a new object of class '<em>Model Feature</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Model Feature</em>'.
-	 * @generated
-	 */
-	ModelFeature createModelFeature();
-
-	/**
 	 * Returns a new object of class '<em>Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

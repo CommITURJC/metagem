@@ -190,52 +190,7 @@ public class HybridItemProviderAdapterFactoryMulti extends HybridAdapterFactory 
 		return targetModelItemProvider;
 	}
 
-	/**
-	 * This keeps track of the one adapter used for all {@link hybrid.ModelElement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ModelElementItemProvider modelElementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link hybrid.ModelElement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createModelElementAdapter() {
-		if (modelElementItemProvider == null) {
-			modelElementItemProvider = new ModelElementItemProvider(this);
-		}
-
-		return modelElementItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link hybrid.ModelFeature} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ModelFeatureItemProvider modelFeatureItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link hybrid.ModelFeature}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createModelFeatureAdapter() {
-		if (modelFeatureItemProvider == null) {
-			modelFeatureItemProvider = new ModelFeatureItemProvider(this);
-		}
-
-		return modelFeatureItemProvider;
-	}
-
+	
 	/**
 	 * This keeps track of the one adapter used for all {@link hybrid.Rule} instances.
 	 * <!-- begin-user-doc -->
@@ -547,8 +502,6 @@ public class HybridItemProviderAdapterFactoryMulti extends HybridAdapterFactory 
 		if (returnItemProvider != null) returnItemProvider.dispose();
 		if (sourceModelItemProvider != null) sourceModelItemProvider.dispose();
 		if (targetModelItemProvider != null) targetModelItemProvider.dispose();
-		if (modelElementItemProvider != null) modelElementItemProvider.dispose();
-		if (modelFeatureItemProvider != null) modelFeatureItemProvider.dispose();
 		if (ruleItemProvider != null) ruleItemProvider.dispose();
 		if (sourceItemProvider != null) sourceItemProvider.dispose();
 		if (targetItemProvider != null) targetItemProvider.dispose();

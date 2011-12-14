@@ -136,29 +136,6 @@ public class HybridSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case HybridPackage.MODEL_ELEMENT: {
-				ModelElement modelElement = (ModelElement)theEObject;
-				T result = caseModelElement(modelElement);
-				if (result == null) result = caseModelComponent(modelElement);
-				if (result == null) result = caseHybridElement(modelElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case HybridPackage.MODEL_FEATURE: {
-				ModelFeature modelFeature = (ModelFeature)theEObject;
-				T result = caseModelFeature(modelFeature);
-				if (result == null) result = caseModelComponent(modelFeature);
-				if (result == null) result = caseHybridElement(modelFeature);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case HybridPackage.MODEL_COMPONENT: {
-				ModelComponent modelComponent = (ModelComponent)theEObject;
-				T result = caseModelComponent(modelComponent);
-				if (result == null) result = caseHybridElement(modelComponent);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case HybridPackage.RULE: {
 				Rule rule = (Rule)theEObject;
 				T result = caseRule(rule);
@@ -343,51 +320,6 @@ public class HybridSwitch<T> {
 	 * @generated
 	 */
 	public T caseModel(Model object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Model Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseModelElement(ModelElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Model Feature</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Model Feature</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseModelFeature(ModelFeature object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Model Component</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Model Component</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseModelComponent(ModelComponent object) {
 		return null;
 	}
 

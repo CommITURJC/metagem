@@ -145,12 +145,12 @@ public interface Operation extends HybridElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Context</em>' reference.
-	 * @see #setContext(ModelComponent)
+	 * @see #setContext(RuleElement)
 	 * @see hybrid.HybridPackage#getOperation_Context()
 	 * @model
 	 * @generated
 	 */
-	ModelComponent getContext();
+	RuleElement getContext();
 
 	/**
 	 * Sets the value of the '{@link hybrid.Operation#getContext <em>Context</em>}' reference.
@@ -160,6 +160,6 @@ public interface Operation extends HybridElement {
 	 * @see #getContext()
 	 * @generated
 	 */
-	void setContext(ModelComponent value);
+	void setContext(RuleElement value);
 
 } // Operation

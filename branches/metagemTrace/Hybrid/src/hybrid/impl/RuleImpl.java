@@ -6,6 +6,7 @@
  */
 package hybrid.impl;
 
+import hybrid.Binding;
 import hybrid.Guard;
 import hybrid.HybridPackage;
 import hybrid.Module;
@@ -458,7 +459,28 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 				}
 			}
 					
-		}			
+		}	
+		
+		//Update 'belongsTo'(RuleElement) <-> 'owns' attributes
+		if(sources.size()==1){
+			Source source = sources.get(0);
+			EList<Target> targets_rule = this.getTargets();
+			for(int i=0;i<targets_rule.size();i++){
+				Target target = targets_rule.get(0);
+				EList<Binding> bindings = target.getBindings();
+				for(int j=0;j<bindings.size();j++){
+					Binding binding = bindings.get(j);
+					if((binding!=null)&&(binding.getRight()!=null)&&(binding.getRight().getSource()!=null)){
+						EList<Source> sources_binding = binding.getRight().getSource();
+						for(int k=0;k<sources_binding.size();k++){
+							sources_binding.get(k).setBelongsTo(source);
+						}
+					}
+				}
+			}
+			
+		}
+		
 		return sources;
 	}
 
@@ -480,7 +502,19 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 				}
 			}
 			
-		}	
+		}
+		//Update 'belongsTo'(RuleElement) <-> 'owns' attributes
+		if(targets.size()==1){
+			Target target = targets.get(0);
+			EList<Binding> bindings = target.getBindings();
+			for(int i=0;i<bindings.size();i++){
+				Binding binding = bindings.get(i);
+				if((binding!=null)&&(binding.getLeft()!=null)&&(binding.getLeft().getTarget()!=null)){
+					Target target_binding = binding.getLeft().getTarget();
+					target_binding.setBelongsTo(target);
+				}
+			}
+		}
 		return targets;
 	}
 
