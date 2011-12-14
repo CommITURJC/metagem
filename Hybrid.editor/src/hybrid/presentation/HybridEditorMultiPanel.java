@@ -1290,10 +1290,10 @@ public class HybridEditorMultiPanel
 						EObject element = (EObject) hybridContents.next();
 						if (element instanceof TargetImpl) {
 							TargetImpl target = (TargetImpl) element;
-							if (target.getComponent()!=null&&
-									target.getComponent().getRef() != null && 
+							if (target!=null&&
+									target.getRef() != null && 
 									id != null && 
-									target.getComponent().getRef().equals(id)) {
+									target.getRef().equals(id)) {
 								EList<TraceLink> traces = target.getTraceLink();
 								for(int cont=0;cont<traces.size();cont++){
 									selections.add(traces.get(cont));
@@ -1337,10 +1337,10 @@ public class HybridEditorMultiPanel
 						EObject element = (EObject) hybridContents.next();
 						if (element instanceof SourceImpl) {
 							SourceImpl source = (SourceImpl) element;
-							if (source.getComponent()!=null &&
-									source.getComponent().getRef() != null && 
+							if (source!=null &&
+									source.getRef() != null && 
 									id != null	&& 
-									source.getComponent().getRef().equals(id)) {
+									source.getRef().equals(id)) {
 								EList<TraceLink> traces = source.getTraceLink();
 								for(int cont=0;cont<traces.size();cont++){
 									selections.add(traces.get(cont));
@@ -1425,9 +1425,9 @@ public class HybridEditorMultiPanel
 				String id = resource.getID(element); // Get element id
 				if (id == null)
 					id = resource.getURIFragment(element);
-				if (source.getComponent() != null
-						&& source.getComponent().getRef() != null && id != null
-						&& id.equals(source.getComponent().getRef())) {
+				if (source != null
+						&& source.getRef() != null && id != null
+						&& id.equals(source.getRef())) {
 					sourceElements.add(element);
 				}
 			}
@@ -1449,9 +1449,9 @@ public class HybridEditorMultiPanel
 				String id = resource.getID(element); // Get element id
 				if (id == null)
 					id = resource.getURIFragment(element);
-				if (target.getComponent() != null
-						&& target.getComponent().getRef() != null && id != null
-						&& id.equals(target.getComponent().getRef())) {
+				if (target!= null
+						&& target.getRef() != null && id != null
+						&& id.equals(target.getRef())) {
 					targetElements.add(element);
 				}
 			}
