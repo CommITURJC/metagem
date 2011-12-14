@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link metagem.ModelTransf#getPath <em>Path</em>}</li>
- *   <li>{@link metagem.ModelTransf#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,23 +50,5 @@ public interface ModelTransf extends TransformationElement {
 	 * @generated
 	 */
 	void setPath(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link metagem.ModelElement}.
-	 * It is bidirectional and its opposite is '{@link metagem.ModelElement#getOwnedElement <em>Owned Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' containment reference list.
-	 * @see metagem.MetagemPackage#getModelTransf_Elements()
-	 * @see metagem.ModelElement#getOwnedElement
-	 * @model opposite="ownedElement" containment="true"
-	 * @generated
-	 */
-	EList<ModelElement> getElements();
 
 } // ModelTransf

@@ -10,9 +10,6 @@ import metagem.ManyToMany;
 import metagem.ManyToOne;
 import metagem.MetagemFactory;
 import metagem.MetagemPackage;
-import metagem.ModelComponent;
-import metagem.ModelElement;
-import metagem.ModelFeature;
 import metagem.ModelRoot;
 import metagem.ModelTransf;
 import metagem.OneToMany;
@@ -85,13 +82,6 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass modelComponentEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass relationsEClass = null;
 
 	/**
@@ -156,20 +146,6 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 	 * @generated
 	 */
 	private EClass targetElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass modelElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass modelFeatureEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -339,15 +315,6 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModelTransf_Elements() {
-		return (EReference)modelTransfEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getSourceModelTransf() {
 		return sourceModelTransfEClass;
 	}
@@ -377,33 +344,6 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 	 */
 	public EReference getTargetModelTransf_OwnedElement() {
 		return (EReference)targetModelTransfEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getModelComponent() {
-		return modelComponentEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelComponent_RelationElement() {
-		return (EReference)modelComponentEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getModelComponent_Ref() {
-		return (EAttribute)modelComponentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -672,8 +612,35 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRelationElement_ModelComponent() {
-		return (EReference)relationElementEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRelationElement_Ref() {
+		return (EAttribute)relationElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRelationElement_BelongsTo() {
+		return (EReference)relationElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRelationElement_Owns() {
+		return (EReference)relationElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRelationElement_Model() {
+		return (EReference)relationElementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -728,87 +695,6 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 	 */
 	public EReference getTargetElement_ManyToOne() {
 		return (EReference)targetElementEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getModelElement() {
-		return modelElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElement_Features() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElement_Elements() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElement_SuperElement() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElement_OwnedElement() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElement_Contains() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElement_IsContained() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getModelFeature() {
-		return modelFeatureEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelFeature_Parent() {
-		return (EReference)modelFeatureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -877,17 +763,12 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 
 		modelTransfEClass = createEClass(MODEL_TRANSF);
 		createEAttribute(modelTransfEClass, MODEL_TRANSF__PATH);
-		createEReference(modelTransfEClass, MODEL_TRANSF__ELEMENTS);
 
 		sourceModelTransfEClass = createEClass(SOURCE_MODEL_TRANSF);
 		createEReference(sourceModelTransfEClass, SOURCE_MODEL_TRANSF__OWNED_ELEMENT);
 
 		targetModelTransfEClass = createEClass(TARGET_MODEL_TRANSF);
 		createEReference(targetModelTransfEClass, TARGET_MODEL_TRANSF__OWNED_ELEMENT);
-
-		modelComponentEClass = createEClass(MODEL_COMPONENT);
-		createEReference(modelComponentEClass, MODEL_COMPONENT__RELATION_ELEMENT);
-		createEAttribute(modelComponentEClass, MODEL_COMPONENT__REF);
 
 		relationsEClass = createEClass(RELATIONS);
 		createEReference(relationsEClass, RELATIONS__OWNED_MODEL);
@@ -925,7 +806,10 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 		createEReference(manyToManyEClass, MANY_TO_MANY__SOURCE);
 
 		relationElementEClass = createEClass(RELATION_ELEMENT);
-		createEReference(relationElementEClass, RELATION_ELEMENT__MODEL_COMPONENT);
+		createEAttribute(relationElementEClass, RELATION_ELEMENT__REF);
+		createEReference(relationElementEClass, RELATION_ELEMENT__BELONGS_TO);
+		createEReference(relationElementEClass, RELATION_ELEMENT__OWNS);
+		createEReference(relationElementEClass, RELATION_ELEMENT__MODEL);
 
 		sourceElementEClass = createEClass(SOURCE_ELEMENT);
 		createEReference(sourceElementEClass, SOURCE_ELEMENT__INVOKES);
@@ -934,17 +818,6 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 		createEReference(targetElementEClass, TARGET_ELEMENT__ZERO_TO_ONE);
 		createEReference(targetElementEClass, TARGET_ELEMENT__ONE_TO_ONE);
 		createEReference(targetElementEClass, TARGET_ELEMENT__MANY_TO_ONE);
-
-		modelElementEClass = createEClass(MODEL_ELEMENT);
-		createEReference(modelElementEClass, MODEL_ELEMENT__FEATURES);
-		createEReference(modelElementEClass, MODEL_ELEMENT__ELEMENTS);
-		createEReference(modelElementEClass, MODEL_ELEMENT__SUPER_ELEMENT);
-		createEReference(modelElementEClass, MODEL_ELEMENT__OWNED_ELEMENT);
-		createEReference(modelElementEClass, MODEL_ELEMENT__CONTAINS);
-		createEReference(modelElementEClass, MODEL_ELEMENT__IS_CONTAINED);
-
-		modelFeatureEClass = createEClass(MODEL_FEATURE);
-		createEReference(modelFeatureEClass, MODEL_FEATURE__PARENT);
 
 		// Create enums
 		tRelationEEnum = createEEnum(TRELATION);
@@ -983,7 +856,6 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 		modelTransfEClass.getESuperTypes().add(this.getTransformationElement());
 		sourceModelTransfEClass.getESuperTypes().add(this.getModelTransf());
 		targetModelTransfEClass.getESuperTypes().add(this.getModelTransf());
-		modelComponentEClass.getESuperTypes().add(this.getTransformationElement());
 		relationsEClass.getESuperTypes().add(this.getTransformationElement());
 		oneToOneEClass.getESuperTypes().add(this.getRelations());
 		oneToZeroEClass.getESuperTypes().add(this.getRelations());
@@ -994,8 +866,6 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 		relationElementEClass.getESuperTypes().add(this.getTransformationElement());
 		sourceElementEClass.getESuperTypes().add(this.getRelationElement());
 		targetElementEClass.getESuperTypes().add(this.getRelationElement());
-		modelElementEClass.getESuperTypes().add(this.getModelComponent());
-		modelFeatureEClass.getESuperTypes().add(this.getModelComponent());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(modelRootEClass, ModelRoot.class, "ModelRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1009,17 +879,12 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 
 		initEClass(modelTransfEClass, ModelTransf.class, "ModelTransf", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelTransf_Path(), ecorePackage.getEString(), "path", null, 1, 1, ModelTransf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelTransf_Elements(), this.getModelElement(), this.getModelElement_OwnedElement(), "elements", null, 0, -1, ModelTransf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sourceModelTransfEClass, SourceModelTransf.class, "SourceModelTransf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSourceModelTransf_OwnedElement(), this.getModelRoot(), this.getModelRoot_SourceModels(), "ownedElement", null, 1, 1, SourceModelTransf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(targetModelTransfEClass, TargetModelTransf.class, "TargetModelTransf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTargetModelTransf_OwnedElement(), this.getModelRoot(), this.getModelRoot_TargetModels(), "ownedElement", null, 1, 1, TargetModelTransf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(modelComponentEClass, ModelComponent.class, "ModelComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModelComponent_RelationElement(), this.getRelationElement(), this.getRelationElement_ModelComponent(), "relationElement", null, 0, -1, ModelComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getModelComponent_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, ModelComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(relationsEClass, Relations.class, "Relations", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRelations_OwnedModel(), this.getModelRoot(), this.getModelRoot_Relations(), "ownedModel", null, 0, 1, Relations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1057,7 +922,10 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 		initEReference(getManyToMany_Source(), this.getSourceElement(), null, "source", null, 1, -1, ManyToMany.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(relationElementEClass, RelationElement.class, "RelationElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRelationElement_ModelComponent(), this.getModelComponent(), this.getModelComponent_RelationElement(), "modelComponent", null, 1, 1, RelationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRelationElement_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, RelationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationElement_BelongsTo(), this.getRelationElement(), this.getRelationElement_Owns(), "belongsTo", null, 0, 1, RelationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationElement_Owns(), this.getRelationElement(), this.getRelationElement_BelongsTo(), "owns", null, 0, -1, RelationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationElement_Model(), this.getModelTransf(), null, "model", null, 1, 1, RelationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sourceElementEClass, SourceElement.class, "SourceElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSourceElement_Invokes(), this.getRelations(), this.getRelations_IsInvoked(), "invokes", null, 0, 1, SourceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1066,17 +934,6 @@ public class MetagemPackageImpl extends EPackageImpl implements MetagemPackage {
 		initEReference(getTargetElement_ZeroToOne(), this.getZeroToOne(), this.getZeroToOne_OwnedElement(), "zeroToOne", null, 0, -1, TargetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTargetElement_OneToOne(), this.getOneToOne(), this.getOneToOne_OwnedElement(), "oneToOne", null, 0, -1, TargetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTargetElement_ManyToOne(), this.getManyToOne(), this.getManyToOne_OwnedElement(), "ManyToOne", null, 0, -1, TargetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(modelElementEClass, ModelElement.class, "ModelElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModelElement_Features(), this.getModelFeature(), this.getModelFeature_Parent(), "features", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElement_Elements(), this.getModelElement(), this.getModelElement_SuperElement(), "elements", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElement_SuperElement(), this.getModelElement(), this.getModelElement_Elements(), "superElement", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElement_OwnedElement(), this.getModelTransf(), this.getModelTransf_Elements(), "ownedElement", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElement_Contains(), this.getModelElement(), this.getModelElement_IsContained(), "contains", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElement_IsContained(), this.getModelElement(), this.getModelElement_Contains(), "isContained", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(modelFeatureEClass, ModelFeature.class, "ModelFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModelFeature_Parent(), this.getModelElement(), this.getModelElement_Features(), "parent", null, 1, 1, ModelFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(tRelationEEnum, TRelation.class, "TRelation");

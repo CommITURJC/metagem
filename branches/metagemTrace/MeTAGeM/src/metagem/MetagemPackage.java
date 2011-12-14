@@ -172,22 +172,13 @@ public interface MetagemPackage extends EPackage {
 	int MODEL_TRANSF__PATH = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_TRANSF__ELEMENTS = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Model Transf</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_TRANSF_FEATURE_COUNT = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 2;
+	int MODEL_TRANSF_FEATURE_COUNT = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link metagem.impl.SourceModelTransfImpl <em>Source Model Transf</em>}' class.
@@ -216,15 +207,6 @@ public interface MetagemPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOURCE_MODEL_TRANSF__PATH = MODEL_TRANSF__PATH;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE_MODEL_TRANSF__ELEMENTS = MODEL_TRANSF__ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Owned Element</b></em>' container reference.
@@ -273,15 +255,6 @@ public interface MetagemPackage extends EPackage {
 	int TARGET_MODEL_TRANSF__PATH = MODEL_TRANSF__PATH;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TARGET_MODEL_TRANSF__ELEMENTS = MODEL_TRANSF__ELEMENTS;
-
-	/**
 	 * The feature id for the '<em><b>Owned Element</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -300,52 +273,6 @@ public interface MetagemPackage extends EPackage {
 	int TARGET_MODEL_TRANSF_FEATURE_COUNT = MODEL_TRANSF_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link metagem.impl.ModelComponentImpl <em>Model Component</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see metagem.impl.ModelComponentImpl
-	 * @see metagem.impl.MetagemPackageImpl#getModelComponent()
-	 * @generated
-	 */
-	int MODEL_COMPONENT = 5;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_COMPONENT__NAME = TRANSFORMATION_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Relation Element</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_COMPONENT__RELATION_ELEMENT = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_COMPONENT__REF = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Model Component</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_COMPONENT_FEATURE_COUNT = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The meta object id for the '{@link metagem.impl.RelationsImpl <em>Relations</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -353,7 +280,7 @@ public interface MetagemPackage extends EPackage {
 	 * @see metagem.impl.MetagemPackageImpl#getRelations()
 	 * @generated
 	 */
-	int RELATIONS = 6;
+	int RELATIONS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -453,7 +380,7 @@ public interface MetagemPackage extends EPackage {
 	 * @see metagem.impl.MetagemPackageImpl#getOneToOne()
 	 * @generated
 	 */
-	int ONE_TO_ONE = 7;
+	int ONE_TO_ONE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -580,7 +507,7 @@ public interface MetagemPackage extends EPackage {
 	 * @see metagem.impl.MetagemPackageImpl#getOneToZero()
 	 * @generated
 	 */
-	int ONE_TO_ZERO = 8;
+	int ONE_TO_ZERO = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -689,7 +616,7 @@ public interface MetagemPackage extends EPackage {
 	 * @see metagem.impl.MetagemPackageImpl#getZeroToOne()
 	 * @generated
 	 */
-	int ZERO_TO_ONE = 9;
+	int ZERO_TO_ONE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -807,7 +734,7 @@ public interface MetagemPackage extends EPackage {
 	 * @see metagem.impl.MetagemPackageImpl#getOneToMany()
 	 * @generated
 	 */
-	int ONE_TO_MANY = 10;
+	int ONE_TO_MANY = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -925,7 +852,7 @@ public interface MetagemPackage extends EPackage {
 	 * @see metagem.impl.MetagemPackageImpl#getManyToOne()
 	 * @generated
 	 */
-	int MANY_TO_ONE = 11;
+	int MANY_TO_ONE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1052,7 +979,7 @@ public interface MetagemPackage extends EPackage {
 	 * @see metagem.impl.MetagemPackageImpl#getManyToMany()
 	 * @generated
 	 */
-	int MANY_TO_MANY = 12;
+	int MANY_TO_MANY = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1170,7 +1097,7 @@ public interface MetagemPackage extends EPackage {
 	 * @see metagem.impl.MetagemPackageImpl#getRelationElement()
 	 * @generated
 	 */
-	int RELATION_ELEMENT = 13;
+	int RELATION_ELEMENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1182,13 +1109,40 @@ public interface MetagemPackage extends EPackage {
 	int RELATION_ELEMENT__NAME = TRANSFORMATION_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Model Component</b></em>' reference.
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_ELEMENT__MODEL_COMPONENT = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 0;
+	int RELATION_ELEMENT__REF = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Belongs To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_ELEMENT__BELONGS_TO = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Owns</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_ELEMENT__OWNS = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_ELEMENT__MODEL = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Relation Element</em>' class.
@@ -1197,7 +1151,7 @@ public interface MetagemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_ELEMENT_FEATURE_COUNT = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 1;
+	int RELATION_ELEMENT_FEATURE_COUNT = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link metagem.impl.SourceElementImpl <em>Source Element</em>}' class.
@@ -1207,7 +1161,7 @@ public interface MetagemPackage extends EPackage {
 	 * @see metagem.impl.MetagemPackageImpl#getSourceElement()
 	 * @generated
 	 */
-	int SOURCE_ELEMENT = 14;
+	int SOURCE_ELEMENT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1219,13 +1173,40 @@ public interface MetagemPackage extends EPackage {
 	int SOURCE_ELEMENT__NAME = RELATION_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Model Component</b></em>' reference.
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_ELEMENT__MODEL_COMPONENT = RELATION_ELEMENT__MODEL_COMPONENT;
+	int SOURCE_ELEMENT__REF = RELATION_ELEMENT__REF;
+
+	/**
+	 * The feature id for the '<em><b>Belongs To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_ELEMENT__BELONGS_TO = RELATION_ELEMENT__BELONGS_TO;
+
+	/**
+	 * The feature id for the '<em><b>Owns</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_ELEMENT__OWNS = RELATION_ELEMENT__OWNS;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_ELEMENT__MODEL = RELATION_ELEMENT__MODEL;
 
 	/**
 	 * The feature id for the '<em><b>Invokes</b></em>' reference.
@@ -1253,7 +1234,7 @@ public interface MetagemPackage extends EPackage {
 	 * @see metagem.impl.MetagemPackageImpl#getTargetElement()
 	 * @generated
 	 */
-	int TARGET_ELEMENT = 15;
+	int TARGET_ELEMENT = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1265,13 +1246,40 @@ public interface MetagemPackage extends EPackage {
 	int TARGET_ELEMENT__NAME = RELATION_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Model Component</b></em>' reference.
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET_ELEMENT__MODEL_COMPONENT = RELATION_ELEMENT__MODEL_COMPONENT;
+	int TARGET_ELEMENT__REF = RELATION_ELEMENT__REF;
+
+	/**
+	 * The feature id for the '<em><b>Belongs To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_ELEMENT__BELONGS_TO = RELATION_ELEMENT__BELONGS_TO;
+
+	/**
+	 * The feature id for the '<em><b>Owns</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_ELEMENT__OWNS = RELATION_ELEMENT__OWNS;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_ELEMENT__MODEL = RELATION_ELEMENT__MODEL;
 
 	/**
 	 * The feature id for the '<em><b>Zero To One</b></em>' containment reference list.
@@ -1310,161 +1318,6 @@ public interface MetagemPackage extends EPackage {
 	int TARGET_ELEMENT_FEATURE_COUNT = RELATION_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link metagem.impl.ModelElementImpl <em>Model Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see metagem.impl.ModelElementImpl
-	 * @see metagem.impl.MetagemPackageImpl#getModelElement()
-	 * @generated
-	 */
-	int MODEL_ELEMENT = 16;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT__NAME = MODEL_COMPONENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Relation Element</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT__RELATION_ELEMENT = MODEL_COMPONENT__RELATION_ELEMENT;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT__REF = MODEL_COMPONENT__REF;
-
-	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT__FEATURES = MODEL_COMPONENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT__ELEMENTS = MODEL_COMPONENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Super Element</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT__SUPER_ELEMENT = MODEL_COMPONENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Owned Element</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT__OWNED_ELEMENT = MODEL_COMPONENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Contains</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT__CONTAINS = MODEL_COMPONENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Is Contained</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT__IS_CONTAINED = MODEL_COMPONENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of structural features of the '<em>Model Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT_FEATURE_COUNT = MODEL_COMPONENT_FEATURE_COUNT + 6;
-
-	/**
-	 * The meta object id for the '{@link metagem.impl.ModelFeatureImpl <em>Model Feature</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see metagem.impl.ModelFeatureImpl
-	 * @see metagem.impl.MetagemPackageImpl#getModelFeature()
-	 * @generated
-	 */
-	int MODEL_FEATURE = 17;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_FEATURE__NAME = MODEL_COMPONENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Relation Element</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_FEATURE__RELATION_ELEMENT = MODEL_COMPONENT__RELATION_ELEMENT;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_FEATURE__REF = MODEL_COMPONENT__REF;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_FEATURE__PARENT = MODEL_COMPONENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Model Feature</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_FEATURE_FEATURE_COUNT = MODEL_COMPONENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link metagem.TRelation <em>TRelation</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1472,7 +1325,7 @@ public interface MetagemPackage extends EPackage {
 	 * @see metagem.impl.MetagemPackageImpl#getTRelation()
 	 * @generated
 	 */
-	int TRELATION = 18;
+	int TRELATION = 15;
 
 	/**
 	 * The meta object id for the '{@link metagem.TElement <em>TElement</em>}' enum.
@@ -1482,7 +1335,7 @@ public interface MetagemPackage extends EPackage {
 	 * @see metagem.impl.MetagemPackageImpl#getTElement()
 	 * @generated
 	 */
-	int TELEMENT = 19;
+	int TELEMENT = 16;
 
 	/**
 	 * The meta object id for the '{@link metagem.TRole <em>TRole</em>}' enum.
@@ -1492,7 +1345,7 @@ public interface MetagemPackage extends EPackage {
 	 * @see metagem.impl.MetagemPackageImpl#getTRole()
 	 * @generated
 	 */
-	int TROLE = 20;
+	int TROLE = 17;
 
 
 	/**
@@ -1592,17 +1445,6 @@ public interface MetagemPackage extends EPackage {
 	EAttribute getModelTransf_Path();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link metagem.ModelTransf#getElements <em>Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elements</em>'.
-	 * @see metagem.ModelTransf#getElements()
-	 * @see #getModelTransf()
-	 * @generated
-	 */
-	EReference getModelTransf_Elements();
-
-	/**
 	 * Returns the meta object for class '{@link metagem.SourceModelTransf <em>Source Model Transf</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1643,38 +1485,6 @@ public interface MetagemPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTargetModelTransf_OwnedElement();
-
-	/**
-	 * Returns the meta object for class '{@link metagem.ModelComponent <em>Model Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Model Component</em>'.
-	 * @see metagem.ModelComponent
-	 * @generated
-	 */
-	EClass getModelComponent();
-
-	/**
-	 * Returns the meta object for the reference list '{@link metagem.ModelComponent#getRelationElement <em>Relation Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Relation Element</em>'.
-	 * @see metagem.ModelComponent#getRelationElement()
-	 * @see #getModelComponent()
-	 * @generated
-	 */
-	EReference getModelComponent_RelationElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link metagem.ModelComponent#getRef <em>Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ref</em>'.
-	 * @see metagem.ModelComponent#getRef()
-	 * @see #getModelComponent()
-	 * @generated
-	 */
-	EAttribute getModelComponent_Ref();
 
 	/**
 	 * Returns the meta object for class '{@link metagem.Relations <em>Relations</em>}'.
@@ -1988,15 +1798,48 @@ public interface MetagemPackage extends EPackage {
 	EClass getRelationElement();
 
 	/**
-	 * Returns the meta object for the reference '{@link metagem.RelationElement#getModelComponent <em>Model Component</em>}'.
+	 * Returns the meta object for the attribute '{@link metagem.RelationElement#getRef <em>Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Model Component</em>'.
-	 * @see metagem.RelationElement#getModelComponent()
+	 * @return the meta object for the attribute '<em>Ref</em>'.
+	 * @see metagem.RelationElement#getRef()
 	 * @see #getRelationElement()
 	 * @generated
 	 */
-	EReference getRelationElement_ModelComponent();
+	EAttribute getRelationElement_Ref();
+
+	/**
+	 * Returns the meta object for the reference '{@link metagem.RelationElement#getBelongsTo <em>Belongs To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Belongs To</em>'.
+	 * @see metagem.RelationElement#getBelongsTo()
+	 * @see #getRelationElement()
+	 * @generated
+	 */
+	EReference getRelationElement_BelongsTo();
+
+	/**
+	 * Returns the meta object for the reference list '{@link metagem.RelationElement#getOwns <em>Owns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Owns</em>'.
+	 * @see metagem.RelationElement#getOwns()
+	 * @see #getRelationElement()
+	 * @generated
+	 */
+	EReference getRelationElement_Owns();
+
+	/**
+	 * Returns the meta object for the reference '{@link metagem.RelationElement#getModel <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Model</em>'.
+	 * @see metagem.RelationElement#getModel()
+	 * @see #getRelationElement()
+	 * @generated
+	 */
+	EReference getRelationElement_Model();
 
 	/**
 	 * Returns the meta object for class '{@link metagem.SourceElement <em>Source Element</em>}'.
@@ -2061,103 +1904,6 @@ public interface MetagemPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTargetElement_ManyToOne();
-
-	/**
-	 * Returns the meta object for class '{@link metagem.ModelElement <em>Model Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Model Element</em>'.
-	 * @see metagem.ModelElement
-	 * @generated
-	 */
-	EClass getModelElement();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link metagem.ModelElement#getFeatures <em>Features</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Features</em>'.
-	 * @see metagem.ModelElement#getFeatures()
-	 * @see #getModelElement()
-	 * @generated
-	 */
-	EReference getModelElement_Features();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link metagem.ModelElement#getElements <em>Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elements</em>'.
-	 * @see metagem.ModelElement#getElements()
-	 * @see #getModelElement()
-	 * @generated
-	 */
-	EReference getModelElement_Elements();
-
-	/**
-	 * Returns the meta object for the container reference '{@link metagem.ModelElement#getSuperElement <em>Super Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Super Element</em>'.
-	 * @see metagem.ModelElement#getSuperElement()
-	 * @see #getModelElement()
-	 * @generated
-	 */
-	EReference getModelElement_SuperElement();
-
-	/**
-	 * Returns the meta object for the container reference '{@link metagem.ModelElement#getOwnedElement <em>Owned Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Owned Element</em>'.
-	 * @see metagem.ModelElement#getOwnedElement()
-	 * @see #getModelElement()
-	 * @generated
-	 */
-	EReference getModelElement_OwnedElement();
-
-	/**
-	 * Returns the meta object for the reference list '{@link metagem.ModelElement#getContains <em>Contains</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Contains</em>'.
-	 * @see metagem.ModelElement#getContains()
-	 * @see #getModelElement()
-	 * @generated
-	 */
-	EReference getModelElement_Contains();
-
-	/**
-	 * Returns the meta object for the reference '{@link metagem.ModelElement#getIsContained <em>Is Contained</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is Contained</em>'.
-	 * @see metagem.ModelElement#getIsContained()
-	 * @see #getModelElement()
-	 * @generated
-	 */
-	EReference getModelElement_IsContained();
-
-	/**
-	 * Returns the meta object for class '{@link metagem.ModelFeature <em>Model Feature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Model Feature</em>'.
-	 * @see metagem.ModelFeature
-	 * @generated
-	 */
-	EClass getModelFeature();
-
-	/**
-	 * Returns the meta object for the container reference '{@link metagem.ModelFeature#getParent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parent</em>'.
-	 * @see metagem.ModelFeature#getParent()
-	 * @see #getModelFeature()
-	 * @generated
-	 */
-	EReference getModelFeature_Parent();
 
 	/**
 	 * Returns the meta object for enum '{@link metagem.TRelation <em>TRelation</em>}'.
@@ -2290,14 +2036,6 @@ public interface MetagemPackage extends EPackage {
 		EAttribute MODEL_TRANSF__PATH = eINSTANCE.getModelTransf_Path();
 
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_TRANSF__ELEMENTS = eINSTANCE.getModelTransf_Elements();
-
-		/**
 		 * The meta object literal for the '{@link metagem.impl.SourceModelTransfImpl <em>Source Model Transf</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2332,32 +2070,6 @@ public interface MetagemPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TARGET_MODEL_TRANSF__OWNED_ELEMENT = eINSTANCE.getTargetModelTransf_OwnedElement();
-
-		/**
-		 * The meta object literal for the '{@link metagem.impl.ModelComponentImpl <em>Model Component</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see metagem.impl.ModelComponentImpl
-		 * @see metagem.impl.MetagemPackageImpl#getModelComponent()
-		 * @generated
-		 */
-		EClass MODEL_COMPONENT = eINSTANCE.getModelComponent();
-
-		/**
-		 * The meta object literal for the '<em><b>Relation Element</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_COMPONENT__RELATION_ELEMENT = eINSTANCE.getModelComponent_RelationElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MODEL_COMPONENT__REF = eINSTANCE.getModelComponent_Ref();
 
 		/**
 		 * The meta object literal for the '{@link metagem.impl.RelationsImpl <em>Relations</em>}' class.
@@ -2608,12 +2320,36 @@ public interface MetagemPackage extends EPackage {
 		EClass RELATION_ELEMENT = eINSTANCE.getRelationElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Component</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RELATION_ELEMENT__MODEL_COMPONENT = eINSTANCE.getRelationElement_ModelComponent();
+		EAttribute RELATION_ELEMENT__REF = eINSTANCE.getRelationElement_Ref();
+
+		/**
+		 * The meta object literal for the '<em><b>Belongs To</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION_ELEMENT__BELONGS_TO = eINSTANCE.getRelationElement_BelongsTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Owns</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION_ELEMENT__OWNS = eINSTANCE.getRelationElement_Owns();
+
+		/**
+		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION_ELEMENT__MODEL = eINSTANCE.getRelationElement_Model();
 
 		/**
 		 * The meta object literal for the '{@link metagem.impl.SourceElementImpl <em>Source Element</em>}' class.
@@ -2666,82 +2402,6 @@ public interface MetagemPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TARGET_ELEMENT__MANY_TO_ONE = eINSTANCE.getTargetElement_ManyToOne();
-
-		/**
-		 * The meta object literal for the '{@link metagem.impl.ModelElementImpl <em>Model Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see metagem.impl.ModelElementImpl
-		 * @see metagem.impl.MetagemPackageImpl#getModelElement()
-		 * @generated
-		 */
-		EClass MODEL_ELEMENT = eINSTANCE.getModelElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_ELEMENT__FEATURES = eINSTANCE.getModelElement_Features();
-
-		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_ELEMENT__ELEMENTS = eINSTANCE.getModelElement_Elements();
-
-		/**
-		 * The meta object literal for the '<em><b>Super Element</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_ELEMENT__SUPER_ELEMENT = eINSTANCE.getModelElement_SuperElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Owned Element</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_ELEMENT__OWNED_ELEMENT = eINSTANCE.getModelElement_OwnedElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Contains</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_ELEMENT__CONTAINS = eINSTANCE.getModelElement_Contains();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Contained</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_ELEMENT__IS_CONTAINED = eINSTANCE.getModelElement_IsContained();
-
-		/**
-		 * The meta object literal for the '{@link metagem.impl.ModelFeatureImpl <em>Model Feature</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see metagem.impl.ModelFeatureImpl
-		 * @see metagem.impl.MetagemPackageImpl#getModelFeature()
-		 * @generated
-		 */
-		EClass MODEL_FEATURE = eINSTANCE.getModelFeature();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_FEATURE__PARENT = eINSTANCE.getModelFeature_Parent();
 
 		/**
 		 * The meta object literal for the '{@link metagem.TRelation <em>TRelation</em>}' enum.

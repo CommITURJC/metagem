@@ -32,17 +32,12 @@
     </genClasses>
     <genClasses image="false" ecoreClass="MeTAGeM.ecore#//ModelTransf">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MeTAGeM.ecore#//ModelTransf/path"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelTransf/elements"/>
     </genClasses>
     <genClasses ecoreClass="MeTAGeM.ecore#//SourceModelTransf">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MeTAGeM.ecore#//SourceModelTransf/ownedElement"/>
     </genClasses>
     <genClasses ecoreClass="MeTAGeM.ecore#//TargetModelTransf">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MeTAGeM.ecore#//TargetModelTransf/ownedElement"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="MeTAGeM.ecore#//ModelComponent">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelComponent/relationElement"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MeTAGeM.ecore#//ModelComponent/ref"/>
     </genClasses>
     <genClasses image="false" ecoreClass="MeTAGeM.ecore#//Relations">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MeTAGeM.ecore#//Relations/ownedModel"/>
@@ -80,7 +75,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ManyToMany/source"/>
     </genClasses>
     <genClasses image="false" ecoreClass="MeTAGeM.ecore#//RelationElement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//RelationElement/modelComponent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MeTAGeM.ecore#//RelationElement/ref"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//RelationElement/belongsTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//RelationElement/owns"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//RelationElement/model"/>
     </genClasses>
     <genClasses ecoreClass="MeTAGeM.ecore#//SourceElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//SourceElement/invokes"/>
@@ -89,17 +87,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//TargetElement/zeroToOne"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//TargetElement/oneToOne"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//TargetElement/ManyToOne"/>
-    </genClasses>
-    <genClasses ecoreClass="MeTAGeM.ecore#//ModelElement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelElement/features"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelElement/elements"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelElement/superElement"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelElement/ownedElement"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelElement/contains"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelElement/isContained"/>
-    </genClasses>
-    <genClasses ecoreClass="MeTAGeM.ecore#//ModelFeature">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MeTAGeM.ecore#//ModelFeature/parent"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

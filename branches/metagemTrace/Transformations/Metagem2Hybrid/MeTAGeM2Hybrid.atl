@@ -20,8 +20,7 @@ rule SourceModelTransf2SourceModel{
 		sm: Hybrid!SourceModel(
 			name <- smt.name+'_model', 
 			path <- smt.path,
-			type_mm <- smt.name,
-			elements <- smt.elements
+			type_mm <- smt.name
 		
 		)
 }
@@ -33,32 +32,7 @@ rule TargetModelTransf2TargetModel{
 		tm: Hybrid!TargetModel(
 			name <- tmt.name+'_model',
 			path <- tmt.path,
-			type_mm <- tmt.name,
-			elements <- tmt.elements
-		)
-}
-
-rule ModelElement2ModelElement{
-	from 
-		me_metagem: MeTAGeM!ModelElement
-	to
-		me_hybrid: Hybrid!ModelElement(
-			name <- me_metagem.name,
-			ref <- me_metagem.ref,
-			contains <- me_metagem.contains,
-			isContained <- me_metagem.isContained,
-			childElements <- me_metagem.elements,
-			features <- me_metagem.features
-		)
-}
-
-rule ModelFeature2ModelFeature{
-	from 
-		mf_metagem: MeTAGeM!ModelFeature
-	to
-		mf_hybrid: Hybrid!ModelFeature(
-			name <- mf_metagem.name,
-			ref <- mf_metagem.ref
+			type_mm <- tmt.name
 		)
 }
 
@@ -144,7 +118,9 @@ rule SourceElement2Source{
 	to
 		source: Hybrid!Source(
 			name <- sourceElem.name,
-			component <- sourceElem.modelComponent
+			ref <- sourceElem.ref,
+			model <- sourceElem.model,
+			belongsTo <- sourceElem.belongsTo
 		)
 }
 
@@ -154,7 +130,9 @@ rule TargetElement2Target{
 	to
 		source: Hybrid!Target(
 			name <- targetElem.name,
-			component <- targetElem.modelComponent
+			ref <- targetElem.ref,
+			model <- targetElem.model,
+			belongsTo <- targetElem.belongsTo
 		)
 }
 

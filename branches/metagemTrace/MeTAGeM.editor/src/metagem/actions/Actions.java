@@ -1,4 +1,4 @@
-package metagem.presentation;
+package metagem.actions;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -40,6 +40,7 @@ import metagem.TargetModelTransf;
 import metagem.impl.SourceModelTransfImpl;
 import metagem.impl.TargetModelTransfImpl;
 import metagem.impl.ModelRootImpl;
+import metagem.presentation.MeTAGeMEditorPlugin;
 
 public class Actions {
 
@@ -304,7 +305,7 @@ public class Actions {
 	*/
 	public static Image getImage(String key){
 		ImageDescriptor imageDescriptor;
-		URL imageURL = MetagemEditorMultiPanel.class.getResource("icons/" + key + ".gif");
+		URL imageURL = MeTAGeMEditorPlugin.class.getResource("icons/" + key + ".gif");
 		imageDescriptor = ImageDescriptor.createFromURL(imageURL);
 		return imageDescriptor.createImage();
 	}

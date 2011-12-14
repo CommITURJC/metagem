@@ -21,6 +21,7 @@ import java.util.Map;
 
 import metagem.Relations;
 import metagem.TransformationElement;
+import metagem.actions.Actions;
 import metagem.impl.ManyToManyImpl;
 import metagem.impl.ManyToOneImpl;
 import metagem.impl.OneToManyImpl;
@@ -1314,10 +1315,10 @@ public class MetagemEditorMultiPanel
 						EObject element = (EObject) metagemContents.next();
 						if (element instanceof SourceElementImpl) {
 							SourceElementImpl source = (SourceElementImpl) element;
-							if (source.getModelComponent()!=null &&
-									source.getModelComponent().getRef() != null && 
+							if (source!=null &&
+									source.getRef() != null && 
 									id != null && 
-									source.getModelComponent().getRef().equals(id)) {
+									source.getRef().equals(id)) {
 								ArrayList<Relations> relations = new ArrayList<Relations>();
 								relations.add((RelationsImpl)source.eContainer()); 
 								for (int cont2 = 0; cont2 < relations.size(); cont2++) {
@@ -1367,10 +1368,10 @@ public class MetagemEditorMultiPanel
 						EObject element = (EObject) traceContents.next();
 						if (element instanceof TargetElementImpl) {
 							TargetElementImpl target = (TargetElementImpl) element;
-							if (target.getModelComponent()!=null &&
-									target.getModelComponent().getRef() != null && 
+							if (target!=null &&
+									target.getRef() != null && 
 									id != null &&
-									target.getModelComponent().getRef().equals(id)) {
+									target.getRef().equals(id)) {
 								ArrayList<Relations> relations = new ArrayList<Relations>();
 								relations.add((RelationsImpl)target.eContainer()); 
 								for (int cont2 = 0; cont2 < relations.size(); cont2++) {
@@ -1428,9 +1429,9 @@ public class MetagemEditorMultiPanel
 										String id = resource.getID(element); // Get element id
 										if(id==null)
 											id=resource.getURIFragment(element);
-										if (relation.getSource().getModelComponent()!=null && relation.getSource().getModelComponent().getRef()!=null && 
+										if (relation.getSource()!=null && relation.getSource().getRef()!=null && 
 												id != null &&
-												id.equals(relation.getSource().getModelComponent().getRef())) {
+												id.equals(relation.getSource().getRef())) {
 											sourceElements.add(element);
 										}
 									}
@@ -1448,9 +1449,9 @@ public class MetagemEditorMultiPanel
 										String id = resource.getID(element); // Get element id
 										if(id==null)
 											id=resource.getURIFragment(element);
-										if (relation.getTarget().getModelComponent()!=null && relation.getTarget().getModelComponent().getRef()!=null && 
+										if (relation.getTarget()!=null && relation.getTarget().getRef()!=null && 
 											id!=null && 
-											id.equals(relation.getTarget().getModelComponent().getRef())) {
+											id.equals(relation.getTarget().getRef())) {
 											targetElements.add(element);
 										}
 									}
@@ -1471,9 +1472,9 @@ public class MetagemEditorMultiPanel
 										String id = resource.getID(element); // Get element id
 										if(id==null)
 											id=resource.getURIFragment(element);
-										if (relation.getSource().getModelComponent()!=null && relation.getSource().getModelComponent().getRef()!=null && 
+										if (relation.getSource()!=null && relation.getSource().getRef()!=null && 
 												id != null &&
-												id.equals(relation.getSource().getModelComponent().getRef())) {
+												id.equals(relation.getSource().getRef())) {
 											sourceElements.add(element);
 										}
 									}
@@ -1494,9 +1495,9 @@ public class MetagemEditorMultiPanel
 										String id = resource.getID(element); // Get element id
 										if(id==null)
 											id=resource.getURIFragment(element);
-										if (relation.getTarget().getModelComponent()!=null && relation.getTarget().getModelComponent().getRef()!=null && 
+										if (relation.getTarget()!=null && relation.getTarget().getRef()!=null && 
 											id!=null && 
-											id.equals(relation.getTarget().getModelComponent().getRef())) {
+											id.equals(relation.getTarget().getRef())) {
 											targetElements.add(element);
 										}
 									}
@@ -1517,9 +1518,9 @@ public class MetagemEditorMultiPanel
 										String id = resource.getID(element); // Get element id
 										if(id==null)
 											id=resource.getURIFragment(element);
-										if (relation.getSource().getModelComponent()!=null && relation.getSource().getModelComponent().getRef()!=null && 
+										if (relation.getSource()!=null && relation.getSource().getRef()!=null && 
 												id != null &&
-												id.equals(relation.getSource().getModelComponent().getRef())) {
+												id.equals(relation.getSource().getRef())) {
 											sourceElements.add(element);
 										}
 									}
@@ -1540,9 +1541,9 @@ public class MetagemEditorMultiPanel
 										String id = resource.getID(element); // Get element id
 										if(id==null)
 											id=resource.getURIFragment(element);
-										if (relation.getTarget().get(i).getModelComponent()!=null && relation.getTarget().get(i).getModelComponent().getRef()!=null && 
+										if (relation.getTarget().get(i)!=null && relation.getTarget().get(i).getRef()!=null && 
 												id!=null && 
-												id.equals(relation.getTarget().get(i).getModelComponent().getRef())) {
+												id.equals(relation.getTarget().get(i).getRef())) {
 											targetElements.add(element);
 										}
 									}
@@ -1565,9 +1566,9 @@ public class MetagemEditorMultiPanel
 										String id = resource.getID(element); // Get element id
 										if(id==null)
 											id=resource.getURIFragment(element);
-										if (relation.getSource().get(i).getModelComponent()!=null && relation.getSource().get(i).getModelComponent().getRef()!=null && 
+										if (relation.getSource().get(i)!=null && relation.getSource().get(i).getRef()!=null && 
 												id != null &&
-												id.equals(relation.getSource().get(i).getModelComponent().getRef())) {
+												id.equals(relation.getSource().get(i).getRef())) {
 											sourceElements.add(element);
 										}
 									}
@@ -1585,9 +1586,9 @@ public class MetagemEditorMultiPanel
 										String id = resource.getID(element); // Get element id
 										if(id==null)
 											id=resource.getURIFragment(element);
-										if (relation.getTarget().getModelComponent()!=null && relation.getTarget().getModelComponent().getRef()!=null && 
+										if (relation.getTarget()!=null && relation.getTarget().getRef()!=null && 
 											id!=null && 
-											id.equals(relation.getTarget().getModelComponent().getRef())) {
+											id.equals(relation.getTarget().getRef())) {
 											targetElements.add(element);
 										}
 									}
@@ -1610,9 +1611,9 @@ public class MetagemEditorMultiPanel
 										String id = resource.getID(element); // Get element id
 										if(id==null)
 											id=resource.getURIFragment(element);
-										if (relation.getSource().get(i).getModelComponent()!=null && relation.getSource().get(i).getModelComponent().getRef()!=null && 
+										if (relation.getSource().get(i)!=null && relation.getSource().get(i).getRef()!=null && 
 												id != null &&
-												id.equals(relation.getSource().get(i).getModelComponent().getRef())) {
+												id.equals(relation.getSource().get(i).getRef())) {
 											sourceElements.add(element);
 										}
 									}
@@ -1633,9 +1634,9 @@ public class MetagemEditorMultiPanel
 										String id = resource.getID(element); // Get element id
 										if(id==null)
 											id=resource.getURIFragment(element);
-										if (relation.getTarget().get(i).getModelComponent()!=null && relation.getTarget().get(i).getModelComponent().getRef()!=null && 
+										if (relation.getTarget().get(i)!=null && relation.getTarget().get(i).getRef()!=null && 
 												id!=null && 
-												id.equals(relation.getTarget().get(i).getModelComponent().getRef())) {
+												id.equals(relation.getTarget().get(i).getRef())) {
 											targetElements.add(element);
 										}
 									}
@@ -1659,9 +1660,9 @@ public class MetagemEditorMultiPanel
 								String id = resource.getID(element); 
 								if (id == null)
 									id = resource.getURIFragment(element);
-								if (elementSelected.getModelComponent()!= null && elementSelected.getModelComponent().getRef() != null
+								if (elementSelected!= null && elementSelected.getRef() != null
 										&& id != null
-										&& id.equals(elementSelected.getModelComponent().getRef())) {
+										&& id.equals(elementSelected.getRef())) {
 									sourceElements.add(element);
 								}
 							}
@@ -1684,9 +1685,9 @@ public class MetagemEditorMultiPanel
 								String id = resource.getID(element); 
 								if(id==null)
 									id=resource.getURIFragment(element);
-								if (elementSelected.getModelComponent()!=null && elementSelected.getModelComponent().getRef()!=null && 
+								if (elementSelected!=null && elementSelected.getRef()!=null && 
 										id!=null && 
-										id.equals(elementSelected.getModelComponent().getRef())) {
+										id.equals(elementSelected.getRef())) {
 									targetElements.add(element);
 								}
 							}
