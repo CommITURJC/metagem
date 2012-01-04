@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="schemaXML"
+    nsURI="http:///schemaXML.ecore" nsPrefix="schemaXML">
+  <eClassifiers xsi:type="ecore:EClass" name="All" eSuperTypes="#//AbstractSetGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;&lt;All>>"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractSet" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumerationOccurs">
+    <eLiterals name="_0"/>
+    <eLiterals name="_1" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appInfo" ordered="false"
+        upperBound="-1" eType="#//AppInfo" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="documentation" ordered="false"
+        upperBound="-1" eType="#//Documentation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AppInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any_" ordered="false" upperBound="-1"
+        eType="#//Any_" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Any_">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxOccurs" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minOccurs" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" ordered="false"
+        eType="#//EnumerationNamespace" defaultValueLiteral="##any"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="processContents" ordered="false"
+        eType="#//EnumerationProcess" defaultValueLiteral="strict"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumerationNamespace">
+    <eLiterals name="_any"/>
+    <eLiterals name="_other" value="1"/>
+    <eLiterals name="_targetNamespace" value="2"/>
+    <eLiterals name="_local" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumerationProcess">
+    <eLiterals name="skip"/>
+    <eLiterals name="lax" value="1"/>
+    <eLiterals name="strict" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Documentation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any_" ordered="false" upperBound="-1"
+        eType="#//Any_" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementAll">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="block" ordered="false"
+        eType="#//EnumerationBlock2"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="form" ordered="false" eType="#//EnumerationForm"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxOccurs" ordered="false"
+        eType="#//EnumerationOccurs" defaultValueLiteral="_1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minOccurs" ordered="false"
+        eType="#//EnumerationOccurs" defaultValueLiteral="_1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;&lt;Element>>"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nillable" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eleccion" ordered="false"
+        eType="#//AbstractTypeLocal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unique" ordered="false"
+        upperBound="-1" eType="#//Unique" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" ordered="false" upperBound="-1"
+        eType="#//Key" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="keyref" ordered="false"
+        upperBound="-1" eType="#//KeyRef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumerationBlock2">
+    <eLiterals name="_all"/>
+    <eLiterals name="extension" value="1"/>
+    <eLiterals name="restriction" value="2"/>
+    <eLiterals name="substitution" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumerationForm">
+    <eLiterals name="qualified"/>
+    <eLiterals name="unqualified" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractTypeLocal" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Unique">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selector" ordered="false"
+        lowerBound="1" eType="#//Selector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Field" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Selector">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xpath" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Field">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xpath" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Key">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selector" ordered="false"
+        lowerBound="1" eType="#//Selector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Field" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyRef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refer" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selector" ordered="false"
+        lowerBound="1" eType="#//Selector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Field" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AllGroup" eSuperTypes="#//AbstractGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" ordered="false"
+        upperBound="-1" eType="#//ElementAll" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractGroup" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AnyAttribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" ordered="false"
+        eType="#//EnumerationNamespace" defaultValueLiteral="##any"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="processContents" ordered="false"
+        eType="#//EnumerationProcess" defaultValueLiteral="strict"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeGlobal">
+    <eOperations name="attributeGlobalConstraint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+        <details key="body" value="if self.default&lt;>null and self.fixed&lt;>null then if self.default&lt;>'' and self.fixed&lt;>'' then false else true endif else true endif"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="if self.default&lt;>null and self.fixed&lt;>null then if self.default&lt;>'' and self.fixed&lt;>'' then false else true endif else true endif"/>
+      </eAnnotations>
+      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="context">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The cache of context-specific information."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleType" ordered="false"
+        eType="#//SimpleTypeLocal" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleTypeLocal" eSuperTypes="#//AbstractTypeLocal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;&lt;SimpleType>>"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eleccion" ordered="false"
+        lowerBound="1" eType="#//AbstractSimpleType" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractSimpleType" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeLocal">
+    <eOperations name="attributeLocalConstraint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+        <details key="body" value="if self.default&lt;>null and self.fixed&lt;>null then if self.default&lt;>'' and self.fixed&lt;>'' then false else true endif else true endif"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="if self.default&lt;>null and self.fixed&lt;>null then if self.default&lt;>'' and self.fixed&lt;>'' then false else true endif else true endif"/>
+      </eAnnotations>
+      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="context">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The cache of context-specific information."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="form" ordered="false" eType="#//EnumerationForm"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="use_" ordered="false" eType="#//EnumerationUse"
+        defaultValueLiteral="optional"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleType" ordered="false"
+        eType="#//SimpleTypeLocal" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumerationUse">
+    <eLiterals name="prohibited"/>
+    <eLiterals name="optional" value="1"/>
+    <eLiterals name="required" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeGroupGlobal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyattribute" ordered="false"
+        eType="#//AnyAttribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" ordered="false"
+        upperBound="-1" eType="#//AttributeLocal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeGroup" ordered="false"
+        upperBound="-1" eType="#//AttributeGroupRef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//Schema"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeGroupRef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Choice" eSuperTypes="#//AbstractSetGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;&lt;Choice>>"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groupRef" ordered="false"
+        upperBound="-1" eType="#//GroupRef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choice" ordered="false"
+        upperBound="-1" eType="#//Choice" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequence" ordered="false"
+        upperBound="-1" eType="#//Sequences" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any_" ordered="false" upperBound="-1"
+        eType="#//Any_" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementLocal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="block" ordered="false"
+        eType="#//EnumerationBlock2"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="form" ordered="false" eType="#//EnumerationForm"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxOccurs" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minOccurs" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;&lt;Element>>"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nillable" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eleccion" ordered="false"
+        eType="#//AbstractTypeLocal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unique" ordered="false"
+        upperBound="-1" eType="#//Unique" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" ordered="false" upperBound="-1"
+        eType="#//Key" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="keyref" ordered="false"
+        upperBound="-1" eType="#//KeyRef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//AbstractSetGroup"
+        eOpposite="#//AbstractSetGroup/element"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GroupRef" eSuperTypes="#//AbstractSet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxOccurs" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minOccurs" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sequences" eSuperTypes="#//AbstractSetGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;&lt;Sequence>>"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" ordered="false"
+        upperBound="-1" eType="#//GroupRef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choice" ordered="false"
+        upperBound="-1" eType="#//Choice" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequence" ordered="false"
+        upperBound="-1" eType="#//Sequences" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any_" ordered="false" upperBound="-1"
+        eType="#//Any_" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChoiceGroup" eSuperTypes="#//AbstractGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" ordered="false"
+        upperBound="-1" eType="#//ElementLocal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groupRef" ordered="false"
+        upperBound="-1" eType="#//GroupRef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choice" ordered="false"
+        upperBound="-1" eType="#//Choice" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequence" ordered="false"
+        upperBound="-1" eType="#//Sequences" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any_" ordered="false" upperBound="-1"
+        eType="#//Any_" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComplexContent" eSuperTypes="#//AbstractContent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;&lt;ComplexContent>>"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eleccion" ordered="false"
+        lowerBound="1" eType="#//AbstractComplexContent" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractContent" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractComplexContent" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComplexTypeGlobal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract_" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="block" ordered="false"
+        eType="#//EnumerationBlock"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" ordered="false"
+        eType="#//EnumerationBlock"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;&lt;ComplexType>>"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eleccion" ordered="false"
+        lowerBound="1" eType="#//AbstractContent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//Schema"
+        eOpposite="#//Schema/complexType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumerationBlock">
+    <eLiterals name="_all"/>
+    <eLiterals name="extension" value="1"/>
+    <eLiterals name="restriction" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComplexTypeLocal" eSuperTypes="#//AbstractTypeLocal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;&lt;ComplexType>>"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eleccion" ordered="false"
+        lowerBound="1" eType="#//AbstractContent" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementGlobal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract_" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="block" ordered="false"
+        eType="#//EnumerationBlock2"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" ordered="false"
+        eType="#//EnumerationBlock"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;&lt;Element>>"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nillable" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="substitutionGroup" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eleccion" ordered="false"
+        eType="#//AbstractTypeLocal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unique" ordered="false"
+        upperBound="-1" eType="#//Unique" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" ordered="false" upperBound="-1"
+        eType="#//Key" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="keyref" ordered="false"
+        upperBound="-1" eType="#//KeyRef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" eType="#//Schema"
+        eOpposite="#//Schema/element"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enumeration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtensionSimpleContent" eSuperTypes="#//AbstractSimpleContent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyattribute" ordered="false"
+        eType="#//AnyAttribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" ordered="false"
+        upperBound="-1" eType="#//AttributeLocal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeGroup" ordered="false"
+        upperBound="-1" eType="#//AttributeGroupRef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractSimpleContent" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtensionComplexContent" eSuperTypes="#//AbstractComplexContent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eleccion" ordered="false"
+        eType="#//AbstractSet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyattribute" ordered="false"
+        eType="#//AnyAttribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" ordered="false"
+        upperBound="-1" eType="#//AttributeLocal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeGroup" ordered="false"
+        upperBound="-1" eType="#//AttributeGroupRef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FractionDigits">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Group">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eleccion" ordered="false"
+        lowerBound="1" eType="#//AbstractGroup" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Import">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemaLocation" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Include">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemaLocation" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Length">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="List_" eSuperTypes="#//AbstractSimpleType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemtype" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleType" ordered="false"
+        eType="#//SimpleTypeLocal" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MaxExclusive">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MaxInclusive">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MaxLength">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MinInclusive">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MinExclusive">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MinLength">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Notation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="public" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="system" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pattern">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Redefine">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemaLocation" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleType" ordered="false"
+        upperBound="-1" eType="#//SimpleTypeGlobal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="complexType" ordered="false"
+        upperBound="-1" eType="#//ComplexTypeGlobal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" ordered="false"
+        upperBound="-1" eType="#//Group" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeGroup" ordered="false"
+        upperBound="-1" eType="#//AttributeGroupGlobal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" ordered="false"
+        upperBound="-1" eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleTypeGlobal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" ordered="false"
+        eType="#//EnumerationFinal" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;&lt;SimpleType>>"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eleccion" ordered="false"
+        lowerBound="1" eType="#//AbstractSimpleType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//Schema"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumerationFinal">
+    <eLiterals name="_all"/>
+    <eLiterals name="list" value="1"/>
+    <eLiterals name="union" value="2"/>
+    <eLiterals name="restriction" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RestrictionSimpleType" eSuperTypes="#//AbstractSimpleType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleType" ordered="false"
+        eType="#//SimpleTypeLocal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="minExclusive" ordered="false"
+        upperBound="-1" eType="#//MinExclusive" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="minInclusive" ordered="false"
+        upperBound="-1" eType="#//MinInclusive" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maxExclusive" ordered="false"
+        upperBound="-1" eType="#//MaxExclusive" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maxInclusive" ordered="false"
+        upperBound="-1" eType="#//MaxInclusive" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="totalDigits" ordered="false"
+        upperBound="-1" eType="#//TotalDigits" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fractionDigits" ordered="false"
+        upperBound="-1" eType="#//FractionDigits" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="length" ordered="false"
+        upperBound="-1" eType="#//Length" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="minLength" ordered="false"
+        upperBound="-1" eType="#//MinLength" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maxLength" ordered="false"
+        upperBound="-1" eType="#//MaxLength" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumeration" ordered="false"
+        upperBound="-1" eType="#//Enumeration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whitespace" ordered="false"
+        upperBound="-1" eType="#//WhiteSpace" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" ordered="false"
+        upperBound="-1" eType="#//Pattern" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TotalDigits">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WhiteSpace">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="#//EnumerationValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumerationValue">
+    <eLiterals name="preserve"/>
+    <eLiterals name="replace" value="1"/>
+    <eLiterals name="collapse" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RestrictionSimpleContent" eSuperTypes="#//AbstractSimpleContent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleType" ordered="false"
+        eType="#//SimpleTypeLocal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyAttribute" ordered="false"
+        eType="#//AnyAttribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="minExclusive" ordered="false"
+        upperBound="-1" eType="#//MinExclusive" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="minInclusive" ordered="false"
+        upperBound="-1" eType="#//MinInclusive" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maxExclusive" ordered="false"
+        upperBound="-1" eType="#//MaxExclusive" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maxInclusive" ordered="false"
+        upperBound="-1" eType="#//MaxInclusive" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="totalDigits" ordered="false"
+        upperBound="-1" eType="#//TotalDigits" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fractionDigits" ordered="false"
+        upperBound="-1" eType="#//FractionDigits" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="length" ordered="false"
+        upperBound="-1" eType="#//Length" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="minLength" ordered="false"
+        upperBound="-1" eType="#//MinLength" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maxLength" ordered="false"
+        upperBound="-1" eType="#//MaxLength" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumeration" ordered="false"
+        upperBound="-1" eType="#//Enumeration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whitespace" ordered="false"
+        upperBound="-1" eType="#//WhiteSpace" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" ordered="false"
+        upperBound="-1" eType="#//Pattern" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" ordered="false"
+        upperBound="-1" eType="#//AttributeLocal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeGroup" ordered="false"
+        upperBound="-1" eType="#//AttributeGroupRef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RestrictionComplexContent" eSuperTypes="#//AbstractComplexContent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eleccion" ordered="false"
+        eType="#//AbstractSet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyAttribute" ordered="false"
+        eType="#//AnyAttribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" ordered="false"
+        upperBound="-1" eType="#//AttributeLocal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeGroup" ordered="false"
+        upperBound="-1" eType="#//AttributeGroupRef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Schema">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeFormDefault" ordered="false"
+        eType="#//EnumerationForm" defaultValueLiteral="unqualified"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="blockDefault" ordered="false"
+        eType="#//EnumerationBlock2" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementFormDefault" ordered="false"
+        eType="#//EnumerationForm" defaultValueLiteral="unqualified"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalDefault" ordered="false"
+        eType="#//EnumerationBlock" defaultValueLiteral="&quot;&quot;"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;&lt;Schema>>"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetNamespace" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="http://www.w3.org/2001/XMLSchema"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="include" ordered="false"
+        upperBound="-1" eType="#//Include" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="import_" ordered="false"
+        upperBound="-1" eType="#//Import" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="redefine" ordered="false"
+        upperBound="-1" eType="#//Redefine" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" ordered="false"
+        upperBound="-1" eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleType" ordered="false"
+        upperBound="-1" eType="#//SimpleTypeGlobal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="complexType" ordered="false"
+        upperBound="-1" eType="#//ComplexTypeGlobal" containment="true" eOpposite="#//ComplexTypeGlobal/owner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" ordered="false"
+        upperBound="-1" eType="#//Group" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeGroup" ordered="false"
+        upperBound="-1" eType="#//AttributeGroupGlobal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" ordered="false"
+        upperBound="-1" eType="#//ElementGlobal" containment="true" eOpposite="#//ElementGlobal/Owner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" ordered="false"
+        upperBound="-1" eType="#//AttributeGlobal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="notation" ordered="false"
+        upperBound="-1" eType="#//Notation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceGroup" eSuperTypes="#//AbstractGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" ordered="false"
+        upperBound="-1" eType="#//ElementLocal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" ordered="false"
+        upperBound="-1" eType="#//GroupRef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choice" ordered="false"
+        upperBound="-1" eType="#//Choice" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequence" ordered="false"
+        upperBound="-1" eType="#//Sequences" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="any_" ordered="false" upperBound="-1"
+        eType="#//Any_" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleContent" eSuperTypes="#//AbstractContent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;&lt;SimpleContent>>"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eleccion" ordered="false"
+        eType="#//AbstractSimpleContent" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Union" eSuperTypes="#//AbstractSimpleType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="membersType" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleType" ordered="false"
+        upperBound="-1" eType="#//SimpleTypeLocal" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Other" eSuperTypes="#//AbstractContent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eleccion" ordered="false"
+        eType="#//AbstractSet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyattribute" ordered="false"
+        eType="#//AnyAttribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" ordered="false"
+        upperBound="-1" eType="#//AttributeLocal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeGroup" ordered="false"
+        upperBound="-1" eType="#//AttributeGroupRef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractSetGroup" eSuperTypes="#//AbstractSet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxOccurs" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minOccurs" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotation" ordered="false"
+        eType="#//Annotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" ordered="false"
+        upperBound="-1" eType="#//ElementLocal" containment="true" eOpposite="#//ElementLocal/owner"/>
+  </eClassifiers>
+</ecore:EPackage>
