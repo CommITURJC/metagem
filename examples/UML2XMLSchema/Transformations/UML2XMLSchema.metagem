@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="ASCII"?>
+<metagem:ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metagem="org.eclipse.kybele.metagem" name="UML2XMLSchema">
+  <sourceModels name="UML" path="/UML2XMLSchema/Metamodels/UML.ecore"/>
+  <sourceModels name="AnnotationMetamodel" path="/UML2XMLSchema/Metamodels/AnnotationMetamodel.ecore"/>
+  <targetModels name="schemaXML" path="/UML2XMLSchema/Metamodels/schemaXML.ecore"/>
+  <relations xsi:type="metagem:OneToOne" name="model2schema">
+    <source name="Model" ref="//Model" model="//@sourceModels.0"/>
+    <target name="Schema" ref="//Schema" model="//@targetModels.0">
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="id" ref="//Schema/id" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToOne" name="package2schema">
+    <source name="Package" ref="//Package" model="//@sourceModels.0"/>
+    <target name="Schema" ref="//Schema" model="//@targetModels.0">
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="id" ref="//Schema/id" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToMany" name="class2ElementGlobalSeq" guardCondition="(class_in.mapTo()='Sequences') and class_in.GetGeneralization().oclIsUndefined()">
+    <source name="Class" ref="//Class" model="//@sourceModels.0"/>
+    <target name="ElementGlobal" ref="//ElementGlobal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="Owner" ref="//ElementGlobal/Owner" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="eleccion" ref="//ElementGlobal/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="id" ref="//ElementGlobal/id" model="//@targetModels.0"/>
+      </oneToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="name" ref="//ElementGlobal/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="ComplexTypeLocal" ref="//ComplexTypeLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="eleccion" ref="//ComplexTypeLocal/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="id" ref="//ComplexTypeLocal/id" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="Other" ref="//Other" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="eleccion" ref="//Other/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+    <target name="Sequences" ref="//Sequences" model="//@targetModels.0"/>
+  </relations>
+  <relations xsi:type="metagem:OneToMany" name="inheritClass2ElementGlobal" guardCondition="not class_in.GetGeneralization().oclIsUndefined()">
+    <source name="Class" ref="//Class" model="//@sourceModels.0"/>
+    <target name="ElementGlobal" ref="//ElementGlobal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="Owner" ref="//ElementGlobal/Owner" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="eleccion" ref="//ElementGlobal/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="id" ref="//ElementGlobal/id" model="//@targetModels.0"/>
+      </oneToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="name" ref="//ElementGlobal/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="ComplexTypeLocal" ref="//ComplexTypeLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="eleccion" ref="//ComplexTypeLocal/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="id" ref="//ComplexTypeLocal/id" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="ComplexContent" ref="//ComplexContent" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="eleccion" ref="//ComplexContent/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+    <target name="ExtensionComplexContent" ref="//ExtensionComplexContent" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="base" ref="//ExtensionComplexContent/base" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="eleccion" ref="//ExtensionComplexContent/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+    <target name="Choice" ref="//Choice" model="//@targetModels.0"/>
+  </relations>
+  <relations xsi:type="metagem:OneToMany" name="class2ElementGlobalChoice" guardCondition="(class_in.mapTo()='Choice') and class_in.GetGeneralization().oclIsUndefined()">
+    <source name="Class" ref="//Class" model="//@sourceModels.0"/>
+    <target name="ElementGlobal" ref="//ElementGlobal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="Owner" ref="//ElementGlobal/Owner" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="eleccion" ref="//ElementGlobal/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="id" ref="//ElementGlobal/id" model="//@targetModels.0"/>
+      </oneToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="name" ref="//ElementGlobal/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="ComplexTypeLocal" ref="//ComplexTypeLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="eleccion" ref="//ComplexTypeLocal/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="id" ref="//ComplexTypeLocal/id" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="Other" ref="//Other" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="eleccion" ref="//Other/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+    <target name="Choice" ref="//Choice" model="//@targetModels.0"/>
+  </relations>
+  <relations xsi:type="metagem:OneToMany" name="class2ElementGlobalAll" guardCondition="(class_in.mapTo()='All') and class_in.GetGeneralization().oclIsUndefined()">
+    <source name="Class" ref="//Class" model="//@sourceModels.0"/>
+    <target name="ElementGlobal" ref="//ElementGlobal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="Owner" ref="//ElementGlobal/Owner" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="eleccion" ref="//ElementGlobal/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="id" ref="//ElementGlobal/id" model="//@targetModels.0"/>
+      </oneToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="name" ref="//ElementGlobal/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="ComplexTypeLocal" ref="//ComplexTypeLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="eleccion" ref="//ComplexTypeLocal/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="id" ref="//ComplexTypeLocal/id" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="Other" ref="//Other" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="eleccion" ref="//Other/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+    <target name="All" ref="//All" model="//@targetModels.0"/>
+  </relations>
+  <relations xsi:type="metagem:OneToOne" name="property2ElementLocal" guardCondition="property_in.refImmediateComposite().oclIsTypeOf(UML!Class)">
+    <source name="Property" ref="//Property" model="//@sourceModels.0"/>
+    <target name="ElementLocal" ref="//ElementLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="minOccurs" ref="//ElementLocal/minOccurs" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="maxOccurs" ref="//ElementLocal/maxOccurs" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="owner" ref="//ElementLocal/owner" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="name" ref="//ElementLocal/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToOne" name="associationNM2ElementLocal" guardCondition="association_in.isAssociationNM() and not association_in.isAssoAgregation() and not association_in.isAssoComposite()">
+    <source name="Association" ref="//Association" model="//@sourceModels.0"/>
+    <target name="ElementLocal" ref="//ElementLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="owner" ref="//ElementLocal/owner" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="ref" ref="//ElementLocal/ref" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="maxOccurs" ref="//ElementLocal/maxOccurs" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="name" ref="//ElementLocal/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToOne" name="association1N2ElementLocal" guardCondition="association_in.isAssociation1N() and not association_in.isAssoAgregation() and not association_in.isAssoComposite()">
+    <source name="Association" ref="//Association" model="//@sourceModels.0"/>
+    <target name="ElementLocal" ref="//ElementLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="owner" ref="//ElementLocal/owner" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="ref" ref="//ElementLocal/ref" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="maxOccurs" ref="//ElementLocal/maxOccurs" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="minOccurs" ref="//ElementLocal/minOccurs" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="name" ref="//ElementLocal/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToOne" name="association112ElementLocal" guardCondition="association_in.isAssociation11() and not association_in.isAssoAgregation() and not association_in.isAssoComposite()">
+    <source name="Association" ref="//Association" model="//@sourceModels.0"/>
+    <target name="ElementLocal" ref="//ElementLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="owner" ref="//ElementLocal/owner" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="ref" ref="//ElementLocal/ref" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="maxOccurs" ref="//ElementLocal/maxOccurs" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="minOccurs" ref="//ElementLocal/minOccurs" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="name" ref="//ElementLocal/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToOne" name="agregation2ElementLocal" guardCondition="association_in.isAssoAgregation()">
+    <source name="Association" ref="//Association" model="//@sourceModels.0"/>
+    <target name="ElementLocal" ref="//ElementLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="owner" ref="//ElementLocal/owner" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="ref" ref="//ElementLocal/ref" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="maxOccurs" ref="//ElementLocal/maxOccurs" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="minOccurs" ref="//ElementLocal/minOccurs" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="name" ref="//ElementLocal/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToMany" name="composite2ElementLocalSeq" guardCondition="association_in.isAssoComposite() and not association_in.isAssoAgregation() and association_in.AssMapTo() = 'Sequences'">
+    <source name="Association" ref="//Association" model="//@sourceModels.0"/>
+    <target name="ElementLocal" ref="//ElementLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="owner" ref="//ElementLocal/owner" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="eleccion" ref="//ElementLocal/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="name" ref="//ElementLocal/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="ComplexTypeLocal" ref="//ComplexTypeLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="eleccion" ref="//ComplexTypeLocal/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+    <target name="Other" ref="//Other" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="eleccion" ref="//Other/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+    <target name="Sequences" ref="//Sequences" model="//@targetModels.0"/>
+    <target name="ElementLocal" ref="//ElementLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="owner" ref="//ElementLocal/owner" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="ref" ref="//ElementLocal/ref" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="name" ref="//ElementLocal/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToMany" name="composite2ElementLocalAll" guardCondition="association_in.isAssoComposite() and not association_in.isAssoAgregation() and association_in.AssMapTo() = 'All'">
+    <source name="Association" ref="//Association" model="//@sourceModels.0"/>
+    <target name="ElementLocal" ref="//ElementLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="owner" ref="//ElementLocal/owner" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="eleccion" ref="//ElementLocal/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="name" ref="//ElementLocal/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="ComplexTypeLocal" ref="//ComplexTypeLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="eleccion" ref="//ComplexTypeLocal/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+    <target name="Other" ref="//Other" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="eleccion" ref="//Other/eleccion" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+    <target name="Sequences" ref="//Sequences" model="//@targetModels.0"/>
+    <target name="ElementLocal" ref="//ElementLocal" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="owner" ref="//ElementLocal/owner" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="ref" ref="//ElementLocal/ref" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+        <target name="name" ref="//ElementLocal/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+</metagem:ModelRoot>
