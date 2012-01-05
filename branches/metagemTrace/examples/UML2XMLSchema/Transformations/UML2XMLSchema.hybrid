@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:hybrid="org.eclipse.kybele.hybrid" name="UML2XMLSchema">
+  <operations name="model" body="UML!Model.allInstances()->asSequence()->first()">
+    <return component="//@rules.0/@sources.0"/>
+  </operations>
+  <operations name="package" body="UML!Package.allInstances()->asSequence()->first()">
+    <return component="//@rules.1/@sources.0"/>
+  </operations>
+  <operations name="mapTo" body="if self.getLink().oclIsUndefined() then 'Sequences' else if self.getLink().getAnnotationValue('Attribute') = 'Sequences' then 'Sequences' else if self.getLink().getAnnotationValue('Attribute') = 'Choice' then 'Choice' else 'All' endif endif endif" context="//@rules.2/@sources.0">
+    <return datatype="String"/>
+  </operations>
+  <operations name="assMapTo" body="if self.getLink().oclIsUndefined() then 'Sequences' else if self.getLink().getAnnotationValue('Association') = 'Sequences' then 'Sequences' else 'All' endif" context="//@rules.7/@sources.0">
+    <return datatype="String"/>
+  </operations>
   <sourceModels name="UML_model" path="/UML2XMLSchema/Metamodels/UML.ecore" type_mm="UML"/>
   <sourceModels name="AnnotationMetamodel_model" path="/UML2XMLSchema/Metamodels/AnnotationMetamodel.ecore" type_mm="AnnotationMetamodel"/>
   <targetModels name="schemaXML_model" path="/UML2XMLSchema/Metamodels/schemaXML.ecore" type_mm="schemaXML"/>
