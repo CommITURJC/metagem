@@ -41,11 +41,11 @@ String IN = getINAtt(configuration);
 File fIN=new File(IN);
 String uriIN=fIN.toURI().toString();
 String LEFT=getLEFTAtt(configuration);
-File fLEFT=new File(LEFT);
-String uriLEFT=fLEFT.toURI().toString();
-String RIGHT=getRIGHTAtt(configuration);
-File fRIGHT=new File(RIGHT);
-String uriRIGHT=fRIGHT.toURI().toString();
+//File fLEFT=new File(LEFT);
+//String uriLEFT=fLEFT.toURI().toString();
+//String RIGHT=getRIGHTAtt(configuration);
+//File fRIGHT=new File(RIGHT);
+//String uriRIGHT=fRIGHT.toURI().toString();
 String OUT = getOUTAtt(configuration);
 File fOUT=new File(OUT);
 String uriOUT=fOUT.toURI().toString();
@@ -67,7 +67,8 @@ if(isValid)
 	monitor.subTask("Executing transformation");
 	try{
 		Transformations transf = Transformations.getInstance();
-		transf.metagem2hybrid(uriIN, uriLEFT, uriRIGHT, uriOUT);
+		//transf.metagem2hybrid(uriIN, uriLEFT, uriRIGHT, uriOUT);
+		transf.metagem2hybrid(uriIN, uriOUT);
 		monitor.worked(85);		
 		if(monitor.isCanceled())
 			return;

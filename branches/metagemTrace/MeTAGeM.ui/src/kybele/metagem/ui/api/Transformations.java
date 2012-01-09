@@ -57,9 +57,18 @@ public class Transformations {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
 	}
 		
-	public void metagem2hybrid(String inFilePath, String leftFilePath, String rightFilePath,String outFilePath) throws Exception {
+//	public void metagem2hybrid(String inFilePath, String leftFilePath, String rightFilePath,String outFilePath) throws Exception {
+//		try{
+//		Map<String, Object> models=loadModelsMeTAGeM2Hybrid(inFilePath, leftFilePath, rightFilePath);
+//		doMeTAGeM2Hybrid(models,new NullProgressMonitor());
+//		saveModels(((IModel)models.get("OUT")),outFilePath);
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
+//	}
+	public void metagem2hybrid(String inFilePath, String outFilePath) throws Exception {
 		try{
-		Map<String, Object> models=loadModelsMeTAGeM2Hybrid(inFilePath, leftFilePath, rightFilePath);
+		Map<String, Object> models=loadModelsMeTAGeM2Hybrid(inFilePath);
 		doMeTAGeM2Hybrid(models,new NullProgressMonitor());
 		saveModels(((IModel)models.get("OUT")),outFilePath);
 		}catch(Exception e){
@@ -72,13 +81,39 @@ public class Transformations {
 		Map<String, Object> launcherOptions = getOptions(_METAGEM2HYBRID);
 		launcher.initialize(launcherOptions);
 		launcher.addInModel(((IModel)models.get("IN")), "IN", "MeTAGeM");
-		launcher.addInModel(((IModel)models.get("left")), "left", "MOF");
-		launcher.addInModel(((IModel)models.get("right")), "right", "MOF");
+		//launcher.addInModel(((IModel)models.get("left")), "left", "MOF");
+		//launcher.addInModel(((IModel)models.get("right")), "right", "MOF");
 		launcher.addOutModel(((IModel)models.get("OUT")), "OUT", "Hybrid");
 		launcher.launch("run", nullProgressMonitor, launcherOptions, (Object[]) getModulesList(_METAGEM2HYBRID));
 	}
 
-	private Map<String, Object> loadModelsMeTAGeM2Hybrid(String inFilePath, String leftFilePath,String rightFilePath) throws Exception {
+//	private Map<String, Object> loadModelsMeTAGeM2Hybrid(String inFilePath, String leftFilePath,String rightFilePath) throws Exception {
+//		Map<String, Object> models = new HashMap<String, Object>();
+//		ModelFactory factory = new EMFModelFactory();
+//		IInjector injector = new EMFInjector();
+//	 	IReferenceModel hybridMetamodel = factory.newReferenceModel();
+//		injector.inject(hybridMetamodel, Utils.getFileURL("resources/Hybrid.ecore").toString());
+//		IReferenceModel metagemMetamodel = factory.newReferenceModel();
+//		injector.inject(metagemMetamodel, Utils.getFileURL("resources/MeTAGeM.ecore").toString());
+//		IReferenceModel mofMetamodel = factory.getMetametamodel();
+//		IModel metagemInputModel = factory.newModel(metagemMetamodel);
+//		injector.inject(metagemInputModel, inFilePath);
+//		models.put("IN", metagemInputModel);
+//		
+//		IModel leftInputModel = factory.newModel(mofMetamodel);
+//		injector.inject(leftInputModel, leftFilePath);
+//		models.put("left", leftInputModel);
+//		
+//		IModel rightInputModel = factory.newModel(mofMetamodel);
+//		injector.inject(rightInputModel, rightFilePath);
+//		models.put("right", rightInputModel);
+//		
+//		IModel hybridOutputModel = factory.newModel(hybridMetamodel);
+//		models.put("OUT", hybridOutputModel);
+//		return models;
+//	}
+	
+	private Map<String, Object> loadModelsMeTAGeM2Hybrid(String inFilePath) throws Exception {
 		Map<String, Object> models = new HashMap<String, Object>();
 		ModelFactory factory = new EMFModelFactory();
 		IInjector injector = new EMFInjector();
@@ -86,18 +121,9 @@ public class Transformations {
 		injector.inject(hybridMetamodel, Utils.getFileURL("resources/Hybrid.ecore").toString());
 		IReferenceModel metagemMetamodel = factory.newReferenceModel();
 		injector.inject(metagemMetamodel, Utils.getFileURL("resources/MeTAGeM.ecore").toString());
-		IReferenceModel mofMetamodel = factory.getMetametamodel();
 		IModel metagemInputModel = factory.newModel(metagemMetamodel);
 		injector.inject(metagemInputModel, inFilePath);
 		models.put("IN", metagemInputModel);
-		
-		IModel leftInputModel = factory.newModel(mofMetamodel);
-		injector.inject(leftInputModel, leftFilePath);
-		models.put("left", leftInputModel);
-		
-		IModel rightInputModel = factory.newModel(mofMetamodel);
-		injector.inject(rightInputModel, rightFilePath);
-		models.put("right", rightInputModel);
 		
 		IModel hybridOutputModel = factory.newModel(hybridMetamodel);
 		models.put("OUT", hybridOutputModel);
