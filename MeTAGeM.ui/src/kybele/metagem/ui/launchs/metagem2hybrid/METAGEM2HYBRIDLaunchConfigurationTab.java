@@ -37,8 +37,8 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 		private ScrolledComposite sc = null;
 		private Composite modelExtentComp = null;	
 		private Text tProviderTextIN;
-		private Text tProviderTextLEFT;
-		private Text tProviderTextRIGHT;
+		//private Text tProviderTextLEFT;
+		//private Text tProviderTextRIGHT;
 		private Text tProviderTextOUT;
 			
 		
@@ -67,9 +67,10 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 					switch(type)
 					{
 					case(0):if (!tProviderTextIN.getText().equals(path))tProviderTextIN.setText(path);break;
-					case(1):if (!tProviderTextLEFT.getText().equals(path))tProviderTextLEFT.setText(path);break;
-					case(2):if (!tProviderTextRIGHT.getText().equals(path))tProviderTextRIGHT.setText(path);break;
-					case(3):if (!tProviderTextOUT.getText().equals(path))tProviderTextOUT.setText(path);break;
+					//case(1):if (!tProviderTextLEFT.getText().equals(path))tProviderTextLEFT.setText(path);break;
+					//case(2):if (!tProviderTextRIGHT.getText().equals(path))tProviderTextRIGHT.setText(path);break;
+					//case(3):if (!tProviderTextOUT.getText().equals(path))tProviderTextOUT.setText(path);break;
+					case(1):if (!tProviderTextOUT.getText().equals(path))tProviderTextOUT.setText(path);break;
 					}
 					
 				}
@@ -120,23 +121,23 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 
 			   }
 			   
-			   IPath leftLoc = getLeftLocation();
-			   if (leftLoc == null) {
-			      setMessage(null);
-			      setErrorMessage(
-			         "Select a valid left (MOF) model");
-			      super.updateLaunchConfigurationDialog();
-			      return;
-			   }
-			   
-			   IPath rightLoc = getRightLocation();
-			   if (rightLoc == null) {
-			      setMessage(null);
-			      setErrorMessage(
-			         "Select a valid right (MOF) model");
-			      super.updateLaunchConfigurationDialog();
-			      return;
-			   }
+//			   IPath leftLoc = getLeftLocation();
+//			   if (leftLoc == null) {
+//			      setMessage(null);
+//			      setErrorMessage(
+//			         "Select a valid left (MOF) model");
+//			      super.updateLaunchConfigurationDialog();
+//			      return;
+//			   }
+//			   
+//			   IPath rightLoc = getRightLocation();
+//			   if (rightLoc == null) {
+//			      setMessage(null);
+//			      setErrorMessage(
+//			         "Select a valid right (MOF) model");
+//			      super.updateLaunchConfigurationDialog();
+//			      return;
+//			   }
 			   
 			   IPath destinationLoc = getDestinationLocation();
 			   if (destinationLoc == null) {
@@ -185,26 +186,26 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 			tProviderBrowse.addSelectionListener(tProviderListener);
 			
 			// Segundo grupo de controles, para seleccionar el fichero left	
-			Group tProviderGroup2 = createGroup(modelExtentComp, "Left(MOF) model to transform", 3);
-			TProviderGroupListener tProviderListener2 = new TProviderGroupListener(1);
-
-			createLabel(tProviderGroup2, "LEFT model URI: ");		
-			tProviderTextLEFT = createText(tProviderGroup2);		
-			tProviderTextLEFT.addModifyListener(tProviderListener2);
-			
-			Button tProviderBrowse2 = createPushButton(tProviderGroup2, "Browse...", null);		
-			tProviderBrowse2.addSelectionListener(tProviderListener2);
-			
-			// Tercer grupo de controles, para seleccionar el fichero right
-			Group tProviderGroup3 = createGroup(modelExtentComp, "Right(MOF) model to transform", 3);
-			TProviderGroupListener tProviderListener3 = new TProviderGroupListener(2);
-
-			createLabel(tProviderGroup3, "RIGHT model URI: ");		
-			tProviderTextRIGHT = createText(tProviderGroup3);		
-			tProviderTextRIGHT.addModifyListener(tProviderListener3);
-			
-			Button tProviderBrowse3 = createPushButton(tProviderGroup3, "Browse...", null);		
-			tProviderBrowse3.addSelectionListener(tProviderListener3);
+//			Group tProviderGroup2 = createGroup(modelExtentComp, "Left(MOF) model to transform", 3);
+//			TProviderGroupListener tProviderListener2 = new TProviderGroupListener(1);
+//
+//			createLabel(tProviderGroup2, "LEFT model URI: ");		
+//			tProviderTextLEFT = createText(tProviderGroup2);		
+//			tProviderTextLEFT.addModifyListener(tProviderListener2);
+//			
+//			Button tProviderBrowse2 = createPushButton(tProviderGroup2, "Browse...", null);		
+//			tProviderBrowse2.addSelectionListener(tProviderListener2);
+//			
+//			// Tercer grupo de controles, para seleccionar el fichero right
+//			Group tProviderGroup3 = createGroup(modelExtentComp, "Right(MOF) model to transform", 3);
+//			TProviderGroupListener tProviderListener3 = new TProviderGroupListener(2);
+//
+//			createLabel(tProviderGroup3, "RIGHT model URI: ");		
+//			tProviderTextRIGHT = createText(tProviderGroup3);		
+//			tProviderTextRIGHT.addModifyListener(tProviderListener3);
+//			
+//			Button tProviderBrowse3 = createPushButton(tProviderGroup3, "Browse...", null);		
+//			tProviderBrowse3.addSelectionListener(tProviderListener3);
 			
 			
 			// Cuarto grupo de controles, para seleccionar el fichero de salida
@@ -242,18 +243,18 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 			} catch (CoreException ce) {
 				tProviderTextIN.setText("");
 			}
-			try {
-				tProviderTextLEFT.setText(configuration.getAttribute(
-						METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_LEFT, ""));
-			} catch (CoreException ce) {
-				tProviderTextLEFT.setText("");
-			}
-			try {
-				tProviderTextRIGHT.setText(configuration.getAttribute(
-						METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_RIGHT, ""));
-			} catch (CoreException ce) {
-				tProviderTextIN.setText("");
-			}
+//			try {
+//				tProviderTextLEFT.setText(configuration.getAttribute(
+//						METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_LEFT, ""));
+//			} catch (CoreException ce) {
+//				tProviderTextLEFT.setText("");
+//			}
+//			try {
+//				tProviderTextRIGHT.setText(configuration.getAttribute(
+//						METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_RIGHT, ""));
+//			} catch (CoreException ce) {
+//				tProviderTextIN.setText("");
+//			}
 	
 			try {
 				tProviderTextOUT.setText(configuration.getAttribute(
@@ -269,12 +270,12 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 			// FIXME Analizar con cuidado si debemos hacer o no los sets de Attributes
 			//		Ojo con getAttributeValueFrom 
 			String in = getAttributeValueFrom(tProviderTextIN);
-			String left = getAttributeValueFrom(tProviderTextLEFT);
-			String right = getAttributeValueFrom(tProviderTextRIGHT);
+			//String left = getAttributeValueFrom(tProviderTextLEFT);
+			//String right = getAttributeValueFrom(tProviderTextRIGHT);
 			String out = getAttributeValueFrom(tProviderTextOUT);
 			configuration.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_IN, in);
-			configuration.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_LEFT, left);
-			configuration.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_RIGHT, right);
+//			configuration.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_LEFT, left);
+//			configuration.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_RIGHT, right);
 			configuration.setAttribute(METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_OUT, out);
 		}
 
@@ -376,27 +377,27 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 			   return path;
 			}
 			
-			public IPath getLeftLocation() {
-				   String text = tProviderTextLEFT.getText().trim();
-				   if (text.length() == 0)
-				       return null;
-				   IPath path = new Path(text);
-				   if (!path.isAbsolute())
-				      path = ResourcesPlugin.getWorkspace().getRoot().getLocation()
-				             .append(path);
-				   return path;
-				}
-			
-			public IPath getRightLocation() {
-				   String text = tProviderTextRIGHT.getText().trim();
-				   if (text.length() == 0)
-				       return null;
-				   IPath path = new Path(text);
-				   if (!path.isAbsolute())
-				      path = ResourcesPlugin.getWorkspace().getRoot().getLocation()
-				             .append(path);
-				   return path;
-				}
+//			public IPath getLeftLocation() {
+//				   String text = tProviderTextLEFT.getText().trim();
+//				   if (text.length() == 0)
+//				       return null;
+//				   IPath path = new Path(text);
+//				   if (!path.isAbsolute())
+//				      path = ResourcesPlugin.getWorkspace().getRoot().getLocation()
+//				             .append(path);
+//				   return path;
+//				}
+//			
+//			public IPath getRightLocation() {
+//				   String text = tProviderTextRIGHT.getText().trim();
+//				   if (text.length() == 0)
+//				       return null;
+//				   IPath path = new Path(text);
+//				   if (!path.isAbsolute())
+//				      path = ResourcesPlugin.getWorkspace().getRoot().getLocation()
+//				             .append(path);
+//				   return path;
+//				}
 				
 			public IPath getDestinationLocation() {
 			   String text = tProviderTextOUT.getText().trim();
