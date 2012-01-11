@@ -278,9 +278,9 @@
         <target name="name" ref="//ElementLocal/name" model="//@targetModels.0"/>
       </oneToOne>
     </target>
-    <target name="ComplexTypeLocal" ref="//ComplexTypeLocal" model="//@targetModels.0">
+    <target name="ComplexTypeLocal" ref="//ComplexTypeLocal" owns="//@relations.11/@target.1/@zeroToOne.0/@target" model="//@targetModels.0">
       <zeroToOne>
-        <target name="eleccion" ref="//ComplexTypeLocal/eleccion" model="//@targetModels.0"/>
+        <target name="eleccion" ref="//ComplexTypeLocal/eleccion" belongsTo="//@relations.11/@target.1" model="//@targetModels.0"/>
       </zeroToOne>
     </target>
     <target name="Other" ref="//Other" model="//@targetModels.0">
