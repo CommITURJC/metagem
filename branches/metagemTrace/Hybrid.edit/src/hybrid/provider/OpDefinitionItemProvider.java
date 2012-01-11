@@ -7,15 +7,18 @@
 package hybrid.provider;
 
 
+//import hybrid.Datatype;
 import hybrid.HybridFactory;
 import hybrid.HybridPackage;
-import hybrid.Operation;
+import hybrid.OpDefinition;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
@@ -27,16 +30,17 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link hybrid.Operation} object.
+ * This is the item provider adapter for a {@link hybrid.OpDefinition} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class OperationItemProvider
-	extends HybridElementItemProvider
+public class OpDefinitionItemProvider
+	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -49,7 +53,7 @@ public class OperationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OperationItemProvider(AdapterFactory adapterFactory) {
+	public OpDefinitionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,54 +68,48 @@ public class OperationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBodyPropertyDescriptor(object);
-			addRightPatternPropertyDescriptor(object);
+			addDatatypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Body feature.
+	 * This adds a property descriptor for the Datatype feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NOT generated
 	 */
-	protected void addBodyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
+	protected void addDatatypePropertyDescriptor(Object object) {
+		if (((OpDefinition)object).eContainingFeature().getName().equals("return")){
+			itemPropertyDescriptors.add
+				(createItemPropertyDescriptor
+					(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+					 getResourceLocator(),
+					 getString("_UI_OpDefinition_datatype_feature"),
+					 getString("_UI_PropertyDescriptor_description", "_UI_OpDefinition_datatype_feature", "_UI_OpDefinition_type_return"),
+					 HybridPackage.Literals.OP_DEFINITION__DATATYPE,
+					 true,
+					 false,
+					 false,
+					 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+					 null,
+					 null));
+		}else{
+			itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Operation_body_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_body_feature", "_UI_Operation_type"),
-				 HybridPackage.Literals.OPERATION__BODY,
+				 getString("_UI_OpDefinition_datatype_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OpDefinition_datatype_feature", "_UI_OpDefinition_type_context"),
+				 HybridPackage.Literals.OP_DEFINITION__DATATYPE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
-	}
 
-	/**
-	 * This adds a property descriptor for the Right Pattern feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRightPatternPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Operation_rightPattern_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_rightPattern_feature", "_UI_Operation_type"),
-				 HybridPackage.Literals.OPERATION__RIGHT_PATTERN,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		}
 	}
 
 	/**
@@ -126,9 +124,7 @@ public class OperationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(HybridPackage.Literals.OPERATION__RETURN);
-			childrenFeatures.add(HybridPackage.Literals.OPERATION__CONTEXT);
-			childrenFeatures.add(HybridPackage.Literals.OPERATION__ARGUMENTS);
+			childrenFeatures.add(HybridPackage.Literals.OP_DEFINITION__COMPONENT);
 		}
 		return childrenFeatures;
 	}
@@ -147,28 +143,42 @@ public class OperationItemProvider
 	}
 
 	/**
-	 * This returns Operation.gif.
+	 * This returns OpDefinition.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NOT generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Operation"));
+		if (((OpDefinition)object).eContainingFeature().getName().equals("return")){
+			return overlayImage(object, getResourceLocator().getImage("full/obj16/Return"));
+		}else{
+			return overlayImage(object, getResourceLocator().getImage("full/obj16/OpDefinition"));
+		}
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NOT generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Operation)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Operation_type") :
-			getString("_UI_Operation_type") + " " + label;
+//		Datatype labelValue = ((OpDefinition)object).getDatatype();
+//		String label = labelValue == null ? null : labelValue.toString();
+//		return label == null || label.length() == 0 ?
+//				getLabelString((OpDefinition)object) :
+//					getLabelString((OpDefinition)object) + " " + label;
+		
+		return getLabelString((OpDefinition)object);
+	}
+	
+	private String getLabelString (OpDefinition object){
+		if (object.eContainingFeature().getName().equals("return"))
+			return getString("_UI_OpDefinition_type_return");
+		else
+			return getString("_UI_OpDefinition_type_context");
 	}
 
 	/**
@@ -182,13 +192,11 @@ public class OperationItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Operation.class)) {
-			case HybridPackage.OPERATION__BODY:
+		switch (notification.getFeatureID(OpDefinition.class)) {
+			case HybridPackage.OP_DEFINITION__DATATYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case HybridPackage.OPERATION__RETURN:
-			case HybridPackage.OPERATION__CONTEXT:
-			case HybridPackage.OPERATION__ARGUMENTS:
+			case HybridPackage.OP_DEFINITION__COMPONENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -208,41 +216,24 @@ public class OperationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HybridPackage.Literals.OPERATION__RETURN,
-				 HybridFactory.eINSTANCE.createOpDefinition()));
+				(HybridPackage.Literals.OP_DEFINITION__COMPONENT,
+				 HybridFactory.eINSTANCE.createSource()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HybridPackage.Literals.OPERATION__CONTEXT,
-				 HybridFactory.eINSTANCE.createOpDefinition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HybridPackage.Literals.OPERATION__ARGUMENTS,
-				 HybridFactory.eINSTANCE.createOpArgument()));
+				(HybridPackage.Literals.OP_DEFINITION__COMPONENT,
+				 HybridFactory.eINSTANCE.createTarget()));
 	}
 
 	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @ generated
+	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == HybridPackage.Literals.OPERATION__RETURN ||
-			childFeature == HybridPackage.Literals.OPERATION__CONTEXT;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
+	public ResourceLocator getResourceLocator() {
+		return HybridEditPlugin.INSTANCE;
 	}
 
 }
