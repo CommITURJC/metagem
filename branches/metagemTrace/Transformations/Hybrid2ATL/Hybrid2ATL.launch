@@ -39,8 +39,8 @@
 <mapAttribute key="Path">
 <mapEntry key="ATL" value="/Hybrid2ATL/ATL.ecore"/>
 <mapEntry key="Hybrid" value="/Hybrid2ATL/Hybrid.ecore"/>
-<mapEntry key="IN" value="/Hybrid2ATL/Models/Familes2Persons_hybrid.ecore"/>
-<mapEntry key="OUT" value="/Hybrid2ATL/Models/fam2per_atl.ecore"/>
+<mapEntry key="IN" value="/Hybrid2ATL/Models/UML2XMLSchema.hybrid.ecore"/>
+<mapEntry key="OUT" value="/Hybrid2ATL/Models/UML2XMLSchema.atl.ecore"/>
 </mapAttribute>
 <listAttribute key="Superimpose"/>
 </launchConfiguration>

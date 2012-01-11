@@ -283,6 +283,29 @@ public class ETLItemProviderAdapterFactory extends ETLAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ETL.OperationParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OperationParameterItemProvider operationParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ETL.OperationParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOperationParameterAdapter() {
+		if (operationParameterItemProvider == null) {
+			operationParameterItemProvider = new OperationParameterItemProvider(this);
+		}
+
+		return operationParameterItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -390,6 +413,7 @@ public class ETLItemProviderAdapterFactory extends ETLAdapterFactory implements 
 		if (bindingItemProvider != null) bindingItemProvider.dispose();
 		if (simpleStatementItemProvider != null) simpleStatementItemProvider.dispose();
 		if (operationStatementItemProvider != null) operationStatementItemProvider.dispose();
+		if (operationParameterItemProvider != null) operationParameterItemProvider.dispose();
 	}
 
 }

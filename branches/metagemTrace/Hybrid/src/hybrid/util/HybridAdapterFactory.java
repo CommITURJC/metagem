@@ -84,8 +84,8 @@ public class HybridAdapterFactory extends AdapterFactoryImpl {
 				return createOperationAdapter();
 			}
 			@Override
-			public Adapter caseReturn(Return object) {
-				return createReturnAdapter();
+			public Adapter caseOpDefinition(OpDefinition object) {
+				return createOpDefinitionAdapter();
 			}
 			@Override
 			public Adapter caseSourceModel(SourceModel object) {
@@ -104,8 +104,8 @@ public class HybridAdapterFactory extends AdapterFactoryImpl {
 				return createRuleAdapter();
 			}
 			@Override
-			public Adapter caseRuleElement(RuleElement object) {
-				return createRuleElementAdapter();
+			public Adapter caseTransformationElement(TransformationElement object) {
+				return createTransformationElementAdapter();
 			}
 			@Override
 			public Adapter caseSource(Source object) {
@@ -142,6 +142,10 @@ public class HybridAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTraceBinding(TraceBinding object) {
 				return createTraceBindingAdapter();
+			}
+			@Override
+			public Adapter caseOpArgument(OpArgument object) {
+				return createOpArgumentAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -206,16 +210,16 @@ public class HybridAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link hybrid.Return <em>Return</em>}'.
+	 * Creates a new adapter for an object of class '{@link hybrid.OpDefinition <em>Op Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see hybrid.Return
+	 * @see hybrid.OpDefinition
 	 * @generated
 	 */
-	public Adapter createReturnAdapter() {
+	public Adapter createOpDefinitionAdapter() {
 		return null;
 	}
 
@@ -276,16 +280,16 @@ public class HybridAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link hybrid.RuleElement <em>Rule Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link hybrid.TransformationElement <em>Transformation Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see hybrid.RuleElement
+	 * @see hybrid.TransformationElement
 	 * @generated
 	 */
-	public Adapter createRuleElementAdapter() {
+	public Adapter createTransformationElementAdapter() {
 		return null;
 	}
 
@@ -412,6 +416,20 @@ public class HybridAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTraceBindingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link hybrid.OpArgument <em>Op Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hybrid.OpArgument
+	 * @generated
+	 */
+	public Adapter createOpArgumentAdapter() {
 		return null;
 	}
 

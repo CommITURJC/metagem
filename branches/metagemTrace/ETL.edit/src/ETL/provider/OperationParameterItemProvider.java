@@ -9,7 +9,7 @@ package ETL.provider;
 
 import ETL.ETLFactory;
 import ETL.ETLPackage;
-import ETL.OperationStatement;
+import ETL.OperationParameter;
 
 import java.util.Collection;
 import java.util.List;
@@ -18,7 +18,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -30,13 +29,13 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ETL.OperationStatement} object.
+ * This is the item provider adapter for a {@link ETL.OperationParameter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class OperationStatementItemProvider
-	extends StatementItemProvider
+public class OperationParameterItemProvider
+	extends EtlElementItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -49,7 +48,7 @@ public class OperationStatementItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OperationStatementItemProvider(AdapterFactory adapterFactory) {
+	public OperationParameterItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,25 +63,48 @@ public class OperationStatementItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOperatorPropertyDescriptor(object);
+			addElementRefPropertyDescriptor(object);
+			addPropertyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Operator feature.
+	 * This adds a property descriptor for the Element Ref feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOperatorPropertyDescriptor(Object object) {
+	protected void addElementRefPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OperationStatement_operator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OperationStatement_operator_feature", "_UI_OperationStatement_type"),
-				 ETLPackage.Literals.OPERATION_STATEMENT__OPERATOR,
+				 getString("_UI_SimpleStatement_elementRef_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SimpleStatement_elementRef_feature", "_UI_SimpleStatement_type"),
+				 ETLPackage.Literals.SIMPLE_STATEMENT__ELEMENT_REF,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Property feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPropertyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SimpleStatement_property_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SimpleStatement_property_feature", "_UI_SimpleStatement_type"),
+				 ETLPackage.Literals.SIMPLE_STATEMENT__PROPERTY,
 				 true,
 				 false,
 				 false,
@@ -103,8 +125,7 @@ public class OperationStatementItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ETLPackage.Literals.OPERATION_STATEMENT__PARAMETER1);
-			childrenFeatures.add(ETLPackage.Literals.OPERATION_STATEMENT__PARAMETER2);
+			childrenFeatures.add(ETLPackage.Literals.SIMPLE_STATEMENT__ELEMENT_CHILD);
 		}
 		return childrenFeatures;
 	}
@@ -123,14 +144,14 @@ public class OperationStatementItemProvider
 	}
 
 	/**
-	 * This returns OperationStatement.gif.
+	 * This returns OperationParameter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OperationStatement"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OperationParameter"));
 	}
 
 	/**
@@ -141,10 +162,10 @@ public class OperationStatementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((OperationStatement)object).getOperator();
+		String label = ((OperationParameter)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OperationStatement_type") :
-			getString("_UI_OperationStatement_type") + " " + label;
+			getString("_UI_OperationParameter_type") :
+			getString("_UI_OperationParameter_type") + " " + label;
 	}
 
 	/**
@@ -158,12 +179,11 @@ public class OperationStatementItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(OperationStatement.class)) {
-			case ETLPackage.OPERATION_STATEMENT__OPERATOR:
+		switch (notification.getFeatureID(OperationParameter.class)) {
+			case ETLPackage.OPERATION_PARAMETER__PROPERTY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ETLPackage.OPERATION_STATEMENT__PARAMETER1:
-			case ETLPackage.OPERATION_STATEMENT__PARAMETER2:
+			case ETLPackage.OPERATION_PARAMETER__ELEMENT_CHILD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -183,56 +203,8 @@ public class OperationStatementItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ETLPackage.Literals.OPERATION_STATEMENT__PARAMETER1,
-				 ETLFactory.eINSTANCE.createSimpleStatement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ETLPackage.Literals.OPERATION_STATEMENT__PARAMETER1,
-				 ETLFactory.eINSTANCE.createOperationStatement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ETLPackage.Literals.OPERATION_STATEMENT__PARAMETER1,
-				 ETLFactory.eINSTANCE.createOperationParameter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ETLPackage.Literals.OPERATION_STATEMENT__PARAMETER2,
-				 ETLFactory.eINSTANCE.createSimpleStatement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ETLPackage.Literals.OPERATION_STATEMENT__PARAMETER2,
-				 ETLFactory.eINSTANCE.createOperationStatement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ETLPackage.Literals.OPERATION_STATEMENT__PARAMETER2,
-				 ETLFactory.eINSTANCE.createOperationParameter()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == ETLPackage.Literals.OPERATION_STATEMENT__PARAMETER1 ||
-			childFeature == ETLPackage.Literals.OPERATION_STATEMENT__PARAMETER2;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
+				(ETLPackage.Literals.SIMPLE_STATEMENT__ELEMENT_CHILD,
+				 ETLFactory.eINSTANCE.createElement()));
 	}
 
 }

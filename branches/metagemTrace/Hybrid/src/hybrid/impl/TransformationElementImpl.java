@@ -8,8 +8,7 @@ package hybrid.impl;
 
 import hybrid.HybridPackage;
 import hybrid.Model;
-import hybrid.RightPattern;
-import hybrid.RuleElement;
+import hybrid.TransformationElement;
 
 import java.util.Collection;
 
@@ -22,28 +21,57 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Rule Element</b></em>'.
+ * An implementation of the model object '<em><b>Transformation Element</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link hybrid.impl.RuleElementImpl#getRef <em>Ref</em>}</li>
- *   <li>{@link hybrid.impl.RuleElementImpl#getBelongsTo <em>Belongs To</em>}</li>
- *   <li>{@link hybrid.impl.RuleElementImpl#getOwns <em>Owns</em>}</li>
- *   <li>{@link hybrid.impl.RuleElementImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link hybrid.impl.TransformationElementImpl#getBelongsTo <em>Belongs To</em>}</li>
+ *   <li>{@link hybrid.impl.TransformationElementImpl#getOwns <em>Owns</em>}</li>
+ *   <li>{@link hybrid.impl.TransformationElementImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link hybrid.impl.TransformationElementImpl#getRef <em>Ref</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class RuleElementImpl extends HybridElementImpl implements RuleElement {
+public abstract class TransformationElementImpl extends HybridElementImpl implements TransformationElement {
+	/**
+	 * The cached value of the '{@link #getBelongsTo() <em>Belongs To</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBelongsTo()
+	 * @generated
+	 * @ordered
+	 */
+	protected TransformationElement belongsTo;
+
+	/**
+	 * The cached value of the '{@link #getOwns() <em>Owns</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOwns()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TransformationElement> owns;
+
+	/**
+	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModel()
+	 * @generated
+	 * @ordered
+	 */
+	protected Model model;
+
 	/**
 	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -65,41 +93,11 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 	protected String ref = REF_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getBelongsTo() <em>Belongs To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBelongsTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected RuleElement belongsTo;
-
-	/**
-	 * The cached value of the '{@link #getOwns() <em>Owns</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwns()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RuleElement> owns;
-
-	/**
-	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModel()
-	 * @generated
-	 * @ordered
-	 */
-	protected Model model;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RuleElementImpl() {
+	protected TransformationElementImpl() {
 		super();
 	}
 
@@ -110,7 +108,7 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return HybridPackage.Literals.RULE_ELEMENT;
+		return HybridPackage.Literals.TRANSFORMATION_ELEMENT;
 	}
 
 	/**
@@ -118,34 +116,13 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRef() {
-		return ref;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRef(String newRef) {
-		String oldRef = ref;
-		ref = newRef;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.RULE_ELEMENT__REF, oldRef, ref));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RuleElement getBelongsTo() {
+	public TransformationElement getBelongsTo() {
 		if (belongsTo != null && belongsTo.eIsProxy()) {
 			InternalEObject oldBelongsTo = (InternalEObject)belongsTo;
-			belongsTo = (RuleElement)eResolveProxy(oldBelongsTo);
+			belongsTo = (TransformationElement)eResolveProxy(oldBelongsTo);
 			if (belongsTo != oldBelongsTo) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HybridPackage.RULE_ELEMENT__BELONGS_TO, oldBelongsTo, belongsTo));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HybridPackage.TRANSFORMATION_ELEMENT__BELONGS_TO, oldBelongsTo, belongsTo));
 			}
 		}
 		return belongsTo;
@@ -156,7 +133,7 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleElement basicGetBelongsTo() {
+	public TransformationElement basicGetBelongsTo() {
 		return belongsTo;
 	}
 
@@ -165,11 +142,11 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBelongsTo(RuleElement newBelongsTo, NotificationChain msgs) {
-		RuleElement oldBelongsTo = belongsTo;
+	public NotificationChain basicSetBelongsTo(TransformationElement newBelongsTo, NotificationChain msgs) {
+		TransformationElement oldBelongsTo = belongsTo;
 		belongsTo = newBelongsTo;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HybridPackage.RULE_ELEMENT__BELONGS_TO, oldBelongsTo, newBelongsTo);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HybridPackage.TRANSFORMATION_ELEMENT__BELONGS_TO, oldBelongsTo, newBelongsTo);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -180,18 +157,18 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBelongsTo(RuleElement newBelongsTo) {
+	public void setBelongsTo(TransformationElement newBelongsTo) {
 		if (newBelongsTo != belongsTo) {
 			NotificationChain msgs = null;
 			if (belongsTo != null)
-				msgs = ((InternalEObject)belongsTo).eInverseRemove(this, HybridPackage.RULE_ELEMENT__OWNS, RuleElement.class, msgs);
+				msgs = ((InternalEObject)belongsTo).eInverseRemove(this, HybridPackage.TRANSFORMATION_ELEMENT__OWNS, TransformationElement.class, msgs);
 			if (newBelongsTo != null)
-				msgs = ((InternalEObject)newBelongsTo).eInverseAdd(this, HybridPackage.RULE_ELEMENT__OWNS, RuleElement.class, msgs);
+				msgs = ((InternalEObject)newBelongsTo).eInverseAdd(this, HybridPackage.TRANSFORMATION_ELEMENT__OWNS, TransformationElement.class, msgs);
 			msgs = basicSetBelongsTo(newBelongsTo, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.RULE_ELEMENT__BELONGS_TO, newBelongsTo, newBelongsTo));
+			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.TRANSFORMATION_ELEMENT__BELONGS_TO, newBelongsTo, newBelongsTo));
 	}
 
 	/**
@@ -199,9 +176,9 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RuleElement> getOwns() {
+	public EList<TransformationElement> getOwns() {
 		if (owns == null) {
-			owns = new EObjectWithInverseResolvingEList<RuleElement>(RuleElement.class, this, HybridPackage.RULE_ELEMENT__OWNS, HybridPackage.RULE_ELEMENT__BELONGS_TO);
+			owns = new EObjectWithInverseResolvingEList<TransformationElement>(TransformationElement.class, this, HybridPackage.TRANSFORMATION_ELEMENT__OWNS, HybridPackage.TRANSFORMATION_ELEMENT__BELONGS_TO);
 		}
 		return owns;
 	}
@@ -217,7 +194,7 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 			model = (Model)eResolveProxy(oldModel);
 			if (model != oldModel) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HybridPackage.RULE_ELEMENT__MODEL, oldModel, model));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HybridPackage.TRANSFORMATION_ELEMENT__MODEL, oldModel, model));
 			}
 		}
 		return model;
@@ -241,7 +218,28 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 		Model oldModel = model;
 		model = newModel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.RULE_ELEMENT__MODEL, oldModel, model));
+			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.TRANSFORMATION_ELEMENT__MODEL, oldModel, model));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getRef() {
+		return ref;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRef(String newRef) {
+		String oldRef = ref;
+		ref = newRef;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.TRANSFORMATION_ELEMENT__REF, oldRef, ref));
 	}
 
 	/**
@@ -253,11 +251,11 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case HybridPackage.RULE_ELEMENT__BELONGS_TO:
+			case HybridPackage.TRANSFORMATION_ELEMENT__BELONGS_TO:
 				if (belongsTo != null)
-					msgs = ((InternalEObject)belongsTo).eInverseRemove(this, HybridPackage.RULE_ELEMENT__OWNS, RuleElement.class, msgs);
-				return basicSetBelongsTo((RuleElement)otherEnd, msgs);
-			case HybridPackage.RULE_ELEMENT__OWNS:
+					msgs = ((InternalEObject)belongsTo).eInverseRemove(this, HybridPackage.TRANSFORMATION_ELEMENT__OWNS, TransformationElement.class, msgs);
+				return basicSetBelongsTo((TransformationElement)otherEnd, msgs);
+			case HybridPackage.TRANSFORMATION_ELEMENT__OWNS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwns()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -271,9 +269,9 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case HybridPackage.RULE_ELEMENT__BELONGS_TO:
+			case HybridPackage.TRANSFORMATION_ELEMENT__BELONGS_TO:
 				return basicSetBelongsTo(null, msgs);
-			case HybridPackage.RULE_ELEMENT__OWNS:
+			case HybridPackage.TRANSFORMATION_ELEMENT__OWNS:
 				return ((InternalEList<?>)getOwns()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -287,16 +285,16 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case HybridPackage.RULE_ELEMENT__REF:
-				return getRef();
-			case HybridPackage.RULE_ELEMENT__BELONGS_TO:
+			case HybridPackage.TRANSFORMATION_ELEMENT__BELONGS_TO:
 				if (resolve) return getBelongsTo();
 				return basicGetBelongsTo();
-			case HybridPackage.RULE_ELEMENT__OWNS:
+			case HybridPackage.TRANSFORMATION_ELEMENT__OWNS:
 				return getOwns();
-			case HybridPackage.RULE_ELEMENT__MODEL:
+			case HybridPackage.TRANSFORMATION_ELEMENT__MODEL:
 				if (resolve) return getModel();
 				return basicGetModel();
+			case HybridPackage.TRANSFORMATION_ELEMENT__REF:
+				return getRef();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -310,18 +308,18 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case HybridPackage.RULE_ELEMENT__REF:
-				setRef((String)newValue);
+			case HybridPackage.TRANSFORMATION_ELEMENT__BELONGS_TO:
+				setBelongsTo((TransformationElement)newValue);
 				return;
-			case HybridPackage.RULE_ELEMENT__BELONGS_TO:
-				setBelongsTo((RuleElement)newValue);
-				return;
-			case HybridPackage.RULE_ELEMENT__OWNS:
+			case HybridPackage.TRANSFORMATION_ELEMENT__OWNS:
 				getOwns().clear();
-				getOwns().addAll((Collection<? extends RuleElement>)newValue);
+				getOwns().addAll((Collection<? extends TransformationElement>)newValue);
 				return;
-			case HybridPackage.RULE_ELEMENT__MODEL:
+			case HybridPackage.TRANSFORMATION_ELEMENT__MODEL:
 				setModel((Model)newValue);
+				return;
+			case HybridPackage.TRANSFORMATION_ELEMENT__REF:
+				setRef((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -335,17 +333,17 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case HybridPackage.RULE_ELEMENT__REF:
-				setRef(REF_EDEFAULT);
+			case HybridPackage.TRANSFORMATION_ELEMENT__BELONGS_TO:
+				setBelongsTo((TransformationElement)null);
 				return;
-			case HybridPackage.RULE_ELEMENT__BELONGS_TO:
-				setBelongsTo((RuleElement)null);
-				return;
-			case HybridPackage.RULE_ELEMENT__OWNS:
+			case HybridPackage.TRANSFORMATION_ELEMENT__OWNS:
 				getOwns().clear();
 				return;
-			case HybridPackage.RULE_ELEMENT__MODEL:
+			case HybridPackage.TRANSFORMATION_ELEMENT__MODEL:
 				setModel((Model)null);
+				return;
+			case HybridPackage.TRANSFORMATION_ELEMENT__REF:
+				setRef(REF_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -359,14 +357,14 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case HybridPackage.RULE_ELEMENT__REF:
-				return REF_EDEFAULT == null ? ref != null : !REF_EDEFAULT.equals(ref);
-			case HybridPackage.RULE_ELEMENT__BELONGS_TO:
+			case HybridPackage.TRANSFORMATION_ELEMENT__BELONGS_TO:
 				return belongsTo != null;
-			case HybridPackage.RULE_ELEMENT__OWNS:
+			case HybridPackage.TRANSFORMATION_ELEMENT__OWNS:
 				return owns != null && !owns.isEmpty();
-			case HybridPackage.RULE_ELEMENT__MODEL:
+			case HybridPackage.TRANSFORMATION_ELEMENT__MODEL:
 				return model != null;
+			case HybridPackage.TRANSFORMATION_ELEMENT__REF:
+				return REF_EDEFAULT == null ? ref != null : !REF_EDEFAULT.equals(ref);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -387,4 +385,4 @@ public abstract class RuleElementImpl extends HybridElementImpl implements RuleE
 		return result.toString();
 	}
 
-} //RuleElementImpl
+} //TransformationElementImpl

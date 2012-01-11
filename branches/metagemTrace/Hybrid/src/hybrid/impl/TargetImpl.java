@@ -48,7 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class TargetImpl extends RuleElementImpl implements Target {
+public class TargetImpl extends TransformationElementImpl implements Target {
 	/**
 	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

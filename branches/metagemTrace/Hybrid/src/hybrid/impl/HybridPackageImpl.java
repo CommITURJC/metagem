@@ -15,6 +15,8 @@ import hybrid.HybridPackage;
 import hybrid.LeftPattern;
 import hybrid.Model;
 import hybrid.Module;
+import hybrid.OpArgument;
+import hybrid.OpDefinition;
 import hybrid.Operation;
 import hybrid.Return;
 import hybrid.RightPattern;
@@ -27,6 +29,7 @@ import hybrid.TargetModel;
 import hybrid.TraceBinding;
 import hybrid.TraceLink;
 import hybrid.TraceRule;
+import hybrid.TransformationElement;
 import hybrid.TypeElement;
 import hybrid.TypeRelation;
 
@@ -71,7 +74,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass returnEClass = null;
+	private EClass opDefinitionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,7 +109,7 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass ruleElementEClass = null;
+	private EClass transformationElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -170,6 +173,13 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * @generated
 	 */
 	private EClass traceBindingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass opArgumentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -375,8 +385,8 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getReturn() {
-		return returnEClass;
+	public EReference getOperation_Arguments() {
+		return (EReference)operationEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -384,8 +394,8 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReturn_Datatype() {
-		return (EAttribute)returnEClass.getEStructuralFeatures().get(0);
+	public EClass getOpDefinition() {
+		return opDefinitionEClass;
 	}
 
 	/**
@@ -393,8 +403,35 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getReturn_Component() {
-		return (EReference)returnEClass.getEStructuralFeatures().get(1);
+	public EReference getOpDefinition_Component() {
+		return (EReference)opDefinitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOpDefinition_Datatype() {
+		return (EAttribute)opDefinitionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOpDefinition_Context_op() {
+		return (EReference)opDefinitionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOpDefinition_Return_op() {
+		return (EReference)opDefinitionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -600,8 +637,8 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRuleElement() {
-		return ruleElementEClass;
+	public EClass getTransformationElement() {
+		return transformationElementEClass;
 	}
 
 	/**
@@ -609,8 +646,8 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRuleElement_Ref() {
-		return (EAttribute)ruleElementEClass.getEStructuralFeatures().get(0);
+	public EReference getTransformationElement_BelongsTo() {
+		return (EReference)transformationElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -618,8 +655,8 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRuleElement_BelongsTo() {
-		return (EReference)ruleElementEClass.getEStructuralFeatures().get(1);
+	public EReference getTransformationElement_Owns() {
+		return (EReference)transformationElementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -627,8 +664,8 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRuleElement_Owns() {
-		return (EReference)ruleElementEClass.getEStructuralFeatures().get(2);
+	public EReference getTransformationElement_Model() {
+		return (EReference)transformationElementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -636,8 +673,8 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRuleElement_Model() {
-		return (EReference)ruleElementEClass.getEStructuralFeatures().get(3);
+	public EAttribute getTransformationElement_Ref() {
+		return (EAttribute)transformationElementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -987,6 +1024,51 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOpArgument() {
+		return opArgumentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOpArgument_Name() {
+		return (EAttribute)opArgumentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOpArgument_Datatype() {
+		return (EAttribute)opArgumentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOpArgument_Component() {
+		return (EReference)opArgumentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOpArgument_Operation() {
+		return (EReference)opArgumentEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getTypeRelation() {
 		return typeRelationEEnum;
 	}
@@ -1052,10 +1134,13 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		createEReference(operationEClass, OPERATION__RETURN);
 		createEReference(operationEClass, OPERATION__RIGHT_PATTERN);
 		createEReference(operationEClass, OPERATION__CONTEXT);
+		createEReference(operationEClass, OPERATION__ARGUMENTS);
 
-		returnEClass = createEClass(RETURN);
-		createEAttribute(returnEClass, RETURN__DATATYPE);
-		createEReference(returnEClass, RETURN__COMPONENT);
+		opDefinitionEClass = createEClass(OP_DEFINITION);
+		createEReference(opDefinitionEClass, OP_DEFINITION__COMPONENT);
+		createEAttribute(opDefinitionEClass, OP_DEFINITION__DATATYPE);
+		createEReference(opDefinitionEClass, OP_DEFINITION__CONTEXT_OP);
+		createEReference(opDefinitionEClass, OP_DEFINITION__RETURN_OP);
 
 		sourceModelEClass = createEClass(SOURCE_MODEL);
 		createEReference(sourceModelEClass, SOURCE_MODEL__MODULE);
@@ -1083,11 +1168,11 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		createEReference(ruleEClass, RULE__IS_EXTENDED);
 		createEReference(ruleEClass, RULE__RIGHT_PATTERN);
 
-		ruleElementEClass = createEClass(RULE_ELEMENT);
-		createEAttribute(ruleElementEClass, RULE_ELEMENT__REF);
-		createEReference(ruleElementEClass, RULE_ELEMENT__BELONGS_TO);
-		createEReference(ruleElementEClass, RULE_ELEMENT__OWNS);
-		createEReference(ruleElementEClass, RULE_ELEMENT__MODEL);
+		transformationElementEClass = createEClass(TRANSFORMATION_ELEMENT);
+		createEReference(transformationElementEClass, TRANSFORMATION_ELEMENT__BELONGS_TO);
+		createEReference(transformationElementEClass, TRANSFORMATION_ELEMENT__OWNS);
+		createEReference(transformationElementEClass, TRANSFORMATION_ELEMENT__MODEL);
+		createEAttribute(transformationElementEClass, TRANSFORMATION_ELEMENT__REF);
 
 		sourceEClass = createEClass(SOURCE);
 		createEReference(sourceEClass, SOURCE__RULE);
@@ -1136,6 +1221,12 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		createEReference(traceBindingEClass, TRACE_BINDING__PARENT);
 		createEReference(traceBindingEClass, TRACE_BINDING__BINDING);
 
+		opArgumentEClass = createEClass(OP_ARGUMENT);
+		createEAttribute(opArgumentEClass, OP_ARGUMENT__NAME);
+		createEAttribute(opArgumentEClass, OP_ARGUMENT__DATATYPE);
+		createEReference(opArgumentEClass, OP_ARGUMENT__COMPONENT);
+		createEReference(opArgumentEClass, OP_ARGUMENT__OPERATION);
+
 		// Create enums
 		typeRelationEEnum = createEEnum(TYPE_RELATION);
 		typeElementEEnum = createEEnum(TYPE_ELEMENT);
@@ -1176,9 +1267,9 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		targetModelEClass.getESuperTypes().add(this.getModel());
 		modelEClass.getESuperTypes().add(this.getHybridElement());
 		ruleEClass.getESuperTypes().add(this.getHybridElement());
-		ruleElementEClass.getESuperTypes().add(this.getHybridElement());
-		sourceEClass.getESuperTypes().add(this.getRuleElement());
-		targetEClass.getESuperTypes().add(this.getRuleElement());
+		transformationElementEClass.getESuperTypes().add(this.getHybridElement());
+		sourceEClass.getESuperTypes().add(this.getTransformationElement());
+		targetEClass.getESuperTypes().add(this.getTransformationElement());
 		bindingEClass.getESuperTypes().add(this.getHybridElement());
 		traceRuleEClass.getESuperTypes().add(this.getTraceLink());
 		traceLinkEClass.getESuperTypes().add(this.getHybridElement());
@@ -1197,13 +1288,16 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperation_Module(), this.getModule(), this.getModule_Operations(), "module", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Body(), ecorePackage.getEString(), "body", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperation_Return(), this.getReturn(), null, "return", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Return(), this.getOpDefinition(), this.getOpDefinition_Return_op(), "return", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_RightPattern(), this.getRightPattern(), this.getRightPattern_Operation(), "rightPattern", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperation_Context(), this.getRuleElement(), null, "context", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Context(), this.getOpDefinition(), this.getOpDefinition_Context_op(), "context", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Arguments(), this.getOpArgument(), this.getOpArgument_Operation(), "arguments", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(returnEClass, Return.class, "Return", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReturn_Datatype(), this.getDatatype(), "datatype", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReturn_Component(), this.getRuleElement(), null, "component", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(opDefinitionEClass, OpDefinition.class, "OpDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOpDefinition_Component(), this.getTransformationElement(), null, "component", null, 0, 1, OpDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOpDefinition_Datatype(), this.getDatatype(), "datatype", null, 0, 1, OpDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOpDefinition_Context_op(), this.getOperation(), this.getOperation_Context(), "context_op", null, 0, 1, OpDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOpDefinition_Return_op(), this.getOperation(), this.getOperation_Return(), "return_op", null, 0, 1, OpDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sourceModelEClass, SourceModel.class, "SourceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSourceModel_Module(), this.getModule(), this.getModule_SourceModels(), "module", null, 1, 1, SourceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1231,11 +1325,11 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEReference(getRule_IsExtended(), this.getRule(), this.getRule_Extends(), "isExtended", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRule_RightPattern(), this.getRightPattern(), this.getRightPattern_Rule(), "rightPattern", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(ruleElementEClass, RuleElement.class, "RuleElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRuleElement_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRuleElement_BelongsTo(), this.getRuleElement(), this.getRuleElement_Owns(), "belongsTo", null, 0, 1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRuleElement_Owns(), this.getRuleElement(), this.getRuleElement_BelongsTo(), "owns", null, 0, -1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRuleElement_Model(), this.getModel(), null, "model", null, 1, 1, RuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(transformationElementEClass, TransformationElement.class, "TransformationElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTransformationElement_BelongsTo(), this.getTransformationElement(), this.getTransformationElement_Owns(), "belongsTo", null, 0, 1, TransformationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransformationElement_Owns(), this.getTransformationElement(), this.getTransformationElement_BelongsTo(), "owns", null, 0, -1, TransformationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransformationElement_Model(), this.getModel(), null, "model", null, 1, 1, TransformationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransformationElement_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, TransformationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSource_Rule(), this.getRule(), this.getRule_Sources(), "rule", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1283,6 +1377,12 @@ public class HybridPackageImpl extends EPackageImpl implements HybridPackage {
 		initEClass(traceBindingEClass, TraceBinding.class, "TraceBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTraceBinding_Parent(), this.getTraceRule(), this.getTraceRule_TraceBindings(), "parent", null, 0, 1, TraceBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTraceBinding_Binding(), this.getBinding(), this.getBinding_Trace(), "binding", null, 0, 1, TraceBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(opArgumentEClass, OpArgument.class, "OpArgument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOpArgument_Name(), ecorePackage.getEString(), "name", null, 0, 1, OpArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOpArgument_Datatype(), this.getDatatype(), "datatype", null, 0, 1, OpArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOpArgument_Component(), this.getTransformationElement(), null, "component", null, 0, 1, OpArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOpArgument_Operation(), this.getOperation(), this.getOperation_Arguments(), "operation", null, 1, 1, OpArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(typeRelationEEnum, TypeRelation.class, "TypeRelation");
