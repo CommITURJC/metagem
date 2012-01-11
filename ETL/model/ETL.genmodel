@@ -5,8 +5,7 @@
     modelPluginID="ETL" modelName="ETL" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="6.0" copyrightFields="false">
   <foreignModel>ETL.ecore</foreignModel>
-  <genPackages prefix="ETL" disposableProviderFactory="true" fileExtensions="etl_model"
-      ecorePackage="ETL.ecore#_gLYwAQoVEeGjlMWvMgMrMw">
+  <genPackages prefix="ETL" disposableProviderFactory="true" ecorePackage="ETL.ecore#_gLYwAQoVEeGjlMWvMgMrMw">
     <genClasses ecoreClass="ETL.ecore#_1-M-QAokEeGjlMWvMgMrMw">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ETL.ecore#_1-M-QQokEeGjlMWvMgMrMw"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ETL.ecore#_1-M-QgokEeGjlMWvMgMrMw"/>
@@ -16,6 +15,8 @@
     <genClasses ecoreClass="ETL.ecore#_1-M-RQokEeGjlMWvMgMrMw">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ETL.ecore#_1-WvQAokEeGjlMWvMgMrMw"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ETL.ecore#_1-WvQgokEeGjlMWvMgMrMw"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ETL.ecore#//EolBlock/preOperation"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ETL.ecore#//EolBlock/postOperation"/>
     </genClasses>
     <genClasses ecoreClass="ETL.ecore#_1-WvRAokEeGjlMWvMgMrMw">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ETL.ecore#_1-WvRQokEeGjlMWvMgMrMw"/>
@@ -47,6 +48,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ETL.ecore#_1-ggVQokEeGjlMWvMgMrMw"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ETL.ecore#//Operation/annotation"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ETL.ecore#//Operation/module"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ETL.ecore#//Operation/pre"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ETL.ecore#//Operation/post"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ETL.ecore#//Operation/parameters"/>
     </genClasses>
     <genClasses ecoreClass="ETL.ecore#_1-ggVgokEeGjlMWvMgMrMw">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ETL.ecore#_1-pqMAokEeGjlMWvMgMrMw"/>
@@ -56,6 +60,7 @@
     <genClasses ecoreClass="ETL.ecore#_1-pqNAokEeGjlMWvMgMrMw">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ETL.ecore#_1-pqNQokEeGjlMWvMgMrMw"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ETL.ecore#_1-pqNwokEeGjlMWvMgMrMw"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ETL.ecore#//SimpleStatement/elementChild"/>
     </genClasses>
     <genClasses ecoreClass="ETL.ecore#_1-pqOwokEeGjlMWvMgMrMw">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ETL.ecore#_1-zbMAokEeGjlMWvMgMrMw"/>
@@ -66,5 +71,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ETL.ecore#//Block/body"/>
     </genClasses>
     <genClasses image="false" ecoreClass="ETL.ecore#//Statement"/>
+    <genClasses ecoreClass="ETL.ecore#//OperationParameter"/>
   </genPackages>
 </genmodel:GenModel>

@@ -22,6 +22,10 @@
         name="postModule" eType="#_1-M-QAokEeGjlMWvMgMrMw" eOpposite="#_1-M-QgokEeGjlMWvMgMrMw"/>
     <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="_1-WvQgokEeGjlMWvMgMrMw"
         name="preModule" eType="#_1-M-QAokEeGjlMWvMgMrMw" eOpposite="#_1-M-QQokEeGjlMWvMgMrMw"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preOperation" eType="#_1-ggUQokEeGjlMWvMgMrMw"
+        eOpposite="#//Operation/pre"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postOperation" eType="#_1-ggUQokEeGjlMWvMgMrMw"
+        eOpposite="#//Operation/post"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" xmi:id="_1-WvRAokEeGjlMWvMgMrMw" name="TransformationRule"
       eSuperTypes="#_1-ggQAokEeGjlMWvMgMrMw">
@@ -85,6 +89,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
         eType="#_1-M-QAokEeGjlMWvMgMrMw" eOpposite="#_1-M-RAokEeGjlMWvMgMrMw"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pre" eType="#_1-M-RQokEeGjlMWvMgMrMw"
+        containment="true" eOpposite="#//EolBlock/preOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="post" eType="#_1-M-RQokEeGjlMWvMgMrMw"
+        containment="true" eOpposite="#//EolBlock/postOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//OperationParameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" xmi:id="_1-ggVgokEeGjlMWvMgMrMw" name="Binding">
     <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="_1-pqMAokEeGjlMWvMgMrMw"
@@ -97,9 +107,11 @@
   <eClassifiers xsi:type="ecore:EClass" xmi:id="_1-pqNAokEeGjlMWvMgMrMw" name="SimpleStatement"
       eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="_1-pqNQokEeGjlMWvMgMrMw"
-        name="element" eType="#_1-ggRwokEeGjlMWvMgMrMw"/>
+        name="elementRef" eType="#_1-ggRwokEeGjlMWvMgMrMw"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="_1-pqNwokEeGjlMWvMgMrMw"
         name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementChild" eType="#_1-ggRwokEeGjlMWvMgMrMw"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" xmi:id="_1-pqOwokEeGjlMWvMgMrMw" name="OperationStatement"
       eSuperTypes="#//Statement">
@@ -114,4 +126,5 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationParameter" eSuperTypes="#_1-ggQAokEeGjlMWvMgMrMw #_1-pqNAokEeGjlMWvMgMrMw"/>
 </ecore:EPackage>

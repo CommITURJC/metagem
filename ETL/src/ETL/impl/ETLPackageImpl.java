@@ -16,6 +16,7 @@ import ETL.EtlElement;
 import ETL.EtlModule;
 import ETL.Guard;
 import ETL.Operation;
+import ETL.OperationParameter;
 import ETL.OperationStatement;
 import ETL.SimpleStatement;
 import ETL.Statement;
@@ -118,6 +119,13 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 	 * @generated
 	 */
 	private EClass statementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass operationParameterEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -250,6 +258,24 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 	 */
 	public EReference getEolBlock_PreModule() {
 		return (EReference)eolBlockEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEolBlock_PreOperation() {
+		return (EReference)eolBlockEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEolBlock_PostOperation() {
+		return (EReference)eolBlockEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -491,6 +517,33 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getOperation_Pre() {
+		return (EReference)operationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperation_Post() {
+		return (EReference)operationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperation_Parameters() {
+		return (EReference)operationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBinding() {
 		return bindingEClass;
 	}
@@ -536,7 +589,7 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSimpleStatement_Element() {
+	public EReference getSimpleStatement_ElementRef() {
 		return (EReference)simpleStatementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -547,6 +600,15 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 	 */
 	public EAttribute getSimpleStatement_Property() {
 		return (EAttribute)simpleStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSimpleStatement_ElementChild() {
+		return (EReference)simpleStatementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -617,6 +679,15 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOperationParameter() {
+		return operationParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ETLFactory getETLFactory() {
 		return (ETLFactory)getEFactoryInstance();
 	}
@@ -649,6 +720,8 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 		eolBlockEClass = createEClass(EOL_BLOCK);
 		createEReference(eolBlockEClass, EOL_BLOCK__POST_MODULE);
 		createEReference(eolBlockEClass, EOL_BLOCK__PRE_MODULE);
+		createEReference(eolBlockEClass, EOL_BLOCK__PRE_OPERATION);
+		createEReference(eolBlockEClass, EOL_BLOCK__POST_OPERATION);
 
 		transformationRuleEClass = createEClass(TRANSFORMATION_RULE);
 		createEAttribute(transformationRuleEClass, TRANSFORMATION_RULE__IS_ABSTRACT);
@@ -680,6 +753,9 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 		createEReference(operationEClass, OPERATION__RETURN);
 		createEAttribute(operationEClass, OPERATION__ANNOTATION);
 		createEReference(operationEClass, OPERATION__MODULE);
+		createEReference(operationEClass, OPERATION__PRE);
+		createEReference(operationEClass, OPERATION__POST);
+		createEReference(operationEClass, OPERATION__PARAMETERS);
 
 		bindingEClass = createEClass(BINDING);
 		createEReference(bindingEClass, BINDING__RULE);
@@ -687,8 +763,9 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 		createEReference(bindingEClass, BINDING__TARGET);
 
 		simpleStatementEClass = createEClass(SIMPLE_STATEMENT);
-		createEReference(simpleStatementEClass, SIMPLE_STATEMENT__ELEMENT);
+		createEReference(simpleStatementEClass, SIMPLE_STATEMENT__ELEMENT_REF);
 		createEAttribute(simpleStatementEClass, SIMPLE_STATEMENT__PROPERTY);
+		createEReference(simpleStatementEClass, SIMPLE_STATEMENT__ELEMENT_CHILD);
 
 		operationStatementEClass = createEClass(OPERATION_STATEMENT);
 		createEAttribute(operationStatementEClass, OPERATION_STATEMENT__OPERATOR);
@@ -699,6 +776,8 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 		createEAttribute(blockEClass, BLOCK__BODY);
 
 		statementEClass = createEClass(STATEMENT);
+
+		operationParameterEClass = createEClass(OPERATION_PARAMETER);
 	}
 
 	/**
@@ -738,6 +817,8 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 		simpleStatementEClass.getESuperTypes().add(this.getStatement());
 		operationStatementEClass.getESuperTypes().add(this.getStatement());
 		blockEClass.getESuperTypes().add(this.getEtlElement());
+		operationParameterEClass.getESuperTypes().add(this.getEtlElement());
+		operationParameterEClass.getESuperTypes().add(this.getSimpleStatement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(etlModuleEClass, EtlModule.class, "EtlModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -749,6 +830,8 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 		initEClass(eolBlockEClass, EolBlock.class, "EolBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEolBlock_PostModule(), this.getEtlModule(), this.getEtlModule_Post(), "postModule", null, 0, 1, EolBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEolBlock_PreModule(), this.getEtlModule(), this.getEtlModule_Pre(), "preModule", null, 0, 1, EolBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEolBlock_PreOperation(), this.getOperation(), this.getOperation_Pre(), "preOperation", null, 0, 1, EolBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEolBlock_PostOperation(), this.getOperation(), this.getOperation_Post(), "postOperation", null, 0, 1, EolBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transformationRuleEClass, TransformationRule.class, "TransformationRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTransformationRule_IsAbstract(), ecorePackage.getEBoolean(), "isAbstract", "false", 1, 1, TransformationRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -780,6 +863,9 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 		initEReference(getOperation_Return(), this.getSimpleStatement(), null, "return", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Annotation(), ecorePackage.getEString(), "annotation", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_Module(), this.getEtlModule(), this.getEtlModule_Operations(), "module", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Pre(), this.getEolBlock(), this.getEolBlock_PreOperation(), "pre", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Post(), this.getEolBlock(), this.getEolBlock_PostOperation(), "post", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Parameters(), this.getOperationParameter(), null, "parameters", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBinding_Rule(), this.getTransformationRule(), this.getTransformationRule_Bindings(), "rule", null, 1, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -787,8 +873,9 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 		initEReference(getBinding_Target(), this.getStatement(), null, "target", null, 1, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(simpleStatementEClass, SimpleStatement.class, "SimpleStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSimpleStatement_Element(), this.getElement(), null, "element", null, 0, 1, SimpleStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSimpleStatement_ElementRef(), this.getElement(), null, "elementRef", null, 0, 1, SimpleStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSimpleStatement_Property(), ecorePackage.getEString(), "property", null, 0, 1, SimpleStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSimpleStatement_ElementChild(), this.getElement(), null, "elementChild", null, 0, 1, SimpleStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operationStatementEClass, OperationStatement.class, "OperationStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOperationStatement_Operator(), ecorePackage.getEString(), "operator", null, 1, 1, OperationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -799,6 +886,8 @@ public class ETLPackageImpl extends EPackageImpl implements ETLPackage {
 		initEAttribute(getBlock_Body(), ecorePackage.getEString(), "body", null, 1, 1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(statementEClass, Statement.class, "Statement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(operationParameterEClass, OperationParameter.class, "OperationParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

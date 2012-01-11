@@ -171,6 +171,15 @@ public class ETLSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ETLPackage.OPERATION_PARAMETER: {
+				OperationParameter operationParameter = (OperationParameter)theEObject;
+				T result = caseOperationParameter(operationParameter);
+				if (result == null) result = caseEtlElement(operationParameter);
+				if (result == null) result = caseSimpleStatement(operationParameter);
+				if (result == null) result = caseStatement(operationParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -352,6 +361,21 @@ public class ETLSwitch<T> {
 	 * @generated
 	 */
 	public T caseStatement(Statement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operation Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operation Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperationParameter(OperationParameter object) {
 		return null;
 	}
 

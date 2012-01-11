@@ -6,6 +6,8 @@
  */
 package ETL;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +21,9 @@ package ETL;
  *   <li>{@link ETL.Operation#getReturn <em>Return</em>}</li>
  *   <li>{@link ETL.Operation#getAnnotation <em>Annotation</em>}</li>
  *   <li>{@link ETL.Operation#getModule <em>Module</em>}</li>
+ *   <li>{@link ETL.Operation#getPre <em>Pre</em>}</li>
+ *   <li>{@link ETL.Operation#getPost <em>Post</em>}</li>
+ *   <li>{@link ETL.Operation#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -132,5 +137,77 @@ public interface Operation extends Block {
 	 * @generated
 	 */
 	void setModule(EtlModule value);
+
+	/**
+	 * Returns the value of the '<em><b>Pre</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link ETL.EolBlock#getPreOperation <em>Pre Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pre</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pre</em>' containment reference.
+	 * @see #setPre(EolBlock)
+	 * @see ETL.ETLPackage#getOperation_Pre()
+	 * @see ETL.EolBlock#getPreOperation
+	 * @model opposite="preOperation" containment="true"
+	 * @generated
+	 */
+	EolBlock getPre();
+
+	/**
+	 * Sets the value of the '{@link ETL.Operation#getPre <em>Pre</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pre</em>' containment reference.
+	 * @see #getPre()
+	 * @generated
+	 */
+	void setPre(EolBlock value);
+
+	/**
+	 * Returns the value of the '<em><b>Post</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link ETL.EolBlock#getPostOperation <em>Post Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Post</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Post</em>' containment reference.
+	 * @see #setPost(EolBlock)
+	 * @see ETL.ETLPackage#getOperation_Post()
+	 * @see ETL.EolBlock#getPostOperation
+	 * @model opposite="postOperation" containment="true"
+	 * @generated
+	 */
+	EolBlock getPost();
+
+	/**
+	 * Sets the value of the '{@link ETL.Operation#getPost <em>Post</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Post</em>' containment reference.
+	 * @see #getPost()
+	 * @generated
+	 */
+	void setPost(EolBlock value);
+
+	/**
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link ETL.OperationParameter}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameters</em>' containment reference list.
+	 * @see ETL.ETLPackage#getOperation_Parameters()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<OperationParameter> getParameters();
 
 } // Operation

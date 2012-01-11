@@ -120,6 +120,10 @@ public class ETLAdapterFactory extends AdapterFactoryImpl {
 				return createStatementAdapter();
 			}
 			@Override
+			public Adapter caseOperationParameter(OperationParameter object) {
+				return createOperationParameterAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -304,6 +308,20 @@ public class ETLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ETL.OperationParameter <em>Operation Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ETL.OperationParameter
+	 * @generated
+	 */
+	public Adapter createOperationParameterAdapter() {
 		return null;
 	}
 
