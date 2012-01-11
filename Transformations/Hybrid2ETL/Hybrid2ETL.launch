@@ -39,8 +39,8 @@
 <mapAttribute key="Path">
 <mapEntry key="ETL" value="/Hybrid2ETL/ETL.ecore"/>
 <mapEntry key="Hybrid" value="/Hybrid2ETL/Hybrid.ecore"/>
-<mapEntry key="IN" value="/Hybrid2ETL/models/fam2per_hybrid.ecore"/>
-<mapEntry key="OUT" value="/Hybrid2ETL/models/fam2per_etl.ecore"/>
+<mapEntry key="IN" value="/Hybrid2ETL/models/UML2XMLSchema.hybrid.ecore"/>
+<mapEntry key="OUT" value="/Hybrid2ETL/models/UML2XMLSchema.etl.ecore"/>
 </mapAttribute>
 <listAttribute key="Superimpose"/>
 </launchConfiguration>

@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Target extends RuleElement {
+public interface Target extends TransformationElement {
 	/**
 	 * Returns the value of the '<em><b>Rule</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link hybrid.Rule#getTargets <em>Targets</em>}'.

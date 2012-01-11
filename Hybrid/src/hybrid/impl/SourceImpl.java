@@ -41,7 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class SourceImpl extends RuleElementImpl implements Source {
+public class SourceImpl extends TransformationElementImpl implements Source {
 	/**
 	 * The cached value of the '{@link #getTraceLink() <em>Trace Link</em>}' reference list.
 	 * <!-- begin-user-doc -->

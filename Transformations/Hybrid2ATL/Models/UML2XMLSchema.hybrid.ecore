@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:hybrid="org.eclipse.kybele.hybrid" xmi:id="_oqZn0TumEeGPM4GtkgU5pQ" name="UML2XMLSchema">
+  <operations xmi:id="_oqZn0jumEeGPM4GtkgU5pQ" name="model" body="UML!Model.allInstances()->asSequence()->first()">
+    <return xmi:id="_Jh00ADurEeGPM4GtkgU5pQ" datatype="Boolean"/>
+    <context xmi:id="_oqZn0zumEeGPM4GtkgU5pQ" datatype="String"/>
+    <arguments xmi:id="_ymQ9kDuyEeGPM4GtkgU5pQ" name="boo" datatype="Boolean"/>
+    <arguments xmi:id="_01BUIDuyEeGPM4GtkgU5pQ" name="in" datatype="Integer"/>
+    <arguments xmi:id="_1-CxsDuyEeGPM4GtkgU5pQ" name="s" datatype="String"/>
+    <arguments xmi:id="_3GwtQDuyEeGPM4GtkgU5pQ" name="ele">
+      <component xsi:type="hybrid:Source" xmi:id="_4paLwDuyEeGPM4GtkgU5pQ" name="Model" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//Model"/>
+    </arguments>
+  </operations>
+  <sourceModels xmi:id="_oqZn1TumEeGPM4GtkgU5pQ" name="UML_model" path="/UML2XMLSchema/Metamodels/UML.ecore" type_mm="UML"/>
+  <sourceModels xmi:id="_oqZn1jumEeGPM4GtkgU5pQ" name="AnnotationMetamodel_model" path="/UML2XMLSchema/Metamodels/AnnotationMetamodel.ecore" type_mm="AnnotationMetamodel"/>
+  <targetModels xmi:id="_oqZn1zumEeGPM4GtkgU5pQ" name="schemaXML_model" path="/UML2XMLSchema/Metamodels/schemaXML.ecore" type_mm="schemaXML"/>
+  <rules xmi:id="_oqZn2DumEeGPM4GtkgU5pQ" name="model2schema">
+    <sources xmi:id="_oqZn2TumEeGPM4GtkgU5pQ" name="Model" owns="_oqZn3TumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//Model" traceLink="_oqZn4DumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqZn2jumEeGPM4GtkgU5pQ" name="Schema" owns="_oqZn3zumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Schema" traceLink="_oqZn4DumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqZn2zumEeGPM4GtkgU5pQ" name="name_2_id" trace="_oqZn4TumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqZn3DumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqZn3TumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqZn2TumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqZn4TumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqZn3jumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqZn3zumEeGPM4GtkgU5pQ" name="id" belongsTo="_oqZn2jumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Schema/id" traceLink="_oqZn4TumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace xmi:id="_oqZn4DumEeGPM4GtkgU5pQ" name="model2schema" source="_oqZn2TumEeGPM4GtkgU5pQ" target="_oqZn2jumEeGPM4GtkgU5pQ">
+      <traceBindings xmi:id="_oqZn4TumEeGPM4GtkgU5pQ" name="name_2_id" source="_oqZn3TumEeGPM4GtkgU5pQ" target="_oqZn3zumEeGPM4GtkgU5pQ" binding="_oqZn2zumEeGPM4GtkgU5pQ"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_oqZn4jumEeGPM4GtkgU5pQ" name="package2schema">
+    <sources xmi:id="_oqZn4zumEeGPM4GtkgU5pQ" name="Package" owns="_oqZn5zumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//Package" traceLink="_oqZn6jumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqZn5DumEeGPM4GtkgU5pQ" name="Schema" owns="_oqZn6TumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Schema" traceLink="_oqZn6jumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqZn5TumEeGPM4GtkgU5pQ" name="name_2_id" trace="_oqZn6zumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqZn5jumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqZn5zumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqZn4zumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqZn6zumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqZn6DumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqZn6TumEeGPM4GtkgU5pQ" name="id" belongsTo="_oqZn5DumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Schema/id" traceLink="_oqZn6zumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace xmi:id="_oqZn6jumEeGPM4GtkgU5pQ" name="package2schema" source="_oqZn4zumEeGPM4GtkgU5pQ" target="_oqZn5DumEeGPM4GtkgU5pQ">
+      <traceBindings xmi:id="_oqZn6zumEeGPM4GtkgU5pQ" name="name_2_id" source="_oqZn5zumEeGPM4GtkgU5pQ" target="_oqZn6TumEeGPM4GtkgU5pQ" binding="_oqZn5TumEeGPM4GtkgU5pQ"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_oqZn7DumEeGPM4GtkgU5pQ" name="class2ElementGlobalSeq">
+    <sources xmi:id="_oqZn7TumEeGPM4GtkgU5pQ" name="Class" owns="_oqZn8TumEeGPM4GtkgU5pQ _oqZn9jumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//Class" traceLink="_oqZoEjumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqZn7jumEeGPM4GtkgU5pQ" name="ElementGlobal" owns="_oqZn8zumEeGPM4GtkgU5pQ _oqZn-DumEeGPM4GtkgU5pQ _oqZn_DumEeGPM4GtkgU5pQ _oqZoADumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal" traceLink="_oqZoEjumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqZn7zumEeGPM4GtkgU5pQ" name="name_2_id" trace="_oqZoEzumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqZn8DumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqZn8TumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqZn7TumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqZoEzumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqZn8jumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqZn8zumEeGPM4GtkgU5pQ" name="id" belongsTo="_oqZn7jumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/id" traceLink="_oqZoEzumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqZn9DumEeGPM4GtkgU5pQ" name="name_2_name" trace="_oqZoFDumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqZn9TumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqZn9jumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqZn7TumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqZoFDumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqZn9zumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqZn-DumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqZn7jumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/name" traceLink="_oqZoFDumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqZn-TumEeGPM4GtkgU5pQ" name="R37" trace="_oqZoFjumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqZn-jumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqZn-zumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqZn_DumEeGPM4GtkgU5pQ" name="Owner" belongsTo="_oqZn7jumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/Owner" traceLink="_oqZoFjumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqZn_TumEeGPM4GtkgU5pQ" name="R38" trace="_oqZoFzumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqZn_jumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqZn_zumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqZoADumEeGPM4GtkgU5pQ" name="eleccion" belongsTo="_oqZn7jumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/eleccion" traceLink="_oqZoFzumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqZoATumEeGPM4GtkgU5pQ" name="ComplexTypeLocal" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal" traceLink="_oqZoEjumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqZoAjumEeGPM4GtkgU5pQ" name="name_2_id" trace="_oqZoFTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqZoAzumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqZoBDumEeGPM4GtkgU5pQ" name="name" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqZoFTumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqZoBTumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqZoBjumEeGPM4GtkgU5pQ" name="id" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal/id" traceLink="_oqZoFTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqZoBzumEeGPM4GtkgU5pQ" name="R39" trace="_oqZoGDumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqZoCDumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqZoCTumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqZoCjumEeGPM4GtkgU5pQ" name="eleccion" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal/eleccion" traceLink="_oqZoGDumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqZoCzumEeGPM4GtkgU5pQ" name="Other" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Other" traceLink="_oqZoEjumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqZoDDumEeGPM4GtkgU5pQ" name="R40" trace="_oqZoGTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqZoDTumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqZoDjumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqZoDzumEeGPM4GtkgU5pQ" name="eleccion" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Other/eleccion" traceLink="_oqZoGTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqZoEDumEeGPM4GtkgU5pQ" name="Sequences" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Sequences" traceLink="_oqZoEjumEeGPM4GtkgU5pQ"/>
+    <guard xmi:id="_oqZoETumEeGPM4GtkgU5pQ" value="(class_in.mapTo()='Sequences') and class_in.GetGeneralization().oclIsUndefined()"/>
+    <trace xmi:id="_oqZoEjumEeGPM4GtkgU5pQ" name="class2ElementGlobalSeq" source="_oqZn7TumEeGPM4GtkgU5pQ" target="_oqZn7jumEeGPM4GtkgU5pQ _oqZoATumEeGPM4GtkgU5pQ _oqZoCzumEeGPM4GtkgU5pQ _oqZoEDumEeGPM4GtkgU5pQ">
+      <traceBindings xmi:id="_oqZoEzumEeGPM4GtkgU5pQ" name="name_2_id" source="_oqZn8TumEeGPM4GtkgU5pQ" target="_oqZn8zumEeGPM4GtkgU5pQ" binding="_oqZn7zumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqZoFDumEeGPM4GtkgU5pQ" name="name_2_name" source="_oqZn9jumEeGPM4GtkgU5pQ" target="_oqZn-DumEeGPM4GtkgU5pQ" binding="_oqZn9DumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqZoFTumEeGPM4GtkgU5pQ" name="name_2_id" source="_oqZoBDumEeGPM4GtkgU5pQ" target="_oqZoBjumEeGPM4GtkgU5pQ" binding="_oqZoAjumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqZoFjumEeGPM4GtkgU5pQ" name="R37" target="_oqZn_DumEeGPM4GtkgU5pQ" binding="_oqZn-TumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqZoFzumEeGPM4GtkgU5pQ" name="R38" target="_oqZoADumEeGPM4GtkgU5pQ" binding="_oqZn_TumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqZoGDumEeGPM4GtkgU5pQ" name="R39" target="_oqZoCjumEeGPM4GtkgU5pQ" binding="_oqZoBzumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqZoGTumEeGPM4GtkgU5pQ" name="R40" target="_oqZoDzumEeGPM4GtkgU5pQ" binding="_oqZoDDumEeGPM4GtkgU5pQ"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_oqZoGjumEeGPM4GtkgU5pQ" name="inheritClass2ElementGlobal">
+    <sources xmi:id="_oqZoGzumEeGPM4GtkgU5pQ" name="Class" owns="_oqZoHzumEeGPM4GtkgU5pQ _oqjY0TumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//Class" traceLink="_oqjY9jumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqZoHDumEeGPM4GtkgU5pQ" name="ElementGlobal" owns="_oqZoITumEeGPM4GtkgU5pQ _oqjY0zumEeGPM4GtkgU5pQ _oqjY1zumEeGPM4GtkgU5pQ _oqjY2zumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal" traceLink="_oqjY9jumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqZoHTumEeGPM4GtkgU5pQ" name="name_2_id" trace="_oqjY9zumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqZoHjumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqZoHzumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqZoGzumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjY9zumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqZoIDumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqZoITumEeGPM4GtkgU5pQ" name="id" belongsTo="_oqZoHDumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/id" traceLink="_oqjY9zumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqZoIjumEeGPM4GtkgU5pQ" name="name_2_name" trace="_oqjY-DumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjY0DumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjY0TumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqZoGzumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjY-DumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjY0jumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjY0zumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqZoHDumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/name" traceLink="_oqjY-DumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjY1DumEeGPM4GtkgU5pQ" name="R41" trace="_oqjY-jumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjY1TumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjY1jumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjY1zumEeGPM4GtkgU5pQ" name="Owner" belongsTo="_oqZoHDumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/Owner" traceLink="_oqjY-jumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjY2DumEeGPM4GtkgU5pQ" name="R42" trace="_oqjY-zumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjY2TumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjY2jumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjY2zumEeGPM4GtkgU5pQ" name="eleccion" belongsTo="_oqZoHDumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/eleccion" traceLink="_oqjY-zumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjY3DumEeGPM4GtkgU5pQ" name="ComplexTypeLocal" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal" traceLink="_oqjY9jumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjY3TumEeGPM4GtkgU5pQ" name="name_2_id" trace="_oqjY-TumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjY3jumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjY3zumEeGPM4GtkgU5pQ" name="name" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjY-TumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjY4DumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjY4TumEeGPM4GtkgU5pQ" name="id" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal/id" traceLink="_oqjY-TumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjY4jumEeGPM4GtkgU5pQ" name="R43" trace="_oqjY_DumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjY4zumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjY5DumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjY5TumEeGPM4GtkgU5pQ" name="eleccion" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal/eleccion" traceLink="_oqjY_DumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjY5jumEeGPM4GtkgU5pQ" name="ComplexContent" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexContent" traceLink="_oqjY9jumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjY5zumEeGPM4GtkgU5pQ" name="R44" trace="_oqjY_TumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjY6DumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjY6TumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjY6jumEeGPM4GtkgU5pQ" name="eleccion" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexContent/eleccion" traceLink="_oqjY_TumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjY6zumEeGPM4GtkgU5pQ" name="ExtensionComplexContent" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ExtensionComplexContent" traceLink="_oqjY9jumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjY7DumEeGPM4GtkgU5pQ" name="R45" trace="_oqjY_jumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjY7TumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjY7jumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjY7zumEeGPM4GtkgU5pQ" name="base" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ExtensionComplexContent/base" traceLink="_oqjY_jumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjY8DumEeGPM4GtkgU5pQ" name="R46" trace="_oqjY_zumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjY8TumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjY8jumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjY8zumEeGPM4GtkgU5pQ" name="eleccion" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ExtensionComplexContent/eleccion" traceLink="_oqjY_zumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjY9DumEeGPM4GtkgU5pQ" name="Choice" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Choice" traceLink="_oqjY9jumEeGPM4GtkgU5pQ"/>
+    <guard xmi:id="_oqjY9TumEeGPM4GtkgU5pQ" value="not class_in.GetGeneralization().oclIsUndefined()"/>
+    <trace xmi:id="_oqjY9jumEeGPM4GtkgU5pQ" name="inheritClass2ElementGlobal" source="_oqZoGzumEeGPM4GtkgU5pQ" target="_oqZoHDumEeGPM4GtkgU5pQ _oqjY3DumEeGPM4GtkgU5pQ _oqjY5jumEeGPM4GtkgU5pQ _oqjY6zumEeGPM4GtkgU5pQ _oqjY9DumEeGPM4GtkgU5pQ">
+      <traceBindings xmi:id="_oqjY9zumEeGPM4GtkgU5pQ" name="name_2_id" source="_oqZoHzumEeGPM4GtkgU5pQ" target="_oqZoITumEeGPM4GtkgU5pQ" binding="_oqZoHTumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjY-DumEeGPM4GtkgU5pQ" name="name_2_name" source="_oqjY0TumEeGPM4GtkgU5pQ" target="_oqjY0zumEeGPM4GtkgU5pQ" binding="_oqZoIjumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjY-TumEeGPM4GtkgU5pQ" name="name_2_id" source="_oqjY3zumEeGPM4GtkgU5pQ" target="_oqjY4TumEeGPM4GtkgU5pQ" binding="_oqjY3TumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjY-jumEeGPM4GtkgU5pQ" name="R41" target="_oqjY1zumEeGPM4GtkgU5pQ" binding="_oqjY1DumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjY-zumEeGPM4GtkgU5pQ" name="R42" target="_oqjY2zumEeGPM4GtkgU5pQ" binding="_oqjY2DumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjY_DumEeGPM4GtkgU5pQ" name="R43" target="_oqjY5TumEeGPM4GtkgU5pQ" binding="_oqjY4jumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjY_TumEeGPM4GtkgU5pQ" name="R44" target="_oqjY6jumEeGPM4GtkgU5pQ" binding="_oqjY5zumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjY_jumEeGPM4GtkgU5pQ" name="R45" target="_oqjY7zumEeGPM4GtkgU5pQ" binding="_oqjY7DumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjY_zumEeGPM4GtkgU5pQ" name="R46" target="_oqjY8zumEeGPM4GtkgU5pQ" binding="_oqjY8DumEeGPM4GtkgU5pQ"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_oqjZADumEeGPM4GtkgU5pQ" name="class2ElementGlobalChoice">
+    <sources xmi:id="_oqjZATumEeGPM4GtkgU5pQ" name="Class" owns="_oqjZBTumEeGPM4GtkgU5pQ _oqjZCjumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//Class" traceLink="_oqjZJjumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqjZAjumEeGPM4GtkgU5pQ" name="ElementGlobal" owns="_oqjZBzumEeGPM4GtkgU5pQ _oqjZDDumEeGPM4GtkgU5pQ _oqjZEDumEeGPM4GtkgU5pQ _oqjZFDumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal" traceLink="_oqjZJjumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjZAzumEeGPM4GtkgU5pQ" name="name_2_id" trace="_oqjZJzumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZBDumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjZBTumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZATumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjZJzumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjZBjumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZBzumEeGPM4GtkgU5pQ" name="id" belongsTo="_oqjZAjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/id" traceLink="_oqjZJzumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZCDumEeGPM4GtkgU5pQ" name="name_2_name" trace="_oqjZKDumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZCTumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjZCjumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZATumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjZKDumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjZCzumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZDDumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZAjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/name" traceLink="_oqjZKDumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZDTumEeGPM4GtkgU5pQ" name="R47" trace="_oqjZKjumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZDjumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZDzumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZEDumEeGPM4GtkgU5pQ" name="Owner" belongsTo="_oqjZAjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/Owner" traceLink="_oqjZKjumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZETumEeGPM4GtkgU5pQ" name="R48" trace="_oqjZKzumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZEjumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZEzumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZFDumEeGPM4GtkgU5pQ" name="eleccion" belongsTo="_oqjZAjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/eleccion" traceLink="_oqjZKzumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjZFTumEeGPM4GtkgU5pQ" name="ComplexTypeLocal" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal" traceLink="_oqjZJjumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjZFjumEeGPM4GtkgU5pQ" name="name_2_id" trace="_oqjZKTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZFzumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjZGDumEeGPM4GtkgU5pQ" name="name" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjZKTumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjZGTumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZGjumEeGPM4GtkgU5pQ" name="id" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal/id" traceLink="_oqjZKTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZGzumEeGPM4GtkgU5pQ" name="R49" trace="_oqjZLDumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZHDumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZHTumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZHjumEeGPM4GtkgU5pQ" name="eleccion" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal/eleccion" traceLink="_oqjZLDumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjZHzumEeGPM4GtkgU5pQ" name="Other" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Other" traceLink="_oqjZJjumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjZIDumEeGPM4GtkgU5pQ" name="R50" trace="_oqjZLTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZITumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZIjumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZIzumEeGPM4GtkgU5pQ" name="eleccion" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Other/eleccion" traceLink="_oqjZLTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjZJDumEeGPM4GtkgU5pQ" name="Choice" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Choice" traceLink="_oqjZJjumEeGPM4GtkgU5pQ"/>
+    <guard xmi:id="_oqjZJTumEeGPM4GtkgU5pQ" value="(class_in.mapTo()='Choice') and class_in.GetGeneralization().oclIsUndefined()"/>
+    <trace xmi:id="_oqjZJjumEeGPM4GtkgU5pQ" name="class2ElementGlobalChoice" source="_oqjZATumEeGPM4GtkgU5pQ" target="_oqjZAjumEeGPM4GtkgU5pQ _oqjZFTumEeGPM4GtkgU5pQ _oqjZHzumEeGPM4GtkgU5pQ _oqjZJDumEeGPM4GtkgU5pQ">
+      <traceBindings xmi:id="_oqjZJzumEeGPM4GtkgU5pQ" name="name_2_id" source="_oqjZBTumEeGPM4GtkgU5pQ" target="_oqjZBzumEeGPM4GtkgU5pQ" binding="_oqjZAzumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZKDumEeGPM4GtkgU5pQ" name="name_2_name" source="_oqjZCjumEeGPM4GtkgU5pQ" target="_oqjZDDumEeGPM4GtkgU5pQ" binding="_oqjZCDumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZKTumEeGPM4GtkgU5pQ" name="name_2_id" source="_oqjZGDumEeGPM4GtkgU5pQ" target="_oqjZGjumEeGPM4GtkgU5pQ" binding="_oqjZFjumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZKjumEeGPM4GtkgU5pQ" name="R47" target="_oqjZEDumEeGPM4GtkgU5pQ" binding="_oqjZDTumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZKzumEeGPM4GtkgU5pQ" name="R48" target="_oqjZFDumEeGPM4GtkgU5pQ" binding="_oqjZETumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZLDumEeGPM4GtkgU5pQ" name="R49" target="_oqjZHjumEeGPM4GtkgU5pQ" binding="_oqjZGzumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZLTumEeGPM4GtkgU5pQ" name="R50" target="_oqjZIzumEeGPM4GtkgU5pQ" binding="_oqjZIDumEeGPM4GtkgU5pQ"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_oqjZLjumEeGPM4GtkgU5pQ" name="class2ElementGlobalAll">
+    <sources xmi:id="_oqjZLzumEeGPM4GtkgU5pQ" name="Class" owns="_oqjZMzumEeGPM4GtkgU5pQ _oqjZODumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//Class" traceLink="_oqjZVDumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqjZMDumEeGPM4GtkgU5pQ" name="ElementGlobal" owns="_oqjZNTumEeGPM4GtkgU5pQ _oqjZOjumEeGPM4GtkgU5pQ _oqjZPjumEeGPM4GtkgU5pQ _oqjZQjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal" traceLink="_oqjZVDumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjZMTumEeGPM4GtkgU5pQ" name="name_2_id" trace="_oqjZVTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZMjumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjZMzumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZLzumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjZVTumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjZNDumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZNTumEeGPM4GtkgU5pQ" name="id" belongsTo="_oqjZMDumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/id" traceLink="_oqjZVTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZNjumEeGPM4GtkgU5pQ" name="name_2_name" trace="_oqjZVjumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZNzumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjZODumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZLzumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjZVjumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjZOTumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZOjumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZMDumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/name" traceLink="_oqjZVjumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZOzumEeGPM4GtkgU5pQ" name="R51" trace="_oqjZWDumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZPDumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZPTumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZPjumEeGPM4GtkgU5pQ" name="Owner" belongsTo="_oqjZMDumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/Owner" traceLink="_oqjZWDumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZPzumEeGPM4GtkgU5pQ" name="R52" trace="_oqjZWTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZQDumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZQTumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZQjumEeGPM4GtkgU5pQ" name="eleccion" belongsTo="_oqjZMDumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementGlobal/eleccion" traceLink="_oqjZWTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjZQzumEeGPM4GtkgU5pQ" name="ComplexTypeLocal" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal" traceLink="_oqjZVDumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjZRDumEeGPM4GtkgU5pQ" name="name_2_id" trace="_oqjZVzumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZRTumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjZRjumEeGPM4GtkgU5pQ" name="name" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjZVzumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjZRzumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZSDumEeGPM4GtkgU5pQ" name="id" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal/id" traceLink="_oqjZVzumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZSTumEeGPM4GtkgU5pQ" name="R53" trace="_oqjZWjumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZSjumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZSzumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZTDumEeGPM4GtkgU5pQ" name="eleccion" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal/eleccion" traceLink="_oqjZWjumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjZTTumEeGPM4GtkgU5pQ" name="Other" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Other" traceLink="_oqjZVDumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjZTjumEeGPM4GtkgU5pQ" name="R54" trace="_oqjZWzumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZTzumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZUDumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZUTumEeGPM4GtkgU5pQ" name="eleccion" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Other/eleccion" traceLink="_oqjZWzumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjZUjumEeGPM4GtkgU5pQ" name="All" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//All" traceLink="_oqjZVDumEeGPM4GtkgU5pQ"/>
+    <guard xmi:id="_oqjZUzumEeGPM4GtkgU5pQ" value="(class_in.mapTo()='All') and class_in.GetGeneralization().oclIsUndefined()"/>
+    <trace xmi:id="_oqjZVDumEeGPM4GtkgU5pQ" name="class2ElementGlobalAll" source="_oqjZLzumEeGPM4GtkgU5pQ" target="_oqjZMDumEeGPM4GtkgU5pQ _oqjZQzumEeGPM4GtkgU5pQ _oqjZTTumEeGPM4GtkgU5pQ _oqjZUjumEeGPM4GtkgU5pQ">
+      <traceBindings xmi:id="_oqjZVTumEeGPM4GtkgU5pQ" name="name_2_id" source="_oqjZMzumEeGPM4GtkgU5pQ" target="_oqjZNTumEeGPM4GtkgU5pQ" binding="_oqjZMTumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZVjumEeGPM4GtkgU5pQ" name="name_2_name" source="_oqjZODumEeGPM4GtkgU5pQ" target="_oqjZOjumEeGPM4GtkgU5pQ" binding="_oqjZNjumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZVzumEeGPM4GtkgU5pQ" name="name_2_id" source="_oqjZRjumEeGPM4GtkgU5pQ" target="_oqjZSDumEeGPM4GtkgU5pQ" binding="_oqjZRDumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZWDumEeGPM4GtkgU5pQ" name="R51" target="_oqjZPjumEeGPM4GtkgU5pQ" binding="_oqjZOzumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZWTumEeGPM4GtkgU5pQ" name="R52" target="_oqjZQjumEeGPM4GtkgU5pQ" binding="_oqjZPzumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZWjumEeGPM4GtkgU5pQ" name="R53" target="_oqjZTDumEeGPM4GtkgU5pQ" binding="_oqjZSTumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZWzumEeGPM4GtkgU5pQ" name="R54" target="_oqjZUTumEeGPM4GtkgU5pQ" binding="_oqjZTjumEeGPM4GtkgU5pQ"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_oqjZXDumEeGPM4GtkgU5pQ" name="property2ElementLocal">
+    <sources xmi:id="_oqjZXTumEeGPM4GtkgU5pQ" name="Property" owns="_oqjZYTumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//Property" traceLink="_oqjZcTumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqjZXjumEeGPM4GtkgU5pQ" name="ElementLocal" owns="_oqjZYzumEeGPM4GtkgU5pQ _oqjZZzumEeGPM4GtkgU5pQ _oqjZazumEeGPM4GtkgU5pQ _oqjZbzumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal" traceLink="_oqjZcTumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjZXzumEeGPM4GtkgU5pQ" name="name_2_name" trace="_oqjZcjumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZYDumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjZYTumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZXTumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjZcjumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjZYjumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZYzumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZXjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/name" traceLink="_oqjZcjumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZZDumEeGPM4GtkgU5pQ" name="R55" trace="_oqjZczumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZZTumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZZjumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZZzumEeGPM4GtkgU5pQ" name="minOccurs" belongsTo="_oqjZXjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/minOccurs" traceLink="_oqjZczumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZaDumEeGPM4GtkgU5pQ" name="R56" trace="_oqjZdDumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZaTumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZajumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZazumEeGPM4GtkgU5pQ" name="maxOccurs" belongsTo="_oqjZXjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/maxOccurs" traceLink="_oqjZdDumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZbDumEeGPM4GtkgU5pQ" name="R57" trace="_oqjZdTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZbTumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZbjumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZbzumEeGPM4GtkgU5pQ" name="owner" belongsTo="_oqjZXjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/owner" traceLink="_oqjZdTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <guard xmi:id="_oqjZcDumEeGPM4GtkgU5pQ" value="property_in.refImmediateComposite().oclIsTypeOf(UML!Class)"/>
+    <trace xmi:id="_oqjZcTumEeGPM4GtkgU5pQ" name="property2ElementLocal" source="_oqjZXTumEeGPM4GtkgU5pQ" target="_oqjZXjumEeGPM4GtkgU5pQ">
+      <traceBindings xmi:id="_oqjZcjumEeGPM4GtkgU5pQ" name="name_2_name" source="_oqjZYTumEeGPM4GtkgU5pQ" target="_oqjZYzumEeGPM4GtkgU5pQ" binding="_oqjZXzumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZczumEeGPM4GtkgU5pQ" name="R55" target="_oqjZZzumEeGPM4GtkgU5pQ" binding="_oqjZZDumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZdDumEeGPM4GtkgU5pQ" name="R56" target="_oqjZazumEeGPM4GtkgU5pQ" binding="_oqjZaDumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZdTumEeGPM4GtkgU5pQ" name="R57" target="_oqjZbzumEeGPM4GtkgU5pQ" binding="_oqjZbDumEeGPM4GtkgU5pQ"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_oqjZdjumEeGPM4GtkgU5pQ" name="associationNM2ElementLocal">
+    <sources xmi:id="_oqjZdzumEeGPM4GtkgU5pQ" name="Association" owns="_oqjZezumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//Association" traceLink="_oqjZizumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqjZeDumEeGPM4GtkgU5pQ" name="ElementLocal" owns="_oqjZfTumEeGPM4GtkgU5pQ _oqjZgTumEeGPM4GtkgU5pQ _oqjZhTumEeGPM4GtkgU5pQ _oqjZiTumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal" traceLink="_oqjZizumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjZeTumEeGPM4GtkgU5pQ" name="name_2_name" trace="_oqjZjDumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZejumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjZezumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZdzumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjZjDumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjZfDumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZfTumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZeDumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/name" traceLink="_oqjZjDumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZfjumEeGPM4GtkgU5pQ" name="R58" trace="_oqjZjTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZfzumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZgDumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZgTumEeGPM4GtkgU5pQ" name="owner" belongsTo="_oqjZeDumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/owner" traceLink="_oqjZjTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZgjumEeGPM4GtkgU5pQ" name="R59" trace="_oqjZjjumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZgzumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZhDumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZhTumEeGPM4GtkgU5pQ" name="ref" belongsTo="_oqjZeDumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/ref" traceLink="_oqjZjjumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZhjumEeGPM4GtkgU5pQ" name="R60" trace="_oqjZjzumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZhzumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZiDumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZiTumEeGPM4GtkgU5pQ" name="maxOccurs" belongsTo="_oqjZeDumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/maxOccurs" traceLink="_oqjZjzumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <guard xmi:id="_oqjZijumEeGPM4GtkgU5pQ" value="association_in.isAssociationNM() and not association_in.isAssoAgregation() and not association_in.isAssoComposite()"/>
+    <trace xmi:id="_oqjZizumEeGPM4GtkgU5pQ" name="associationNM2ElementLocal" source="_oqjZdzumEeGPM4GtkgU5pQ" target="_oqjZeDumEeGPM4GtkgU5pQ">
+      <traceBindings xmi:id="_oqjZjDumEeGPM4GtkgU5pQ" name="name_2_name" source="_oqjZezumEeGPM4GtkgU5pQ" target="_oqjZfTumEeGPM4GtkgU5pQ" binding="_oqjZeTumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZjTumEeGPM4GtkgU5pQ" name="R58" target="_oqjZgTumEeGPM4GtkgU5pQ" binding="_oqjZfjumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZjjumEeGPM4GtkgU5pQ" name="R59" target="_oqjZhTumEeGPM4GtkgU5pQ" binding="_oqjZgjumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZjzumEeGPM4GtkgU5pQ" name="R60" target="_oqjZiTumEeGPM4GtkgU5pQ" binding="_oqjZhjumEeGPM4GtkgU5pQ"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_oqjZkDumEeGPM4GtkgU5pQ" name="association1N2ElementLocal">
+    <sources xmi:id="_oqjZkTumEeGPM4GtkgU5pQ" name="Association" owns="_oqjZlTumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//Association" traceLink="_oqjZqTumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqjZkjumEeGPM4GtkgU5pQ" name="ElementLocal" owns="_oqjZlzumEeGPM4GtkgU5pQ _oqjZmzumEeGPM4GtkgU5pQ _oqjZnzumEeGPM4GtkgU5pQ _oqjZozumEeGPM4GtkgU5pQ _oqjZpzumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal" traceLink="_oqjZqTumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjZkzumEeGPM4GtkgU5pQ" name="name_2_name" trace="_oqjZqjumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZlDumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjZlTumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZkTumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjZqjumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjZljumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZlzumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZkjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/name" traceLink="_oqjZqjumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZmDumEeGPM4GtkgU5pQ" name="R61" trace="_oqjZqzumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZmTumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZmjumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZmzumEeGPM4GtkgU5pQ" name="owner" belongsTo="_oqjZkjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/owner" traceLink="_oqjZqzumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZnDumEeGPM4GtkgU5pQ" name="R62" trace="_oqjZrDumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZnTumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZnjumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZnzumEeGPM4GtkgU5pQ" name="ref" belongsTo="_oqjZkjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/ref" traceLink="_oqjZrDumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZoDumEeGPM4GtkgU5pQ" name="R63" trace="_oqjZrTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZoTumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZojumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZozumEeGPM4GtkgU5pQ" name="maxOccurs" belongsTo="_oqjZkjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/maxOccurs" traceLink="_oqjZrTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZpDumEeGPM4GtkgU5pQ" name="R64" trace="_oqjZrjumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZpTumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZpjumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZpzumEeGPM4GtkgU5pQ" name="minOccurs" belongsTo="_oqjZkjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/minOccurs" traceLink="_oqjZrjumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <guard xmi:id="_oqjZqDumEeGPM4GtkgU5pQ" value="association_in.isAssociation1N() and not association_in.isAssoAgregation() and not association_in.isAssoComposite()"/>
+    <trace xmi:id="_oqjZqTumEeGPM4GtkgU5pQ" name="association1N2ElementLocal" source="_oqjZkTumEeGPM4GtkgU5pQ" target="_oqjZkjumEeGPM4GtkgU5pQ">
+      <traceBindings xmi:id="_oqjZqjumEeGPM4GtkgU5pQ" name="name_2_name" source="_oqjZlTumEeGPM4GtkgU5pQ" target="_oqjZlzumEeGPM4GtkgU5pQ" binding="_oqjZkzumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZqzumEeGPM4GtkgU5pQ" name="R61" target="_oqjZmzumEeGPM4GtkgU5pQ" binding="_oqjZmDumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZrDumEeGPM4GtkgU5pQ" name="R62" target="_oqjZnzumEeGPM4GtkgU5pQ" binding="_oqjZnDumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZrTumEeGPM4GtkgU5pQ" name="R63" target="_oqjZozumEeGPM4GtkgU5pQ" binding="_oqjZoDumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZrjumEeGPM4GtkgU5pQ" name="R64" target="_oqjZpzumEeGPM4GtkgU5pQ" binding="_oqjZpDumEeGPM4GtkgU5pQ"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_oqjZrzumEeGPM4GtkgU5pQ" name="association112ElementLocal">
+    <sources xmi:id="_oqjZsDumEeGPM4GtkgU5pQ" name="Association" owns="_oqjZtDumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//Association" traceLink="_oqjZyDumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqjZsTumEeGPM4GtkgU5pQ" name="ElementLocal" owns="_oqjZtjumEeGPM4GtkgU5pQ _oqjZujumEeGPM4GtkgU5pQ _oqjZvjumEeGPM4GtkgU5pQ _oqjZwjumEeGPM4GtkgU5pQ _oqjZxjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal" traceLink="_oqjZyDumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjZsjumEeGPM4GtkgU5pQ" name="name_2_name" trace="_oqjZyTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZszumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjZtDumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZsDumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjZyTumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjZtTumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZtjumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZsTumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/name" traceLink="_oqjZyTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZtzumEeGPM4GtkgU5pQ" name="R65" trace="_oqjZyjumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZuDumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZuTumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZujumEeGPM4GtkgU5pQ" name="owner" belongsTo="_oqjZsTumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/owner" traceLink="_oqjZyjumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZuzumEeGPM4GtkgU5pQ" name="R66" trace="_oqjZyzumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZvDumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZvTumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZvjumEeGPM4GtkgU5pQ" name="ref" belongsTo="_oqjZsTumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/ref" traceLink="_oqjZyzumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZvzumEeGPM4GtkgU5pQ" name="R67" trace="_oqjZzDumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZwDumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZwTumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZwjumEeGPM4GtkgU5pQ" name="maxOccurs" belongsTo="_oqjZsTumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/maxOccurs" traceLink="_oqjZzDumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZwzumEeGPM4GtkgU5pQ" name="R68" trace="_oqjZzTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZxDumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZxTumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZxjumEeGPM4GtkgU5pQ" name="minOccurs" belongsTo="_oqjZsTumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/minOccurs" traceLink="_oqjZzTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <guard xmi:id="_oqjZxzumEeGPM4GtkgU5pQ" value="association_in.isAssociation11() and not association_in.isAssoAgregation() and not association_in.isAssoComposite()"/>
+    <trace xmi:id="_oqjZyDumEeGPM4GtkgU5pQ" name="association112ElementLocal" source="_oqjZsDumEeGPM4GtkgU5pQ" target="_oqjZsTumEeGPM4GtkgU5pQ">
+      <traceBindings xmi:id="_oqjZyTumEeGPM4GtkgU5pQ" name="name_2_name" source="_oqjZtDumEeGPM4GtkgU5pQ" target="_oqjZtjumEeGPM4GtkgU5pQ" binding="_oqjZsjumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZyjumEeGPM4GtkgU5pQ" name="R65" target="_oqjZujumEeGPM4GtkgU5pQ" binding="_oqjZtzumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZyzumEeGPM4GtkgU5pQ" name="R66" target="_oqjZvjumEeGPM4GtkgU5pQ" binding="_oqjZuzumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZzDumEeGPM4GtkgU5pQ" name="R67" target="_oqjZwjumEeGPM4GtkgU5pQ" binding="_oqjZvzumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZzTumEeGPM4GtkgU5pQ" name="R68" target="_oqjZxjumEeGPM4GtkgU5pQ" binding="_oqjZwzumEeGPM4GtkgU5pQ"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_oqjZzjumEeGPM4GtkgU5pQ" name="agregation2ElementLocal">
+    <sources xmi:id="_oqjZzzumEeGPM4GtkgU5pQ" name="Association" owns="_oqjZ0zumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//Association" traceLink="_oqjZ5zumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqjZ0DumEeGPM4GtkgU5pQ" name="ElementLocal" owns="_oqjZ1TumEeGPM4GtkgU5pQ _oqjZ2TumEeGPM4GtkgU5pQ _oqjZ3TumEeGPM4GtkgU5pQ _oqjZ4TumEeGPM4GtkgU5pQ _oqjZ5TumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal" traceLink="_oqjZ5zumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjZ0TumEeGPM4GtkgU5pQ" name="name_2_name" trace="_oqjZ6DumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZ0jumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjZ0zumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZzzumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjZ6DumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjZ1DumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZ1TumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZ0DumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/name" traceLink="_oqjZ6DumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZ1jumEeGPM4GtkgU5pQ" name="R69" trace="_oqjZ6TumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZ1zumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZ2DumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZ2TumEeGPM4GtkgU5pQ" name="owner" belongsTo="_oqjZ0DumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/owner" traceLink="_oqjZ6TumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZ2jumEeGPM4GtkgU5pQ" name="R70" trace="_oqjZ6jumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZ2zumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZ3DumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZ3TumEeGPM4GtkgU5pQ" name="ref" belongsTo="_oqjZ0DumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/ref" traceLink="_oqjZ6jumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZ3jumEeGPM4GtkgU5pQ" name="R71" trace="_oqjZ6zumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZ3zumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZ4DumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZ4TumEeGPM4GtkgU5pQ" name="maxOccurs" belongsTo="_oqjZ0DumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/maxOccurs" traceLink="_oqjZ6zumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZ4jumEeGPM4GtkgU5pQ" name="R72" trace="_oqjZ7DumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZ4zumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZ5DumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZ5TumEeGPM4GtkgU5pQ" name="minOccurs" belongsTo="_oqjZ0DumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/minOccurs" traceLink="_oqjZ7DumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <guard xmi:id="_oqjZ5jumEeGPM4GtkgU5pQ" value="association_in.isAssoAgregation()"/>
+    <trace xmi:id="_oqjZ5zumEeGPM4GtkgU5pQ" name="agregation2ElementLocal" source="_oqjZzzumEeGPM4GtkgU5pQ" target="_oqjZ0DumEeGPM4GtkgU5pQ">
+      <traceBindings xmi:id="_oqjZ6DumEeGPM4GtkgU5pQ" name="name_2_name" source="_oqjZ0zumEeGPM4GtkgU5pQ" target="_oqjZ1TumEeGPM4GtkgU5pQ" binding="_oqjZ0TumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZ6TumEeGPM4GtkgU5pQ" name="R69" target="_oqjZ2TumEeGPM4GtkgU5pQ" binding="_oqjZ1jumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZ6jumEeGPM4GtkgU5pQ" name="R70" target="_oqjZ3TumEeGPM4GtkgU5pQ" binding="_oqjZ2jumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZ6zumEeGPM4GtkgU5pQ" name="R71" target="_oqjZ4TumEeGPM4GtkgU5pQ" binding="_oqjZ3jumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjZ7DumEeGPM4GtkgU5pQ" name="R72" target="_oqjZ5TumEeGPM4GtkgU5pQ" binding="_oqjZ4jumEeGPM4GtkgU5pQ"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_oqjZ7TumEeGPM4GtkgU5pQ" name="composite2ElementLocalSeq">
+    <sources xmi:id="_oqjZ7jumEeGPM4GtkgU5pQ" name="Association" owns="_oqjZ8jumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//Association" traceLink="_oqjaFzumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqjZ7zumEeGPM4GtkgU5pQ" name="ElementLocal" owns="_oqjZ9DumEeGPM4GtkgU5pQ _oqjZ-DumEeGPM4GtkgU5pQ _oqjZ_DumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal" traceLink="_oqjaFzumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjZ8DumEeGPM4GtkgU5pQ" name="name_2_name" trace="_oqjaGDumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZ8TumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjZ8jumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZ7jumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjaGDumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjZ8zumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZ9DumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjZ7zumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/name" traceLink="_oqjaGDumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZ9TumEeGPM4GtkgU5pQ" name="R73" trace="_oqjaGjumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZ9jumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZ9zumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZ-DumEeGPM4GtkgU5pQ" name="owner" belongsTo="_oqjZ7zumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/owner" traceLink="_oqjaGjumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjZ-TumEeGPM4GtkgU5pQ" name="R74" trace="_oqjaGzumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZ-jumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjZ-zumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjZ_DumEeGPM4GtkgU5pQ" name="eleccion" belongsTo="_oqjZ7zumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/eleccion" traceLink="_oqjaGzumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjZ_TumEeGPM4GtkgU5pQ" name="ComplexTypeLocal" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal" traceLink="_oqjaFzumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjZ_jumEeGPM4GtkgU5pQ" name="R75" trace="_oqjaHDumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjZ_zumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjaADumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjaATumEeGPM4GtkgU5pQ" name="eleccion" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal/eleccion" traceLink="_oqjaHDumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjaAjumEeGPM4GtkgU5pQ" name="Other" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Other" traceLink="_oqjaFzumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjaAzumEeGPM4GtkgU5pQ" name="R76" trace="_oqjaHTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjaBDumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjaBTumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjaBjumEeGPM4GtkgU5pQ" name="eleccion" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Other/eleccion" traceLink="_oqjaHTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjaBzumEeGPM4GtkgU5pQ" name="Sequences" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Sequences" traceLink="_oqjaFzumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqjaCDumEeGPM4GtkgU5pQ" name="ElementLocal" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal" traceLink="_oqjaFzumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjaCTumEeGPM4GtkgU5pQ" name="name_2_name" trace="_oqjaGTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjaCjumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjaCzumEeGPM4GtkgU5pQ" name="name" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjaGTumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjaDDumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjaDTumEeGPM4GtkgU5pQ" name="name" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/name" traceLink="_oqjaGTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjaDjumEeGPM4GtkgU5pQ" name="R77" trace="_oqjaHjumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjaDzumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjaEDumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjaETumEeGPM4GtkgU5pQ" name="owner" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/owner" traceLink="_oqjaHjumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjaEjumEeGPM4GtkgU5pQ" name="R78" trace="_oqjaHzumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjaEzumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjaFDumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjaFTumEeGPM4GtkgU5pQ" name="ref" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/ref" traceLink="_oqjaHzumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <guard xmi:id="_oqjaFjumEeGPM4GtkgU5pQ" value="association_in.isAssoComposite() and not association_in.isAssoAgregation() and association_in.AssMapTo() = 'Sequences'"/>
+    <trace xmi:id="_oqjaFzumEeGPM4GtkgU5pQ" name="composite2ElementLocalSeq" source="_oqjZ7jumEeGPM4GtkgU5pQ" target="_oqjZ7zumEeGPM4GtkgU5pQ _oqjZ_TumEeGPM4GtkgU5pQ _oqjaAjumEeGPM4GtkgU5pQ _oqjaBzumEeGPM4GtkgU5pQ _oqjaCDumEeGPM4GtkgU5pQ">
+      <traceBindings xmi:id="_oqjaGDumEeGPM4GtkgU5pQ" name="name_2_name" source="_oqjZ8jumEeGPM4GtkgU5pQ" target="_oqjZ9DumEeGPM4GtkgU5pQ" binding="_oqjZ8DumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjaGTumEeGPM4GtkgU5pQ" name="name_2_name" source="_oqjaCzumEeGPM4GtkgU5pQ" target="_oqjaDTumEeGPM4GtkgU5pQ" binding="_oqjaCTumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjaGjumEeGPM4GtkgU5pQ" name="R73" target="_oqjZ-DumEeGPM4GtkgU5pQ" binding="_oqjZ9TumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjaGzumEeGPM4GtkgU5pQ" name="R74" target="_oqjZ_DumEeGPM4GtkgU5pQ" binding="_oqjZ-TumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjaHDumEeGPM4GtkgU5pQ" name="R75" target="_oqjaATumEeGPM4GtkgU5pQ" binding="_oqjZ_jumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjaHTumEeGPM4GtkgU5pQ" name="R76" target="_oqjaBjumEeGPM4GtkgU5pQ" binding="_oqjaAzumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjaHjumEeGPM4GtkgU5pQ" name="R77" target="_oqjaETumEeGPM4GtkgU5pQ" binding="_oqjaDjumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjaHzumEeGPM4GtkgU5pQ" name="R78" target="_oqjaFTumEeGPM4GtkgU5pQ" binding="_oqjaEjumEeGPM4GtkgU5pQ"/>
+    </trace>
+  </rules>
+  <rules xmi:id="_oqjaIDumEeGPM4GtkgU5pQ" name="composite2ElementLocalAll">
+    <sources xmi:id="_oqjaITumEeGPM4GtkgU5pQ" name="Association" owns="_oqjaJTumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//Association" traceLink="_oqjaSjumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqjaIjumEeGPM4GtkgU5pQ" name="ElementLocal" owns="_oqjaJzumEeGPM4GtkgU5pQ _oqjaKzumEeGPM4GtkgU5pQ _oqjaLzumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal" traceLink="_oqjaSjumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjaIzumEeGPM4GtkgU5pQ" name="name_2_name" trace="_oqjaSzumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjaJDumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjaJTumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjaITumEeGPM4GtkgU5pQ" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjaSzumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjaJjumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjaJzumEeGPM4GtkgU5pQ" name="name" belongsTo="_oqjaIjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/name" traceLink="_oqjaSzumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjaKDumEeGPM4GtkgU5pQ" name="R79" trace="_oqjaTTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjaKTumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjaKjumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjaKzumEeGPM4GtkgU5pQ" name="owner" belongsTo="_oqjaIjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/owner" traceLink="_oqjaTTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjaLDumEeGPM4GtkgU5pQ" name="R80" trace="_oqjaTjumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjaLTumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjaLjumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjaLzumEeGPM4GtkgU5pQ" name="eleccion" belongsTo="_oqjaIjumEeGPM4GtkgU5pQ" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/eleccion" traceLink="_oqjaTjumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjaMDumEeGPM4GtkgU5pQ" name="ComplexTypeLocal" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal" traceLink="_oqjaSjumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjaMTumEeGPM4GtkgU5pQ" name="R81" trace="_oqjaTzumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjaMjumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjaMzumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjaNDumEeGPM4GtkgU5pQ" name="eleccion" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ComplexTypeLocal/eleccion" traceLink="_oqjaTzumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjaNTumEeGPM4GtkgU5pQ" name="Other" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Other" traceLink="_oqjaSjumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjaNjumEeGPM4GtkgU5pQ" name="R82" trace="_oqjaUDumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjaNzumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjaODumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjaOTumEeGPM4GtkgU5pQ" name="eleccion" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Other/eleccion" traceLink="_oqjaUDumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets xmi:id="_oqjaOjumEeGPM4GtkgU5pQ" name="Sequences" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Sequences" traceLink="_oqjaSjumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqjaOzumEeGPM4GtkgU5pQ" name="ElementLocal" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal" traceLink="_oqjaSjumEeGPM4GtkgU5pQ">
+      <bindings xmi:id="_oqjaPDumEeGPM4GtkgU5pQ" name="name_2_name" trace="_oqjaTDumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjaPTumEeGPM4GtkgU5pQ">
+          <source xmi:id="_oqjaPjumEeGPM4GtkgU5pQ" name="name" model="_oqZn1TumEeGPM4GtkgU5pQ" ref="//NamedElement/name" traceLink="_oqjaTDumEeGPM4GtkgU5pQ"/>
+        </right>
+        <left xmi:id="_oqjaPzumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjaQDumEeGPM4GtkgU5pQ" name="name" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/name" traceLink="_oqjaTDumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjaQTumEeGPM4GtkgU5pQ" name="R83" trace="_oqjaUTumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjaQjumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjaQzumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjaRDumEeGPM4GtkgU5pQ" name="owner" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/owner" traceLink="_oqjaUTumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+      <bindings xmi:id="_oqjaRTumEeGPM4GtkgU5pQ" name="R84" trace="_oqjaUjumEeGPM4GtkgU5pQ">
+        <right xmi:id="_oqjaRjumEeGPM4GtkgU5pQ"/>
+        <left xmi:id="_oqjaRzumEeGPM4GtkgU5pQ">
+          <target xmi:id="_oqjaSDumEeGPM4GtkgU5pQ" name="ref" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal/ref" traceLink="_oqjaUjumEeGPM4GtkgU5pQ"/>
+        </left>
+      </bindings>
+    </targets>
+    <guard xmi:id="_oqjaSTumEeGPM4GtkgU5pQ" value="association_in.isAssoComposite() and not association_in.isAssoAgregation() and association_in.AssMapTo() = 'All'"/>
+    <trace xmi:id="_oqjaSjumEeGPM4GtkgU5pQ" name="composite2ElementLocalAll" source="_oqjaITumEeGPM4GtkgU5pQ" target="_oqjaIjumEeGPM4GtkgU5pQ _oqjaMDumEeGPM4GtkgU5pQ _oqjaNTumEeGPM4GtkgU5pQ _oqjaOjumEeGPM4GtkgU5pQ _oqjaOzumEeGPM4GtkgU5pQ">
+      <traceBindings xmi:id="_oqjaSzumEeGPM4GtkgU5pQ" name="name_2_name" source="_oqjaJTumEeGPM4GtkgU5pQ" target="_oqjaJzumEeGPM4GtkgU5pQ" binding="_oqjaIzumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjaTDumEeGPM4GtkgU5pQ" name="name_2_name" source="_oqjaPjumEeGPM4GtkgU5pQ" target="_oqjaQDumEeGPM4GtkgU5pQ" binding="_oqjaPDumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjaTTumEeGPM4GtkgU5pQ" name="R79" target="_oqjaKzumEeGPM4GtkgU5pQ" binding="_oqjaKDumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjaTjumEeGPM4GtkgU5pQ" name="R80" target="_oqjaLzumEeGPM4GtkgU5pQ" binding="_oqjaLDumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjaTzumEeGPM4GtkgU5pQ" name="R81" target="_oqjaNDumEeGPM4GtkgU5pQ" binding="_oqjaMTumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjaUDumEeGPM4GtkgU5pQ" name="R82" target="_oqjaOTumEeGPM4GtkgU5pQ" binding="_oqjaNjumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjaUTumEeGPM4GtkgU5pQ" name="R83" target="_oqjaRDumEeGPM4GtkgU5pQ" binding="_oqjaQTumEeGPM4GtkgU5pQ"/>
+      <traceBindings xmi:id="_oqjaUjumEeGPM4GtkgU5pQ" name="R84" target="_oqjaSDumEeGPM4GtkgU5pQ" binding="_oqjaRTumEeGPM4GtkgU5pQ"/>
+    </trace>
+  </rules>
+</hybrid:Module>

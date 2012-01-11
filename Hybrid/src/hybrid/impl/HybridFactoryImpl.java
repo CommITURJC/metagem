@@ -64,7 +64,7 @@ public class HybridFactoryImpl extends EFactoryImpl implements HybridFactory {
 		switch (eClass.getClassifierID()) {
 			case HybridPackage.MODULE: return createModule();
 			case HybridPackage.OPERATION: return createOperation();
-			case HybridPackage.RETURN: return createReturn();
+			case HybridPackage.OP_DEFINITION: return createOpDefinition();
 			case HybridPackage.SOURCE_MODEL: return createSourceModel();
 			case HybridPackage.TARGET_MODEL: return createTargetModel();
 			case HybridPackage.RULE: return createRule();
@@ -76,6 +76,7 @@ public class HybridFactoryImpl extends EFactoryImpl implements HybridFactory {
 			case HybridPackage.LEFT_PATTERN: return createLeftPattern();
 			case HybridPackage.TRACE_RULE: return createTraceRule();
 			case HybridPackage.TRACE_BINDING: return createTraceBinding();
+			case HybridPackage.OP_ARGUMENT: return createOpArgument();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -144,9 +145,9 @@ public class HybridFactoryImpl extends EFactoryImpl implements HybridFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Return createReturn() {
-		ReturnImpl return_ = new ReturnImpl();
-		return return_;
+	public OpDefinition createOpDefinition() {
+		OpDefinitionImpl opDefinition = new OpDefinitionImpl();
+		return opDefinition;
 	}
 
 	/**
@@ -257,6 +258,16 @@ public class HybridFactoryImpl extends EFactoryImpl implements HybridFactory {
 	public TraceBinding createTraceBinding() {
 		TraceBindingImpl traceBinding = new TraceBindingImpl();
 		return traceBinding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OpArgument createOpArgument() {
+		OpArgumentImpl opArgument = new OpArgumentImpl();
+		return opArgument;
 	}
 
 	/**

@@ -171,7 +171,7 @@ context Operation{
 		
 }
 
-context Return {
+context OpDefinition{
 
  	--Cannot be define an element and a datatype at the same Return Operation
  	constraint datatypeORelement{
@@ -182,10 +182,38 @@ context Return {
  	-- A Return element must return a datatype or an element
  	constraint datatypeORelement_notEmpty{
  		check: self.component.isDefined() or (not(self.datatype==Datatype#null))
- 		message: 'A Return element must return a datatype or a component'
+ 		message: 'An OpDefinition element must define a datatype or a component'
+ 	} 	
+ }
+ 
+ context OpArgument{
+
+	-- Operation name cannot be empty
+	constraint notEmptyArgumentName{
+		check : self.name.isDefined()
+			message : getMessageNotEmptyName(self.type().name.asString())
+			fix {
+	     		title : getTitleNotEmptyName("Argument")
+	     		do {
+	    			self.name := getInputNotEmptyName(self.type().name.asString()); 
+	     		}
+	    	}
+		}
+
+ 	--Cannot be define an element and a datatype at the same Return Operation
+ 	constraint datatypeORelement{
+ 		check: not(self.component.isDefined() and  (not(self.datatype==Datatype#null)))
+ 		message : 'Cannot be define a component and a datatype at the same time in Return'
  	}
  	
+ 	-- A Return element must return a datatype or an element
+ 	constraint datatypeORelement_notEmpty{
+ 		check: self.component.isDefined() or (not(self.datatype==Datatype#null))
+ 		message: 'An Argument element must define a datatype or a component'
+ 	} 	
  }
+ 
+
  
  context Guard{
  
@@ -198,14 +226,14 @@ context Return {
  }
  
  
-context RuleElement{
+context TransformationElement{
  
-	-- RuleElement name cannot be empty
+	-- TransformationElement name cannot be empty
 		constraint notEmptyElementName{
 		check : self.name.isDefined()
 			message : getMessageNotEmptyName(self.type().name.asString())
 			fix {
-	     		title : getTitleNotEmptyName("RuleElement")
+	     		title : getTitleNotEmptyName("TransformationElement")
 	     		do {
 	    			self.name := getInputNotEmptyName(self.type().name.asString()); 
 	     		}

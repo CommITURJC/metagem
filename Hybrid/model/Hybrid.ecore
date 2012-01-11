@@ -36,16 +36,23 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
         eType="#//Module" eOpposite="#//Module/operations"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="return" eType="#//Return"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="return" eType="#//OpDefinition"
+        containment="true" eOpposite="#//OpDefinition/return_op"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightPattern" eType="#//RightPattern"
         eOpposite="#//RightPattern/operation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="#//RuleElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="#//OpDefinition"
+        containment="true" eOpposite="#//OpDefinition/context_op"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+        eType="#//OpArgument" containment="true" eOpposite="#//OpArgument/operation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Return">
+  <eClassifiers xsi:type="ecore:EClass" name="OpDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//TransformationElement"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="datatype" eType="#//Datatype"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//RuleElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context_op" eType="#//Operation"
+        eOpposite="#//Operation/context"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="return_op" eType="#//Operation"
+        eOpposite="#//Operation/return"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourceModel" eSuperTypes="#//Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="module" lowerBound="1"
@@ -89,22 +96,23 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightPattern" upperBound="-1"
         eType="#//RightPattern" eOpposite="#//RightPattern/rule"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RuleElement" abstract="true" eSuperTypes="#//HybridElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="belongsTo" eType="#//RuleElement"
-        eOpposite="#//RuleElement/owns"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="owns" upperBound="-1" eType="#//RuleElement"
-        eOpposite="#//RuleElement/belongsTo"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TransformationElement" abstract="true"
+      eSuperTypes="#//HybridElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="belongsTo" eType="#//TransformationElement"
+        eOpposite="#//TransformationElement/owns"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owns" upperBound="-1" eType="#//TransformationElement"
+        eOpposite="#//TransformationElement/belongsTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" eType="#//Model"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Source" eSuperTypes="#//RuleElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Source" eSuperTypes="#//TransformationElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="#//Rule" eOpposite="#//Rule/sources"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightPatternOwned" eType="#//RightPattern"
         eOpposite="#//RightPattern/source"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="traceLink" upperBound="-1"
         eType="#//TraceLink" eOpposite="#//TraceLink/source"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Target" eSuperTypes="#//RuleElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Target" eSuperTypes="#//TransformationElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="#//Rule" eOpposite="#//Rule/targets"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
         eType="#//Binding" containment="true" eOpposite="#//Binding/owned"/>
@@ -168,5 +176,13 @@
         eOpposite="#//TraceRule/traceBindings"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="binding" eType="#//Binding"
         eOpposite="#//Binding/trace"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OpArgument">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="datatype" eType="#//Datatype"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//TransformationElement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
+        eType="#//Operation" eOpposite="#//Operation/arguments"/>
   </eClassifiers>
 </ecore:EPackage>

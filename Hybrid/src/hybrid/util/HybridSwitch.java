@@ -107,9 +107,9 @@ public class HybridSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case HybridPackage.RETURN: {
-				Return return_ = (Return)theEObject;
-				T result = caseReturn(return_);
+			case HybridPackage.OP_DEFINITION: {
+				OpDefinition opDefinition = (OpDefinition)theEObject;
+				T result = caseOpDefinition(opDefinition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -143,17 +143,17 @@ public class HybridSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case HybridPackage.RULE_ELEMENT: {
-				RuleElement ruleElement = (RuleElement)theEObject;
-				T result = caseRuleElement(ruleElement);
-				if (result == null) result = caseHybridElement(ruleElement);
+			case HybridPackage.TRANSFORMATION_ELEMENT: {
+				TransformationElement transformationElement = (TransformationElement)theEObject;
+				T result = caseTransformationElement(transformationElement);
+				if (result == null) result = caseHybridElement(transformationElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case HybridPackage.SOURCE: {
 				Source source = (Source)theEObject;
 				T result = caseSource(source);
-				if (result == null) result = caseRuleElement(source);
+				if (result == null) result = caseTransformationElement(source);
 				if (result == null) result = caseHybridElement(source);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -161,7 +161,7 @@ public class HybridSwitch<T> {
 			case HybridPackage.TARGET: {
 				Target target = (Target)theEObject;
 				T result = caseTarget(target);
-				if (result == null) result = caseRuleElement(target);
+				if (result == null) result = caseTransformationElement(target);
 				if (result == null) result = caseHybridElement(target);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -211,6 +211,12 @@ public class HybridSwitch<T> {
 				T result = caseTraceBinding(traceBinding);
 				if (result == null) result = caseTraceLink(traceBinding);
 				if (result == null) result = caseHybridElement(traceBinding);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HybridPackage.OP_ARGUMENT: {
+				OpArgument opArgument = (OpArgument)theEObject;
+				T result = caseOpArgument(opArgument);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -264,17 +270,17 @@ public class HybridSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Return</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Op Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Return</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Op Definition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReturn(Return object) {
+	public T caseOpDefinition(OpDefinition object) {
 		return null;
 	}
 
@@ -339,17 +345,17 @@ public class HybridSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Rule Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Transformation Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Rule Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Transformation Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRuleElement(RuleElement object) {
+	public T caseTransformationElement(TransformationElement object) {
 		return null;
 	}
 
@@ -485,6 +491,21 @@ public class HybridSwitch<T> {
 	 * @generated
 	 */
 	public T caseTraceBinding(TraceBinding object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Op Argument</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Op Argument</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOpArgument(OpArgument object) {
 		return null;
 	}
 

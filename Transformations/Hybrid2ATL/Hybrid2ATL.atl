@@ -1258,7 +1258,7 @@ rule CreateReferredConcatElement(binding : Hybrid!Binding, attrRef : Hybrid!Rule
 	}
 }
 
-lazy rule getSimpleContext {
+lazy rule getComponentContext {
 	from
 		oper : Hybrid!Operation
 	to
@@ -1266,12 +1266,42 @@ lazy rule getSimpleContext {
 			context_ <- acontextin
 		),
 		acontextin : ATL!OclModelElement (
-			name <- oper."context".name,
+			name <- oper."context".component.name,
 			model <- amodelin	
 		),
 		amodelin : ATL!OclModel(
-			name <- oper."context".model.type_mm
+			name <- oper."context".component.model.type_mm
 		) 
+}
+
+lazy rule getStringContext {
+	from
+		oper : Hybrid!Operation
+	to
+		acontext : ATL!OclContextDefinition (
+			context_ <- acontextin
+		),
+		acontextin : ATL!StringType 
+}
+
+lazy rule getIntegerContext {
+	from
+		oper : Hybrid!Operation
+	to
+		acontext : ATL!OclContextDefinition (
+			context_ <- acontextin
+		),
+		acontextin : ATL!IntegerType 
+}
+
+lazy rule getBooleanContext {
+	from
+		oper : Hybrid!Operation
+	to
+		acontext : ATL!OclContextDefinition (
+			context_ <- acontextin
+		),
+		acontextin : ATL!BooleanType 
 }
 
 lazy rule getReturnStringType {
@@ -1285,7 +1315,7 @@ lazy rule getReturnIntegerType {
 	from
 		oper : Hybrid!Operation
 	to
-		returnType : ATL!IntegerType 
+		returnType : ATL!IntegerType
 }
 
 
@@ -1296,17 +1326,51 @@ lazy rule getReturnBooleanType {
 		returnType : ATL!BooleanType 
 }
 
+lazy rule getArgumentStringType {
+	from
+		arg : Hybrid!OpArgument
+	to
+		returnType : ATL!StringType 
+}
+
+lazy rule getArgumentIntegerType {
+	from
+		arg : Hybrid!OpArgument
+	to
+		returnType : ATL!IntegerType
+}
+
+lazy rule getArgumentBooleanType{
+	from
+		arg : Hybrid!OpArgument
+	to
+		returnType : ATL!BooleanType
+}
+
 
 lazy rule getReturnElementType {
 	from
 		oper : Hybrid!Operation
 	to
 		areturnType : ATL!OclModelElement (
-			name <- oper.return.name,
+			name <- oper.return.component.name,
 			model <- amodel
 		),
 		amodel : ATL!OclModel (
-			name <- oper.return.name				
+			name <- oper.return.component.model.type_mm			
+		) 
+}
+
+lazy rule getArgumentElementType {
+	from
+		arg : Hybrid!OpArgument
+	to
+		areturnType : ATL!OclModelElement (
+			name <- arg.component.name,
+			model <- amodel
+		),
+		amodel : ATL!OclModel (
+			name <- arg.component.model.type_mm			
 		) 
 }
 
@@ -1327,7 +1391,18 @@ rule createOperation2Helper {
 		),
 		afeature : ATL!Operation (
 			name <- oper.name,
-			returnType <- oper.getReturnType()
+			returnType <- oper.getReturnType(),
+			parameters<- oper.arguments
+		)
+}
+
+rule createArgument{
+	from 
+		argument: Hybrid!OpArgument
+	to
+		parameter: ATL!Parameter(
+			varName <- argument.name,
+			type <- argument.getArgumentType()	
 		)
 }
 
@@ -1503,14 +1578,48 @@ helper context Hybrid!Operation def : getReturnType () : ATL!OclExpression =
 		endif
 	endif;
 
+-- To call the ReturnType lazy rule
+helper context Hybrid!OpArgument def : getArgumentType () : ATL!OclExpression =
+	if self.oclIsUndefined() then
+		OclUndefined
+	else
+		if self.datatype = #"String" then
+			thisModule.getArgumentStringType(self)
+		else 
+			if self.datatype = #"Integer" then
+				thisModule.getArgumentIntegerType(self)
+			else 
+				if self.datatype = #"Boolean" then
+					thisModule.getArgumentBooleanType(self)
+				else
+					thisModule.getArgumentElementType(self)
+				endif
+			endif
+		endif
+	endif;
+
 
 -- To call the context lazy rule or Undefined 
 helper context Hybrid!Operation def : getContext () : ATL!OclExpression =
 	if self."context".oclIsUndefined() then
-		OclUndefined
-	else
-		thisModule.getSimpleContext(self)
-	endif;
+			OclUndefined
+		else
+			if self."context".datatype = #"String" then
+				thisModule.getStringContext(self)
+			else 
+				if self."context".datatype = #"Integer" then
+					thisModule.getIntegerContext(self)
+				else 
+					if self."context".datatype = #"Boolean" then
+						thisModule.getBooleanContext(self)
+					else
+						thisModule.getComponentContext(self)
+					endif
+				endif
+			endif
+		endif;
+
+
 
 -- Helper -> To call the correct lazy rule to define the Binding
 helper context Hybrid!Binding def : getBindingSource() : ATL!OclExpression =

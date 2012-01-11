@@ -96,12 +96,24 @@ rule LeftPattern2SimpleStatement{
 		leftP: Hybrid!LeftPattern
 	to
 		simpleS: ETL!SimpleStatement(
-			element <- leftP.refImmediateComposite().refImmediateComposite(),
+			elementRef <- leftP.refImmediateComposite().refImmediateComposite(),
 			property <- leftP.target.name
 		)
 }
 
 
+lazy rule TransformationElement2Element_Operations{
+	from 
+		s: Hybrid!TransformationElement(s.refImmediateComposite().oclIsTypeOf(Hybrid!OpDefinition)
+			or s.refImmediateComposite().oclIsTypeOf(Hybrid!OpArgument))
+	to
+		e:ETL!Element(
+			name <- s.name.toLower(),
+			className <- s.name,
+			metamodel <- s.model.type_mm
+		)
+}				
+				
 rule Source2Element_withoutTrace{
 	from 
 		s: Hybrid!Source((s.refImmediateComposite().oclIsTypeOf(Hybrid!Rule))
@@ -140,7 +152,7 @@ rule Source2Element_withTrace{
 			property <- s.name.toLowerCase()+'.getName()'
 		),
 		name_b_target: ETL!SimpleStatement(
-			element<- e_trace,
+			elementRef<- e_trace,
 			property <-'name'
 		),
 		
@@ -153,7 +165,7 @@ rule Source2Element_withTrace{
 			property <- s.name.toLowerCase()+'.eResource().getURIFragment('+s.name.toLowerCase()+')'
 		),
 		ref_b_target: ETL!SimpleStatement(
-			element<- e_trace,
+			elementRef<- e_trace,
 			property <-'ref'
 		),
 		
@@ -166,7 +178,7 @@ rule Source2Element_withTrace{
 			property <- s.model.name+'_var'
 		),
 		elementModel_b_target: ETL!SimpleStatement(
-			element<- e_trace,
+			elementRef<- e_trace,
 			property <-'`model`'
 		),
 		
@@ -213,12 +225,12 @@ rule Source2Feature_withTrace{
 			"rule" <- s.refImmediateComposite().refImmediateComposite().refImmediateComposite().refImmediateComposite()
 		),
 		name_b_source: ETL!SimpleStatement(
-			element <- s.refImmediateComposite().refImmediateComposite()
+			elementRef <- s.refImmediateComposite().refImmediateComposite()
 						.refImmediateComposite().refImmediateComposite().sources.first(),
 			property <- s.name + '+\'(Feature: '+s.name+')\''
 		),
 		name_b_target: ETL!SimpleStatement(
-			element<- e_trace,
+			elementRef<- e_trace,
 			property <-'name'
 		),
 		elementModel_b:ETL!Binding(
@@ -230,7 +242,7 @@ rule Source2Feature_withTrace{
 			property <- s.model.name+'_var'
 		),
 		elementModel_b_target: ETL!SimpleStatement(
-			element<- e_trace,
+			elementRef<- e_trace,
 			property <-'`model`'
 		),
 		belongsTo_b:ETL!Binding(
@@ -242,7 +254,7 @@ rule Source2Feature_withTrace{
 			property <- s.belongsTo.name.replaceAll('.','_')+'_trace'
 		),
 		belongsTo_b_target: ETL!SimpleStatement(
-			element<- e_trace,
+			elementRef<- e_trace,
 			property <-'belongsTo'
 		)
 }
@@ -284,7 +296,7 @@ rule Target2Element_withTrace{
 			property <- t.name.toLowerCase()+'.getName()'
 		),
 		name_b_target: ETL!SimpleStatement(
-			element<- e_trace,
+			elementRef<- e_trace,
 			property <-'name'
 		),
 		
@@ -297,7 +309,7 @@ rule Target2Element_withTrace{
 			property <- t.name.toLowerCase()+'.eResource().getURIFragment('+t.name.toLowerCase()+')'
 		),
 		ref_b_target: ETL!SimpleStatement(
-			element<- e_trace,
+			elementRef<- e_trace,
 			property <-'ref'
 		),
 		
@@ -310,7 +322,7 @@ rule Target2Element_withTrace{
 			property <- t.model.name+'_var'
 		),
 		elementModel_b_target: ETL!SimpleStatement(
-			element<- e_trace,
+			elementRef<- e_trace,
 			property <-'`model`'
 		),
 		model_path_b: ETL!Binding(
@@ -356,11 +368,11 @@ rule Target2Feature_withTrace{
 			"rule" <- t.refImmediateComposite().refImmediateComposite().refImmediateComposite().refImmediateComposite()
 		),
 		name_b_source: ETL!SimpleStatement(
-			element <- t.refImmediateComposite().refImmediateComposite().refImmediateComposite(),
+			elementRef <- t.refImmediateComposite().refImmediateComposite().refImmediateComposite(),
 			property <- t.name + '+\'(Feature: '+t.name+')\''
 		),
 		name_b_target: ETL!SimpleStatement(
-			element<- e_trace,
+			elementRef<- e_trace,
 			property <-'name'
 		),
 		elementModel_b:ETL!Binding(
@@ -372,7 +384,7 @@ rule Target2Feature_withTrace{
 			property <- t.model.name+'_var'
 		),
 		elementModel_b_target: ETL!SimpleStatement(
-			element<- e_trace,
+			elementRef<- e_trace,
 			property <-'`model`'
 		),
 		belongsTo_b:ETL!Binding(
@@ -384,7 +396,7 @@ rule Target2Feature_withTrace{
 			property <- t.belongsTo.name.replaceAll('.','_')+'_trace'
 		),
 		belongsTo_b_target: ETL!SimpleStatement(
-			element<- e_trace,
+			elementRef<- e_trace,
 			property <-'belongsTo'
 		)
 }
@@ -405,27 +417,45 @@ rule Operation{
 		etl_op:ETL!Operation(
 			name <- h_op.name,
 			body <- h_op.body,
-			context <- context_var,
-			return <- h_op.return
-		),
-		context_var: ETL!SimpleStatement(
-			element <- h_op.context
+			context <- h_op.context,
+			return <- h_op.return,
+			parameters <- h_op.arguments
 		)
 }
 
-rule Return2SimpleStatement{
+rule OpDefinition2SimpleStatement{
 	from 
-		ret:Hybrid!Return
+		ret:Hybrid!OpDefinition((not ret.component.oclIsUndefined()) or 
+			ret.datatype=#"Boolean" or ret.datatype=#"Integer" or ret.datatype=#"String")
 	to
 		simpleS: ETL!SimpleStatement()
 		do{
 			if(not ret.component.oclIsUndefined()){
-				simpleS.element <- ret.component;
+				simpleS.elementChild <- thisModule.TransformationElement2Element_Operations(ret.component);
 			}
-			if(not ret.datatype.oclIsUndefined()){
+			if(ret.datatype=#"Boolean" or ret.datatype=#"Integer" or ret.datatype=#"String"){
 				simpleS.property <- ret.datatype.toString();
 			}
 			simpleS;
+		}
+}
+
+rule OpArgument2OperationParameter{
+	from
+		argument: Hybrid!OpArgument ((not argument.component.oclIsUndefined()) or 
+			argument.datatype=#"Boolean" or argument.datatype=#"Integer" or argument.datatype=#"String")
+	to
+		parameter: ETL!OperationParameter(
+			name <- argument.name	
+		)
+		do{
+			if(not argument.component.oclIsUndefined()){
+				parameter.elementChild <- thisModule.TransformationElement2Element_Operations(argument.component);
+			}
+			if(argument.datatype=#"Boolean" or argument.datatype=#"Integer" or argument.datatype=#"String"){
+				parameter.property <- argument.datatype.toString();
+			}
+			parameter;
 		}
 }
 
@@ -453,7 +483,7 @@ lazy rule getSimplePatternOperation {
 		right : Hybrid!RightPattern
 	to 
 		sStatement: ETL!SimpleStatement(
-			element <- right.refImmediateComposite().refImmediateComposite().refImmediateComposite().sources.asSequence().first(),
+			elementRef <- right.refImmediateComposite().refImmediateComposite().refImmediateComposite().sources.asSequence().first(),
 			property<- right.operation.asSequence().first().name+'()'
 		)	
 }
@@ -463,7 +493,7 @@ lazy rule getSimplePatternRule {
 		right : Hybrid!RightPattern
 	to 
 		sStatement: ETL!SimpleStatement(
-			element <- right.refImmediateComposite().refImmediateComposite().refImmediateComposite().sources.asSequence().first(),
+			elementRef <- right.refImmediateComposite().refImmediateComposite().refImmediateComposite().sources.asSequence().first(),
 			property<- right."rule".asSequence().first().name
 		)	
 }
@@ -478,7 +508,7 @@ lazy rule getComplexPattern_SourceOperation{
 			parameter2 <- operation
 		),
 		elementandSource: ETL!SimpleStatement(
-			element <- right.refImmediateComposite().refImmediateComposite().refImmediateComposite().sources.asSequence().first(),
+			elementRef <- right.refImmediateComposite().refImmediateComposite().refImmediateComposite().sources.asSequence().first(),
 			property<- right.source.name
 		),
 		operation: ETL!SimpleStatement(
@@ -496,7 +526,7 @@ lazy rule getComplexPattern_SourceRule{
 			parameter2 <- rule_s
 		),
 		elementandSource: ETL!SimpleStatement(
-			element <- right.refImmediateComposite().refImmediateComposite().refImmediateComposite().sources.asSequence().first(),
+			elementRef <- right.refImmediateComposite().refImmediateComposite().refImmediateComposite().sources.asSequence().first(),
 			property<- right.source.name
 		),
 		rule_s: ETL!SimpleStatement(
@@ -511,7 +541,7 @@ rule createConcatPattern(binding : Hybrid!Binding, attrRefs : Sequence(String)){
 			parameter1 <- p1
 		),
 		p1: ETL!SimpleStatement(
-			element<- binding.refImmediateComposite().refImmediateComposite().sources.first(),
+			elementRef<- binding.refImmediateComposite().refImmediateComposite().sources.first(),
 			property <- attrRefs->first()
 		)		
 		do {
@@ -529,7 +559,7 @@ rule createConcatPattern(binding : Hybrid!Binding, attrRefs : Sequence(String)){
 rule CreateConcatElement(binding : Hybrid!Binding, attrRef : String) {	
 	to
 		sStatement: ETL!SimpleStatement(
-			element<-binding.refImmediateComposite().refImmediateComposite().sources.first(),
+			elementRef<-binding.refImmediateComposite().refImmediateComposite().sources.first(),
 			property <- attrRef
 		)
 		do{
@@ -684,7 +714,7 @@ lazy rule generateBindings_TraceRule{
 			property <- '\''+trace.name.toString()+'\''
 		),
 		name_b_target: ETL!SimpleStatement(
-			element<- trace,
+			elementRef<- trace,
 			property <-'name'
 		),
 		
@@ -697,7 +727,7 @@ lazy rule generateBindings_TraceRule{
 			property <- 'Traceability!Operations#'+trace.getTypeOperation()
 		),
 		operation_b_target: ETL!SimpleStatement(
-			element<- trace,
+			elementRef<- trace,
 			property <-'`operation`'
 		),
 		
@@ -710,7 +740,7 @@ lazy rule generateBindings_TraceRule{
 			property <- trace.getSourceVarName()
 		),
 		source_b_target: ETL!SimpleStatement(
-			element<- trace,
+			elementRef<- trace,
 			property <-'source'
 		),
 		
@@ -723,7 +753,7 @@ lazy rule generateBindings_TraceRule{
 			property <- trace.getTargetVarName()
 		),
 		target_b_target: ETL!SimpleStatement(
-			element<- trace,
+			elementRef<- trace,
 			property <-'target'
 		),
 		
@@ -736,7 +766,7 @@ lazy rule generateBindings_TraceRule{
 			property <- 'traceModel'
 		),
 		tmodel_b_target: ETL!SimpleStatement(
-			element<- trace,
+			elementRef<- trace,
 			property <-'traceModel'
 		)
 }	
@@ -755,7 +785,7 @@ lazy rule generateBindings_TraceBinding{
 			property <- '\''+trace.name.toString()+'\''
 		),
 		name_b_target: ETL!SimpleStatement(
-			element<- trace,
+			elementRef<- trace,
 			property <-'name'
 		),
 		
@@ -768,7 +798,7 @@ lazy rule generateBindings_TraceBinding{
 			property <- 'Traceability!Operations#'+trace.getTypeOperation()
 		),
 		operation_b_target: ETL!SimpleStatement(
-			element<- trace,
+			elementRef<- trace,
 			property <-'`operation`'
 		),
 		
@@ -781,7 +811,7 @@ lazy rule generateBindings_TraceBinding{
 			property <- trace.getSourceVarName()
 		),
 		source_b_target: ETL!SimpleStatement(
-			element<- trace,
+			elementRef<- trace,
 			property <-'source'
 		),
 		
@@ -794,7 +824,7 @@ lazy rule generateBindings_TraceBinding{
 			property <- trace.getTargetVarName()
 		),
 		target_b_target: ETL!SimpleStatement(
-			element<- trace,
+			elementRef<- trace,
 			property <-'target'
 		),
 		
@@ -807,7 +837,7 @@ lazy rule generateBindings_TraceBinding{
 			property <- trace.refImmediateComposite().name
 		),
 		parent_b_target: ETL!SimpleStatement(
-			element<- trace,
+			elementRef<- trace,
 			property <-'parentLink'
 		)
 }
@@ -948,3 +978,6 @@ helper context Hybrid!TraceLink def: getTypeOperation () : String =
 			'Transform'
 		endif
 	endif;
+
+
+	

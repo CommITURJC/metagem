@@ -44,13 +44,13 @@ public interface HybridFactory extends EFactory {
 	Operation createOperation();
 
 	/**
-	 * Returns a new object of class '<em>Return</em>'.
+	 * Returns a new object of class '<em>Op Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Return</em>'.
+	 * @return a new object of class '<em>Op Definition</em>'.
 	 * @generated
 	 */
-	Return createReturn();
+	OpDefinition createOpDefinition();
 
 	/**
 	 * Returns a new object of class '<em>Source Model</em>'.
@@ -150,6 +150,15 @@ public interface HybridFactory extends EFactory {
 	 * @generated
 	 */
 	TraceBinding createTraceBinding();
+
+	/**
+	 * Returns a new object of class '<em>Op Argument</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Op Argument</em>'.
+	 * @generated
+	 */
+	OpArgument createOpArgument();
 
 	/**
 	 * Returns the package supported by this factory.

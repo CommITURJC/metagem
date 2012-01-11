@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Source extends RuleElement {
+public interface Source extends TransformationElement {
 	/**
 	 * Returns the value of the '<em><b>Rule</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link hybrid.Rule#getSources <em>Sources</em>}'.

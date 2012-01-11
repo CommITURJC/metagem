@@ -36,11 +36,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//Operation/body"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Operation/return"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Operation/rightPattern"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Operation/context"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Operation/context"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Operation/arguments"/>
     </genClasses>
-    <genClasses ecoreClass="Hybrid.ecore#//Return">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//Return/datatype"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Return/component"/>
+    <genClasses ecoreClass="Hybrid.ecore#//OpDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hybrid.ecore#//OpDefinition/component"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//OpDefinition/datatype"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Hybrid.ecore#//OpDefinition/context_op"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Hybrid.ecore#//OpDefinition/return_op"/>
     </genClasses>
     <genClasses ecoreClass="Hybrid.ecore#//SourceModel">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Hybrid.ecore#//SourceModel/module"/>
@@ -68,11 +71,11 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Rule/isExtended"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//Rule/rightPattern"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="Hybrid.ecore#//RuleElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//RuleElement/ref"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//RuleElement/belongsTo"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//RuleElement/owns"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//RuleElement/model"/>
+    <genClasses image="false" ecoreClass="Hybrid.ecore#//TransformationElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//TransformationElement/belongsTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//TransformationElement/owns"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//TransformationElement/model"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//TransformationElement/ref"/>
     </genClasses>
     <genClasses ecoreClass="Hybrid.ecore#//Source">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Hybrid.ecore#//Source/rule"/>
@@ -120,6 +123,12 @@
     <genClasses ecoreClass="Hybrid.ecore#//TraceBinding">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Hybrid.ecore#//TraceBinding/parent"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hybrid.ecore#//TraceBinding/binding"/>
+    </genClasses>
+    <genClasses ecoreClass="Hybrid.ecore#//OpArgument">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//OpArgument/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hybrid.ecore#//OpArgument/datatype"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hybrid.ecore#//OpArgument/component"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Hybrid.ecore#//OpArgument/operation"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

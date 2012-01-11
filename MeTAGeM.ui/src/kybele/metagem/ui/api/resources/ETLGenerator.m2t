@@ -79,14 +79,14 @@ texttransformation ETLGenerator (in eco:"http://org.eclipse.kybele.metagem.ETL")
   abstract eco.Statement::generateStatement()
   
   eco.SimpleStatement::generateStatement(){
-  	if(self.element!=null)
-  		print(self.element.name+".")
+  	if(self.elementRef!=null)
+  		print(self.elementRef.name+".")
   	print(self._getFeature("property"))
   }
   
   eco.SimpleStatement::generateOPstatement(){
-    if(self.element!=null){
-  		self.element.metamodel print("!") self.element.className
+    if(self.elementChild!=null){
+  		self.elementChild.metamodel print("!") self.elementChild.className
   		if(self._getFeature("property")!=null)
   			print(".")
   	}
@@ -109,9 +109,24 @@ texttransformation ETLGenerator (in eco:"http://org.eclipse.kybele.metagem.ETL")
   eco.Operation::generateOperation(){
     if(self.annotation!=null and self.annotation.size()>0)
     	println("@"+self.annotation)
-    print("operation ") self.context.generateOPstatement() print(" "+self.name+"() : ") self._getFeature("return").generateOPstatement() println(" {")
+    if(self.pre!=null and self.pre.body.size()>0)
+    	println("@pre "+self.pre.body)
+    if(self.post!=null and self.post.body.size()>0)
+    	println("@post "+self.post.body)	
+    print("operation ") self.context.generateOPstatement() print(" "+self.name+"(") self.parameters->forEach(p:eco.OperationParameter){p.generateOpParameter() if(p!=self.parameters.last())print(",")} print(") : ") 
+    	self._getFeature("return").generateOPstatement() println(" {")
     println("\t"+self.body)
     println("}")
+  }
+  
+  eco.OperationParameter::generateOpParameter(){
+      print(self.name+" : ")
+	  if(self.elementRef!=null){
+	  		self.elementRef.metamodel print("!") self.elementRef.className
+	  		if(self._getFeature("property")!=null)
+	  			print(".")
+	  	}
+	  	print(self._getFeature("property"))
   }
   
   

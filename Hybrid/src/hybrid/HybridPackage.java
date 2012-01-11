@@ -208,7 +208,7 @@ public interface HybridPackage extends EPackage {
 	int OPERATION__RIGHT_PATTERN = HYBRID_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * The feature id for the '<em><b>Context</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -217,23 +217,41 @@ public interface HybridPackage extends EPackage {
 	int OPERATION__CONTEXT = HYBRID_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__ARGUMENTS = HYBRID_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 5;
+	int OPERATION_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
-	 * The meta object id for the '{@link hybrid.impl.ReturnImpl <em>Return</em>}' class.
+	 * The meta object id for the '{@link hybrid.impl.OpDefinitionImpl <em>Op Definition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see hybrid.impl.ReturnImpl
-	 * @see hybrid.impl.HybridPackageImpl#getReturn()
+	 * @see hybrid.impl.OpDefinitionImpl
+	 * @see hybrid.impl.HybridPackageImpl#getOpDefinition()
 	 * @generated
 	 */
-	int RETURN = 3;
+	int OP_DEFINITION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Component</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OP_DEFINITION__COMPONENT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Datatype</b></em>' attribute.
@@ -242,25 +260,34 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RETURN__DATATYPE = 0;
+	int OP_DEFINITION__DATATYPE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Component</b></em>' reference.
+	 * The feature id for the '<em><b>Context op</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RETURN__COMPONENT = 1;
+	int OP_DEFINITION__CONTEXT_OP = 2;
 
 	/**
-	 * The number of structural features of the '<em>Return</em>' class.
+	 * The feature id for the '<em><b>Return op</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RETURN_FEATURE_COUNT = 2;
+	int OP_DEFINITION__RETURN_OP = 3;
+
+	/**
+	 * The number of structural features of the '<em>Op Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OP_DEFINITION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.ModelImpl <em>Model</em>}' class.
@@ -573,14 +600,14 @@ public interface HybridPackage extends EPackage {
 	int RULE_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 14;
 
 	/**
-	 * The meta object id for the '{@link hybrid.impl.RuleElementImpl <em>Rule Element</em>}' class.
+	 * The meta object id for the '{@link hybrid.impl.TransformationElementImpl <em>Transformation Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see hybrid.impl.RuleElementImpl
-	 * @see hybrid.impl.HybridPackageImpl#getRuleElement()
+	 * @see hybrid.impl.TransformationElementImpl
+	 * @see hybrid.impl.HybridPackageImpl#getTransformationElement()
 	 * @generated
 	 */
-	int RULE_ELEMENT = 8;
+	int TRANSFORMATION_ELEMENT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -589,16 +616,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_ELEMENT__NAME = HYBRID_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RULE_ELEMENT__REF = HYBRID_ELEMENT_FEATURE_COUNT + 0;
+	int TRANSFORMATION_ELEMENT__NAME = HYBRID_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Belongs To</b></em>' reference.
@@ -607,7 +625,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_ELEMENT__BELONGS_TO = HYBRID_ELEMENT_FEATURE_COUNT + 1;
+	int TRANSFORMATION_ELEMENT__BELONGS_TO = HYBRID_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Owns</b></em>' reference list.
@@ -616,7 +634,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_ELEMENT__OWNS = HYBRID_ELEMENT_FEATURE_COUNT + 2;
+	int TRANSFORMATION_ELEMENT__OWNS = HYBRID_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' reference.
@@ -625,16 +643,25 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_ELEMENT__MODEL = HYBRID_ELEMENT_FEATURE_COUNT + 3;
+	int TRANSFORMATION_ELEMENT__MODEL = HYBRID_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Rule Element</em>' class.
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_ELEMENT_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 4;
+	int TRANSFORMATION_ELEMENT__REF = HYBRID_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Transformation Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_ELEMENT_FEATURE_COUNT = HYBRID_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.SourceImpl <em>Source</em>}' class.
@@ -653,16 +680,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__NAME = RULE_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE__REF = RULE_ELEMENT__REF;
+	int SOURCE__NAME = TRANSFORMATION_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Belongs To</b></em>' reference.
@@ -671,7 +689,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__BELONGS_TO = RULE_ELEMENT__BELONGS_TO;
+	int SOURCE__BELONGS_TO = TRANSFORMATION_ELEMENT__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Owns</b></em>' reference list.
@@ -680,7 +698,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__OWNS = RULE_ELEMENT__OWNS;
+	int SOURCE__OWNS = TRANSFORMATION_ELEMENT__OWNS;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' reference.
@@ -689,7 +707,16 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__MODEL = RULE_ELEMENT__MODEL;
+	int SOURCE__MODEL = TRANSFORMATION_ELEMENT__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__REF = TRANSFORMATION_ELEMENT__REF;
 
 	/**
 	 * The feature id for the '<em><b>Rule</b></em>' container reference.
@@ -698,7 +725,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__RULE = RULE_ELEMENT_FEATURE_COUNT + 0;
+	int SOURCE__RULE = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Right Pattern Owned</b></em>' container reference.
@@ -707,7 +734,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__RIGHT_PATTERN_OWNED = RULE_ELEMENT_FEATURE_COUNT + 1;
+	int SOURCE__RIGHT_PATTERN_OWNED = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Trace Link</b></em>' reference list.
@@ -716,7 +743,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__TRACE_LINK = RULE_ELEMENT_FEATURE_COUNT + 2;
+	int SOURCE__TRACE_LINK = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Source</em>' class.
@@ -725,7 +752,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FEATURE_COUNT = RULE_ELEMENT_FEATURE_COUNT + 3;
+	int SOURCE_FEATURE_COUNT = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.TargetImpl <em>Target</em>}' class.
@@ -744,16 +771,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET__NAME = RULE_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TARGET__REF = RULE_ELEMENT__REF;
+	int TARGET__NAME = TRANSFORMATION_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Belongs To</b></em>' reference.
@@ -762,7 +780,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET__BELONGS_TO = RULE_ELEMENT__BELONGS_TO;
+	int TARGET__BELONGS_TO = TRANSFORMATION_ELEMENT__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Owns</b></em>' reference list.
@@ -771,7 +789,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET__OWNS = RULE_ELEMENT__OWNS;
+	int TARGET__OWNS = TRANSFORMATION_ELEMENT__OWNS;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' reference.
@@ -780,7 +798,16 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET__MODEL = RULE_ELEMENT__MODEL;
+	int TARGET__MODEL = TRANSFORMATION_ELEMENT__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET__REF = TRANSFORMATION_ELEMENT__REF;
 
 	/**
 	 * The feature id for the '<em><b>Rule</b></em>' container reference.
@@ -789,7 +816,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET__RULE = RULE_ELEMENT_FEATURE_COUNT + 0;
+	int TARGET__RULE = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -798,7 +825,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET__BINDINGS = RULE_ELEMENT_FEATURE_COUNT + 1;
+	int TARGET__BINDINGS = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Left Pattern Owned</b></em>' container reference.
@@ -807,7 +834,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET__LEFT_PATTERN_OWNED = RULE_ELEMENT_FEATURE_COUNT + 2;
+	int TARGET__LEFT_PATTERN_OWNED = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Trace Link</b></em>' reference list.
@@ -816,7 +843,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET__TRACE_LINK = RULE_ELEMENT_FEATURE_COUNT + 3;
+	int TARGET__TRACE_LINK = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Is Refered</b></em>' reference list.
@@ -825,7 +852,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET__IS_REFERED = RULE_ELEMENT_FEATURE_COUNT + 4;
+	int TARGET__IS_REFERED = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Target</em>' class.
@@ -834,7 +861,7 @@ public interface HybridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET_FEATURE_COUNT = RULE_ELEMENT_FEATURE_COUNT + 5;
+	int TARGET_FEATURE_COUNT = TRANSFORMATION_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link hybrid.impl.GuardImpl <em>Guard</em>}' class.
@@ -1231,6 +1258,61 @@ public interface HybridPackage extends EPackage {
 	int TRACE_BINDING_FEATURE_COUNT = TRACE_LINK_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link hybrid.impl.OpArgumentImpl <em>Op Argument</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hybrid.impl.OpArgumentImpl
+	 * @see hybrid.impl.HybridPackageImpl#getOpArgument()
+	 * @generated
+	 */
+	int OP_ARGUMENT = 18;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OP_ARGUMENT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Datatype</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OP_ARGUMENT__DATATYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Component</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OP_ARGUMENT__COMPONENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Operation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OP_ARGUMENT__OPERATION = 3;
+
+	/**
+	 * The number of structural features of the '<em>Op Argument</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OP_ARGUMENT_FEATURE_COUNT = 4;
+
+	/**
 	 * The meta object id for the '{@link hybrid.TypeRelation <em>Type Relation</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1238,7 +1320,7 @@ public interface HybridPackage extends EPackage {
 	 * @see hybrid.impl.HybridPackageImpl#getTypeRelation()
 	 * @generated
 	 */
-	int TYPE_RELATION = 18;
+	int TYPE_RELATION = 19;
 
 	/**
 	 * The meta object id for the '{@link hybrid.TypeElement <em>Type Element</em>}' enum.
@@ -1248,7 +1330,7 @@ public interface HybridPackage extends EPackage {
 	 * @see hybrid.impl.HybridPackageImpl#getTypeElement()
 	 * @generated
 	 */
-	int TYPE_ELEMENT = 19;
+	int TYPE_ELEMENT = 20;
 
 	/**
 	 * The meta object id for the '{@link hybrid.Datatype <em>Datatype</em>}' enum.
@@ -1258,7 +1340,7 @@ public interface HybridPackage extends EPackage {
 	 * @see hybrid.impl.HybridPackageImpl#getDatatype()
 	 * @generated
 	 */
-	int DATATYPE = 20;
+	int DATATYPE = 21;
 
 
 	/**
@@ -1391,10 +1473,10 @@ public interface HybridPackage extends EPackage {
 	EReference getOperation_RightPattern();
 
 	/**
-	 * Returns the meta object for the reference '{@link hybrid.Operation#getContext <em>Context</em>}'.
+	 * Returns the meta object for the containment reference '{@link hybrid.Operation#getContext <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Context</em>'.
+	 * @return the meta object for the containment reference '<em>Context</em>'.
 	 * @see hybrid.Operation#getContext()
 	 * @see #getOperation()
 	 * @generated
@@ -1402,36 +1484,69 @@ public interface HybridPackage extends EPackage {
 	EReference getOperation_Context();
 
 	/**
-	 * Returns the meta object for class '{@link hybrid.Return <em>Return</em>}'.
+	 * Returns the meta object for the containment reference list '{@link hybrid.Operation#getArguments <em>Arguments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Return</em>'.
-	 * @see hybrid.Return
+	 * @return the meta object for the containment reference list '<em>Arguments</em>'.
+	 * @see hybrid.Operation#getArguments()
+	 * @see #getOperation()
 	 * @generated
 	 */
-	EClass getReturn();
+	EReference getOperation_Arguments();
 
 	/**
-	 * Returns the meta object for the attribute '{@link hybrid.Return#getDatatype <em>Datatype</em>}'.
+	 * Returns the meta object for class '{@link hybrid.OpDefinition <em>Op Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Op Definition</em>'.
+	 * @see hybrid.OpDefinition
+	 * @generated
+	 */
+	EClass getOpDefinition();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link hybrid.OpDefinition#getComponent <em>Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Component</em>'.
+	 * @see hybrid.OpDefinition#getComponent()
+	 * @see #getOpDefinition()
+	 * @generated
+	 */
+	EReference getOpDefinition_Component();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hybrid.OpDefinition#getDatatype <em>Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Datatype</em>'.
-	 * @see hybrid.Return#getDatatype()
-	 * @see #getReturn()
+	 * @see hybrid.OpDefinition#getDatatype()
+	 * @see #getOpDefinition()
 	 * @generated
 	 */
-	EAttribute getReturn_Datatype();
+	EAttribute getOpDefinition_Datatype();
 
 	/**
-	 * Returns the meta object for the reference '{@link hybrid.Return#getComponent <em>Component</em>}'.
+	 * Returns the meta object for the container reference '{@link hybrid.OpDefinition#getContext_op <em>Context op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Component</em>'.
-	 * @see hybrid.Return#getComponent()
-	 * @see #getReturn()
+	 * @return the meta object for the container reference '<em>Context op</em>'.
+	 * @see hybrid.OpDefinition#getContext_op()
+	 * @see #getOpDefinition()
 	 * @generated
 	 */
-	EReference getReturn_Component();
+	EReference getOpDefinition_Context_op();
+
+	/**
+	 * Returns the meta object for the container reference '{@link hybrid.OpDefinition#getReturn_op <em>Return op</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Return op</em>'.
+	 * @see hybrid.OpDefinition#getReturn_op()
+	 * @see #getOpDefinition()
+	 * @generated
+	 */
+	EReference getOpDefinition_Return_op();
 
 	/**
 	 * Returns the meta object for class '{@link hybrid.SourceModel <em>Source Model</em>}'.
@@ -1672,58 +1787,58 @@ public interface HybridPackage extends EPackage {
 	EReference getRule_RightPattern();
 
 	/**
-	 * Returns the meta object for class '{@link hybrid.RuleElement <em>Rule Element</em>}'.
+	 * Returns the meta object for class '{@link hybrid.TransformationElement <em>Transformation Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rule Element</em>'.
-	 * @see hybrid.RuleElement
+	 * @return the meta object for class '<em>Transformation Element</em>'.
+	 * @see hybrid.TransformationElement
 	 * @generated
 	 */
-	EClass getRuleElement();
+	EClass getTransformationElement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link hybrid.RuleElement#getRef <em>Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ref</em>'.
-	 * @see hybrid.RuleElement#getRef()
-	 * @see #getRuleElement()
-	 * @generated
-	 */
-	EAttribute getRuleElement_Ref();
-
-	/**
-	 * Returns the meta object for the reference '{@link hybrid.RuleElement#getBelongsTo <em>Belongs To</em>}'.
+	 * Returns the meta object for the reference '{@link hybrid.TransformationElement#getBelongsTo <em>Belongs To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Belongs To</em>'.
-	 * @see hybrid.RuleElement#getBelongsTo()
-	 * @see #getRuleElement()
+	 * @see hybrid.TransformationElement#getBelongsTo()
+	 * @see #getTransformationElement()
 	 * @generated
 	 */
-	EReference getRuleElement_BelongsTo();
+	EReference getTransformationElement_BelongsTo();
 
 	/**
-	 * Returns the meta object for the reference list '{@link hybrid.RuleElement#getOwns <em>Owns</em>}'.
+	 * Returns the meta object for the reference list '{@link hybrid.TransformationElement#getOwns <em>Owns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Owns</em>'.
-	 * @see hybrid.RuleElement#getOwns()
-	 * @see #getRuleElement()
+	 * @see hybrid.TransformationElement#getOwns()
+	 * @see #getTransformationElement()
 	 * @generated
 	 */
-	EReference getRuleElement_Owns();
+	EReference getTransformationElement_Owns();
 
 	/**
-	 * Returns the meta object for the reference '{@link hybrid.RuleElement#getModel <em>Model</em>}'.
+	 * Returns the meta object for the reference '{@link hybrid.TransformationElement#getModel <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Model</em>'.
-	 * @see hybrid.RuleElement#getModel()
-	 * @see #getRuleElement()
+	 * @see hybrid.TransformationElement#getModel()
+	 * @see #getTransformationElement()
 	 * @generated
 	 */
-	EReference getRuleElement_Model();
+	EReference getTransformationElement_Model();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hybrid.TransformationElement#getRef <em>Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ref</em>'.
+	 * @see hybrid.TransformationElement#getRef()
+	 * @see #getTransformationElement()
+	 * @generated
+	 */
+	EAttribute getTransformationElement_Ref();
 
 	/**
 	 * Returns the meta object for class '{@link hybrid.Source <em>Source</em>}'.
@@ -2135,6 +2250,60 @@ public interface HybridPackage extends EPackage {
 	EReference getTraceBinding_Binding();
 
 	/**
+	 * Returns the meta object for class '{@link hybrid.OpArgument <em>Op Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Op Argument</em>'.
+	 * @see hybrid.OpArgument
+	 * @generated
+	 */
+	EClass getOpArgument();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hybrid.OpArgument#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see hybrid.OpArgument#getName()
+	 * @see #getOpArgument()
+	 * @generated
+	 */
+	EAttribute getOpArgument_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hybrid.OpArgument#getDatatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Datatype</em>'.
+	 * @see hybrid.OpArgument#getDatatype()
+	 * @see #getOpArgument()
+	 * @generated
+	 */
+	EAttribute getOpArgument_Datatype();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link hybrid.OpArgument#getComponent <em>Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Component</em>'.
+	 * @see hybrid.OpArgument#getComponent()
+	 * @see #getOpArgument()
+	 * @generated
+	 */
+	EReference getOpArgument_Component();
+
+	/**
+	 * Returns the meta object for the container reference '{@link hybrid.OpArgument#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Operation</em>'.
+	 * @see hybrid.OpArgument#getOperation()
+	 * @see #getOpArgument()
+	 * @generated
+	 */
+	EReference getOpArgument_Operation();
+
+	/**
 	 * Returns the meta object for enum '{@link hybrid.TypeRelation <em>Type Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2289,7 +2458,7 @@ public interface HybridPackage extends EPackage {
 		EReference OPERATION__RIGHT_PATTERN = eINSTANCE.getOperation_RightPattern();
 
 		/**
-		 * The meta object literal for the '<em><b>Context</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Context</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2297,14 +2466,30 @@ public interface HybridPackage extends EPackage {
 		EReference OPERATION__CONTEXT = eINSTANCE.getOperation_Context();
 
 		/**
-		 * The meta object literal for the '{@link hybrid.impl.ReturnImpl <em>Return</em>}' class.
+		 * The meta object literal for the '<em><b>Arguments</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see hybrid.impl.ReturnImpl
-		 * @see hybrid.impl.HybridPackageImpl#getReturn()
 		 * @generated
 		 */
-		EClass RETURN = eINSTANCE.getReturn();
+		EReference OPERATION__ARGUMENTS = eINSTANCE.getOperation_Arguments();
+
+		/**
+		 * The meta object literal for the '{@link hybrid.impl.OpDefinitionImpl <em>Op Definition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hybrid.impl.OpDefinitionImpl
+		 * @see hybrid.impl.HybridPackageImpl#getOpDefinition()
+		 * @generated
+		 */
+		EClass OP_DEFINITION = eINSTANCE.getOpDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Component</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OP_DEFINITION__COMPONENT = eINSTANCE.getOpDefinition_Component();
 
 		/**
 		 * The meta object literal for the '<em><b>Datatype</b></em>' attribute feature.
@@ -2312,15 +2497,23 @@ public interface HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RETURN__DATATYPE = eINSTANCE.getReturn_Datatype();
+		EAttribute OP_DEFINITION__DATATYPE = eINSTANCE.getOpDefinition_Datatype();
 
 		/**
-		 * The meta object literal for the '<em><b>Component</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Context op</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RETURN__COMPONENT = eINSTANCE.getReturn_Component();
+		EReference OP_DEFINITION__CONTEXT_OP = eINSTANCE.getOpDefinition_Context_op();
+
+		/**
+		 * The meta object literal for the '<em><b>Return op</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OP_DEFINITION__RETURN_OP = eINSTANCE.getOpDefinition_Return_op();
 
 		/**
 		 * The meta object literal for the '{@link hybrid.impl.SourceModelImpl <em>Source Model</em>}' class.
@@ -2507,22 +2700,14 @@ public interface HybridPackage extends EPackage {
 		EReference RULE__RIGHT_PATTERN = eINSTANCE.getRule_RightPattern();
 
 		/**
-		 * The meta object literal for the '{@link hybrid.impl.RuleElementImpl <em>Rule Element</em>}' class.
+		 * The meta object literal for the '{@link hybrid.impl.TransformationElementImpl <em>Transformation Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see hybrid.impl.RuleElementImpl
-		 * @see hybrid.impl.HybridPackageImpl#getRuleElement()
+		 * @see hybrid.impl.TransformationElementImpl
+		 * @see hybrid.impl.HybridPackageImpl#getTransformationElement()
 		 * @generated
 		 */
-		EClass RULE_ELEMENT = eINSTANCE.getRuleElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RULE_ELEMENT__REF = eINSTANCE.getRuleElement_Ref();
+		EClass TRANSFORMATION_ELEMENT = eINSTANCE.getTransformationElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Belongs To</b></em>' reference feature.
@@ -2530,7 +2715,7 @@ public interface HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RULE_ELEMENT__BELONGS_TO = eINSTANCE.getRuleElement_BelongsTo();
+		EReference TRANSFORMATION_ELEMENT__BELONGS_TO = eINSTANCE.getTransformationElement_BelongsTo();
 
 		/**
 		 * The meta object literal for the '<em><b>Owns</b></em>' reference list feature.
@@ -2538,7 +2723,7 @@ public interface HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RULE_ELEMENT__OWNS = eINSTANCE.getRuleElement_Owns();
+		EReference TRANSFORMATION_ELEMENT__OWNS = eINSTANCE.getTransformationElement_Owns();
 
 		/**
 		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
@@ -2546,7 +2731,15 @@ public interface HybridPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RULE_ELEMENT__MODEL = eINSTANCE.getRuleElement_Model();
+		EReference TRANSFORMATION_ELEMENT__MODEL = eINSTANCE.getTransformationElement_Model();
+
+		/**
+		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSFORMATION_ELEMENT__REF = eINSTANCE.getTransformationElement_Ref();
 
 		/**
 		 * The meta object literal for the '{@link hybrid.impl.SourceImpl <em>Source</em>}' class.
@@ -2869,6 +3062,48 @@ public interface HybridPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRACE_BINDING__BINDING = eINSTANCE.getTraceBinding_Binding();
+
+		/**
+		 * The meta object literal for the '{@link hybrid.impl.OpArgumentImpl <em>Op Argument</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hybrid.impl.OpArgumentImpl
+		 * @see hybrid.impl.HybridPackageImpl#getOpArgument()
+		 * @generated
+		 */
+		EClass OP_ARGUMENT = eINSTANCE.getOpArgument();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OP_ARGUMENT__NAME = eINSTANCE.getOpArgument_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Datatype</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OP_ARGUMENT__DATATYPE = eINSTANCE.getOpArgument_Datatype();
+
+		/**
+		 * The meta object literal for the '<em><b>Component</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OP_ARGUMENT__COMPONENT = eINSTANCE.getOpArgument_Component();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OP_ARGUMENT__OPERATION = eINSTANCE.getOpArgument_Operation();
 
 		/**
 		 * The meta object literal for the '{@link hybrid.TypeRelation <em>Type Relation</em>}' enum.

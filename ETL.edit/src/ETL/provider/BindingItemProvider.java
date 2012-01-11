@@ -165,6 +165,11 @@ public class BindingItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(ETLPackage.Literals.BINDING__SOURCE,
+				 ETLFactory.eINSTANCE.createOperationParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(ETLPackage.Literals.BINDING__TARGET,
 				 ETLFactory.eINSTANCE.createSimpleStatement()));
 
@@ -172,6 +177,11 @@ public class BindingItemProvider
 			(createChildParameter
 				(ETLPackage.Literals.BINDING__TARGET,
 				 ETLFactory.eINSTANCE.createOperationStatement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ETLPackage.Literals.BINDING__TARGET,
+				 ETLFactory.eINSTANCE.createOperationParameter()));
 	}
 
 	/**

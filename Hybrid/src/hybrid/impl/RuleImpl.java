@@ -466,7 +466,7 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 			Source source = sources.get(0);
 			EList<Target> targets_rule = this.getTargets();
 			for(int i=0;i<targets_rule.size();i++){
-				Target target = targets_rule.get(0);
+				Target target = targets_rule.get(i);
 				EList<Binding> bindings = target.getBindings();
 				for(int j=0;j<bindings.size();j++){
 					Binding binding = bindings.get(j);
@@ -504,11 +504,11 @@ public class RuleImpl extends HybridElementImpl implements Rule {
 			
 		}
 		//Update 'belongsTo'(RuleElement) <-> 'owns' attributes
-		if(targets.size()==1){
-			Target target = targets.get(0);
+		for (int i=0; i<targets.size();i++){	
+			Target target = targets.get(i);
 			EList<Binding> bindings = target.getBindings();
-			for(int i=0;i<bindings.size();i++){
-				Binding binding = bindings.get(i);
+			for(int j=0;j<bindings.size();j++){
+				Binding binding = bindings.get(j);
 				if((binding!=null)&&(binding.getLeft()!=null)&&(binding.getLeft().getTarget()!=null)){
 					Target target_binding = binding.getLeft().getTarget();
 					target_binding.setBelongsTo(target);

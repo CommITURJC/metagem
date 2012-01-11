@@ -105,6 +105,9 @@ public class OperationItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ETLPackage.Literals.OPERATION__CONTEXT);
 			childrenFeatures.add(ETLPackage.Literals.OPERATION__RETURN);
+			childrenFeatures.add(ETLPackage.Literals.OPERATION__PRE);
+			childrenFeatures.add(ETLPackage.Literals.OPERATION__POST);
+			childrenFeatures.add(ETLPackage.Literals.OPERATION__PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -164,6 +167,9 @@ public class OperationItemProvider
 				return;
 			case ETLPackage.OPERATION__CONTEXT:
 			case ETLPackage.OPERATION__RETURN:
+			case ETLPackage.OPERATION__PRE:
+			case ETLPackage.OPERATION__POST:
+			case ETLPackage.OPERATION__PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -188,8 +194,33 @@ public class OperationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(ETLPackage.Literals.OPERATION__CONTEXT,
+				 ETLFactory.eINSTANCE.createOperationParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(ETLPackage.Literals.OPERATION__RETURN,
 				 ETLFactory.eINSTANCE.createSimpleStatement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ETLPackage.Literals.OPERATION__RETURN,
+				 ETLFactory.eINSTANCE.createOperationParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ETLPackage.Literals.OPERATION__PRE,
+				 ETLFactory.eINSTANCE.createEolBlock()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ETLPackage.Literals.OPERATION__POST,
+				 ETLFactory.eINSTANCE.createEolBlock()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ETLPackage.Literals.OPERATION__PARAMETERS,
+				 ETLFactory.eINSTANCE.createOperationParameter()));
 	}
 
 	/**
@@ -205,7 +236,10 @@ public class OperationItemProvider
 
 		boolean qualify =
 			childFeature == ETLPackage.Literals.OPERATION__CONTEXT ||
-			childFeature == ETLPackage.Literals.OPERATION__RETURN;
+			childFeature == ETLPackage.Literals.OPERATION__RETURN ||
+			childFeature == ETLPackage.Literals.OPERATION__PARAMETERS ||
+			childFeature == ETLPackage.Literals.OPERATION__PRE ||
+			childFeature == ETLPackage.Literals.OPERATION__POST;
 
 		if (qualify) {
 			return getString

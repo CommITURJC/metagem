@@ -8,20 +8,28 @@ package hybrid.impl;
 
 import hybrid.HybridPackage;
 import hybrid.Module;
+import hybrid.OpArgument;
+import hybrid.OpDefinition;
 import hybrid.Operation;
 import hybrid.Return;
 import hybrid.RightPattern;
 
+import java.util.Collection;
 import hybrid.RuleElement;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +43,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link hybrid.impl.OperationImpl#getReturn <em>Return</em>}</li>
  *   <li>{@link hybrid.impl.OperationImpl#getRightPattern <em>Right Pattern</em>}</li>
  *   <li>{@link hybrid.impl.OperationImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link hybrid.impl.OperationImpl#getArguments <em>Arguments</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,7 +78,7 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 	 * @generated
 	 * @ordered
 	 */
-	protected Return return_;
+	protected OpDefinition return_;
 
 	/**
 	 * The cached value of the '{@link #getRightPattern() <em>Right Pattern</em>}' reference.
@@ -82,14 +91,24 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 	protected RightPattern rightPattern;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' reference.
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getContext()
 	 * @generated
 	 * @ordered
 	 */
-	protected RuleElement context;
+	protected OpDefinition context;
+
+	/**
+	 * The cached value of the '{@link #getArguments() <em>Arguments</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArguments()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<OpArgument> arguments;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -177,7 +196,7 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Return getReturn() {
+	public OpDefinition getReturn() {
 		return return_;
 	}
 
@@ -186,8 +205,8 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReturn(Return newReturn, NotificationChain msgs) {
-		Return oldReturn = return_;
+	public NotificationChain basicSetReturn(OpDefinition newReturn, NotificationChain msgs) {
+		OpDefinition oldReturn = return_;
 		return_ = newReturn;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HybridPackage.OPERATION__RETURN, oldReturn, newReturn);
@@ -201,13 +220,13 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReturn(Return newReturn) {
+	public void setReturn(OpDefinition newReturn) {
 		if (newReturn != return_) {
 			NotificationChain msgs = null;
 			if (return_ != null)
-				msgs = ((InternalEObject)return_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HybridPackage.OPERATION__RETURN, null, msgs);
+				msgs = ((InternalEObject)return_).eInverseRemove(this, HybridPackage.OP_DEFINITION__RETURN_OP, OpDefinition.class, msgs);
 			if (newReturn != null)
-				msgs = ((InternalEObject)newReturn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HybridPackage.OPERATION__RETURN, null, msgs);
+				msgs = ((InternalEObject)newReturn).eInverseAdd(this, HybridPackage.OP_DEFINITION__RETURN_OP, OpDefinition.class, msgs);
 			msgs = basicSetReturn(newReturn, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -280,15 +299,7 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleElement getContext() {
-		if (context != null && context.eIsProxy()) {
-			InternalEObject oldContext = (InternalEObject)context;
-			context = (RuleElement)eResolveProxy(oldContext);
-			if (context != oldContext) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HybridPackage.OPERATION__CONTEXT, oldContext, context));
-			}
-		}
+	public OpDefinition getContext() {
 		return context;
 	}
 
@@ -297,20 +308,14 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleElement basicGetContext() {
-		return context;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setContext(RuleElement newContext) {
-		RuleElement oldContext = context;
+	public NotificationChain basicSetContext(OpDefinition newContext, NotificationChain msgs) {
+		OpDefinition oldContext = context;
 		context = newContext;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.OPERATION__CONTEXT, oldContext, context));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HybridPackage.OPERATION__CONTEXT, oldContext, newContext);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -318,6 +323,38 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void setContext(OpDefinition newContext) {
+		if (newContext != context) {
+			NotificationChain msgs = null;
+			if (context != null)
+				msgs = ((InternalEObject)context).eInverseRemove(this, HybridPackage.OP_DEFINITION__CONTEXT_OP, OpDefinition.class, msgs);
+			if (newContext != null)
+				msgs = ((InternalEObject)newContext).eInverseAdd(this, HybridPackage.OP_DEFINITION__CONTEXT_OP, OpDefinition.class, msgs);
+			msgs = basicSetContext(newContext, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HybridPackage.OPERATION__CONTEXT, newContext, newContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<OpArgument> getArguments() {
+		if (arguments == null) {
+			arguments = new EObjectContainmentWithInverseEList<OpArgument>(OpArgument.class, this, HybridPackage.OPERATION__ARGUMENTS, HybridPackage.OP_ARGUMENT__OPERATION);
+		}
+		return arguments;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -325,10 +362,20 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetModule((Module)otherEnd, msgs);
+			case HybridPackage.OPERATION__RETURN:
+				if (return_ != null)
+					msgs = ((InternalEObject)return_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HybridPackage.OPERATION__RETURN, null, msgs);
+				return basicSetReturn((OpDefinition)otherEnd, msgs);
 			case HybridPackage.OPERATION__RIGHT_PATTERN:
 				if (rightPattern != null)
 					msgs = ((InternalEObject)rightPattern).eInverseRemove(this, HybridPackage.RIGHT_PATTERN__OPERATION, RightPattern.class, msgs);
 				return basicSetRightPattern((RightPattern)otherEnd, msgs);
+			case HybridPackage.OPERATION__CONTEXT:
+				if (context != null)
+					msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HybridPackage.OPERATION__CONTEXT, null, msgs);
+				return basicSetContext((OpDefinition)otherEnd, msgs);
+			case HybridPackage.OPERATION__ARGUMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getArguments()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -347,6 +394,10 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 				return basicSetReturn(null, msgs);
 			case HybridPackage.OPERATION__RIGHT_PATTERN:
 				return basicSetRightPattern(null, msgs);
+			case HybridPackage.OPERATION__CONTEXT:
+				return basicSetContext(null, msgs);
+			case HybridPackage.OPERATION__ARGUMENTS:
+				return ((InternalEList<?>)getArguments()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -383,8 +434,9 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 				if (resolve) return getRightPattern();
 				return basicGetRightPattern();
 			case HybridPackage.OPERATION__CONTEXT:
-				if (resolve) return getContext();
-				return basicGetContext();
+				return getContext();
+			case HybridPackage.OPERATION__ARGUMENTS:
+				return getArguments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -394,6 +446,7 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -404,13 +457,17 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 				setBody((String)newValue);
 				return;
 			case HybridPackage.OPERATION__RETURN:
-				setReturn((Return)newValue);
+				setReturn((OpDefinition)newValue);
 				return;
 			case HybridPackage.OPERATION__RIGHT_PATTERN:
 				setRightPattern((RightPattern)newValue);
 				return;
 			case HybridPackage.OPERATION__CONTEXT:
-				setContext((RuleElement)newValue);
+				setContext((OpDefinition)newValue);
+				return;
+			case HybridPackage.OPERATION__ARGUMENTS:
+				getArguments().clear();
+				getArguments().addAll((Collection<? extends OpArgument>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -431,13 +488,16 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 				setBody(BODY_EDEFAULT);
 				return;
 			case HybridPackage.OPERATION__RETURN:
-				setReturn((Return)null);
+				setReturn((OpDefinition)null);
 				return;
 			case HybridPackage.OPERATION__RIGHT_PATTERN:
 				setRightPattern((RightPattern)null);
 				return;
 			case HybridPackage.OPERATION__CONTEXT:
-				setContext((RuleElement)null);
+				setContext((OpDefinition)null);
+				return;
+			case HybridPackage.OPERATION__ARGUMENTS:
+				getArguments().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -461,6 +521,8 @@ public class OperationImpl extends HybridElementImpl implements Operation {
 				return rightPattern != null;
 			case HybridPackage.OPERATION__CONTEXT:
 				return context != null;
+			case HybridPackage.OPERATION__ARGUMENTS:
+				return arguments != null && !arguments.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

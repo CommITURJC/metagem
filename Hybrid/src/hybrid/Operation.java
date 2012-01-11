@@ -6,6 +6,8 @@
  */
 package hybrid;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -20,6 +22,7 @@ package hybrid;
  *   <li>{@link hybrid.Operation#getReturn <em>Return</em>}</li>
  *   <li>{@link hybrid.Operation#getRightPattern <em>Right Pattern</em>}</li>
  *   <li>{@link hybrid.Operation#getContext <em>Context</em>}</li>
+ *   <li>{@link hybrid.Operation#getArguments <em>Arguments</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +87,7 @@ public interface Operation extends HybridElement {
 
 	/**
 	 * Returns the value of the '<em><b>Return</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link hybrid.OpDefinition#getReturn_op <em>Return op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Return</em>' containment reference isn't clear,
@@ -91,12 +95,13 @@ public interface Operation extends HybridElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Return</em>' containment reference.
-	 * @see #setReturn(Return)
+	 * @see #setReturn(OpDefinition)
 	 * @see hybrid.HybridPackage#getOperation_Return()
-	 * @model containment="true"
+	 * @see hybrid.OpDefinition#getReturn_op
+	 * @model opposite="return_op" containment="true"
 	 * @generated
 	 */
-	Return getReturn();
+	OpDefinition getReturn();
 
 	/**
 	 * Sets the value of the '{@link hybrid.Operation#getReturn <em>Return</em>}' containment reference.
@@ -106,7 +111,7 @@ public interface Operation extends HybridElement {
 	 * @see #getReturn()
 	 * @generated
 	 */
-	void setReturn(Return value);
+	void setReturn(OpDefinition value);
 
 	/**
 	 * Returns the value of the '<em><b>Right Pattern</b></em>' reference.
@@ -137,29 +142,49 @@ public interface Operation extends HybridElement {
 	void setRightPattern(RightPattern value);
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' reference.
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link hybrid.OpDefinition#getContext_op <em>Context op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Context</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Context</em>' reference.
-	 * @see #setContext(RuleElement)
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(OpDefinition)
 	 * @see hybrid.HybridPackage#getOperation_Context()
-	 * @model
+	 * @see hybrid.OpDefinition#getContext_op
+	 * @model opposite="context_op" containment="true"
 	 * @generated
 	 */
-	RuleElement getContext();
+	OpDefinition getContext();
 
 	/**
-	 * Sets the value of the '{@link hybrid.Operation#getContext <em>Context</em>}' reference.
+	 * Sets the value of the '{@link hybrid.Operation#getContext <em>Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' reference.
+	 * @param value the new value of the '<em>Context</em>' containment reference.
 	 * @see #getContext()
 	 * @generated
 	 */
-	void setContext(RuleElement value);
+	void setContext(OpDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Arguments</b></em>' containment reference list.
+	 * The list contents are of type {@link hybrid.OpArgument}.
+	 * It is bidirectional and its opposite is '{@link hybrid.OpArgument#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Arguments</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Arguments</em>' containment reference list.
+	 * @see hybrid.HybridPackage#getOperation_Arguments()
+	 * @see hybrid.OpArgument#getOperation
+	 * @model opposite="operation" containment="true"
+	 * @generated
+	 */
+	EList<OpArgument> getArguments();
 
 } // Operation
