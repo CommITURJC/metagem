@@ -235,13 +235,31 @@ public interface ETLPackage extends EPackage {
 	int EOL_BLOCK__PRE_MODULE = BLOCK_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Pre Operation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOL_BLOCK__PRE_OPERATION = BLOCK_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Post Operation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOL_BLOCK__POST_OPERATION = BLOCK_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Eol Block</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EOL_BLOCK_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 2;
+	int EOL_BLOCK_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link ETL.impl.TransformationRuleImpl <em>Transformation Rule</em>}' class.
@@ -545,13 +563,40 @@ public interface ETLPackage extends EPackage {
 	int OPERATION__MODULE = BLOCK_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Pre</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__PRE = BLOCK_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Post</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__POST = BLOCK_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__PARAMETERS = BLOCK_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 4;
+	int OPERATION_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link ETL.impl.BindingImpl <em>Binding</em>}' class.
@@ -629,13 +674,13 @@ public interface ETLPackage extends EPackage {
 	int SIMPLE_STATEMENT = 8;
 
 	/**
-	 * The feature id for the '<em><b>Element</b></em>' reference.
+	 * The feature id for the '<em><b>Element Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_STATEMENT__ELEMENT = STATEMENT_FEATURE_COUNT + 0;
+	int SIMPLE_STATEMENT__ELEMENT_REF = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' attribute.
@@ -647,13 +692,22 @@ public interface ETLPackage extends EPackage {
 	int SIMPLE_STATEMENT__PROPERTY = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Element Child</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_STATEMENT__ELEMENT_CHILD = STATEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Simple Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+	int SIMPLE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link ETL.impl.OperationStatementImpl <em>Operation Statement</em>}' class.
@@ -700,6 +754,62 @@ public interface ETLPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+
+
+	/**
+	 * The meta object id for the '{@link ETL.impl.OperationParameterImpl <em>Operation Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ETL.impl.OperationParameterImpl
+	 * @see ETL.impl.ETLPackageImpl#getOperationParameter()
+	 * @generated
+	 */
+	int OPERATION_PARAMETER = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_PARAMETER__NAME = ETL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Element Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_PARAMETER__ELEMENT_REF = ETL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_PARAMETER__PROPERTY = ETL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Element Child</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_PARAMETER__ELEMENT_CHILD = ETL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Operation Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_PARAMETER_FEATURE_COUNT = ETL_ELEMENT_FEATURE_COUNT + 3;
 
 
 	/**
@@ -787,6 +897,28 @@ public interface ETLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEolBlock_PreModule();
+
+	/**
+	 * Returns the meta object for the container reference '{@link ETL.EolBlock#getPreOperation <em>Pre Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Pre Operation</em>'.
+	 * @see ETL.EolBlock#getPreOperation()
+	 * @see #getEolBlock()
+	 * @generated
+	 */
+	EReference getEolBlock_PreOperation();
+
+	/**
+	 * Returns the meta object for the container reference '{@link ETL.EolBlock#getPostOperation <em>Post Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Post Operation</em>'.
+	 * @see ETL.EolBlock#getPostOperation()
+	 * @see #getEolBlock()
+	 * @generated
+	 */
+	EReference getEolBlock_PostOperation();
 
 	/**
 	 * Returns the meta object for class '{@link ETL.TransformationRule <em>Transformation Rule</em>}'.
@@ -1070,6 +1202,39 @@ public interface ETLPackage extends EPackage {
 	EReference getOperation_Module();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link ETL.Operation#getPre <em>Pre</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Pre</em>'.
+	 * @see ETL.Operation#getPre()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_Pre();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link ETL.Operation#getPost <em>Post</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Post</em>'.
+	 * @see ETL.Operation#getPost()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_Post();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ETL.Operation#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see ETL.Operation#getParameters()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_Parameters();
+
+	/**
 	 * Returns the meta object for class '{@link ETL.Binding <em>Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1123,15 +1288,15 @@ public interface ETLPackage extends EPackage {
 	EClass getSimpleStatement();
 
 	/**
-	 * Returns the meta object for the reference '{@link ETL.SimpleStatement#getElement <em>Element</em>}'.
+	 * Returns the meta object for the reference '{@link ETL.SimpleStatement#getElementRef <em>Element Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Element</em>'.
-	 * @see ETL.SimpleStatement#getElement()
+	 * @return the meta object for the reference '<em>Element Ref</em>'.
+	 * @see ETL.SimpleStatement#getElementRef()
 	 * @see #getSimpleStatement()
 	 * @generated
 	 */
-	EReference getSimpleStatement_Element();
+	EReference getSimpleStatement_ElementRef();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ETL.SimpleStatement#getProperty <em>Property</em>}'.
@@ -1143,6 +1308,17 @@ public interface ETLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSimpleStatement_Property();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link ETL.SimpleStatement#getElementChild <em>Element Child</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Element Child</em>'.
+	 * @see ETL.SimpleStatement#getElementChild()
+	 * @see #getSimpleStatement()
+	 * @generated
+	 */
+	EReference getSimpleStatement_ElementChild();
 
 	/**
 	 * Returns the meta object for class '{@link ETL.OperationStatement <em>Operation Statement</em>}'.
@@ -1217,6 +1393,16 @@ public interface ETLPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getStatement();
+
+	/**
+	 * Returns the meta object for class '{@link ETL.OperationParameter <em>Operation Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operation Parameter</em>'.
+	 * @see ETL.OperationParameter
+	 * @generated
+	 */
+	EClass getOperationParameter();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1307,6 +1493,22 @@ public interface ETLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EOL_BLOCK__PRE_MODULE = eINSTANCE.getEolBlock_PreModule();
+
+		/**
+		 * The meta object literal for the '<em><b>Pre Operation</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EOL_BLOCK__PRE_OPERATION = eINSTANCE.getEolBlock_PreOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Post Operation</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EOL_BLOCK__POST_OPERATION = eINSTANCE.getEolBlock_PostOperation();
 
 		/**
 		 * The meta object literal for the '{@link ETL.impl.TransformationRuleImpl <em>Transformation Rule</em>}' class.
@@ -1527,6 +1729,30 @@ public interface ETLPackage extends EPackage {
 		EReference OPERATION__MODULE = eINSTANCE.getOperation_Module();
 
 		/**
+		 * The meta object literal for the '<em><b>Pre</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__PRE = eINSTANCE.getOperation_Pre();
+
+		/**
+		 * The meta object literal for the '<em><b>Post</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__POST = eINSTANCE.getOperation_Post();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__PARAMETERS = eINSTANCE.getOperation_Parameters();
+
+		/**
 		 * The meta object literal for the '{@link ETL.impl.BindingImpl <em>Binding</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1571,12 +1797,12 @@ public interface ETLPackage extends EPackage {
 		EClass SIMPLE_STATEMENT = eINSTANCE.getSimpleStatement();
 
 		/**
-		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Element Ref</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SIMPLE_STATEMENT__ELEMENT = eINSTANCE.getSimpleStatement_Element();
+		EReference SIMPLE_STATEMENT__ELEMENT_REF = eINSTANCE.getSimpleStatement_ElementRef();
 
 		/**
 		 * The meta object literal for the '<em><b>Property</b></em>' attribute feature.
@@ -1585,6 +1811,14 @@ public interface ETLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SIMPLE_STATEMENT__PROPERTY = eINSTANCE.getSimpleStatement_Property();
+
+		/**
+		 * The meta object literal for the '<em><b>Element Child</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SIMPLE_STATEMENT__ELEMENT_CHILD = eINSTANCE.getSimpleStatement_ElementChild();
 
 		/**
 		 * The meta object literal for the '{@link ETL.impl.OperationStatementImpl <em>Operation Statement</em>}' class.
@@ -1647,6 +1881,16 @@ public interface ETLPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STATEMENT = eINSTANCE.getStatement();
+
+		/**
+		 * The meta object literal for the '{@link ETL.impl.OperationParameterImpl <em>Operation Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ETL.impl.OperationParameterImpl
+		 * @see ETL.impl.ETLPackageImpl#getOperationParameter()
+		 * @generated
+		 */
+		EClass OPERATION_PARAMETER = eINSTANCE.getOperationParameter();
 
 	}
 

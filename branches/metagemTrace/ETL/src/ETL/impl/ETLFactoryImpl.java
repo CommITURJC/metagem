@@ -69,6 +69,7 @@ public class ETLFactoryImpl extends EFactoryImpl implements ETLFactory {
 			case ETLPackage.BINDING: return createBinding();
 			case ETLPackage.SIMPLE_STATEMENT: return createSimpleStatement();
 			case ETLPackage.OPERATION_STATEMENT: return createOperationStatement();
+			case ETLPackage.OPERATION_PARAMETER: return createOperationParameter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -162,6 +163,16 @@ public class ETLFactoryImpl extends EFactoryImpl implements ETLFactory {
 	public OperationStatement createOperationStatement() {
 		OperationStatementImpl operationStatement = new OperationStatementImpl();
 		return operationStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OperationParameter createOperationParameter() {
+		OperationParameterImpl operationParameter = new OperationParameterImpl();
+		return operationParameter;
 	}
 
 	/**
