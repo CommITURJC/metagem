@@ -12,18 +12,17 @@ import hybrid.HybridPackage;
 import hybrid.LeftPattern;
 import hybrid.RightPattern;
 import hybrid.Rule;
-import hybrid.RuleElement;
 import hybrid.Source;
 import hybrid.Target;
+import hybrid.TransformationElement;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -35,12 +34,12 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link hybrid.RuleElement} object.
+ * This is the item provider adapter for a {@link hybrid.TransformationElement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RuleElementItemProvider
+public class TransformationElementItemProvider
 	extends HybridElementItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -54,7 +53,7 @@ public class RuleElementItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleElementItemProvider(AdapterFactory adapterFactory) {
+	public TransformationElementItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,34 +68,12 @@ public class RuleElementItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRefPropertyDescriptor(object);
 			addBelongsToPropertyDescriptor(object);
 			addOwnsPropertyDescriptor(object);
 			addModelPropertyDescriptor(object);
+			addRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Ref feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRefPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RuleElement_ref_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RuleElement_ref_feature", "_UI_RuleElement_type"),
-				 HybridPackage.Literals.RULE_ELEMENT__REF,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -107,55 +84,55 @@ public class RuleElementItemProvider
 	 */
 	protected void addBelongsToPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RuleElement_belongsTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RuleElement_belongsTo_feature", "_UI_RuleElement_type"),
-				 HybridPackage.Literals.RULE_ELEMENT__BELONGS_TO,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null)
-			 {
-		          @Override
-		          public Collection<?> getChoiceOfValues(Object object)
-		          {
-		        	  Collection<Object> result = new ArrayList<Object>();
-		        	  result.add(null);
-		        	  if(object instanceof Source){
-		        		Source element = (Source) object;
-		        		RightPattern rPattern = element.getRightPatternOwned();
-		        		if(rPattern!=null){
-		        			Binding binding = rPattern.getBinding();
-		        			Target target_rule = binding.getOwned();
-		        			Rule mainRule = target_rule.getRule();
-		        			result.addAll(mainRule.getSources());
-		        		}  		   
-		        	  }else if(object instanceof Target){
-		        		Target element = (Target) object;
-		        		LeftPattern lPattern = element.getLeftPatternOwned();
-		        		if(lPattern!=null){
-		        			Binding binding = lPattern.getBinding();
-		        			Target target_rule = binding.getOwned();
-		        			Rule mainRule = target_rule.getRule();
-		        			result.addAll(mainRule.getTargets());
-		        		}
-		        		       		   
-		        	  }
-		        		  
-					return result;
-		          }
-		          
-		          @Override
-		          public void resetPropertyValue(Object object)
-		          {
-		            setPropertyValue(object, null);
-		          }
-				});
-			}
+		(new ItemPropertyDescriptor
+			(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			 getResourceLocator(),
+			 getString("_UI_RuleElement_belongsTo_feature"),
+			 getString("_UI_PropertyDescriptor_description", "_UI_RuleElement_belongsTo_feature", "_UI_RuleElement_type"),
+			 HybridPackage.Literals.TRANSFORMATION_ELEMENT__BELONGS_TO,
+			 true,
+			 false,
+			 true,
+			 null,
+			 null,
+			 null)
+		 {
+	          @Override
+	          public Collection<?> getChoiceOfValues(Object object)
+	          {
+	        	  Collection<Object> result = new ArrayList<Object>();
+	        	  result.add(null);
+	        	  if(object instanceof Source){
+	        		Source element = (Source) object;
+	        		RightPattern rPattern = element.getRightPatternOwned();
+	        		if(rPattern!=null){
+	        			Binding binding = rPattern.getBinding();
+	        			Target target_rule = binding.getOwned();
+	        			Rule mainRule = target_rule.getRule();
+	        			result.addAll(mainRule.getSources());
+	        		}  		   
+	        	  }else if(object instanceof Target){
+	        		Target element = (Target) object;
+	        		LeftPattern lPattern = element.getLeftPatternOwned();
+	        		if(lPattern!=null){
+	        			Binding binding = lPattern.getBinding();
+	        			Target target_rule = binding.getOwned();
+	        			Rule mainRule = target_rule.getRule();
+	        			result.addAll(mainRule.getTargets());
+	        		}
+	        		       		   
+	        	  }
+	        		  
+				return result;
+	          }
+	          
+	          @Override
+	          public void resetPropertyValue(Object object)
+	          {
+	            setPropertyValue(object, null);
+	          }
+			});
+		}
 
 	/**
 	 * This adds a property descriptor for the Owns feature.
@@ -168,9 +145,9 @@ public class RuleElementItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RuleElement_owns_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RuleElement_owns_feature", "_UI_RuleElement_type"),
-				 HybridPackage.Literals.RULE_ELEMENT__OWNS,
+				 getString("_UI_TransformationElement_owns_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TransformationElement_owns_feature", "_UI_TransformationElement_type"),
+				 HybridPackage.Literals.TRANSFORMATION_ELEMENT__OWNS,
 				 true,
 				 false,
 				 true,
@@ -190,13 +167,35 @@ public class RuleElementItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RuleElement_model_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RuleElement_model_feature", "_UI_RuleElement_type"),
-				 HybridPackage.Literals.RULE_ELEMENT__MODEL,
+				 getString("_UI_TransformationElement_model_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TransformationElement_model_feature", "_UI_TransformationElement_type"),
+				 HybridPackage.Literals.TRANSFORMATION_ELEMENT__MODEL,
 				 true,
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Ref feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRefPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TransformationElement_ref_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TransformationElement_ref_feature", "_UI_TransformationElement_type"),
+				 HybridPackage.Literals.TRANSFORMATION_ELEMENT__REF,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -209,10 +208,10 @@ public class RuleElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((RuleElement)object).getName();
+		String label = ((TransformationElement)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RuleElement_type") :
-			getString("_UI_RuleElement_type") + " " + label;
+			getString("_UI_TransformationElement_type") :
+			getString("_UI_TransformationElement_type") + " " + label;
 	}
 
 	/**
@@ -226,8 +225,8 @@ public class RuleElementItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(RuleElement.class)) {
-			case HybridPackage.RULE_ELEMENT__REF:
+		switch (notification.getFeatureID(TransformationElement.class)) {
+			case HybridPackage.TRANSFORMATION_ELEMENT__REF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

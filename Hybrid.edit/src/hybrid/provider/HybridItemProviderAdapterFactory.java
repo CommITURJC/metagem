@@ -122,26 +122,26 @@ public class HybridItemProviderAdapterFactory extends HybridAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link hybrid.Return} instances.
+	 * This keeps track of the one adapter used for all {@link hybrid.OpDefinition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ReturnItemProvider returnItemProvider;
+	protected OpDefinitionItemProvider opDefinitionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link hybrid.Return}.
+	 * This creates an adapter for a {@link hybrid.OpDefinition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createReturnAdapter() {
-		if (returnItemProvider == null) {
-			returnItemProvider = new ReturnItemProvider(this);
+	public Adapter createOpDefinitionAdapter() {
+		if (opDefinitionItemProvider == null) {
+			opDefinitionItemProvider = new OpDefinitionItemProvider(this);
 		}
 
-		return returnItemProvider;
+		return opDefinitionItemProvider;
 	}
 
 	/**
@@ -398,6 +398,29 @@ public class HybridItemProviderAdapterFactory extends HybridAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link hybrid.OpArgument} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OpArgumentItemProvider opArgumentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link hybrid.OpArgument}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOpArgumentAdapter() {
+		if (opArgumentItemProvider == null) {
+			opArgumentItemProvider = new OpArgumentItemProvider(this);
+		}
+
+		return opArgumentItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -498,7 +521,7 @@ public class HybridItemProviderAdapterFactory extends HybridAdapterFactory imple
 	public void dispose() {
 		if (moduleItemProvider != null) moduleItemProvider.dispose();
 		if (operationItemProvider != null) operationItemProvider.dispose();
-		if (returnItemProvider != null) returnItemProvider.dispose();
+		if (opDefinitionItemProvider != null) opDefinitionItemProvider.dispose();
 		if (sourceModelItemProvider != null) sourceModelItemProvider.dispose();
 		if (targetModelItemProvider != null) targetModelItemProvider.dispose();
 		if (ruleItemProvider != null) ruleItemProvider.dispose();
@@ -510,6 +533,7 @@ public class HybridItemProviderAdapterFactory extends HybridAdapterFactory imple
 		if (leftPatternItemProvider != null) leftPatternItemProvider.dispose();
 		if (traceRuleItemProvider != null) traceRuleItemProvider.dispose();
 		if (traceBindingItemProvider != null) traceBindingItemProvider.dispose();
+		if (opArgumentItemProvider != null) opArgumentItemProvider.dispose();
 	}
 
 }
