@@ -10,6 +10,9 @@ import hybrid.Target;
 import hybrid.TargetModel;
 import hybrid.impl.BindingImpl;
 import hybrid.impl.HybridFactoryImpl;
+import hybrid.impl.OpArgumentImpl;
+import hybrid.impl.OpDefinitionImpl;
+import hybrid.impl.OperationImpl;
 import hybrid.impl.RuleImpl;
 
 import org.eclipse.emf.common.util.EList;
@@ -71,7 +74,8 @@ public class HybridDragDrop extends EditingDomainViewerDropAdapter {
 			aTargetObj = (EObject)aObj;
 			//Different elements:
 			if (!aSource.eResource().getURI().equals(aTargetObj.eResource().getURI())){	
-				if((aTargetObj instanceof RuleImpl)||(aTargetObj instanceof BindingImpl)){
+				if((aTargetObj instanceof RuleImpl)||(aTargetObj instanceof BindingImpl)||
+						(aTargetObj instanceof OpDefinitionImpl)||(aTargetObj instanceof OpArgumentImpl)){
 					boolean input = false;
 					for (int i=0;i<sourceRs.getResources().size();i++){
 						if (aSource.eResource().equals(sourceRs.getResources().get(i))){
@@ -90,10 +94,35 @@ public class HybridDragDrop extends EditingDomainViewerDropAdapter {
 						selectionType = TARGET_ELEMENT;
 					}
 					event.detail=DND.DROP_LINK;
+					
+					checkDrop(event,aTargetObj);
 				}
 			}
 		}
 	}
+	
+	/**
+	   * This method checks whether the targetObject (of the drag&drop process) can be
+	   * receive a new selectionType element
+	   * 
+	   * event.detail = DND.DROP_LINK means it's OK
+	   * event.detail = DND.DROP_NONE means it's forbidden
+	   * 
+	   * @param event
+	   * @param aTargetObj
+	   */
+	  private void checkDrop(DropTargetEvent event, EObject aTargetObj) {
+		  event.detail=DND.DROP_LINK;
+		  if (aTargetObj instanceof OpDefinitionImpl) {
+			  OpDefinitionImpl definition = (OpDefinitionImpl) aTargetObj;
+			  if(definition.getComponent() != null)
+				  event.detail = DND.DROP_NONE;
+		  }else if (aTargetObj instanceof OpArgumentImpl) {
+			  OpArgumentImpl argument = (OpArgumentImpl) aTargetObj;
+			  if(argument.getComponent() != null)
+				  event.detail = DND.DROP_NONE;
+		  }
+	  }
 	
 	 /**
 	 * the drop action
@@ -142,6 +171,20 @@ public class HybridDragDrop extends EditingDomainViewerDropAdapter {
 				handleSetSourceElement(binding, oElement, id);
 			} else { // TARGET_ELEMENT
 				handleSetTargetElement(binding, oElement, id);
+			}
+		}else if (target_drop instanceof OpDefinitionImpl) {
+			OpDefinitionImpl definition = (OpDefinitionImpl) target_drop;
+			if (type == SOURCE_ELEMENT) {
+				handleSetSourceElement(definition, oElement, id);
+			} else { // TARGET_ELEMENT
+				handleSetTargetElement(definition, oElement, id);
+			}
+		}else if (target_drop instanceof OpArgumentImpl) {
+			OpArgumentImpl argument = (OpArgumentImpl ) target_drop;
+			if (type == SOURCE_ELEMENT) {
+				handleSetSourceElement(argument, oElement, id);
+			} else { // TARGET_ELEMENT
+				handleSetTargetElement(argument, oElement, id);
 			}
 		}
 	}	
@@ -260,6 +303,106 @@ public class HybridDragDrop extends EditingDomainViewerDropAdapter {
 		}
 		
 		CreateChildCommand cmdSet_element = new CreateChildCommand(domain, (EObject)rule, HybridPackage.eINSTANCE.getRule_Targets(), ruleElement, null);
+		domain.getCommandStack().execute(cmdSet_element);	
+	}
+	
+	/**
+	 * Creates a Source element (oElement) in a OpDefinition (definition)
+	 * @param rule
+	 * @param oElement
+	 * @param id
+	 */
+	private void handleSetSourceElement(OpDefinitionImpl definition, EObject oElement, String id) {
+
+		Source ruleElement = hybridFactory.createSource();
+		ruleElement.setRef(id);
+		ruleElement.setName(this.getName(oElement));
+		Module module = ((OperationImpl)definition.eContainer()).getModule();
+		EList<SourceModel> source_models = module.getSourceModels();
+		
+		for(int c1=0; c1<source_models.size();c1++){
+			if(("platform:/resource"+source_models.get(c1).getPath()).equals(elementModel)){
+				ruleElement.setModel(source_models.get(c1));
+			}
+			
+		}
+		
+		CreateChildCommand cmdSet_element = new CreateChildCommand(domain, (EObject)definition, HybridPackage.eINSTANCE.getOpDefinition_Component(), ruleElement, null);
+		domain.getCommandStack().execute(cmdSet_element);
+	}
+	
+	/**
+	 * Creates a Target element (oElement) in a OpDefinition (definition)
+	 * @param rule
+	 * @param oElement
+	 * @param id
+	 */
+	private void handleSetTargetElement(OpDefinitionImpl definition, EObject oElement, String id){
+		Target ruleElement = hybridFactory.createTarget();
+		ruleElement.setRef(id);
+		ruleElement.setName(this.getName(oElement));
+		
+		Module module = ((OperationImpl)definition.eContainer()).getModule();
+		EList<TargetModel> target_models = module.getTargetModels();
+		
+		for(int c1=0; c1<target_models.size();c1++){
+			if(("platform:/resource"+target_models.get(c1).getPath()).equals(elementModel)){
+				ruleElement.setModel(target_models.get(c1));
+			}
+			
+		}
+		
+		CreateChildCommand cmdSet_element = new CreateChildCommand(domain, (EObject)definition, HybridPackage.eINSTANCE.getOpDefinition_Component(), ruleElement, null);
+		domain.getCommandStack().execute(cmdSet_element);	
+	}
+	
+	/**
+	 * Creates a Source element (oElement) in a OpArgument (argument)
+	 * @param rule
+	 * @param oElement
+	 * @param id
+	 */
+	private void handleSetSourceElement(OpArgumentImpl argument, EObject oElement, String id) {
+
+		Source ruleElement = hybridFactory.createSource();
+		ruleElement.setRef(id);
+		ruleElement.setName(this.getName(oElement));
+		Module module = argument.getOperation().getModule();
+		EList<SourceModel> source_models = module.getSourceModels();
+		
+		for(int c1=0; c1<source_models.size();c1++){
+			if(("platform:/resource"+source_models.get(c1).getPath()).equals(elementModel)){
+				ruleElement.setModel(source_models.get(c1));
+			}
+			
+		}
+		
+		CreateChildCommand cmdSet_element = new CreateChildCommand(domain, (EObject)argument, HybridPackage.eINSTANCE.getOpArgument_Component(), ruleElement, null);
+		domain.getCommandStack().execute(cmdSet_element);
+	}
+	
+	/**
+	 * Creates a Target element (oElement) in a OpArgument (argument)
+	 * @param rule
+	 * @param oElement
+	 * @param id
+	 */
+	private void handleSetTargetElement(OpArgumentImpl argument, EObject oElement, String id){
+		Target ruleElement = hybridFactory.createTarget();
+		ruleElement.setRef(id);
+		ruleElement.setName(this.getName(oElement));
+		
+		Module module = argument.getOperation().getModule();
+		EList<TargetModel> target_models = module.getTargetModels();
+		
+		for(int c1=0; c1<target_models.size();c1++){
+			if(("platform:/resource"+target_models.get(c1).getPath()).equals(elementModel)){
+				ruleElement.setModel(target_models.get(c1));
+			}
+			
+		}
+		
+		CreateChildCommand cmdSet_element = new CreateChildCommand(domain, (EObject)argument, HybridPackage.eINSTANCE.getOpArgument_Component(), ruleElement, null);
 		domain.getCommandStack().execute(cmdSet_element);	
 	}
 	
