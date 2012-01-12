@@ -7,10 +7,14 @@
 package hybrid.provider;
 
 
+import hybrid.Binding;
 import hybrid.HybridFactory;
 import hybrid.HybridPackage;
 import hybrid.RightPattern;
+import hybrid.Rule;
+import hybrid.Target;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -123,23 +127,45 @@ public class RightPatternItemProvider
 	 * This adds a property descriptor for the Reference feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NOT generated
 	 */
 	protected void addReferencePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RightPattern_reference_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RightPattern_reference_feature", "_UI_RightPattern_type"),
-				 HybridPackage.Literals.RIGHT_PATTERN__REFERENCE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
+		(new ItemPropertyDescriptor
+			(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			 getResourceLocator(),
+			 getString("_UI_RightPattern_reference_feature"),
+			 getString("_UI_PropertyDescriptor_description", "_UI_RightPattern_reference_feature", "_UI_RightPattern_type"),
+			 HybridPackage.Literals.RIGHT_PATTERN__REFERENCE,
+			 true,
+			 false,
+			 true,
+			 null,
+			 null,
+			 null)
+		 {
+	          @Override
+	          public Collection<?> getChoiceOfValues(Object object)
+	          {
+	        	  Collection<Object> result = new ArrayList<Object>();
+	        	  result.add(null);
+	        	  if(object instanceof RightPattern){
+	        		RightPattern pattern = (RightPattern) object;
+	        		Binding bind_parent = pattern.getBinding();
+	        		Target target = bind_parent.getOwned();
+	        		Rule rule = target.getRule();
+	        		result.addAll(rule.getTargets());
+	        	  }  
+				return result;
+	          }
+	          
+	          @Override
+	          public void resetPropertyValue(Object object)
+	          {
+	            setPropertyValue(object, null);
+	          }
+			});
+		}
 
 	/**
 	 * This adds a property descriptor for the Rule feature.
