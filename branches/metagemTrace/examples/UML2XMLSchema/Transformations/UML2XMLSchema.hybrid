@@ -109,6 +109,46 @@
       <component xsi:type="hybrid:Source" name="Association" model="//@sourceModels.0" ref="//Association"/>
     </context>
   </operations>
+  <operations name="isAssoAgregation" body="(self.memberEnd->asSequence()->select (prop | prop.isAggregation()).size()&lt;>0);">
+    <return datatype="Boolean"/>
+    <context>
+      <component xsi:type="hybrid:Source" name="Association" model="//@sourceModels.0" ref="//Association"/>
+    </context>
+  </operations>
+  <operations name="isAssoComposite" body="(self.memberEnd->asSequence()->select (prop | prop.isComposite()).size()&lt;>0);">
+    <return datatype="Boolean"/>
+    <context>
+      <component xsi:type="hybrid:Source" name="Association" model="//@sourceModels.0" ref="//Association"/>
+    </context>
+  </operations>
+  <operations name="isCompositeProperty" body="self.memberEnd->asSequence()->select (prop | prop.isComposite())-> first();">
+    <return>
+      <component xsi:type="hybrid:Source" name="Property" model="//@sourceModels.0" ref="//Property"/>
+    </return>
+    <context>
+      <component xsi:type="hybrid:Source" name="Association" model="//@sourceModels.0" ref="//Association"/>
+    </context>
+  </operations>
+  <operations name="isGeneralization" body="self.generalization -> asSequence().debug('Generalization')->select(pac | pac) -> first();">
+    <return>
+      <component xsi:type="hybrid:Source" name="Package" model="//@sourceModels.0" ref="//Package"/>
+    </return>
+    <context>
+      <component xsi:type="hybrid:Source" name="GeneralizationSet" model="//@sourceModels.0" ref="//GeneralizationSet"/>
+    </context>
+  </operations>
+  <operations name="isAggregation" body="if (self.refImmediateComposite().oclIsTypeOf(UML!Association)) then if (self.aggregation=#shared)then  true else false endif else false endif;">
+    <return datatype="Boolean"/>
+    <context>
+      <component xsi:type="hybrid:Source" name="Property" model="//@sourceModels.0" ref="//Property"/>
+    </context>
+  </operations>
+  <operations name="isComposite" body="if (self.refImmediateComposite().oclIsTypeOf(UML!Association)) then&#xA;&#x9;&#x9;if (self.aggregation=#composite)then  true else false endif else false endif;">
+    <return datatype="Boolean"/>
+    <context>
+      <component xsi:type="hybrid:Source" name="Property" model="//@sourceModels.0" ref="//Property"/>
+    </context>
+  </operations>
   <sourceModels name="UML_model" path="/UML2XMLSchema/Metamodels/UML.ecore" type_mm="UML"/>
   <sourceModels name="AnnotationMetamodel_model" path="/UML2XMLSchema/Metamodels/AnnotationMetamodel.ecore" type_mm="AnnotationMetamodel"/>
   <targetModels name="schemaXML_model" path="/UML2XMLSchema/Metamodels/schemaXML.ecore" type_mm="schemaXML"/>
