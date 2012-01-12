@@ -880,7 +880,7 @@ rule InPatternElement_withTrace {
 			model <- thisModule.resolveTemp(inPattern.model,'ametamodelMM')
 		),
 		trace_element: ATL!SimpleOutPatternElement (
-			varName <- inPattern.name.toLower()+'_in_Trace',
+			varName <- inPattern.name.toLower()+'_in_Trace_TE'+thisModule.countTE.toString(),
 			outPattern <- thisModule.resolveTemp(inPattern."rule",'outPattern'),
 			type <- aType_trace,
 			bindings <- Sequence{nameBinding, refBinding, modelBinding}
@@ -930,6 +930,9 @@ rule InPatternElement_withTrace {
 			collection <- thisModule.resolveTemp(inPattern.traceLink,'sourceSeq'),
 			referredVariable <- trace_element
 		)
+		do{
+			thisModule.countTE	<- thisModule.countTE + 1; 
+		}
 }
 
 --InputPattern (from part)
@@ -939,7 +942,7 @@ rule InPatternFeature_withTrace {
 			and inPattern.traceLink.size()>0)
 	to
 		trace_element: ATL!SimpleOutPatternElement (
-			varName <- inPattern.name.toLower()+'_in_Trace',
+			varName <- inPattern.name.toLower()+'_in_Trace_TE'+thisModule.countTE.toString(),
 			outPattern <- thisModule.resolveTemp(inPattern.refImmediateComposite().refImmediateComposite()
 				.refImmediateComposite().refImmediateComposite(),'outPattern'),
 			type <- aType_trace,
@@ -999,6 +1002,9 @@ rule InPatternFeature_withTrace {
 		varDeclNavCall:ATL!VariableDeclaration(
 			varName<-'thisModule'
 		)
+		do{
+			thisModule.countTE	<- thisModule.countTE + 1; 
+		}
 }
 
 rule OutPatternElement_withoutTrace { 
@@ -1033,7 +1039,7 @@ rule OutPatternElement_withTrace {
 			model <- thisModule.resolveTemp(outPattern.model,'ametamodelMM') 
 		),
 		trace_element: ATL!SimpleOutPatternElement (
-			varName <- outPattern.name.toLower()+'_out_Trace',
+			varName <- outPattern.name.toLower()+'_out_Trace_TE'+thisModule.countTE.toString(),
 			outPattern <- thisModule.resolveTemp(outPattern."rule",'outPattern'),
 			type <- aType_trace,
 			bindings <- Sequence{nameBinding, refBinding, modelBinding}
@@ -1083,6 +1089,9 @@ rule OutPatternElement_withTrace {
 			collection <- thisModule.resolveTemp(outPattern.traceLink,'targetSeq'),
 			referredVariable <- trace_element
 		)
+		do{
+			thisModule.countTE	<- thisModule.countTE + 1; 
+		}
 }
 
 --OutputPattern (to part)
@@ -1093,7 +1102,7 @@ rule OutPatternFeature_withTrace {
 	to
 		
 		trace_element: ATL!SimpleOutPatternElement (
-			varName <- outPattern.name.toLower()+'_out_Trace',
+			varName <- outPattern.name.toLower()+'_out_Trace_TE'+thisModule.countTE.toString(),
 			outPattern <- thisModule.resolveTemp(outPattern.refImmediateComposite().refImmediateComposite()
 				.refImmediateComposite()."rule",'outPattern'),
 			type <- aType_trace,
@@ -1154,6 +1163,9 @@ rule OutPatternFeature_withTrace {
 		varDeclNavCall:ATL!VariableDeclaration(
 			varName<-'thisModule'
 		)
+		do{
+			thisModule.countTE	<- thisModule.countTE + 1; 
+		}
 }
 
 -- Bindigs: (TargetElements <- SourceElements)
@@ -1424,7 +1436,7 @@ rule TraceRule2CreateTraceLink{
 		traceRule: Hybrid!TraceRule
 	to
 		atl : ATL!SimpleOutPatternElement (
-			varName <- traceRule.name,
+			varName <- traceRule.name+'_TL'+thisModule.countTL,
 			type <- aType,
 			bindings <- Sequence {name, traceM, operation, source, target, childLinks}
 		),
@@ -1487,6 +1499,9 @@ rule TraceRule2CreateTraceLink{
 		childSeq: ATL!SequenceExp(
 			elements <- traceRule.traceBindings->collect(e|thisModule.resolveTemp(e,'traceBinding_var'))
 		)
+		do{
+			thisModule.countTL	<- thisModule.countTL + 1; 
+		}
 
 }
 
@@ -1496,7 +1511,7 @@ rule TraceBinding2CreateTraceLink{
 		traceBinding: Hybrid!TraceBinding
 	to
 		patternTrace : ATL!SimpleOutPatternElement (
-			varName <- traceBinding.name,
+			varName <- traceBinding.name+'_TL'+thisModule.countTL,
 			type <- aType,
 			bindings <- Sequence {name, operation, source, target}
 		),
@@ -1539,6 +1554,9 @@ rule TraceBinding2CreateTraceLink{
 		targetSeq: ATL!SequenceExp(
 			elements <- traceBinding.target->collect(e|thisModule.resolveTemp(e,'trace_elVar'))
 		)
+		do{
+			thisModule.countTL	<- thisModule.countTL + 1; 
+		}
 }
 
 
@@ -1729,4 +1747,6 @@ helper context Hybrid!Rule def : getCommentFilter () : String =
 	self.guard.value
 	;
 
+helper def : countTL : Integer = 1;
+helper def : countTE : Integer = 1;
 
