@@ -664,25 +664,25 @@
         </left>
       </bindings>
       <bindings name="R69" trace="//@rules.10/@trace/@traceBindings.1">
-        <right/>
+        <right concreteValue="thisModule.resolveTemp(association_in.isAgregationProperty().type,'Seq')"/>
         <left>
           <target name="owner" belongsTo="//@rules.10/@targets.0" model="//@targetModels.0" ref="//ElementLocal/owner" traceLink="//@rules.10/@trace/@traceBindings.1"/>
         </left>
       </bindings>
       <bindings name="R70" trace="//@rules.10/@trace/@traceBindings.2">
-        <right/>
+        <right concreteValue="association_in.isAgregationProperty().getProperty().name"/>
         <left>
           <target name="ref" belongsTo="//@rules.10/@targets.0" model="//@targetModels.0" ref="//ElementLocal/ref" traceLink="//@rules.10/@trace/@traceBindings.2"/>
         </left>
       </bindings>
       <bindings name="R71" trace="//@rules.10/@trace/@traceBindings.3">
-        <right/>
+        <right concreteValue="if (not association_in.isAgregationProperty().upperValue.oclIsUndefined())then if (association_in.isAgregationProperty().upperValue.value &lt;> 1)  then 'unbounded' else '1' endif else OclUndefined endif"/>
         <left>
           <target name="maxOccurs" belongsTo="//@rules.10/@targets.0" model="//@targetModels.0" ref="//ElementLocal/maxOccurs" traceLink="//@rules.10/@trace/@traceBindings.3"/>
         </left>
       </bindings>
       <bindings name="R72" trace="//@rules.10/@trace/@traceBindings.4">
-        <right/>
+        <right concreteValue="if (not association_in.isAgregationProperty().lowerValue.oclIsUndefined())then if(association_in.isAgregationProperty().lowerValue.value = 1) then '1' else '0' endif else OclUndefined endif"/>
         <left>
           <target name="minOccurs" belongsTo="//@rules.10/@targets.0" model="//@targetModels.0" ref="//ElementLocal/minOccurs" traceLink="//@rules.10/@trace/@traceBindings.4"/>
         </left>
@@ -698,7 +698,7 @@
     </trace>
   </rules>
   <rules name="composite2ElementLocalSeq">
-    <sources name="Association" owns="//@rules.11/@targets.0/@bindings.0/@right/@source.0 //@rules.11/@targets.4/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="//Association" traceLink="//@rules.11/@trace"/>
+    <sources name="Association" owns="//@rules.11/@targets.0/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="//Association" traceLink="//@rules.11/@trace"/>
     <targets name="ElementLocal" owns="//@rules.11/@targets.0/@bindings.0/@left/@target //@rules.11/@targets.0/@bindings.1/@left/@target //@rules.11/@targets.0/@bindings.2/@left/@target" model="//@targetModels.0" ref="//ElementLocal" traceLink="//@rules.11/@trace">
       <bindings name="name_2_name" trace="//@rules.11/@trace/@traceBindings.0">
         <right>
@@ -709,52 +709,50 @@
         </left>
       </bindings>
       <bindings name="R73" trace="//@rules.11/@trace/@traceBindings.2">
-        <right/>
+        <right concreteValue="thisModule.resolveTemp(association_in.getPropertyAssoNoMulti().type,'Seq')"/>
         <left>
           <target name="owner" belongsTo="//@rules.11/@targets.0" model="//@targetModels.0" ref="//ElementLocal/owner" traceLink="//@rules.11/@trace/@traceBindings.2"/>
         </left>
       </bindings>
       <bindings name="R74" trace="//@rules.11/@trace/@traceBindings.3">
-        <right/>
+        <right reference="//@rules.11/@targets.1"/>
         <left>
           <target name="eleccion" belongsTo="//@rules.11/@targets.0" model="//@targetModels.0" ref="//ElementLocal/eleccion" traceLink="//@rules.11/@trace/@traceBindings.3"/>
         </left>
       </bindings>
     </targets>
-    <targets name="ComplexTypeLocal" owns="//@rules.11/@targets.1/@bindings.0/@left/@target" model="//@targetModels.0" ref="//ComplexTypeLocal" traceLink="//@rules.11/@trace">
+    <targets name="ComplexTypeLocal" owns="//@rules.11/@targets.1/@bindings.0/@left/@target" model="//@targetModels.0" ref="//ComplexTypeLocal" traceLink="//@rules.11/@trace" isRefered="//@rules.11/@targets.0/@bindings.2/@right">
       <bindings name="R75" trace="//@rules.11/@trace/@traceBindings.4">
-        <right/>
+        <right reference="//@rules.11/@targets.2"/>
         <left>
           <target name="eleccion" belongsTo="//@rules.11/@targets.1" model="//@targetModels.0" ref="//ComplexTypeLocal/eleccion" traceLink="//@rules.11/@trace/@traceBindings.4"/>
         </left>
       </bindings>
     </targets>
-    <targets name="Other" owns="//@rules.11/@targets.2/@bindings.0/@left/@target" model="//@targetModels.0" ref="//Other" traceLink="//@rules.11/@trace">
+    <targets name="Other" owns="//@rules.11/@targets.2/@bindings.0/@left/@target" model="//@targetModels.0" ref="//Other" traceLink="//@rules.11/@trace" isRefered="//@rules.11/@targets.1/@bindings.0/@right">
       <bindings name="R76" trace="//@rules.11/@trace/@traceBindings.5">
-        <right/>
+        <right reference="//@rules.11/@targets.3"/>
         <left>
           <target name="eleccion" belongsTo="//@rules.11/@targets.2" model="//@targetModels.0" ref="//Other/eleccion" traceLink="//@rules.11/@trace/@traceBindings.5"/>
         </left>
       </bindings>
     </targets>
-    <targets name="Sequences" model="//@targetModels.0" ref="//Sequences" traceLink="//@rules.11/@trace"/>
+    <targets name="Sequences" model="//@targetModels.0" ref="//Sequences" traceLink="//@rules.11/@trace" isRefered="//@rules.11/@targets.2/@bindings.0/@right //@rules.11/@targets.4/@bindings.1/@right"/>
     <targets name="ElementLocal" owns="//@rules.11/@targets.4/@bindings.0/@left/@target //@rules.11/@targets.4/@bindings.1/@left/@target //@rules.11/@targets.4/@bindings.2/@left/@target" model="//@targetModels.0" ref="//ElementLocal" traceLink="//@rules.11/@trace">
       <bindings name="name_2_name" trace="//@rules.11/@trace/@traceBindings.1">
-        <right>
-          <source name="name" belongsTo="//@rules.11/@sources.0" model="//@sourceModels.0" ref="//NamedElement/name" traceLink="//@rules.11/@trace/@traceBindings.1"/>
-        </right>
+        <right concreteValue="association_in.getPropertyAssoLast().name"/>
         <left>
           <target name="name" belongsTo="//@rules.11/@targets.4" model="//@targetModels.0" ref="//ElementLocal/name" traceLink="//@rules.11/@trace/@traceBindings.1"/>
         </left>
       </bindings>
       <bindings name="R77" trace="//@rules.11/@trace/@traceBindings.6">
-        <right/>
+        <right reference="//@rules.11/@targets.3"/>
         <left>
           <target name="owner" belongsTo="//@rules.11/@targets.4" model="//@targetModels.0" ref="//ElementLocal/owner" traceLink="//@rules.11/@trace/@traceBindings.6"/>
         </left>
       </bindings>
       <bindings name="R78" trace="//@rules.11/@trace/@traceBindings.7">
-        <right/>
+        <right concreteValue="association_in.getPropertyAssoLast().name"/>
         <left>
           <target name="ref" belongsTo="//@rules.11/@targets.4" model="//@targetModels.0" ref="//ElementLocal/ref" traceLink="//@rules.11/@trace/@traceBindings.7"/>
         </left>
@@ -763,7 +761,7 @@
     <guard value="association_in.isAssoComposite() and not association_in.isAssoAgregation() and association_in.AssMapTo() = 'Sequences'"/>
     <trace name="composite2ElementLocalSeq" source="//@rules.11/@sources.0" target="//@rules.11/@targets.0 //@rules.11/@targets.1 //@rules.11/@targets.2 //@rules.11/@targets.3 //@rules.11/@targets.4">
       <traceBindings name="name_2_name" source="//@rules.11/@targets.0/@bindings.0/@right/@source.0" target="//@rules.11/@targets.0/@bindings.0/@left/@target" binding="//@rules.11/@targets.0/@bindings.0"/>
-      <traceBindings name="name_2_name" source="//@rules.11/@targets.4/@bindings.0/@right/@source.0" target="//@rules.11/@targets.4/@bindings.0/@left/@target" binding="//@rules.11/@targets.4/@bindings.0"/>
+      <traceBindings name="name_2_name" target="//@rules.11/@targets.4/@bindings.0/@left/@target" binding="//@rules.11/@targets.4/@bindings.0"/>
       <traceBindings name="R73" target="//@rules.11/@targets.0/@bindings.1/@left/@target" binding="//@rules.11/@targets.0/@bindings.1"/>
       <traceBindings name="R74" target="//@rules.11/@targets.0/@bindings.2/@left/@target" binding="//@rules.11/@targets.0/@bindings.2"/>
       <traceBindings name="R75" target="//@rules.11/@targets.1/@bindings.0/@left/@target" binding="//@rules.11/@targets.1/@bindings.0"/>
@@ -773,7 +771,7 @@
     </trace>
   </rules>
   <rules name="composite2ElementLocalAll">
-    <sources name="Association" owns="//@rules.12/@targets.0/@bindings.0/@right/@source.0 //@rules.12/@targets.4/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="//Association" traceLink="//@rules.12/@trace"/>
+    <sources name="Association" owns="//@rules.12/@targets.0/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="//Association" traceLink="//@rules.12/@trace"/>
     <targets name="ElementLocal" owns="//@rules.12/@targets.0/@bindings.0/@left/@target //@rules.12/@targets.0/@bindings.1/@left/@target //@rules.12/@targets.0/@bindings.2/@left/@target" model="//@targetModels.0" ref="//ElementLocal" traceLink="//@rules.12/@trace">
       <bindings name="name_2_name" trace="//@rules.12/@trace/@traceBindings.0">
         <right>
@@ -784,52 +782,50 @@
         </left>
       </bindings>
       <bindings name="R79" trace="//@rules.12/@trace/@traceBindings.2">
-        <right/>
+        <right concreteValue="thisModule.resolveTemp(association_in.getPropertyAssoNoMulti().type,'Seq')"/>
         <left>
           <target name="owner" belongsTo="//@rules.12/@targets.0" model="//@targetModels.0" ref="//ElementLocal/owner" traceLink="//@rules.12/@trace/@traceBindings.2"/>
         </left>
       </bindings>
       <bindings name="R80" trace="//@rules.12/@trace/@traceBindings.3">
-        <right/>
+        <right reference="//@rules.12/@targets.1"/>
         <left>
           <target name="eleccion" belongsTo="//@rules.12/@targets.0" model="//@targetModels.0" ref="//ElementLocal/eleccion" traceLink="//@rules.12/@trace/@traceBindings.3"/>
         </left>
       </bindings>
     </targets>
-    <targets name="ComplexTypeLocal" owns="//@rules.12/@targets.1/@bindings.0/@left/@target" model="//@targetModels.0" ref="//ComplexTypeLocal" traceLink="//@rules.12/@trace">
+    <targets name="ComplexTypeLocal" owns="//@rules.12/@targets.1/@bindings.0/@left/@target" model="//@targetModels.0" ref="//ComplexTypeLocal" traceLink="//@rules.12/@trace" isRefered="//@rules.12/@targets.0/@bindings.2/@right">
       <bindings name="R81" trace="//@rules.12/@trace/@traceBindings.4">
-        <right/>
+        <right reference="//@rules.12/@targets.2"/>
         <left>
           <target name="eleccion" belongsTo="//@rules.12/@targets.1" model="//@targetModels.0" ref="//ComplexTypeLocal/eleccion" traceLink="//@rules.12/@trace/@traceBindings.4"/>
         </left>
       </bindings>
     </targets>
-    <targets name="Other" owns="//@rules.12/@targets.2/@bindings.0/@left/@target" model="//@targetModels.0" ref="//Other" traceLink="//@rules.12/@trace">
+    <targets name="Other" owns="//@rules.12/@targets.2/@bindings.0/@left/@target" model="//@targetModels.0" ref="//Other" traceLink="//@rules.12/@trace" isRefered="//@rules.12/@targets.1/@bindings.0/@right">
       <bindings name="R82" trace="//@rules.12/@trace/@traceBindings.5">
-        <right/>
+        <right reference="//@rules.12/@targets.3"/>
         <left>
           <target name="eleccion" belongsTo="//@rules.12/@targets.2" model="//@targetModels.0" ref="//Other/eleccion" traceLink="//@rules.12/@trace/@traceBindings.5"/>
         </left>
       </bindings>
     </targets>
-    <targets name="Sequences" model="//@targetModels.0" ref="//Sequences" traceLink="//@rules.12/@trace"/>
+    <targets name="Sequences" model="//@targetModels.0" ref="//Sequences" traceLink="//@rules.12/@trace" isRefered="//@rules.12/@targets.2/@bindings.0/@right //@rules.12/@targets.4/@bindings.1/@right"/>
     <targets name="ElementLocal" owns="//@rules.12/@targets.4/@bindings.0/@left/@target //@rules.12/@targets.4/@bindings.1/@left/@target //@rules.12/@targets.4/@bindings.2/@left/@target" model="//@targetModels.0" ref="//ElementLocal" traceLink="//@rules.12/@trace">
       <bindings name="name_2_name" trace="//@rules.12/@trace/@traceBindings.1">
-        <right>
-          <source name="name" belongsTo="//@rules.12/@sources.0" model="//@sourceModels.0" ref="//NamedElement/name" traceLink="//@rules.12/@trace/@traceBindings.1"/>
-        </right>
+        <right concreteValue="association_in.getPropertyAssoLast().name"/>
         <left>
           <target name="name" belongsTo="//@rules.12/@targets.4" model="//@targetModels.0" ref="//ElementLocal/name" traceLink="//@rules.12/@trace/@traceBindings.1"/>
         </left>
       </bindings>
       <bindings name="R83" trace="//@rules.12/@trace/@traceBindings.6">
-        <right/>
+        <right reference="//@rules.12/@targets.3"/>
         <left>
           <target name="owner" belongsTo="//@rules.12/@targets.4" model="//@targetModels.0" ref="//ElementLocal/owner" traceLink="//@rules.12/@trace/@traceBindings.6"/>
         </left>
       </bindings>
       <bindings name="R84" trace="//@rules.12/@trace/@traceBindings.7">
-        <right/>
+        <right concreteValue="association_in.getPropertyAssoLast().name"/>
         <left>
           <target name="ref" belongsTo="//@rules.12/@targets.4" model="//@targetModels.0" ref="//ElementLocal/ref" traceLink="//@rules.12/@trace/@traceBindings.7"/>
         </left>
@@ -838,7 +834,7 @@
     <guard value="association_in.isAssoComposite() and not association_in.isAssoAgregation() and association_in.AssMapTo() = 'All'"/>
     <trace name="composite2ElementLocalAll" source="//@rules.12/@sources.0" target="//@rules.12/@targets.0 //@rules.12/@targets.1 //@rules.12/@targets.2 //@rules.12/@targets.3 //@rules.12/@targets.4">
       <traceBindings name="name_2_name" source="//@rules.12/@targets.0/@bindings.0/@right/@source.0" target="//@rules.12/@targets.0/@bindings.0/@left/@target" binding="//@rules.12/@targets.0/@bindings.0"/>
-      <traceBindings name="name_2_name" source="//@rules.12/@targets.4/@bindings.0/@right/@source.0" target="//@rules.12/@targets.4/@bindings.0/@left/@target" binding="//@rules.12/@targets.4/@bindings.0"/>
+      <traceBindings name="name_2_name" target="//@rules.12/@targets.4/@bindings.0/@left/@target" binding="//@rules.12/@targets.4/@bindings.0"/>
       <traceBindings name="R79" target="//@rules.12/@targets.0/@bindings.1/@left/@target" binding="//@rules.12/@targets.0/@bindings.1"/>
       <traceBindings name="R80" target="//@rules.12/@targets.0/@bindings.2/@left/@target" binding="//@rules.12/@targets.0/@bindings.2"/>
       <traceBindings name="R81" target="//@rules.12/@targets.1/@bindings.0/@left/@target" binding="//@rules.12/@targets.1/@bindings.0"/>

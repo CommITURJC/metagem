@@ -296,10 +296,9 @@
       <zeroToOne>
         <target name="ref" ref="//ElementLocal/ref" model="//@targetModels.0"/>
       </zeroToOne>
-      <oneToOne>
-        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+      <zeroToOne>
         <target name="name" ref="//ElementLocal/name" model="//@targetModels.0"/>
-      </oneToOne>
+      </zeroToOne>
     </target>
   </relations>
   <relations xsi:type="metagem:OneToMany" name="composite2ElementLocalAll" guardCondition="association_in.isAssoComposite() and not association_in.isAssoAgregation() and association_in.AssMapTo() = 'All'">
@@ -334,10 +333,9 @@
       <zeroToOne>
         <target name="ref" ref="//ElementLocal/ref" model="//@targetModels.0"/>
       </zeroToOne>
-      <oneToOne>
-        <source name="name" ref="//NamedElement/name" model="//@sourceModels.0"/>
+      <zeroToOne>
         <target name="name" ref="//ElementLocal/name" model="//@targetModels.0"/>
-      </oneToOne>
+      </zeroToOne>
     </target>
   </relations>
 </metagem:ModelRoot>
