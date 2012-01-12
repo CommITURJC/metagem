@@ -189,7 +189,10 @@ public class BindingImpl extends HybridElementImpl implements Binding {
 					traceBinding.getSource().add(source);
 				}
 			}
-		}	
+		}
+		
+		//Update candidates to reference feature
+		
 		return right;
 	}
 
