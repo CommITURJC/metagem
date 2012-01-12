@@ -25,7 +25,7 @@
     </context>
     <arguments name="key" datatype="String"/>
   </operations>
-  <operations name="mapTo" body="if self.getLink().oclIsUndefined() then &#xD;&#xA;&#x9;&#x9;'Sequences'&#xD;&#xA;&#x9;else&#xD;&#xA;&#x9;&#x9;if self.getLink().getAnnotationValue('Attribute') = 'Sequences' then&#xD;&#xA;&#x9;&#x9;&#x9;'Sequences'&#xD;&#xA;&#x9;&#x9;else &#xD;&#xA;&#x9;&#x9;&#x9;if self.getLink().getAnnotationValue('Attribute') = 'Choice' then 'Choice' else 'All' endif endif endif;">
+  <operations name="mapTo" body="if self.getLink().oclIsUndefined() then  'Sequences' else if self.getLink().getAnnotationValue('Attribute') = 'Sequences' then&#xD;&#xA;&#x9;&#x9;&#x9;'Sequences'&#xD;&#xA;&#x9;&#x9;else &#xD;&#xA;&#x9;&#x9;&#x9;if self.getLink().getAnnotationValue('Attribute') = 'Choice' then 'Choice' else 'All' endif endif endif;">
     <return datatype="String"/>
     <context>
       <component xsi:type="hybrid:Source" name="Class" model="//@sourceModels.0" ref="//Class"/>
@@ -143,7 +143,7 @@
       <component xsi:type="hybrid:Source" name="Property" model="//@sourceModels.0" ref="//Property"/>
     </context>
   </operations>
-  <operations name="isComposite" body="if (self.refImmediateComposite().oclIsTypeOf(UML!Association)) then&#xA;&#x9;&#x9;if (self.aggregation=#composite)then  true else false endif else false endif;">
+  <operations name="isComposite" body="if (self.refImmediateComposite().oclIsTypeOf(UML!Association)) then if (self.aggregation=#composite)then  true else false endif else false endif;">
     <return datatype="Boolean"/>
     <context>
       <component xsi:type="hybrid:Source" name="Property" model="//@sourceModels.0" ref="//Property"/>
