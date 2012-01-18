@@ -325,7 +325,7 @@
         <target name="eleccion" ref="//Other/eleccion" model="//@targetModels.0"/>
       </zeroToOne>
     </target>
-    <target name="Sequences" ref="//Sequences" model="//@targetModels.0"/>
+    <target name="All" ref="//All" model="//@targetModels.0"/>
     <target name="ElementLocal" ref="//ElementLocal" model="//@targetModels.0">
       <zeroToOne>
         <target name="owner" ref="//ElementLocal/owner" model="//@targetModels.0"/>
@@ -337,5 +337,6 @@
         <target name="name" ref="//ElementLocal/name" model="//@targetModels.0"/>
       </zeroToOne>
     </target>
+    
   </relations>
 </metagem:ModelRoot>

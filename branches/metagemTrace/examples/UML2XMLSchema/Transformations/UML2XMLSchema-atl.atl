@@ -1,0 +1,1732 @@
+-- @atlcompiler atl2006
+module UML2XMLSchema;
+create schemaXML_model : schemaXML, in2out_trace : TRACE from UML_model : UML, AnnotationMetamodel_model : AnnotationMetamodel;
+
+-- Comments -> This is a MatchedRule: model2schema -> do{thisModule.model;}
+rule model2schema {
+ from
+  model_in : UML!Model
+ to
+  schema_out : schemaXML!Schema (
+   id <- model_in.name
+  ),
+  model2schema_TL1 : TRACE!TraceLink (
+   name <- 'model2schema',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {model_in_Trace_TE1},
+   target <- Sequence {schema_out_Trace_TE35},
+   childLinks <- Sequence {name_2_id_TL14}
+  ),
+  name_2_id_TL14 : TRACE!TraceLink (
+   name <- 'name_2_id',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE14},
+   target <- Sequence {id_out_Trace_TE69}
+  ),
+  model_in_Trace_TE1 : TRACE!SourceElement (
+   name <- model_in.getName(),
+   ref <- model_in.__xmiID__,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE14 : TRACE!SourceElement (
+   name <- model_in.name.toString() + '(Feature: name)',
+   belongsTo <- model_in_Trace_TE1,
+   model <- thisModule.getModel_UML_model
+  ),
+  schema_out_Trace_TE35 : TRACE!TargetElement (
+   name <- schema_out.getName(),
+   ref <- schema_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  id_out_Trace_TE69 : TRACE!TargetElement (
+   name <- schema_out.id.toString() + '(Feature: id)',
+   belongsTo <- schema_out_Trace_TE35,
+   model <- thisModule.getModel_schemaXML_model
+  )
+ -- ActionBlock: 
+ do {
+  thisModule.model;
+ }
+}
+
+-- Comments -> This is a MatchedRule: package2schema -> do{thisModule.package;}
+rule package2schema {
+ from
+  package_in : UML!Package
+ to
+  schema_out : schemaXML!Schema (
+   id <- package_in.name
+  ),
+  package2schema_TL2 : TRACE!TraceLink (
+   name <- 'package2schema',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {package_in_Trace_TE2},
+   target <- Sequence {schema_out_Trace_TE36},
+   childLinks <- Sequence {name_2_id_TL15}
+  ),
+  name_2_id_TL15 : TRACE!TraceLink (
+   name <- 'name_2_id',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE15},
+   target <- Sequence {id_out_Trace_TE70}
+  ),
+  package_in_Trace_TE2 : TRACE!SourceElement (
+   name <- package_in.getName(),
+   ref <- package_in.__xmiID__,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE15 : TRACE!SourceElement (
+   name <- package_in.name.toString() + '(Feature: name)',
+   belongsTo <- package_in_Trace_TE2,
+   model <- thisModule.getModel_UML_model
+  ),
+  schema_out_Trace_TE36 : TRACE!TargetElement (
+   name <- schema_out.getName(),
+   ref <- schema_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  id_out_Trace_TE70 : TRACE!TargetElement (
+   name <- schema_out.id.toString() + '(Feature: id)',
+   belongsTo <- schema_out_Trace_TE36,
+   model <- thisModule.getModel_schemaXML_model
+  )
+ -- ActionBlock: 
+ do {
+  thisModule.package;
+ }
+}
+
+-- Comments -> This is a MatchedRule: class2ElementGlobalSeq -> Sequences element must be called 'Seq'
+rule class2ElementGlobalSeq {
+ from
+  class_in : UML!Class
+  (
+   (class_in.mapTo()='Sequences') and class_in.GetGeneralization().oclIsUndefined()
+   
+  )
+ to
+  elementglobal_out : schemaXML!ElementGlobal (
+   id <- class_in.name,
+   name <- class_in.name,
+   Owner <- thisModule.package,
+   eleccion <- complextypelocal_out
+  ),
+  complextypelocal_out : schemaXML!ComplexTypeLocal (
+   id <- class_in.name,
+   eleccion <- other_out
+  ),
+  other_out : schemaXML!Other (
+   eleccion <- Seq
+  ),
+  Seq : schemaXML!Sequences,
+  class2ElementGlobalSeq_TL3 : TRACE!TraceLink (
+   name <- 'class2ElementGlobalSeq',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {class_in_Trace_TE3},
+   target <- Sequence {elementglobal_out_Trace_TE37, complextypelocal_out_Trace_TE38, other_out_Trace_TE39, sequences_out_Trace_TE40},
+   childLinks <- Sequence {name_2_id_TL16, name_2_name_TL17, name_2_id_TL18, R37_TL19, R38_TL20, R39_TL21, R40_TL22}
+  ),
+  name_2_id_TL16 : TRACE!TraceLink (
+   name <- 'name_2_id',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE16},
+   target <- Sequence {id_out_Trace_TE71}
+  ),
+  name_2_name_TL17 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE17},
+   target <- Sequence {name_out_Trace_TE72}
+  ),
+  name_2_id_TL18 : TRACE!TraceLink (
+   name <- 'name_2_id',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE18},
+   target <- Sequence {id_out_Trace_TE75}
+  ),
+  R37_TL19 : TRACE!TraceLink (
+   name <- 'R37',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {owner_out_Trace_TE73}
+  ),
+  R38_TL20 : TRACE!TraceLink (
+   name <- 'R38',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE74}
+  ),
+  R39_TL21 : TRACE!TraceLink (
+   name <- 'R39',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE76}
+  ),
+  R40_TL22 : TRACE!TraceLink (
+   name <- 'R40',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE77}
+  ),
+  class_in_Trace_TE3 : TRACE!SourceElement (
+   name <- class_in.getName(),
+   ref <- class_in.__xmiID__,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE16 : TRACE!SourceElement (
+   name <- class_in.name.toString() + '(Feature: name)',
+   belongsTo <- class_in_Trace_TE3,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE17 : TRACE!SourceElement (
+   name <- class_in.name.toString() + '(Feature: name)',
+   belongsTo <- class_in_Trace_TE3,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE18 : TRACE!SourceElement (
+   name <- class_in.name.toString() + '(Feature: name)',
+   belongsTo <- class_in_Trace_TE3,
+   model <- thisModule.getModel_UML_model
+  ),
+  elementglobal_out_Trace_TE37 : TRACE!TargetElement (
+   name <- elementglobal_out.getName(),
+   ref <- elementglobal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  complextypelocal_out_Trace_TE38 : TRACE!TargetElement (
+   name <- complextypelocal_out.getName(),
+   ref <- complextypelocal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  other_out_Trace_TE39 : TRACE!TargetElement (
+   name <- other_out.getName(),
+   ref <- other_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  sequences_out_Trace_TE40 : TRACE!TargetElement (
+   name <- Seq.getName(),
+   ref <- Seq.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  id_out_Trace_TE71 : TRACE!TargetElement (
+   name <- elementglobal_out.id.toString() + '(Feature: id)',
+   belongsTo <- elementglobal_out_Trace_TE37,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  name_out_Trace_TE72 : TRACE!TargetElement (
+   name <- elementglobal_out.name.toString() + '(Feature: name)',
+   belongsTo <- elementglobal_out_Trace_TE37,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  owner_out_Trace_TE73 : TRACE!TargetElement (
+   name <- elementglobal_out.Owner.toString() + '(Feature: owner)',
+   belongsTo <- elementglobal_out_Trace_TE37,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE74 : TRACE!TargetElement (
+   name <- elementglobal_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- elementglobal_out_Trace_TE37,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  id_out_Trace_TE75 : TRACE!TargetElement (
+   name <- complextypelocal_out.id.toString() + '(Feature: id)',
+   belongsTo <- complextypelocal_out_Trace_TE38,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE76 : TRACE!TargetElement (
+   name <- complextypelocal_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- complextypelocal_out_Trace_TE38,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE77 : TRACE!TargetElement (
+   name <- other_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- other_out_Trace_TE39,
+   model <- thisModule.getModel_schemaXML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: inheritClass2ElementGlobal -> Choice element must be called 'Seq'
+rule inheritClass2ElementGlobal {
+ from
+  class_in : UML!Class
+  (
+   not class_in.GetGeneralization().oclIsUndefined()
+   
+  )
+ to
+  elementglobal_out : schemaXML!ElementGlobal (
+   id <- class_in.name,
+   name <- class_in.name,
+   Owner <- thisModule.package,
+   eleccion <- complextypelocal_out
+  ),
+  complextypelocal_out : schemaXML!ComplexTypeLocal (
+   id <- class_in.name,
+   eleccion <- complexcontent_out
+  ),
+  complexcontent_out : schemaXML!ComplexContent (
+   eleccion <- extensioncomplexcontent_out
+  ),
+  extensioncomplexcontent_out : schemaXML!ExtensionComplexContent (
+   base <- if (not class_in.generalization->first()->oclIsUndefined()) then class_in.generalization->first().general.toString()  else OclUndefined endif,
+   eleccion <- Seq
+  ),
+  Seq : schemaXML!Choice,
+  inheritClass2ElementGlobal_TL4 : TRACE!TraceLink (
+   name <- 'inheritClass2ElementGlobal',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {class_in_Trace_TE4},
+   target <- Sequence {elementglobal_out_Trace_TE41, complextypelocal_out_Trace_TE42, complexcontent_out_Trace_TE43, extensioncomplexcontent_out_Trace_TE44, choice_out_Trace_TE45},
+   childLinks <- Sequence {name_2_id_TL23, name_2_name_TL24, name_2_id_TL25, R41_TL26, R42_TL27, R43_TL28, R44_TL29, R45_TL30, R46_TL31}
+  ),
+  name_2_id_TL23 : TRACE!TraceLink (
+   name <- 'name_2_id',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE19},
+   target <- Sequence {id_out_Trace_TE78}
+  ),
+  name_2_name_TL24 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE20},
+   target <- Sequence {name_out_Trace_TE79}
+  ),
+  name_2_id_TL25 : TRACE!TraceLink (
+   name <- 'name_2_id',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE21},
+   target <- Sequence {id_out_Trace_TE82}
+  ),
+  R41_TL26 : TRACE!TraceLink (
+   name <- 'R41',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {owner_out_Trace_TE80}
+  ),
+  R42_TL27 : TRACE!TraceLink (
+   name <- 'R42',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE81}
+  ),
+  R43_TL28 : TRACE!TraceLink (
+   name <- 'R43',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE83}
+  ),
+  R44_TL29 : TRACE!TraceLink (
+   name <- 'R44',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE84}
+  ),
+  R45_TL30 : TRACE!TraceLink (
+   name <- 'R45',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {base_out_Trace_TE85}
+  ),
+  R46_TL31 : TRACE!TraceLink (
+   name <- 'R46',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE86}
+  ),
+  class_in_Trace_TE4 : TRACE!SourceElement (
+   name <- class_in.getName(),
+   ref <- class_in.__xmiID__,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE19 : TRACE!SourceElement (
+   name <- class_in.name.toString() + '(Feature: name)',
+   belongsTo <- class_in_Trace_TE4,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE20 : TRACE!SourceElement (
+   name <- class_in.name.toString() + '(Feature: name)',
+   belongsTo <- class_in_Trace_TE4,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE21 : TRACE!SourceElement (
+   name <- class_in.name.toString() + '(Feature: name)',
+   belongsTo <- class_in_Trace_TE4,
+   model <- thisModule.getModel_UML_model
+  ),
+  elementglobal_out_Trace_TE41 : TRACE!TargetElement (
+   name <- elementglobal_out.getName(),
+   ref <- elementglobal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  complextypelocal_out_Trace_TE42 : TRACE!TargetElement (
+   name <- complextypelocal_out.getName(),
+   ref <- complextypelocal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  complexcontent_out_Trace_TE43 : TRACE!TargetElement (
+   name <- complexcontent_out.getName(),
+   ref <- complexcontent_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  extensioncomplexcontent_out_Trace_TE44 : TRACE!TargetElement (
+   name <- extensioncomplexcontent_out.getName(),
+   ref <- extensioncomplexcontent_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  choice_out_Trace_TE45 : TRACE!TargetElement (
+   name <- Seq.getName(),
+   ref <- Seq.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  id_out_Trace_TE78 : TRACE!TargetElement (
+   name <- elementglobal_out.id.toString() + '(Feature: id)',
+   belongsTo <- elementglobal_out_Trace_TE41,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  name_out_Trace_TE79 : TRACE!TargetElement (
+   name <- elementglobal_out.name.toString() + '(Feature: name)',
+   belongsTo <- elementglobal_out_Trace_TE41,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  owner_out_Trace_TE80 : TRACE!TargetElement (
+   name <- elementglobal_out.Owner.toString() + '(Feature: owner)',
+   belongsTo <- elementglobal_out_Trace_TE41,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE81 : TRACE!TargetElement (
+   name <- elementglobal_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- elementglobal_out_Trace_TE41,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  id_out_Trace_TE82 : TRACE!TargetElement (
+   name <- complextypelocal_out.id.toString() + '(Feature: id)',
+   belongsTo <- complextypelocal_out_Trace_TE42,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE83 : TRACE!TargetElement (
+   name <- complextypelocal_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- complextypelocal_out_Trace_TE42,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE84 : TRACE!TargetElement (
+   name <- complexcontent_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- complexcontent_out_Trace_TE43,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  base_out_Trace_TE85 : TRACE!TargetElement (
+   name <- extensioncomplexcontent_out.base.toString() + '(Feature: base)',
+   belongsTo <- extensioncomplexcontent_out_Trace_TE44,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE86 : TRACE!TargetElement (
+   name <- extensioncomplexcontent_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- extensioncomplexcontent_out_Trace_TE44,
+   model <- thisModule.getModel_schemaXML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: class2ElementGlobalChoice -> Choice element must be called 'Seq'
+rule class2ElementGlobalChoice {
+ from
+  class_in : UML!Class
+  (
+   (class_in.mapTo()='Choice') and class_in.GetGeneralization().oclIsUndefined()
+   
+  )
+ to
+  elementglobal_out : schemaXML!ElementGlobal (
+   id <- class_in.name,
+   name <- class_in.name,
+   Owner <- thisModule.package,
+   eleccion <- complextypelocal_out
+  ),
+  complextypelocal_out : schemaXML!ComplexTypeLocal (
+   id <- class_in.name,
+   eleccion <- other_out
+  ),
+  other_out : schemaXML!Other (
+   eleccion <- Seq
+  ),
+  Seq : schemaXML!Choice,
+  class2ElementGlobalChoice_TL5 : TRACE!TraceLink (
+   name <- 'class2ElementGlobalChoice',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {class_in_Trace_TE5},
+   target <- Sequence {elementglobal_out_Trace_TE46, complextypelocal_out_Trace_TE47, other_out_Trace_TE48, choice_out_Trace_TE49},
+   childLinks <- Sequence {name_2_id_TL32, name_2_name_TL33, name_2_id_TL34, R47_TL35, R48_TL36, R49_TL37, R50_TL38}
+  ),
+  name_2_id_TL32 : TRACE!TraceLink (
+   name <- 'name_2_id',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE22},
+   target <- Sequence {id_out_Trace_TE87}
+  ),
+  name_2_name_TL33 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE23},
+   target <- Sequence {name_out_Trace_TE88}
+  ),
+  name_2_id_TL34 : TRACE!TraceLink (
+   name <- 'name_2_id',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE24},
+   target <- Sequence {id_out_Trace_TE91}
+  ),
+  R47_TL35 : TRACE!TraceLink (
+   name <- 'R47',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {owner_out_Trace_TE89}
+  ),
+  R48_TL36 : TRACE!TraceLink (
+   name <- 'R48',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE90}
+  ),
+  R49_TL37 : TRACE!TraceLink (
+   name <- 'R49',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE92}
+  ),
+  R50_TL38 : TRACE!TraceLink (
+   name <- 'R50',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE93}
+  ),
+  class_in_Trace_TE5 : TRACE!SourceElement (
+   name <- class_in.getName(),
+   ref <- class_in.__xmiID__,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE22 : TRACE!SourceElement (
+   name <- class_in.name.toString() + '(Feature: name)',
+   belongsTo <- class_in_Trace_TE5,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE23 : TRACE!SourceElement (
+   name <- class_in.name.toString() + '(Feature: name)',
+   belongsTo <- class_in_Trace_TE5,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE24 : TRACE!SourceElement (
+   name <- class_in.name.toString() + '(Feature: name)',
+   belongsTo <- class_in_Trace_TE5,
+   model <- thisModule.getModel_UML_model
+  ),
+  elementglobal_out_Trace_TE46 : TRACE!TargetElement (
+   name <- elementglobal_out.getName(),
+   ref <- elementglobal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  complextypelocal_out_Trace_TE47 : TRACE!TargetElement (
+   name <- complextypelocal_out.getName(),
+   ref <- complextypelocal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  other_out_Trace_TE48 : TRACE!TargetElement (
+   name <- other_out.getName(),
+   ref <- other_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  choice_out_Trace_TE49 : TRACE!TargetElement (
+   name <- Seq.getName(),
+   ref <- Seq.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  id_out_Trace_TE87 : TRACE!TargetElement (
+   name <- elementglobal_out.id.toString() + '(Feature: id)',
+   belongsTo <- elementglobal_out_Trace_TE46,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  name_out_Trace_TE88 : TRACE!TargetElement (
+   name <- elementglobal_out.name.toString() + '(Feature: name)',
+   belongsTo <- elementglobal_out_Trace_TE46,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  owner_out_Trace_TE89 : TRACE!TargetElement (
+   name <- elementglobal_out.Owner.toString() + '(Feature: owner)',
+   belongsTo <- elementglobal_out_Trace_TE46,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE90 : TRACE!TargetElement (
+   name <- elementglobal_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- elementglobal_out_Trace_TE46,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  id_out_Trace_TE91 : TRACE!TargetElement (
+   name <- complextypelocal_out.id.toString() + '(Feature: id)',
+   belongsTo <- complextypelocal_out_Trace_TE47,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE92 : TRACE!TargetElement (
+   name <- complextypelocal_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- complextypelocal_out_Trace_TE47,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE93 : TRACE!TargetElement (
+   name <- other_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- other_out_Trace_TE48,
+   model <- thisModule.getModel_schemaXML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: class2ElementGlobalAll -> All element must be called 'Seq'
+rule class2ElementGlobalAll {
+ from
+  class_in : UML!Class
+  (
+   (class_in.mapTo()='All') and class_in.GetGeneralization().oclIsUndefined()
+   
+  )
+ to
+  elementglobal_out : schemaXML!ElementGlobal (
+   id <- class_in.name,
+   name <- class_in.name,
+   Owner <- thisModule.package,
+   eleccion <- complextypelocal_out
+  ),
+  complextypelocal_out : schemaXML!ComplexTypeLocal (
+   id <- class_in.name,
+   eleccion <- other_out
+  ),
+  other_out : schemaXML!Other (
+   eleccion <- Seq
+  ),
+  Seq : schemaXML!All,
+  class2ElementGlobalAll_TL6 : TRACE!TraceLink (
+   name <- 'class2ElementGlobalAll',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {class_in_Trace_TE6},
+   target <- Sequence {elementglobal_out_Trace_TE50, complextypelocal_out_Trace_TE51, other_out_Trace_TE52, all_out_Trace_TE53},
+   childLinks <- Sequence {name_2_id_TL39, name_2_name_TL40, name_2_id_TL41, R51_TL42, R52_TL43, R53_TL44, R54_TL45}
+  ),
+  name_2_id_TL39 : TRACE!TraceLink (
+   name <- 'name_2_id',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE25},
+   target <- Sequence {id_out_Trace_TE94}
+  ),
+  name_2_name_TL40 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE26},
+   target <- Sequence {name_out_Trace_TE95}
+  ),
+  name_2_id_TL41 : TRACE!TraceLink (
+   name <- 'name_2_id',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE27},
+   target <- Sequence {id_out_Trace_TE98}
+  ),
+  R51_TL42 : TRACE!TraceLink (
+   name <- 'R51',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {owner_out_Trace_TE96}
+  ),
+  R52_TL43 : TRACE!TraceLink (
+   name <- 'R52',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE97}
+  ),
+  R53_TL44 : TRACE!TraceLink (
+   name <- 'R53',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE99}
+  ),
+  R54_TL45 : TRACE!TraceLink (
+   name <- 'R54',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE100}
+  ),
+  class_in_Trace_TE6 : TRACE!SourceElement (
+   name <- class_in.getName(),
+   ref <- class_in.__xmiID__,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE25 : TRACE!SourceElement (
+   name <- class_in.name.toString() + '(Feature: name)',
+   belongsTo <- class_in_Trace_TE6,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE26 : TRACE!SourceElement (
+   name <- class_in.name.toString() + '(Feature: name)',
+   belongsTo <- class_in_Trace_TE6,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE27 : TRACE!SourceElement (
+   name <- class_in.name.toString() + '(Feature: name)',
+   belongsTo <- class_in_Trace_TE6,
+   model <- thisModule.getModel_UML_model
+  ),
+  elementglobal_out_Trace_TE50 : TRACE!TargetElement (
+   name <- elementglobal_out.getName(),
+   ref <- elementglobal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  complextypelocal_out_Trace_TE51 : TRACE!TargetElement (
+   name <- complextypelocal_out.getName(),
+   ref <- complextypelocal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  other_out_Trace_TE52 : TRACE!TargetElement (
+   name <- other_out.getName(),
+   ref <- other_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  all_out_Trace_TE53 : TRACE!TargetElement (
+   name <- Seq.getName(),
+   ref <- Seq.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  id_out_Trace_TE94 : TRACE!TargetElement (
+   name <- elementglobal_out.id.toString() + '(Feature: id)',
+   belongsTo <- elementglobal_out_Trace_TE50,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  name_out_Trace_TE95 : TRACE!TargetElement (
+   name <- elementglobal_out.name.toString() + '(Feature: name)',
+   belongsTo <- elementglobal_out_Trace_TE50,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  owner_out_Trace_TE96 : TRACE!TargetElement (
+   name <- elementglobal_out.Owner.toString() + '(Feature: owner)',
+   belongsTo <- elementglobal_out_Trace_TE50,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE97 : TRACE!TargetElement (
+   name <- elementglobal_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- elementglobal_out_Trace_TE50,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  id_out_Trace_TE98 : TRACE!TargetElement (
+   name <- complextypelocal_out.id.toString() + '(Feature: id)',
+   belongsTo <- complextypelocal_out_Trace_TE51,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE99 : TRACE!TargetElement (
+   name <- complextypelocal_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- complextypelocal_out_Trace_TE51,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE100 : TRACE!TargetElement (
+   name <- other_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- other_out_Trace_TE52,
+   model <- thisModule.getModel_schemaXML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: property2ElementLocal -> 
+rule property2ElementLocal {
+ from
+  property_in : UML!Property
+  (
+   property_in.refImmediateComposite().oclIsTypeOf(UML!Class)
+   
+  )
+ to
+  elementlocal_out : schemaXML!ElementLocal (
+   name <- property_in.name,
+   minOccurs <- if (not property_in.lowerValue.oclIsUndefined())then if(property_in.lowerValue.value = 1) then '1'  else '0' endif else OclUndefined endif,
+   maxOccurs <- if (not property_in.upperValue.oclIsUndefined())then if(property_in.upperValue.value <>1) then 'unbounded'  else '1' endif else OclUndefined endif,
+   owner <- if (not property_in.refImmediateComposite().oclIsUndefined())then thisModule.resolveTemp(property_in.refImmediateComposite(),'Seq') else OclUndefined endif
+  ),
+  property2ElementLocal_TL7 : TRACE!TraceLink (
+   name <- 'property2ElementLocal',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {property_in_Trace_TE7},
+   target <- Sequence {elementlocal_out_Trace_TE54},
+   childLinks <- Sequence {name_2_name_TL46, R55_TL47, R56_TL48, R57_TL49}
+  ),
+  name_2_name_TL46 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE28},
+   target <- Sequence {name_out_Trace_TE101}
+  ),
+  R55_TL47 : TRACE!TraceLink (
+   name <- 'R55',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {minoccurs_out_Trace_TE102}
+  ),
+  R56_TL48 : TRACE!TraceLink (
+   name <- 'R56',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {maxoccurs_out_Trace_TE103}
+  ),
+  R57_TL49 : TRACE!TraceLink (
+   name <- 'R57',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {owner_out_Trace_TE104}
+  ),
+  property_in_Trace_TE7 : TRACE!SourceElement (
+   name <- property_in.getName(),
+   ref <- property_in.__xmiID__,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE28 : TRACE!SourceElement (
+   name <- property_in.name.toString() + '(Feature: name)',
+   belongsTo <- property_in_Trace_TE7,
+   model <- thisModule.getModel_UML_model
+  ),
+  elementlocal_out_Trace_TE54 : TRACE!TargetElement (
+   name <- elementlocal_out.getName(),
+   ref <- elementlocal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  name_out_Trace_TE101 : TRACE!TargetElement (
+   name <- elementlocal_out.name.toString() + '(Feature: name)',
+   belongsTo <- elementlocal_out_Trace_TE54,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  minoccurs_out_Trace_TE102 : TRACE!TargetElement (
+   name <- elementlocal_out.minOccurs.toString() + '(Feature: minoccurs)',
+   belongsTo <- elementlocal_out_Trace_TE54,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  maxoccurs_out_Trace_TE103 : TRACE!TargetElement (
+   name <- elementlocal_out.maxOccurs.toString() + '(Feature: maxoccurs)',
+   belongsTo <- elementlocal_out_Trace_TE54,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  owner_out_Trace_TE104 : TRACE!TargetElement (
+   name <- elementlocal_out.owner.toString() + '(Feature: owner)',
+   belongsTo <- elementlocal_out_Trace_TE54,
+   model <- thisModule.getModel_schemaXML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: associationNM2ElementLocal -> do{association_in.getPropertyAsso();}
+rule associationNM2ElementLocal {
+ from
+  association_in : UML!Association
+  (
+   association_in.isAssociationNM() and not association_in.isAssoAgregation() and not association_in.isAssoComposite()
+   
+  )
+ to
+  elementlocal_out : schemaXML!ElementLocal (
+   name <- association_in.name,
+   owner <- thisModule.resolveTemp(association_in.getPropertyAsso().type, 'Seq'),
+   ref <- association_in.getPropertyAssoLast().name,
+   maxOccurs <- 'unbounded'
+  ),
+  associationNM2ElementLocal_TL8 : TRACE!TraceLink (
+   name <- 'associationNM2ElementLocal',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {association_in_Trace_TE8},
+   target <- Sequence {elementlocal_out_Trace_TE55},
+   childLinks <- Sequence {name_2_name_TL50, R58_TL51, R59_TL52, R60_TL53}
+  ),
+  name_2_name_TL50 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE29},
+   target <- Sequence {name_out_Trace_TE105}
+  ),
+  R58_TL51 : TRACE!TraceLink (
+   name <- 'R58',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {owner_out_Trace_TE106}
+  ),
+  R59_TL52 : TRACE!TraceLink (
+   name <- 'R59',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {ref_out_Trace_TE107}
+  ),
+  R60_TL53 : TRACE!TraceLink (
+   name <- 'R60',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {maxoccurs_out_Trace_TE108}
+  ),
+  association_in_Trace_TE8 : TRACE!SourceElement (
+   name <- association_in.getName(),
+   ref <- association_in.__xmiID__,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE29 : TRACE!SourceElement (
+   name <- association_in.name.toString() + '(Feature: name)',
+   belongsTo <- association_in_Trace_TE8,
+   model <- thisModule.getModel_UML_model
+  ),
+  elementlocal_out_Trace_TE55 : TRACE!TargetElement (
+   name <- elementlocal_out.getName(),
+   ref <- elementlocal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  name_out_Trace_TE105 : TRACE!TargetElement (
+   name <- elementlocal_out.name.toString() + '(Feature: name)',
+   belongsTo <- elementlocal_out_Trace_TE55,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  owner_out_Trace_TE106 : TRACE!TargetElement (
+   name <- elementlocal_out.owner.toString() + '(Feature: owner)',
+   belongsTo <- elementlocal_out_Trace_TE55,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  ref_out_Trace_TE107 : TRACE!TargetElement (
+   name <- elementlocal_out.ref.toString() + '(Feature: ref)',
+   belongsTo <- elementlocal_out_Trace_TE55,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  maxoccurs_out_Trace_TE108 : TRACE!TargetElement (
+   name <- elementlocal_out.maxOccurs.toString() + '(Feature: maxoccurs)',
+   belongsTo <- elementlocal_out_Trace_TE55,
+   model <- thisModule.getModel_schemaXML_model
+  )
+ -- ActionBlock: 
+ do {
+  association_in.getPropertyAsso();
+ }
+}
+
+-- Comments -> This is a MatchedRule: association1N2ElementLocal -> 
+rule association1N2ElementLocal {
+ from
+  association_in : UML!Association
+  (
+   association_in.isAssociation1N() and not association_in.isAssoAgregation() and not association_in.isAssoComposite()
+   
+  )
+ to
+  elementlocal_out : schemaXML!ElementLocal (
+   name <- association_in.name,
+   owner <- thisModule.resolveTemp(association_in.getPropertyAsso().type, 'Seq'),
+   ref <- association_in.getPropertyAssoNoMulti().name,
+   maxOccurs <- '-1',
+   minOccurs <- '1'
+  ),
+  association1N2ElementLocal_TL9 : TRACE!TraceLink (
+   name <- 'association1N2ElementLocal',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {association_in_Trace_TE9},
+   target <- Sequence {elementlocal_out_Trace_TE56},
+   childLinks <- Sequence {name_2_name_TL54, R61_TL55, R62_TL56, R63_TL57, R64_TL58}
+  ),
+  name_2_name_TL54 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE30},
+   target <- Sequence {name_out_Trace_TE109}
+  ),
+  R61_TL55 : TRACE!TraceLink (
+   name <- 'R61',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {owner_out_Trace_TE110}
+  ),
+  R62_TL56 : TRACE!TraceLink (
+   name <- 'R62',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {ref_out_Trace_TE111}
+  ),
+  R63_TL57 : TRACE!TraceLink (
+   name <- 'R63',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {maxoccurs_out_Trace_TE112}
+  ),
+  R64_TL58 : TRACE!TraceLink (
+   name <- 'R64',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {minoccurs_out_Trace_TE113}
+  ),
+  association_in_Trace_TE9 : TRACE!SourceElement (
+   name <- association_in.getName(),
+   ref <- association_in.__xmiID__,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE30 : TRACE!SourceElement (
+   name <- association_in.name.toString() + '(Feature: name)',
+   belongsTo <- association_in_Trace_TE9,
+   model <- thisModule.getModel_UML_model
+  ),
+  elementlocal_out_Trace_TE56 : TRACE!TargetElement (
+   name <- elementlocal_out.getName(),
+   ref <- elementlocal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  name_out_Trace_TE109 : TRACE!TargetElement (
+   name <- elementlocal_out.name.toString() + '(Feature: name)',
+   belongsTo <- elementlocal_out_Trace_TE56,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  owner_out_Trace_TE110 : TRACE!TargetElement (
+   name <- elementlocal_out.owner.toString() + '(Feature: owner)',
+   belongsTo <- elementlocal_out_Trace_TE56,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  ref_out_Trace_TE111 : TRACE!TargetElement (
+   name <- elementlocal_out.ref.toString() + '(Feature: ref)',
+   belongsTo <- elementlocal_out_Trace_TE56,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  maxoccurs_out_Trace_TE112 : TRACE!TargetElement (
+   name <- elementlocal_out.maxOccurs.toString() + '(Feature: maxoccurs)',
+   belongsTo <- elementlocal_out_Trace_TE56,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  minoccurs_out_Trace_TE113 : TRACE!TargetElement (
+   name <- elementlocal_out.minOccurs.toString() + '(Feature: minoccurs)',
+   belongsTo <- elementlocal_out_Trace_TE56,
+   model <- thisModule.getModel_schemaXML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: association112ElementLocal -> 
+rule association112ElementLocal {
+ from
+  association_in : UML!Association
+  (
+   association_in.isAssociation11() and not association_in.isAssoAgregation() and not association_in.isAssoComposite()
+   
+  )
+ to
+  elementlocal_out : schemaXML!ElementLocal (
+   name <- association_in.name,
+   owner <- thisModule.resolveTemp(association_in.getPropertyAssoNoMulti().type,'Seq'),
+   ref <- association_in.getPropertyAssoNoMultiLast().name,
+   maxOccurs <- '1',
+   minOccurs <- '1'
+  ),
+  association112ElementLocal_TL10 : TRACE!TraceLink (
+   name <- 'association112ElementLocal',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {association_in_Trace_TE10},
+   target <- Sequence {elementlocal_out_Trace_TE57},
+   childLinks <- Sequence {name_2_name_TL59, R65_TL60, R66_TL61, R67_TL62, R68_TL63}
+  ),
+  name_2_name_TL59 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE31},
+   target <- Sequence {name_out_Trace_TE114}
+  ),
+  R65_TL60 : TRACE!TraceLink (
+   name <- 'R65',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {owner_out_Trace_TE115}
+  ),
+  R66_TL61 : TRACE!TraceLink (
+   name <- 'R66',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {ref_out_Trace_TE116}
+  ),
+  R67_TL62 : TRACE!TraceLink (
+   name <- 'R67',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {maxoccurs_out_Trace_TE117}
+  ),
+  R68_TL63 : TRACE!TraceLink (
+   name <- 'R68',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {minoccurs_out_Trace_TE118}
+  ),
+  association_in_Trace_TE10 : TRACE!SourceElement (
+   name <- association_in.getName(),
+   ref <- association_in.__xmiID__,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE31 : TRACE!SourceElement (
+   name <- association_in.name.toString() + '(Feature: name)',
+   belongsTo <- association_in_Trace_TE10,
+   model <- thisModule.getModel_UML_model
+  ),
+  elementlocal_out_Trace_TE57 : TRACE!TargetElement (
+   name <- elementlocal_out.getName(),
+   ref <- elementlocal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  name_out_Trace_TE114 : TRACE!TargetElement (
+   name <- elementlocal_out.name.toString() + '(Feature: name)',
+   belongsTo <- elementlocal_out_Trace_TE57,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  owner_out_Trace_TE115 : TRACE!TargetElement (
+   name <- elementlocal_out.owner.toString() + '(Feature: owner)',
+   belongsTo <- elementlocal_out_Trace_TE57,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  ref_out_Trace_TE116 : TRACE!TargetElement (
+   name <- elementlocal_out.ref.toString() + '(Feature: ref)',
+   belongsTo <- elementlocal_out_Trace_TE57,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  maxoccurs_out_Trace_TE117 : TRACE!TargetElement (
+   name <- elementlocal_out.maxOccurs.toString() + '(Feature: maxoccurs)',
+   belongsTo <- elementlocal_out_Trace_TE57,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  minoccurs_out_Trace_TE118 : TRACE!TargetElement (
+   name <- elementlocal_out.minOccurs.toString() + '(Feature: minoccurs)',
+   belongsTo <- elementlocal_out_Trace_TE57,
+   model <- thisModule.getModel_schemaXML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: agregation2ElementLocal -> 
+rule agregation2ElementLocal {
+ from
+  association_in : UML!Association
+  (
+   association_in.isAssoAgregation()
+   
+  )
+ to
+  elementlocal_out : schemaXML!ElementLocal (
+   name <- association_in.name,
+   owner <- thisModule.resolveTemp(association_in.isAgregationProperty().type,'Seq'),
+   ref <- association_in.isAgregationProperty().getProperty().name,
+   maxOccurs <- if (not association_in.isAgregationProperty().upperValue.oclIsUndefined())then if (association_in.isAgregationProperty().upperValue.value <> 1)  then 'unbounded' else '1' endif else OclUndefined endif,
+   minOccurs <- if (not association_in.isAgregationProperty().lowerValue.oclIsUndefined())then if(association_in.isAgregationProperty().lowerValue.value = 1) then '1' else '0' endif else OclUndefined endif
+  ),
+  agregation2ElementLocal_TL11 : TRACE!TraceLink (
+   name <- 'agregation2ElementLocal',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {association_in_Trace_TE11},
+   target <- Sequence {elementlocal_out_Trace_TE58},
+   childLinks <- Sequence {name_2_name_TL64, R69_TL65, R70_TL66, R71_TL67, R72_TL68}
+  ),
+  name_2_name_TL64 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE32},
+   target <- Sequence {name_out_Trace_TE119}
+  ),
+  R69_TL65 : TRACE!TraceLink (
+   name <- 'R69',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {owner_out_Trace_TE120}
+  ),
+  R70_TL66 : TRACE!TraceLink (
+   name <- 'R70',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {ref_out_Trace_TE121}
+  ),
+  R71_TL67 : TRACE!TraceLink (
+   name <- 'R71',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {maxoccurs_out_Trace_TE122}
+  ),
+  R72_TL68 : TRACE!TraceLink (
+   name <- 'R72',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {minoccurs_out_Trace_TE123}
+  ),
+  association_in_Trace_TE11 : TRACE!SourceElement (
+   name <- association_in.getName(),
+   ref <- association_in.__xmiID__,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE32 : TRACE!SourceElement (
+   name <- association_in.name.toString() + '(Feature: name)',
+   belongsTo <- association_in_Trace_TE11,
+   model <- thisModule.getModel_UML_model
+  ),
+  elementlocal_out_Trace_TE58 : TRACE!TargetElement (
+   name <- elementlocal_out.getName(),
+   ref <- elementlocal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  name_out_Trace_TE119 : TRACE!TargetElement (
+   name <- elementlocal_out.name.toString() + '(Feature: name)',
+   belongsTo <- elementlocal_out_Trace_TE58,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  owner_out_Trace_TE120 : TRACE!TargetElement (
+   name <- elementlocal_out.owner.toString() + '(Feature: owner)',
+   belongsTo <- elementlocal_out_Trace_TE58,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  ref_out_Trace_TE121 : TRACE!TargetElement (
+   name <- elementlocal_out.ref.toString() + '(Feature: ref)',
+   belongsTo <- elementlocal_out_Trace_TE58,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  maxoccurs_out_Trace_TE122 : TRACE!TargetElement (
+   name <- elementlocal_out.maxOccurs.toString() + '(Feature: maxoccurs)',
+   belongsTo <- elementlocal_out_Trace_TE58,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  minoccurs_out_Trace_TE123 : TRACE!TargetElement (
+   name <- elementlocal_out.minOccurs.toString() + '(Feature: minoccurs)',
+   belongsTo <- elementlocal_out_Trace_TE58,
+   model <- thisModule.getModel_schemaXML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: composite2ElementLocalSeq -> Sequences element must be called 'Seq'
+rule composite2ElementLocalSeq {
+ from
+  association_in : UML!Association
+  (
+   association_in.isAssoComposite() and not association_in.isAssoAgregation() and association_in.AssMapTo() = 'Sequences'
+   
+  )
+ to
+  elementlocal_out : schemaXML!ElementLocal (
+   name <- association_in.name,
+   owner <- thisModule.resolveTemp(association_in.getPropertyAssoNoMulti().type,'Seq'),
+   eleccion <- complextypelocal_out
+  ),
+  complextypelocal_out : schemaXML!ComplexTypeLocal (
+   eleccion <- other_out
+  ),
+  other_out : schemaXML!Other (
+   eleccion <- Seq
+  ),
+  Seq : schemaXML!Sequences,
+  elementlocal_out2 : schemaXML!ElementLocal (
+   name <- association_in.getPropertyAssoLast().name,
+   owner <- Seq,
+   ref <- association_in.getPropertyAssoLast().name
+  ),
+  composite2ElementLocalSeq_TL12 : TRACE!TraceLink (
+   name <- 'composite2ElementLocalSeq',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {association_in_Trace_TE12},
+   target <- Sequence {elementlocal_out_Trace_TE59, complextypelocal_out_Trace_TE60, other_out_Trace_TE61, sequences_out_Trace_TE62, elementlocal_out_Trace_TE63},
+   childLinks <- Sequence {name_2_name_TL69, name_2_name_TL70, R73_TL71, R74_TL72, R75_TL73, R76_TL74, R77_TL75, R78_TL76}
+  ),
+  name_2_name_TL69 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE33},
+   target <- Sequence {name_out_Trace_TE124}
+  ),
+  name_2_name_TL70 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE129}
+  ),
+  R73_TL71 : TRACE!TraceLink (
+   name <- 'R73',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {owner_out_Trace_TE125}
+  ),
+  R74_TL72 : TRACE!TraceLink (
+   name <- 'R74',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE126}
+  ),
+  R75_TL73 : TRACE!TraceLink (
+   name <- 'R75',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE127}
+  ),
+  R76_TL74 : TRACE!TraceLink (
+   name <- 'R76',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE128}
+  ),
+  R77_TL75 : TRACE!TraceLink (
+   name <- 'R77',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {owner_out_Trace_TE130}
+  ),
+  R78_TL76 : TRACE!TraceLink (
+   name <- 'R78',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {ref_out_Trace_TE131}
+  ),
+  association_in_Trace_TE12 : TRACE!SourceElement (
+   name <- association_in.getName(),
+   ref <- association_in.__xmiID__,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE33 : TRACE!SourceElement (
+   name <- association_in.name.toString() + '(Feature: name)',
+   belongsTo <- association_in_Trace_TE12,
+   model <- thisModule.getModel_UML_model
+  ),
+  elementlocal_out_Trace_TE59 : TRACE!TargetElement (
+   name <- elementlocal_out.getName(),
+   ref <- elementlocal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  complextypelocal_out_Trace_TE60 : TRACE!TargetElement (
+   name <- complextypelocal_out.getName(),
+   ref <- complextypelocal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  other_out_Trace_TE61 : TRACE!TargetElement (
+   name <- other_out.getName(),
+   ref <- other_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  sequences_out_Trace_TE62 : TRACE!TargetElement (
+   name <- Seq.getName(),
+   ref <- Seq.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  elementlocal_out_Trace_TE63 : TRACE!TargetElement (
+   name <- elementlocal_out2.getName(),
+   ref <- elementlocal_out2.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  name_out_Trace_TE124 : TRACE!TargetElement (
+   name <- elementlocal_out.name.toString() + '(Feature: name)',
+   belongsTo <- elementlocal_out_Trace_TE59,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  owner_out_Trace_TE125 : TRACE!TargetElement (
+   name <- elementlocal_out.owner.toString() + '(Feature: owner)',
+   belongsTo <- elementlocal_out_Trace_TE59,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE126 : TRACE!TargetElement (
+   name <- elementlocal_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- elementlocal_out_Trace_TE59,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE127 : TRACE!TargetElement (
+   name <- complextypelocal_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- complextypelocal_out_Trace_TE60,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE128 : TRACE!TargetElement (
+   name <- other_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- other_out_Trace_TE61,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  name_out_Trace_TE129 : TRACE!TargetElement (
+   name <- elementlocal_out2.name.toString() + '(Feature: name)',
+   belongsTo <- elementlocal_out_Trace_TE63,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  owner_out_Trace_TE130 : TRACE!TargetElement (
+   name <- elementlocal_out2.owner.toString() + '(Feature: owner)',
+   belongsTo <- elementlocal_out_Trace_TE63,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  ref_out_Trace_TE131 : TRACE!TargetElement (
+   name <- elementlocal_out2.ref.toString() + '(Feature: ref)',
+   belongsTo <- elementlocal_out_Trace_TE63,
+   model <- thisModule.getModel_schemaXML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: composite2ElementLocalAll -> All element must be called 'Seq'
+rule composite2ElementLocalAll {
+ from
+  association_in : UML!Association
+  (
+   association_in.isAssoComposite() and not association_in.isAssoAgregation() and association_in.AssMapTo() = 'All'
+   
+  )
+ to
+  elementlocal_out : schemaXML!ElementLocal (
+   name <- association_in.name,
+   owner <- thisModule.resolveTemp(association_in.getPropertyAssoNoMulti().type,'Seq'),
+   eleccion <- complextypelocal_out
+  ),
+  complextypelocal_out : schemaXML!ComplexTypeLocal (
+   eleccion <- other_out
+  ),
+  other_out : schemaXML!Other (
+   eleccion <- Seq
+  ),
+  Seq : schemaXML!All,
+  elementlocal_out2 : schemaXML!ElementLocal (
+   name <- association_in.getPropertyAssoLast().name,
+   owner <- Seq,
+   ref <- association_in.getPropertyAssoLast().name
+  ),
+  composite2ElementLocalAll_TL13 : TRACE!TraceLink (
+   name <- 'composite2ElementLocalAll',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {association_in_Trace_TE13},
+   target <- Sequence {elementlocal_out_Trace_TE64, complextypelocal_out_Trace_TE65, other_out_Trace_TE66, all_out_Trace_TE67, elementlocal_out_Trace_TE68},
+   childLinks <- Sequence {name_2_name_TL77, name_2_name_TL78, R79_TL79, R80_TL80, R81_TL81, R82_TL82, R83_TL83, R84_TL84}
+  ),
+  name_2_name_TL77 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE34},
+   target <- Sequence {name_out_Trace_TE132}
+  ),
+  name_2_name_TL78 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE137}
+  ),
+  R79_TL79 : TRACE!TraceLink (
+   name <- 'R79',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {owner_out_Trace_TE133}
+  ),
+  R80_TL80 : TRACE!TraceLink (
+   name <- 'R80',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE134}
+  ),
+  R81_TL81 : TRACE!TraceLink (
+   name <- 'R81',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE135}
+  ),
+  R82_TL82 : TRACE!TraceLink (
+   name <- 'R82',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {eleccion_out_Trace_TE136}
+  ),
+  R83_TL83 : TRACE!TraceLink (
+   name <- 'R83',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {owner_out_Trace_TE138}
+  ),
+  R84_TL84 : TRACE!TraceLink (
+   name <- 'R84',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {ref_out_Trace_TE139}
+  ),
+  association_in_Trace_TE13 : TRACE!SourceElement (
+   name <- association_in.getName(),
+   ref <- association_in.__xmiID__,
+   model <- thisModule.getModel_UML_model
+  ),
+  name_in_Trace_TE34 : TRACE!SourceElement (
+   name <- association_in.name.toString() + '(Feature: name)',
+   belongsTo <- association_in_Trace_TE13,
+   model <- thisModule.getModel_UML_model
+  ),
+  elementlocal_out_Trace_TE64 : TRACE!TargetElement (
+   name <- elementlocal_out.getName(),
+   ref <- elementlocal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  complextypelocal_out_Trace_TE65 : TRACE!TargetElement (
+   name <- complextypelocal_out.getName(),
+   ref <- complextypelocal_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  other_out_Trace_TE66 : TRACE!TargetElement (
+   name <- other_out.getName(),
+   ref <- other_out.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  all_out_Trace_TE67 : TRACE!TargetElement (
+   name <- Seq.getName(),
+   ref <- Seq.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  elementlocal_out_Trace_TE68 : TRACE!TargetElement (
+   name <- elementlocal_out2.getName(),
+   ref <- elementlocal_out2.__xmiID__,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  name_out_Trace_TE132 : TRACE!TargetElement (
+   name <- elementlocal_out.name.toString() + '(Feature: name)',
+   belongsTo <- elementlocal_out_Trace_TE64,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  owner_out_Trace_TE133 : TRACE!TargetElement (
+   name <- elementlocal_out.owner.toString() + '(Feature: owner)',
+   belongsTo <- elementlocal_out_Trace_TE64,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE134 : TRACE!TargetElement (
+   name <- elementlocal_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- elementlocal_out_Trace_TE64,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE135 : TRACE!TargetElement (
+   name <- complextypelocal_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- complextypelocal_out_Trace_TE65,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  eleccion_out_Trace_TE136 : TRACE!TargetElement (
+   name <- other_out.eleccion.toString() + '(Feature: eleccion)',
+   belongsTo <- other_out_Trace_TE66,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  name_out_Trace_TE137 : TRACE!TargetElement (
+   name <- elementlocal_out2.name.toString() + '(Feature: name)',
+   belongsTo <- elementlocal_out_Trace_TE68,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  owner_out_Trace_TE138 : TRACE!TargetElement (
+   name <- elementlocal_out2.owner.toString() + '(Feature: owner)',
+   belongsTo <- elementlocal_out_Trace_TE68,
+   model <- thisModule.getModel_schemaXML_model
+  ),
+  ref_out_Trace_TE139 : TRACE!TargetElement (
+   name <- elementlocal_out2.ref.toString() + '(Feature: ref)',
+   belongsTo <- elementlocal_out_Trace_TE68,
+   model <- thisModule.getModel_schemaXML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a CalledRule to create the root of Trace Model
+entrypoint rule CreateTraceModelRoot() {
+ to
+  root : TRACE!TraceModel
+ -- ActionBlock: 
+ do {
+  thisModule.getTraceModelRoot <- root;
+  thisModule.createSourceModel_c2_UML();
+  thisModule.createSourceModel_c2_AnnotationMetamodel();
+  thisModule.createTargetModel_c2_schemaXML();
+ }
+}
+
+-- Comments -> This is a Helper to get the root of model trace 
+helper def: getTraceModelRoot() : TRACE!TraceModel =
+ OclUndefined;
+
+-- Comments -> This is a Helper to get the element name 
+helper context OclAny def: getName() : String =
+ if self.oclIsUndefined() then
+  ''
+ else
+  if self.oclIsKindOf(Sequence(OclAny)) then
+   'Sequence(' + self->collect(e |
+    e.getName()
+   ) + ')'
+  else
+   if self.oclIsTypeOf(String) then
+    self
+   else
+    if  self.eClass().getEAllStructuralFeatures()->collect(n |
+     n.name
+    )->select(f |
+     f.toLower().indexOf('name') > - 1
+    ).size()>0 then
+     self.refGetValue(self.eClass().getEAllStructuralFeatures()->collect(n |
+      n.name
+     )->select(f |
+      f.toLower().indexOf('name') > - 1
+     ).first())
+    else
+     self.__xmiID__
+    endif
+   endif
+  endif
+ endif;
+
+-- Comments -> This is a Helper to get the model UML_model
+helper def: getModel_UML_model() : TRACE!TraceModel =
+ OclUndefined;
+
+-- Comments -> This is a CalledRule to create a source model c2 UML metamodel
+rule createSourceModel_c2_UML() {
+ to
+  sourceM : TRACE!SourceModel (
+   metamodel <- '/UML2XMLSchema/Metamodels/UML.ecore',
+   traceModel <- thisModule.getTraceModelRoot,
+   path <- UML!EPackage.generateModelRef('UML_model'),
+   name <- 'UML_model'
+  )
+ -- ActionBlock: 
+ do {
+  thisModule.getModel_UML_model <- sourceM;
+ }
+}
+
+-- Comments -> This is a Helper to get the model AnnotationMetamodel_model
+helper def: getModel_AnnotationMetamodel_model() : TRACE!TraceModel =
+ OclUndefined;
+
+-- Comments -> This is a CalledRule to create a source model c2 AnnotationMetamodel metamodel
+rule createSourceModel_c2_AnnotationMetamodel() {
+ to
+  sourceM : TRACE!SourceModel (
+   metamodel <- '/UML2XMLSchema/Metamodels/AnnotationMetamodel.ecore',
+   traceModel <- thisModule.getTraceModelRoot,
+   path <- '',--AnnotationMetamodel!EPackage.generateModelRef('AnnotationMetamodel_model'),
+   name <- 'AnnotationMetamodel_model'
+  )
+ -- ActionBlock: 
+ do {
+  thisModule.getModel_AnnotationMetamodel_model <- sourceM;
+ }
+}
+
+-- Comments -> This is a Helper to get the model schemaXML_model
+helper def: getModel_schemaXML_model() : TRACE!TraceModel =
+ OclUndefined;
+
+-- Comments -> This is a CalledRule to create a target model c2 schemaXML metamodel. You must fill some information manually
+rule createTargetModel_c2_schemaXML() {
+ to
+  targetM : TRACE!TargetModel (
+   metamodel <- '/UML2XMLSchema/Metamodels/schemaXML.ecore',
+   traceModel <- thisModule.getTraceModelRoot,
+   path <- 'USER: Fill this field manually',
+   name <- 'schemaXML_model'
+  )
+ -- ActionBlock: 
+ do {
+  thisModule.getModel_schemaXML_model <- targetM;
+ }
+}
+
+-- Comments -> This is a Helper: model
+helper def: model : UML!Model =
+ UML!Model.allInstances()->asSequence()->first();
+-- Comments -> This is a Helper: package
+helper def: package : UML!Package =
+ UML!Package.allInstances()->asSequence()->first();
+-- Comments -> This is a Helper: getLink
+helper context UML!NamedElement def: getLink() : AnnotationMetamodel!WLink =
+ if AnnotationMetamodel!WLinkEnd.allInstances()->asSequence()->select(aux| aux.element.ref = self.__xmiID__)->first().oclIsUndefined() then OclUndefined else AnnotationMetamodel!WLinkEnd.allInstances()->asSequence()->select(aux| aux.element.ref = self.__xmiID__)->first().refImmediateComposite() endif;
+-- Comments -> This is a Helper: getAnnotationValue
+helper context AnnotationMetamodel!WLink def: getAnnotationValue(key : String) : String =
+ self.properties->asSequence()->select(prop | prop.key = key)->first().value;
+-- Comments -> This is a Helper: mapTo
+helper context UML!Class def: mapTo() : String =
+ if self.getLink().oclIsUndefined() then  'Sequences' else if self.getLink().getAnnotationValue('Attribute') = 'Sequences' then 'Sequences' else if self.getLink().getAnnotationValue('Attribute') = 'Choice' then 'Choice' else 'All' endif endif endif;
+-- Comments -> This is a Helper: AssMapTo
+helper context UML!Association def: AssMapTo() : String =
+ if self.getLink().oclIsUndefined() then  'Sequences' else if self.getLink().getAnnotationValue('Association') = 'Sequences' then 'Sequences' else  'All' endif endif;
+-- Comments -> This is a Helper: getProperty
+helper context UML!Property def: getProperty() : UML!Property =
+ self.refImmediateComposite().memberEnd->asSequence()->select (prop | prop <> self)->first();
+-- Comments -> This is a Helper: isMultivalued
+helper context UML!Property def: isMultivalued() : Boolean =
+ if (self.upperValue.oclIsUndefined())then false else if (self.upperValue.value <> 1) then true else false endif endif;
+-- Comments -> This is a Helper: getPropertyAsso
+helper context UML!Association def: getPropertyAsso() : UML!Property =
+ self.memberEnd->asSequence()->select (prop | prop.isMultivalued())->first();
+-- Comments -> This is a Helper: getPropertyAssoLast
+helper context UML!Association def: getPropertyAssoLast() : UML!Property =
+ self.memberEnd->asSequence()->select (prop | prop.isMultivalued())->last();
+-- Comments -> This is a Helper: getPropertyAssoNoMulti
+helper context UML!Association def: getPropertyAssoNoMulti() : UML!Property =
+ self.memberEnd->asSequence()->select (prop | not(prop.isMultivalued()))->first();
+-- Comments -> This is a Helper: getPropertyAssoNoMultiLast
+helper context UML!Association def: getPropertyAssoNoMultiLast() : UML!Property =
+ self.memberEnd->asSequence()->select (prop | not(prop.isMultivalued()))->last();
+-- Comments -> This is a Helper: isAssociationNM
+helper context UML!Association def: isAssociationNM() : Boolean =
+ (self.memberEnd->asSequence()->select (prop | prop.isMultivalued()).size() = 2);
+-- Comments -> This is a Helper: isAssociation1N
+helper context UML!Association def: isAssociation1N() : Boolean =
+ (self.memberEnd->asSequence()->select (prop | prop.isMultivalued()).size() = 1);
+-- Comments -> This is a Helper: isAssociation11
+helper context UML!Association def: isAssociation11() : Boolean =
+ (self.memberEnd->asSequence()->select (prop | prop.isMultivalued()).size() = 0);
+-- Comments -> This is a Helper: isAgregationProperty
+helper context UML!Association def: isAgregationProperty() : UML!Property =
+ self.memberEnd->asSequence()->select (prop | prop.isAggregation())-> first();
+-- Comments -> This is a Helper: isAssoAgregation
+helper context UML!Association def: isAssoAgregation() : Boolean =
+ (self.memberEnd->asSequence()->select (prop | prop.isAggregation()).size()<>0);
+-- Comments -> This is a Helper: isAssoComposite
+helper context UML!Association def: isAssoComposite() : Boolean =
+  (self.memberEnd->asSequence()->select (prop | prop.isComposite()).size()<>0);
+-- Comments -> This is a Helper: isCompositeProperty
+helper context UML!Association def: isCompositeProperty() : UML!Property =
+  self.memberEnd->asSequence()->select (prop | prop.isComposite())-> first();
+-- Comments -> This is a Helper: isGeneralization
+helper context UML!GeneralizationSet def: isGeneralization() : UML!Package =
+  self.generalization -> asSequence().debug('Generalization')->select(pac | pac) -> first();
+-- Comments -> This is a Helper: isAggregation
+helper context UML!Property def: isAggregation() : Boolean =
+  if (self.refImmediateComposite().oclIsTypeOf(UML!Association)) then if (self.aggregation=#shared)then  true else false endif else false endif;
+-- Comments -> This is a Helper: isComposite
+helper context UML!Property def: isComposite() : Boolean =
+  if (self.refImmediateComposite().oclIsTypeOf(UML!Association)) then if (self.aggregation=#composite)then  true else false endif else false endif;
+-- Comments -> This is a Helper: GetGeneralization
+helper context UML!Class def: GetGeneralization() : UML!Generalization =
+  UML!Generalization.allInstances()->asSequence()-> select(aux | aux.specific = self)->first();
+-- Comments -> This is a Helper: GetNameGeneralization
+helper context UML!Class def: GetNameGeneralization() : String =
+  self.GetGeneralization()->asSequence()-> select(aux | aux.superType)->first();
+-- Comments -> This is a Helper: upperValue
+helper context UML!Property def: upperValue() : Integer =
+  let _value : String = thisModule.multiplicity.get(self.upperValue)  in if(_value.oclIsUndefined()) then self.upperValue else _value.toInteger() endif;
+-- Comments -> This is a Helper: multiplicity
+helper def: multiplicity() : Map(String,String)=
+  Map{('*','-1'),('1', '1'),('0','0')};
+

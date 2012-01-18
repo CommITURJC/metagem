@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:hybrid="org.eclipse.kybele.hybrid" name="UML2XMLSchema">
-  <operations name="model" body="UML!Model.allInstances()->asSequence()->first()">
+  <operations name="model" body="UML!Model.allInstances()->asSequence()->first();">
     <return>
       <component xsi:type="hybrid:Source" name="Model" model="//@sourceModels.0" ref="//Model"/>
     </return>
@@ -10,7 +10,7 @@
       <component xsi:type="hybrid:Source" name="Package" model="//@sourceModels.0" ref="//Package"/>
     </return>
   </operations>
-  <operations name="getLink" body="AnnotationMetamodel!WLinkEnd.allInstances()->asSequence()->select(aux | aux.element.ref = self.__xmiID__)->first().refImmediateComposite();">
+  <operations name="getLink" body=" if AnnotationMetamodel!WLinkEnd.allInstances()->asSequence()->select(aux| aux.element.ref = self.__xmiID__)->first().oclIsUndefined() then OclUndefined else AnnotationMetamodel!WLinkEnd.allInstances()->asSequence()->select(aux| aux.element.ref = self.__xmiID__)->first().refImmediateComposite() endif;">
     <return>
       <component xsi:type="hybrid:Source" name="WLink" model="//@sourceModels.1" ref="/0/WLink"/>
     </return>
@@ -25,7 +25,7 @@
     </context>
     <arguments name="key" datatype="String"/>
   </operations>
-  <operations name="mapTo" body="if self.getLink().oclIsUndefined() then  'Sequences' else if self.getLink().getAnnotationValue('Attribute') = 'Sequences' then&#xD;&#xA;&#x9;&#x9;&#x9;'Sequences'&#xD;&#xA;&#x9;&#x9;else &#xD;&#xA;&#x9;&#x9;&#x9;if self.getLink().getAnnotationValue('Attribute') = 'Choice' then 'Choice' else 'All' endif endif endif;">
+  <operations name="mapTo" body="if self.getLink().oclIsUndefined() then  'Sequences' else if self.getLink().getAnnotationValue('Attribute') = 'Sequences' then 'Sequences' else if self.getLink().getAnnotationValue('Attribute') = 'Choice' then 'Choice' else 'All' endif endif endif;">
     <return datatype="String"/>
     <context>
       <component xsi:type="hybrid:Source" name="Class" model="//@sourceModels.0" ref="//Class"/>
@@ -83,19 +83,19 @@
       <component xsi:type="hybrid:Source" name="Association" model="//@sourceModels.0" ref="//Association"/>
     </context>
   </operations>
-  <operations name="isAssociationNM" body="(self.memberEnd->asSequence()->select (prop | prop.isMultivalued()).size() = 2)">
+  <operations name="isAssociationNM" body="(self.memberEnd->asSequence()->select (prop | prop.isMultivalued()).size() = 2);">
     <return datatype="Boolean"/>
     <context>
       <component xsi:type="hybrid:Source" name="Association" model="//@sourceModels.0" ref="//Association"/>
     </context>
   </operations>
-  <operations name="isAssociation1N" body="(self.memberEnd->asSequence()->select (prop | prop.isMultivalued()).size() = 1)">
+  <operations name="isAssociation1N" body="(self.memberEnd->asSequence()->select (prop | prop.isMultivalued()).size() = 1);">
     <return datatype="Boolean"/>
     <context>
       <component xsi:type="hybrid:Source" name="Association" model="//@sourceModels.0" ref="//Association"/>
     </context>
   </operations>
-  <operations name="isAssociation11" body="(self.memberEnd->asSequence()->select (prop | prop.isMultivalued()).size() = 0)">
+  <operations name="isAssociation11" body="(self.memberEnd->asSequence()->select (prop | prop.isMultivalued()).size() = 0);">
     <return datatype="Boolean"/>
     <context>
       <component xsi:type="hybrid:Source" name="Association" model="//@sourceModels.0" ref="//Association"/>
@@ -205,7 +205,7 @@
       <traceBindings name="name_2_id" source="//@rules.1/@targets.0/@bindings.0/@right/@source.0" target="//@rules.1/@targets.0/@bindings.0/@left/@target" binding="//@rules.1/@targets.0/@bindings.0"/>
     </trace>
   </rules>
-  <rules name="class2ElementGlobalSeq">
+  <rules name="class2ElementGlobalSeq" comment="Sequences element must be called 'Seq'">
     <sources name="Class" owns="//@rules.2/@targets.0/@bindings.0/@right/@source.0 //@rules.2/@targets.0/@bindings.1/@right/@source.0 //@rules.2/@targets.1/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="//Class" traceLink="//@rules.2/@trace"/>
     <targets name="ElementGlobal" owns="//@rules.2/@targets.0/@bindings.0/@left/@target //@rules.2/@targets.0/@bindings.1/@left/@target //@rules.2/@targets.0/@bindings.2/@left/@target //@rules.2/@targets.0/@bindings.3/@left/@target" model="//@targetModels.0" ref="//ElementGlobal" traceLink="//@rules.2/@trace">
       <bindings name="name_2_id" trace="//@rules.2/@trace/@traceBindings.0">
@@ -273,7 +273,7 @@
       <traceBindings name="R40" target="//@rules.2/@targets.2/@bindings.0/@left/@target" binding="//@rules.2/@targets.2/@bindings.0"/>
     </trace>
   </rules>
-  <rules name="inheritClass2ElementGlobal">
+  <rules name="inheritClass2ElementGlobal" comment="Choice element must be called 'Seq'">
     <sources name="Class" owns="//@rules.3/@targets.0/@bindings.0/@right/@source.0 //@rules.3/@targets.0/@bindings.1/@right/@source.0 //@rules.3/@targets.1/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="//Class" traceLink="//@rules.3/@trace"/>
     <targets name="ElementGlobal" owns="//@rules.3/@targets.0/@bindings.0/@left/@target //@rules.3/@targets.0/@bindings.1/@left/@target //@rules.3/@targets.0/@bindings.2/@left/@target //@rules.3/@targets.0/@bindings.3/@left/@target" model="//@targetModels.0" ref="//ElementGlobal" traceLink="//@rules.3/@trace">
       <bindings name="name_2_id" trace="//@rules.3/@trace/@traceBindings.0">
@@ -357,7 +357,7 @@
       <traceBindings name="R46" target="//@rules.3/@targets.3/@bindings.1/@left/@target" binding="//@rules.3/@targets.3/@bindings.1"/>
     </trace>
   </rules>
-  <rules name="class2ElementGlobalChoice">
+  <rules name="class2ElementGlobalChoice" comment="Choice element must be called 'Seq'">
     <sources name="Class" owns="//@rules.4/@targets.0/@bindings.0/@right/@source.0 //@rules.4/@targets.0/@bindings.1/@right/@source.0 //@rules.4/@targets.1/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="//Class" traceLink="//@rules.4/@trace"/>
     <targets name="ElementGlobal" owns="//@rules.4/@targets.0/@bindings.0/@left/@target //@rules.4/@targets.0/@bindings.1/@left/@target //@rules.4/@targets.0/@bindings.2/@left/@target //@rules.4/@targets.0/@bindings.3/@left/@target" model="//@targetModels.0" ref="//ElementGlobal" traceLink="//@rules.4/@trace">
       <bindings name="name_2_id" trace="//@rules.4/@trace/@traceBindings.0">
@@ -425,7 +425,7 @@
       <traceBindings name="R50" target="//@rules.4/@targets.2/@bindings.0/@left/@target" binding="//@rules.4/@targets.2/@bindings.0"/>
     </trace>
   </rules>
-  <rules name="class2ElementGlobalAll">
+  <rules name="class2ElementGlobalAll" comment="All element must be called 'Seq'">
     <sources name="Class" owns="//@rules.5/@targets.0/@bindings.0/@right/@source.0 //@rules.5/@targets.0/@bindings.1/@right/@source.0 //@rules.5/@targets.1/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="//Class" traceLink="//@rules.5/@trace"/>
     <targets name="ElementGlobal" owns="//@rules.5/@targets.0/@bindings.0/@left/@target //@rules.5/@targets.0/@bindings.1/@left/@target //@rules.5/@targets.0/@bindings.2/@left/@target //@rules.5/@targets.0/@bindings.3/@left/@target" model="//@targetModels.0" ref="//ElementGlobal" traceLink="//@rules.5/@trace">
       <bindings name="name_2_id" trace="//@rules.5/@trace/@traceBindings.0">
@@ -555,7 +555,7 @@
         </left>
       </bindings>
       <bindings name="R60" trace="//@rules.7/@trace/@traceBindings.3">
-        <right concreteValue="unbounded"/>
+        <right concreteValue="'unbounded'"/>
         <left>
           <target name="maxOccurs" belongsTo="//@rules.7/@targets.0" model="//@targetModels.0" ref="//ElementLocal/maxOccurs" traceLink="//@rules.7/@trace/@traceBindings.3"/>
         </left>
@@ -593,13 +593,13 @@
         </left>
       </bindings>
       <bindings name="R63" trace="//@rules.8/@trace/@traceBindings.3">
-        <right concreteValue="-1"/>
+        <right concreteValue="'-1'"/>
         <left>
           <target name="maxOccurs" belongsTo="//@rules.8/@targets.0" model="//@targetModels.0" ref="//ElementLocal/maxOccurs" traceLink="//@rules.8/@trace/@traceBindings.3"/>
         </left>
       </bindings>
       <bindings name="R64" trace="//@rules.8/@trace/@traceBindings.4">
-        <right concreteValue="1"/>
+        <right concreteValue="'1'"/>
         <left>
           <target name="minOccurs" belongsTo="//@rules.8/@targets.0" model="//@targetModels.0" ref="//ElementLocal/minOccurs" traceLink="//@rules.8/@trace/@traceBindings.4"/>
         </left>
@@ -638,13 +638,13 @@
         </left>
       </bindings>
       <bindings name="R67" trace="//@rules.9/@trace/@traceBindings.3">
-        <right concreteValue="1"/>
+        <right concreteValue="'1'"/>
         <left>
           <target name="maxOccurs" belongsTo="//@rules.9/@targets.0" model="//@targetModels.0" ref="//ElementLocal/maxOccurs" traceLink="//@rules.9/@trace/@traceBindings.3"/>
         </left>
       </bindings>
       <bindings name="R68" trace="//@rules.9/@trace/@traceBindings.4">
-        <right concreteValue="1"/>
+        <right concreteValue="'1'"/>
         <left>
           <target name="minOccurs" belongsTo="//@rules.9/@targets.0" model="//@targetModels.0" ref="//ElementLocal/minOccurs" traceLink="//@rules.9/@trace/@traceBindings.4"/>
         </left>
@@ -704,7 +704,7 @@
       <traceBindings name="R72" target="//@rules.10/@targets.0/@bindings.4/@left/@target" binding="//@rules.10/@targets.0/@bindings.4"/>
     </trace>
   </rules>
-  <rules name="composite2ElementLocalSeq">
+  <rules name="composite2ElementLocalSeq" comment="Sequences element must be called 'Seq'">
     <sources name="Association" owns="//@rules.11/@targets.0/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="//Association" traceLink="//@rules.11/@trace"/>
     <targets name="ElementLocal" owns="//@rules.11/@targets.0/@bindings.0/@left/@target //@rules.11/@targets.0/@bindings.1/@left/@target //@rules.11/@targets.0/@bindings.2/@left/@target" model="//@targetModels.0" ref="//ElementLocal" traceLink="//@rules.11/@trace">
       <bindings name="name_2_name" trace="//@rules.11/@trace/@traceBindings.0">
@@ -777,7 +777,7 @@
       <traceBindings name="R78" target="//@rules.11/@targets.4/@bindings.2/@left/@target" binding="//@rules.11/@targets.4/@bindings.2"/>
     </trace>
   </rules>
-  <rules name="composite2ElementLocalAll">
+  <rules name="composite2ElementLocalAll" comment="All element must be called 'Seq'">
     <sources name="Association" owns="//@rules.12/@targets.0/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="//Association" traceLink="//@rules.12/@trace"/>
     <targets name="ElementLocal" owns="//@rules.12/@targets.0/@bindings.0/@left/@target //@rules.12/@targets.0/@bindings.1/@left/@target //@rules.12/@targets.0/@bindings.2/@left/@target" model="//@targetModels.0" ref="//ElementLocal" traceLink="//@rules.12/@trace">
       <bindings name="name_2_name" trace="//@rules.12/@trace/@traceBindings.0">
@@ -817,7 +817,7 @@
         </left>
       </bindings>
     </targets>
-    <targets name="Sequences" model="//@targetModels.0" ref="//Sequences" traceLink="//@rules.12/@trace" isRefered="//@rules.12/@targets.2/@bindings.0/@right //@rules.12/@targets.4/@bindings.1/@right"/>
+    <targets name="All" model="//@targetModels.0" ref="//All" traceLink="//@rules.12/@trace" isRefered="//@rules.12/@targets.2/@bindings.0/@right //@rules.12/@targets.4/@bindings.1/@right"/>
     <targets name="ElementLocal" owns="//@rules.12/@targets.4/@bindings.0/@left/@target //@rules.12/@targets.4/@bindings.1/@left/@target //@rules.12/@targets.4/@bindings.2/@left/@target" model="//@targetModels.0" ref="//ElementLocal" traceLink="//@rules.12/@trace">
       <bindings name="name_2_name" trace="//@rules.12/@trace/@traceBindings.1">
         <right concreteValue="association_in.getPropertyAssoLast().name"/>
