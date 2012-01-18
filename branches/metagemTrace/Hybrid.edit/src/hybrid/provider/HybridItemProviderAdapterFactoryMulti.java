@@ -79,20 +79,20 @@ public class HybridItemProviderAdapterFactoryMulti extends HybridAdapterFactory 
 	 * This keeps track of the one adapter used for all {@link hybrid.Module} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NOT generated
 	 */
-	protected ModuleItemProvider moduleItemProvider;
+	protected ModuleItemProviderMulti moduleItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link hybrid.Module}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @NOT generated
 	 */
 	@Override
 	public Adapter createModuleAdapter() {
 		if (moduleItemProvider == null) {
-			moduleItemProvider = new ModuleItemProvider(this);
+			moduleItemProvider = new ModuleItemProviderMulti(this);
 		}
 
 		return moduleItemProvider;

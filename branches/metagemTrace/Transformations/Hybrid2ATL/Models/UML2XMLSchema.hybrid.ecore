@@ -653,13 +653,13 @@
     </targets>
     <targets xmi:id="_oqjaNTumEeGPM4GtkgU5pQ" name="Other" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Other" traceLink="_oqjaSjumEeGPM4GtkgU5pQ">
       <bindings xmi:id="_oqjaNjumEeGPM4GtkgU5pQ" name="R82" trace="_oqjaUDumEeGPM4GtkgU5pQ">
-        <right xmi:id="_oqjaNzumEeGPM4GtkgU5pQ"/>
+        <right xmi:id="_oqjaNzumEeGPM4GtkgU5pQ" reference="_oqjaOjumEeGPM4GtkgU5pQ"/>
         <left xmi:id="_oqjaODumEeGPM4GtkgU5pQ">
           <target xmi:id="_oqjaOTumEeGPM4GtkgU5pQ" name="eleccion" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Other/eleccion" traceLink="_oqjaUDumEeGPM4GtkgU5pQ"/>
         </left>
       </bindings>
     </targets>
-    <targets xmi:id="_oqjaOjumEeGPM4GtkgU5pQ" name="Sequences" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Sequences" traceLink="_oqjaSjumEeGPM4GtkgU5pQ"/>
+    <targets xmi:id="_oqjaOjumEeGPM4GtkgU5pQ" name="Sequences" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//Sequences" traceLink="_oqjaSjumEeGPM4GtkgU5pQ" isRefered="_oqjaNzumEeGPM4GtkgU5pQ"/>
     <targets xmi:id="_oqjaOzumEeGPM4GtkgU5pQ" name="ElementLocal" model="_oqZn1zumEeGPM4GtkgU5pQ" ref="//ElementLocal" traceLink="_oqjaSjumEeGPM4GtkgU5pQ">
       <bindings xmi:id="_oqjaPDumEeGPM4GtkgU5pQ" name="name_2_name" trace="_oqjaTDumEeGPM4GtkgU5pQ">
         <right xmi:id="_oqjaPTumEeGPM4GtkgU5pQ">
