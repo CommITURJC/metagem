@@ -20,95 +20,110 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
 public class METAGEM2HYBRIDLaunchConfigurationDelegate implements
-ILaunchConfigurationDelegate {
+		ILaunchConfigurationDelegate {
 
-@Override
-public void launch(ILaunchConfiguration configuration, String mode,
-	ILaunch launch, IProgressMonitor monitor) throws CoreException {
+	@Override
+	public void launch(ILaunchConfiguration configuration, String mode,
+			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 
-try {
-	UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-} catch (Exception e1) {
-	;
-}
+		try {
+			UIManager
+					.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		} catch (Exception e1) {
+			;
+		}
 
-if (monitor == null)
-	monitor = new NullProgressMonitor();		
+		if (monitor == null)
+			monitor = new NullProgressMonitor();
 
-monitor.beginTask("Launching transformation", 100);
-monitor.subTask("Getting configuration info");
-String IN = getINAtt(configuration);
-File fIN=new File(IN);
-String uriIN=fIN.toURI().toString();
-String LEFT=getLEFTAtt(configuration);
-//File fLEFT=new File(LEFT);
-//String uriLEFT=fLEFT.toURI().toString();
-//String RIGHT=getRIGHTAtt(configuration);
-//File fRIGHT=new File(RIGHT);
-//String uriRIGHT=fRIGHT.toURI().toString();
-String OUT = getOUTAtt(configuration);
-File fOUT=new File(OUT);
-String uriOUT=fOUT.toURI().toString();
-monitor.worked(10);
-if (monitor.isCanceled()) 
-	return;
-		
-boolean isValid = false;
-try {
-	isValid = ValidationExecution.isValid(new Path(uriIN).lastSegment(), uriIN, Constants.METAGEMURI,null,Constants.SHOW_DIALOG);
-} catch (Exception e) {
-	JOptionPane.showMessageDialog(null, "One or more models cannot be found.\nPlease, check your Launch Configuration", "Problems Launching...", JOptionPane.ERROR_MESSAGE);
-	isValid=false;
-}
-
-
-if(isValid)
-{
-	monitor.subTask("Executing transformation");
-	try{
-		Transformations transf = Transformations.getInstance();
-		//transf.metagem2hybrid(uriIN, uriLEFT, uriRIGHT, uriOUT);
-		transf.metagem2hybrid(uriIN, uriOUT);
-		monitor.worked(85);		
-		if(monitor.isCanceled())
+		monitor.beginTask("Launching transformation", 100);
+		monitor.subTask("Getting configuration info");
+		String IN = getINAtt(configuration);
+		File fIN = new File(IN);
+		String uriIN = fIN.toURI().toString();
+		String LEFT = getLEFTAtt(configuration);
+		// File fLEFT=new File(LEFT);
+		// String uriLEFT=fLEFT.toURI().toString();
+		// String RIGHT=getRIGHTAtt(configuration);
+		// File fRIGHT=new File(RIGHT);
+		// String uriRIGHT=fRIGHT.toURI().toString();
+		String OUT = getOUTAtt(configuration);
+		File fOUT = new File(OUT);
+		String uriOUT = fOUT.toURI().toString();
+		monitor.worked(10);
+		if (monitor.isCanceled())
 			return;
-	}catch (Exception e){
-		JOptionPane.showMessageDialog(null, "One or more models cannot be found.\nPlease, check your Launch Configuration", "Problems Launching...", JOptionPane.ERROR_MESSAGE);
+
+		boolean isValid = false;
+		try {
+			isValid = ValidationExecution.isValid(
+					new Path(uriIN).lastSegment(), uriIN, Constants.METAGEMURI,
+					null, Constants.SHOW_DIALOG);
+		} catch (Exception e) {
+			JOptionPane
+					.showMessageDialog(
+							null,
+							"One or more models cannot be found.\nPlease, check your Launch Configuration",
+							"Problems Launching...", JOptionPane.ERROR_MESSAGE);
+			isValid = false;
+		}
+
+		if (isValid) {
+			monitor.subTask("Executing transformation");
+			try {
+				Transformations transf = Transformations.getInstance();
+				// transf.metagem2hybrid(uriIN, uriLEFT, uriRIGHT, uriOUT);
+				transf.metagem2hybrid(uriIN, uriOUT);
+				monitor.worked(85);
+				if (monitor.isCanceled())
+					return;
+			} catch (Exception e) {
+				JOptionPane
+						.showMessageDialog(
+								null,
+								"One or more models cannot be found.\nPlease, check your Launch Configuration",
+								"Problems Launching...",
+								JOptionPane.ERROR_MESSAGE);
+			}
+			monitor.subTask("Transformation finished");
+			ResourcesPlugin.getWorkspace().getRoot()
+					.refreshLocal(IFolder.DEPTH_INFINITE, null);
+			monitor.done();
+		}
 	}
-	monitor.subTask("Transformation finished");
-	ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IFolder.DEPTH_INFINITE, null);
-	monitor.done();
-}
-}
 
-private String getINAtt(ILaunchConfiguration configuration) throws CoreException
-{
-return getTransformationAtt(configuration, METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_IN);
-}
+	private String getINAtt(ILaunchConfiguration configuration)
+			throws CoreException {
+		return getTransformationAtt(configuration,
+				METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_IN);
+	}
 
-private String getLEFTAtt(ILaunchConfiguration configuration) throws CoreException
-{
-return getTransformationAtt(configuration, METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_LEFT);
-}
+	private String getLEFTAtt(ILaunchConfiguration configuration)
+			throws CoreException {
+		return getTransformationAtt(configuration,
+				METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_LEFT);
+	}
 
-private String getRIGHTAtt(ILaunchConfiguration configuration) throws CoreException
-{
-return getTransformationAtt(configuration, METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_RIGHT);
-}
+	private String getRIGHTAtt(ILaunchConfiguration configuration)
+			throws CoreException {
+		return getTransformationAtt(configuration,
+				METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_RIGHT);
+	}
 
+	private String getOUTAtt(ILaunchConfiguration configuration)
+			throws CoreException {
+		return getTransformationAtt(configuration,
+				METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_OUT);
+	}
 
-private String getOUTAtt(ILaunchConfiguration configuration) throws CoreException
-{
-return getTransformationAtt(configuration, METAGEM2HYBRIDConstants.ATTR_TRANSFORMATION_OUT);
-}
+	private String getTransformationAtt(ILaunchConfiguration configuration,
+			String id) throws CoreException {
 
-private String getTransformationAtt(ILaunchConfiguration configuration,String id) throws CoreException{
+		String returned = null;
 
-String returned = null;
+		returned = configuration.getAttribute(id, (String) null);
 
-returned = configuration.getAttribute(id, (String)null);
-
-return returned;
-}
+		return returned;
+	}
 
 }

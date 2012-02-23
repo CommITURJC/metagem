@@ -33,6 +33,29 @@
       </launchConfigurationType>
    </extension>
    <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="MeTAGeM_UI.METAGEM2HYBRIDLCT"
+            icon="icons/metagem2hybrid.gif"
+            id="metagemTrace.launchConfigurationTypeImage1">
+      </launchConfigurationTypeImage>
+      <launchConfigurationTypeImage
+            configTypeID="MeTAGeM_UI.HYBRID2ATLLCT"
+            icon="icons/hybrid2ATL.gif"
+            id="metagemTrace.launchConfigurationTypeImage2">
+      </launchConfigurationTypeImage>
+      <launchConfigurationTypeImage
+            configTypeID="MeTAGeM_UI.HYBRID2RubyTLLCT"
+            icon="icons/hybrid2rubyTL.gif"
+            id="metagemTrace.launchConfigurationTypeImage3">
+      </launchConfigurationTypeImage>
+      <launchConfigurationTypeImage
+            configTypeID="MeTAGeM_UI.HYBRID2ETLLCT"
+            icon="icons/Hybrid2ETL.gif"
+            id="metagemTrace.launchConfigurationTypeImage4">
+      </launchConfigurationTypeImage>
+   </extension>
+   <extension
          point="org.eclipse.debug.ui.launchConfigurationTabGroups">
       <launchConfigurationTabGroup
             class="kybele.metagem.ui.launchs.metagem2hybrid.METAGEM2HYBRIDLaunchConfigurationTabGroup"
@@ -92,7 +115,7 @@
       </shortcut>
       <shortcut
             class="kybele.metagem.ui.launchs.hybrid2atl.HYBRID2ATLLaunchShortcut"
-            icon="icons/hybrid2ATL.gif"
+            icon="icons/SQL20032T.ico"
             id="MeTAGeM_UI.shortcut5"
             label="Hybrid -&gt; ATL"
             modes="run, debug">
@@ -158,7 +181,7 @@
       </shortcut>
        <shortcut
             class="kybele.metagem.ui.launchs.hybrid2etl.HYBRID2ETLLaunchShortcut"
-            icon="icons/hybrid2ETL.gif"
+            icon="icons/Hybrid2ETL.gif"
             id="MeTAGeM_UI.shortcut6"
             label="Hybrid -&gt; ETL"
             modes="run, debug">
@@ -200,7 +223,7 @@
                class="kybele.metagem.ui.actions.RubyTLExtract"
                enablesFor="1"
                id="ExtractRubyTL"
-               label="Extract RubyTL model to RubyTL file (MeTAGeM)">
+               label="Extract RubyTL model to RubyTL file (MeTAGeM-Trace)">
          </action>
       </objectContribution>
       <objectContribution
@@ -211,7 +234,7 @@
                class="kybele.metagem.ui.actions.RubyTLInject"
                enablesFor="1"
                id="InjectRubyTL"
-               label="Inject RubyTL file to RubyTL model (MeTAGeM)">
+               label="Inject RubyTL file to RubyTL model (MeTAGeM-Trace)">
          </action>
       </objectContribution>
       <objectContribution
@@ -222,7 +245,7 @@
                class="kybele.metagem.ui.actions.ATLExtract"
                enablesFor="1"
                id="ExtractATL"
-               label="Extract ATL model to ATL file (MeTAGeM)">
+               label="Extract ATL model to ATL file (MeTAGeM-Trace)">
          </action>
       </objectContribution>
       <objectContribution
@@ -234,7 +257,7 @@
                class="kybele.metagem.ui.actions.ATLInject"
                enablesFor="1"
                id="InjectATL"
-               label="Inject ATL file to ATL model (MeTAGeM)">
+               label="Inject ATL file to ATL model (MeTAGeM-Trace)">
          </action>
       </objectContribution>
       <objectContribution
@@ -246,7 +269,7 @@
                class="kybele.metagem.ui.actions.ETLExtract"
                enablesFor="1"
                id="ExtractETL"
-               label="Extract ETL model to ETL file (MeTAGeM)">
+               label="Extract ETL model to ETL file (MeTAGeM-Trace)">
          </action>
       </objectContribution>
    </extension>

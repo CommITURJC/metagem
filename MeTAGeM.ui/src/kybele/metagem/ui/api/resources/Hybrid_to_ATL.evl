@@ -1,8 +1,8 @@
 -- @name 		Hybrid (MeTAGeM)
--- @version		2.0
+-- @version		2.1
 -- @domains		meta-transformation, metamodel, model
--- @authors		Verónica Bollati, Juan M. Vara, David Granada, Álvaro Jiménez  (Universidad Rey Juan Carlos)
--- @date       		29-11-2010
+-- @authors		Álvaro Jiménez  (Universidad Rey Juan Carlos)
+-- @date       	01-09-2011
 -- @description	Constraints applied to Hybrid metamodel.
 
 context Module{
