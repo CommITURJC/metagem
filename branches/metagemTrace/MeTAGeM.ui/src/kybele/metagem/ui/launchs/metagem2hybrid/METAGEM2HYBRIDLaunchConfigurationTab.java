@@ -210,7 +210,7 @@ public class METAGEM2HYBRIDLaunchConfigurationTab extends AbstractExtendedLaunch
 			
 			// Cuarto grupo de controles, para seleccionar el fichero de salida
 			Group tProviderGroup4 = createGroup(modelExtentComp, "Hybrid Model, transformation result", 3);
-			TProviderGroupListener tProviderListener4 = new TProviderGroupListener(3);
+			TProviderGroupListener tProviderListener4 = new TProviderGroupListener(1);
 
 			createLabel(tProviderGroup4, "Hybrid model URI: ");		
 			tProviderTextOUT = createText(tProviderGroup4);		
