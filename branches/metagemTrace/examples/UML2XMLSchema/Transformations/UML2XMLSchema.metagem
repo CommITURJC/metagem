@@ -337,6 +337,5 @@
         <target name="name" ref="//ElementLocal/name" model="//@targetModels.0"/>
       </zeroToOne>
     </target>
-    
   </relations>
 </metagem:ModelRoot>

@@ -30,7 +30,7 @@
 <mapEntry key="OPTION_CONTENT_TYPE" value="false"/>
 <mapEntry key="OPTION_DERIVED" value="true"/>
 <mapEntry key="allowInterModelReferences" value="false"/>
-<mapEntry key="printExecutionTime" value="false"/>
+<mapEntry key="printExecutionTime" value="true"/>
 <mapEntry key="step" value="false"/>
 <mapEntry key="supportUML2Stereotypes" value="false"/>
 </mapAttribute>
