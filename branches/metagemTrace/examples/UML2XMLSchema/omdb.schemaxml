@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<schemaXML:Schema xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:schemaXML="http:///schemaXML.ecore" id="Online Movie Database&lt;&lt;Schema>>">
+  <element id="people" name="people&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="people_Type">
+      <eleccion xsi:type="schemaXML:Other">
+        <eleccion xsi:type="schemaXML:Sequences">
+          <element name="id"/>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+  <element id="movies" name="movies&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="movies_Type">
+      <eleccion xsi:type="schemaXML:Other">
+        <eleccion xsi:type="schemaXML:Sequences">
+          <element name="id"/>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+  <element id="Person_type" name="Person_type&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="Person_type_Type">
+      <eleccion xsi:type="schemaXML:Other">
+        <eleccion xsi:type="schemaXML:Sequences">
+          <element name="country"/>
+          <element name="dob"/>
+          <element name="name"/>
+          <element name="sex"/>
+          <element maxOccurs="unbounded" name="people_person_type_isAgregationof" ref="listPersons"/>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+  <element id="movie_type" name="movie_type&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="movie_type_Type">
+      <eleccion xsi:type="schemaXML:Other">
+        <eleccion xsi:type="schemaXML:Sequences">
+          <element name="genre"/>
+          <element name="studio"/>
+          <element name="synopsis"/>
+          <element name="title"/>
+          <element name="website"/>
+          <element maxOccurs="-1" name="director_movie&lt;_Association>" ref="director"/>
+          <element name="playwriter_type_movie_type&lt;_Association>" ref="playwriter_ref"/>
+          <element maxOccurs="unbounded" name="movies_movie_type_isAgregationof" ref="listMovies"/>
+          <element name="movie_type_ext_review&lt;_is_composed_of>">
+            <eleccion xsi:type="schemaXML:ComplexTypeLocal">
+              <eleccion xsi:type="schemaXML:Other">
+                <eleccion xsi:type="schemaXML:Sequences">
+                  <element name="ext_review" ref="ext_review"/>
+                </eleccion>
+              </eleccion>
+            </eleccion>
+          </element>
+          <element name="movie_type_user_review&lt;_is_composed_of>">
+            <eleccion xsi:type="schemaXML:ComplexTypeLocal">
+              <eleccion xsi:type="schemaXML:Other">
+                <eleccion xsi:type="schemaXML:Sequences">
+                  <element name="user_review" ref="user_review"/>
+                </eleccion>
+              </eleccion>
+            </eleccion>
+          </element>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+  <element id="cast_type" name="cast_type&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="cast_type_Type">
+      <eleccion xsi:type="schemaXML:Other">
+        <eleccion xsi:type="schemaXML:Sequences">
+          <element name="casting_order"/>
+          <element name="role"/>
+          <element maxOccurs="unbounded" name="actor_type_cast_type_&lt;Association>" ref="actors"/>
+          <element name="movie_type_cast_type&lt;_Association>" ref="movie"/>
+          <element maxOccurs="unbounded" name="castings_cast_type_isAgregationof" ref="listCastings"/>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+  <element id="castings" name="castings&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="castings_Type">
+      <eleccion xsi:type="schemaXML:Other">
+        <eleccion xsi:type="schemaXML:Sequences">
+          <element name="id"/>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+  <element id="product_type" name="product_type&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="product_type_Type">
+      <eleccion xsi:type="schemaXML:Other">
+        <eleccion xsi:type="schemaXML:Sequences">
+          <element name="availability"/>
+          <element name="list_price"/>
+          <element name="our_price"/>
+          <element name="production_company"/>
+          <element name="rating"/>
+          <element name="release_date"/>
+          <element name="runtime"/>
+          <element name="movie_ref"/>
+          <element maxOccurs="-1" name="product_type_movie_type&lt;_Association>" ref="movie"/>
+          <element maxOccurs="unbounded" name="products_product_type_isAgregationof" ref="listProducts"/>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+  <element id="products" name="products&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="products_Type">
+      <eleccion xsi:type="schemaXML:Other">
+        <eleccion xsi:type="schemaXML:Sequences">
+          <element name="id"/>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+  <element id="external_review_type" name="external_review_type&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="external_review_type_Type">
+      <eleccion xsi:type="schemaXML:Other">
+        <eleccion xsi:type="schemaXML:Sequences">
+          <element name="review_source"/>
+          <element name="review_url"/>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+  <element id="user_review_type" name="user_review_type&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="user_review_type_Type">
+      <eleccion xsi:type="schemaXML:Other">
+        <eleccion xsi:type="schemaXML:Sequences">
+          <element name="review_date"/>
+          <element name="review_text"/>
+          <element name="reviewer"/>
+          <element name="score"/>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+  <element id="director_type" name="director_type&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="director_type_Type">
+      <eleccion xsi:type="schemaXML:ComplexContent">
+        <eleccion xsi:type="schemaXML:ExtensionComplexContent" base="IN!Person_type">
+          <eleccion xsi:type="schemaXML:Choice"/>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+  <element id="actor_type" name="actor_type&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="actor_type_Type">
+      <eleccion xsi:type="schemaXML:ComplexContent">
+        <eleccion xsi:type="schemaXML:ExtensionComplexContent" base="IN!Person_type">
+          <eleccion xsi:type="schemaXML:Choice"/>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+  <element id="playwriter_type" name="playwriter_type&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="playwriter_type_Type">
+      <eleccion xsi:type="schemaXML:ComplexContent">
+        <eleccion xsi:type="schemaXML:ExtensionComplexContent" base="IN!Person_type">
+          <eleccion xsi:type="schemaXML:Choice"/>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+  <element id="video_type" name="video_type&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="video_type_Type">
+      <eleccion xsi:type="schemaXML:ComplexContent">
+        <eleccion xsi:type="schemaXML:ExtensionComplexContent" base="IN!product_type">
+          <eleccion xsi:type="schemaXML:Choice">
+            <element name="format"/>
+          </eleccion>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+  <element id="dvd_type" name="dvd_type&lt;&lt;ElementGlobal>>">
+    <eleccion xsi:type="schemaXML:ComplexTypeLocal" id="dvd_type_Type">
+      <eleccion xsi:type="schemaXML:ComplexContent">
+        <eleccion xsi:type="schemaXML:ExtensionComplexContent" base="IN!product_type">
+          <eleccion xsi:type="schemaXML:Choice">
+            <element name="acpect_ratio"/>
+            <element name="dvd_encoding"/>
+            <element name="number_of_disos"/>
+          </eleccion>
+        </eleccion>
+      </eleccion>
+    </eleccion>
+  </element>
+</schemaXML:Schema>
