@@ -1,0 +1,1318 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Traceability:TraceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Traceability="org.eclipse.kybele.Traceability">
+  <traceLinks name="package2schema">
+    <source name="Online Movie Database" ref="_jopigPxQEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="http://www.w3.org/2001/XMLSchema" ref="_Tjr0cGPBEeGZ35oUYNRv3A" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="Online Movie Database(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.0/@source.0"/>
+      <target name="Online Movie Database(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.0/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="class2ElementGlobalSeq">
+    <source name="people" ref="_az7IEPxREd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="people" ref="_Tjr0cWPBEeGZ35oUYNRv3A" model="//@targetModels.0"/>
+    <target name="/2" ref="/2" model="//@targetModels.0"/>
+    <target name="/3" ref="/3" model="//@targetModels.0"/>
+    <target name="/4" ref="/4" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="people(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.1/@source.0"/>
+      <target name="people(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.1/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="people(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.1/@source.0"/>
+      <target name="people(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.1/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="people(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.1/@source.0"/>
+      <target name="people(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.1/@target.1"/>
+    </childLinks>
+    <childLinks name="R37" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.1/@target.0"/>
+    </childLinks>
+    <childLinks name="R38" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.1/@target.0"/>
+    </childLinks>
+    <childLinks name="R39" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.1/@target.1"/>
+    </childLinks>
+    <childLinks name="R40" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.1/@target.2"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="class2ElementGlobalSeq">
+    <source name="movies" ref="_dMP04PxSEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="movies" ref="/5" model="//@targetModels.0"/>
+    <target name="/6" ref="/6" model="//@targetModels.0"/>
+    <target name="/7" ref="/7" model="//@targetModels.0"/>
+    <target name="/8" ref="/8" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="movies(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.2/@source.0"/>
+      <target name="movies(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.2/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="movies(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.2/@source.0"/>
+      <target name="movies(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.2/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="movies(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.2/@source.0"/>
+      <target name="movies(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.2/@target.1"/>
+    </childLinks>
+    <childLinks name="R37" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.2/@target.0"/>
+    </childLinks>
+    <childLinks name="R38" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.2/@target.0"/>
+    </childLinks>
+    <childLinks name="R39" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.2/@target.1"/>
+    </childLinks>
+    <childLinks name="R40" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.2/@target.2"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="class2ElementGlobalSeq">
+    <source name="Person_type" ref="_tF9VAPxREd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="Person_type" ref="/9" model="//@targetModels.0"/>
+    <target name="/10" ref="/10" model="//@targetModels.0"/>
+    <target name="/11" ref="/11" model="//@targetModels.0"/>
+    <target name="/12" ref="/12" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="Person_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.3/@source.0"/>
+      <target name="Person_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.3/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="Person_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.3/@source.0"/>
+      <target name="Person_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.3/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="Person_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.3/@source.0"/>
+      <target name="Person_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.3/@target.1"/>
+    </childLinks>
+    <childLinks name="R37" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.3/@target.0"/>
+    </childLinks>
+    <childLinks name="R38" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.3/@target.0"/>
+    </childLinks>
+    <childLinks name="R39" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.3/@target.1"/>
+    </childLinks>
+    <childLinks name="R40" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.3/@target.2"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="class2ElementGlobalSeq">
+    <source name="movie_type" ref="_g726MPxSEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="movie_type" ref="/13" model="//@targetModels.0"/>
+    <target name="/14" ref="/14" model="//@targetModels.0"/>
+    <target name="/15" ref="/15" model="//@targetModels.0"/>
+    <target name="/16" ref="/16" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="movie_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.4/@source.0"/>
+      <target name="movie_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.4/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="movie_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.4/@source.0"/>
+      <target name="movie_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.4/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="movie_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.4/@source.0"/>
+      <target name="movie_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.4/@target.1"/>
+    </childLinks>
+    <childLinks name="R37" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.4/@target.0"/>
+    </childLinks>
+    <childLinks name="R38" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.4/@target.0"/>
+    </childLinks>
+    <childLinks name="R39" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.4/@target.1"/>
+    </childLinks>
+    <childLinks name="R40" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.4/@target.2"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="class2ElementGlobalSeq">
+    <source name="cast_type" ref="_AQLHIPxSEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="cast_type" ref="/17" model="//@targetModels.0"/>
+    <target name="/18" ref="/18" model="//@targetModels.0"/>
+    <target name="/19" ref="/19" model="//@targetModels.0"/>
+    <target name="/20" ref="/20" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="cast_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.5/@source.0"/>
+      <target name="cast_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.5/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="cast_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.5/@source.0"/>
+      <target name="cast_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.5/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="cast_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.5/@source.0"/>
+      <target name="cast_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.5/@target.1"/>
+    </childLinks>
+    <childLinks name="R37" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.5/@target.0"/>
+    </childLinks>
+    <childLinks name="R38" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.5/@target.0"/>
+    </childLinks>
+    <childLinks name="R39" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.5/@target.1"/>
+    </childLinks>
+    <childLinks name="R40" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.5/@target.2"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="class2ElementGlobalSeq">
+    <source name="castings" ref="_Mmh_0PxSEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="castings" ref="/21" model="//@targetModels.0"/>
+    <target name="/22" ref="/22" model="//@targetModels.0"/>
+    <target name="/23" ref="/23" model="//@targetModels.0"/>
+    <target name="/24" ref="/24" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="castings(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.6/@source.0"/>
+      <target name="castings(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.6/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="castings(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.6/@source.0"/>
+      <target name="castings(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.6/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="castings(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.6/@source.0"/>
+      <target name="castings(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.6/@target.1"/>
+    </childLinks>
+    <childLinks name="R37" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.6/@target.0"/>
+    </childLinks>
+    <childLinks name="R38" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.6/@target.0"/>
+    </childLinks>
+    <childLinks name="R39" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.6/@target.1"/>
+    </childLinks>
+    <childLinks name="R40" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.6/@target.2"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="class2ElementGlobalSeq">
+    <source name="product_type" ref="_n4D3UPxSEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="product_type" ref="/25" model="//@targetModels.0"/>
+    <target name="/26" ref="/26" model="//@targetModels.0"/>
+    <target name="/27" ref="/27" model="//@targetModels.0"/>
+    <target name="/28" ref="/28" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="product_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.7/@source.0"/>
+      <target name="product_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.7/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="product_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.7/@source.0"/>
+      <target name="product_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.7/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="product_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.7/@source.0"/>
+      <target name="product_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.7/@target.1"/>
+    </childLinks>
+    <childLinks name="R37" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.7/@target.0"/>
+    </childLinks>
+    <childLinks name="R38" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.7/@target.0"/>
+    </childLinks>
+    <childLinks name="R39" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.7/@target.1"/>
+    </childLinks>
+    <childLinks name="R40" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.7/@target.2"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="class2ElementGlobalSeq">
+    <source name="products" ref="_12IUsPxSEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="products" ref="/29" model="//@targetModels.0"/>
+    <target name="/30" ref="/30" model="//@targetModels.0"/>
+    <target name="/31" ref="/31" model="//@targetModels.0"/>
+    <target name="/32" ref="/32" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="products(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.8/@source.0"/>
+      <target name="products(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.8/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="products(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.8/@source.0"/>
+      <target name="products(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.8/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="products(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.8/@source.0"/>
+      <target name="products(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.8/@target.1"/>
+    </childLinks>
+    <childLinks name="R37" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.8/@target.0"/>
+    </childLinks>
+    <childLinks name="R38" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.8/@target.0"/>
+    </childLinks>
+    <childLinks name="R39" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.8/@target.1"/>
+    </childLinks>
+    <childLinks name="R40" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.8/@target.2"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="class2ElementGlobalSeq">
+    <source name="external_review_type" ref="_ODQAAPxTEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="external_review_type" ref="/33" model="//@targetModels.0"/>
+    <target name="/34" ref="/34" model="//@targetModels.0"/>
+    <target name="/35" ref="/35" model="//@targetModels.0"/>
+    <target name="/36" ref="/36" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="external_review_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.9/@source.0"/>
+      <target name="external_review_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.9/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="external_review_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.9/@source.0"/>
+      <target name="external_review_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.9/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="external_review_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.9/@source.0"/>
+      <target name="external_review_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.9/@target.1"/>
+    </childLinks>
+    <childLinks name="R37" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.9/@target.0"/>
+    </childLinks>
+    <childLinks name="R38" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.9/@target.0"/>
+    </childLinks>
+    <childLinks name="R39" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.9/@target.1"/>
+    </childLinks>
+    <childLinks name="R40" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.9/@target.2"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="class2ElementGlobalSeq">
+    <source name="user_review_type" ref="_QCWxAPxTEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="user_review_type" ref="/37" model="//@targetModels.0"/>
+    <target name="/38" ref="/38" model="//@targetModels.0"/>
+    <target name="/39" ref="/39" model="//@targetModels.0"/>
+    <target name="/40" ref="/40" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="user_review_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.10/@source.0"/>
+      <target name="user_review_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.10/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="user_review_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.10/@source.0"/>
+      <target name="user_review_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.10/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="user_review_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.10/@source.0"/>
+      <target name="user_review_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.10/@target.1"/>
+    </childLinks>
+    <childLinks name="R37" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.10/@target.0"/>
+    </childLinks>
+    <childLinks name="R38" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.10/@target.0"/>
+    </childLinks>
+    <childLinks name="R39" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.10/@target.1"/>
+    </childLinks>
+    <childLinks name="R40" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.10/@target.2"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="inheritClass2ElementGlobal">
+    <source name="director_type" ref="_ai0UgPxSEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="director_type" ref="/41" model="//@targetModels.0"/>
+    <target name="/42" ref="/42" model="//@targetModels.0"/>
+    <target name="/43" ref="/43" model="//@targetModels.0"/>
+    <target name="/44" ref="/44" model="//@targetModels.0"/>
+    <target name="/45" ref="/45" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="director_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.11/@source.0"/>
+      <target name="director_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.11/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="director_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.11/@source.0"/>
+      <target name="director_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.11/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="director_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.11/@source.0"/>
+      <target name="director_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.11/@target.1"/>
+    </childLinks>
+    <childLinks name="R41" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.11/@target.0"/>
+    </childLinks>
+    <childLinks name="R42" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.11/@target.0"/>
+    </childLinks>
+    <childLinks name="R43" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.11/@target.1"/>
+    </childLinks>
+    <childLinks name="R44" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.11/@target.2"/>
+    </childLinks>
+    <childLinks name="R45" operation="Create">
+      <target name="UML_model!Person_type(Feature: base)" model="//@targetModels.0" belongsTo="//@traceLinks.11/@target.3"/>
+    </childLinks>
+    <childLinks name="R46" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.11/@target.3"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="inheritClass2ElementGlobal">
+    <source name="actor_type" ref="_1lGrkPxREd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="actor_type" ref="/46" model="//@targetModels.0"/>
+    <target name="/47" ref="/47" model="//@targetModels.0"/>
+    <target name="/48" ref="/48" model="//@targetModels.0"/>
+    <target name="/49" ref="/49" model="//@targetModels.0"/>
+    <target name="/50" ref="/50" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="actor_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.12/@source.0"/>
+      <target name="actor_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.12/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="actor_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.12/@source.0"/>
+      <target name="actor_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.12/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="actor_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.12/@source.0"/>
+      <target name="actor_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.12/@target.1"/>
+    </childLinks>
+    <childLinks name="R41" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.12/@target.0"/>
+    </childLinks>
+    <childLinks name="R42" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.12/@target.0"/>
+    </childLinks>
+    <childLinks name="R43" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.12/@target.1"/>
+    </childLinks>
+    <childLinks name="R44" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.12/@target.2"/>
+    </childLinks>
+    <childLinks name="R45" operation="Create">
+      <target name="UML_model!Person_type(Feature: base)" model="//@targetModels.0" belongsTo="//@traceLinks.12/@target.3"/>
+    </childLinks>
+    <childLinks name="R46" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.12/@target.3"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="inheritClass2ElementGlobal">
+    <source name="playwriter_type" ref="_5X2kcPxREd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="playwriter_type" ref="/51" model="//@targetModels.0"/>
+    <target name="/52" ref="/52" model="//@targetModels.0"/>
+    <target name="/53" ref="/53" model="//@targetModels.0"/>
+    <target name="/54" ref="/54" model="//@targetModels.0"/>
+    <target name="/55" ref="/55" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="playwriter_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.13/@source.0"/>
+      <target name="playwriter_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.13/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="playwriter_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.13/@source.0"/>
+      <target name="playwriter_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.13/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="playwriter_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.13/@source.0"/>
+      <target name="playwriter_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.13/@target.1"/>
+    </childLinks>
+    <childLinks name="R41" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.13/@target.0"/>
+    </childLinks>
+    <childLinks name="R42" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.13/@target.0"/>
+    </childLinks>
+    <childLinks name="R43" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.13/@target.1"/>
+    </childLinks>
+    <childLinks name="R44" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.13/@target.2"/>
+    </childLinks>
+    <childLinks name="R45" operation="Create">
+      <target name="UML_model!Person_type(Feature: base)" model="//@targetModels.0" belongsTo="//@traceLinks.13/@target.3"/>
+    </childLinks>
+    <childLinks name="R46" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.13/@target.3"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="inheritClass2ElementGlobal">
+    <source name="video_type" ref="_qLA78PxTEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="video_type" ref="/56" model="//@targetModels.0"/>
+    <target name="/57" ref="/57" model="//@targetModels.0"/>
+    <target name="/58" ref="/58" model="//@targetModels.0"/>
+    <target name="/59" ref="/59" model="//@targetModels.0"/>
+    <target name="/60" ref="/60" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="video_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.14/@source.0"/>
+      <target name="video_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.14/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="video_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.14/@source.0"/>
+      <target name="video_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.14/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="video_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.14/@source.0"/>
+      <target name="video_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.14/@target.1"/>
+    </childLinks>
+    <childLinks name="R41" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.14/@target.0"/>
+    </childLinks>
+    <childLinks name="R42" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.14/@target.0"/>
+    </childLinks>
+    <childLinks name="R43" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.14/@target.1"/>
+    </childLinks>
+    <childLinks name="R44" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.14/@target.2"/>
+    </childLinks>
+    <childLinks name="R45" operation="Create">
+      <target name="UML_model!product_type(Feature: base)" model="//@targetModels.0" belongsTo="//@traceLinks.14/@target.3"/>
+    </childLinks>
+    <childLinks name="R46" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.14/@target.3"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="inheritClass2ElementGlobal">
+    <source name="dvd_type" ref="_s_w7gPxTEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="dvd_type" ref="/61" model="//@targetModels.0"/>
+    <target name="/62" ref="/62" model="//@targetModels.0"/>
+    <target name="/63" ref="/63" model="//@targetModels.0"/>
+    <target name="/64" ref="/64" model="//@targetModels.0"/>
+    <target name="/65" ref="/65" model="//@targetModels.0"/>
+    <childLinks name="name_2_id">
+      <source name="dvd_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.15/@source.0"/>
+      <target name="dvd_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.15/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name">
+      <source name="dvd_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.15/@source.0"/>
+      <target name="dvd_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.15/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_id">
+      <source name="dvd_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.15/@source.0"/>
+      <target name="dvd_type(Feature: id)" model="//@targetModels.0" belongsTo="//@traceLinks.15/@target.1"/>
+    </childLinks>
+    <childLinks name="R41" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.15/@target.0"/>
+    </childLinks>
+    <childLinks name="R42" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.15/@target.0"/>
+    </childLinks>
+    <childLinks name="R43" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.15/@target.1"/>
+    </childLinks>
+    <childLinks name="R44" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.15/@target.2"/>
+    </childLinks>
+    <childLinks name="R45" operation="Create">
+      <target name="UML_model!product_type(Feature: base)" model="//@targetModels.0" belongsTo="//@traceLinks.15/@target.3"/>
+    </childLinks>
+    <childLinks name="R46" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.15/@target.3"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="id" ref="_iXZj8Px6Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="id" ref="/66" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="id(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.16/@source.0"/>
+      <target name="id(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.16/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.16/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.16/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.16/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="id" ref="_-fnL0Px6Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="id" ref="/67" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="id(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.17/@source.0"/>
+      <target name="id(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.17/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.17/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.17/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.17/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="country" ref="_gYB3wPx7Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="country" ref="/68" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="country(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.18/@source.0"/>
+      <target name="country(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.18/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.18/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.18/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.18/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="dob" ref="_iQuewPx7Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="dob" ref="/69" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="dob(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.19/@source.0"/>
+      <target name="dob(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.19/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.19/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.19/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.19/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="name" ref="_lk6zYPx7Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="name" ref="/70" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="name(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.20/@source.0"/>
+      <target name="name(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.20/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.20/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.20/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.20/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="sex" ref="_ce4b8Px7Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="sex" ref="/71" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="sex(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.21/@source.0"/>
+      <target name="sex(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.21/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.21/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.21/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.21/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="genre" ref="_qx9gAPx7Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="genre" ref="/72" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="genre(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.22/@source.0"/>
+      <target name="genre(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.22/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.22/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.22/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.22/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="studio" ref="_tz-fgPx7Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="studio" ref="/73" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="studio(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.23/@source.0"/>
+      <target name="studio(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.23/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.23/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.23/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.23/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="synopsis" ref="_voM2MPx7Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="synopsis" ref="/74" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="synopsis(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.24/@source.0"/>
+      <target name="synopsis(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.24/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.24/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.24/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.24/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="title" ref="_x0a2IPx7Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="title" ref="/75" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="title(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.25/@source.0"/>
+      <target name="title(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.25/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.25/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.25/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.25/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="website" ref="_zpZawPx7Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="website" ref="/76" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="website(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.26/@source.0"/>
+      <target name="website(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.26/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.26/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.26/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.26/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="casting_order" ref="_DtbfEPx8Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="casting_order" ref="/77" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="casting_order(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.27/@source.0"/>
+      <target name="casting_order(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.27/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.27/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.27/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.27/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="role" ref="_AdtawPx8Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="role" ref="/78" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="role(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.28/@source.0"/>
+      <target name="role(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.28/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.28/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.28/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.28/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="id" ref="_OfprgPx8Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="id" ref="/79" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="id(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.29/@source.0"/>
+      <target name="id(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.29/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.29/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.29/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.29/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="availability" ref="_UavJ4Px8Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="availability" ref="/80" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="availability(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.30/@source.0"/>
+      <target name="availability(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.30/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.30/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.30/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.30/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="list_price" ref="_ZHl6kPx8Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="list_price" ref="/81" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="list_price(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.31/@source.0"/>
+      <target name="list_price(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.31/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.31/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.31/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.31/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="our_price" ref="_cs7CgPx8Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="our_price" ref="/82" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="our_price(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.32/@source.0"/>
+      <target name="our_price(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.32/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.32/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.32/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.32/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="production_company" ref="_hLUgcPx8Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="production_company" ref="/83" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="production_company(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.33/@source.0"/>
+      <target name="production_company(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.33/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.33/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.33/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.33/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="rating" ref="_jGQjIPx8Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="rating" ref="/84" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="rating(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.34/@source.0"/>
+      <target name="rating(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.34/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.34/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.34/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.34/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="release_date" ref="_kz7l4Px8Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="release_date" ref="/85" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="release_date(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.35/@source.0"/>
+      <target name="release_date(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.35/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.35/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.35/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.35/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="runtime" ref="_ngB_wPx8Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="runtime" ref="/86" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="runtime(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.36/@source.0"/>
+      <target name="runtime(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.36/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.36/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.36/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.36/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="movie_ref" ref="_pMnjxPyEEd2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="movie_ref" ref="/87" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="movie_ref(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.37/@source.0"/>
+      <target name="movie_ref(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.37/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.37/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.37/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.37/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="id" ref="_s8uR8Px8Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="id" ref="/88" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="id(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.38/@source.0"/>
+      <target name="id(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.38/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.38/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.38/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.38/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="review_source" ref="_zJPekPx8Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="review_source" ref="/89" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="review_source(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.39/@source.0"/>
+      <target name="review_source(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.39/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.39/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.39/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.39/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="review_url" ref="_v5OfUPx8Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="review_url" ref="/90" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="review_url(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.40/@source.0"/>
+      <target name="review_url(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.40/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.40/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.40/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.40/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="review_date" ref="_3ufycPx8Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="review_date" ref="/91" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="review_date(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.41/@source.0"/>
+      <target name="review_date(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.41/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.41/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.41/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.41/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="review_text" ref="_BRS-YPx9Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="review_text" ref="/92" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="review_text(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.42/@source.0"/>
+      <target name="review_text(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.42/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.42/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.42/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.42/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="reviewer" ref="_EMm48Px9Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="reviewer" ref="/93" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="reviewer(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.43/@source.0"/>
+      <target name="reviewer(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.43/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.43/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.43/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.43/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="score" ref="_FpSSUPx9Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="score" ref="/94" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="score(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.44/@source.0"/>
+      <target name="score(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.44/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.44/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.44/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.44/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="format" ref="_LyYXgPx9Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="format" ref="/95" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="format(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.45/@source.0"/>
+      <target name="format(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.45/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.45/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.45/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.45/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="acpect_ratio" ref="_UkAlMPx9Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="acpect_ratio" ref="/96" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="acpect_ratio(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.46/@source.0"/>
+      <target name="acpect_ratio(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.46/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.46/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.46/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.46/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="dvd_encoding" ref="_WuvXYPx9Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="dvd_encoding" ref="/97" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="dvd_encoding(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.47/@source.0"/>
+      <target name="dvd_encoding(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.47/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.47/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.47/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.47/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="property2ElementLocal">
+    <source name="number_of_disos" ref="_P4DMYPx9Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="number_of_disos" ref="/98" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="number_of_disos(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.48/@source.0"/>
+      <target name="number_of_disos(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.48/@target.0"/>
+    </childLinks>
+    <childLinks name="R55" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.48/@target.0"/>
+    </childLinks>
+    <childLinks name="R56" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.48/@target.0"/>
+    </childLinks>
+    <childLinks name="R57" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.48/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="associationNM2ElementLocal">
+    <source name="actor_type_cast_type" ref="_Hn1bwPxTEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="actor_type_cast_type" ref="/99" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="actor_type_cast_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.49/@source.0"/>
+      <target name="actor_type_cast_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.49/@target.0"/>
+    </childLinks>
+    <childLinks name="R58" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.49/@target.0"/>
+    </childLinks>
+    <childLinks name="R59" operation="Create">
+      <target name="actors(Feature: ref)" model="//@targetModels.0" belongsTo="//@traceLinks.49/@target.0"/>
+    </childLinks>
+    <childLinks name="R60" operation="Create">
+      <target name="unbounded(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.49/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="association1N2ElementLocal">
+    <source name="director_movie" ref="_3F3zkPx5Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="director_movie" ref="/100" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="director_movie(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.50/@source.0"/>
+      <target name="director_movie(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.50/@target.0"/>
+    </childLinks>
+    <childLinks name="R61" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.50/@target.0"/>
+    </childLinks>
+    <childLinks name="R62" operation="Create">
+      <target name="director(Feature: ref)" model="//@targetModels.0" belongsTo="//@traceLinks.50/@target.0"/>
+    </childLinks>
+    <childLinks name="R63" operation="Create">
+      <target name="-1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.50/@target.0"/>
+    </childLinks>
+    <childLinks name="R64" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.50/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="association1N2ElementLocal">
+    <source name="product_type_movie_type" ref="_pMnjwPyEEd2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="product_type_movie_type" ref="/101" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="product_type_movie_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.51/@source.0"/>
+      <target name="product_type_movie_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.51/@target.0"/>
+    </childLinks>
+    <childLinks name="R61" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.51/@target.0"/>
+    </childLinks>
+    <childLinks name="R62" operation="Create">
+      <target name="movie(Feature: ref)" model="//@targetModels.0" belongsTo="//@traceLinks.51/@target.0"/>
+    </childLinks>
+    <childLinks name="R63" operation="Create">
+      <target name="-1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.51/@target.0"/>
+    </childLinks>
+    <childLinks name="R64" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.51/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="association112ElementLocal">
+    <source name="playwriter_type_movie_type" ref="_FDeBkPxTEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="playwriter_type_movie_type" ref="/102" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="playwriter_type_movie_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.52/@source.0"/>
+      <target name="playwriter_type_movie_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.52/@target.0"/>
+    </childLinks>
+    <childLinks name="R65" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.52/@target.0"/>
+    </childLinks>
+    <childLinks name="R66" operation="Create">
+      <target name="playwriter_ref(Feature: ref)" model="//@targetModels.0" belongsTo="//@traceLinks.52/@target.0"/>
+    </childLinks>
+    <childLinks name="R67" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.52/@target.0"/>
+    </childLinks>
+    <childLinks name="R68" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.52/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="association112ElementLocal">
+    <source name="movie_type_cast_type" ref="_LtMuoPxTEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="movie_type_cast_type" ref="/103" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="movie_type_cast_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.53/@source.0"/>
+      <target name="movie_type_cast_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.53/@target.0"/>
+    </childLinks>
+    <childLinks name="R65" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.53/@target.0"/>
+    </childLinks>
+    <childLinks name="R66" operation="Create">
+      <target name="movie(Feature: ref)" model="//@targetModels.0" belongsTo="//@traceLinks.53/@target.0"/>
+    </childLinks>
+    <childLinks name="R67" operation="Create">
+      <target name="1(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.53/@target.0"/>
+    </childLinks>
+    <childLinks name="R68" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.53/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="agregation2ElementLocal">
+    <source name="people_person_type" ref="_o3RNkPx-Ed2MpOyP_INC3Q" model="//@sourceModels.0"/>
+    <target name="people_person_type" ref="/104" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="people_person_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.54/@source.0"/>
+      <target name="people_person_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.54/@target.0"/>
+    </childLinks>
+    <childLinks name="R69" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.54/@target.0"/>
+    </childLinks>
+    <childLinks name="R70" operation="Create">
+      <target name="listPersons(Feature: ref)" model="//@targetModels.0" belongsTo="//@traceLinks.54/@target.0"/>
+    </childLinks>
+    <childLinks name="R71" operation="Create">
+      <target name="unbounded(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.54/@target.0"/>
+    </childLinks>
+    <childLinks name="R72" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.54/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="agregation2ElementLocal">
+    <source name="castings_cast_type" ref="_YKhncPxSEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="castings_cast_type" ref="/105" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="castings_cast_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.55/@source.0"/>
+      <target name="castings_cast_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.55/@target.0"/>
+    </childLinks>
+    <childLinks name="R69" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.55/@target.0"/>
+    </childLinks>
+    <childLinks name="R70" operation="Create">
+      <target name="listCastings(Feature: ref)" model="//@targetModels.0" belongsTo="//@traceLinks.55/@target.0"/>
+    </childLinks>
+    <childLinks name="R71" operation="Create">
+      <target name="unbounded(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.55/@target.0"/>
+    </childLinks>
+    <childLinks name="R72" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.55/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="agregation2ElementLocal">
+    <source name="movies_movie_type" ref="_5fVQAPxSEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="movies_movie_type" ref="/106" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="movies_movie_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.56/@source.0"/>
+      <target name="movies_movie_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.56/@target.0"/>
+    </childLinks>
+    <childLinks name="R69" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.56/@target.0"/>
+    </childLinks>
+    <childLinks name="R70" operation="Create">
+      <target name="listMovies(Feature: ref)" model="//@targetModels.0" belongsTo="//@traceLinks.56/@target.0"/>
+    </childLinks>
+    <childLinks name="R71" operation="Create">
+      <target name="unbounded(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.56/@target.0"/>
+    </childLinks>
+    <childLinks name="R72" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.56/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="agregation2ElementLocal">
+    <source name="products_product_type" ref="_6AjtwPxSEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="products_product_type" ref="/107" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="products_product_type(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.57/@source.0"/>
+      <target name="products_product_type(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.57/@target.0"/>
+    </childLinks>
+    <childLinks name="R69" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.57/@target.0"/>
+    </childLinks>
+    <childLinks name="R70" operation="Create">
+      <target name="listProducts(Feature: ref)" model="//@targetModels.0" belongsTo="//@traceLinks.57/@target.0"/>
+    </childLinks>
+    <childLinks name="R71" operation="Create">
+      <target name="unbounded(Feature: maxoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.57/@target.0"/>
+    </childLinks>
+    <childLinks name="R72" operation="Create">
+      <target name="1(Feature: minoccurs)" model="//@targetModels.0" belongsTo="//@traceLinks.57/@target.0"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="composite2ElementLocalSeq">
+    <source name="movie_type_ext_review" ref="_h_r5QPxTEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="movie_type_ext_review" ref="/108" model="//@targetModels.0"/>
+    <target name="/109" ref="/109" model="//@targetModels.0"/>
+    <target name="/110" ref="/110" model="//@targetModels.0"/>
+    <target name="/111" ref="/111" model="//@targetModels.0"/>
+    <target name="ext_review" ref="/112" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="movie_type_ext_review(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.58/@source.0"/>
+      <target name="movie_type_ext_review(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.58/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name" operation="Create">
+      <target name="ext_review(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.58/@target.4"/>
+    </childLinks>
+    <childLinks name="R73" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.58/@target.0"/>
+    </childLinks>
+    <childLinks name="R74" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.58/@target.0"/>
+    </childLinks>
+    <childLinks name="R75" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.58/@target.1"/>
+    </childLinks>
+    <childLinks name="R76" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.58/@target.2"/>
+    </childLinks>
+    <childLinks name="R77" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.58/@target.4"/>
+    </childLinks>
+    <childLinks name="R78" operation="Create">
+      <target name="ext_review(Feature: ref)" model="//@targetModels.0" belongsTo="//@traceLinks.58/@target.4"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks name="composite2ElementLocalSeq">
+    <source name="movie_type_user_review" ref="_jnsY4PxTEd2qTILnYStnJQ" model="//@sourceModels.0"/>
+    <target name="movie_type_user_review" ref="/113" model="//@targetModels.0"/>
+    <target name="/114" ref="/114" model="//@targetModels.0"/>
+    <target name="/115" ref="/115" model="//@targetModels.0"/>
+    <target name="/116" ref="/116" model="//@targetModels.0"/>
+    <target name="user_review" ref="/117" model="//@targetModels.0"/>
+    <childLinks name="name_2_name">
+      <source name="movie_type_user_review(Feature: name)" model="//@sourceModels.0" belongsTo="//@traceLinks.59/@source.0"/>
+      <target name="movie_type_user_review(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.59/@target.0"/>
+    </childLinks>
+    <childLinks name="name_2_name" operation="Create">
+      <target name="user_review(Feature: name)" model="//@targetModels.0" belongsTo="//@traceLinks.59/@target.4"/>
+    </childLinks>
+    <childLinks name="R73" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.59/@target.0"/>
+    </childLinks>
+    <childLinks name="R74" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.59/@target.0"/>
+    </childLinks>
+    <childLinks name="R75" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.59/@target.1"/>
+    </childLinks>
+    <childLinks name="R76" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: eleccion)" model="//@targetModels.0" belongsTo="//@traceLinks.59/@target.2"/>
+    </childLinks>
+    <childLinks name="R77" operation="Create">
+      <target name="schemaXML_model!&lt;unnamed>(Feature: owner)" model="//@targetModels.0" belongsTo="//@traceLinks.59/@target.4"/>
+    </childLinks>
+    <childLinks name="R78" operation="Create">
+      <target name="user_review(Feature: ref)" model="//@targetModels.0" belongsTo="//@traceLinks.59/@target.4"/>
+    </childLinks>
+  </traceLinks>
+  <sourceModels name="UML_model" path="/UML2XMLSchema/Models/omdb.uml" metamodel="/UML2XMLSchema/Metamodels/UML.ecore"/>
+  <sourceModels name="AnnotationMetamodel_model" path="/UML2XMLSchema/Models/omdb.amw" metamodel="/UML2XMLSchema/Metamodels/AnnotationMetamodel.ecore"/>
+  <targetModels name="schemaXML_model" path="/UML2XMLSchema/Models/omdb.schemaxml.ecore" metamodel="/UML2XMLSchema/Metamodels/schemaXML.ecore"/>
+</Traceability:TraceModel>
