@@ -1,75 +1,42 @@
 <?xml version="1.0" encoding="ASCII"?>
-<metagem:ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metagem="org.eclipse.kybele.metagem" name="familes2persons">
-  <sourceModels name="Families" path="/metagem_F2P/Metamodels/Families.ecore">
-    <elements name="Families" ref="/">
-      <elements name="Family" ref="//Family" contains="//@sourceModels.0/@elements.0/@elements.2 //@sourceModels.0/@elements.0/@elements.3 //@sourceModels.0/@elements.0/@elements.4 //@sourceModels.0/@elements.0/@elements.5">
-        <features name="lastName" ref="//Family/lastName"/>
-        <features name="father" ref="//Family/father"/>
-        <features name="mother" ref="//Family/mother"/>
-        <features name="sons" ref="//Family/sons"/>
-        <features name="daughters" ref="//Family/daughters"/>
-      </elements>
-      <elements name="Member" ref="//Member">
-        <features name="firstName" relationElement="//@relations.1/@target/@ManyToOne.0/@source.0 //@relations.2/@target/@ManyToOne.0/@source.0 //@relations.3/@target/@ManyToOne.0/@source.0" ref="//Member/firstName"/>
-      </elements>
-      <elements name="Father" relationElement="//@relations.0/@source" ref="//Father" isContained="//@sourceModels.0/@elements.0/@elements.0">
-        <features name="familyFather" ref="//Father/familyFather"/>
-      </elements>
-      <elements name="Mother" relationElement="//@relations.1/@source" ref="//Mother" isContained="//@sourceModels.0/@elements.0/@elements.0">
-        <features name="familyMother" relationElement="//@relations.1/@target/@ManyToOne.0/@source.1" ref="//Mother/familyMother"/>
-      </elements>
-      <elements name="Son" relationElement="//@relations.2/@source" ref="//Son" isContained="//@sourceModels.0/@elements.0/@elements.0">
-        <features name="familySon" relationElement="//@relations.2/@target/@ManyToOne.0/@source.1" ref="//Son/familySon"/>
-      </elements>
-      <elements name="Daughter" relationElement="//@relations.3/@source" ref="//Daughter" isContained="//@sourceModels.0/@elements.0/@elements.0">
-        <features name="familyDaughter" relationElement="//@relations.3/@target/@ManyToOne.0/@source.1" ref="//Daughter/familyDaughter"/>
-      </elements>
-    </elements>
-  </sourceModels>
-  <targetModels name="Persons" path="/metagem_F2P/Metamodels/Persons.ecore">
-    <elements name="Persons" ref="/">
-      <elements name="Person" ref="//Person">
-        <features name="fullName" relationElement="//@relations.0/@target/@zeroToOne.0/@target //@relations.1/@target/@ManyToOne.0/@target //@relations.2/@target/@ManyToOne.0/@target //@relations.3/@target/@ManyToOne.0/@target" ref="//Person/fullName"/>
-      </elements>
-      <elements name="Male" relationElement="//@relations.0/@target //@relations.2/@target" ref="//Male"/>
-      <elements name="Female" relationElement="//@relations.1/@target //@relations.3/@target" ref="//Female"/>
-    </elements>
-  </targetModels>
+<metagem:ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metagem="org.eclipse.kybele.metagem" name="55_familes2persons">
+  <sourceModels name="Families" path="/metagem_F2P/Metamodels/Families.ecore"/>
+  <targetModels name="Persons" path="/metagem_F2P/Metamodels/Persons.ecore"/>
   <relations xsi:type="metagem:OneToOne">
-    <source name="Father" modelComponent="//@sourceModels.0/@elements.0/@elements.2"/>
-    <target name="Male" modelComponent="//@targetModels.0/@elements.0/@elements.1">
+    <source name="Father" ref="//Father" model="//@sourceModels.0"/>
+    <target name="Male" ref="//Male" model="//@targetModels.0">
       <zeroToOne typeElement="EAttribute">
-        <target name="fullName" modelComponent="//@targetModels.0/@elements.0/@elements.0/@features.0"/>
+        <target name="fullName" ref="//Person/fullName" model="//@targetModels.0"/>
       </zeroToOne>
     </target>
   </relations>
   <relations xsi:type="metagem:OneToOne">
-    <source name="Mother" modelComponent="//@sourceModels.0/@elements.0/@elements.3"/>
-    <target name="Female" modelComponent="//@targetModels.0/@elements.0/@elements.2">
+    <source name="Mother" ref="//Mother" model="//@sourceModels.0"/>
+    <target name="Female" ref="//Female" model="//@targetModels.0">
       <ManyToOne typeRelation="Concatenation" typeElement="EAttribute">
-        <target name="fullName" modelComponent="//@targetModels.0/@elements.0/@elements.0/@features.0"/>
-        <source name="firstName" modelComponent="//@sourceModels.0/@elements.0/@elements.1/@features.0"/>
-        <source name="familyMother" modelComponent="//@sourceModels.0/@elements.0/@elements.3/@features.0"/>
+        <target name="fullName" ref="//Person/fullName" model="//@targetModels.0"/>
+        <source name="firstName" ref="//Member/firstName" model="//@sourceModels.0"/>
+        <source name="familyMother" ref="//Mother/familyMother" model="//@sourceModels.0"/>
       </ManyToOne>
     </target>
   </relations>
   <relations xsi:type="metagem:OneToOne">
-    <source name="Son" modelComponent="//@sourceModels.0/@elements.0/@elements.4"/>
-    <target name="Male" modelComponent="//@targetModels.0/@elements.0/@elements.1">
+    <source name="Son" ref="//Son" model="//@sourceModels.0"/>
+    <target name="Male" ref="//Male" model="//@targetModels.0">
       <ManyToOne typeRelation="Concatenation" typeElement="EAttribute">
-        <target name="fullName" modelComponent="//@targetModels.0/@elements.0/@elements.0/@features.0"/>
-        <source name="firstName" modelComponent="//@sourceModels.0/@elements.0/@elements.1/@features.0"/>
-        <source name="familySon" modelComponent="//@sourceModels.0/@elements.0/@elements.4/@features.0"/>
+        <target name="fullName" ref="//Person/fullName" model="//@targetModels.0"/>
+        <source name="firstName" ref="//Member/firstName" model="//@sourceModels.0"/>
+        <source name="familySon" ref="//Son/familySon" model="//@sourceModels.0"/>
       </ManyToOne>
     </target>
   </relations>
   <relations xsi:type="metagem:OneToOne">
-    <source name="Daughter" modelComponent="//@sourceModels.0/@elements.0/@elements.5"/>
-    <target name="Female" modelComponent="//@targetModels.0/@elements.0/@elements.2">
+    <source name="Daughter" ref="//Daughter" model="//@sourceModels.0"/>
+    <target name="Female" ref="//Female" model="//@targetModels.0">
       <ManyToOne typeRelation="Concatenation" typeElement="EAttribute">
-        <target name="fullName" modelComponent="//@targetModels.0/@elements.0/@elements.0/@features.0"/>
-        <source name="firstName" modelComponent="//@sourceModels.0/@elements.0/@elements.1/@features.0"/>
-        <source name="familyDaughter" modelComponent="//@sourceModels.0/@elements.0/@elements.5/@features.0"/>
+        <target name="fullName" ref="//Person/fullName" model="//@targetModels.0"/>
+        <source name="firstName" ref="//Member/firstName" model="//@sourceModels.0"/>
+        <source name="familyDaughter" ref="//Daughter/familyDaughter" model="//@sourceModels.0"/>
       </ManyToOne>
     </target>
   </relations>
