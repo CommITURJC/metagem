@@ -10,32 +10,34 @@ rule Father_2_Male {
   male_out : Persons!Male (
    fullName <- father_in.getFatherName()
   ),
-  Father_2_Male : TRACE!TraceLink (
+  Father_2_Male_TL1 : TRACE!TraceLink (
    name <- 'Father_2_Male',
    traceModel <- thisModule.getTraceModelRoot,
    operation <- #Transform,
-   source <- Sequence {father_in_Trace},
-   target <- Sequence {male_out_Trace},
-   childLinks <- Sequence {R8}
+   source <- Sequence {father_in_Trace_TE1},
+   target <- Sequence {male_out_Trace_TE11},
+   childLinks <- Sequence {R8_TL5}
   ),
-  R8 : TRACE!TraceLink (
+  R8_TL5 : TRACE!TraceLink (
    name <- 'R8',
    operation <- #Create,
    source <- Sequence {},
-   target <- Sequence {fullname_out_Trace}
+   target <- Sequence {fullname_out_Trace_TE15}
   ),
-  father_in_Trace : TRACE!SourceElement (
+  father_in_Trace_TE1 : TRACE!SourceElement (
    name <- father_in.getName(),
    ref <- father_in.__xmiID__,
-   elementModel <- thisModule.create_Father_component(father_in)
+   model <- thisModule.getModel_Families_model
   ),
-  male_out_Trace : TRACE!TargetElement (
+  male_out_Trace_TE11 : TRACE!TargetElement (
    name <- male_out.getName(),
    ref <- male_out.__xmiID__,
-   elementModel <- thisModule.create_Male_component(male_out)
+   model <- thisModule.getModel_Persons_model
   ),
-  fullname_out_Trace : TRACE!TargetElement (
-   name <- male_out.fullName
+  fullname_out_Trace_TE15 : TRACE!TargetElement (
+   name <- male_out.fullName.toString() + '(Feature: fullname)',
+   belongsTo <- male_out_Trace_TE11,
+   model <- thisModule.getModel_Persons_model
   )
  -- ActionBlock: 
  do {
@@ -49,40 +51,46 @@ rule Mother_2_Female {
   mother_in : Families!Mother
  to
   female_out : Persons!Female (
-   fullName <- mother_in.firstName
+   fullName <- mother_in.firstName + mother_in.familyMother.lastName
   ),
-  Mother_2_Female : TRACE!TraceLink (
+  Mother_2_Female_TL2 : TRACE!TraceLink (
    name <- 'Mother_2_Female',
    traceModel <- thisModule.getTraceModelRoot,
    operation <- #Transform,
-   source <- Sequence {mother_in_Trace},
-   target <- Sequence {female_out_Trace},
-   childLinks <- Sequence {firstName_2_fullName}
+   source <- Sequence {mother_in_Trace_TE2},
+   target <- Sequence {female_out_Trace_TE12},
+   childLinks <- Sequence {firstName_2_fullName_TL6}
   ),
-  firstName_2_fullName : TRACE!TraceLink (
+  firstName_2_fullName_TL6 : TRACE!TraceLink (
    name <- 'firstName_2_fullName',
    operation <- #Transform,
-   source <- Sequence {firstname_in_Trace, "familymother.lastname_in_Trace"},
-   target <- Sequence {fullname_out_Trace}
+   source <- Sequence {firstname_in_Trace_TE5, "familymother.lastname_in_Trace_TE6"},
+   target <- Sequence {fullname_out_Trace_TE16}
   ),
-  mother_in_Trace : TRACE!SourceElement (
+  mother_in_Trace_TE2 : TRACE!SourceElement (
    name <- mother_in.getName(),
    ref <- mother_in.__xmiID__,
-   elementModel <- thisModule.create_Mother_component(mother_in)
+   model <- thisModule.getModel_Families_model
   ),
-  firstname_in_Trace : TRACE!SourceElement (
-   name <- mother_in.firstName
+  firstname_in_Trace_TE5 : TRACE!SourceElement (
+   name <- mother_in.firstName.toString() + '(Feature: firstname)',
+   belongsTo <- mother_in_Trace_TE2,
+   model <- thisModule.getModel_Families_model
   ),
-  "familymother.lastname_in_Trace" : TRACE!SourceElement (
-   name <- mother_in.familyMother.lastName
+  "familymother.lastname_in_Trace_TE6" : TRACE!SourceElement (
+   name <- mother_in.familyMother.lastName.toString() + '(Feature: familymother.lastname)',
+   belongsTo <- mother_in_Trace_TE2,
+   model <- thisModule.getModel_Families_model
   ),
-  female_out_Trace : TRACE!TargetElement (
+  female_out_Trace_TE12 : TRACE!TargetElement (
    name <- female_out.getName(),
    ref <- female_out.__xmiID__,
-   elementModel <- thisModule.create_Female_component(female_out)
+   model <- thisModule.getModel_Persons_model
   ),
-  fullname_out_Trace : TRACE!TargetElement (
-   name <- female_out.fullName
+  fullname_out_Trace_TE16 : TRACE!TargetElement (
+   name <- female_out.fullName.toString() + '(Feature: fullname)',
+   belongsTo <- female_out_Trace_TE12,
+   model <- thisModule.getModel_Persons_model
   )
  -- ActionBlock: 
  do {
@@ -96,40 +104,46 @@ rule Son_2_Male {
   son_in : Families!Son
  to
   male_out : Persons!Male (
-   fullName <- son_in.firstName
+   fullName <- son_in.firstName + son_in.familySon.lastName
   ),
-  Son_2_Male : TRACE!TraceLink (
+  Son_2_Male_TL3 : TRACE!TraceLink (
    name <- 'Son_2_Male',
    traceModel <- thisModule.getTraceModelRoot,
    operation <- #Transform,
-   source <- Sequence {son_in_Trace},
-   target <- Sequence {male_out_Trace},
-   childLinks <- Sequence {firstName_2_fullName}
+   source <- Sequence {son_in_Trace_TE3},
+   target <- Sequence {male_out_Trace_TE13},
+   childLinks <- Sequence {firstName_2_fullName_TL7}
   ),
-  firstName_2_fullName : TRACE!TraceLink (
+  firstName_2_fullName_TL7 : TRACE!TraceLink (
    name <- 'firstName_2_fullName',
    operation <- #Transform,
-   source <- Sequence {firstname_in_Trace, "familyson.lastname_in_Trace"},
-   target <- Sequence {fullname_out_Trace}
+   source <- Sequence {firstname_in_Trace_TE7, "familyson.lastname_in_Trace_TE8"},
+   target <- Sequence {fullname_out_Trace_TE17}
   ),
-  son_in_Trace : TRACE!SourceElement (
+  son_in_Trace_TE3 : TRACE!SourceElement (
    name <- son_in.getName(),
    ref <- son_in.__xmiID__,
-   elementModel <- thisModule.create_Son_component(son_in)
+   model <- thisModule.getModel_Families_model
   ),
-  firstname_in_Trace : TRACE!SourceElement (
-   name <- son_in.firstName
+  firstname_in_Trace_TE7 : TRACE!SourceElement (
+   name <- son_in.firstName.toString() + '(Feature: firstname)',
+   belongsTo <- son_in_Trace_TE3,
+   model <- thisModule.getModel_Families_model
   ),
-  "familyson.lastname_in_Trace" : TRACE!SourceElement (
-   name <- son_in.familySon.lastName
+  "familyson.lastname_in_Trace_TE8" : TRACE!SourceElement (
+   name <- son_in.familySon.lastName.toString() + '(Feature: familyson.lastname)',
+   belongsTo <- son_in_Trace_TE3,
+   model <- thisModule.getModel_Families_model
   ),
-  male_out_Trace : TRACE!TargetElement (
+  male_out_Trace_TE13 : TRACE!TargetElement (
    name <- male_out.getName(),
    ref <- male_out.__xmiID__,
-   elementModel <- thisModule.create_Male_component(male_out)
+   model <- thisModule.getModel_Persons_model
   ),
-  fullname_out_Trace : TRACE!TargetElement (
-   name <- male_out.fullName
+  fullname_out_Trace_TE17 : TRACE!TargetElement (
+   name <- male_out.fullName.toString() + '(Feature: fullname)',
+   belongsTo <- male_out_Trace_TE13,
+   model <- thisModule.getModel_Persons_model
   )
  -- ActionBlock: 
  do {
@@ -143,40 +157,46 @@ rule Daughter_2_Female {
   daughter_in : Families!Daughter
  to
   female_out : Persons!Female (
-   fullName <- daughter_in.firstName
+   fullName <- daughter_in.firstName + daughter_in.familyDaughter.lastName
   ),
-  Daughter_2_Female : TRACE!TraceLink (
+  Daughter_2_Female_TL4 : TRACE!TraceLink (
    name <- 'Daughter_2_Female',
    traceModel <- thisModule.getTraceModelRoot,
    operation <- #Transform,
-   source <- Sequence {daughter_in_Trace},
-   target <- Sequence {female_out_Trace},
-   childLinks <- Sequence {firstName_2_fullName}
+   source <- Sequence {daughter_in_Trace_TE4},
+   target <- Sequence {female_out_Trace_TE14},
+   childLinks <- Sequence {firstName_2_fullName_TL8}
   ),
-  firstName_2_fullName : TRACE!TraceLink (
+  firstName_2_fullName_TL8 : TRACE!TraceLink (
    name <- 'firstName_2_fullName',
    operation <- #Transform,
-   source <- Sequence {firstname_in_Trace, "familydaughter.lastname_in_Trace"},
-   target <- Sequence {fullname_out_Trace}
+   source <- Sequence {firstname_in_Trace_TE9, "familydaughter.lastname_in_Trace_TE10"},
+   target <- Sequence {fullname_out_Trace_TE18}
   ),
-  daughter_in_Trace : TRACE!SourceElement (
+  daughter_in_Trace_TE4 : TRACE!SourceElement (
    name <- daughter_in.getName(),
    ref <- daughter_in.__xmiID__,
-   elementModel <- thisModule.create_Daughter_component(daughter_in)
+   model <- thisModule.getModel_Families_model
   ),
-  firstname_in_Trace : TRACE!SourceElement (
-   name <- daughter_in.firstName
+  firstname_in_Trace_TE9 : TRACE!SourceElement (
+   name <- daughter_in.firstName.toString() + '(Feature: firstname)',
+   belongsTo <- daughter_in_Trace_TE4,
+   model <- thisModule.getModel_Families_model
   ),
-  "familydaughter.lastname_in_Trace" : TRACE!SourceElement (
-   name <- daughter_in.familyDaughter.lastName
+  "familydaughter.lastname_in_Trace_TE10" : TRACE!SourceElement (
+   name <- daughter_in.familyDaughter.lastName.toString() + '(Feature: familydaughter.lastname)',
+   belongsTo <- daughter_in_Trace_TE4,
+   model <- thisModule.getModel_Families_model
   ),
-  female_out_Trace : TRACE!TargetElement (
+  female_out_Trace_TE14 : TRACE!TargetElement (
    name <- female_out.getName(),
    ref <- female_out.__xmiID__,
-   elementModel <- thisModule.create_Female_component(female_out)
+   model <- thisModule.getModel_Persons_model
   ),
-  fullname_out_Trace : TRACE!TargetElement (
-   name <- female_out.fullName
+  fullname_out_Trace_TE18 : TRACE!TargetElement (
+   name <- female_out.fullName.toString() + '(Feature: fullname)',
+   belongsTo <- female_out_Trace_TE14,
+   model <- thisModule.getModel_Persons_model
   )
  -- ActionBlock: 
  do {
@@ -213,11 +233,11 @@ helper context OclAny def: getName() : String =
    if self.oclIsTypeOf(String) then
     self
    else
-    if not self.eClass().getEAllStructuralFeatures()->collect(n |
+    if self.eClass().getEAllStructuralFeatures()->collect(n |
      n.name
     )->select(f |
      f.toLower().indexOf('name') > - 1
-    ).oclIsUndefined() then
+    ).size()>0 then
      self.refGetValue(self.eClass().getEAllStructuralFeatures()->collect(n |
       n.name
      )->select(f |
@@ -272,193 +292,3 @@ rule createTargetModel_c2_Persons() {
 helper context Families!Father def: getFatherName() : String =
  self.firstName + ' ' + self.familyFather.lastName;
 
--- Comments -> This is a LazyRule to generate the Families element in the trace model
-unique lazy rule create_Families_component {
- from
-  families_in : Families!Families
- to
-  families_out : TRACE!Element (
-   name <- families_in.getName(),
-   ref <- families_in.__xmiID__,
-   model <- thisModule.getModel_Families_model
-  )
-}
-
--- Comments -> This is a LazyRule to generate the Family element in the trace model
-unique lazy rule create_Family_component {
- from
-  family_in : Families!Family
- to
-  family_out : TRACE!Element (
-   name <- family_in.getName(),
-   ref <- family_in.__xmiID__,
-   model <- thisModule.getModel_Families_model
-  ),
-  lastname_out : TRACE!Feature (
-   name <- family_in.lastName.getName(),
-   ref <- family_out.__xmiID__,
-   parent <- family_out
-  ),
-  father_out : TRACE!Feature (
-   name <- family_in.father.getName(),
-   ref <- family_out.__xmiID__,
-   parent <- family_out
-  ),
-  mother_out : TRACE!Feature (
-   name <- family_in.mother.getName(),
-   ref <- family_out.__xmiID__,
-   parent <- family_out
-  ),
-  sons_out : TRACE!Feature (
-   name <- family_in.sons.getName(),
-   ref <- family_out.__xmiID__,
-   parent <- family_out
-  ),
-  daughters_out : TRACE!Feature (
-   name <- family_in.daughters.getName(),
-   ref <- family_out.__xmiID__,
-   parent <- family_out
-  )
-}
-
--- Comments -> This is a LazyRule to generate the Member element in the trace model
-unique lazy rule create_Member_component {
- from
-  member_in : Families!Member
- to
-  member_out : TRACE!Element (
-   name <- member_in.getName(),
-   ref <- member_in.__xmiID__,
-   model <- thisModule.getModel_Families_model
-  ),
-  firstname_out : TRACE!Feature (
-   name <- member_in.firstName.getName(),
-   ref <- member_out.__xmiID__,
-   parent <- member_out
-  )
-}
-
--- Comments -> This is a LazyRule to generate the Father element in the trace model
-unique lazy rule create_Father_component {
- from
-  father_in : Families!Father
- to
-  father_out : TRACE!Element (
-   name <- father_in.getName(),
-   ref <- father_in.__xmiID__,
-   model <- thisModule.getModel_Families_model,
-   super_element <- thisModule.create_Family_component(father_in.refImmediateComposite())
-  ),
-  familyfather_out : TRACE!Feature (
-   name <- father_in.familyFather.getName(),
-   ref <- father_out.__xmiID__,
-   parent <- father_out
-  )
-}
-
--- Comments -> This is a LazyRule to generate the Mother element in the trace model
-unique lazy rule create_Mother_component {
- from
-  mother_in : Families!Mother
- to
-  mother_out : TRACE!Element (
-   name <- mother_in.getName(),
-   ref <- mother_in.__xmiID__,
-   model <- thisModule.getModel_Families_model,
-   super_element <- thisModule.create_Family_component(mother_in.refImmediateComposite())
-  ),
-  familymother_out : TRACE!Feature (
-   name <- mother_in.familyMother.getName(),
-   ref <- mother_out.__xmiID__,
-   parent <- mother_out
-  )
-}
-
--- Comments -> This is a LazyRule to generate the Son element in the trace model
-unique lazy rule create_Son_component {
- from
-  son_in : Families!Son
- to
-  son_out : TRACE!Element (
-   name <- son_in.getName(),
-   ref <- son_in.__xmiID__,
-   model <- thisModule.getModel_Families_model,
-   super_element <- thisModule.create_Family_component(son_in.refImmediateComposite())
-  ),
-  familyson_out : TRACE!Feature (
-   name <- son_in.familySon.getName(),
-   ref <- son_out.__xmiID__,
-   parent <- son_out
-  )
-}
-
--- Comments -> This is a LazyRule to generate the Daughter element in the trace model
-unique lazy rule create_Daughter_component {
- from
-  daughter_in : Families!Daughter
- to
-  daughter_out : TRACE!Element (
-   name <- daughter_in.getName(),
-   ref <- daughter_in.__xmiID__,
-   model <- thisModule.getModel_Families_model,
-   super_element <- thisModule.create_Family_component(daughter_in.refImmediateComposite())
-  ),
-  familydaughter_out : TRACE!Feature (
-   name <- daughter_in.familyDaughter.getName(),
-   ref <- daughter_out.__xmiID__,
-   parent <- daughter_out
-  )
-}
-
--- Comments -> This is a LazyRule to generate the Persons element in the trace model
-unique lazy rule create_Persons_component {
- from
-  persons_in : Persons!Persons
- to
-  persons_out : TRACE!Element (
-   name <- persons_in.getName(),
-   ref <- persons_in.__xmiID__,
-   model <- thisModule.getModel_Persons_model
-  )
-}
-
--- Comments -> This is a LazyRule to generate the Person element in the trace model
-unique lazy rule create_Person_component {
- from
-  person_in : Persons!Person
- to
-  person_out : TRACE!Element (
-   name <- person_in.getName(),
-   ref <- person_in.__xmiID__,
-   model <- thisModule.getModel_Persons_model
-  ),
-  fullname_out : TRACE!Feature (
-   name <- person_in.fullName.getName(),
-   ref <- person_out.__xmiID__,
-   parent <- person_out
-  )
-}
-
--- Comments -> This is a LazyRule to generate the Male element in the trace model
-unique lazy rule create_Male_component {
- from
-  male_in : Persons!Male
- to
-  male_out : TRACE!Element (
-   name <- male_in.getName(),
-   ref <- male_in.__xmiID__,
-   model <- thisModule.getModel_Persons_model
-  )
-}
-
--- Comments -> This is a LazyRule to generate the Female element in the trace model
-unique lazy rule create_Female_component {
- from
-  female_in : Persons!Female
- to
-  female_out : TRACE!Element (
-   name <- female_in.getName(),
-   ref <- female_in.__xmiID__,
-   model <- thisModule.getModel_Persons_model
-  )
-}

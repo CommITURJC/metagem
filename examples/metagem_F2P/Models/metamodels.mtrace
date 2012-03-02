@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Traceability:TraceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Traceability="org.eclipse.kybele.Traceability">
+  <traceLinks>
+    <source name="Father" ref="//Father"/>
+    <target name="Male" ref="//Male"/>
+    <childLinks>
+      <source name="lastName" ref="//Family/lastName"/>
+      <target name="fullName"/>
+    </childLinks>
+  </traceLinks>
+  <traceLinks>
+    <source/>
+  </traceLinks>
+  <sourceModels name="in" path="/metagem_F2P/Metamodels/Families.ecore"/>
+  <targetModels name="out" path="/metagem_F2P/Metamodels/Persons.ecore"/>
+</Traceability:TraceModel>
