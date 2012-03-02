@@ -46,7 +46,7 @@ rule createTargetModel{
 	}
 }
 
-abstract rule createRule{
+ rule createRule{
 	from 
 		r: Hybrid!Rule(r.sources.size()=1 and r.targets.size()>0)
 	to
@@ -54,6 +54,7 @@ abstract rule createRule{
 			name <- r.name,
 			isAbstract <- r.isAbstract,
 			"extends" <- r."extends",
+			"lazy" <- not r.isMain,
 			guard <- r.guard,
 			source <- r.sources.first(),
 			targets <- r.targets.append(thisModule.resolveTemp(r.trace,'trace_as_element')).append(
@@ -62,23 +63,23 @@ abstract rule createRule{
 		)
 }
 
-rule createRule_main extends createRule{
-	from
-		r: Hybrid!Rule (r.isMain=true)
-	to 
-		etl_r: ETL!TransformationRule(
-			"lazy" <- false
-		)
-}
-
-rule createRule_lazy extends createRule{
-	from
-		r: Hybrid!Rule (r.isMain=false)
-	to 
-		etl_r: ETL!TransformationRule(
-			"lazy" <- true
-		)
-}
+--rule createRule_main extends createRule{
+--	from
+--		r: Hybrid!Rule (r.isMain=true)
+--	to 
+--		etl_r: ETL!TransformationRule(
+--			"lazy" <- false
+--		)
+--}
+--
+--rule createRule_lazy extends createRule{
+--	from
+--		r: Hybrid!Rule (r.isMain=false)
+--	to 
+--		etl_r: ETL!TransformationRule(
+--			"lazy" <- true
+--		)
+--}
 
 rule Binding {
 	from
