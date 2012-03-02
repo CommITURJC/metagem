@@ -13,7 +13,7 @@
    <extension point="org.eclipse.ui.newWizards">
       <category
             id="org.eclipse.kybele.metagem.Wizard.category.ID"
-            name="MeTAGeM"/>
+            name="MeTAGeM-Trace"/>
       <wizard
             id="metagem.presentation.MetagemModelWizardID"
             name="%_UI_MetagemModelWizard_label"
