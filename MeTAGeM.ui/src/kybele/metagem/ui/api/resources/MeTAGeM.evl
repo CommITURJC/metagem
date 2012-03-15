@@ -106,7 +106,7 @@ context Relations{
 	
 	--Relations only can extends abstract relations
 	constraint superRelations{
-		check: self.`extends`->select(r|r.isKindOf(Relations))->forAll(r2|r2.typeRelation=TRole#IsAbstract)
+		check: self.`extends`->select(r|r.isKindOf(Relations))->forAll(r2|r2.role==TRole#IsAbstract)
 		message: 'Relation \''+self.type().name.asString() +'\' only can extends abstract relations'
 	}
 	
