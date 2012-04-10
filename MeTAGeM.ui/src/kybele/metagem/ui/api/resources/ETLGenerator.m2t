@@ -5,8 +5,8 @@
  * description: 
  */
 
-texttransformation ETLGenerator (in eco:"http://org.eclipse.kybele.metagem.ETL") {
-
+texttransformation ETLGenerator 
+(in eco:"http://org.eclipse.kybele.metagem.ETL") {
   eco.EtlModule::main () {
      var name:String
      
