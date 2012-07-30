@@ -1,0 +1,100 @@
+-- @atlcompiler atl2006
+module class2relational;
+create Relational_model : Relational from Class_model : Class;
+
+--uses strings; --mod
+
+-- Comments -> This is a MatchedRule: class2table -> 
+rule class2table {
+  from
+    class_in : Class!Class
+  to
+    table_out : Relational!Table ( 
+      name <- class_in.name,
+      col <- Sequence{column_out}->union(class_in.attr->select(e| not e.multiValued)), --mod
+      key <- Set{column_out} --mod
+    ),
+    column_out : Relational!Column (
+      name <- 'objectId', --mod
+      type <- thisModule.objectIdType --mod
+    )
+}
+
+-- Comments -> This is a MatchedRule: DataType2Type -> 
+rule DataType2Type {
+  from
+    class_in : Class!DataType
+  to
+    type_out : Relational!Type (
+      name <- class_in.name
+    )
+}
+
+-- Comments -> This is a MatchedRule: DataTypeAttribute2Column -> 
+rule DataTypeAttribute2Column {
+  from
+    attribute_in : Class!Attribute
+    (attribute_in.type.oclIsKindOf(Class!DataType) and not attribute_in.multiValued)--mod
+  to
+    column_out : Relational!Column (
+      name <- attribute_in.name,
+      type <- attribute_in.type
+    )
+}
+
+-- Comments -> This is a MatchedRule: MultivaluedDataTypeAttribute2Column -> 
+rule MultivaluedDataTypeAttribute2Column {
+  from
+    attribute_in : Class!Attribute
+    (attribute_in.type.oclIsKindOf(Class!DataType) and attribute_in.multiValued) --mod
+  to
+    table_out : Relational!Table (
+      name <- attribute_in.owner.name + '_' + attribute_in.name, --mod
+      col <- Sequence{column_out,column_out2} --mod
+    ),
+    column_out : Relational!Column (
+      name <- attribute_in.owner.name.toLower() + 'Id', --mod
+      type <- thisModule.objectIdType --mod
+    ),
+    column_out2 : Relational!Column ( --mod
+      name <- attribute_in.name, 
+      type <- attribute_in.type
+    )
+}
+
+-- Comments -> This is a MatchedRule: ClassAttribute2Column -> 
+rule ClassAttribute2Column {
+  from
+    attribute_in : Class!Attribute
+    (attribute_in.type.oclIsKindOf(Class!Class) and not attribute_in.multiValued) --mod
+  to
+    column_out : Relational!Column (
+      name <- attribute_in.name + 'Id', --mod
+      type <- thisModule.objectIdType --mod
+    )
+}
+
+-- Comments -> This is a MatchedRule: MultiValuedClassAttribute2Column -> 
+rule MultiValuedClassAttribute2Column {
+  from
+    attribute_in : Class!Attribute
+    (attribute_in.type.oclIsKindOf(Class!Class) and attribute_in.multiValued) --mod
+  to
+    table_out : Relational!Table (
+      name <- attribute_in.owner.name+ '_' + attribute_in.name, --mod
+      col <- Sequence{column_out, column_out2} --mod
+    ),
+    column_out : Relational!Column (
+      name <- attribute_in.owner.name.toLower() + 'Id', --mod
+      type <- thisModule.objectIdType --mod
+    ),
+    column_out2 : Relational!Column ( --mod
+      name <- attribute_in.name + 'Id', --mod
+      type <- thisModule.objectIdType --mod
+    )
+}
+
+-- Comments -> This is a Helper: objectIdType
+helper def: objectIdType : Relational!Type = --mod
+  Class!DataType.allInstances()->select(e|e.name='Integer')->first(); -- Body: operation body --mod
+

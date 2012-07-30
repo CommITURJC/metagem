@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mmw_metagem" xmi:id="ModelRoot1" name="class2relational">
+  <inputModel xmi:id="InModelTransf1" name="Class" ref="/class2relational_meta/Metamodels/Class.ecore">
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Class" ref="/0/Class"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_name" ref="/0/NamedElt/name"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Attribute" ref="/0/Attribute"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_type" ref="/0/Attribute/type"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_DataType" ref="/0/DataType"/>
+  </inputModel>
+  <outputModel xmi:id="OutModelTransf1" name="Relational" ref="/class2relational_meta/Metamodels/Relational.ecore">
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Table" ref="/0/Table"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_name" ref="/0/Named/name"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_col" ref="/0/Table/col"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_key" ref="/0/Table/key"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Column" ref="/0/Column"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_type" ref="/0/Column/type"/>
+    <ownedElementRef xsi:type="TransformationElementRef" name="ref_Type" ref="/0/Type"/>
+  </outputModel>
+  <relations xsi:type="OneToMany" xmi:id="OneToMany1" name="class2table">
+    <source xmi:id="InElement1" name="Class" element="//@inputModel.0/@ownedElementRef.0"/>
+    <target xmi:id="OutElement1" name="Table" element="//@outputModel.0/@ownedElementRef.0">
+      <onetoOne xmi:id="OneToOne2">
+        <source xmi:id="InElement2" name="name" element="//@inputModel.0/@ownedElementRef.1"/>
+        <target xmi:id="OutElement2" name="name" element="//@outputModel.0/@ownedElementRef.1"/>
+      </onetoOne>
+      <zerotoOne xmi:id="ZeroToOne1">
+        <target name="col" element="//@outputModel.0/@ownedElementRef.2"/>
+      </zerotoOne>
+      <zerotoOne xmi:id="ZeroToOne2">
+        <target name="key" element="//@outputModel.0/@ownedElementRef.3"/>
+      </zerotoOne>
+    </target>
+    <target xmi:id="OutElement3" name="Column" element="//@outputModel.0/@ownedElementRef.4">
+      <zerotoOne xmi:id="ZeroToOne3">
+        <target name="name" element="//@outputModel.0/@ownedElementRef.1"/>
+      </zerotoOne>
+      <zerotoOne xmi:id="ZeroToOne4">
+        <target name="type" element="//@outputModel.0/@ownedElementRef.5"/>
+      </zerotoOne>
+    </target>
+  </relations>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne1" name="DataType2Type">
+    <source xmi:id="InElement3" name="DataType" element="//@inputModel.0/@ownedElementRef.4"/>
+    <target xmi:id="OutElement4" name="Type" element="//@outputModel.0/@ownedElementRef.6">
+      <onetoOne xmi:id="OneToOne3">
+        <source xmi:id="InElement4" name="name" element="//@inputModel.0/@ownedElementRef.1"/>
+        <target xmi:id="OutElement5" name="name" element="//@outputModel.0/@ownedElementRef.1"/>
+      </onetoOne>
+    </target>
+  </relations>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne4" name="DataTypeAttribute2Column">
+    <source xmi:id="InElement5" name="Attribute" element="//@inputModel.0/@ownedElementRef.2"/>
+    <target xmi:id="OutElement6" name="Column" element="//@outputModel.0/@ownedElementRef.4">
+      <onetoOne xmi:id="OneToOne5">
+        <source xmi:id="InElement6" name="name" element="//@inputModel.0/@ownedElementRef.1"/>
+        <target xmi:id="OutElement7" name="name" element="//@outputModel.0/@ownedElementRef.1"/>
+      </onetoOne>
+      <onetoOne xmi:id="OneToOne6">
+        <source xmi:id="InElement7" name="type" element="//@inputModel.0/@ownedElementRef.3"/>
+        <target xmi:id="OutElement8" name="type" element="//@outputModel.0/@ownedElementRef.5"/>
+      </onetoOne>
+    </target>
+  </relations>
+  <relations xsi:type="OneToMany" xmi:id="OneToMany2" name="MultivaluedDataTypeAttribute2Column">
+    <source xmi:id="InElement8" name="Attribute" element="//@inputModel.0/@ownedElementRef.2"/>
+    <target xmi:id="OutElement9" name="Table" element="//@outputModel.0/@ownedElementRef.0">
+      <onetoOne xmi:id="OneToOne7">
+        <source xmi:id="InElement9" name="name" element="//@inputModel.0/@ownedElementRef.1"/>
+        <target xmi:id="OutElement12" name="name" element="//@outputModel.0/@ownedElementRef.1"/>
+      </onetoOne>
+      <zerotoOne xmi:id="ZeroToOne5">
+        <target name="col" element="//@outputModel.0/@ownedElementRef.2"/>
+      </zerotoOne>
+    </target>
+    <target xmi:id="OutElement10" name="Column" element="//@outputModel.0/@ownedElementRef.4">
+      <onetoOne xmi:id="OneToOne8">
+        <source xmi:id="InElement10" name="name" element="//@inputModel.0/@ownedElementRef.1"/>
+        <target xmi:id="OutElement13" name="name" element="//@outputModel.0/@ownedElementRef.1"/>
+      </onetoOne>
+      <zerotoOne xmi:id="ZeroToOne6">
+        <target name="type" element="//@outputModel.0/@ownedElementRef.5"/>
+      </zerotoOne>
+    </target>
+    <target xmi:id="OutElement11" name="Column" element="//@outputModel.0/@ownedElementRef.4">
+      <onetoOne xmi:id="OneToOne9">
+        <source xmi:id="InElement11" name="name" element="//@inputModel.0/@ownedElementRef.1"/>
+        <target xmi:id="OutElement14" name="name" element="//@outputModel.0/@ownedElementRef.1"/>
+      </onetoOne>
+      <onetoOne xmi:id="OneToOne15">
+        <source xmi:id="InElement18" name="type" element="//@inputModel.0/@ownedElementRef.3"/>
+        <target xmi:id="OutElement23" name="type" element="//@outputModel.0/@ownedElementRef.5"/>
+      </onetoOne>
+    </target>
+  </relations>
+  <relations xsi:type="OneToOne" xmi:id="OneToOne10" name="ClassAttribute2Column">
+    <source xmi:id="InElement12" name="Attribute" element="//@inputModel.0/@ownedElementRef.2"/>
+    <target xmi:id="OutElement15" name="Column" element="//@outputModel.0/@ownedElementRef.4">
+      <onetoOne xmi:id="OneToOne11">
+        <source xmi:id="InElement13" name="name" element="//@inputModel.0/@ownedElementRef.1"/>
+        <target xmi:id="OutElement16" name="name" element="//@outputModel.0/@ownedElementRef.1"/>
+      </onetoOne>
+      <zerotoOne xmi:id="ZeroToOne8">
+        <target name="type" element="//@outputModel.0/@ownedElementRef.5"/>
+      </zerotoOne>
+    </target>
+  </relations>
+  <relations xsi:type="OneToMany" xmi:id="OneToMany3" name="MultiValuedClassAttribute2Column">
+    <source xmi:id="InElement14" name="Attribute" element="//@inputModel.0/@ownedElementRef.2"/>
+    <target xmi:id="OutElement17" name="Table" element="//@outputModel.0/@ownedElementRef.0">
+      <onetoOne xmi:id="OneToOne12">
+        <source xmi:id="InElement15" name="name" element="//@inputModel.0/@ownedElementRef.1"/>
+        <target xmi:id="OutElement20" name="name" element="//@outputModel.0/@ownedElementRef.1"/>
+      </onetoOne>
+      <zerotoOne xmi:id="ZeroToOne9">
+        <target name="col" element="//@outputModel.0/@ownedElementRef.2"/>
+      </zerotoOne>
+    </target>
+    <target xmi:id="OutElement18" name="Column" element="//@outputModel.0/@ownedElementRef.4">
+      <onetoOne xmi:id="OneToOne13">
+        <source xmi:id="InElement16" name="name" element="//@inputModel.0/@ownedElementRef.1"/>
+        <target xmi:id="OutElement21" name="name" element="//@outputModel.0/@ownedElementRef.1"/>
+      </onetoOne>
+      <zerotoOne xmi:id="ZeroToOne10">
+        <target name="type" element="//@outputModel.0/@ownedElementRef.5"/>
+      </zerotoOne>
+    </target>
+    <target xmi:id="OutElement19" name="Column" element="//@outputModel.0/@ownedElementRef.4">
+      <onetoOne xmi:id="OneToOne14">
+        <source xmi:id="InElement17" name="name" element="//@inputModel.0/@ownedElementRef.1"/>
+        <target xmi:id="OutElement22" name="name" element="//@outputModel.0/@ownedElementRef.1"/>
+      </onetoOne>
+      <zerotoOne xmi:id="ZeroToOne11">
+        <target name="type" element="//@outputModel.0/@ownedElementRef.5"/>
+      </zerotoOne>
+    </target>
+  </relations>
+</ModelRoot>

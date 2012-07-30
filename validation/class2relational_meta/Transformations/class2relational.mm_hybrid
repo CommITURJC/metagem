@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mm_hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mm_hybrid="http:///MM_Hybrid.ecore" name_module="class2relational">
+  <rule name_rule="class2table">
+    <in name_element="Class" metamodel="//@inMM.0"/>
+    <out name_element="Table" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="name_2_name_rightPattern">
+          <sourceElement name_element="name" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="name_2_name_leftPattern">
+          <targetElement name_element="name" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+      <included>
+        <right name_pattern="R18_rightPattern" concreteValue="Sequence"/>
+        <left name_pattern="R18_leftPattern">
+          <targetElement name_element="col" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+      <included>
+        <right name_pattern="R19_rightPattern" concreteValue="Set"/>
+        <left name_pattern="R19_leftPattern">
+          <targetElement name_element="key" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+    <out name_element="Column" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="R20_rightPattern" concreteValue="objectId"/>
+        <left name_pattern="R20_leftPattern">
+          <targetElement name_element="name" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+      <included>
+        <right operation="//@operations.0" name_pattern="R21_rightPattern"/>
+        <left name_pattern="R21_leftPattern">
+          <targetElement name_element="type" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="DataType2Type">
+    <in name_element="DataType" metamodel="//@inMM.0"/>
+    <out name_element="Type" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="name_2_name_rightPattern">
+          <sourceElement name_element="name" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="name_2_name_leftPattern">
+          <targetElement name_element="name" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="DataTypeAttribute2Column">
+    <in name_element="Attribute" metamodel="//@inMM.0">
+      <guard value="guard code"/>
+    </in>
+    <out name_element="Column" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="name_2_name_rightPattern">
+          <sourceElement name_element="name" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="name_2_name_leftPattern">
+          <targetElement name_element="name" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+      <included>
+        <right name_pattern="type_2_type_rightPattern">
+          <sourceElement name_element="type" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="type_2_type_leftPattern">
+          <targetElement name_element="type" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="MultivaluedDataTypeAttribute2Column">
+    <in name_element="Attribute" metamodel="//@inMM.0">
+      <guard value="Guard code"/>
+    </in>
+    <out name_element="Table" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="name_2_name_rightPattern">
+          <sourceElement name_element="name" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="name_2_name_leftPattern">
+          <targetElement name_element="name" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+      <included>
+        <right name_pattern="R22_rightPattern" concreteValue="Sequence"/>
+        <left name_pattern="R22_leftPattern">
+          <targetElement name_element="col" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+    <out name_element="Column" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="name_2_name_rightPattern">
+          <sourceElement name_element="name" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="name_2_name_leftPattern">
+          <targetElement name_element="name" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+      <included>
+        <right name_pattern="R23_rightPattern" concreteValue="objectIdType"/>
+        <left name_pattern="R23_leftPattern">
+          <targetElement name_element="type" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+    <out name_element="Column" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="name_2_name_rightPattern">
+          <sourceElement name_element="name" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="name_2_name_leftPattern">
+          <targetElement name_element="name" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+      <included>
+        <right name_pattern="R24_rightPattern">
+          <sourceElement name_element="type" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="R24_leftPattern">
+          <targetElement name_element="type" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="ClassAttribute2Column">
+    <in name_element="Attribute" metamodel="//@inMM.0">
+      <guard value="Guard code"/>
+    </in>
+    <out name_element="Column" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="name_2_name_rightPattern">
+          <sourceElement name_element="name" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="name_2_name_leftPattern">
+          <targetElement name_element="name" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+      <included>
+        <right name_pattern="R25_rightPattern" concreteValue="objectIdType"/>
+        <left name_pattern="R25_leftPattern">
+          <targetElement name_element="type" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <rule name_rule="MultiValuedClassAttribute2Column">
+    <in name_element="Attribute" metamodel="//@inMM.0">
+      <guard value="Guard code"/>
+    </in>
+    <out name_element="Table" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="name_2_name_rightPattern">
+          <sourceElement name_element="name" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="name_2_name_leftPattern">
+          <targetElement name_element="name" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+      <included>
+        <right name_pattern="R26_rightPattern" concreteValue="Sequence"/>
+        <left name_pattern="R26_leftPattern">
+          <targetElement name_element="col" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+    <out name_element="Column" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="name_2_name_rightPattern">
+          <sourceElement name_element="name" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="name_2_name_leftPattern">
+          <targetElement name_element="name" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+      <included>
+        <right name_pattern="R27_rightPattern" concreteValue="objectIdType"/>
+        <left name_pattern="R27_leftPattern">
+          <targetElement name_element="type" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+    <out name_element="Column" metamodel="//@outMM.0">
+      <included>
+        <right name_pattern="name_2_name_rightPattern">
+          <sourceElement name_element="name" metamodel="//@inMM.0"/>
+        </right>
+        <left name_pattern="name_2_name_leftPattern">
+          <targetElement name_element="name" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+      <included>
+        <right name_pattern="R28_rightPattern" concreteValue="objectIdType"/>
+        <left name_pattern="R28_leftPattern">
+          <targetElement name_element="type" metamodel="//@outMM.0"/>
+        </left>
+      </included>
+    </out>
+  </rule>
+  <inMM name_mm="Class_model" type_mm="Class" elements="//@rule.0/@in.0 //@rule.0/@out.0/@included.0/@right/@sourceElement.0 //@rule.1/@in.0 //@rule.1/@out.0/@included.0/@right/@sourceElement.0 //@rule.2/@in.0 //@rule.2/@out.0/@included.0/@right/@sourceElement.0 //@rule.2/@out.0/@included.1/@right/@sourceElement.0 //@rule.3/@in.0 //@rule.3/@out.0/@included.0/@right/@sourceElement.0 //@rule.3/@out.1/@included.0/@right/@sourceElement.0 //@rule.3/@out.2/@included.0/@right/@sourceElement.0 //@rule.4/@in.0 //@rule.4/@out.0/@included.0/@right/@sourceElement.0 //@rule.5/@in.0 //@rule.5/@out.0/@included.0/@right/@sourceElement.0 //@rule.5/@out.1/@included.0/@right/@sourceElement.0 //@rule.5/@out.2/@included.0/@right/@sourceElement.0 //@rule.3/@out.2/@included.1/@right/@sourceElement.0"/>
+  <outMM name_mm="Relational_model" type_mm="Relational" elements="//@rule.0/@out.0 //@rule.0/@out.0/@included.0/@left/@targetElement //@rule.0/@out.0/@included.1/@left/@targetElement //@rule.0/@out.0/@included.2/@left/@targetElement //@rule.0/@out.1 //@rule.0/@out.1/@included.0/@left/@targetElement //@rule.0/@out.1/@included.1/@left/@targetElement //@rule.1/@out.0 //@rule.1/@out.0/@included.0/@left/@targetElement //@rule.2/@out.0 //@rule.2/@out.0/@included.0/@left/@targetElement //@rule.2/@out.0/@included.1/@left/@targetElement //@rule.3/@out.0 //@rule.3/@out.0/@included.0/@left/@targetElement //@rule.3/@out.0/@included.1/@left/@targetElement //@rule.3/@out.1 //@rule.3/@out.1/@included.0/@left/@targetElement //@rule.3/@out.1/@included.1/@left/@targetElement //@rule.3/@out.2 //@rule.3/@out.2/@included.0/@left/@targetElement //@rule.3/@out.2/@included.1/@left/@targetElement //@rule.4/@out.0 //@rule.4/@out.0/@included.0/@left/@targetElement //@rule.4/@out.0/@included.1/@left/@targetElement //@rule.5/@out.0 //@rule.5/@out.0/@included.0/@left/@targetElement //@rule.5/@out.0/@included.1/@left/@targetElement //@rule.5/@out.1 //@rule.5/@out.1/@included.0/@left/@targetElement //@rule.5/@out.1/@included.1/@left/@targetElement //@rule.5/@out.2 //@rule.5/@out.2/@included.0/@left/@targetElement //@rule.5/@out.2/@included.1/@left/@targetElement"/>
+  <operations name_operation="objectIdType" body="operation body" context="//@rule.2/@in.0" rightPattern="//@rule.0/@out.1/@included.1/@right">
+    <returnType element="//@rule.1/@out.0"/>
+  </operations>
+</mm_hybrid:Module>
