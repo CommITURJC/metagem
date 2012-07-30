@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:hybrid="org.eclipse.kybele.hybrid" name="class2relational">
+  <operations name="objectIdType" body="get all instances of Class!Datatype and select the first one whose name = 'Integer'" rightPattern="//@rules.0/@targets.1/@bindings.1/@right">
+    <return>
+      <component xsi:type="hybrid:Target" name="Type" model="//@targetModels.0" ref="/0/Type"/>
+    </return>
+  </operations>
+  <sourceModels name="Class_model" path="/class2relational_MeTAGeM-Trace/Metamodels/Class.ecore" type_mm="Class"/>
+  <targetModels name="Relational_model" path="/class2relational_MeTAGeM-Trace/Metamodels/Relational.ecore" type_mm="Relational"/>
+  <rules name="class2table">
+    <sources name="Class" owns="//@rules.0/@targets.0/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="/0/Class" traceLink="//@rules.0/@trace"/>
+    <targets name="Table" owns="//@rules.0/@targets.0/@bindings.0/@left/@target //@rules.0/@targets.0/@bindings.1/@left/@target //@rules.0/@targets.0/@bindings.2/@left/@target" model="//@targetModels.0" ref="/0/Table" traceLink="//@rules.0/@trace">
+      <bindings name="name_2_name" trace="//@rules.0/@trace/@traceBindings.0">
+        <right>
+          <source name="name" belongsTo="//@rules.0/@sources.0" model="//@sourceModels.0" ref="/0/NamedElt/name" traceLink="//@rules.0/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="name" belongsTo="//@rules.0/@targets.0" model="//@targetModels.0" ref="/0/Named/name" traceLink="//@rules.0/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R19" trace="//@rules.0/@trace/@traceBindings.1">
+        <right/>
+        <left>
+          <target name="col" belongsTo="//@rules.0/@targets.0" model="//@targetModels.0" ref="/0/Table/col" traceLink="//@rules.0/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+      <bindings name="R20" trace="//@rules.0/@trace/@traceBindings.2">
+        <right/>
+        <left>
+          <target name="key" belongsTo="//@rules.0/@targets.0" model="//@targetModels.0" ref="/0/Table/key" traceLink="//@rules.0/@trace/@traceBindings.2"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets name="Column" owns="//@rules.0/@targets.1/@bindings.0/@left/@target //@rules.0/@targets.1/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Column" traceLink="//@rules.0/@trace">
+      <bindings name="R21" trace="//@rules.0/@trace/@traceBindings.3">
+        <right concreteValue="objectId"/>
+        <left>
+          <target name="name" belongsTo="//@rules.0/@targets.1" model="//@targetModels.0" ref="/0/Named/name" traceLink="//@rules.0/@trace/@traceBindings.3"/>
+        </left>
+      </bindings>
+      <bindings name="R22" trace="//@rules.0/@trace/@traceBindings.4">
+        <right operation="//@operations.0" concreteValue=""/>
+        <left>
+          <target name="type" belongsTo="//@rules.0/@targets.1" model="//@targetModels.0" ref="/0/Column/type" traceLink="//@rules.0/@trace/@traceBindings.4"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="class2table" source="//@rules.0/@sources.0" target="//@rules.0/@targets.0 //@rules.0/@targets.1">
+      <traceBindings name="name_2_name" source="//@rules.0/@targets.0/@bindings.0/@right/@source.0" target="//@rules.0/@targets.0/@bindings.0/@left/@target" binding="//@rules.0/@targets.0/@bindings.0"/>
+      <traceBindings name="R19" target="//@rules.0/@targets.0/@bindings.1/@left/@target" binding="//@rules.0/@targets.0/@bindings.1"/>
+      <traceBindings name="R20" target="//@rules.0/@targets.0/@bindings.2/@left/@target" binding="//@rules.0/@targets.0/@bindings.2"/>
+      <traceBindings name="R21" target="//@rules.0/@targets.1/@bindings.0/@left/@target" binding="//@rules.0/@targets.1/@bindings.0"/>
+      <traceBindings name="R22" target="//@rules.0/@targets.1/@bindings.1/@left/@target" binding="//@rules.0/@targets.1/@bindings.1"/>
+    </trace>
+  </rules>
+  <rules name="DataType2Type">
+    <sources name="DataType" owns="//@rules.1/@targets.0/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="/0/DataType" traceLink="//@rules.1/@trace"/>
+    <targets name="Type" owns="//@rules.1/@targets.0/@bindings.0/@left/@target" model="//@targetModels.0" ref="/0/Type" traceLink="//@rules.1/@trace">
+      <bindings name="name_2_name" trace="//@rules.1/@trace/@traceBindings.0">
+        <right>
+          <source name="name" belongsTo="//@rules.1/@sources.0" model="//@sourceModels.0" ref="/0/NamedElt/name" traceLink="//@rules.1/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="name" belongsTo="//@rules.1/@targets.0" model="//@targetModels.0" ref="/0/Named/name" traceLink="//@rules.1/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="DataType2Type" source="//@rules.1/@sources.0" target="//@rules.1/@targets.0">
+      <traceBindings name="name_2_name" source="//@rules.1/@targets.0/@bindings.0/@right/@source.0" target="//@rules.1/@targets.0/@bindings.0/@left/@target" binding="//@rules.1/@targets.0/@bindings.0"/>
+    </trace>
+  </rules>
+  <rules name="DataTypeAttribute2Column">
+    <sources name="Attribute" owns="//@rules.2/@targets.0/@bindings.0/@right/@source.0 //@rules.2/@targets.0/@bindings.1/@right/@source.0" model="//@sourceModels.0" ref="/0/Attribute" traceLink="//@rules.2/@trace"/>
+    <targets name="Column" owns="//@rules.2/@targets.0/@bindings.0/@left/@target //@rules.2/@targets.0/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Column" traceLink="//@rules.2/@trace">
+      <bindings name="name_2_name" trace="//@rules.2/@trace/@traceBindings.0">
+        <right>
+          <source name="name" belongsTo="//@rules.2/@sources.0" model="//@sourceModels.0" ref="/0/NamedElt/name" traceLink="//@rules.2/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="name" belongsTo="//@rules.2/@targets.0" model="//@targetModels.0" ref="/0/Named/name" traceLink="//@rules.2/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="type_2_type" trace="//@rules.2/@trace/@traceBindings.1">
+        <right>
+          <source name="type" belongsTo="//@rules.2/@sources.0" model="//@sourceModels.0" ref="/0/Attribute/type" traceLink="//@rules.2/@trace/@traceBindings.1"/>
+        </right>
+        <left>
+          <target name="type" belongsTo="//@rules.2/@targets.0" model="//@targetModels.0" ref="/0/Column/type" traceLink="//@rules.2/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+    </targets>
+    <guard value="Contains guard"/>
+    <trace name="DataTypeAttribute2Column" source="//@rules.2/@sources.0" target="//@rules.2/@targets.0">
+      <traceBindings name="name_2_name" source="//@rules.2/@targets.0/@bindings.0/@right/@source.0" target="//@rules.2/@targets.0/@bindings.0/@left/@target" binding="//@rules.2/@targets.0/@bindings.0"/>
+      <traceBindings name="type_2_type" source="//@rules.2/@targets.0/@bindings.1/@right/@source.0" target="//@rules.2/@targets.0/@bindings.1/@left/@target" binding="//@rules.2/@targets.0/@bindings.1"/>
+    </trace>
+  </rules>
+  <rules name="MultivaluedDataTypeAttribute2Column">
+    <sources name="Attribute" owns="//@rules.3/@targets.0/@bindings.0/@right/@source.0 //@rules.3/@targets.0/@bindings.0/@right/@source.1 //@rules.3/@targets.1/@bindings.0/@right/@source.0 //@rules.3/@targets.2/@bindings.0/@right/@source.0 //@rules.3/@targets.2/@bindings.1/@right/@source.0" model="//@sourceModels.0" ref="/0/Attribute" traceLink="//@rules.3/@trace"/>
+    <targets name="Table" owns="//@rules.3/@targets.0/@bindings.0/@left/@target //@rules.3/@targets.0/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Table" traceLink="//@rules.3/@trace">
+      <bindings name="name_2_name" typeRelation="Concatenation" trace="//@rules.3/@trace/@traceBindings.3">
+        <right>
+          <source name="name" belongsTo="//@rules.3/@sources.0" model="//@sourceModels.0" ref="/0/NamedElt/name" traceLink="//@rules.3/@trace/@traceBindings.3"/>
+          <source name="owner.name" belongsTo="//@rules.3/@sources.0" model="//@sourceModels.0" ref="/0/Attribute/owner" traceLink="//@rules.3/@trace/@traceBindings.3"/>
+        </right>
+        <left>
+          <target name="name" belongsTo="//@rules.3/@targets.0" model="//@targetModels.0" ref="/0/Named/name" traceLink="//@rules.3/@trace/@traceBindings.3"/>
+        </left>
+      </bindings>
+      <bindings name="R23" trace="//@rules.3/@trace/@traceBindings.4">
+        <right/>
+        <left>
+          <target name="col" belongsTo="//@rules.3/@targets.0" model="//@targetModels.0" ref="/0/Table/col" traceLink="//@rules.3/@trace/@traceBindings.4"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets name="Column" owns="//@rules.3/@targets.1/@bindings.0/@left/@target //@rules.3/@targets.1/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Column" traceLink="//@rules.3/@trace">
+      <bindings name="owner_2_name" trace="//@rules.3/@trace/@traceBindings.0">
+        <right>
+          <source name="owner.name.toLower()" belongsTo="//@rules.3/@sources.0" model="//@sourceModels.0" ref="/0/Attribute/owner" traceLink="//@rules.3/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="name" belongsTo="//@rules.3/@targets.1" model="//@targetModels.0" ref="/0/Named/name" traceLink="//@rules.3/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R24" trace="//@rules.3/@trace/@traceBindings.5">
+        <right/>
+        <left>
+          <target name="type" belongsTo="//@rules.3/@targets.1" model="//@targetModels.0" ref="/0/Column/type" traceLink="//@rules.3/@trace/@traceBindings.5"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets name="Column" owns="//@rules.3/@targets.2/@bindings.0/@left/@target //@rules.3/@targets.2/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Column" traceLink="//@rules.3/@trace">
+      <bindings name="name_2_name" trace="//@rules.3/@trace/@traceBindings.1">
+        <right>
+          <source name="name" belongsTo="//@rules.3/@sources.0" model="//@sourceModels.0" ref="/0/NamedElt/name" traceLink="//@rules.3/@trace/@traceBindings.1"/>
+        </right>
+        <left>
+          <target name="name" belongsTo="//@rules.3/@targets.2" model="//@targetModels.0" ref="/0/Named/name" traceLink="//@rules.3/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+      <bindings name="type_2_Type" trace="//@rules.3/@trace/@traceBindings.2">
+        <right>
+          <source name="type" belongsTo="//@rules.3/@sources.0" model="//@sourceModels.0" ref="/0/Attribute/type" traceLink="//@rules.3/@trace/@traceBindings.2"/>
+        </right>
+        <left>
+          <target name="Type" belongsTo="//@rules.3/@targets.2" model="//@targetModels.0" ref="/0/Type" traceLink="//@rules.3/@trace/@traceBindings.2"/>
+        </left>
+      </bindings>
+    </targets>
+    <guard value="contains guard"/>
+    <trace name="MultivaluedDataTypeAttribute2Column" source="//@rules.3/@sources.0" target="//@rules.3/@targets.0 //@rules.3/@targets.1 //@rules.3/@targets.2">
+      <traceBindings name="owner_2_name" source="//@rules.3/@targets.1/@bindings.0/@right/@source.0" target="//@rules.3/@targets.1/@bindings.0/@left/@target" binding="//@rules.3/@targets.1/@bindings.0"/>
+      <traceBindings name="name_2_name" source="//@rules.3/@targets.2/@bindings.0/@right/@source.0" target="//@rules.3/@targets.2/@bindings.0/@left/@target" binding="//@rules.3/@targets.2/@bindings.0"/>
+      <traceBindings name="type_2_Type" source="//@rules.3/@targets.2/@bindings.1/@right/@source.0" target="//@rules.3/@targets.2/@bindings.1/@left/@target" binding="//@rules.3/@targets.2/@bindings.1"/>
+      <traceBindings name="name_2_name" source="//@rules.3/@targets.0/@bindings.0/@right/@source.0 //@rules.3/@targets.0/@bindings.0/@right/@source.1" target="//@rules.3/@targets.0/@bindings.0/@left/@target" binding="//@rules.3/@targets.0/@bindings.0"/>
+      <traceBindings name="R23" target="//@rules.3/@targets.0/@bindings.1/@left/@target" binding="//@rules.3/@targets.0/@bindings.1"/>
+      <traceBindings name="R24" target="//@rules.3/@targets.1/@bindings.1/@left/@target" binding="//@rules.3/@targets.1/@bindings.1"/>
+    </trace>
+  </rules>
+  <rules name="ClassAttribute2Column">
+    <sources name="Attribute" owns="//@rules.4/@targets.0/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="/0/Attribute" traceLink="//@rules.4/@trace"/>
+    <targets name="Column" owns="//@rules.4/@targets.0/@bindings.0/@left/@target //@rules.4/@targets.0/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Column" traceLink="//@rules.4/@trace">
+      <bindings name="name_2_name" trace="//@rules.4/@trace/@traceBindings.0">
+        <right>
+          <source name="name" belongsTo="//@rules.4/@sources.0" model="//@sourceModels.0" ref="/0/NamedElt/name" traceLink="//@rules.4/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="name" belongsTo="//@rules.4/@targets.0" model="//@targetModels.0" ref="/0/Named/name" traceLink="//@rules.4/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R25">
+        <right/>
+        <left>
+          <target name="type" belongsTo="//@rules.4/@targets.0" model="//@targetModels.0" ref="/0/Column/type"/>
+        </left>
+      </bindings>
+    </targets>
+    <guard value="contains guard"/>
+    <trace name="ClassAttribute2Column" source="//@rules.4/@sources.0" target="//@rules.4/@targets.0">
+      <traceBindings name="name_2_name" source="//@rules.4/@targets.0/@bindings.0/@right/@source.0" target="//@rules.4/@targets.0/@bindings.0/@left/@target" binding="//@rules.4/@targets.0/@bindings.0"/>
+      <traceBindings name="R25"/>
+    </trace>
+  </rules>
+  <rules name="MultiValuedClassAttribute2Column">
+    <sources name="Attribute" owns="//@rules.5/@targets.0/@bindings.0/@right/@source.0 //@rules.5/@targets.0/@bindings.0/@right/@source.1 //@rules.5/@targets.1/@bindings.0/@right/@source.0 //@rules.5/@targets.2/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="/0/Attribute" traceLink="//@rules.5/@trace"/>
+    <targets name="Table" owns="//@rules.5/@targets.0/@bindings.0/@left/@target //@rules.5/@targets.0/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Table" traceLink="//@rules.5/@trace">
+      <bindings name="name_2_name" typeRelation="Concatenation" trace="//@rules.5/@trace/@traceBindings.2">
+        <right>
+          <source name="name" belongsTo="//@rules.5/@sources.0" model="//@sourceModels.0" ref="/0/NamedElt/name" traceLink="//@rules.5/@trace/@traceBindings.2"/>
+          <source name="owner.name" belongsTo="//@rules.5/@sources.0" model="//@sourceModels.0" ref="/0/Attribute/owner" traceLink="//@rules.5/@trace/@traceBindings.2"/>
+        </right>
+        <left>
+          <target name="name" belongsTo="//@rules.5/@targets.0" model="//@targetModels.0" ref="/0/Named/name" traceLink="//@rules.5/@trace/@traceBindings.2"/>
+        </left>
+      </bindings>
+      <bindings name="R26" trace="//@rules.5/@trace/@traceBindings.3">
+        <right/>
+        <left>
+          <target name="col" belongsTo="//@rules.5/@targets.0" model="//@targetModels.0" ref="/0/Table/col" traceLink="//@rules.5/@trace/@traceBindings.3"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets name="Column" owns="//@rules.5/@targets.1/@bindings.0/@left/@target //@rules.5/@targets.1/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Column" traceLink="//@rules.5/@trace">
+      <bindings name="owner_2_name" trace="//@rules.5/@trace/@traceBindings.0">
+        <right>
+          <source name="owner.name.toLower()" belongsTo="//@rules.5/@sources.0" model="//@sourceModels.0" ref="/0/Attribute/owner" traceLink="//@rules.5/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="name" belongsTo="//@rules.5/@targets.1" model="//@targetModels.0" ref="/0/Named/name" traceLink="//@rules.5/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R27" trace="//@rules.5/@trace/@traceBindings.4">
+        <right/>
+        <left>
+          <target name="type" belongsTo="//@rules.5/@targets.1" model="//@targetModels.0" ref="/0/Column/type" traceLink="//@rules.5/@trace/@traceBindings.4"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets name="Column" owns="//@rules.5/@targets.2/@bindings.0/@left/@target //@rules.5/@targets.2/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Column" traceLink="//@rules.5/@trace">
+      <bindings name="name_2_name" trace="//@rules.5/@trace/@traceBindings.1">
+        <right>
+          <source name="name" belongsTo="//@rules.5/@sources.0" model="//@sourceModels.0" ref="/0/NamedElt/name" traceLink="//@rules.5/@trace/@traceBindings.1"/>
+        </right>
+        <left>
+          <target name="name" belongsTo="//@rules.5/@targets.2" model="//@targetModels.0" ref="/0/Named/name" traceLink="//@rules.5/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+      <bindings name="R28" trace="//@rules.5/@trace/@traceBindings.5">
+        <right/>
+        <left>
+          <target name="type" belongsTo="//@rules.5/@targets.2" model="//@targetModels.0" ref="/0/Column/type" traceLink="//@rules.5/@trace/@traceBindings.5"/>
+        </left>
+      </bindings>
+    </targets>
+    <guard value="Contains guard"/>
+    <trace name="MultiValuedClassAttribute2Column" source="//@rules.5/@sources.0" target="//@rules.5/@targets.0 //@rules.5/@targets.1 //@rules.5/@targets.2">
+      <traceBindings name="owner_2_name" source="//@rules.5/@targets.1/@bindings.0/@right/@source.0" target="//@rules.5/@targets.1/@bindings.0/@left/@target" binding="//@rules.5/@targets.1/@bindings.0"/>
+      <traceBindings name="name_2_name" source="//@rules.5/@targets.2/@bindings.0/@right/@source.0" target="//@rules.5/@targets.2/@bindings.0/@left/@target" binding="//@rules.5/@targets.2/@bindings.0"/>
+      <traceBindings name="name_2_name" source="//@rules.5/@targets.0/@bindings.0/@right/@source.0 //@rules.5/@targets.0/@bindings.0/@right/@source.1" target="//@rules.5/@targets.0/@bindings.0/@left/@target" binding="//@rules.5/@targets.0/@bindings.0"/>
+      <traceBindings name="R26" target="//@rules.5/@targets.0/@bindings.1/@left/@target" binding="//@rules.5/@targets.0/@bindings.1"/>
+      <traceBindings name="R27" target="//@rules.5/@targets.1/@bindings.1/@left/@target" binding="//@rules.5/@targets.1/@bindings.1"/>
+      <traceBindings name="R28" target="//@rules.5/@targets.2/@bindings.1/@left/@target" binding="//@rules.5/@targets.2/@bindings.1"/>
+    </trace>
+  </rules>
+</hybrid:Module>

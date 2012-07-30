@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="ASCII"?>
+<metagem:ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metagem="org.eclipse.kybele.metagem" name="class2relational">
+  <sourceModels name="Class" path="/class2relational_MeTAGeM-Trace/Metamodels/Class.ecore"/>
+  <targetModels name="Relational" path="/class2relational_MeTAGeM-Trace/Metamodels/Relational.ecore"/>
+  <relations xsi:type="metagem:OneToMany" name="class2table">
+    <source name="Class" ref="/0/Class" model="//@sourceModels.0"/>
+    <target name="Table" ref="/0/Table" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="col" ref="/0/Table/col" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="key" ref="/0/Table/key" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="/0/NamedElt/name" model="//@sourceModels.0"/>
+        <target name="name" ref="/0/Named/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="Column" ref="/0/Column" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Named/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="type" ref="/0/Column/type" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToOne" name="DataType2Type">
+    <source name="DataType" ref="/0/DataType" model="//@sourceModels.0"/>
+    <target name="Type" ref="/0/Type" model="//@targetModels.0">
+      <oneToOne>
+        <source name="name" ref="/0/NamedElt/name" model="//@sourceModels.0"/>
+        <target name="name" ref="/0/Named/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToOne" name="DataTypeAttribute2Column" guardCondition="Contains guard">
+    <source name="Attribute" ref="/0/Attribute" model="//@sourceModels.0"/>
+    <target name="Column" ref="/0/Column" model="//@targetModels.0">
+      <oneToOne>
+        <source name="name" ref="/0/NamedElt/name" model="//@sourceModels.0"/>
+        <target name="name" ref="/0/Named/name" model="//@targetModels.0"/>
+      </oneToOne>
+      <oneToOne>
+        <source name="type" ref="/0/Attribute/type" model="//@sourceModels.0"/>
+        <target name="type" ref="/0/Column/type" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToMany" name="MultivaluedDataTypeAttribute2Column" guardCondition="contains guard">
+    <source name="Attribute" ref="/0/Attribute" model="//@sourceModels.0"/>
+    <target name="Table" ref="/0/Table" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="col" ref="/0/Table/col" model="//@targetModels.0"/>
+      </zeroToOne>
+      <ManyToOne typeRelation="Concatenation">
+        <target name="name" ref="/0/Named/name" model="//@targetModels.0"/>
+        <source name="name" ref="/0/NamedElt/name" model="//@sourceModels.0"/>
+        <source name="owner" ref="/0/Attribute/owner" model="//@sourceModels.0"/>
+      </ManyToOne>
+    </target>
+    <target name="Column" ref="/0/Column" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="type" ref="/0/Column/type" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="owner" ref="/0/Attribute/owner" model="//@sourceModels.0"/>
+        <target name="name" ref="/0/Named/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="Column" ref="/0/Column" model="//@targetModels.0">
+      <oneToOne>
+        <source name="name" ref="/0/NamedElt/name" model="//@sourceModels.0"/>
+        <target name="name" ref="/0/Named/name" model="//@targetModels.0"/>
+      </oneToOne>
+      <oneToOne>
+        <source name="type" ref="/0/Attribute/type" model="//@sourceModels.0"/>
+        <target name="Type" ref="/0/Type" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToOne" name="ClassAttribute2Column" guardCondition="contains guard">
+    <source name="Attribute" ref="/0/Attribute" model="//@sourceModels.0"/>
+    <target name="Column" ref="/0/Column" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="type" ref="/0/Column/type" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="/0/NamedElt/name" model="//@sourceModels.0"/>
+        <target name="name" ref="/0/Named/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToMany" name="MultiValuedClassAttribute2Column" guardCondition="Contains guard">
+    <source name="Attribute" ref="/0/Attribute" model="//@sourceModels.0"/>
+    <target name="Table" ref="/0/Table" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="col" ref="/0/Table/col" model="//@targetModels.0"/>
+      </zeroToOne>
+      <ManyToOne typeRelation="Concatenation">
+        <target name="name" ref="/0/Named/name" model="//@targetModels.0"/>
+        <source name="name" ref="/0/NamedElt/name" model="//@sourceModels.0"/>
+        <source name="owner" ref="/0/Attribute/owner" model="//@sourceModels.0"/>
+      </ManyToOne>
+    </target>
+    <target name="Column" ref="/0/Column" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="type" ref="/0/Column/type" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="owner" ref="/0/Attribute/owner" model="//@sourceModels.0"/>
+        <target name="name" ref="/0/Named/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="Column" ref="/0/Column" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="type" ref="/0/Column/type" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="/0/NamedElt/name" model="//@sourceModels.0"/>
+        <target name="name" ref="/0/Named/name" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+</metagem:ModelRoot>

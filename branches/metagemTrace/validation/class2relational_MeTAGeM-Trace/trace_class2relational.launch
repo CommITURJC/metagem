@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.adt.launching.atlTransformation">
+<stringAttribute key="ATL File Name" value="/class2relational_MeTAGeM-Trace/Transformation/class2relational-atl.atl"/>
+<stringAttribute key="ATL VM" value="EMF-specific VM"/>
+<stringAttribute key="ATL_COMPILER" value="atl2006"/>
+<booleanAttribute key="IS_REFINING" value="false"/>
+<mapAttribute key="Input">
+<mapEntry key="Class_model" value="Class"/>
+</mapAttribute>
+<mapAttribute key="Libs"/>
+<mapAttribute key="Model Handler">
+<mapEntry key="Class" value="EMF"/>
+<mapEntry key="Relational" value="EMF"/>
+<mapEntry key="TRACE" value="EMF"/>
+</mapAttribute>
+<mapAttribute key="ModelType">
+<mapEntry key="Class" value="METAMODELINPUT"/>
+<mapEntry key="Class_model" value="MODELINPUT"/>
+<mapEntry key="Relational" value="METAMODELOUTPUT"/>
+<mapEntry key="Relational_model" value="MODELOUTPUT"/>
+<mapEntry key="TRACE" value="METAMODELOUTPUT"/>
+<mapEntry key="in2out_trace" value="MODELOUTPUT"/>
+</mapAttribute>
+<mapAttribute key="Options">
+<mapEntry key="OPTION_CLEAR" value="false"/>
+<mapEntry key="OPTION_CONTENT_TYPE" value="false"/>
+<mapEntry key="OPTION_DERIVED" value="true"/>
+<mapEntry key="allowInterModelReferences" value="false"/>
+<mapEntry key="printExecutionTime" value="true"/>
+<mapEntry key="step" value="false"/>
+<mapEntry key="supportUML2Stereotypes" value="false"/>
+</mapAttribute>
+<listAttribute key="OrderedInput">
+<listEntry value="Class_model"/>
+</listAttribute>
+<listAttribute key="OrderedOutput">
+<listEntry value="Relational_model"/>
+<listEntry value="in2out_trace"/>
+</listAttribute>
+<mapAttribute key="Output">
+<mapEntry key="Relational_model" value="Relational"/>
+<mapEntry key="in2out_trace" value="TRACE"/>
+</mapAttribute>
+<mapAttribute key="Path">
+<mapEntry key="Class" value="/class2relational_MeTAGeM-Trace/Metamodels/Class.ecore"/>
+<mapEntry key="Class_model" value="/class2relational_MeTAGeM-Trace/Model/model3.ecore"/>
+<mapEntry key="Relational" value="/class2relational_MeTAGeM-Trace/Metamodels/Relational.ecore"/>
+<mapEntry key="Relational_model" value="/class2relational_MeTAGeM-Trace/Model/out_relational.ecore"/>
+<mapEntry key="TRACE" value="uri:org.eclipse.kybele.Traceability"/>
+<mapEntry key="in2out_trace" value="/class2relational_MeTAGeM-Trace/Model/class2relational.mtrace"/>
+</mapAttribute>
+<listAttribute key="Superimpose"/>
+</launchConfiguration>

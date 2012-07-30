@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="ASCII"?>
+<metagem:ModelRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metagem="org.eclipse.kybele.metagem" name="km32xml">
+  <sourceModels name="KM3" path="/KM32XML_MeTAGeM-Trace/Metamodels/KM3.ecore"/>
+  <targetModels name="XML" path="/KM32XML_MeTAGeM-Trace/Metamodels/XML.ecore"/>
+  <relations xsi:type="metagem:OneToOne" name="ModelElement" role="IsAbstract" isExtended="//@relations.2 //@relations.3 //@relations.4 //@relations.5 //@relations.7 //@relations.6">
+    <source name="ModelElement" ref="EClass4" model="//@sourceModels.0"/>
+    <target name="Attribute" ref="/0/Attribute" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="name" ref="EAttribute5" model="//@sourceModels.0"/>
+        <target name="value" ref="/0/Node/value" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToOne" name="Metamodel">
+    <source name="Metamodel" ref="EClass42" model="//@sourceModels.0"/>
+    <target name="Root" ref="/0/Root" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="contents" ref="EReference43" model="//@sourceModels.0"/>
+        <target name="children" ref="/0/Element/children" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToOne" name="Package" extends="//@relations.0">
+    <source name="Package" ref="EClass39" model="//@sourceModels.0"/>
+    <target name="Element" ref="/0/Element" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="children" ref="/0/Element/children" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToMany" name="Class" extends="//@relations.0">
+    <source name="Class" ref="EClass14" model="//@sourceModels.0"/>
+    <target name="Element" ref="/0/Element" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="children" ref="/0/Element/children" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+    <target name="Attribute" ref="/0/Attribute" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="isAbstract" ref="EAttribute16" model="//@sourceModels.0"/>
+        <target name="value" ref="/0/Node/value" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="Attribute" ref="/0/Attribute" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="supertypes" ref="EReference17" model="//@sourceModels.0"/>
+        <target name="value" ref="/0/Node/value" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToOne" name="DataType" extends="//@relations.0">
+    <source name="DataType" ref="EClass8" model="//@sourceModels.0"/>
+    <target name="Element" ref="/0/Element" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="children" ref="/0/Element/children" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToOne" name="Enumeration" extends="//@relations.0" guardCondition="">
+    <source name="Enumeration" ref="EClass9" model="//@sourceModels.0"/>
+    <target name="Element" ref="/0/Element" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="children" ref="/0/Element/children" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToOne" name="EnumLiteral" extends="//@relations.0">
+    <source name="EnumLiteral" ref="EClass11" model="//@sourceModels.0"/>
+    <target name="Element" ref="/0/Element" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="children" ref="/0/Element/children" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToMany" name="StructuralFeature" role="IsAbstract" extends="//@relations.0" isExtended="//@relations.8 //@relations.9">
+    <source name="StructuralFeature" ref="EClass26" model="//@sourceModels.0"/>
+    <target name="Attribute" ref="/0/Attribute" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="lower" ref="EAttribute21" model="//@sourceModels.0"/>
+        <target name="value" ref="/0/Node/value" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="Attribute" ref="/0/Attribute" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="upper" ref="EAttribute22" model="//@sourceModels.0"/>
+        <target name="value" ref="/0/Node/value" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="Attribute" ref="/0/Attribute" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="isOrdered" ref="EAttribute23" model="//@sourceModels.0"/>
+        <target name="value" ref="/0/Node/value" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="Attribute" ref="/0/Attribute" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="type" ref="EReference25" model="//@sourceModels.0"/>
+        <target name="value" ref="/0/Node/value" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToMany" name="Attribute" extends="//@relations.7">
+    <source name="Attribute" ref="EClass30" model="//@sourceModels.0"/>
+    <target name="Element" ref="/0/Element" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="children" ref="/0/Element/children" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+    <target name="Attribute" ref="/0/Attribute" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="isUnique" ref="EAttribute24" model="//@sourceModels.0"/>
+        <target name="value" ref="/0/Node/value" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+  </relations>
+  <relations xsi:type="metagem:OneToMany" name="Reference" extends="//@relations.7">
+    <source name="Reference" ref="EClass31" model="//@sourceModels.0"/>
+    <target name="Element" ref="/0/Element" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="children" ref="/0/Element/children" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+    <target name="Attribute" ref="/0/Attribute" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <oneToOne>
+        <source name="isContainer" ref="EAttribute32" model="//@sourceModels.0"/>
+        <target name="value" ref="/0/Node/value" model="//@targetModels.0"/>
+      </oneToOne>
+    </target>
+    <target name="Attribute" ref="/0/Attribute" model="//@targetModels.0">
+      <zeroToOne>
+        <target name="name" ref="/0/Node/name" model="//@targetModels.0"/>
+      </zeroToOne>
+      <zeroToOne>
+        <target name="value" ref="/0/Node/value" model="//@targetModels.0"/>
+      </zeroToOne>
+    </target>
+  </relations>
+</metagem:ModelRoot>

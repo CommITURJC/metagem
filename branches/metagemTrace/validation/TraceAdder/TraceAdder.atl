@@ -1,0 +1,89 @@
+module TracerAdder;
+create OUT : ATL refining IN : ATL;
+
+
+rule Module {
+	from
+		s : ATL!Module
+	to
+		t : ATL!Module (outModels <- s.outModels->append(
+						traceModel)
+		),
+		traceModel : ATL!OclModel (
+			name <- 'trace',
+			metamodel <- traceMetamodel
+		),
+		traceMetamodel : ATL!OclModel (
+			name <- 'Trace'
+		)
+}
+rule OutPattern {
+	from
+		s : ATL!OutPattern
+	to
+		t : ATL!OutPattern (elements <- s.elements->append(
+			traceLink)
+		),
+		traceLink : ATL!SimpleOutPatternElement (
+			varName <- 'traceLink',
+			type <- traceType,
+			bindings <- Sequence {ruleName,targetElements}
+		),
+		traceType : ATL!OclModelElement (
+			name <- 'TraceLink',
+			model <- thisModule.resolveTemp(
+				s."rule"."module",'traceMetamodel')
+		),
+		ruleName : ATL!Binding (
+			propertyName <- 'ruleName',
+			value <- nameString
+		),
+		nameString : ATL!StringExp (
+			stringSymbol <- s."rule".name
+		),
+		sourceSeq : ATL!SequenceExp (
+			--elements <- s."rule".inPattern.elements
+		),					
+		actionBlock : ATL!ActionBlock (
+			"rule" <- s."rule",
+			statements <- Sequence {stat}
+		),
+		stat : ATL!ExpressionStat (
+			expression <- refSetValue
+		),
+		refSetValue : ATL!OperationCallExp (
+			operationName <- 'refSetValue',
+			source <- traceLinkVar,
+			arguments <- Sequence {seString,
+			sourceSeq}
+		),
+		traceLinkVar : ATL!VariableExp (
+			referredVariable <- traceLink
+		),
+		seString : ATL!StringExp (
+			stringSymbol <- 'sourceElements'
+		),
+		targetElements : ATL!Binding (
+			propertyName <- 'targetElements',
+			value <- targetSeq
+		),
+		targetSeq : ATL!SequenceExp (
+			--elements <- s.elements
+		)
+}
+
+rule sourceVar{
+	from
+		s: ATL!InPatternElement(s.oclIsTypeOf(ATL!InPatternElement))
+	to
+		t:ATL!VariableExp(referredVariable <- s)
+}
+
+rule targetVar{
+	from
+		s: ATL!OutPatternElement (s.oclIsTypeOf(ATL!OutPatternElement))
+	to
+		t: ATL!VariableExp(referredVariable <- s)
+}
+
+

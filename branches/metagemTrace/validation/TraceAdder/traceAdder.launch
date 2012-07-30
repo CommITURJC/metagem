@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.adt.launching.atlTransformation">
+<stringAttribute key="ATL File Name" value="/TraceAdder/TraceAdder.atl"/>
+<stringAttribute key="ATL VM" value="Regular VM"/>
+<stringAttribute key="ATL_COMPILER" value="atl2006"/>
+<booleanAttribute key="IS_REFINING" value="true"/>
+<mapAttribute key="Input">
+<mapEntry key="IN" value="ATL"/>
+</mapAttribute>
+<mapAttribute key="Libs"/>
+<mapAttribute key="Model Handler">
+<mapEntry key="ATL" value="EMF"/>
+</mapAttribute>
+<mapAttribute key="ModelType">
+<mapEntry key="ATL" value="METAMODELOUTPUT"/>
+<mapEntry key="IN" value="MODELINPUT"/>
+<mapEntry key="OUT" value="MODELOUTPUT"/>
+</mapAttribute>
+<mapAttribute key="Options">
+<mapEntry key="OPTION_CLEAR" value="false"/>
+<mapEntry key="OPTION_CONTENT_TYPE" value="false"/>
+<mapEntry key="OPTION_DERIVED" value="true"/>
+<mapEntry key="allowInterModelReferences" value="false"/>
+<mapEntry key="continueAfterError" value="false"/>
+<mapEntry key="disableAttributeHelperCache" value="false"/>
+<mapEntry key="printExecutionTime" value="false"/>
+<mapEntry key="profile" value="false"/>
+<mapEntry key="showSummary" value="false"/>
+<mapEntry key="step" value="false"/>
+</mapAttribute>
+<listAttribute key="OrderedInput">
+<listEntry value="IN"/>
+</listAttribute>
+<listAttribute key="OrderedOutput">
+<listEntry value="OUT"/>
+</listAttribute>
+<mapAttribute key="Output">
+<mapEntry key="OUT" value="ATL"/>
+</mapAttribute>
+<mapAttribute key="Path">
+<mapEntry key="ATL" value="uri:http://www.eclipse.org/gmt/2005/ATL"/>
+<mapEntry key="IN" value="/UML2XML_adder/Transformations/UML2XMLW.ecore"/>
+<mapEntry key="OUT" value="/UML2XML_adder/Transformations/UML2XMLW-atl-trace.ecore"/>
+</mapAttribute>
+<listAttribute key="Superimpose"/>
+</launchConfiguration>

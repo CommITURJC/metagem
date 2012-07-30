@@ -1,0 +1,646 @@
+-- @atlcompiler atl2006
+module class2relational;
+create Relational_model : Relational, in2out_trace : TRACE from Class_model : Class;
+
+-- Comments -> This is a MatchedRule: class2table -> 
+rule class2table {
+ from
+  class_in : Class!Class
+ to
+  table_out : Relational!Table (
+   name <- class_in.name,
+   col <- Sequence{column_out}->union(class_in.attr->select(e| not e.multiValued)), --mod
+   key <- Set{column_out} --mod
+  ),
+  column_out : Relational!Column (
+   name <- 'objectId', --mod
+   type <- thisModule.objectIdType --mod
+  ),
+  class2table_TL1 : TRACE!TraceLink (
+   name <- 'class2table',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {class_in_Trace_TE1},
+   target <- Sequence {table_out_Trace_TE21, column_out_Trace_TE22},
+   childLinks <- Sequence {name_2_name_TL7, R19_TL8, R20_TL9, R21_TL10, R22_TL11}
+  ),
+  name_2_name_TL7 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE7},
+   target <- Sequence {name_out_Trace_TE32}
+  ),
+  R19_TL8 : TRACE!TraceLink (
+   name <- 'R19',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {col_out_Trace_TE33}
+  ),
+  R20_TL9 : TRACE!TraceLink (
+   name <- 'R20',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {key_out_Trace_TE34}
+  ),
+  R21_TL10 : TRACE!TraceLink (
+   name <- 'R21',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE35}
+  ),
+  R22_TL11 : TRACE!TraceLink (
+   name <- 'R22',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {type_out_Trace_TE36}
+  ),
+  class_in_Trace_TE1 : TRACE!SourceElement (
+   name <- class_in.getName(),
+   ref <- class_in.__xmiID__,
+   model <- thisModule.getModel_Class_model
+  ),
+  name_in_Trace_TE7 : TRACE!SourceElement (
+   name <- class_in.name.toString() + '(Feature: name)',
+   belongsTo <- class_in_Trace_TE1,
+   model <- thisModule.getModel_Class_model
+  ),
+  table_out_Trace_TE21 : TRACE!TargetElement (
+   name <- table_out.getName(),
+   ref <- table_out.__xmiID__,
+   model <- thisModule.getModel_Relational_model
+  ),
+  column_out_Trace_TE22 : TRACE!TargetElement (
+   name <- column_out.getName(),
+   ref <- column_out.__xmiID__,
+   model <- thisModule.getModel_Relational_model
+  ),
+  name_out_Trace_TE32 : TRACE!TargetElement (
+   name <- table_out.name.toString() + '(Feature: name)',
+   belongsTo <- table_out_Trace_TE21,
+   model <- thisModule.getModel_Relational_model
+  ),
+  col_out_Trace_TE33 : TRACE!TargetElement (
+   name <- table_out.col.toString() + '(Feature: col)',
+   belongsTo <- table_out_Trace_TE21,
+   model <- thisModule.getModel_Relational_model
+  ),
+  key_out_Trace_TE34 : TRACE!TargetElement (
+   name <- table_out.key.toString() + '(Feature: key)',
+   belongsTo <- table_out_Trace_TE21,
+   model <- thisModule.getModel_Relational_model
+  ),
+  name_out_Trace_TE35 : TRACE!TargetElement (
+   name <- column_out.name.toString() + '(Feature: name)',
+   belongsTo <- column_out_Trace_TE22,
+   model <- thisModule.getModel_Relational_model
+  ),
+  type_out_Trace_TE36 : TRACE!TargetElement (
+   name <- column_out.type.toString() + '(Feature: type)',
+   belongsTo <- column_out_Trace_TE22,
+   model <- thisModule.getModel_Relational_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: DataType2Type -> 
+rule DataType2Type {
+ from
+  datatype_in : Class!DataType
+ to
+  type_out : Relational!Type (
+   name <- datatype_in.name
+  ),
+  DataType2Type_TL2 : TRACE!TraceLink (
+   name <- 'DataType2Type',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {datatype_in_Trace_TE2},
+   target <- Sequence {type_out_Trace_TE23},
+   childLinks <- Sequence {name_2_name_TL12}
+  ),
+  name_2_name_TL12 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE8},
+   target <- Sequence {name_out_Trace_TE37}
+  ),
+  datatype_in_Trace_TE2 : TRACE!SourceElement (
+   name <- datatype_in.getName(),
+   ref <- datatype_in.__xmiID__,
+   model <- thisModule.getModel_Class_model
+  ),
+  name_in_Trace_TE8 : TRACE!SourceElement (
+   name <- datatype_in.name.toString() + '(Feature: name)',
+   belongsTo <- datatype_in_Trace_TE2,
+   model <- thisModule.getModel_Class_model
+  ),
+  type_out_Trace_TE23 : TRACE!TargetElement (
+   name <- type_out.getName(),
+   ref <- type_out.__xmiID__,
+   model <- thisModule.getModel_Relational_model
+  ),
+  name_out_Trace_TE37 : TRACE!TargetElement (
+   name <- type_out.name.toString() + '(Feature: name)',
+   belongsTo <- type_out_Trace_TE23,
+   model <- thisModule.getModel_Relational_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: DataTypeAttribute2Column -> 
+rule DataTypeAttribute2Column {
+ from
+  attribute_in : Class!Attribute
+  (attribute_in.type.oclIsKindOf(Class!DataType) and not attribute_in.multiValued)--mod
+ to
+  column_out : Relational!Column (
+   name <- attribute_in.name,
+   type <- attribute_in.type
+  ),
+  DataTypeAttribute2Column_TL3 : TRACE!TraceLink (
+   name <- 'DataTypeAttribute2Column',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {attribute_in_Trace_TE3},
+   target <- Sequence {column_out_Trace_TE24},
+   childLinks <- Sequence {name_2_name_TL13, type_2_type_TL14}
+  ),
+  name_2_name_TL13 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE9},
+   target <- Sequence {name_out_Trace_TE38}
+  ),
+  type_2_type_TL14 : TRACE!TraceLink (
+   name <- 'type_2_type',
+   operation <- #Transform,
+   source <- Sequence {type_in_Trace_TE10},
+   target <- Sequence {type_out_Trace_TE39}
+  ),
+  attribute_in_Trace_TE3 : TRACE!SourceElement (
+   name <- attribute_in.getName(),
+   ref <- attribute_in.__xmiID__,
+   model <- thisModule.getModel_Class_model
+  ),
+  name_in_Trace_TE9 : TRACE!SourceElement (
+   name <- attribute_in.name.toString() + '(Feature: name)',
+   belongsTo <- attribute_in_Trace_TE3,
+   model <- thisModule.getModel_Class_model
+  ),
+  type_in_Trace_TE10 : TRACE!SourceElement (
+   name <- attribute_in.type.toString() + '(Feature: type)',
+   belongsTo <- attribute_in_Trace_TE3,
+   model <- thisModule.getModel_Class_model
+  ),
+  column_out_Trace_TE24 : TRACE!TargetElement (
+   name <- column_out.getName(),
+   ref <- column_out.__xmiID__,
+   model <- thisModule.getModel_Relational_model
+  ),
+  name_out_Trace_TE38 : TRACE!TargetElement (
+   name <- column_out.name.toString() + '(Feature: name)',
+   belongsTo <- column_out_Trace_TE24,
+   model <- thisModule.getModel_Relational_model
+  ),
+  type_out_Trace_TE39 : TRACE!TargetElement (
+   name <- column_out.type.toString() + '(Feature: type)',
+   belongsTo <- column_out_Trace_TE24,
+   model <- thisModule.getModel_Relational_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: MultivaluedDataTypeAttribute2Column -> 
+rule MultivaluedDataTypeAttribute2Column {
+ from
+  attribute_in : Class!Attribute
+  (attribute_in.type.oclIsKindOf(Class!DataType) and attribute_in.multiValued) --mod
+ to
+  table_out : Relational!Table (
+   name <- attribute_in.owner.name + '_' + attribute_in.name, --mod
+   col <- Sequence{column_out,column_out2} --mod
+  ),
+  column_out : Relational!Column (
+   name <- attribute_in.owner.name.toLower() + 'Id', --mod
+   type <- thisModule.objectIdType --mod
+  ),
+  column_out2 : Relational!Column (
+   name <- attribute_in.name,
+   type <- thisModule.objectIdType --mod
+  ),
+  MultivaluedDataTypeAttribute2Column_TL4 : TRACE!TraceLink (
+   name <- 'MultivaluedDataTypeAttribute2Column',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {attribute_in_Trace_TE4},
+   target <- Sequence {table_out_Trace_TE25, column_out_Trace_TE26, column_out_Trace_TE27},
+   childLinks <- Sequence {owner_2_name_TL15, name_2_name_TL16, type_2_Type_TL17, name_2_name_TL18, R23_TL19, R24_TL20}
+  ),
+  owner_2_name_TL15 : TRACE!TraceLink (
+   name <- 'owner_2_name',
+   operation <- #Transform,
+   source <- Sequence {"owner.name.tolower()_in_Trace_TE13"},
+   target <- Sequence {name_out_Trace_TE42}
+  ),
+  name_2_name_TL16 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE14},
+   target <- Sequence {name_out_Trace_TE44}
+  ),
+  type_2_Type_TL17 : TRACE!TraceLink (
+   name <- 'type_2_Type',
+   operation <- #Transform,
+   source <- Sequence {type_in_Trace_TE15},
+   target <- Sequence {type_out_Trace_TE45}
+  ),
+  name_2_name_TL18 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE11, "owner.name_in_Trace_TE12"},
+   target <- Sequence {name_out_Trace_TE40}
+  ),
+  R23_TL19 : TRACE!TraceLink (
+   name <- 'R23',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {col_out_Trace_TE41}
+  ),
+  R24_TL20 : TRACE!TraceLink (
+   name <- 'R24',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {type_out_Trace_TE43}
+  ),
+  attribute_in_Trace_TE4 : TRACE!SourceElement (
+   name <- attribute_in.getName(),
+   ref <- attribute_in.__xmiID__,
+   model <- thisModule.getModel_Class_model
+  ),
+  name_in_Trace_TE11 : TRACE!SourceElement (
+   name <- attribute_in.name.toString() + '(Feature: name)',
+   belongsTo <- attribute_in_Trace_TE4,
+   model <- thisModule.getModel_Class_model
+  ),
+  "owner.name_in_Trace_TE12" : TRACE!SourceElement (
+   name <- attribute_in.owner.name.toString() + '(Feature: owner.name)',
+   belongsTo <- attribute_in_Trace_TE4,
+   model <- thisModule.getModel_Class_model
+  ),
+  "owner.name.tolower()_in_Trace_TE13" : TRACE!SourceElement (
+   name <- attribute_in.owner.name.toLower().toString() + '(Feature: owner.name.tolower())',
+   belongsTo <- attribute_in_Trace_TE4,
+   model <- thisModule.getModel_Class_model
+  ),
+  name_in_Trace_TE14 : TRACE!SourceElement (
+   name <- attribute_in.name.toString() + '(Feature: name)',
+   belongsTo <- attribute_in_Trace_TE4,
+   model <- thisModule.getModel_Class_model
+  ),
+  type_in_Trace_TE15 : TRACE!SourceElement (
+   name <- attribute_in.type.toString() + '(Feature: type)',
+   belongsTo <- attribute_in_Trace_TE4,
+   model <- thisModule.getModel_Class_model
+  ),
+  table_out_Trace_TE25 : TRACE!TargetElement (
+   name <- table_out.getName(),
+   ref <- table_out.__xmiID__,
+   model <- thisModule.getModel_Relational_model
+  ),
+  column_out_Trace_TE26 : TRACE!TargetElement (
+   name <- column_out.getName(),
+   ref <- column_out.__xmiID__,
+   model <- thisModule.getModel_Relational_model
+  ),
+  column_out_Trace_TE27 : TRACE!TargetElement (
+   name <- column_out.getName(),
+   ref <- column_out.__xmiID__,
+   model <- thisModule.getModel_Relational_model
+  ),
+  name_out_Trace_TE40 : TRACE!TargetElement (
+   name <- table_out.name.toString() + '(Feature: name)',
+   belongsTo <- table_out_Trace_TE25,
+   model <- thisModule.getModel_Relational_model
+  ),
+  col_out_Trace_TE41 : TRACE!TargetElement (
+   name <- table_out.col.toString() + '(Feature: col)',
+   belongsTo <- table_out_Trace_TE25,
+   model <- thisModule.getModel_Relational_model
+  ),
+  name_out_Trace_TE42 : TRACE!TargetElement (
+   name <- column_out.name.toString() + '(Feature: name)',
+   belongsTo <- column_out_Trace_TE26,
+   model <- thisModule.getModel_Relational_model
+  ),
+  type_out_Trace_TE43 : TRACE!TargetElement (
+   name <- column_out.type.toString() + '(Feature: type)',
+   belongsTo <- column_out_Trace_TE26,
+   model <- thisModule.getModel_Relational_model
+  ),
+  name_out_Trace_TE44 : TRACE!TargetElement (
+   name <- column_out.name.toString() + '(Feature: name)',
+   belongsTo <- column_out_Trace_TE27,
+   model <- thisModule.getModel_Relational_model
+  ),
+  type_out_Trace_TE45 : TRACE!TargetElement (
+   name <- column_out.type.toString() + '(Feature: type)',
+   belongsTo <- column_out_Trace_TE27,
+   model <- thisModule.getModel_Relational_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: ClassAttribute2Column -> 
+rule ClassAttribute2Column {
+ from
+  attribute_in : Class!Attribute
+  (attribute_in.type.oclIsKindOf(Class!Class) and not attribute_in.multiValued) --mod
+ to
+  column_out : Relational!Column (
+    name <- attribute_in.name + 'Id', --mod
+    type <- thisModule.objectIdType --mod
+  ),
+  ClassAttribute2Column_TL5 : TRACE!TraceLink (
+   name <- 'ClassAttribute2Column',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {attribute_in_Trace_TE5},
+   target <- Sequence {column_out_Trace_TE28},
+   childLinks <- Sequence {name_2_name_TL21, R25_TL22}
+  ),
+  name_2_name_TL21 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE16},
+   target <- Sequence {name_out_Trace_TE46}
+  ),
+  R25_TL22 : TRACE!TraceLink (
+   name <- 'R25',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {}
+  ),
+  attribute_in_Trace_TE5 : TRACE!SourceElement (
+   name <- attribute_in.getName(),
+   ref <- attribute_in.__xmiID__,
+   model <- thisModule.getModel_Class_model
+  ),
+  name_in_Trace_TE16 : TRACE!SourceElement (
+   name <- attribute_in.name.toString() + '(Feature: name)',
+   belongsTo <- attribute_in_Trace_TE5,
+   model <- thisModule.getModel_Class_model
+  ),
+  column_out_Trace_TE28 : TRACE!TargetElement (
+   name <- column_out.getName(),
+   ref <- column_out.__xmiID__,
+   model <- thisModule.getModel_Relational_model
+  ),
+  name_out_Trace_TE46 : TRACE!TargetElement (
+   name <- column_out.name.toString() + '(Feature: name)',
+   belongsTo <- column_out_Trace_TE28,
+   model <- thisModule.getModel_Relational_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: MultiValuedClassAttribute2Column -> 
+rule MultiValuedClassAttribute2Column {
+ from
+  attribute_in : Class!Attribute
+  (attribute_in.type.oclIsKindOf(Class!Class) and attribute_in.multiValued) --mod
+ to
+  table_out : Relational!Table (
+   name <- attribute_in.owner.name+ '_' + attribute_in.name, --mod
+   col <- Sequence{column_out, column_out2} --mod
+  ),
+  column_out : Relational!Column (
+   name <- attribute_in.owner.name.toLower() + 'Id', --mod
+   type <- thisModule.objectIdType --mod
+  ),
+  column_out2 : Relational!Column ( --mod
+    name <- attribute_in.name + 'Id', --mod
+    type <- thisModule.objectIdType --mod
+  ),
+  MultiValuedClassAttribute2Column_TL6 : TRACE!TraceLink (
+   name <- 'MultiValuedClassAttribute2Column',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {attribute_in_Trace_TE6},
+   target <- Sequence {table_out_Trace_TE29, column_out_Trace_TE30, column_out_Trace_TE31},
+   childLinks <- Sequence {owner_2_name_TL23, name_2_name_TL24, name_2_name_TL25, R26_TL26, R27_TL27, R28_TL28}
+  ),
+  owner_2_name_TL23 : TRACE!TraceLink (
+   name <- 'owner_2_name',
+   operation <- #Transform,
+   source <- Sequence {"owner.name.tolower()_in_Trace_TE19"},
+   target <- Sequence {name_out_Trace_TE49}
+  ),
+  name_2_name_TL24 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE20},
+   target <- Sequence {name_out_Trace_TE51}
+  ),
+  name_2_name_TL25 : TRACE!TraceLink (
+   name <- 'name_2_name',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE17, "owner.name_in_Trace_TE18"},
+   target <- Sequence {name_out_Trace_TE47}
+  ),
+  R26_TL26 : TRACE!TraceLink (
+   name <- 'R26',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {col_out_Trace_TE48}
+  ),
+  R27_TL27 : TRACE!TraceLink (
+   name <- 'R27',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {type_out_Trace_TE50}
+  ),
+  R28_TL28 : TRACE!TraceLink (
+   name <- 'R28',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {type_out_Trace_TE52}
+  ),
+  attribute_in_Trace_TE6 : TRACE!SourceElement (
+   name <- attribute_in.getName(),
+   ref <- attribute_in.__xmiID__,
+   model <- thisModule.getModel_Class_model
+  ),
+  name_in_Trace_TE17 : TRACE!SourceElement (
+   name <- attribute_in.name.toString() + '(Feature: name)',
+   belongsTo <- attribute_in_Trace_TE6,
+   model <- thisModule.getModel_Class_model
+  ),
+  "owner.name_in_Trace_TE18" : TRACE!SourceElement (
+   name <- attribute_in.owner.name.toString() + '(Feature: owner.name)', --mod
+   belongsTo <- attribute_in_Trace_TE6,
+   model <- thisModule.getModel_Class_model
+  ),
+  "owner.name.tolower()_in_Trace_TE19" : TRACE!SourceElement (
+   name <- attribute_in.owner.name.toLower().toString() + '(Feature: owner.name.tolower())', --mod
+   belongsTo <- attribute_in_Trace_TE6,
+   model <- thisModule.getModel_Class_model
+  ),
+  name_in_Trace_TE20 : TRACE!SourceElement (
+   name <- attribute_in.name.toString() + '(Feature: name)',
+   belongsTo <- attribute_in_Trace_TE6,
+   model <- thisModule.getModel_Class_model
+  ),
+  table_out_Trace_TE29 : TRACE!TargetElement (
+   name <- table_out.getName(),
+   ref <- table_out.__xmiID__,
+   model <- thisModule.getModel_Relational_model
+  ),
+  column_out_Trace_TE30 : TRACE!TargetElement (
+   name <- column_out.getName(),
+   ref <- column_out.__xmiID__,
+   model <- thisModule.getModel_Relational_model
+  ),
+  column_out_Trace_TE31 : TRACE!TargetElement (
+   name <- column_out.getName(),
+   ref <- column_out.__xmiID__,
+   model <- thisModule.getModel_Relational_model
+  ),
+  name_out_Trace_TE47 : TRACE!TargetElement (
+   name <- table_out.name.toString() + '(Feature: name)',
+   belongsTo <- table_out_Trace_TE29,
+   model <- thisModule.getModel_Relational_model
+  ),
+  col_out_Trace_TE48 : TRACE!TargetElement (
+   name <- table_out.col.toString() + '(Feature: col)',
+   belongsTo <- table_out_Trace_TE29,
+   model <- thisModule.getModel_Relational_model
+  ),
+  name_out_Trace_TE49 : TRACE!TargetElement (
+   name <- column_out.name.toString() + '(Feature: name)',
+   belongsTo <- column_out_Trace_TE30,
+   model <- thisModule.getModel_Relational_model
+  ),
+  type_out_Trace_TE50 : TRACE!TargetElement (
+   name <- column_out.type.toString() + '(Feature: type)',
+   belongsTo <- column_out_Trace_TE30,
+   model <- thisModule.getModel_Relational_model
+  ),
+  name_out_Trace_TE51 : TRACE!TargetElement (
+   name <- column_out.name.toString() + '(Feature: name)',
+   belongsTo <- column_out_Trace_TE31,
+   model <- thisModule.getModel_Relational_model
+  ),
+  type_out_Trace_TE52 : TRACE!TargetElement (
+   name <- column_out.type.toString() + '(Feature: type)',
+   belongsTo <- column_out_Trace_TE31,
+   model <- thisModule.getModel_Relational_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a CalledRule to create the root of Trace Model
+entrypoint rule CreateTraceModelRoot() {
+ to
+  root : TRACE!TraceModel
+ -- ActionBlock: 
+ do {
+  thisModule.getTraceModelRoot <- root;
+  thisModule.createSourceModel_c2_Class();
+  thisModule.createTargetModel_c2_Relational();
+ }
+}
+
+-- Comments -> This is a Helper to get the root of model trace 
+helper def: getTraceModelRoot() : TRACE!TraceModel =
+ OclUndefined;
+
+-- Comments -> This is a Helper to get the element name 
+helper context OclAny def: getName() : String =
+ if self.oclIsUndefined() then
+  ''
+ else
+  if self.oclIsKindOf(Sequence(OclAny)) then
+   'Sequence(' + self->collect(e |
+    e.getName()
+   ) + ')'
+  else
+   if self.oclIsTypeOf(String) then
+    self
+   else
+    if not self.eClass().getEAllStructuralFeatures()->collect(n |
+     n.name
+    )->select(f |
+     f.toLower().indexOf('name') > - 1
+    ).oclIsUndefined() then
+     self.refGetValue(self.eClass().getEAllStructuralFeatures()->collect(n |
+      n.name
+     )->select(f |
+      f.toLower().indexOf('name') > - 1
+     ).first())
+    else
+     self.__xmiID__
+    endif
+   endif
+  endif
+ endif;
+
+-- Comments -> This is a Helper to get the model Class_model
+helper def: getModel_Class_model() : TRACE!TraceModel =
+ OclUndefined;
+
+-- Comments -> This is a CalledRule to create a source model c2 Class metamodel
+rule createSourceModel_c2_Class() {
+ to
+  sourceM : TRACE!SourceModel (
+   metamodel <- '/class2relational_MeTAGeM-Trace/Metamodels/Class.ecore',
+   traceModel <- thisModule.getTraceModelRoot,
+   path <- '',--Class!EPackage.generateModelRef('Class_model'), --mod
+   name <- 'Class_model'
+  )
+ -- ActionBlock: 
+ do {
+  thisModule.getModel_Class_model <- sourceM;
+ }
+}
+
+-- Comments -> This is a Helper to get the model Relational_model
+helper def: getModel_Relational_model() : TRACE!TraceModel =
+ OclUndefined;
+
+-- Comments -> This is a CalledRule to create a target model c2 Relational metamodel. You must fill some information manually
+rule createTargetModel_c2_Relational() {
+ to
+  targetM : TRACE!TargetModel (
+   metamodel <- '/class2relational_MeTAGeM-Trace/Metamodels/Relational.ecore',
+   traceModel <- thisModule.getTraceModelRoot,
+   path <- 'USER: Fill this field manually',
+   name <- 'Relational_model'
+  )
+ -- ActionBlock: 
+ do {
+  thisModule.getModel_Relational_model <- targetM;
+ }
+}
+
+-- Comments -> This is a Helper: objectIdType
+helper def: objectIdType : Relational!Type = --mod
+ Class!DataType.allInstances()->select(e|e.name='Integer')->first(); --mod -- Body: get all instances of Class!Datatype and select the first one whose name = 'Integer'
+
