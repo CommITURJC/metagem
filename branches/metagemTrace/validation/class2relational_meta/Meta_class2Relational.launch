@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.adt.launching.atlTransformation">
+<stringAttribute key="ATL File Name" value="/class2relational_meta/Transformations/class2relational-atl.atl"/>
+<stringAttribute key="ATL VM" value="EMF-specific VM"/>
+<stringAttribute key="ATL_COMPILER" value="atl2006"/>
+<booleanAttribute key="AllowInterModelReferences" value="false"/>
+<booleanAttribute key="IS_REFINING" value="false"/>
+<mapAttribute key="Input">
+<mapEntry key="Class_model" value="Class"/>
+</mapAttribute>
+<mapAttribute key="Libs"/>
+<booleanAttribute key="Mode Debug" value="false"/>
+<mapAttribute key="Model Handler">
+<mapEntry key="Class" value="EMF"/>
+<mapEntry key="RefiningTrace" value="EMF"/>
+<mapEntry key="Relational" value="EMF"/>
+</mapAttribute>
+<mapAttribute key="ModelType">
+<mapEntry key="Class" value="METAMODELINPUT"/>
+<mapEntry key="Class_model" value="MODELINPUT"/>
+<mapEntry key="RefiningTrace" value="METAMODELOUTPUT"/>
+<mapEntry key="Relational" value="METAMODELOUTPUT"/>
+<mapEntry key="Relational_model" value="MODELOUTPUT"/>
+<mapEntry key="refiningTrace" value="MODELOUTPUT"/>
+</mapAttribute>
+<mapAttribute key="Options">
+<mapEntry key="OPTION_CLEAR" value="false"/>
+<mapEntry key="OPTION_CONTENT_TYPE" value="false"/>
+<mapEntry key="OPTION_DERIVED" value="true"/>
+<mapEntry key="allowInterModelReferences" value="false"/>
+<mapEntry key="printExecutionTime" value="false"/>
+<mapEntry key="step" value="false"/>
+<mapEntry key="supportUML2Stereotypes" value="false"/>
+</mapAttribute>
+<listAttribute key="OrderedInput">
+<listEntry value="Class_model"/>
+</listAttribute>
+<listAttribute key="OrderedOutput">
+<listEntry value="Relational_model"/>
+<listEntry value="refiningTrace"/>
+</listAttribute>
+<mapAttribute key="Output">
+<mapEntry key="Relational_model" value="Relational"/>
+<mapEntry key="refiningTrace" value="RefiningTrace"/>
+</mapAttribute>
+<mapAttribute key="Path">
+<mapEntry key="Class" value="/class2relational_meta/Metamodels/Class.ecore"/>
+<mapEntry key="Class_model" value="/class2relational_meta/Model/ClassXMI.ecore"/>
+<mapEntry key="RefiningTrace" value="/refiningTrace/model/RefiningTrace.ecore"/>
+<mapEntry key="Relational" value="/class2relational_meta/Metamodels/Relational.ecore"/>
+<mapEntry key="Relational_model" value="/class2relational_meta/Model/relational-out_t.ecore"/>
+<mapEntry key="refiningTrace" value="/class2relational_meta/Model/trace.xmi"/>
+</mapAttribute>
+<stringAttribute key="Project Name" value="class2relational_meta"/>
+<listAttribute key="Superimpose"/>
+<booleanAttribute key="continueAfterError" value="false"/>
+<booleanAttribute key="disableAttributeHelperCache" value="false"/>
+<booleanAttribute key="printExecutionTime" value="true"/>
+<booleanAttribute key="profile" value="false"/>
+<booleanAttribute key="showSummary" value="false"/>
+<booleanAttribute key="step" value="false"/>
+</launchConfiguration>

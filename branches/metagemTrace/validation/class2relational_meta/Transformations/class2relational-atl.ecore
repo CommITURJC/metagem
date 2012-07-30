@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:atl="http://www.eclipse.org/gmt/2005/ATL" xmlns:ocl="http://www.eclipse.org/gmt/2005/OCL">
+  <atl:Module name="class2relational">
+    <commentsBefore>-- @atlcompiler atl2006</commentsBefore>
+    <inModels name="Class_model" metamodel="/1"/>
+    <outModels name="Relational_model" metamodel="/2"/>
+    <elements xsi:type="atl:MatchedRule" name="class2table">
+      <commentsBefore>-- Comments -> This is a MatchedRule: class2table -> </commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="table_out">
+          <type xsi:type="ocl:OclModelElement" name="Table" model="/2"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="name">
+              <source xsi:type="ocl:VariableExp" referredVariable="/3"/>
+            </value>
+          </bindings>
+          <bindings propertyName="col">
+            <value xsi:type="ocl:VariableExp" referredVariable="/4"/>
+          </bindings>
+          <bindings propertyName="key">
+            <value xsi:type="ocl:VariableExp" referredVariable="/5"/>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="column_out">
+          <type xsi:type="ocl:OclModelElement" name="Column" model="/2"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:VariableExp" referredVariable="/6"/>
+          </bindings>
+          <bindings propertyName="type">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="objectIdType">
+              <source xsi:type="ocl:VariableExp" referredVariable="/7"/>
+            </value>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="class_in">
+          <type xsi:type="ocl:OclModelElement" name="Class" model="/1"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:MatchedRule" name="DataType2Type">
+      <commentsBefore>-- Comments -> This is a MatchedRule: DataType2Type -> </commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="type_out">
+          <type xsi:type="ocl:OclModelElement" name="Type" model="/2"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="name">
+              <source xsi:type="ocl:VariableExp" referredVariable="/8"/>
+            </value>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="datatype_in">
+          <type xsi:type="ocl:OclModelElement" name="DataType" model="/1"/>
+        </elements>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:MatchedRule" name="DataTypeAttribute2Column">
+      <commentsBefore>-- Comments -> This is a MatchedRule: DataTypeAttribute2Column -> </commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="column_out">
+          <type xsi:type="ocl:OclModelElement" name="Column" model="/2"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="name">
+              <source xsi:type="ocl:VariableExp" referredVariable="/9"/>
+            </value>
+          </bindings>
+          <bindings propertyName="type">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="type">
+              <source xsi:type="ocl:VariableExp" referredVariable="/10"/>
+            </value>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="attribute_in">
+          <type xsi:type="ocl:OclModelElement" name="Attribute" model="/1"/>
+        </elements>
+        <filter xsi:type="ocl:VariableExp">
+          <commentsAfter>'guard code'</commentsAfter>
+        </filter>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:MatchedRule" name="MultivaluedDataTypeAttribute2Column">
+      <commentsBefore>-- Comments -> This is a MatchedRule: MultivaluedDataTypeAttribute2Column -> </commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="table_out">
+          <type xsi:type="ocl:OclModelElement" name="Table" model="/2"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="name">
+              <source xsi:type="ocl:VariableExp" referredVariable="/11"/>
+            </value>
+          </bindings>
+          <bindings propertyName="col">
+            <value xsi:type="ocl:VariableExp" referredVariable="/12"/>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="column_out">
+          <type xsi:type="ocl:OclModelElement" name="Column" model="/2"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="name">
+              <source xsi:type="ocl:VariableExp" referredVariable="/13"/>
+            </value>
+          </bindings>
+          <bindings propertyName="type">
+            <value xsi:type="ocl:VariableExp" referredVariable="/14"/>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="column_out">
+          <type xsi:type="ocl:OclModelElement" name="Column" model="/2"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="name">
+              <source xsi:type="ocl:VariableExp" referredVariable="/15"/>
+            </value>
+          </bindings>
+          <bindings propertyName="type">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="type">
+              <source xsi:type="ocl:VariableExp" referredVariable="/16"/>
+            </value>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="attribute_in">
+          <type xsi:type="ocl:OclModelElement" name="Attribute" model="/1"/>
+        </elements>
+        <filter xsi:type="ocl:VariableExp">
+          <commentsAfter>'Guard code'</commentsAfter>
+        </filter>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:MatchedRule" name="ClassAttribute2Column">
+      <commentsBefore>-- Comments -> This is a MatchedRule: ClassAttribute2Column -> </commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="column_out">
+          <type xsi:type="ocl:OclModelElement" name="Column" model="/2"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="name">
+              <source xsi:type="ocl:VariableExp" referredVariable="/17"/>
+            </value>
+          </bindings>
+          <bindings propertyName="type">
+            <value xsi:type="ocl:VariableExp" referredVariable="/18"/>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="attribute_in">
+          <type xsi:type="ocl:OclModelElement" name="Attribute" model="/1"/>
+        </elements>
+        <filter xsi:type="ocl:VariableExp">
+          <commentsAfter>'Guard code'</commentsAfter>
+        </filter>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:MatchedRule" name="MultiValuedClassAttribute2Column">
+      <commentsBefore>-- Comments -> This is a MatchedRule: MultiValuedClassAttribute2Column -> </commentsBefore>
+      <outPattern>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="table_out">
+          <type xsi:type="ocl:OclModelElement" name="Table" model="/2"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="name">
+              <source xsi:type="ocl:VariableExp" referredVariable="/19"/>
+            </value>
+          </bindings>
+          <bindings propertyName="col">
+            <value xsi:type="ocl:VariableExp" referredVariable="/20"/>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="column_out">
+          <type xsi:type="ocl:OclModelElement" name="Column" model="/2"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="name">
+              <source xsi:type="ocl:VariableExp" referredVariable="/21"/>
+            </value>
+          </bindings>
+          <bindings propertyName="type">
+            <value xsi:type="ocl:VariableExp" referredVariable="/22"/>
+          </bindings>
+        </elements>
+        <elements xsi:type="atl:SimpleOutPatternElement" varName="column_out">
+          <type xsi:type="ocl:OclModelElement" name="Column" model="/2"/>
+          <bindings propertyName="name">
+            <value xsi:type="ocl:NavigationOrAttributeCallExp" name="name">
+              <source xsi:type="ocl:VariableExp" referredVariable="/23"/>
+            </value>
+          </bindings>
+          <bindings propertyName="type">
+            <value xsi:type="ocl:VariableExp" referredVariable="/24"/>
+          </bindings>
+        </elements>
+      </outPattern>
+      <inPattern>
+        <elements xsi:type="atl:SimpleInPatternElement" varName="attribute_in">
+          <type xsi:type="ocl:OclModelElement" name="Attribute" model="/1"/>
+        </elements>
+        <filter xsi:type="ocl:VariableExp">
+          <commentsAfter>'Guard code'</commentsAfter>
+        </filter>
+      </inPattern>
+    </elements>
+    <elements xsi:type="atl:Helper">
+      <commentsBefore>-- Comments -> This is a Helper: objectIdType</commentsBefore>
+      <commentsAfter>-- Body: operation body</commentsAfter>
+      <definition>
+        <feature xsi:type="ocl:Operation" name="objectIdType">
+          <returnType xsi:type="ocl:OclModelElement" name="Type" model="/26"/>
+        </feature>
+        <context_>
+          <context_ xsi:type="ocl:OclModelElement" name="Attribute" model="/25"/>
+        </context_>
+      </definition>
+    </elements>
+  </atl:Module>
+  <ocl:OclModel name="Class" elements="/0/@elements.0/@inPattern/@elements.0/@type /0/@elements.1/@inPattern/@elements.0/@type /0/@elements.2/@inPattern/@elements.0/@type /0/@elements.3/@inPattern/@elements.0/@type /0/@elements.4/@inPattern/@elements.0/@type /0/@elements.5/@inPattern/@elements.0/@type" model="/0/@inModels.0"/>
+  <ocl:OclModel name="Relational" elements="/0/@elements.0/@outPattern/@elements.0/@type /0/@elements.0/@outPattern/@elements.1/@type /0/@elements.1/@outPattern/@elements.0/@type /0/@elements.2/@outPattern/@elements.0/@type /0/@elements.3/@outPattern/@elements.0/@type /0/@elements.3/@outPattern/@elements.1/@type /0/@elements.3/@outPattern/@elements.2/@type /0/@elements.4/@outPattern/@elements.0/@type /0/@elements.5/@outPattern/@elements.0/@type /0/@elements.5/@outPattern/@elements.1/@type /0/@elements.5/@outPattern/@elements.2/@type" model="/0/@outModels.0"/>
+  <ocl:VariableDeclaration varName="class_in" variableExp="/0/@elements.0/@outPattern/@elements.0/@bindings.0/@value/@source"/>
+  <ocl:VariableDeclaration varName="Sequence" variableExp="/0/@elements.0/@outPattern/@elements.0/@bindings.1/@value"/>
+  <ocl:VariableDeclaration varName="Set" variableExp="/0/@elements.0/@outPattern/@elements.0/@bindings.2/@value"/>
+  <ocl:VariableDeclaration varName="objectId" variableExp="/0/@elements.0/@outPattern/@elements.1/@bindings.0/@value"/>
+  <ocl:VariableDeclaration varName="class_in" variableExp="/0/@elements.0/@outPattern/@elements.1/@bindings.1/@value/@source"/>
+  <ocl:VariableDeclaration varName="datatype_in" variableExp="/0/@elements.1/@outPattern/@elements.0/@bindings.0/@value/@source"/>
+  <ocl:VariableDeclaration varName="attribute_in" variableExp="/0/@elements.2/@outPattern/@elements.0/@bindings.0/@value/@source"/>
+  <ocl:VariableDeclaration varName="attribute_in" variableExp="/0/@elements.2/@outPattern/@elements.0/@bindings.1/@value/@source"/>
+  <ocl:VariableDeclaration varName="attribute_in" variableExp="/0/@elements.3/@outPattern/@elements.0/@bindings.0/@value/@source"/>
+  <ocl:VariableDeclaration varName="Sequence" variableExp="/0/@elements.3/@outPattern/@elements.0/@bindings.1/@value"/>
+  <ocl:VariableDeclaration varName="attribute_in" variableExp="/0/@elements.3/@outPattern/@elements.1/@bindings.0/@value/@source"/>
+  <ocl:VariableDeclaration varName="objectIdType" variableExp="/0/@elements.3/@outPattern/@elements.1/@bindings.1/@value"/>
+  <ocl:VariableDeclaration varName="attribute_in" variableExp="/0/@elements.3/@outPattern/@elements.2/@bindings.0/@value/@source"/>
+  <ocl:VariableDeclaration varName="attribute_in" variableExp="/0/@elements.3/@outPattern/@elements.2/@bindings.1/@value/@source"/>
+  <ocl:VariableDeclaration varName="attribute_in" variableExp="/0/@elements.4/@outPattern/@elements.0/@bindings.0/@value/@source"/>
+  <ocl:VariableDeclaration varName="objectIdType" variableExp="/0/@elements.4/@outPattern/@elements.0/@bindings.1/@value"/>
+  <ocl:VariableDeclaration varName="attribute_in" variableExp="/0/@elements.5/@outPattern/@elements.0/@bindings.0/@value/@source"/>
+  <ocl:VariableDeclaration varName="Sequence" variableExp="/0/@elements.5/@outPattern/@elements.0/@bindings.1/@value"/>
+  <ocl:VariableDeclaration varName="attribute_in" variableExp="/0/@elements.5/@outPattern/@elements.1/@bindings.0/@value/@source"/>
+  <ocl:VariableDeclaration varName="objectIdType" variableExp="/0/@elements.5/@outPattern/@elements.1/@bindings.1/@value"/>
+  <ocl:VariableDeclaration varName="attribute_in" variableExp="/0/@elements.5/@outPattern/@elements.2/@bindings.0/@value/@source"/>
+  <ocl:VariableDeclaration varName="objectIdType" variableExp="/0/@elements.5/@outPattern/@elements.2/@bindings.1/@value"/>
+  <ocl:OclModel name="Class" elements="/0/@elements.6/@definition/@context_/@context_"/>
+  <ocl:OclModel name="Relational" elements="/0/@elements.6/@definition/@feature/@returnType"/>
+</xmi:XMI>
