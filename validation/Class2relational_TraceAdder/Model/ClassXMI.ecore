@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="Class">
+  <Class name="Family">
+    <attr name="name1" multiValued="false" type="/2"/>
+    <attr name="members2" multiValued="true" type="/1"/>
+  </Class>
+    <Class name="Family2">
+    <attr name="name3" multiValued="false" type="/2"/>
+    <attr name="members4" multiValued="true" type="/1"/>
+  </Class>
+   <Class name="Family2">
+    <attr name="name3" multiValued="false" type="/2"/>
+    <attr name="members4" multiValued="true" type="/1"/>
+  </Class>
+   <Class name="Family2">
+    <attr name="name3" multiValued="false" type="/2"/>
+    <attr name="members4" multiValued="true" type="/1"/>
+  </Class>
+   <Class name="Family2">
+    <attr name="name3" multiValued="false" type="/2"/>
+     <attr name="name5" multiValued="false" type="/2"/>
+    <attr name="members4" multiValued="true" type="/1"/>
+    <attr name="members5" multiValued="true" type="/1"/>
+    <attr name="members6" multiValued="true" type="/1"/>
+    <attr name="members7" multiValued="true" type="/1"/>
+    <attr name="members8" multiValued="true" type="/1"/>
+    <attr name="members9" multiValued="true" type="/1"/>
+  </Class>
+   <Class name="Family2">
+    <attr name="name3" multiValued="false" type="/2"/>
+    <attr name="members4" multiValued="true" type="/1"/>
+  </Class>
+   <Class name="Family2">
+    <attr name="name3" multiValued="false" type="/2"/>
+    <attr name="members4" multiValued="true" type="/1"/>
+  </Class>
+    <Class name="Family3">
+    <attr name="name5" multiValued="false" type="/2"/>
+    <attr name="members6" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person4">
+    <attr name="firstName7" multiValued="false" type="/2"/>
+    <attr name="closestFriend8" multiValued="false" type="/1"/>
+    <attr name="emailAddresses9" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person5">
+    <attr name="firstName10" multiValued="false" type="/2"/>
+    <attr name="closestFriend11" multiValued="false" type="/1"/>
+    <attr name="emailAddresses12" multiValued="true" type="/2"/>
+    <attr name="hasPhone13" multiValued="false" type="/3"/>
+    <attr name="phone14" multiValued="false" type="/2"/>
+    <attr name="email15" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person6">
+    <attr name="firstName16" multiValued="false" type="/2"/>
+    <attr name="closestFriend17" multiValued="false" type="/1"/>
+    <attr name="emailAddresses18" multiValued="true" type="/2"/>
+    <attr name="hasPhone19" multiValued="false" type="/3"/>
+    <attr name="phone20" multiValued="false" type="/2"/>
+    <attr name="email21" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+    <attr name="closestFriend23" multiValued="false" type="/1"/>
+    <attr name="emailAddresses24" multiValued="true" type="/2"/>
+    <attr name="hasPhone25" multiValued="false" type="/3"/>
+    <attr name="phone26" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/5"/>
+    <attr name="email37" multiValued="true" type="/4"/>
+  </Class>
+  <Class name="Person11">
+    <attr name="firstName38" multiValued="false" type="/2"/>
+    <attr name="closestFriend39" multiValued="false" type="/1"/>
+    <attr name="emailAddresses40" multiValued="true" type="/6"/>
+    <attr name="hasPhone41" multiValued="false" type="/3"/>
+    <attr name="phone42" multiValued="false" type="/2"/>
+    <attr name="email3" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person12">
+    <attr name="firstName43" multiValued="false" type="/2"/>
+    <attr name="closestFriend44" multiValued="false" type="/1"/>
+    <attr name="emailAddresses45" multiValued="true" type="/2"/>
+    <attr name="hasPhone46" multiValued="false" type="/3"/>
+    <attr name="phone47" multiValued="false" type="/2"/>
+  </Class>
+   <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+    <attr name="closestFriend23" multiValued="false" type="/1"/>
+    <attr name="emailAddresses24" multiValued="true" type="/2"/>
+    <attr name="hasPhone25" multiValued="false" type="/3"/>
+    <attr name="phone26" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person11">
+    <attr name="firstName38" multiValued="false" type="/2"/>
+    <attr name="closestFriend39" multiValued="false" type="/1"/>
+    <attr name="emailAddresses40" multiValued="true" type="/2"/>
+    <attr name="hasPhone41" multiValued="false" type="/3"/>
+    <attr name="phone42" multiValued="false" type="/2"/>
+    <attr name="email3" multiValued="true" type="/2"/>
+  </Class>
+   <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+    <attr name="closestFriend23" multiValued="false" type="/1"/>
+    <attr name="emailAddresses24" multiValued="true" type="/2"/>
+    <attr name="hasPhone25" multiValued="false" type="/3"/>
+    <attr name="phone26" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person11">
+    <attr name="firstName38" multiValued="false" type="/2"/>
+    <attr name="closestFriend39" multiValued="false" type="/1"/>
+    <attr name="emailAddresses40" multiValued="true" type="/2"/>
+    <attr name="hasPhone41" multiValued="false" type="/3"/>
+    <attr name="phone42" multiValued="false" type="/2"/>
+    <attr name="email3" multiValued="true" type="/2"/>
+  </Class>
+   <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+    <attr name="closestFriend23" multiValued="false" type="/1"/>
+    <attr name="emailAddresses24" multiValued="true" type="/2"/>
+    <attr name="hasPhone25" multiValued="false" type="/3"/>
+    <attr name="phone26" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person11">
+    <attr name="firstName38" multiValued="false" type="/2"/>
+    <attr name="closestFriend39" multiValued="false" type="/1"/>
+    <attr name="emailAddresses40" multiValued="true" type="/2"/>
+    <attr name="hasPhone41" multiValued="false" type="/3"/>
+    <attr name="phone42" multiValued="false" type="/2"/>
+    <attr name="email3" multiValued="true" type="/2"/>
+  </Class>
+   <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+    <attr name="closestFriend23" multiValued="false" type="/1"/>
+    <attr name="emailAddresses24" multiValued="true" type="/2"/>
+    <attr name="hasPhone25" multiValued="false" type="/3"/>
+    <attr name="phone26" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person11">
+    <attr name="firstName38" multiValued="false" type="/2"/>
+    <attr name="closestFriend39" multiValued="false" type="/1"/>
+    <attr name="emailAddresses40" multiValued="true" type="/2"/>
+    <attr name="hasPhone41" multiValued="false" type="/3"/>
+    <attr name="phone42" multiValued="false" type="/2"/>
+    <attr name="email3" multiValued="true" type="/2"/>
+  </Class>
+   <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+    <attr name="closestFriend23" multiValued="false" type="/1"/>
+    <attr name="emailAddresses24" multiValued="true" type="/2"/>
+    <attr name="hasPhone25" multiValued="false" type="/3"/>
+    <attr name="phone26" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person11">
+    <attr name="firstName38" multiValued="false" type="/2"/>
+    <attr name="closestFriend39" multiValued="false" type="/1"/>
+    <attr name="emailAddresses40" multiValued="true" type="/2"/>
+    <attr name="hasPhone41" multiValued="false" type="/3"/>
+    <attr name="phone42" multiValued="false" type="/2"/>
+    <attr name="email3" multiValued="true" type="/2"/>
+  </Class>
+     <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+    <attr name="closestFriend23" multiValued="false" type="/1"/>
+    <attr name="emailAddresses24" multiValued="true" type="/2"/>
+    <attr name="hasPhone25" multiValued="false" type="/3"/>
+    <attr name="phone26" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+     <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+    <attr name="closestFriend23" multiValued="false" type="/1"/>
+    <attr name="emailAddresses24" multiValued="true" type="/2"/>
+    <attr name="hasPhone25" multiValued="false" type="/3"/>
+    <attr name="phone26" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+      <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+      <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+      <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+      <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+      <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+      <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+    <attr name="emailAddresses32" multiValued="true" type="/2"/>
+    <attr name="emailAddresses33" multiValued="true" type="/2"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+     <attr name="emailAddresses35" multiValued="true" type="/2"/>
+  </Class>
+     <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+    <attr name="closestFriend23" multiValued="false" type="/1"/>
+    <attr name="emailAddresses24" multiValued="true" type="/2"/>
+    <attr name="hasPhone25" multiValued="false" type="/3"/>
+    <attr name="phone26" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+   <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+    <attr name="closestFriend23" multiValued="false" type="/1"/>
+    <attr name="emailAddresses24" multiValued="true" type="/2"/>
+    <attr name="hasPhone25" multiValued="false" type="/3"/>
+    <attr name="phone26" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person11">
+    <attr name="firstName38" multiValued="false" type="/2"/>
+    <attr name="closestFriend39" multiValued="false" type="/1"/>
+    <attr name="emailAddresses40" multiValued="true" type="/2"/>
+    <attr name="hasPhone41" multiValued="false" type="/3"/>
+    <attr name="phone42" multiValued="false" type="/2"/>
+    <attr name="email3" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Family">
+    <attr name="name1" multiValued="false" type="/2"/>
+    <attr name="members2" multiValued="true" type="/1"/>
+  </Class>
+    <Class name="Family2">
+    <attr name="name3" multiValued="false" type="/2"/>
+    <attr name="members4" multiValued="true" type="/1"/>
+  </Class>
+    <Class name="Family3">
+    <attr name="name5" multiValued="false" type="/2"/>
+    <attr name="members6" multiValued="true" type="/1"/>
+  </Class>
+    <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+    <attr name="closestFriend23" multiValued="false" type="/1"/>
+    <attr name="emailAddresses24" multiValued="true" type="/2"/>
+    <attr name="hasPhone25" multiValued="false" type="/3"/>
+    <attr name="phone26" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+  </Class>
+      <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+  </Class>
+      <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+  </Class>
+      <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+  </Class>
+      <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+  </Class>
+      <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person11">
+    <attr name="firstName38" multiValued="false" type="/2"/>
+    <attr name="closestFriend39" multiValued="false" type="/1"/>
+    <attr name="emailAddresses40" multiValued="true" type="/2"/>
+    <attr name="hasPhone41" multiValued="false" type="/3"/>
+    <attr name="phone42" multiValued="false" type="/2"/>
+    <attr name="email3" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person12">
+    <attr name="firstName43" multiValued="false" type="/2"/>
+    <attr name="emailAddresses45" multiValued="true" type="/2"/>
+    <attr name="hasPhone46" multiValued="false" type="/3"/>
+    <attr name="phone47" multiValued="false" type="/2"/>
+  </Class>
+  <Class name="Family">
+    <attr name="name1" multiValued="false" type="/2"/>
+    <attr name="members2" multiValued="true" type="/1"/>
+  </Class>
+    <Class name="Family2">
+    <attr name="name3" multiValued="false" type="/2"/>
+    <attr name="members4" multiValued="true" type="/1"/>
+  </Class>
+    <Class name="Family3">
+    <attr name="name5" multiValued="false" type="/2"/>
+    <attr name="members6" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person4">
+    <attr name="firstName7" multiValued="false" type="/2"/>
+    <attr name="emailAddresses9" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person5">
+    <attr name="firstName10" multiValued="false" type="/2"/>
+    <attr name="emailAddresses12" multiValued="true" type="/2"/>
+    <attr name="hasPhone13" multiValued="false" type="/3"/>
+    <attr name="phone14" multiValued="false" type="/2"/>
+    <attr name="email15" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person6">
+    <attr name="firstName16" multiValued="false" type="/2"/>
+    <attr name="closestFriend17" multiValued="false" type="/1"/>
+    <attr name="emailAddresses18" multiValued="true" type="/2"/>
+    <attr name="hasPhone19" multiValued="false" type="/3"/>
+    <attr name="phone20" multiValued="false" type="/2"/>
+    <attr name="email21" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person11">
+    <attr name="firstName38" multiValued="false" type="/2"/>
+    <attr name="phone42" multiValued="false" type="/2"/>
+    <attr name="email3" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person12">
+    <attr name="firstName43" multiValued="false" type="/2"/>
+    <attr name="closestFriend44" multiValued="false" type="/1"/>
+    <attr name="emailAddresses45" multiValued="true" type="/2"/>
+    <attr name="hasPhone46" multiValued="false" type="/3"/>
+    <attr name="phone47" multiValued="false" type="/2"/>
+  </Class>
+  <Class name="Family">
+    <attr name="name1" multiValued="false" type="/2"/>
+    <attr name="members2" multiValued="true" type="/1"/>
+  </Class>
+    <Class name="Family2">
+    <attr name="name3" multiValued="false" type="/2"/>
+    <attr name="members4" multiValued="true" type="/1"/>
+  </Class>
+    <Class name="Family3">
+    <attr name="name5" multiValued="false" type="/2"/>
+  </Class>
+  <Class name="Person4">
+    <attr name="firstName7" multiValued="false" type="/2"/>
+    <attr name="closestFriend8" multiValued="false" type="/1"/>
+    <attr name="emailAddresses9" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person5">
+    <attr name="firstName10" multiValued="false" type="/2"/>
+    <attr name="closestFriend11" multiValued="false" type="/1"/>
+    <attr name="emailAddresses12" multiValued="true" type="/2"/>
+    <attr name="hasPhone13" multiValued="false" type="/3"/>
+    <attr name="phone14" multiValued="false" type="/2"/>
+    <attr name="email15" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person6">
+    <attr name="firstName16" multiValued="false" type="/2"/>
+    <attr name="closestFriend17" multiValued="false" type="/1"/>
+    <attr name="emailAddresses18" multiValued="true" type="/2"/>
+    <attr name="hasPhone19" multiValued="false" type="/3"/>
+    <attr name="phone20" multiValued="false" type="/2"/>
+    <attr name="email21" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+    <attr name="closestFriend23" multiValued="false" type="/1"/>
+    <attr name="emailAddresses24" multiValued="true" type="/2"/>
+    <attr name="hasPhone25" multiValued="false" type="/3"/>
+    <attr name="phone26" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person11">
+    <attr name="firstName38" multiValued="false" type="/2"/>
+    <attr name="closestFriend39" multiValued="false" type="/1"/>
+    <attr name="emailAddresses40" multiValued="true" type="/2"/>
+    <attr name="hasPhone41" multiValued="false" type="/3"/>
+    <attr name="phone42" multiValued="false" type="/2"/>
+    <attr name="email3" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person12">
+    <attr name="firstName43" multiValued="false" type="/2"/>
+    <attr name="closestFriend44" multiValued="false" type="/1"/>
+    <attr name="emailAddresses45" multiValued="true" type="/2"/>
+    <attr name="phone47" multiValued="true" type="/2"/>
+  </Class>
+      <Class name="Family2">
+    <attr name="name3" multiValued="false" type="/2"/>
+    <attr name="members4" multiValued="true" type="/1"/>
+  </Class>
+    <Class name="Family3">
+    <attr name="name5" multiValued="false" type="/2"/>
+    <attr name="members6" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person4">
+    <attr name="firstName7" multiValued="false" type="/2"/>
+    <attr name="emailAddresses9" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person5">
+    <attr name="firstName10" multiValued="false" type="/2"/>
+    <attr name="emailAddresses12" multiValued="true" type="/2"/>
+    <attr name="hasPhone13" multiValued="false" type="/3"/>
+    <attr name="phone14" multiValued="false" type="/2"/>
+    <attr name="email15" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person6">
+    <attr name="firstName16" multiValued="false" type="/2"/>
+    <attr name="closestFriend17" multiValued="false" type="/1"/>
+    <attr name="emailAddresses18" multiValued="true" type="/2"/>
+    <attr name="hasPhone19" multiValued="false" type="/3"/>
+    <attr name="phone20" multiValued="false" type="/2"/>
+    <attr name="email21" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+      <Class name="Family2">
+    <attr name="name3" multiValued="false" type="/2"/>
+    <attr name="members4" multiValued="true" type="/1"/>
+  </Class>
+    <Class name="Family3">
+    <attr name="name5" multiValued="false" type="/2"/>
+    <attr name="members6" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person4">
+    <attr name="firstName7" multiValued="false" type="/2"/>
+    <attr name="emailAddresses9" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person5">
+    <attr name="firstName10" multiValued="false" type="/2"/>
+    <attr name="emailAddresses12" multiValued="true" type="/2"/>
+    <attr name="hasPhone13" multiValued="false" type="/3"/>
+    <attr name="phone14" multiValued="false" type="/2"/>
+    <attr name="email15" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person6">
+    <attr name="firstName16" multiValued="false" type="/2"/>
+    <attr name="closestFriend17" multiValued="false" type="/1"/>
+    <attr name="emailAddresses18" multiValued="true" type="/2"/>
+    <attr name="hasPhone19" multiValued="false" type="/3"/>
+    <attr name="phone20" multiValued="false" type="/2"/>
+    <attr name="email21" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+      <Class name="Family2">
+    <attr name="name3" multiValued="false" type="/2"/>
+    <attr name="members4" multiValued="true" type="/1"/>
+  </Class>
+    <Class name="Family3">
+    <attr name="name5" multiValued="false" type="/2"/>
+    <attr name="members6" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person4">
+    <attr name="firstName7" multiValued="false" type="/2"/>
+    <attr name="emailAddresses9" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person5">
+    <attr name="firstName10" multiValued="false" type="/2"/>
+    <attr name="emailAddresses12" multiValued="true" type="/2"/>
+    <attr name="hasPhone13" multiValued="false" type="/3"/>
+    <attr name="phone14" multiValued="false" type="/2"/>
+    <attr name="email15" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person6">
+    <attr name="firstName16" multiValued="false" type="/2"/>
+    <attr name="closestFriend17" multiValued="false" type="/1"/>
+    <attr name="emailAddresses18" multiValued="true" type="/2"/>
+    <attr name="hasPhone19" multiValued="false" type="/3"/>
+    <attr name="phone20" multiValued="false" type="/2"/>
+    <attr name="email21" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+      <Class name="Family2">
+    <attr name="name3" multiValued="false" type="/2"/>
+    <attr name="members4" multiValued="true" type="/1"/>
+  </Class>
+    <Class name="Family3">
+    <attr name="name5" multiValued="false" type="/2"/>
+    <attr name="members6" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person4">
+    <attr name="firstName7" multiValued="false" type="/2"/>
+    <attr name="emailAddresses9" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person5">
+    <attr name="firstName10" multiValued="false" type="/2"/>
+    <attr name="emailAddresses12" multiValued="true" type="/2"/>
+    <attr name="hasPhone13" multiValued="false" type="/3"/>
+    <attr name="phone14" multiValued="false" type="/2"/>
+    <attr name="email15" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person6">
+    <attr name="firstName16" multiValued="false" type="/2"/>
+    <attr name="closestFriend17" multiValued="false" type="/1"/>
+    <attr name="emailAddresses18" multiValued="true" type="/6"/>
+    <attr name="hasPhone19" multiValued="false" type="/3"/>
+    <attr name="phone20" multiValued="false" type="/2"/>
+    <attr name="email21" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person6">
+    <attr name="firstName16" multiValued="false" type="/2"/>
+    <attr name="closestFriend17" multiValued="false" type="/1"/>
+    <attr name="emailAddresses18" multiValued="true" type="/2"/>
+    <attr name="hasPhone19" multiValued="false" type="/3"/>
+    <attr name="phone20" multiValued="false" type="/2"/>
+    <attr name="email21" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/4"/>
+    <attr name="emailAddresses31" multiValued="true" type="/6"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person6">
+    <attr name="firstName16" multiValued="false" type="/2"/>
+    <attr name="closestFriend17" multiValued="false" type="/1"/>
+    <attr name="emailAddresses18" multiValued="true" type="/2"/>
+    <attr name="hasPhone19" multiValued="false" type="/3"/>
+    <attr name="phone20" multiValued="false" type="/2"/>
+    <attr name="email21" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person6">
+    <attr name="firstName16" multiValued="false" type="/2"/>
+    <attr name="closestFriend17" multiValued="false" type="/1"/>
+    <attr name="emailAddresses18" multiValued="true" type="/2"/>
+    <attr name="hasPhone19" multiValued="false" type="/3"/>
+    <attr name="phone20" multiValued="false" type="/2"/>
+    <attr name="email21" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/1"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person6">
+    <attr name="firstName16" multiValued="false" type="/2"/>
+    <attr name="closestFriend17" multiValued="false" type="/1"/>
+    <attr name="emailAddresses18" multiValued="true" type="/2"/>
+    <attr name="hasPhone19" multiValued="false" type="/5"/>
+    <attr name="phone20" multiValued="false" type="/2"/>
+    <attr name="email21" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person7">
+    <attr name="firstName22" multiValued="false" type="/2"/>
+  </Class>
+    <Class name="Family8">
+    <attr name="name27" multiValued="false" type="/2"/>
+    <attr name="members28" multiValued="true" type="/5"/>
+  </Class>
+  <Class name="Person9">
+    <attr name="firstName29" multiValued="false" type="/2"/>
+    <attr name="closestFriend30" multiValued="false" type="/1"/>
+    <attr name="emailAddresses31" multiValued="true" type="/2"/>
+  </Class>
+  <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+    <Class name="Person10">
+    <attr name="firstName32" multiValued="false" type="/2"/>
+    <attr name="closestFriend33" multiValued="false" type="/1"/>
+    <attr name="emailAddresses34" multiValued="true" type="/2"/>
+    <attr name="hasPhone35" multiValued="false" type="/3"/>
+    <attr name="phone36" multiValued="false" type="/2"/>
+    <attr name="email37" multiValued="true" type="/2"/>
+  </Class>
+  <DataType name="String"/>
+  <DataType name="Integer"/>
+  <DataType name="Boolean"/>
+  <DataType name="Float"/>
+  <DataType name="OCL"/>
+  <DataType name="Any"/>
+</xmi:XMI>

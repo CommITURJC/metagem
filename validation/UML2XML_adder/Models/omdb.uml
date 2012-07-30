@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><uml:Package xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" name="Online Movie Database" xmi:id="_jopigPxQEd2qTILnYStnJQ" xmi:version="2.1">
+  <packagedElement name="OID" xmi:id="_aPznAPxUEd2qTILnYStnJQ" xmi:type="uml:PrimitiveType"/>
+  <packagedElement name="String" xmi:id="_C8_vcPxREd2qTILnYStnJQ" xmi:type="uml:PrimitiveType"/>
+  <packagedElement name="Integer" xmi:id="_C8_vcfxREd2qTILnYStnJQ" xmi:type="uml:PrimitiveType"/>
+  <packagedElement name="Date" xmi:id="_C8_vcvxREd2qTILnYStnJQ" xmi:type="uml:PrimitiveType"/>
+  <packagedElement name="Char" xmi:id="_EKMv4PxWEd2qTILnYStnJQ" xmi:type="uml:PrimitiveType"/>
+  <packagedElement name="Real" xmi:id="_nG8RgPxUEd2qTILnYStnJQ" xmi:type="uml:PrimitiveType"/>
+  <packagedElement name="people" xmi:id="_az7IEPxREd2qTILnYStnJQ" xmi:type="uml:Class">
+    <ownedAttribute name="id" type="_aPznAPxUEd2qTILnYStnJQ" xmi:id="_iXZj8Px6Ed2MpOyP_INC3Q"/>
+  </packagedElement>
+  <packagedElement name="director_type" xmi:id="_ai0UgPxSEd2qTILnYStnJQ" xmi:type="uml:Class">
+    <generalization general="_tF9VAPxREd2qTILnYStnJQ" xmi:id="_9myNkPxSEd2qTILnYStnJQ"/>
+  </packagedElement>
+  <packagedElement name="actor_type" xmi:id="_1lGrkPxREd2qTILnYStnJQ" xmi:type="uml:Class">
+    <generalization general="_tF9VAPxREd2qTILnYStnJQ" xmi:id="_34CXgPxREd2qTILnYStnJQ"/>
+  </packagedElement>
+  <packagedElement name="playwriter_type" xmi:id="_5X2kcPxREd2qTILnYStnJQ" xmi:type="uml:Class">
+    <generalization general="_tF9VAPxREd2qTILnYStnJQ" xmi:id="_7TrX8PxREd2qTILnYStnJQ"/>
+  </packagedElement>
+  <packagedElement name="movies" xmi:id="_dMP04PxSEd2qTILnYStnJQ" xmi:type="uml:Class">
+    <ownedAttribute name="id" type="_aPznAPxUEd2qTILnYStnJQ" xmi:id="_-fnL0Px6Ed2MpOyP_INC3Q"/>
+  </packagedElement>
+  <packagedElement name="Person_type" xmi:id="_tF9VAPxREd2qTILnYStnJQ" xmi:type="uml:Class">
+    <ownedAttribute name="country" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_gYB3wPx7Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="dob" type="_C8_vcvxREd2qTILnYStnJQ" xmi:id="_iQuewPx7Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="name" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_lk6zYPx7Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="sex" type="_EKMv4PxWEd2qTILnYStnJQ" xmi:id="_ce4b8Px7Ed2MpOyP_INC3Q"/>
+  </packagedElement>
+  <packagedElement name="movie_type" xmi:id="_g726MPxSEd2qTILnYStnJQ" xmi:type="uml:Class">
+    <ownedAttribute name="genre" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_qx9gAPx7Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="studio" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_tz-fgPx7Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="synopsis" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_voM2MPx7Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="title" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_x0a2IPx7Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="website" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_zpZawPx7Ed2MpOyP_INC3Q"/>
+  </packagedElement>
+  <packagedElement name="cast_type" xmi:id="_AQLHIPxSEd2qTILnYStnJQ" xmi:type="uml:Class">
+    <ownedAttribute name="casting_order" type="_C8_vcfxREd2qTILnYStnJQ" xmi:id="_DtbfEPx8Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="role" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_AdtawPx8Ed2MpOyP_INC3Q"/>
+  </packagedElement>
+  <packagedElement name="castings" xmi:id="_Mmh_0PxSEd2qTILnYStnJQ" xmi:type="uml:Class">
+    <ownedAttribute name="id" type="_aPznAPxUEd2qTILnYStnJQ" xmi:id="_OfprgPx8Ed2MpOyP_INC3Q"/>
+  </packagedElement>
+  <packagedElement name="product_type" xmi:id="_n4D3UPxSEd2qTILnYStnJQ" xmi:type="uml:Class">
+    <ownedAttribute name="availability" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_UavJ4Px8Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="list_price" type="_nG8RgPxUEd2qTILnYStnJQ" xmi:id="_ZHl6kPx8Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="our_price" type="_nG8RgPxUEd2qTILnYStnJQ" xmi:id="_cs7CgPx8Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="production_company" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_hLUgcPx8Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="rating" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_jGQjIPx8Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="release_date" type="_C8_vcvxREd2qTILnYStnJQ" xmi:id="_kz7l4Px8Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="runtime" type="_C8_vcfxREd2qTILnYStnJQ" xmi:id="_ngB_wPx8Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="movie_ref" type="_g726MPxSEd2qTILnYStnJQ" xmi:id="_pMnjxPyEEd2MpOyP_INC3Q">
+      <upperValue value="1" xmi:id="_pMnjxvyEEd2MpOyP_INC3Q" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_pMnjxfyEEd2MpOyP_INC3Q" xmi:type="uml:LiteralInteger"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement name="products" xmi:id="_12IUsPxSEd2qTILnYStnJQ" xmi:type="uml:Class">
+    <ownedAttribute name="id" type="_aPznAPxUEd2qTILnYStnJQ" xmi:id="_s8uR8Px8Ed2MpOyP_INC3Q"/>
+  </packagedElement>
+  <packagedElement name="external_review_type" xmi:id="_ODQAAPxTEd2qTILnYStnJQ" xmi:type="uml:Class">
+    <ownedAttribute name="review_source" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_zJPekPx8Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="review_url" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_v5OfUPx8Ed2MpOyP_INC3Q"/>
+  </packagedElement>
+  <packagedElement name="user_review_type" xmi:id="_QCWxAPxTEd2qTILnYStnJQ" xmi:type="uml:Class">
+    <ownedAttribute name="review_date" type="_C8_vcvxREd2qTILnYStnJQ" xmi:id="_3ufycPx8Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="review_text" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_BRS-YPx9Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="reviewer" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_EMm48Px9Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="score" type="_C8_vcfxREd2qTILnYStnJQ" xmi:id="_FpSSUPx9Ed2MpOyP_INC3Q"/>
+  </packagedElement>
+  <packagedElement name="video_type" xmi:id="_qLA78PxTEd2qTILnYStnJQ" xmi:type="uml:Class">
+    <generalization general="_n4D3UPxSEd2qTILnYStnJQ" xmi:id="_B8a7oPxUEd2qTILnYStnJQ"/>
+    <ownedAttribute name="format" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_LyYXgPx9Ed2MpOyP_INC3Q"/>
+  </packagedElement>
+  <packagedElement name="dvd_type" xmi:id="_s_w7gPxTEd2qTILnYStnJQ" xmi:type="uml:Class">
+    <generalization general="_n4D3UPxSEd2qTILnYStnJQ" xmi:id="_CiRasPxUEd2qTILnYStnJQ"/>
+    <ownedAttribute name="acpect_ratio" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_UkAlMPx9Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="dvd_encoding" type="_C8_vcPxREd2qTILnYStnJQ" xmi:id="_WuvXYPx9Ed2MpOyP_INC3Q"/>
+    <ownedAttribute name="number_of_disos" type="_C8_vcfxREd2qTILnYStnJQ" xmi:id="_P4DMYPx9Ed2MpOyP_INC3Q"/>
+  </packagedElement>
+  <packagedElement memberEnd="_o3RNkfx-Ed2MpOyP_INC3Q _o3RNlPx-Ed2MpOyP_INC3Q" name="people_person_type" xmi:id="_o3RNkPx-Ed2MpOyP_INC3Q" xmi:type="uml:Association">
+    <ownedEnd association="_o3RNkPx-Ed2MpOyP_INC3Q" name="listPersons" type="_az7IEPxREd2qTILnYStnJQ" xmi:id="_o3RNkfx-Ed2MpOyP_INC3Q">
+      <upperValue value="1" xmi:id="_o3RNk_x-Ed2MpOyP_INC3Q" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue xmi:id="_o3RNkvx-Ed2MpOyP_INC3Q" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+    <ownedEnd aggregation="shared" association="_o3RNkPx-Ed2MpOyP_INC3Q" isOrdered="true" name="persons" type="_tF9VAPxREd2qTILnYStnJQ" xmi:id="_o3RNlPx-Ed2MpOyP_INC3Q">
+      <upperValue value="-1" xmi:id="_o3RNlvx-Ed2MpOyP_INC3Q" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_o3RNlfx-Ed2MpOyP_INC3Q" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement memberEnd="_YKhncfxSEd2qTILnYStnJQ _YKhndPxSEd2qTILnYStnJQ" name="castings_cast_type" xmi:id="_YKhncPxSEd2qTILnYStnJQ" xmi:type="uml:Association">
+    <ownedEnd association="_YKhncPxSEd2qTILnYStnJQ" name="listCastings" type="_Mmh_0PxSEd2qTILnYStnJQ" xmi:id="_YKhncfxSEd2qTILnYStnJQ">
+      <upperValue value="1" xmi:id="_YKhnc_xSEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue xmi:id="_YKhncvxSEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+    <ownedEnd aggregation="shared" association="_YKhncPxSEd2qTILnYStnJQ" isOrdered="true" name="casts" type="_AQLHIPxSEd2qTILnYStnJQ" xmi:id="_YKhndPxSEd2qTILnYStnJQ">
+      <upperValue value="-1" xmi:id="_YKhndvxSEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_YKhndfxSEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement memberEnd="_5fVQAfxSEd2qTILnYStnJQ _5fVQBPxSEd2qTILnYStnJQ" name="movies_movie_type" xmi:id="_5fVQAPxSEd2qTILnYStnJQ" xmi:type="uml:Association">
+    <ownedEnd association="_5fVQAPxSEd2qTILnYStnJQ" name="listMovies" type="_dMP04PxSEd2qTILnYStnJQ" xmi:id="_5fVQAfxSEd2qTILnYStnJQ">
+      <upperValue value="1" xmi:id="_5fVQA_xSEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue xmi:id="_5fVQAvxSEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+    <ownedEnd aggregation="shared" association="_5fVQAPxSEd2qTILnYStnJQ" isOrdered="true" name="movies" type="_g726MPxSEd2qTILnYStnJQ" xmi:id="_5fVQBPxSEd2qTILnYStnJQ">
+      <upperValue value="-1" xmi:id="_5fVQBvxSEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_5fVQBfxSEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement memberEnd="_6AjtwfxSEd2qTILnYStnJQ _6AjtxPxSEd2qTILnYStnJQ" name="products_product_type" xmi:id="_6AjtwPxSEd2qTILnYStnJQ" xmi:type="uml:Association">
+    <ownedEnd association="_6AjtwPxSEd2qTILnYStnJQ" name="listProducts" type="_12IUsPxSEd2qTILnYStnJQ" xmi:id="_6AjtwfxSEd2qTILnYStnJQ">
+      <upperValue value="1" xmi:id="_6Ajtw_xSEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue xmi:id="_6AjtwvxSEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+    <ownedEnd aggregation="shared" association="_6AjtwPxSEd2qTILnYStnJQ" isOrdered="true" name="products" type="_n4D3UPxSEd2qTILnYStnJQ" xmi:id="_6AjtxPxSEd2qTILnYStnJQ">
+      <upperValue value="-1" xmi:id="_6AjtxvxSEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_6AjtxfxSEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement memberEnd="_h_r5QfxTEd2qTILnYStnJQ _h_r5RPxTEd2qTILnYStnJQ" name="movie_type_ext_review" xmi:id="_h_r5QPxTEd2qTILnYStnJQ" xmi:type="uml:Association">
+    <ownedEnd association="_h_r5QPxTEd2qTILnYStnJQ" name="movie" type="_g726MPxSEd2qTILnYStnJQ" xmi:id="_h_r5QfxTEd2qTILnYStnJQ">
+      <upperValue value="1" xmi:id="_h_r5Q_xTEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_h_r5QvxTEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+    <ownedEnd aggregation="composite" association="_h_r5QPxTEd2qTILnYStnJQ" name="ext_review" type="_ODQAAPxTEd2qTILnYStnJQ" xmi:id="_h_r5RPxTEd2qTILnYStnJQ">
+      <upperValue value="5" xmi:id="_h_r5RvxTEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue xmi:id="_h_r5RfxTEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement memberEnd="_jnsY4fxTEd2qTILnYStnJQ _jnsY5PxTEd2qTILnYStnJQ" name="movie_type_user_review" xmi:id="_jnsY4PxTEd2qTILnYStnJQ" xmi:type="uml:Association">
+    <ownedEnd association="_jnsY4PxTEd2qTILnYStnJQ" name="movie" type="_g726MPxSEd2qTILnYStnJQ" xmi:id="_jnsY4fxTEd2qTILnYStnJQ">
+      <upperValue value="1" xmi:id="_jnsY4_xTEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_jnsY4vxTEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+    <ownedEnd aggregation="composite" association="_jnsY4PxTEd2qTILnYStnJQ" name="user_review" type="_QCWxAPxTEd2qTILnYStnJQ" xmi:id="_jnsY5PxTEd2qTILnYStnJQ">
+      <upperValue value="-1" xmi:id="_jnsY5vxTEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue xmi:id="_jnsY5fxTEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement memberEnd="_3F3zkfx5Ed2MpOyP_INC3Q _3F3zlPx5Ed2MpOyP_INC3Q" name="director_movie" xmi:id="_3F3zkPx5Ed2MpOyP_INC3Q" xmi:type="uml:Association">
+    <ownedEnd association="_3F3zkPx5Ed2MpOyP_INC3Q" name="movies" type="_g726MPxSEd2qTILnYStnJQ" xmi:id="_3F3zkfx5Ed2MpOyP_INC3Q">
+      <upperValue value="-1" xmi:id="_3F3zk_x5Ed2MpOyP_INC3Q" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_3F3zkvx5Ed2MpOyP_INC3Q" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+    <ownedEnd association="_3F3zkPx5Ed2MpOyP_INC3Q" name="director" type="_ai0UgPxSEd2qTILnYStnJQ" xmi:id="_3F3zlPx5Ed2MpOyP_INC3Q">
+      <upperValue value="1" xmi:id="_3F3zlvx5Ed2MpOyP_INC3Q" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_3F3zlfx5Ed2MpOyP_INC3Q" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement memberEnd="_FDeBkfxTEd2qTILnYStnJQ _FDeBlPxTEd2qTILnYStnJQ" name="playwriter_type_movie_type" xmi:id="_FDeBkPxTEd2qTILnYStnJQ" xmi:type="uml:Association">
+    <ownedEnd association="_FDeBkPxTEd2qTILnYStnJQ" name="movies" type="_g726MPxSEd2qTILnYStnJQ" xmi:id="_FDeBkfxTEd2qTILnYStnJQ">
+      <upperValue value="1" xmi:id="_FDeBk_xTEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_FDeBkvxTEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+    <ownedEnd association="_FDeBkPxTEd2qTILnYStnJQ" name="playwriter_ref" type="_5X2kcPxREd2qTILnYStnJQ" xmi:id="_FDeBlPxTEd2qTILnYStnJQ">
+      <upperValue value="1" xmi:id="_FDeBlvxTEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_FDeBlfxTEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement memberEnd="_Hn1bwfxTEd2qTILnYStnJQ _Hn1bxPxTEd2qTILnYStnJQ" name="actor_type_cast_type" xmi:id="_Hn1bwPxTEd2qTILnYStnJQ" xmi:type="uml:Association">
+    <ownedEnd association="_Hn1bwPxTEd2qTILnYStnJQ" name="casts" type="_AQLHIPxSEd2qTILnYStnJQ" xmi:id="_Hn1bwfxTEd2qTILnYStnJQ">
+      <upperValue value="-1" xmi:id="_Hn1bw_xTEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_Hn1bwvxTEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+    <ownedEnd association="_Hn1bwPxTEd2qTILnYStnJQ" name="actors" type="_1lGrkPxREd2qTILnYStnJQ" xmi:id="_Hn1bxPxTEd2qTILnYStnJQ">
+      <upperValue value="-1" xmi:id="_Hn1bxvxTEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_Hn1bxfxTEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement memberEnd="_LtMuofxTEd2qTILnYStnJQ _LtMupPxTEd2qTILnYStnJQ" name="movie_type_cast_type" xmi:id="_LtMuoPxTEd2qTILnYStnJQ" xmi:type="uml:Association">
+    <ownedEnd association="_LtMuoPxTEd2qTILnYStnJQ" name="movie" type="_g726MPxSEd2qTILnYStnJQ" xmi:id="_LtMupPxTEd2qTILnYStnJQ">
+      <upperValue value="1" xmi:id="_LtMupvxTEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_LtMupfxTEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+    <ownedEnd association="_LtMuoPxTEd2qTILnYStnJQ" name="cast" type="_AQLHIPxSEd2qTILnYStnJQ" xmi:id="_LtMuofxTEd2qTILnYStnJQ">
+      <upperValue value="1" xmi:id="_LtMuo_xTEd2qTILnYStnJQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_LtMuovxTEd2qTILnYStnJQ" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement memberEnd="_pMnjwfyEEd2MpOyP_INC3Q _b9Vd4CK2Ed6u4OIiL1qC5Q" name="product_type_movie_type" navigableOwnedEnd="_b9Vd4CK2Ed6u4OIiL1qC5Q" xmi:id="_pMnjwPyEEd2MpOyP_INC3Q" xmi:type="uml:Association">
+    <ownedEnd association="_pMnjwPyEEd2MpOyP_INC3Q" name="products" type="_n4D3UPxSEd2qTILnYStnJQ" xmi:id="_pMnjwfyEEd2MpOyP_INC3Q">
+      <upperValue value="-1" xmi:id="_pMnjw_yEEd2MpOyP_INC3Q" xmi:type="uml:LiteralUnlimitedNatural"/>
+      <lowerValue value="1" xmi:id="_pMnjwvyEEd2MpOyP_INC3Q" xmi:type="uml:LiteralInteger"/>
+    </ownedEnd>
+    <ownedEnd association="_pMnjwPyEEd2MpOyP_INC3Q" name="movie" type="_g726MPxSEd2qTILnYStnJQ" xmi:id="_b9Vd4CK2Ed6u4OIiL1qC5Q"/>
+  </packagedElement>
+</uml:Package>

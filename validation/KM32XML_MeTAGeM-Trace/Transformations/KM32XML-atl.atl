@@ -1,0 +1,968 @@
+-- @atlcompiler atl2006
+module km32xml;
+create XML_model : XML, in2out_trace : TRACE from KM3_model : KM3;
+
+-- Comments -> This is a MatchedRule: ModelElement -> 
+abstract rule ModelElement {
+ from
+  i : KM3!ModelElement --mod
+ to
+  attribute_out : XML!Attribute (
+   value <- i.name, --mod
+   name <- 'name' --mod
+  ),
+  ModelElement_TL1 : TRACE!TraceLink (
+   name <- 'ModelElement',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {modelelement_in_Trace_TE1},
+   target <- Sequence {attribute_out_Trace_TE21},
+   childLinks <- Sequence {name_2_value_TL11, R21_TL12}
+  ),
+  name_2_value_TL11 : TRACE!TraceLink (
+   name <- 'name_2_value',
+   operation <- #Transform,
+   source <- Sequence {name_in_Trace_TE11},
+   target <- Sequence {value_out_Trace_TE39}
+  ),
+  R21_TL12 : TRACE!TraceLink (
+   name <- 'R21',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE40}
+  ),
+  modelelement_in_Trace_TE1 : TRACE!SourceElement (
+   name <- i.getName(), --mod
+   ref <- i.__xmiID__, --mod
+   model <- thisModule.getModel_KM3_model
+  ),
+  name_in_Trace_TE11 : TRACE!SourceElement (
+   name <- i.name.toString() + '(Feature: name)', --mod
+   belongsTo <- modelelement_in_Trace_TE1,
+   model <- thisModule.getModel_KM3_model
+  ),
+  attribute_out_Trace_TE21 : TRACE!TargetElement (
+   name <- attribute_out.getName(),
+   ref <- attribute_out.__xmiID__,
+   model <- thisModule.getModel_XML_model
+  ),
+  value_out_Trace_TE39 : TRACE!TargetElement (
+   name <- attribute_out.value.toString() + '(Feature: value)',
+   belongsTo <- attribute_out_Trace_TE21,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE40 : TRACE!TargetElement (
+   name <- attribute_out.name.toString() + '(Feature: name)',
+   belongsTo <- attribute_out_Trace_TE21,
+   model <- thisModule.getModel_XML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: Metamodel -> 
+rule Metamodel {
+ from
+  metamodel_in : KM3!Metamodel 
+ to
+  root_out : XML!Root (
+   children <- metamodel_in.contents, 
+   name <- 'Metamodel' --mod
+  ),
+  Metamodel_TL2 : TRACE!TraceLink (
+   name <- 'Metamodel',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {metamodel_in_Trace_TE2},
+   target <- Sequence {root_out_Trace_TE22},
+   childLinks <- Sequence {contents_2_children_TL13, R22_TL14}
+  ),
+  contents_2_children_TL13 : TRACE!TraceLink (
+   name <- 'contents_2_children',
+   operation <- #Transform,
+   source <- Sequence {contents_in_Trace_TE12},
+   target <- Sequence {children_out_Trace_TE41}
+  ),
+  R22_TL14 : TRACE!TraceLink (
+   name <- 'R22',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE42}
+  ),
+  metamodel_in_Trace_TE2 : TRACE!SourceElement (
+   name <- metamodel_in.getName(),
+   ref <- metamodel_in.__xmiID__,
+   model <- thisModule.getModel_KM3_model
+  ),
+  contents_in_Trace_TE12 : TRACE!SourceElement (
+   name <- metamodel_in.contents.toString() + '(Feature: contents)',
+   belongsTo <- metamodel_in_Trace_TE2,
+   model <- thisModule.getModel_KM3_model
+  ),
+  root_out_Trace_TE22 : TRACE!TargetElement (
+   name <- root_out.getName(),
+   ref <- root_out.__xmiID__,
+   model <- thisModule.getModel_XML_model
+  ),
+  children_out_Trace_TE41 : TRACE!TargetElement (
+   name <- root_out.children.toString() + '(Feature: children)',
+   belongsTo <- root_out_Trace_TE22,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE42 : TRACE!TargetElement (
+   name <- root_out.name.toString() + '(Feature: name)',
+   belongsTo <- root_out_Trace_TE22,
+   model <- thisModule.getModel_XML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: Package -> 
+rule Package extends ModelElement {
+ from
+  i : KM3!Package --mod
+ to
+  element_out : XML!Element (
+   name <- 'Package', --mod
+   children <- Sequence{attribute_out}->union(i.contents) --mod
+  ),
+  Package_TL3 : TRACE!TraceLink (
+   name <- 'Package',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {package_in_Trace_TE3},
+   target <- Sequence {element_out_Trace_TE23},
+   childLinks <- Sequence {R23_TL15, R24_TL16}
+  ),
+  R23_TL15 : TRACE!TraceLink (
+   name <- 'R23',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE43}
+  ),
+  R24_TL16 : TRACE!TraceLink (
+   name <- 'R24',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {children_out_Trace_TE44}
+  ),
+  package_in_Trace_TE3 : TRACE!SourceElement (
+   name <- i.getName(),  --mod
+   ref <- i.__xmiID__, --mod
+   model <- thisModule.getModel_KM3_model
+  ),
+  element_out_Trace_TE23 : TRACE!TargetElement (
+   name <- element_out.getName(),
+   ref <- element_out.__xmiID__,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE43 : TRACE!TargetElement (
+   name <- element_out.name.toString() + '(Feature: name)',
+   belongsTo <- element_out_Trace_TE23,
+   model <- thisModule.getModel_XML_model
+  ),
+  children_out_Trace_TE44 : TRACE!TargetElement (
+   name <- element_out.children.toString() + '(Feature: children)',
+   belongsTo <- element_out_Trace_TE23,
+   model <- thisModule.getModel_XML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: Class -> 
+rule Class extends ModelElement {
+ from
+  i : KM3!Class --mod
+ to
+  element_out : XML!Element (
+   name <- 'Class', --mod
+   children <- Sequence{attribute_out, attribute_isAbstract, reference_supertypes}->union(i.structuralFeatures) --mod
+  ),
+  attribute_isAbstract : XML!Attribute ( --mod
+   value <- i.isAbstract.toString(), --mod
+   name <- 'isAbstract' --mod
+  ),
+  reference_supertypes : XML!Attribute ( --mod
+   value <- i.supertypes->iterate(e;acc:String = '' | if acc= '' then acc else acc+', 'endif + e.getFQL()), --mod
+   name <- 'supertypes' --mod
+  ),
+  Class_TL4 : TRACE!TraceLink (
+   name <- 'Class',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {class_in_Trace_TE4},
+   target <- Sequence {element_out_Trace_TE24, attribute_out_Trace_TE25, attribute_out_Trace_TE26},
+   childLinks <- Sequence {isAbstract_2_value_TL17, supertypes_2_value_TL18, R25_TL19, R26_TL20, R27_TL21, R28_TL22}
+  ),
+  isAbstract_2_value_TL17 : TRACE!TraceLink (
+   name <- 'isAbstract_2_value',
+   operation <- #Transform,
+   source <- Sequence {isabstract_in_Trace_TE13},
+   target <- Sequence {value_out_Trace_TE47}
+  ),
+  supertypes_2_value_TL18 : TRACE!TraceLink (
+   name <- 'supertypes_2_value',
+   operation <- #Transform,
+   source <- Sequence {supertypes_in_Trace_TE14},
+   target <- Sequence {value_out_Trace_TE49}
+  ),
+  R25_TL19 : TRACE!TraceLink (
+   name <- 'R25',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE45}
+  ),
+  R26_TL20 : TRACE!TraceLink (
+   name <- 'R26',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {children_out_Trace_TE46}
+  ),
+  R27_TL21 : TRACE!TraceLink (
+   name <- 'R27',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE48}
+  ),
+  R28_TL22 : TRACE!TraceLink (
+   name <- 'R28',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE50}
+  ),
+  class_in_Trace_TE4 : TRACE!SourceElement (
+   name <- i.getName(), --mod
+   ref <- i.__xmiID__, --mod
+   model <- thisModule.getModel_KM3_model
+  ),
+  isabstract_in_Trace_TE13 : TRACE!SourceElement (
+   name <- i.isAbstract.toString() + '(Feature: isabstract)', --mod
+   belongsTo <- class_in_Trace_TE4,
+   model <- thisModule.getModel_KM3_model
+  ),
+  supertypes_in_Trace_TE14 : TRACE!SourceElement (
+   name <- i.supertypes.toString() + '(Feature: supertypes)', --mod
+   belongsTo <- class_in_Trace_TE4,
+   model <- thisModule.getModel_KM3_model
+  ),
+  element_out_Trace_TE24 : TRACE!TargetElement (
+   name <- element_out.getName(),
+   ref <- element_out.__xmiID__,
+   model <- thisModule.getModel_XML_model
+  ),
+  attribute_out_Trace_TE25 : TRACE!TargetElement (
+   name <- attribute_isAbstract.getName(), --mod
+   ref <- attribute_isAbstract.__xmiID__, --mod
+   model <- thisModule.getModel_XML_model
+  ),
+  attribute_out_Trace_TE26 : TRACE!TargetElement (
+   name <- reference_supertypes.getName(), --mod
+   ref <- reference_supertypes.__xmiID__, --mod
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE45 : TRACE!TargetElement (
+   name <- element_out.name.toString() + '(Feature: name)',
+   belongsTo <- element_out_Trace_TE24,
+   model <- thisModule.getModel_XML_model
+  ),
+  children_out_Trace_TE46 : TRACE!TargetElement (
+   name <- element_out.children.toString() + '(Feature: children)',
+   belongsTo <- element_out_Trace_TE24,
+   model <- thisModule.getModel_XML_model
+  ),
+  value_out_Trace_TE47 : TRACE!TargetElement (
+   name <- attribute_isAbstract.value.toString() + '(Feature: value)', --mod
+   belongsTo <- attribute_out_Trace_TE25,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE48 : TRACE!TargetElement (
+   name <- attribute_isAbstract.name.toString() + '(Feature: name)', --mod
+   belongsTo <- attribute_out_Trace_TE25,
+   model <- thisModule.getModel_XML_model
+  ),
+  value_out_Trace_TE49 : TRACE!TargetElement (
+   name <- reference_supertypes.value.toString() + '(Feature: value)', --mod
+   belongsTo <- attribute_out_Trace_TE26,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE50 : TRACE!TargetElement (
+   name <- reference_supertypes.name.toString() + '(Feature: name)', --mod
+   belongsTo <- attribute_out_Trace_TE26,
+   model <- thisModule.getModel_XML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: DataType -> 
+rule DataType extends ModelElement {
+ from
+  i : KM3!DataType
+ to
+  element_out : XML!Element (
+   name <- 'DataType', --mod
+   children <-Sequence{attribute_out} --mod
+  ),
+  DataType_TL5 : TRACE!TraceLink (
+   name <- 'DataType',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {datatype_in_Trace_TE5},
+   target <- Sequence {element_out_Trace_TE27},
+   childLinks <- Sequence {R29_TL23, R30_TL24}
+  ),
+  R29_TL23 : TRACE!TraceLink (
+   name <- 'R29',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE51}
+  ),
+  R30_TL24 : TRACE!TraceLink (
+   name <- 'R30',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {children_out_Trace_TE52}
+  ),
+  datatype_in_Trace_TE5 : TRACE!SourceElement (
+   name <- i.getName(), --mod
+   ref <- i.__xmiID__, --mod
+   model <- thisModule.getModel_KM3_model
+  ),
+  element_out_Trace_TE27 : TRACE!TargetElement (
+   name <- element_out.getName(),
+   ref <- element_out.__xmiID__,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE51 : TRACE!TargetElement (
+   name <- element_out.name.toString() + '(Feature: name)',
+   belongsTo <- element_out_Trace_TE27,
+   model <- thisModule.getModel_XML_model
+  ),
+  children_out_Trace_TE52 : TRACE!TargetElement (
+   name <- element_out.children.toString() + '(Feature: children)',
+   belongsTo <- element_out_Trace_TE27,
+   model <- thisModule.getModel_XML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: Enumeration -> 
+rule Enumeration extends ModelElement {
+ from
+  i : KM3!Enumeration  --mod
+ to
+  element_out : XML!Element (
+   name <- 'Enumeration', --mod
+   children <- Sequence{attribute_out}->union(i.literals) --mod
+  ),
+  Enumeration_TL6 : TRACE!TraceLink (
+   name <- 'Enumeration',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {enumeration_in_Trace_TE6},
+   target <- Sequence {element_out_Trace_TE28},
+   childLinks <- Sequence {R31_TL25, R32_TL26}
+  ),
+  R31_TL25 : TRACE!TraceLink (
+   name <- 'R31',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE53}
+  ),
+  R32_TL26 : TRACE!TraceLink (
+   name <- 'R32',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {children_out_Trace_TE54}
+  ),
+  enumeration_in_Trace_TE6 : TRACE!SourceElement (
+   name <- i.getName(), --mod
+   ref <- i.__xmiID__, --mod
+   model <- thisModule.getModel_KM3_model
+  ),
+  element_out_Trace_TE28 : TRACE!TargetElement (
+   name <- element_out.getName(),
+   ref <- element_out.__xmiID__,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE53 : TRACE!TargetElement (
+   name <- element_out.name.toString() + '(Feature: name)',
+   belongsTo <- element_out_Trace_TE28,
+   model <- thisModule.getModel_XML_model
+  ),
+  children_out_Trace_TE54 : TRACE!TargetElement (
+   name <- element_out.children.toString() + '(Feature: children)',
+   belongsTo <- element_out_Trace_TE28,
+   model <- thisModule.getModel_XML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: EnumLiteral -> 
+rule EnumLiteral extends ModelElement{
+ from
+  i : KM3!EnumLiteral --mod
+ to
+  element_out : XML!Element (
+   name <- 'EnumLiteral', --mod
+   children <- Sequence{attribute_out} --mod
+  ),
+  EnumLiteral_TL7 : TRACE!TraceLink (
+   name <- 'EnumLiteral',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {enumliteral_in_Trace_TE7},
+   target <- Sequence {element_out_Trace_TE29},
+   childLinks <- Sequence {R33_TL27, R34_TL28}
+  ),
+  R33_TL27 : TRACE!TraceLink (
+   name <- 'R33',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE55}
+  ),
+  R34_TL28 : TRACE!TraceLink (
+   name <- 'R34',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {children_out_Trace_TE56}
+  ),
+  enumliteral_in_Trace_TE7 : TRACE!SourceElement (
+   name <- i.getName(), --mod
+   ref <- i.__xmiID__, --mod
+   model <- thisModule.getModel_KM3_model
+  ),
+  element_out_Trace_TE29 : TRACE!TargetElement (
+   name <- element_out.getName(),
+   ref <- element_out.__xmiID__,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE55 : TRACE!TargetElement (
+   name <- element_out.name.toString() + '(Feature: name)',
+   belongsTo <- element_out_Trace_TE29,
+   model <- thisModule.getModel_XML_model
+  ),
+  children_out_Trace_TE56 : TRACE!TargetElement (
+   name <- element_out.children.toString() + '(Feature: children)',
+   belongsTo <- element_out_Trace_TE29,
+   model <- thisModule.getModel_XML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: StructuralFeature -> 
+abstract rule StructuralFeature extends ModelElement{
+ from
+  i : KM3!StructuralFeature --mod
+ to
+  attribute_lower : XML!Attribute ( --mod
+   value <- i.lower->toString(), --mod
+   name <- 'lower' --mod
+  ),
+  attribute_upper : XML!Attribute (--mod
+   value <- i.upper->toString(),--mod
+   name <- 'upper'--mod
+  ),
+  attribute_isOrdered : XML!Attribute (--mod
+   value <- i.isOrdered->toString(),--mod
+   name <- 'isOrdered'--mod
+  ),
+  reference_type : XML!Attribute ( --mod
+   value <- i.type->toString(), --mod
+   name <- 'type' --mod
+  ),
+  StructuralFeature_TL8 : TRACE!TraceLink (
+   name <- 'StructuralFeature',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {structuralfeature_in_Trace_TE8},
+   target <- Sequence {attribute_out_Trace_TE30, attribute_out_Trace_TE31, attribute_out_Trace_TE32, attribute_out_Trace_TE33},
+   childLinks <- Sequence {lower_2_value_TL29, upper_2_value_TL30, isOrdered_2_value_TL31, type_2_value_TL32, R35_TL33, R36_TL34, R37_TL35, R38_TL36}
+  ),
+  lower_2_value_TL29 : TRACE!TraceLink (
+   name <- 'lower_2_value',
+   operation <- #Transform,
+   source <- Sequence {lower_in_Trace_TE15},
+   target <- Sequence {value_out_Trace_TE57}
+  ),
+  upper_2_value_TL30 : TRACE!TraceLink (
+   name <- 'upper_2_value',
+   operation <- #Transform,
+   source <- Sequence {upper_in_Trace_TE16},
+   target <- Sequence {value_out_Trace_TE59}
+  ),
+  isOrdered_2_value_TL31 : TRACE!TraceLink (
+   name <- 'isOrdered_2_value',
+   operation <- #Transform,
+   source <- Sequence {isordered_in_Trace_TE17},
+   target <- Sequence {value_out_Trace_TE61}
+  ),
+  type_2_value_TL32 : TRACE!TraceLink (
+   name <- 'type_2_value',
+   operation <- #Transform,
+   source <- Sequence {type_in_Trace_TE18},
+   target <- Sequence {value_out_Trace_TE63}
+  ),
+  R35_TL33 : TRACE!TraceLink (
+   name <- 'R35',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE58}
+  ),
+  R36_TL34 : TRACE!TraceLink (
+   name <- 'R36',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE60}
+  ),
+  R37_TL35 : TRACE!TraceLink (
+   name <- 'R37',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE62}
+  ),
+  R38_TL36 : TRACE!TraceLink (
+   name <- 'R38',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE64}
+  ),
+  structuralfeature_in_Trace_TE8 : TRACE!SourceElement (
+   name <- i.getName(), --mod
+   ref <- i.__xmiID__, --mod
+   model <- thisModule.getModel_KM3_model
+  ),
+  lower_in_Trace_TE15 : TRACE!SourceElement (
+   name <- i.lower.toString() + '(Feature: lower)', --mod
+   belongsTo <- structuralfeature_in_Trace_TE8,
+   model <- thisModule.getModel_KM3_model
+  ),
+  upper_in_Trace_TE16 : TRACE!SourceElement (
+   name <- i.upper.toString() + '(Feature: upper)', --mod
+   belongsTo <- structuralfeature_in_Trace_TE8,
+   model <- thisModule.getModel_KM3_model
+  ),
+  isordered_in_Trace_TE17 : TRACE!SourceElement (
+   name <- i.isOrdered.toString() + '(Feature: isordered)', --mod
+   belongsTo <- structuralfeature_in_Trace_TE8,
+   model <- thisModule.getModel_KM3_model
+  ),
+  type_in_Trace_TE18 : TRACE!SourceElement (
+   name <- i.type.toString() + '(Feature: type)', --mod
+   belongsTo <- structuralfeature_in_Trace_TE8,
+   model <- thisModule.getModel_KM3_model
+  ),
+  attribute_out_Trace_TE30 : TRACE!TargetElement (
+   name <- attribute_lower.getName(), --mod
+   ref <- attribute_lower.__xmiID__, --mod
+   model <- thisModule.getModel_XML_model
+  ),
+  attribute_out_Trace_TE31 : TRACE!TargetElement (
+   name <- attribute_upper.getName(), --mod
+   ref <- attribute_upper.__xmiID__, --mod
+   model <- thisModule.getModel_XML_model
+  ),
+  attribute_out_Trace_TE32 : TRACE!TargetElement (
+   name <- attribute_isOrdered.getName(), --mod
+   ref <- attribute_isOrdered.__xmiID__, --mod
+   model <- thisModule.getModel_XML_model
+  ),
+  attribute_out_Trace_TE33 : TRACE!TargetElement (
+   name <- reference_type.getName(), --mod
+   ref <- reference_type.__xmiID__, --mod
+   model <- thisModule.getModel_XML_model
+  ),
+  value_out_Trace_TE57 : TRACE!TargetElement (
+   name <- attribute_lower.value.toString() + '(Feature: value)', --mod
+   belongsTo <- attribute_out_Trace_TE30,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE58 : TRACE!TargetElement (
+   name <- attribute_lower.name.toString() + '(Feature: name)', --mod
+   belongsTo <- attribute_out_Trace_TE30,
+   model <- thisModule.getModel_XML_model
+  ),
+  value_out_Trace_TE59 : TRACE!TargetElement (
+   name <- attribute_upper.value.toString() + '(Feature: value)', --mod
+   belongsTo <- attribute_out_Trace_TE31,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE60 : TRACE!TargetElement (
+   name <- attribute_upper.name.toString() + '(Feature: name)', --mod
+   belongsTo <- attribute_out_Trace_TE31,
+   model <- thisModule.getModel_XML_model
+  ),
+  value_out_Trace_TE61 : TRACE!TargetElement (
+   name <- attribute_isOrdered.value.toString() + '(Feature: value)', --mod
+   belongsTo <- attribute_out_Trace_TE32,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE62 : TRACE!TargetElement (
+   name <- attribute_isOrdered.name.toString() + '(Feature: name)', --mod
+   belongsTo <- attribute_out_Trace_TE32,
+   model <- thisModule.getModel_XML_model
+  ),
+  value_out_Trace_TE63 : TRACE!TargetElement (
+   name <- reference_type.value.toString() + '(Feature: value)', --mod
+   belongsTo <- attribute_out_Trace_TE33,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE64 : TRACE!TargetElement (
+   name <- reference_type.name.toString() + '(Feature: name)', --mod
+   belongsTo <- attribute_out_Trace_TE33,
+   model <- thisModule.getModel_XML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: Attribute -> 
+rule Attribute extends StructuralFeature {
+ from
+  i : KM3!Attribute --mod
+ to
+  element_out : XML!Element (
+   name <- 'Attribute', --mod
+   children <- Sequence{attribute_out, attribute_lower, attribute_upper, attribute_isOrdered, attribute_isUnique, reference_type} --mod
+  ),
+  attribute_isUnique : XML!Attribute ( --mod
+   value <- i.isUnique->toString(), --mod
+   name <- 'isUnique' --mod
+  ),
+  Attribute_TL9 : TRACE!TraceLink (
+   name <- 'Attribute',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {attribute_in_Trace_TE9},
+   target <- Sequence {element_out_Trace_TE34, attribute_out_Trace_TE35},
+   childLinks <- Sequence {isUnique_2_value_TL37, R39_TL38, R40_TL39, R41_TL40}
+  ),
+  isUnique_2_value_TL37 : TRACE!TraceLink (
+   name <- 'isUnique_2_value',
+   operation <- #Transform,
+   source <- Sequence {isunique_in_Trace_TE19},
+   target <- Sequence {value_out_Trace_TE67}
+  ),
+  R39_TL38 : TRACE!TraceLink (
+   name <- 'R39',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE65}
+  ),
+  R40_TL39 : TRACE!TraceLink (
+   name <- 'R40',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {children_out_Trace_TE66}
+  ),
+  R41_TL40 : TRACE!TraceLink (
+   name <- 'R41',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE68}
+  ),
+  attribute_in_Trace_TE9 : TRACE!SourceElement (
+   name <- i.getName(), --mod
+   ref <- i.__xmiID__, --mod
+   model <- thisModule.getModel_KM3_model
+  ),
+  isunique_in_Trace_TE19 : TRACE!SourceElement (
+   name <- i.isUnique.toString() + '(Feature: isunique)', --mod
+   belongsTo <- attribute_in_Trace_TE9,
+   model <- thisModule.getModel_KM3_model
+  ),
+  element_out_Trace_TE34 : TRACE!TargetElement (
+   name <- element_out.getName(),
+   ref <- element_out.__xmiID__,
+   model <- thisModule.getModel_XML_model
+  ),
+  attribute_out_Trace_TE35 : TRACE!TargetElement (
+   name <- attribute_isUnique.getName(), --mod
+   ref <- attribute_isUnique.__xmiID__, --mod
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE65 : TRACE!TargetElement (
+   name <- element_out.name.toString() + '(Feature: name)',
+   belongsTo <- element_out_Trace_TE34,
+   model <- thisModule.getModel_XML_model
+  ),
+  children_out_Trace_TE66 : TRACE!TargetElement (
+   name <- element_out.children.toString() + '(Feature: children)',
+   belongsTo <- element_out_Trace_TE34,
+   model <- thisModule.getModel_XML_model
+  ),
+  value_out_Trace_TE67 : TRACE!TargetElement (
+   name <- attribute_isUnique.value.toString() + '(Feature: value)', --mod
+   belongsTo <- attribute_out_Trace_TE35,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE68 : TRACE!TargetElement (
+   name <- attribute_isUnique.name.toString() + '(Feature: name)', --mod
+   belongsTo <- attribute_out_Trace_TE35,
+   model <- thisModule.getModel_XML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a MatchedRule: Reference -> 
+rule Reference extends StructuralFeature {
+ from
+  i : KM3!Reference  --mod
+ to
+  element_out : XML!Element ( 
+   name <- 'Reference', --mod
+   children <- Sequence{attribute_out, attribute_lower, attribute_upper, attribute_isOrdered, attribute_isContainer, reference_type} --mod
+  ),
+  attribute_isContainer : XML!Attribute ( --mod
+   value <- i.isContainer->toString(), --mod
+   name <- 'isContainer' --mod
+  ),
+  reference_opposite : XML!Attribute ( --mod
+   name <- 'opposite', --mod
+   value <- if i.opposite->oclIsUndefined() then '' else  i.opposite.getFQL() endif  --mod
+  ),
+  Reference_TL10 : TRACE!TraceLink (
+   name <- 'Reference',
+   traceModel <- thisModule.getTraceModelRoot,
+   operation <- #Transform,
+   source <- Sequence {reference_in_Trace_TE10},
+   target <- Sequence {element_out_Trace_TE36, attribute_out_Trace_TE37, attribute_out_Trace_TE38},
+   childLinks <- Sequence {isContainer_2_value_TL41, R42_TL42, R43_TL43, R44_TL44, R45_TL45, R46_TL46}
+  ),
+  isContainer_2_value_TL41 : TRACE!TraceLink (
+   name <- 'isContainer_2_value',
+   operation <- #Transform,
+   source <- Sequence {iscontainer_in_Trace_TE20},
+   target <- Sequence {value_out_Trace_TE71}
+  ),
+  R42_TL42 : TRACE!TraceLink (
+   name <- 'R42',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE69}
+  ),
+  R43_TL43 : TRACE!TraceLink (
+   name <- 'R43',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {children_out_Trace_TE70}
+  ),
+  R44_TL44 : TRACE!TraceLink (
+   name <- 'R44',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE72}
+  ),
+  R45_TL45 : TRACE!TraceLink (
+   name <- 'R45',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {name_out_Trace_TE73}
+  ),
+  R46_TL46 : TRACE!TraceLink (
+   name <- 'R46',
+   operation <- #Create,
+   source <- Sequence {},
+   target <- Sequence {value_out_Trace_TE74}
+  ),
+  reference_in_Trace_TE10 : TRACE!SourceElement (
+   name <- i.getName(), --mod
+   ref <- i.__xmiID__, --mod
+   model <- thisModule.getModel_KM3_model
+  ),
+  iscontainer_in_Trace_TE20 : TRACE!SourceElement (
+   name <- i.isContainer.toString() + '(Feature: iscontainer)',  --mod
+   belongsTo <- reference_in_Trace_TE10,
+   model <- thisModule.getModel_KM3_model
+  ),
+  element_out_Trace_TE36 : TRACE!TargetElement (
+   name <- element_out.getName(),
+   ref <- element_out.__xmiID__,
+   model <- thisModule.getModel_XML_model
+  ),
+  attribute_out_Trace_TE37 : TRACE!TargetElement (
+   name <- attribute_isContainer.getName(), --mod
+   ref <- attribute_isContainer.__xmiID__, --mod
+   model <- thisModule.getModel_XML_model
+  ),
+  attribute_out_Trace_TE38 : TRACE!TargetElement (
+   name <- reference_opposite.getName(), --mod
+   ref <- reference_opposite.__xmiID__, --mod
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE69 : TRACE!TargetElement (
+   name <- element_out.name.toString() + '(Feature: name)',
+   belongsTo <- element_out_Trace_TE36,
+   model <- thisModule.getModel_XML_model
+  ),
+  children_out_Trace_TE70 : TRACE!TargetElement (
+   name <- element_out.children.toString() + '(Feature: children)',
+   belongsTo <- element_out_Trace_TE36,
+   model <- thisModule.getModel_XML_model
+  ),
+  value_out_Trace_TE71 : TRACE!TargetElement (
+   name <- attribute_isContainer.value.toString() + '(Feature: value)', --mod
+   belongsTo <- attribute_out_Trace_TE37,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE72 : TRACE!TargetElement (
+   name <- attribute_isContainer.name.toString() + '(Feature: name)', --mod
+   belongsTo <- attribute_out_Trace_TE37,
+   model <- thisModule.getModel_XML_model
+  ),
+  name_out_Trace_TE73 : TRACE!TargetElement (
+   name <- reference_opposite.name.toString() + '(Feature: name)', --mod
+   belongsTo <- attribute_out_Trace_TE38,
+   model <- thisModule.getModel_XML_model
+  ),
+  value_out_Trace_TE74 : TRACE!TargetElement (
+   name <- reference_opposite.value.toString() + '(Feature: value)', --mod
+   belongsTo <- attribute_out_Trace_TE38,
+   model <- thisModule.getModel_XML_model
+  )
+ -- ActionBlock: 
+ do {
+  
+ }
+}
+
+-- Comments -> This is a CalledRule to create the root of Trace Model
+entrypoint rule CreateTraceModelRoot() {
+ to
+  root : TRACE!TraceModel
+ -- ActionBlock: 
+ do {
+  thisModule.getTraceModelRoot <- root;
+  thisModule.createSourceModel_c2_KM3();
+  thisModule.createTargetModel_c2_XML();
+ }
+}
+
+-- Comments -> This is a Helper to get the root of model trace 
+helper def: getTraceModelRoot() : TRACE!TraceModel =
+ OclUndefined;
+
+-- Comments -> This is a Helper to get the element name 
+helper context OclAny def: getName() : String =
+ if self.oclIsUndefined() then
+  ''
+ else
+  if self.oclIsKindOf(Sequence(OclAny)) then
+   'Sequence(' + self->collect(e |
+    e.getName()
+   ) + ')'
+  else
+   if self.oclIsTypeOf(String) then
+    self
+   else
+    if not self.eClass().getEAllStructuralFeatures()->collect(n |
+     n.name
+    )->select(f |
+     f.toLower().indexOf('name') > - 1
+    ).oclIsUndefined() then
+     self.refGetValue(self.eClass().getEAllStructuralFeatures()->collect(n |
+      n.name
+     )->select(f |
+      f.toLower().indexOf('name') > - 1
+     ).first())
+    else
+     self.__xmiID__
+    endif
+   endif
+  endif
+ endif;
+
+-- Comments -> This is a Helper to get the model KM3_model
+helper def: getModel_KM3_model() : TRACE!TraceModel =
+ OclUndefined;
+
+-- Comments -> This is a CalledRule to create a source model c2 KM3 metamodel
+rule createSourceModel_c2_KM3() {
+ to
+  sourceM : TRACE!SourceModel (
+   metamodel <- '/KM32XML_MeTAGeM-Trace/Metamodels/KM3.ecore',
+   traceModel <- thisModule.getTraceModelRoot,
+   path <- 'Please fill this information', --KM3!EPackage.generateModelRef('KM3_model'), --mod
+   name <- 'KM3_model'
+  )
+ -- ActionBlock: 
+ do {
+  thisModule.getModel_KM3_model <- sourceM;
+ }
+}
+
+-- Comments -> This is a Helper to get the model XML_model
+helper def: getModel_XML_model() : TRACE!TraceModel =
+ OclUndefined;
+
+-- Comments -> This is a CalledRule to create a target model c2 XML metamodel. You must fill some information manually
+rule createTargetModel_c2_XML() {
+ to
+  targetM : TRACE!TargetModel (
+   metamodel <- '/KM32XML_MeTAGeM-Trace/Metamodels/XML.ecore',
+   traceModel <- thisModule.getTraceModelRoot,
+   path <- 'USER: Fill this field manually',
+   name <- 'XML_model'
+  )
+ -- ActionBlock: 
+ do {
+  thisModule.getModel_XML_model <- targetM;
+ }
+}
+
+-- Comments -> This is a Helper: getFQL
+helper context KM3!ModelElement def: getFQL() : String =
+ self.getFQLWithSeparator('::'); --scratch -- Body: getFQL with separator '::'
+-- Comments -> This is a Helper: getFQLWithSeparator
+helper context KM3!ModelElement def: getFQLWithSeparator(separator : String) : String =
+ if (self.oclIsKindOf(KM3!EnumLiteral)) then --scratch 
+		if (self.enumeration <> OclUndefined) then --scratch 
+			self.enumeration.getFQLWithSeparator(separator) + separator + self.name  --scratch 
+		else  --scratch 
+			self.name --scratch 
+		endif --scratch 
+	else --scratch 
+		if (self.oclIsKindOf(KM3!StructuralFeature)) then --scratch 
+				if (self.owner <> OclUndefined) then --scratch 
+					self.owner.getFQLWithSeparator(separator) + separator + self.name --scratch 
+				else --scratch 
+					self.name --scratch 
+				endif --scratch 
+		else --scratch 
+			if (self.oclIsKindOf(KM3!Classifier)) then --scratch 
+				if (self.package <> OclUndefined) then --scratch 
+					self.package.getFQLWithSeparator(separator) + separator + self.name --scratch 
+				else  --scratch 
+					self.name --scratch 
+				endif --scratch 
+			else --scratch 
+				self.name --scratch 
+			endif --scratch 
+		endif --scratch 
+	endif; --scratch 
+	--; -- Body: return FQL with a given separator 
+

@@ -1,0 +1,458 @@
+module UML2XMLW; -- Module Template
+create OUT : schemaXML from IN : UML, AMW : AnnotationMetamodel;
+--create OUT : schemaXML from IN : UML, amw : AMW ;
+
+--obtengo todos los elementos que cuelgan del MOdel
+helper def : model: UML!Model = UML!Model.allInstances()->asSequence()->first();
+
+helper def : package: UML!Package = UML!Package.allInstances()->asSequence()->first();
+
+-- Given an object from the woven model, it returns the Link refering to that object in
+-- the weaving model
+helper context UML!NamedElement def: getLink() : AnnotationMetamodel!WLink =
+	if AnnotationMetamodel!WLinkEnd.allInstances()->asSequence()->select(aux| aux.element.ref = self.__xmiID__)->first().oclIsUndefined() then OclUndefined else AnnotationMetamodel!WLinkEnd.allInstances()->asSequence()->select(aux| aux.element.ref = self.__xmiID__)->first().refImmediateComposite() endif;
+
+-- Given an Annotation Link, it returns the value of the 'key' property
+helper context AnnotationMetamodel!WLink def: getAnnotationValue(key: String) : String =
+	self.properties->asSequence()->select(prop | prop.key = key)->first().value;
+
+-- Given a multivalued UML property, it returns whether it should be mapped to
+-- NT or a VARRAY attribute
+helper context UML!Class def: mapTo() : String =
+	if self.getLink().oclIsUndefined() then 
+		'Sequences'
+	else
+		if self.getLink().getAnnotationValue('Attribute') = 'Sequences' then
+			'Sequences'
+		else 
+			if self.getLink().getAnnotationValue('Attribute') = 'Choice' then
+			'Choice'
+			else
+			'All'
+			endif
+		endif
+	endif;
+
+helper context UML!Association def: AssMapTo() : String =
+	if self.getLink().oclIsUndefined() then 
+		'Sequences'
+	else
+		if self.getLink().getAnnotationValue('Association') = 'Sequences' then
+			'Sequences'
+		else 
+			'All'
+		endif
+	endif;
+--buscar las generalizaciones 
+--dada un clase, ver si pertenence a una generalizaciones...
+
+
+
+	--UML!Generalization.refImmediateComposite(); -- ->asSequence()->first();
+-- self.refInmediateComposite().general()->asSequence()->first();
+
+
+helper context UML!Property def : getProperty() : UML!Property =
+	--obtengo todas las propiedades de una asociacion
+	self.refImmediateComposite().memberEnd->asSequence()->select (prop | prop <> self)->first();
+
+helper context UML!Property def : isMultivalued() : Boolean=
+	if (self.upperValue.oclIsUndefined())then
+		false
+	else
+		if (self.upperValue.value <> 1) then
+			true
+		else
+			false
+		endif
+	endif;
+
+helper context UML!Association def: getPropertyAsso() : UML!Property =
+--recupero las propiedades que son multivaluadas de una asociacion
+	self.memberEnd->asSequence()->select (prop | prop.isMultivalued())->first();
+
+helper context UML!Association def: getPropertyAssoLast() : UML!Property =
+--recupero las propiedades que son multivaluadas de una asociacion, la ultima
+	self.memberEnd->asSequence()->select (prop | prop.isMultivalued())->last();
+
+helper context UML!Association def: getPropertyAssoNoMulti() : UML!Property =
+	--recupero las propiedades que no son multivaluadas de una asociacion
+	self.memberEnd->asSequence()->select (prop | not(prop.isMultivalued()))->first();
+
+helper context UML!Association def: getPropertyAssoNoMultiLast() : UML!Property =
+	--recupero las propiedades que no son multivaluadas de una asociacion, la ultima
+	self.memberEnd->asSequence()->select (prop | not(prop.isMultivalued()))->last();
+
+helper context UML!Association def: isAssociationNM() :Boolean =
+	--veo si la asociacion es NM
+	(self.memberEnd->asSequence()->select (prop | prop.isMultivalued()).size() = 2);
+
+helper context UML!Association def: isAssociation1N() :Boolean =
+	--veo si la asociacion es 1N
+	(self.memberEnd->asSequence()->select (prop | prop.isMultivalued()).size() = 1);
+
+helper context UML!Association def: isAssociation11() :Boolean =
+	--veo si la asociacion es 11
+	(self.memberEnd->asSequence()->select (prop | prop.isMultivalued()).size() = 0);
+
+--helper context UML!Generalization def: isGeneralization(): UML!Class =
+--	self.general->asSequence()-> select()->first();
+
+helper context UML!Association def: isAgregationProperty() : UML!Property =
+	--busca la property q sea la agregacion..
+	self.memberEnd->asSequence()->select (prop | prop.isAggregation())-> first();
+
+helper context UML!Association def: isAssoAgregation() : Boolean =
+	--veo si es una agregation, tengo q buscar la que diga shared
+	(self.memberEnd->asSequence()->select (prop | prop.isAggregation()).size()<>0);
+
+helper context UML!Association def: isAssoComposite(): Boolean =
+	--veo si es una composicion..
+	(self.memberEnd->asSequence()->select (prop | prop.isComposite()).size()<>0);
+
+helper context UML!Association def: isCompositeProperty() : UML!Property =
+	--busca la property q sea la composite..
+	self.memberEnd->asSequence()->select (prop | prop.isComposite())-> first();
+
+helper context UML!GeneralizationSet def: isGeneralization() :UML!Package =
+	self.generalization -> asSequence().debug('Generalization')->select(pac | pac) -> first();
+
+helper context UML!Property def : isAggregation() : Boolean =
+--veo si es una agregation, tengo q buscar la que diga shared
+	if (self.refImmediateComposite().oclIsTypeOf(UML!Association)) then
+		if (self.aggregation=#shared)then 
+			true
+		else
+			false
+		endif
+	else
+		false
+	endif;
+
+helper context UML!Property def : isComposite() : Boolean =
+	if (self.refImmediateComposite().oclIsTypeOf(UML!Association)) then
+		if (self.aggregation=#composite)then 
+			true
+		else
+			false
+		endif
+	else
+		false
+	endif;
+
+rule model2schema {
+	from 
+		c: UML!Model
+	to
+		xml: schemaXML!Schema (
+			id<-c.name)
+	do {thisModule.model;}
+
+}
+
+rule Package2schema {
+	from 
+		c: UML!Package
+	to
+		xml: schemaXML!Schema (
+			id<-c.name + '<<Schema>>')
+	do {thisModule.package;}
+
+}
+
+--Tengo que comprobar que no sea parte de una composición. Recupero Todas las composiciones.
+
+
+rule Class2ElementGlobalSeq{
+	from
+		c : UML!Class ((c.mapTo() = 'Sequences')and  c.GetGeneralization().oclIsUndefined()) 
+	to
+		xml : schemaXML!ElementGlobal 
+			(	id <- c.name,	
+				name <- c.name + '<<ElementGlobal>>',
+				Owner <- thisModule.package,
+				eleccion <- cmpTyp 
+			),
+		cmpTyp : schemaXML!ComplexTypeLocal 
+			(   id <- c.name + '_Type', 
+				eleccion <- Other		
+				),
+		Other: schemaXML!Other(
+			eleccion <- Seq
+			),
+			
+		Seq: schemaXML!Sequences
+			( )
+}
+
+helper context UML!Class def: GetGeneralization(): UML!Generalization =
+	UML!Generalization.allInstances()->asSequence()-> select(aux | aux.specific = self)->first();
+
+helper context UML!Class def: GetNameGeneralization(): String=
+	self.GetGeneralization()->asSequence()-> select(aux | aux.superType)->first();
+	--UML!Generalization.allInstances()->asSequence()-> select(aux | aux.source)->first();
+
+rule InheritClass2ElementGlobal{
+	from
+		c: UML!Class ( not c.GetGeneralization().oclIsUndefined().debug('Gene'))
+	to
+		Elem: schemaXML!ElementGlobal(
+				id <- c.name,	
+				name <- c.name + '<<ElementGlobal>>',
+				Owner <- thisModule.package,
+				eleccion <- cmpTyp 
+		),
+			
+		cmpTyp : schemaXML!ComplexTypeLocal 
+			(	id <- c.name + '_Type', 
+				eleccion <- ComplexContent		
+				),
+		ComplexContent: schemaXML!ComplexContent(
+			eleccion <- Extension
+			),
+		Extension: schemaXML!ExtensionComplexContent (
+			base <- if (not c.generalization->first()->oclIsUndefined()) then
+										c.generalization->first().general.toString()
+								 else
+								 	OclUndefined
+								endif,--c.GetNameGeneralization(), --c.GetGeneralization() -> select(aux |aux.general) ->first(),--superClass.debug('gee')-> select(aux |aux) ->first(),--generalization.debug('Generalization') -> first() ,--.GetNameGeneralization().debug('NombreGene'),--'Generalizacion', --debe ir el nombre de la clase q hereda,
+			eleccion <- Seq
+			),
+		
+		Seq: schemaXML!Choice
+			(--id <- c.name,
+			--element <- Ass ---> append(thisModule.Association2Element)
+
+			)
+}
+
+rule Class2ElementGlobalChoice{
+	from
+		c : UML!Class ((c.mapTo() = 'Choice')and  c.GetGeneralization().oclIsUndefined())  
+	to
+		xml : schemaXML!ElementGlobal 
+			(	id <- c.name,	
+				name <- c.name + '<<ElementGlobal>>',
+				Owner <- thisModule.package,
+				eleccion <- cmpTyp),
+			
+		cmpTyp : schemaXML!ComplexTypeLocal 
+			( id <- c.name + '_Type', 
+			  eleccion <- Other),
+		Other: schemaXML!Other(
+			eleccion <- Seq),
+		Seq: schemaXML!Choice ()
+}
+rule Class2ElementGlobalAll{
+	from
+		c : UML!Class ((c.mapTo() = 'All')and  c.GetGeneralization().oclIsUndefined())  
+	to
+		xml : schemaXML!ElementGlobal 
+			(	id <- c.name,	
+				name <- c.name + '<<ElementGlobal>>',
+				Owner <- thisModule.package,
+				eleccion <- cmpTyp),
+		cmpTyp : schemaXML!ComplexTypeLocal 
+			(   id <- c.name + '_Type', 
+				eleccion <- Other),
+		Other: schemaXML!Other(
+			eleccion <- Seq),
+		Seq: schemaXML!All()
+}
+
+rule Property2ElementLocal{
+	--de las clases
+	from
+		a: UML!Property (a.refImmediateComposite().oclIsTypeOf(UML!Class))
+		
+	to 
+		att: schemaXML!ElementLocal(
+			name <- a.name,
+			minOccurs <- if (not a.lowerValue.oclIsUndefined())then
+							if(a.lowerValue.value = 1) then '1' 
+							else
+								'0'
+						 	endif
+						else
+							OclUndefined
+						endif,
+			maxOccurs <- if (not a.upperValue.oclIsUndefined())then
+							if (a.upperValue.value <> 1)  then
+								'unbounded'
+							else
+								'1'
+							endif
+						else
+							OclUndefined
+						endif,
+			owner <- if (not a.refImmediateComposite().oclIsUndefined())then
+						thisModule.resolveTemp(a.refImmediateComposite(),'Seq')
+					else
+						OclUndefined
+					endif
+--			type <- if (not a.type.oclIsUndefined()) then
+--						a.type
+--					else
+--						OclUndefined
+--					endif					
+)
+
+}
+
+ rule AssociationNM2ElementLocal{ --o uso un grupRef???
+ 	from
+		Ass: UML!Association (Ass.isAssociationNM()and not Ass.isAssoAgregation()and not Ass.isAssoComposite())
+	to
+		Elem: schemaXML!ElementLocal (
+			name <- Ass.name.debug('NM')+ '_<Association>',
+			owner <- thisModule.resolveTemp(Ass.getPropertyAsso().type,'Seq'),
+			ref <- Ass.getPropertyAssoLast().name,
+			maxOccurs <- 'unbounded'
+			)
+	do{
+		--Ass.isAssociationNM().debug('NM');}
+		Ass.getPropertyAsso().debug('Multi');}
+			--ref <-as.name)--,
+--			owner <- if (not Ass.refImmediateComposite().oclIsUndefined())then
+--						thisModule.resolveTemp(Ass.refImmediateComposite(),'Seq')
+--					else
+--						OclUndefined
+--					endif
+--					)
+ }
+
+ rule Association1N2ElementLocal{
+ 	--Associaciones 1 a N, pongo en el lado N
+ 	from
+		Ass: UML!Association (Ass.isAssociation1N()and not Ass.isAssoAgregation()and not Ass.isAssoComposite())
+	to
+		Elem: schemaXML!ElementLocal (
+			name <- Ass.name.debug('1N') + '<_Association>',
+			owner <- thisModule.resolveTemp(Ass.getPropertyAsso().type,'Seq'),
+			ref <- Ass.getPropertyAssoNoMulti().name,
+			minOccurs <- '1',
+			maxOccurs <- '-1' --tengo q poner estrella...
+			)
+ }
+ 
+ rule Association112ElementLocal{
+ 	--Associaciones 1 a 1, pongo en cualquier lado
+ 	from
+		Ass: UML!Association (Ass.isAssociation11()and not Ass.isAssoAgregation()and not Ass.isAssoComposite())
+	to
+		Elem: schemaXML!ElementLocal (
+			name <- Ass.name.debug('11') + '<_Association>',
+			owner <- thisModule.resolveTemp(Ass.getPropertyAssoNoMulti().type,'Seq'),
+			--como recupero la que sigue???
+			ref <- Ass.getPropertyAssoNoMultiLast().name,
+			minOccurs <- '1',
+			maxOccurs <- '1'
+			)
+--	do{
+--		Ass
+--	}
+ }
+ 
+ rule Agregation2ElementLocal{
+ 	from
+		Ass: UML!Association(Ass.isAssoAgregation())-- and not Ass.isAssociationNM() and not Ass.isAssociation1N() and not Ass.isAssociarion11())
+	to
+		Elem: schemaXML!ElementLocal (
+			name <- Ass.name.debug('Aggregation') + '_isAgregationof',
+			owner <- thisModule.resolveTemp(Ass.isAgregationProperty().type, 'Seq'),
+			ref <- Ass.isAgregationProperty().getProperty().name,
+			minOccurs <- if (not Ass.isAgregationProperty().lowerValue.oclIsUndefined())then						
+									if(Ass.isAgregationProperty().lowerValue.value = 1)
+										then '1' 
+										else
+											'0'
+						 			endif
+								else
+									OclUndefined
+								endif,
+			maxOccurs <- if (not Ass.isAgregationProperty().upperValue.oclIsUndefined())then
+							if (Ass.isAgregationProperty().upperValue.value <> 1)  then
+								'unbounded'
+							else
+								'1'
+							endif
+						else
+							OclUndefined
+						endif
+			)
+ }
+rule Composite2ElementLocalSeq{
+	from
+		Ass: UML!Association (Ass.isAssoComposite() and not Ass.isAssoAgregation() and Ass.AssMapTo() = 'Sequences')
+	to
+		Elem: schemaXML!ElementLocal(
+			name <- Ass.name.debug('composite') + '<_is_composed_of>',
+			owner <- thisModule.resolveTemp (Ass.getPropertyAssoNoMulti().type, 'Seq'),
+			--ref <- Ass.getPropertyAssoLast().name.debug('segundo')
+			eleccion <- cmpTyp
+			),
+			cmpTyp : schemaXML!ComplexTypeLocal 
+			(	--id <- c.Name,	 
+				eleccion <- Other		
+				),
+		Other: schemaXML!Other(
+			eleccion <- Seq
+			),
+			
+		Seq: schemaXML!Sequences
+			(--id <- c.name,
+			--element <- Ass ---> append(thisModule.Association2Element)
+
+			),
+		Elemt: schemaXML!ElementLocal(
+			name <- Ass.getPropertyAssoLast().name,
+			owner<- Seq,
+			ref <- Ass.getPropertyAssoLast().name
+			)
+}
+
+rule Composite2ElementLocalAll{
+	from
+		Ass: UML!Association (Ass.isAssoComposite() and not Ass.isAssoAgregation() and Ass.AssMapTo() = 'All')
+	to
+		Elem: schemaXML!ElementLocal(
+			name <- Ass.name.debug('composite') + '<_is_composed_of>',
+			owner <- thisModule.resolveTemp (Ass.getPropertyAssoNoMulti().type, 'Seq'),
+			--ref <- Ass.getPropertyAssoLast().name.debug('segundo')
+			eleccion <- cmpTyp
+			),
+			cmpTyp : schemaXML!ComplexTypeLocal 
+			(	--id <- c.Name,	 
+				eleccion <- Other		
+				),
+		Other: schemaXML!Other(
+			eleccion <- Seq
+			),
+			
+		Seq: schemaXML!All
+			(--id <- c.name,
+			--element <- Ass ---> append(thisModule.Association2Element)
+
+			),
+		Elemt: schemaXML!ElementLocal(
+			name <- Ass.getPropertyAssoLast().name,
+			owner<- Seq,
+			ref <- Ass.getPropertyAssoLast().name
+			)
+}
+
+helper def : multiplicity : Map(String,String)=
+	Map{
+		('*','-1'),
+		('1', '1'),
+		('0','0')		
+	};
+	
+helper context UML!Property def: upperValue() : Integer =
+	let _value : String = thisModule.multiplicity.get(self.upperValue).debug('UPPER_MAPPED') in
+		if(_value.oclIsUndefined()) then
+			self.upperValue
+		else
+			_value.toInteger()
+		endif;	
+

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<hybrid:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:hybrid="org.eclipse.kybele.hybrid" name="km32xml">
+  <operations name="getFQL" body="getFQL with separator '::'">
+    <return datatype="String"/>
+    <context>
+      <component xsi:type="hybrid:Source" name="ModelElement" model="//@sourceModels.0" ref="EClass4"/>
+    </context>
+  </operations>
+  <operations name="getFQLWithSeparator" body="return FQL with a given separator ">
+    <return datatype="String"/>
+    <context>
+      <component xsi:type="hybrid:Source" name="ModelElement" model="//@sourceModels.0" ref="EClass4"/>
+    </context>
+    <arguments name="separator" datatype="String"/>
+  </operations>
+  <sourceModels name="KM3_model" path="/KM32XML_MeTAGeM-Trace/Metamodels/KM3.ecore" type_mm="KM3"/>
+  <targetModels name="XML_model" path="/KM32XML_MeTAGeM-Trace/Metamodels/XML.ecore" type_mm="XML"/>
+  <rules name="ModelElement" isAbstract="true" isExtended="//@rules.2 //@rules.3 //@rules.4 //@rules.5 //@rules.7 //@rules.6">
+    <sources name="ModelElement" owns="//@rules.0/@targets.0/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="EClass4" traceLink="//@rules.0/@trace"/>
+    <targets name="Attribute" owns="//@rules.0/@targets.0/@bindings.0/@left/@target //@rules.0/@targets.0/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Attribute" traceLink="//@rules.0/@trace">
+      <bindings name="name_2_value" trace="//@rules.0/@trace/@traceBindings.0">
+        <right>
+          <source name="name" belongsTo="//@rules.0/@sources.0" model="//@sourceModels.0" ref="EAttribute5" traceLink="//@rules.0/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="value" belongsTo="//@rules.0/@targets.0" model="//@targetModels.0" ref="/0/Node/value" traceLink="//@rules.0/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R21" trace="//@rules.0/@trace/@traceBindings.1">
+        <right concreteValue="'name'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.0/@targets.0" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.0/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="ModelElement" source="//@rules.0/@sources.0" target="//@rules.0/@targets.0">
+      <traceBindings name="name_2_value" source="//@rules.0/@targets.0/@bindings.0/@right/@source.0" target="//@rules.0/@targets.0/@bindings.0/@left/@target" binding="//@rules.0/@targets.0/@bindings.0"/>
+      <traceBindings name="R21" target="//@rules.0/@targets.0/@bindings.1/@left/@target" binding="//@rules.0/@targets.0/@bindings.1"/>
+    </trace>
+  </rules>
+  <rules name="Metamodel">
+    <sources name="Metamodel" owns="//@rules.1/@targets.0/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="EClass42" traceLink="//@rules.1/@trace"/>
+    <targets name="Root" owns="//@rules.1/@targets.0/@bindings.0/@left/@target //@rules.1/@targets.0/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Root" traceLink="//@rules.1/@trace">
+      <bindings name="contents_2_children" trace="//@rules.1/@trace/@traceBindings.0">
+        <right>
+          <source name="contents" belongsTo="//@rules.1/@sources.0" model="//@sourceModels.0" ref="EReference43" traceLink="//@rules.1/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="children" belongsTo="//@rules.1/@targets.0" model="//@targetModels.0" ref="/0/Element/children" traceLink="//@rules.1/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R22" trace="//@rules.1/@trace/@traceBindings.1">
+        <right concreteValue="'metamodel'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.1/@targets.0" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.1/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="Metamodel" source="//@rules.1/@sources.0" target="//@rules.1/@targets.0">
+      <traceBindings name="contents_2_children" source="//@rules.1/@targets.0/@bindings.0/@right/@source.0" target="//@rules.1/@targets.0/@bindings.0/@left/@target" binding="//@rules.1/@targets.0/@bindings.0"/>
+      <traceBindings name="R22" target="//@rules.1/@targets.0/@bindings.1/@left/@target" binding="//@rules.1/@targets.0/@bindings.1"/>
+    </trace>
+  </rules>
+  <rules name="Package" extends="//@rules.0">
+    <sources name="Package" model="//@sourceModels.0" ref="EClass39" traceLink="//@rules.2/@trace"/>
+    <targets name="Element" owns="//@rules.2/@targets.0/@bindings.0/@left/@target //@rules.2/@targets.0/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Element" traceLink="//@rules.2/@trace">
+      <bindings name="R23" trace="//@rules.2/@trace/@traceBindings.0">
+        <right concreteValue="'Package'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.2/@targets.0" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.2/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R24" trace="//@rules.2/@trace/@traceBindings.1">
+        <right/>
+        <left>
+          <target name="children" belongsTo="//@rules.2/@targets.0" model="//@targetModels.0" ref="/0/Element/children" traceLink="//@rules.2/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="Package" source="//@rules.2/@sources.0" target="//@rules.2/@targets.0">
+      <traceBindings name="R23" target="//@rules.2/@targets.0/@bindings.0/@left/@target" binding="//@rules.2/@targets.0/@bindings.0"/>
+      <traceBindings name="R24" target="//@rules.2/@targets.0/@bindings.1/@left/@target" binding="//@rules.2/@targets.0/@bindings.1"/>
+    </trace>
+  </rules>
+  <rules name="Class" extends="//@rules.0">
+    <sources name="Class" owns="//@rules.3/@targets.1/@bindings.0/@right/@source.0 //@rules.3/@targets.2/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="EClass14" traceLink="//@rules.3/@trace"/>
+    <targets name="Element" owns="//@rules.3/@targets.0/@bindings.0/@left/@target //@rules.3/@targets.0/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Element" traceLink="//@rules.3/@trace">
+      <bindings name="R25" trace="//@rules.3/@trace/@traceBindings.2">
+        <right concreteValue="'Class'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.3/@targets.0" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.3/@trace/@traceBindings.2"/>
+        </left>
+      </bindings>
+      <bindings name="R26" trace="//@rules.3/@trace/@traceBindings.3">
+        <right/>
+        <left>
+          <target name="children" belongsTo="//@rules.3/@targets.0" model="//@targetModels.0" ref="/0/Element/children" traceLink="//@rules.3/@trace/@traceBindings.3"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets name="Attribute" owns="//@rules.3/@targets.1/@bindings.0/@left/@target //@rules.3/@targets.1/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Attribute" traceLink="//@rules.3/@trace">
+      <bindings name="isAbstract_2_value" trace="//@rules.3/@trace/@traceBindings.0">
+        <right>
+          <source name="isAbstract" belongsTo="//@rules.3/@sources.0" model="//@sourceModels.0" ref="EAttribute16" traceLink="//@rules.3/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="value" belongsTo="//@rules.3/@targets.1" model="//@targetModels.0" ref="/0/Node/value" traceLink="//@rules.3/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R27" trace="//@rules.3/@trace/@traceBindings.4">
+        <right concreteValue="'isAbstract'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.3/@targets.1" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.3/@trace/@traceBindings.4"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets name="Attribute" owns="//@rules.3/@targets.2/@bindings.0/@left/@target //@rules.3/@targets.2/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Attribute" traceLink="//@rules.3/@trace">
+      <bindings name="supertypes_2_value" trace="//@rules.3/@trace/@traceBindings.1">
+        <right>
+          <source name="supertypes" belongsTo="//@rules.3/@sources.0" model="//@sourceModels.0" ref="EReference17" traceLink="//@rules.3/@trace/@traceBindings.1"/>
+        </right>
+        <left>
+          <target name="value" belongsTo="//@rules.3/@targets.2" model="//@targetModels.0" ref="/0/Node/value" traceLink="//@rules.3/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+      <bindings name="R28" trace="//@rules.3/@trace/@traceBindings.5">
+        <right concreteValue="'supertypes'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.3/@targets.2" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.3/@trace/@traceBindings.5"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="Class" source="//@rules.3/@sources.0" target="//@rules.3/@targets.0 //@rules.3/@targets.1 //@rules.3/@targets.2">
+      <traceBindings name="isAbstract_2_value" source="//@rules.3/@targets.1/@bindings.0/@right/@source.0" target="//@rules.3/@targets.1/@bindings.0/@left/@target" binding="//@rules.3/@targets.1/@bindings.0"/>
+      <traceBindings name="supertypes_2_value" source="//@rules.3/@targets.2/@bindings.0/@right/@source.0" target="//@rules.3/@targets.2/@bindings.0/@left/@target" binding="//@rules.3/@targets.2/@bindings.0"/>
+      <traceBindings name="R25" target="//@rules.3/@targets.0/@bindings.0/@left/@target" binding="//@rules.3/@targets.0/@bindings.0"/>
+      <traceBindings name="R26" target="//@rules.3/@targets.0/@bindings.1/@left/@target" binding="//@rules.3/@targets.0/@bindings.1"/>
+      <traceBindings name="R27" target="//@rules.3/@targets.1/@bindings.1/@left/@target" binding="//@rules.3/@targets.1/@bindings.1"/>
+      <traceBindings name="R28" target="//@rules.3/@targets.2/@bindings.1/@left/@target" binding="//@rules.3/@targets.2/@bindings.1"/>
+    </trace>
+  </rules>
+  <rules name="DataType" extends="//@rules.0">
+    <sources name="DataType" model="//@sourceModels.0" ref="EClass8" traceLink="//@rules.4/@trace"/>
+    <targets name="Element" owns="//@rules.4/@targets.0/@bindings.0/@left/@target //@rules.4/@targets.0/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Element" traceLink="//@rules.4/@trace">
+      <bindings name="R29" trace="//@rules.4/@trace/@traceBindings.0">
+        <right concreteValue="'DataType'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.4/@targets.0" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.4/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R30" trace="//@rules.4/@trace/@traceBindings.1">
+        <right/>
+        <left>
+          <target name="children" belongsTo="//@rules.4/@targets.0" model="//@targetModels.0" ref="/0/Element/children" traceLink="//@rules.4/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="DataType" source="//@rules.4/@sources.0" target="//@rules.4/@targets.0">
+      <traceBindings name="R29" target="//@rules.4/@targets.0/@bindings.0/@left/@target" binding="//@rules.4/@targets.0/@bindings.0"/>
+      <traceBindings name="R30" target="//@rules.4/@targets.0/@bindings.1/@left/@target" binding="//@rules.4/@targets.0/@bindings.1"/>
+    </trace>
+  </rules>
+  <rules name="Enumeration" extends="//@rules.0">
+    <sources name="Enumeration" model="//@sourceModels.0" ref="EClass9" traceLink="//@rules.5/@trace"/>
+    <targets name="Element" owns="//@rules.5/@targets.0/@bindings.0/@left/@target //@rules.5/@targets.0/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Element" traceLink="//@rules.5/@trace">
+      <bindings name="R31" trace="//@rules.5/@trace/@traceBindings.0">
+        <right concreteValue="'Enumeration'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.5/@targets.0" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.5/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R32" trace="//@rules.5/@trace/@traceBindings.1">
+        <right/>
+        <left>
+          <target name="children" belongsTo="//@rules.5/@targets.0" model="//@targetModels.0" ref="/0/Element/children" traceLink="//@rules.5/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="Enumeration" source="//@rules.5/@sources.0" target="//@rules.5/@targets.0">
+      <traceBindings name="R31" target="//@rules.5/@targets.0/@bindings.0/@left/@target" binding="//@rules.5/@targets.0/@bindings.0"/>
+      <traceBindings name="R32" target="//@rules.5/@targets.0/@bindings.1/@left/@target" binding="//@rules.5/@targets.0/@bindings.1"/>
+    </trace>
+  </rules>
+  <rules name="EnumLiteral" comment="" extends="//@rules.0">
+    <sources name="EnumLiteral" model="//@sourceModels.0" ref="EClass11" traceLink="//@rules.6/@trace"/>
+    <targets name="Element" owns="//@rules.6/@targets.0/@bindings.0/@left/@target //@rules.6/@targets.0/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Element" traceLink="//@rules.6/@trace">
+      <bindings name="R33" trace="//@rules.6/@trace/@traceBindings.0">
+        <right concreteValue="'EnumLiteral'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.6/@targets.0" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.6/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R34" trace="//@rules.6/@trace/@traceBindings.1">
+        <right/>
+        <left>
+          <target name="children" belongsTo="//@rules.6/@targets.0" model="//@targetModels.0" ref="/0/Element/children" traceLink="//@rules.6/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="EnumLiteral" source="//@rules.6/@sources.0" target="//@rules.6/@targets.0">
+      <traceBindings name="R33" target="//@rules.6/@targets.0/@bindings.0/@left/@target" binding="//@rules.6/@targets.0/@bindings.0"/>
+      <traceBindings name="R34" target="//@rules.6/@targets.0/@bindings.1/@left/@target" binding="//@rules.6/@targets.0/@bindings.1"/>
+    </trace>
+  </rules>
+  <rules name="StructuralFeature" isAbstract="true" comment="" extends="//@rules.0" isExtended="//@rules.8 //@rules.9">
+    <sources name="StructuralFeature" owns="//@rules.7/@targets.0/@bindings.0/@right/@source.0 //@rules.7/@targets.1/@bindings.0/@right/@source.0 //@rules.7/@targets.2/@bindings.0/@right/@source.0 //@rules.7/@targets.3/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="EClass26" traceLink="//@rules.7/@trace"/>
+    <targets name="Attribute" owns="//@rules.7/@targets.0/@bindings.0/@left/@target //@rules.7/@targets.0/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Attribute" traceLink="//@rules.7/@trace">
+      <bindings name="lower_2_value" trace="//@rules.7/@trace/@traceBindings.0">
+        <right>
+          <source name="lower" belongsTo="//@rules.7/@sources.0" model="//@sourceModels.0" ref="EAttribute21" traceLink="//@rules.7/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="value" belongsTo="//@rules.7/@targets.0" model="//@targetModels.0" ref="/0/Node/value" traceLink="//@rules.7/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R35" trace="//@rules.7/@trace/@traceBindings.4">
+        <right concreteValue="'lower'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.7/@targets.0" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.7/@trace/@traceBindings.4"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets name="Attribute" owns="//@rules.7/@targets.1/@bindings.0/@left/@target //@rules.7/@targets.1/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Attribute" traceLink="//@rules.7/@trace">
+      <bindings name="upper_2_value" trace="//@rules.7/@trace/@traceBindings.1">
+        <right>
+          <source name="upper" belongsTo="//@rules.7/@sources.0" model="//@sourceModels.0" ref="EAttribute22" traceLink="//@rules.7/@trace/@traceBindings.1"/>
+        </right>
+        <left>
+          <target name="value" belongsTo="//@rules.7/@targets.1" model="//@targetModels.0" ref="/0/Node/value" traceLink="//@rules.7/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+      <bindings name="R36" trace="//@rules.7/@trace/@traceBindings.5">
+        <right concreteValue="'upper'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.7/@targets.1" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.7/@trace/@traceBindings.5"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets name="Attribute" owns="//@rules.7/@targets.2/@bindings.0/@left/@target //@rules.7/@targets.2/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Attribute" traceLink="//@rules.7/@trace">
+      <bindings name="isOrdered_2_value" trace="//@rules.7/@trace/@traceBindings.2">
+        <right>
+          <source name="isOrdered" belongsTo="//@rules.7/@sources.0" model="//@sourceModels.0" ref="EAttribute23" traceLink="//@rules.7/@trace/@traceBindings.2"/>
+        </right>
+        <left>
+          <target name="value" belongsTo="//@rules.7/@targets.2" model="//@targetModels.0" ref="/0/Node/value" traceLink="//@rules.7/@trace/@traceBindings.2"/>
+        </left>
+      </bindings>
+      <bindings name="R37" trace="//@rules.7/@trace/@traceBindings.6">
+        <right concreteValue="'isOrdered'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.7/@targets.2" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.7/@trace/@traceBindings.6"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets name="Attribute" owns="//@rules.7/@targets.3/@bindings.0/@left/@target //@rules.7/@targets.3/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Attribute" traceLink="//@rules.7/@trace">
+      <bindings name="type_2_value" trace="//@rules.7/@trace/@traceBindings.3">
+        <right>
+          <source name="type" belongsTo="//@rules.7/@sources.0" model="//@sourceModels.0" ref="EReference25" traceLink="//@rules.7/@trace/@traceBindings.3"/>
+        </right>
+        <left>
+          <target name="value" belongsTo="//@rules.7/@targets.3" model="//@targetModels.0" ref="/0/Node/value" traceLink="//@rules.7/@trace/@traceBindings.3"/>
+        </left>
+      </bindings>
+      <bindings name="R38" trace="//@rules.7/@trace/@traceBindings.7">
+        <right concreteValue="'type'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.7/@targets.3" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.7/@trace/@traceBindings.7"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="StructuralFeature" source="//@rules.7/@sources.0" target="//@rules.7/@targets.0 //@rules.7/@targets.1 //@rules.7/@targets.2 //@rules.7/@targets.3">
+      <traceBindings name="lower_2_value" source="//@rules.7/@targets.0/@bindings.0/@right/@source.0" target="//@rules.7/@targets.0/@bindings.0/@left/@target" binding="//@rules.7/@targets.0/@bindings.0"/>
+      <traceBindings name="upper_2_value" source="//@rules.7/@targets.1/@bindings.0/@right/@source.0" target="//@rules.7/@targets.1/@bindings.0/@left/@target" binding="//@rules.7/@targets.1/@bindings.0"/>
+      <traceBindings name="isOrdered_2_value" source="//@rules.7/@targets.2/@bindings.0/@right/@source.0" target="//@rules.7/@targets.2/@bindings.0/@left/@target" binding="//@rules.7/@targets.2/@bindings.0"/>
+      <traceBindings name="type_2_value" source="//@rules.7/@targets.3/@bindings.0/@right/@source.0" target="//@rules.7/@targets.3/@bindings.0/@left/@target" binding="//@rules.7/@targets.3/@bindings.0"/>
+      <traceBindings name="R35" target="//@rules.7/@targets.0/@bindings.1/@left/@target" binding="//@rules.7/@targets.0/@bindings.1"/>
+      <traceBindings name="R36" target="//@rules.7/@targets.1/@bindings.1/@left/@target" binding="//@rules.7/@targets.1/@bindings.1"/>
+      <traceBindings name="R37" target="//@rules.7/@targets.2/@bindings.1/@left/@target" binding="//@rules.7/@targets.2/@bindings.1"/>
+      <traceBindings name="R38" target="//@rules.7/@targets.3/@bindings.1/@left/@target" binding="//@rules.7/@targets.3/@bindings.1"/>
+    </trace>
+  </rules>
+  <rules name="Attribute" extends="//@rules.7">
+    <sources name="Attribute" owns="//@rules.8/@targets.1/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="EClass30" traceLink="//@rules.8/@trace"/>
+    <targets name="Element" owns="//@rules.8/@targets.0/@bindings.0/@left/@target //@rules.8/@targets.0/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Element" traceLink="//@rules.8/@trace">
+      <bindings name="R39" trace="//@rules.8/@trace/@traceBindings.1">
+        <right concreteValue="'Attribute'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.8/@targets.0" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.8/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+      <bindings name="R40" trace="//@rules.8/@trace/@traceBindings.2">
+        <right/>
+        <left>
+          <target name="children" belongsTo="//@rules.8/@targets.0" model="//@targetModels.0" ref="/0/Element/children" traceLink="//@rules.8/@trace/@traceBindings.2"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets name="Attribute" owns="//@rules.8/@targets.1/@bindings.0/@left/@target //@rules.8/@targets.1/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Attribute" traceLink="//@rules.8/@trace">
+      <bindings name="isUnique_2_value" trace="//@rules.8/@trace/@traceBindings.0">
+        <right>
+          <source name="isUnique" belongsTo="//@rules.8/@sources.0" model="//@sourceModels.0" ref="EAttribute24" traceLink="//@rules.8/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="value" belongsTo="//@rules.8/@targets.1" model="//@targetModels.0" ref="/0/Node/value" traceLink="//@rules.8/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R41" trace="//@rules.8/@trace/@traceBindings.3">
+        <right concreteValue="'isUnique'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.8/@targets.1" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.8/@trace/@traceBindings.3"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="Attribute" source="//@rules.8/@sources.0" target="//@rules.8/@targets.0 //@rules.8/@targets.1">
+      <traceBindings name="isUnique_2_value" source="//@rules.8/@targets.1/@bindings.0/@right/@source.0" target="//@rules.8/@targets.1/@bindings.0/@left/@target" binding="//@rules.8/@targets.1/@bindings.0"/>
+      <traceBindings name="R39" target="//@rules.8/@targets.0/@bindings.0/@left/@target" binding="//@rules.8/@targets.0/@bindings.0"/>
+      <traceBindings name="R40" target="//@rules.8/@targets.0/@bindings.1/@left/@target" binding="//@rules.8/@targets.0/@bindings.1"/>
+      <traceBindings name="R41" target="//@rules.8/@targets.1/@bindings.1/@left/@target" binding="//@rules.8/@targets.1/@bindings.1"/>
+    </trace>
+  </rules>
+  <rules name="Reference" extends="//@rules.7">
+    <sources name="Reference" owns="//@rules.9/@targets.1/@bindings.0/@right/@source.0" model="//@sourceModels.0" ref="EClass31" traceLink="//@rules.9/@trace"/>
+    <targets name="Element" owns="//@rules.9/@targets.0/@bindings.0/@left/@target //@rules.9/@targets.0/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Element" traceLink="//@rules.9/@trace">
+      <bindings name="R42" trace="//@rules.9/@trace/@traceBindings.1">
+        <right concreteValue="'Reference'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.9/@targets.0" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.9/@trace/@traceBindings.1"/>
+        </left>
+      </bindings>
+      <bindings name="R43" trace="//@rules.9/@trace/@traceBindings.2">
+        <right/>
+        <left>
+          <target name="children" belongsTo="//@rules.9/@targets.0" model="//@targetModels.0" ref="/0/Element/children" traceLink="//@rules.9/@trace/@traceBindings.2"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets name="Attribute" owns="//@rules.9/@targets.1/@bindings.0/@left/@target //@rules.9/@targets.1/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Attribute" traceLink="//@rules.9/@trace">
+      <bindings name="isContainer_2_value" trace="//@rules.9/@trace/@traceBindings.0">
+        <right>
+          <source name="isContainer" belongsTo="//@rules.9/@sources.0" model="//@sourceModels.0" ref="EAttribute32" traceLink="//@rules.9/@trace/@traceBindings.0"/>
+        </right>
+        <left>
+          <target name="value" belongsTo="//@rules.9/@targets.1" model="//@targetModels.0" ref="/0/Node/value" traceLink="//@rules.9/@trace/@traceBindings.0"/>
+        </left>
+      </bindings>
+      <bindings name="R44" trace="//@rules.9/@trace/@traceBindings.3">
+        <right concreteValue="'isContainer'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.9/@targets.1" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.9/@trace/@traceBindings.3"/>
+        </left>
+      </bindings>
+    </targets>
+    <targets name="Attribute" owns="//@rules.9/@targets.2/@bindings.0/@left/@target //@rules.9/@targets.2/@bindings.1/@left/@target" model="//@targetModels.0" ref="/0/Attribute" traceLink="//@rules.9/@trace">
+      <bindings name="R45" trace="//@rules.9/@trace/@traceBindings.4">
+        <right concreteValue="'opposite'"/>
+        <left>
+          <target name="name" belongsTo="//@rules.9/@targets.2" model="//@targetModels.0" ref="/0/Node/name" traceLink="//@rules.9/@trace/@traceBindings.4"/>
+        </left>
+      </bindings>
+      <bindings name="R46" trace="//@rules.9/@trace/@traceBindings.5">
+        <right/>
+        <left>
+          <target name="value" belongsTo="//@rules.9/@targets.2" model="//@targetModels.0" ref="/0/Node/value" traceLink="//@rules.9/@trace/@traceBindings.5"/>
+        </left>
+      </bindings>
+    </targets>
+    <trace name="Reference" source="//@rules.9/@sources.0" target="//@rules.9/@targets.0 //@rules.9/@targets.1 //@rules.9/@targets.2">
+      <traceBindings name="isContainer_2_value" source="//@rules.9/@targets.1/@bindings.0/@right/@source.0" target="//@rules.9/@targets.1/@bindings.0/@left/@target" binding="//@rules.9/@targets.1/@bindings.0"/>
+      <traceBindings name="R42" target="//@rules.9/@targets.0/@bindings.0/@left/@target" binding="//@rules.9/@targets.0/@bindings.0"/>
+      <traceBindings name="R43" target="//@rules.9/@targets.0/@bindings.1/@left/@target" binding="//@rules.9/@targets.0/@bindings.1"/>
+      <traceBindings name="R44" target="//@rules.9/@targets.1/@bindings.1/@left/@target" binding="//@rules.9/@targets.1/@bindings.1"/>
+      <traceBindings name="R45" target="//@rules.9/@targets.2/@bindings.0/@left/@target" binding="//@rules.9/@targets.2/@bindings.0"/>
+      <traceBindings name="R46" target="//@rules.9/@targets.2/@bindings.1/@left/@target" binding="//@rules.9/@targets.2/@bindings.1"/>
+    </trace>
+  </rules>
+</hybrid:Module>

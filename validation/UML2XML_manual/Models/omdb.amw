@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<AnnotationModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="mmw_annotation" xmi:id="AnnotationModel1" name="Online Movie Database">
+  <referencedModel xmi:id="AnnotatedModel1" name="referencedModel" ref="/UML2XMLSchema/Models/omdb.uml"/>
+</AnnotationModel>
